@@ -4,7 +4,7 @@
     "href": "index.html#welcome",
     "title": "ECHOES",
     "section": "Welcome",
-    "text": "Welcome\nSee Eshelby (1957)\n\n\n\n\nEshelby, J D. 1957. “The Determination of the Elastic Field of an Ellipsoidal Inclusion, and Related Problems.” Proceedings of the Royal Society of London. Series A. Mathematical and Physical Sciences 241 (1226): 376–96. https://doi.org/10.1098/rspa.1957.0133."
+    "text": "Welcome\nThis manual aims at recalling some fundamental aspects of the theory of homogenization of random media along with a presentation of the main features of the library ECHOES as well as code examples.\nThe library ECHOES allows to implement various homogenization schemes involving different types of heterogeneities in the framework of elasticity, conductivity, viscoelasticity as well as tools to properly calculate the derivatives of macroscopic stiffness with respect to lower scale moduli (fundamental tool of the modified secant method in nonlinear homogenization)."
   },
   {
     "objectID": "summary.html",
