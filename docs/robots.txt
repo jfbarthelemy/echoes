@@ -1,0 +1,1 @@
+Sitemap: https://jfbarthelemy.github.io/echoes_manual/sitemap.xml

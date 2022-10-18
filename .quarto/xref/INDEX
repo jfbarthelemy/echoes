@@ -1,0 +1,17 @@
+{
+  "index.qmd": {
+    "index.html": "0a8e6bd7"
+  },
+  "intro.qmd": {
+    "intro.html": "1b224de5"
+  },
+  "summary.qmd": {
+    "summary.html": "37457268"
+  },
+  "references.qmd": {
+    "references.html": "b8f89e3e"
+  },
+  "Hill_tensor.qmd": {
+    "Hill_tensor.html": "e5d44367"
+  }
+}
