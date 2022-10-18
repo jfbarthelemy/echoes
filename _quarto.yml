@@ -1,0 +1,53 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "ECHOES"
+  subtitle: "Extended Calculator of HOmogEnization Schemes"
+  author: "Jean-François Barthélémy"
+  cover-image: images/cover.png
+  site-url: https://jfbarthelemy.github.io/echoes_manual/
+  repo-url: https://github.com/jfbarthelemy/echoes_manual/
+  repo-branch: main
+  repo-actions: [edit]
+  sharing: [twitter, facebook, linkedin]
+  date: last-modified
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - summary.qmd
+    - references.qmd
+  appendices:
+    - Hill_tensor.qmd
+
+bibliography: biblio.bib
+link-citations: true
+# csl: elsevier-harvard.csl
+
+format:
+  html:
+    theme: journal
+    code-block-bg: true
+    code-block-border-left: "#31BAE9"
+    code-fold: true
+    coce-link: true
+    echo: true
+    html-math-method: mathjax
+    fontsize: normal
+  pdf:
+    documentclass: scrreprt
+    pdf-engine: lualatex
+    highlight-style: tango
+    include-in-header:
+      - config/_preamble.tex
+      - config/_macros.tex
+    keep-tex: true
+
+jupyter: python3
+execute:
+  freeze: auto
+  echo: true
+  warning: false
+  error: false
+  keep-ipynb: true

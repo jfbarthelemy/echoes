@@ -1,0 +1,3 @@
+## Welcome {.unnumbered}
+
+This manual aims at recalling some fundamental aspects of the theory of homogenization of random media and presenting the main features of the library ECHOES allowing to implement various homogenization schemes involving different types of heterogeneities in the framework of elasticity, conductivity, viscoelasticity as well as some tools to address the 
