@@ -22,8 +22,8 @@ book:
     - Hill_tensor.qmd
 
 bibliography: biblio.bib
+# csl: config/elsevier-harvard.csl
 link-citations: true
-# csl: elsevier-harvard.csl
 
 format:
   html:
@@ -40,8 +40,8 @@ format:
     pdf-engine: lualatex
     highlight-style: tango
     include-in-header:
-      - config/_preamble.tex
-      - config/_macros.tex
+      - config/preamble.tex
+      - config/macros.tex
     keep-tex: true
 
 jupyter: python3
