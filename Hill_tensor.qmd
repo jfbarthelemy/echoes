@@ -1,7 +1,7 @@
 ::: {.content-visible unless-format="pdf"}
 ::: {.hidden}
 $$
-{{< include config/_macros.tex >}}
+{{< include config/macros.tex >}}
 $$
 :::
 :::
