@@ -197,13 +197,6 @@ $$
 \quad\textrm{and}\quad
 \omega=\frac{c}{a}
 $$
-<!-- <p>
-<a id="fig-ellipsoidalcrack"></a>
-<center>
-<img align="middle" width="30%" alt="Ellipsoidal crack" src="./ellipsoidalcrack.png">
-<figcaption>Ellipsoidal crack</figcaption>
-</p> -->
-<!-- ![Ellipsoidal crack](ellipsoidal.tex){#fig-crack0} -->
 
 ::: {#fig-crack}
 
