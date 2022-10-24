@@ -22,7 +22,7 @@ book:
     - Hill_tensor.qmd
 
 bibliography: biblio.bib
-csl: config/elsevier-harvard.csl
+csl: https://www.zotero.org/styles/elsevier-harvard
 link-citations: true
 
 format:
