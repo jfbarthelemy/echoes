@@ -1,0 +1,2 @@
+# Eshelby problem {#sec-eshelby_elas}
+

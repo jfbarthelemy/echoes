@@ -1,0 +1,2 @@
+# Nonlinear homogenization {#sec-nonlinear_hom}
+
