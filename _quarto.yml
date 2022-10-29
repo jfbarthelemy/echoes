@@ -16,12 +16,44 @@ book:
   chapters:
     - index.qmd
     - intro.qmd
-    - summary.qmd
+    - part: hom_elas.qmd
+      chapters: 
+        - basics_elas.qmd
+        - eshelby_elas.qmd
+        - cracks_elas.qmd
+        - mrp_elas.qmd
+        - schemes_elas.qmd
+    - part: hom_cond.qmd
+      chapters: 
+        - basics_cond.qmd
+        - eshelby_cond.qmd
+        - cracks_cond.qmd
+        - mrp_cond.qmd
+        - schemes_cond.qmd
+    - part: nonlinear_hom.qmd
+      chapters: 
+        - second_order_moments.qmd
+        - conc_tensor_deriv.qmd
+        - schemes_deriv.qmd
+    - part: viscoelas_freq.qmd
+      chapters: 
+        - basics_freq.qmd
+        - schemes_freq.qmd
+    - part: viscoelas_time.qmd
+      chapters: 
+        - basics_time.qmd
+        - schemes_time.qmd
+    - part: examples.qmd
+      chapters: 
+        - concrete_strength.qmd
+        - "..."
     - references.qmd
   appendices:
-    - Hill_tensor.qmd
+    - tensor_algebra.qmd
+    - hill_elas.qmd
+    - hill_cond.qmd
 
-bibliography: biblio.bib
+bibliography: echoes.bib
 csl: https://www.zotero.org/styles/elsevier-harvard
 link-citations: true
 
