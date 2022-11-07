@@ -1,6 +1,6 @@
-# echoes_manual
+# echoes
 
-Manual of **ECHOES** (**E**xtended **C**alculator of **HO**mog**E**nization **S**chemes) library available [here](https://jfbarthelemy.github.io/echoes_manual).
+Manual of **ECHOES** (**E**xtended **C**alculator of **HO**mog**E**nization **S**chemes) library available [here](https://jfbarthelemy.github.io/echoes).
 
 This manual aims at recalling some fundamental aspects of the theory of homogenization of random media along with a presentation of the main features of the library **ECHOES** as well as code examples.
 
