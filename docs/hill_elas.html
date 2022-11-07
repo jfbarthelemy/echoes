@@ -168,7 +168,7 @@ div.csl-indent {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">ECHOES</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/jfbarthelemy/echoes_manual/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/jfbarthelemy/echoes/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
     <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
     <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
         <li>
@@ -409,7 +409,7 @@ div.csl-indent {
   <li><a href="#checking-the-aspect-ratio-for-which-omegamathbbq-1approx-lim_omegato-0omegamathbbq-1-is-acceptable" id="toc-checking-the-aspect-ratio-for-which-omegamathbbq-1approx-lim_omegato-0omegamathbbq-1-is-acceptable" class="nav-link" data-scroll-target="#checking-the-aspect-ratio-for-which-omegamathbbq-1approx-lim_omegato-0omegamathbbq-1-is-acceptable"><span class="toc-section-number">B.4.3</span>  Checking the aspect ratio for which <span class="math inline">\(\omega\,{\mathbb{{Q}}}^{-1}\approx \lim_{\omega\to 0}\omega\,{\mathbb{{Q}}}^{-1}\)</span> is acceptable</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jfbarthelemy/echoes_manual/edit/main/hill_elas.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jfbarthelemy/echoes/edit/main/hill_elas.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -635,16 +635,13 @@ B_{mm}=B_{\ell\ell}=\frac{B_{nn}}{1-\nu/2}
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-error">
-<pre><code>RuntimeError: FATAL: module compiled as little endian, but detected different endianness at runtime</code></pre>
-</div>
 </div>
 <section id="definition-of-the-matrix-tensor" class="level3" data-number="B.4.1">
 <h3 data-number="B.4.1" class="anchored" data-anchor-id="definition-of-the-matrix-tensor"><span class="header-section-number">B.4.1</span> Definition of the matrix tensor</h3>
 <div class="cell" data-execution_count="2">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> stiff_Enu(<span class="fl">1.</span>,<span class="fl">0.2</span>) <span class="op">;</span> <span class="bu">print</span>(C)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> stiff_Enu(<span class="fl">1.</span>,<span class="fl">0.2</span>) <span class="op">;</span> <span class="bu">print</span>(C)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Order 4 ISO tensor | Param(size=2)=[ 1.66667 0.833333 ] | Angles(size=0)=[ ]
@@ -664,8 +661,8 @@ B_{mm}=B_{\ell\ell}=\frac{B_{nn}}{1-\nu/2}
 <div class="cell" data-execution_count="3">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ω <span class="op">=</span> <span class="fl">1.e-4</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>L <span class="op">=</span> crack_compliance(spheroidal(ω), C) <span class="op">;</span> <span class="bu">print</span>(L)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ω <span class="op">=</span> <span class="fl">1.e-4</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>L <span class="op">=</span> crack_compliance(spheroidal(ω), C) <span class="op">;</span> <span class="bu">print</span>(L)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[0.         0.         0.         0.         0.         0.        ]
@@ -682,19 +679,19 @@ B_{mm}=B_{\ell\ell}=\frac{B_{nn}}{1-\nu/2}
 <div class="cell" data-execution_count="4">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>tω <span class="op">=</span> np.logspace(<span class="op">-</span><span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">20</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>tabδ <span class="op">=</span> []</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ω <span class="kw">in</span> tω:</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    Q <span class="op">=</span> hill_dual(spheroidal(ω), C)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    Lω <span class="op">=</span> ω<span class="op">*</span>np.linalg.inv(Q)</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    δL <span class="op">=</span> np.linalg.norm(Lω<span class="op">-</span>L)<span class="op">/</span>np.linalg.norm(L)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    tabδ.append(δL)</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">3</span>))</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>plt.loglog(tω,tabδ,<span class="st">'+-'</span>)</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="vs">r"$\omega$"</span>)</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="vs">r"$\frac{||\mathbb</span><span class="sc">{L}</span><span class="vs">-\omega\,\mathbb</span><span class="sc">{Q}</span><span class="vs">^{-1}||}{||\mathbb</span><span class="sc">{L}</span><span class="vs">||}$"</span>)</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>,which<span class="op">=</span><span class="st">'both'</span>)</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>tω <span class="op">=</span> np.logspace(<span class="op">-</span><span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">20</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>tabδ <span class="op">=</span> []</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ω <span class="kw">in</span> tω:</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    Q <span class="op">=</span> hill_dual(spheroidal(ω), C)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    Lω <span class="op">=</span> ω<span class="op">*</span>np.linalg.inv(Q)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    δL <span class="op">=</span> np.linalg.norm(Lω<span class="op">-</span>L)<span class="op">/</span>np.linalg.norm(L)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    tabδ.append(δL)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">3</span>))</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>plt.loglog(tω,tabδ,<span class="st">'+-'</span>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="vs">r"$\omega$"</span>)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="vs">r"$\frac{||\mathbb</span><span class="sc">{L}</span><span class="vs">-\omega\,\mathbb</span><span class="sc">{Q}</span><span class="vs">^{-1}||}{||\mathbb</span><span class="sc">{L}</span><span class="vs">||}$"</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>,which<span class="op">=</span><span class="st">'both'</span>)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div id="fig-error" class="quarto-figure quarto-figure-center anchored">

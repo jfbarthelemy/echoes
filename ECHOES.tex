@@ -235,8 +235,8 @@
 }
 \bookmarksetup{startatroot}
 
-\hypertarget{welcome}{%
-\chapter*{Welcome}\label{welcome}}
+\hypertarget{sec-welcome}{%
+\chapter*{Welcome}\label{sec-welcome}}
 \addcontentsline{toc}{chapter}{Welcome}
 
 \markboth{Welcome}{Welcome}
@@ -255,73 +255,77 @@ nonlinear homogenization).
 \bookmarksetup{startatroot}
 
 \hypertarget{sec-intro}{%
-\chapter{Introduction}\label{sec-intro}}
+\chapter*{Introduction}\label{sec-intro}}
+\addcontentsline{toc}{chapter}{Introduction}
 
-\part{Introduction}
+\markboth{Introduction}{Introduction}
 
-\hypertarget{sec-intro}{%
-\chapter{Introduction}\label{sec-intro}}
+\part{Linear elasticity}
 
-\hypertarget{sec-intro}{%
-\chapter{Introduction}\label{sec-intro}}
+\hypertarget{sec-basics_elas}{%
+\chapter{The basic problem}\label{sec-basics_elas}}
 
-\hypertarget{sec-intro}{%
-\chapter{Introduction}\label{sec-intro}}
+\hypertarget{sec-eshelby_elas}{%
+\chapter{Eshelby problem}\label{sec-eshelby_elas}}
 
-\hypertarget{sec-intro}{%
-\chapter{Introduction}\label{sec-intro}}
+\hypertarget{sec-cracks_elas}{%
+\chapter{Cracks}\label{sec-cracks_elas}}
 
-\hypertarget{sec-intro}{%
-\chapter{Introduction}\label{sec-intro}}
+\hypertarget{sec-mrp_elas}{%
+\chapter{Morphologically representative patterns}\label{sec-mrp_elas}}
 
-\part{Introduction}
+\hypertarget{sec-schemes_elas}{%
+\chapter{Homogenization schemes}\label{sec-schemes_elas}}
 
-\hypertarget{sec-intro}{%
-\chapter{Introduction}\label{sec-intro}}
+\part{Conductivity}
 
-\hypertarget{sec-intro}{%
-\chapter{Introduction}\label{sec-intro}}
+\hypertarget{sec-basics_elas}{%
+\chapter{The basic problem}\label{sec-basics_elas}}
 
-\hypertarget{sec-intro}{%
-\chapter{Introduction}\label{sec-intro}}
+\hypertarget{sec-eshelby_cond}{%
+\chapter{Eshelby problem}\label{sec-eshelby_cond}}
 
-\hypertarget{sec-intro}{%
-\chapter{Introduction}\label{sec-intro}}
+\hypertarget{sec-cracks_cond}{%
+\chapter{Cracks}\label{sec-cracks_cond}}
 
-\hypertarget{sec-intro}{%
-\chapter{Introduction}\label{sec-intro}}
+\hypertarget{sec-mrp_cond}{%
+\chapter{Morphologically representative patterns}\label{sec-mrp_cond}}
 
-\part{Introduction}
+\hypertarget{sec-schemes_cond}{%
+\chapter{Homogenization schemes}\label{sec-schemes_cond}}
 
-\hypertarget{sec-intro}{%
-\chapter{Introduction}\label{sec-intro}}
+\part{Nonlinear homogenization}
 
-\hypertarget{sec-intro}{%
-\chapter{Introduction}\label{sec-intro}}
+\hypertarget{sec-second_order_moments}{%
+\chapter{Second order moments}\label{sec-second_order_moments}}
 
-\hypertarget{sec-intro}{%
-\chapter{Introduction}\label{sec-intro}}
+\hypertarget{sec-conc_tensor_deriv}{%
+\chapter{Differentiation of concentration
+tensors}\label{sec-conc_tensor_deriv}}
 
-\part{Introduction}
+\hypertarget{sec-schemes_deriv}{%
+\chapter{Homogenization schemes}\label{sec-schemes_deriv}}
 
-\hypertarget{sec-intro}{%
-\chapter{Introduction}\label{sec-intro}}
+\part{Viscoelasticity in frequency domain}
 
-\hypertarget{sec-intro}{%
-\chapter{Introduction}\label{sec-intro}}
+\hypertarget{sec-basics_freq}{%
+\chapter{The basic problem}\label{sec-basics_freq}}
 
-\part{Introduction}
+\hypertarget{sec-schemes_freq}{%
+\chapter{Homogenization schemes}\label{sec-schemes_freq}}
 
-\hypertarget{sec-intro}{%
-\chapter{Introduction}\label{sec-intro}}
+\part{Viscoelasticity in time domain}
 
-\hypertarget{sec-intro}{%
-\chapter{Introduction}\label{sec-intro}}
+\hypertarget{sec-basics_time}{%
+\chapter{The basic problem}\label{sec-basics_time}}
 
-\part{Introduction}
+\hypertarget{sec-schemes_time}{%
+\chapter{Homogenization schemes}\label{sec-schemes_time}}
 
-\hypertarget{sec-intro}{%
-\chapter{Introduction}\label{sec-intro}}
+\part{Examples of implementation}
+
+\hypertarget{sec-concrete_strength}{%
+\chapter{Concrete strength}\label{sec-concrete_strength}}
 
 \bookmarksetup{startatroot}
 
@@ -405,8 +409,8 @@ relevance to composite materials. Philosophical Magazine A 59, 759--781.
 \appendix
 \addcontentsline{toc}{part}{Appendices}
 
-\hypertarget{sec-intro}{%
-\chapter{Introduction}\label{sec-intro}}
+\hypertarget{sec-tensor_algebra}{%
+\chapter{Tensor algebra}\label{sec-tensor_algebra}}
 
 \hypertarget{sec-hill_elas}{%
 \chapter{Hill polarization tensor in elasticity}\label{sec-hill_elas}}
@@ -699,10 +703,6 @@ calculation}\label{application-of-hill-calculation}}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-RuntimeError: FATAL: module compiled as little endian, but detected different endianness at runtime
-\end{verbatim}
-
 \hypertarget{definition-of-the-matrix-tensor}{%
 \subsection{Definition of the matrix
 tensor}\label{definition-of-the-matrix-tensor}}
@@ -773,7 +773,7 @@ acceptable}{Checking the aspect ratio for which \textbackslash omega\textbacksla
 
 \begin{figure}[H]
 
-{\centering \includegraphics{./hill_tensor_elas_files/figure-pdf/fig-error-output-1.pdf}
+{\centering \includegraphics{./hill_elas_files/figure-pdf/fig-error-output-1.pdf}
 
 }
 
@@ -782,8 +782,8 @@ contribution tensor}
 
 \end{figure}
 
-\hypertarget{sec-intro}{%
-\chapter{Introduction}\label{sec-intro}}
+\hypertarget{sec-hill_cond}{%
+\chapter{Hill polarization tensor in conductivity}\label{sec-hill_cond}}
 
 
 
