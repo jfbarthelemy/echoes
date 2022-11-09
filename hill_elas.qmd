@@ -199,6 +199,7 @@ $$
 $$
 
 ::: {#fig-crack}
+
 ::: {.content-visible unless-format="html"}
 ![](images/crack){width=50%}
 :::
