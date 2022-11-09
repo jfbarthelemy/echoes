@@ -200,10 +200,10 @@ $$
 
 ::: {#fig-crack}
 ::: {.content-visible unless-format="html"}
-![](images/crack){width=50%}
+![](images/crack){width=70%}
 :::
 ::: {.content-visible when-format="html"}
-![](images/crack.html){width=50%}
+![](images/crack.html){width=70%}
 [![](images/arrow-expand.png){width=3%}](images/crack.html)
 :::
 Ellipsoidal crack
