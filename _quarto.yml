@@ -74,12 +74,12 @@ format:
     include-in-header:
       - config/preamble.tex
       - config/macros.tex
-    keep-tex: true
+    keep-tex: false
 
-jupyter: python3
+engine: jupyter
 execute:
   freeze: auto
   echo: true
   warning: false
   error: false
-  keep-ipynb: true
+  keep-ipynb: false

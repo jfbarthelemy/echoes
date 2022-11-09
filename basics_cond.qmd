@@ -1,2 +1,2 @@
-# The basic problem {#sec-basics_elas}
+# Basic problem {#sec-basics_cond}
 
