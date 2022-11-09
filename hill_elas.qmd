@@ -204,7 +204,7 @@ $$
 :::
 ::: {.content-visible when-format="html"}
 ![](images/crack.html){width=50%}
-[![](images/arrow-expand.png){width=3%}](images/crack.html)
+<!-- [![](images/arrow-expand.png){width=3%}](images/crack.html) -->
 :::
 Ellipsoidal crack
 :::
