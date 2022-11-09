@@ -1,12 +1,9 @@
-// settings.outformat = "html";
-// settings.render = -1;
+settings.outformat = "html";
+settings.render = -1;
 
-settings.outformat ="svg";
-settings.render = 0;
-// Hint: render svg format and then convert to png by "magick -density 300 file.svg file.png"
-
-// settings.outformat ="png";
+// settings.outformat ="svg";
 // settings.render = 0;
+// Hint: render svg format and then convert to png by "magick -density 300 file.svg file.png"
 
 // settings.outformat = "pdf";
 // settings.render = 8;
@@ -20,7 +17,7 @@ size(200,300,keepAspect=true);
 
 real a=3., b=1.5, c=0.1;
 
-currentprojection=orthographic(10,10,5);
+currentprojection=orthographic(10,10,10);
 // currentlight=(10,10,5);
 triple f(pair t) {return (a*sin(t.x)*cos(t.y),b*sin(t.x)*sin(t.y),c*cos(t.x));}
 
