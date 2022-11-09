@@ -54,7 +54,7 @@ book:
     - hill_cond.qmd
 
 bibliography: echoes.bib
-csl: https://www.zotero.org/styles/elsevier-harvard
+csl: config/elsevier-harvard
 link-citations: true
 
 format:
