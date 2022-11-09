@@ -1,2 +1,2 @@
-# The basic problem {#sec-basics_freq}
+# Basic problem {#sec-basics_freq}
 

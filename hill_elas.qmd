@@ -61,7 +61,7 @@ $$
 +\frac{1}{\mu}(\uuuu{V}-\uuuu{U})
 $$
 where the tensors $\uuuu{U}$ and $\uuuu{V}$, depending only on the ellipsoidal
-tensor $\uu{A}$ of [@eq-ellipsoid], are given by (see [@barthelemy2020])
+tensor $\uu{A}$ of @eq-ellipsoid, are given by (see [@barthelemy2020])
 $$\begin{aligned}
 \uuuu{U} &= \frac{\det{\uu{A}}}{4\pi}
 \int_{\norm{\uv{\xi}}=1}
@@ -200,7 +200,12 @@ $$
 
 ::: {#fig-crack}
 
-![](images/ellipsoidalcrack){width=50%}
+::: {.content-visible unless-format="html"}
+![](images/crack){width=50%}
+:::
+::: {.content-visible when-format="html"}
+[![](images/crack.svg){width=50%}](images/crack.html)
+:::
 
 Ellipsoidal crack
 :::

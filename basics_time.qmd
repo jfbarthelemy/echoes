@@ -1,2 +1,2 @@
-# The basic problem {#sec-basics_time}
+# Basic problem {#sec-basics_time}
 
