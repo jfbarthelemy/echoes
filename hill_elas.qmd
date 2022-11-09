@@ -204,7 +204,7 @@ $$
 ![](images/crack){width=50%}
 :::
 ::: {.content-visible when-format="html"}
-[![*click on image for 3D view*](images/crack.svg){width=50%}](images/crack.html)
+[![*click on image for 3D view*](images/crack.html){width=50%}](images/crack.html)
 :::
 
 Ellipsoidal crack
