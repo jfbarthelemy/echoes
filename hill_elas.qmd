@@ -204,7 +204,7 @@ $$
 ![](images/crack){width=50%}
 :::
 ::: {.content-visible when-format="html"}
-![](images/crack.html){width=50%}
+[![*click on image for 3D view*](images/crack.html){width=50%}](images/crack.html)
 <!-- [![](images/arrow-expand.png){width=3%}](images/crack.html) -->
 :::
 
