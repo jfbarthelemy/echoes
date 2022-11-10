@@ -1,13 +1,13 @@
 // settings.outformat = "html";
 // settings.render = -1;
 
-// settings.outformat ="svg";
-// settings.render = 0;
+settings.outformat ="svg";
+settings.render = 0;
 // Hint: render svg format and then convert to png by "magick -density 300 file.svg file.png"
 
-settings.outformat = "pdf";
-settings.render = 8;
-settings.prc = true;
+// settings.outformat = "pdf";
+// settings.render = 8;
+// settings.prc = true;
 
 import graph3;
 import palette;
@@ -28,13 +28,13 @@ real x(real t) {return a*cos(2pi*t);}
 real y(real t) {return 0;}
 real z(real t) {return c*sin(2pi*t);}
 path3 p=graph(x,y,z,-1,1,operator ..);
-draw(p,red+dotted);
+draw(p,deepgreen);
 
 real x(real t) {return 0;}
 real y(real t) {return b*cos(2pi*t);}
 real z(real t) {return c*sin(2pi*t);}
 path3 p=graph(x,y,z,-1,1,operator ..);
-draw(p,red+dotted);
+draw(p,deepgreen);
 
 draw(s,lightgreen+opacity(0.2),render(merge=true));
 
@@ -42,10 +42,14 @@ draw("\scriptsize $\underline{\ell}$",(0,0,0)--(1,0,0),blue,Arrow3);
 draw("\scriptsize $\underline{m}$",(0,0,0)--(0,1,0),NE,blue,Arrow3);
 draw("\scriptsize $\underline{n}$",(0,0,0)--(0,0,1),blue,Arrow3);
 
-draw((0,0,0)--(a,0,0),red+dashed);
-draw((0,0,0)--(0,b,0),red+dashed);
-draw((0,0,0)--(0,0,c),red+dashed);
+draw((0,0,0)--(a,0,0),deepgreen+dotted);
+draw((0,0,0)--(0,b,0),deepgreen+dotted);
+draw((0,0,0)--(0,0,c),deepgreen+dotted);
 
-draw(Label("\scriptsize $a$"),(a,0,0),N,black);
-draw(Label("\scriptsize $b=\eta\,a$"),(0,b,0),E,black);
-draw(Label("\scriptsize $c=\omega\,a$"),(0,0,c),NE,black);
+// draw(Label("\scriptsize $a$"),(a,0,0),N,black);
+// draw(Label("\scriptsize $b=\eta\,a$"),(0,b,0),E,black);
+// draw(Label("\scriptsize $c=\omega\,a$"),(0,0,c),NE,black);
+
+dot(Label("\scriptsize $a$"),(a,0,0),N,black);
+dot(Label("\scriptsize $b=\eta\,a$"),(0,b,0),E,black);
+dot(Label("\scriptsize $c=\omega\,a$"),(0,0,c),NE,black);
