@@ -23,6 +23,7 @@ triple f(pair t) {return (a*sin(t.x)*cos(t.y),b*sin(t.x)*sin(t.y),c*cos(t.x));}
 
 surface s=surface(f,(0,0),(pi,2pi),8,16,Spline);
 // s.colors(palette(s.map(zpart),Rainbow()+opacity(0.5)));
+draw(s,lightgreen+opacity(0.2),render(merge=true));
 
 real x(real t) {return a*cos(2pi*t);}
 real y(real t) {return 0;}
@@ -35,8 +36,6 @@ real y(real t) {return b*cos(2pi*t);}
 real z(real t) {return c*sin(2pi*t);}
 path3 p=graph(x,y,z,-1,1,operator ..);
 draw(p,deepgreen);
-
-draw(s,lightgreen+opacity(0.2),render(merge=true));
 
 draw("\scriptsize $\underline{\ell}$",(0,0,0)--(1,0,0),blue,Arrow3);
 draw("\scriptsize $\underline{m}$",(0,0,0)--(0,1,0),NE,blue,Arrow3);
