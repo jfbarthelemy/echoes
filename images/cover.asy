@@ -5,9 +5,9 @@ settings.render = -1;
 // settings.render = 0;
 // // Hint: render svg format and then convert to png by "magick -density 300 file.svg file.png"
 
-// settings.outformat = "pdf";
-// settings.render = 8;
-// settings.prc = true;
+settings.outformat = "pdf";
+settings.render = 8;
+settings.prc = true;
 
 import graph3;
 import palette;
@@ -47,7 +47,7 @@ triple genunit() {
 surface sphere=surface(genellfunc((R,R,R),(0,0,0),0,(0,0,1)),(0,0),(pi,2pi),32,64,Spline);
 draw(sphere,white+opacity(0.1),render(merge=true));
 
-for(int i=0; i < 50; ++i) {
+for(int i=0; i < 100; ++i) {
 
     triple r = 0.1 * R * (unitrand(),unitrand(),unitrand());
     real Rmax = R - max(r.x,r.y,r.z);
@@ -60,7 +60,7 @@ for(int i=0; i < 50; ++i) {
 
 }
 
-for(int i=0; i < 50; ++i) {
+for(int i=0; i < 100; ++i) {
 
     real p = 10.**(unitrand()-0.5);
     triple r = 0.1 * R * (unitrand(),unitrand(),unitrand());
