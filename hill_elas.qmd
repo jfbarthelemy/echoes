@@ -1,9 +1,7 @@
-::: {.content-visible unless-format="pdf"}
-::: {.hidden}
+::: {.content-hidden}
 $$
-{{< include config/macros.tex >}}
+{{< include config/_macros.tex >}}
 $$
-:::
 :::
 
 # Hill polarization tensor in elasticity {#sec-hill_elas}
@@ -254,6 +252,7 @@ $$
 ```{python}
 #| error: false
 #| warning: false
+#| code-fold: false
 
 import numpy as np
 from echoes import *
@@ -263,6 +262,8 @@ import matplotlib.pyplot as plt
 ### Definition of the matrix tensor
 
 ```{python}
+#| code-fold: false
+
 C = stiff_Enu(1.,0.2) ; print(C)
 ```
 
@@ -270,6 +271,8 @@ C = stiff_Enu(1.,0.2) ; print(C)
 Note that in *Echoes* it is necessary to provide an aspect ratio $\omega$ for the crack even if the crack compliance is actually calculated as a limit (not depending on $\omega$)
 
 ```{python}
+#| code-fold: false
+
 ω = 1.e-4
 L = crack_compliance(spheroidal(ω), C) ; print(L)
 ```

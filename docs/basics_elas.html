@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ECHOES - 1&nbsp; Basic problem</title>
+<title>ECHOES - 1&nbsp; Basic problem of elasticity homogenization</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,25 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
+}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
 }
 </style>
 
@@ -61,6 +80,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -70,7 +90,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Basic problem</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Basic problem of elasticity homogenization</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -137,7 +157,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./basics_elas.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Basic problem</span></a>
+  <a href="./basics_elas.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Basic problem of elasticity homogenization</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -312,14 +332,20 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-basics_elas-gen-eq" id="toc-sec-basics_elas-gen-eq" class="nav-link active" data-scroll-target="#sec-basics_elas-gen-eq"><span class="toc-section-number">1.1</span>  General equations</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jfbarthelemy/echoes/edit/main/basics_elas.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-basics_elas" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Basic problem</span></span></h1>
+<h1 class="title"><span id="sec-basics_elas" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Basic problem of elasticity homogenization</span></span></h1>
 </div>
 
 
@@ -334,8 +360,22 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="sec-basics_elas-gen-eq" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="sec-basics_elas-gen-eq"><span class="header-section-number">1.1</span> General equations</h2>
+<p>Consider a representative volume element (RVE) <span class="math inline">\(\Omega\)</span> composed of a heterogeneous material. As shown in <span class="citation" data-cites="dormieux2006">(<a href="references.html#ref-dormieux2006" role="doc-biblioref">Dormieux et al., 2006</a>)</span>, neglecting body forces in a problem posed at the scale of a RVE is consistent with the fact that the order of magnitude of mechanical effects induced by body forces is in general much lower than that of the macroscopic strain <span class="math inline">\({\mathbf{\boldsymbol{{E}}}}\)</span> or stress <span class="math inline">\({\mathbf{\boldsymbol{{\Sigma}}}}\)</span> effects accounting for interactions with particles surrounding the RVE. The hypothesis of quasi-static equilibrium is also invoked here to write the balance law involving the Cauchy stress field <span class="math inline">\({\mathbf{\boldsymbol{{\sigma}}}}\)</span> <span id="eq-divsigma"><span class="math display">\[
+\mathop{\mathrm{{\underline{{div}}}}}{{\mathbf{\boldsymbol{{\sigma}}}}}={\underline{{0}}} \quad(\Omega)
+\tag{1.1}\]</span></span></p>
+<p>In the sequel, the small perturbation hypothesis is adopted so that strain field <span class="math inline">\({\mathbf{\boldsymbol{{\varepsilon}}}}\)</span> derives from the displacement one <span class="math inline">\({\underline{{u}}}\)</span> as the symmetrical part of its gradient <span id="eq-epsgradu"><span class="math display">\[
+{\mathbf{\boldsymbol{{\varepsilon}}}}=\frac{\mathop{\mathrm{{\mathbf{\boldsymbol{{grad}}}}}}{{\underline{{u}}}}+{{}^{t}{\mathop{\mathrm{{\mathbf{\boldsymbol{{grad}}}}}}{{\underline{{u}}}}}}}{2} \quad(\Omega)
+\tag{1.2}\]</span></span></p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-dormieux2006" class="csl-entry" role="doc-biblioentry">
+Dormieux, L., Kondo, D., Ulm, F.-J., 2006. Microporomechanics. <span>John Wiley &amp; Sons</span>, <span>Chichester, West Sussex, England ; Hoboken, NJ</span>. <a href="https://doi.org/10.1002/0470032006">https://doi.org/10.1002/0470032006</a>
+</div>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
