@@ -1,2 +1,22 @@
-# Basic problem {#sec-basics_elas}
+::: {.content-hidden}
+$$
+{{< include config/_macros.tex >}}
+$$
+:::
+
+# Basic problem of elasticity homogenization {#sec-basics_elas}
+
+## General equations {#sec-basics_elas-gen-eq}
+
+Consider a representative volume element (RVE) $\Omega$ composed of a heterogeneous material. As shown in [@dormieux2006], neglecting body forces in a problem posed at the scale of a RVE is consistent with the fact that the order of magnitude of mechanical effects induced by body forces is in general much lower than that of the macroscopic strain $\uu{E}$ or stress $\uu{\Sigma}$ effects accounting for interactions with particles surrounding the RVE. The hypothesis of quasi-static equilibrium is also invoked here to write the balance law involving the Cauchy stress field $\uu{\sigma}$
+$$
+\divu{\uu{\sigma}}=\uv{0} \quad(\Omega)
+$${#eq-divsigma}
+
+In the sequel, the small perturbation hypothesis is adopted so that strain field $\uu{\varepsilon}$ derives from the displacement one $\uv{u}$ as the symmetrical part of its gradient
+$$
+\uu{\varepsilon}=\frac{\graduu{\uv{u}}+\trans{\graduu{\uv{u}}}}{2} \quad(\Omega)
+$${#eq-epsgradu}
+
+
 

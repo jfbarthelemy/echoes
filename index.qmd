@@ -1,7 +1,13 @@
+::: {.content-hidden}
+$$
+{{< include config/_macros.tex >}}
+$$
+:::
+
 ## Welcome {.unnumbered #sec-welcome}
 
 ::: {.content-visible unless-format="html"}
-![](images/cover){width=40%}
+![](images/cover){width=40% fig-align="center"}
 :::
 ::: {.content-visible when-format="html"}
 ![](images/cover.html){width=95%}

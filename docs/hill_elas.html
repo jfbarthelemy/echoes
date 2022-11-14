@@ -220,7 +220,7 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./basics_elas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Basic problem</span></a>
+  <a href="./basics_elas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Basic problem of elasticity homogenization</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -431,12 +431,6 @@ div.csl-indent {
 
 </header>
 
-<div>
-<div class="hidden">
-$$
-<p>$$</p>
-</div>
-</div>
 <p>This section recalls some results about the calculation of the Hill polarization tensors related to a matrix of stiffness <span class="math inline">\(\mathbb{C}\)</span> and an ellipsoid <span class="math inline">\(\mathcal{E}_{{\mathbf{\boldsymbol{{A}}}}}\)</span> of equation <span class="math display">\[
 {\underline{{x}}}\in\mathcal{E}_{{\mathbf{\boldsymbol{{A}}}}}
 \quad\Leftrightarrow\quad
@@ -631,20 +625,14 @@ B_{mm}=B_{\ell\ell}=\frac{B_{nn}}{1-\nu/2}
 <section id="application-of-hill-calculation" class="level2" data-number="B.4">
 <h2 data-number="B.4" class="anchored" data-anchor-id="application-of-hill-calculation"><span class="header-section-number">B.4</span> Application of Hill calculation</h2>
 <div class="cell" data-execution_count="1">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <section id="definition-of-the-matrix-tensor" class="level3" data-number="B.4.1">
 <h3 data-number="B.4.1" class="anchored" data-anchor-id="definition-of-the-matrix-tensor"><span class="header-section-number">B.4.1</span> Definition of the matrix tensor</h3>
 <div class="cell" data-execution_count="2">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> stiff_Enu(<span class="fl">1.</span>,<span class="fl">0.2</span>) <span class="op">;</span> <span class="bu">print</span>(C)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Order 4 ISO tensor | Param(size=2)=[ 1.66667 0.833333 ] | Angles(size=0)=[ ]
 [ 1.11111 0.277778 0.277778 0 0 0 
@@ -661,11 +649,8 @@ B_{mm}=B_{\ell\ell}=\frac{B_{nn}}{1-\nu/2}
 <h3 data-number="B.4.2" class="anchored" data-anchor-id="calculation-of-the-crack-compliance-mathbbllim_omegato-0omegamathbbq-1"><span class="header-section-number">B.4.2</span> Calculation of the crack compliance <span class="math inline">\({\mathbb{{L}}}=\lim_{\omega\to 0}\omega\,{\mathbb{{Q}}}^{-1}\)</span></h3>
 <p>Note that in <em>Echoes</em> it is necessary to provide an aspect ratio <span class="math inline">\(\omega\)</span> for the crack even if the crack compliance is actually calculated as a limit (not depending on <span class="math inline">\(\omega\)</span>)</p>
 <div class="cell" data-execution_count="3">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ω <span class="op">=</span> <span class="fl">1.e-4</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>L <span class="op">=</span> crack_compliance(spheroidal(ω), C) <span class="op">;</span> <span class="bu">print</span>(L)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[0.         0.         0.         0.         0.         0.        ]
  [0.         0.         0.         0.         0.         0.        ]
