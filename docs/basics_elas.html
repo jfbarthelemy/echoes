@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ECHOES - 1&nbsp; Basic problem of elasticity homogenization</title>
+<title>Echoes - 1&nbsp; Basic problem of elasticity homogenization</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -103,7 +103,7 @@ div.csl-indent {
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">ECHOES</a> 
+      <a href="./">Echoes</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/jfbarthelemy/echoes/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
     <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
@@ -162,7 +162,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./eshelby_elas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Eshelby problem</span></a>
+  <a href="./eshelby_elas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Eshelby problem in elasticity</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -336,7 +336,8 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#sec-basics_elas-gen-eq" id="toc-sec-basics_elas-gen-eq" class="nav-link active" data-scroll-target="#sec-basics_elas-gen-eq"><span class="toc-section-number">1.1</span>  General equations</a></li>
+  <li><a href="#sec-basics_elas_sys_eq" id="toc-sec-basics_elas_sys_eq" class="nav-link active" data-scroll-target="#sec-basics_elas_sys_eq"><span class="toc-section-number">1.1</span>  System of equations</a></li>
+  <li><a href="#sec-basics_elas_mac_stiff" id="toc-sec-basics_elas_mac_stiff" class="nav-link" data-scroll-target="#sec-basics_elas_mac_stiff"><span class="toc-section-number">1.2</span>  Macroscopic stiffness or compliance tensors</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jfbarthelemy/echoes/edit/main/basics_elas.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
@@ -360,14 +361,68 @@ div.csl-indent {
 
 </header>
 
-<section id="sec-basics_elas-gen-eq" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="sec-basics_elas-gen-eq"><span class="header-section-number">1.1</span> General equations</h2>
-<p>Consider a representative volume element (RVE) <span class="math inline">\(\Omega\)</span> composed of a heterogeneous material. As shown in <span class="citation" data-cites="dormieux2006">(<a href="references.html#ref-dormieux2006" role="doc-biblioref">Dormieux et al., 2006</a>)</span>, neglecting body forces in a problem posed at the scale of a RVE is consistent with the fact that the order of magnitude of mechanical effects induced by body forces is in general much lower than that of the macroscopic strain <span class="math inline">\({\mathbf{\boldsymbol{{E}}}}\)</span> or stress <span class="math inline">\({\mathbf{\boldsymbol{{\Sigma}}}}\)</span> effects accounting for interactions with particles surrounding the RVE. The hypothesis of quasi-static equilibrium is also invoked here to write the balance law involving the Cauchy stress field <span class="math inline">\({\mathbf{\boldsymbol{{\sigma}}}}\)</span> <span id="eq-divsigma"><span class="math display">\[
-\mathop{\mathrm{{\underline{{div}}}}}{{\mathbf{\boldsymbol{{\sigma}}}}}={\underline{{0}}} \quad(\Omega)
+<section id="sec-basics_elas_sys_eq" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="sec-basics_elas_sys_eq"><span class="header-section-number">1.1</span> System of equations</h2>
+<p>Consider a representative volume element (RVE) <span class="math inline">\(\Omega\)</span> composed of a heterogeneous material. Neglecting body forces in a problem posed at the scale of a RVE is consistent with the fact that the order of magnitude of mechanical effects induced by body forces is in general much lower than that of the macroscopic strain <span class="math inline">\({{\mathbf{\boldsymbol{{{E}}}}}}\)</span> or stress <span class="math inline">\({{\mathbf{\boldsymbol{{{\Sigma}}}}}}\)</span> effects accounting for interactions with particles surrounding the RVE (see <span class="citation" data-cites="dormieux2006">(<a href="references.html#ref-dormieux2006" role="doc-biblioref">Dormieux et al., 2006</a>)</span>). The hypothesis of quasi-static equilibrium is also invoked here to write the balance law involving the Cauchy stress field <span class="math inline">\({{\mathbf{\boldsymbol{{{\sigma}}}}}}\)</span> <span id="eq-divsigma"><span class="math display">\[
+\mathop{\mathrm{{\underline{{div}}}}}{{{\mathbf{\boldsymbol{{{\sigma}}}}}}}={\underline{{0}}} \quad(\Omega)
 \tag{1.1}\]</span></span></p>
-<p>In the sequel, the small perturbation hypothesis is adopted so that strain field <span class="math inline">\({\mathbf{\boldsymbol{{\varepsilon}}}}\)</span> derives from the displacement one <span class="math inline">\({\underline{{u}}}\)</span> as the symmetrical part of its gradient <span id="eq-epsgradu"><span class="math display">\[
-{\mathbf{\boldsymbol{{\varepsilon}}}}=\frac{\mathop{\mathrm{{\mathbf{\boldsymbol{{grad}}}}}}{{\underline{{u}}}}+{{}^{t}{\mathop{\mathrm{{\mathbf{\boldsymbol{{grad}}}}}}{{\underline{{u}}}}}}}{2} \quad(\Omega)
+<p>In the sequel, the small perturbation hypothesis is adopted so that the strain field <span class="math inline">\({{\mathbf{\boldsymbol{{{\varepsilon}}}}}}\)</span> derives from the displacement one <span class="math inline">\({\underline{{u}}}\)</span> as the symmetrical part of its gradient <span id="eq-epsgradu"><span class="math display">\[
+{{\mathbf{\boldsymbol{{{\varepsilon}}}}}}=\frac{\mathop{\mathrm{{\mathbf{\boldsymbol{{grad}}}}}}{{\underline{{u}}}}+{{}^{t}{\mathop{\mathrm{{\mathbf{\boldsymbol{{grad}}}}}}{{\underline{{u}}}}}}}{2} \quad(\Omega)
 \tag{1.2}\]</span></span></p>
+<p>In the framework of random media homogenization, two types of conditions applied at the boundary <span class="math inline">\(\partial\Omega\)</span> of a RVE <span class="math inline">\(\Omega\)</span> are usually considered:</p>
+<ul>
+<li><p><em>homogeneous strain boundary conditions</em> corresponding to prescribed displacements <span class="math inline">\({\underline{{u}}}^g\)</span> at <span class="math inline">\(\partial\Omega\)</span> <span id="eq-homstrainBC"><span class="math display">\[
+{\underline{{u}}}^g={{\mathbf{\boldsymbol{{{E}}}}}}\cdot{{\underline{{{x}}}}}\quad(\partial\Omega)
+\tag{1.3}\]</span></span> It is noticeable that in this case the divergence theorem implies the following relationship between the microscopic and macroscopic strain tensors <span id="eq-EhomstrainBC"><span class="math display">\[
+&lt;{{\mathbf{\boldsymbol{{{\varepsilon}}}}}}&gt;_{\Omega}=\frac{1}{\lvert \Omega \rvert}\int_\Omega {{\mathbf{\boldsymbol{{{\varepsilon}}}}}}{\,\mathrm{d}}\Omega
+=\frac{1}{\lvert \Omega \rvert}\int_{\partial\Omega} {\underline{{u}}}{\stackrel{s}{\otimes}}{{\underline{{{n}}}}}{\,\mathrm{d}}S
+={{\mathbf{\boldsymbol{{{E}}}}}}
+\tag{1.4}\]</span></span> where the spatial average over a domain <span class="math inline">\(\omega\)</span> is denoted by <span class="math inline">\(&lt;\bullet&gt;_\omega\)</span> and <span class="math inline">\({{\underline{{{n}}}}}\)</span> is the unit outward normal at the boundary. The macroscopic stress tensor is then simply defined as the average <span id="eq-ShomstrainBC"><span class="math display">\[
+{{\mathbf{\boldsymbol{{{\Sigma}}}}}}=
+&lt;{{\mathbf{\boldsymbol{{{\sigma}}}}}}&gt;_{\Omega}=\frac{1}{\lvert \Omega \rvert}\int_\Omega {{\mathbf{\boldsymbol{{{\sigma}}}}}}{\,\mathrm{d}}\Omega
+\tag{1.5}\]</span></span></p></li>
+<li><p><em>homogeneous stress boundary conditions</em> corresponding to prescribed surface tractions <span class="math inline">\({\underline{{T}}}^g\)</span> at <span class="math inline">\(\partial\Omega\)</span> <span id="eq-homstressBC"><span class="math display">\[
+{\underline{{T}}}^g={{\mathbf{\boldsymbol{{{\Sigma}}}}}}\cdot{{\underline{{{n}}}}}\quad(\partial\Omega)
+\tag{1.6}\]</span></span> Now owing to the remarkable identity <span class="math inline">\((x_i\sigma_{jk})_{,k}=\sigma_{ij}\)</span> resulting from (<a href="#eq-divsigma"><span>1.1</span></a>) and the symmetry of <span class="math inline">\({{\mathbf{\boldsymbol{{{\sigma}}}}}}\)</span>, the relationship between the microscopic and macroscopic stress is ensured by the divergence theorem <span id="eq-ShomstressBC"><span class="math display">\[
+&lt;{{\mathbf{\boldsymbol{{{\sigma}}}}}}&gt;_{\Omega}=\frac{1}{\lvert \Omega \rvert}\int_\Omega {{\mathbf{\boldsymbol{{{\sigma}}}}}}{\,\mathrm{d}}\Omega
+=\frac{1}{\lvert \Omega \rvert}\int_{\partial\Omega} {{\underline{{{x}}}}}{\stackrel{s}{\otimes}}({{\mathbf{\boldsymbol{{{\sigma}}}}}}\cdot{{\underline{{{n}}}}}) {\,\mathrm{d}}S
+={{\mathbf{\boldsymbol{{{\Sigma}}}}}}
+\tag{1.7}\]</span></span> The macroscopic stress tensor is then simply defined as the average <span id="eq-EhomstressBC"><span class="math display">\[
+{{\mathbf{\boldsymbol{{{E}}}}}}=
+&lt;{{\mathbf{\boldsymbol{{{\varepsilon}}}}}}&gt;_{\Omega}=\frac{1}{\lvert \Omega \rvert}\int_\Omega {{\mathbf{\boldsymbol{{{\varepsilon}}}}}}{\,\mathrm{d}}\Omega
+\tag{1.8}\]</span></span></p></li>
+</ul>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hill lemma
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note that whatever the choice of boundary conditions between (<a href="#eq-homstrainBC"><span>1.3</span></a>) and (<a href="#eq-homstressBC"><span>1.6</span></a>), the consistency between the microscopic and macroscopic works is ensured by <span id="eq-Hilllemma"><span class="math display">\[
+&lt;{{\mathbf{\boldsymbol{{{\sigma}}}}}}:{{\mathbf{\boldsymbol{{{\varepsilon}}}}}}&gt;_{\Omega}
+=\frac{1}{\lvert \Omega \rvert}\int_\Omega {{\mathbf{\boldsymbol{{{\sigma}}}}}}:{{\mathbf{\boldsymbol{{{\varepsilon}}}}}}{\,\mathrm{d}}\Omega
+=\frac{1}{\lvert \Omega \rvert}\int_{\partial\Omega} {\underline{{u}}}\cdot{{\mathbf{\boldsymbol{{{\sigma}}}}}}\cdot{{\underline{{{n}}}}}{\,\mathrm{d}}S
+={{\mathbf{\boldsymbol{{{\Sigma}}}}}}:{{\mathbf{\boldsymbol{{{E}}}}}}
+\tag{1.9}\]</span></span> which results from the application of the divergence theorem to <span class="math inline">\((u_i\sigma_{ij})_{,k}=u_{i,j}\sigma_{ij}=\varepsilon_{ij}\sigma_{ij}\)</span>.</p>
+</div>
+</div>
+<p>The set of equations defining the problem posed on the RVE is finally completed by the local constitutive law relating the strain and stress fields. The hypothesis of linear elasticity is adopted in this part so that <span id="eq-Hooke"><span class="math display">\[
+{{\mathbf{\boldsymbol{{{\sigma}}}}}}={\mathbb{{c}}}:{{\mathbf{\boldsymbol{{{\varepsilon}}}}}}\quad(\Omega)
+\tag{1.10}\]</span></span> where <span class="math inline">\({\mathbb{{c}}}({{\underline{{{x}}}}})\)</span> denotes the heterogeneous (positive definite fourth-order) stiffness tensor field satisfying the conditions of minor (<span class="math inline">\(c_{jikl}=c_{ijlk}=c_{ijkl}\)</span>) and major (<span class="math inline">\(c_{klij}=c_{ijkl}\)</span>) symmetries. The compliance tensor field is introduced as the inverse <span class="math inline">\({\mathbb{{s}}}={\mathbb{{c}}}^{-1}\)</span> in the sense of fourth-order tensors operating over symmetrical second-order tensors.</p>
+<p>In short, the system of equations posed on the RVE is given by (<a href="#eq-divsigma"><span>1.1</span></a>), (<a href="#eq-epsgradu"><span>1.2</span></a>), (<a href="#eq-homstrainBC"><span>1.3</span></a>) or (<a href="#eq-homstressBC"><span>1.6</span></a>) and (<a href="#eq-Hooke"><span>1.10</span></a>).</p>
+</section>
+<section id="sec-basics_elas_mac_stiff" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="sec-basics_elas_mac_stiff"><span class="header-section-number">1.2</span> Macroscopic stiffness or compliance tensors</h2>
+<p>Whatever the boundary condition of homogeneous strain or stress type (<a href="#eq-homstrainBC"><span>1.3</span></a>) or (<a href="#eq-homstressBC"><span>1.6</span></a>), the linearity of the problem allows to invoke the existence of concentration tensors relating the microscopic strain <span class="math inline">\({{\mathbf{\boldsymbol{{{\varepsilon}}}}}}\)</span> and stress <span class="math inline">\({{\mathbf{\boldsymbol{{{\sigma}}}}}}\)</span> fields to the macroscopic strain <span class="math inline">\({{\mathbf{\boldsymbol{{{E}}}}}}\)</span> or stress <span class="math inline">\({{\mathbf{\boldsymbol{{{\Sigma}}}}}}\)</span> tensors <span id="eq-conc"><span class="math display">\[\begin{aligned}
+{{\mathbf{\boldsymbol{{{\varepsilon}}}}}}&amp; =  {\mathbb{{A}}}_E:{{\mathbf{\boldsymbol{{{E}}}}}}\\
+{{\mathbf{\boldsymbol{{{\sigma}}}}}}&amp; =  {\mathbb{{B}}}_E:{{\mathbf{\boldsymbol{{{E}}}}}}\quad\textrm{with}\quad {\mathbb{{B}}}_E={\mathbb{{c}}}:{\mathbb{{A}}}_E \\
+{{\mathbf{\boldsymbol{{{\sigma}}}}}}&amp; =  {\mathbb{{B}}}_\Sigma:{{\mathbf{\boldsymbol{{{\Sigma}}}}}}\\
+{{\mathbf{\boldsymbol{{{\varepsilon}}}}}}&amp; =  {\mathbb{{A}}}_\Sigma:{{\mathbf{\boldsymbol{{{\Sigma}}}}}}\quad\textrm{with}\quad {\mathbb{{A}}}_\Sigma={\mathbb{{s}}}:{\mathbb{{B}}}_\Sigma
+\end{aligned} \tag{1.11}\]</span></span></p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
@@ -519,7 +574,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./eshelby_elas.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Eshelby problem</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Eshelby problem in elasticity</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

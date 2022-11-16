@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ECHOES - Appendix B — Hill polarization tensor in elasticity</title>
+<title>Echoes - Appendix B — Hill polarization tensor in elasticity</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -166,7 +166,7 @@ div.csl-indent {
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">ECHOES</a> 
+      <a href="./">Echoes</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/jfbarthelemy/echoes/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
     <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
@@ -225,7 +225,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./eshelby_elas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Eshelby problem</span></a>
+  <a href="./eshelby_elas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Eshelby problem in elasticity</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -468,12 +468,12 @@ I_{ijkl}=\frac{\delta_{ik}\delta_{jl}+\delta_{il}\delta_{jk}}{2}
 \textrm{ and }
 {\mathbb{{K}}}={\mathbb{{I}}}-{\mathbb{{J}}}
 \end{aligned} \tag{B.3}\]</span></span></p>
-<p>Introducing <a href="#eq-isoC">Equation&nbsp;<span>B.3</span></a> in <a href="#eq-Hill">Equation&nbsp;<span>B.2</span></a> leads to after some algebra <span class="math display">\[
+<p>Introducing (<a href="#eq-isoC"><span>B.3</span></a>) in (<a href="#eq-Hill"><span>B.2</span></a>) leads to after some algebra <span class="math display">\[
 {\mathbb{{P}}}=
 \frac{1}{\lambda+2\,\mu}
 {\mathbb{{U}}}
 +\frac{1}{\mu}({\mathbb{{V}}}-{\mathbb{{U}}})
-\]</span> where the tensors <span class="math inline">\({\mathbb{{U}}}\)</span> and <span class="math inline">\({\mathbb{{V}}}\)</span>, depending only on the ellipsoidal tensor <span class="math inline">\({\mathbf{\boldsymbol{{A}}}}\)</span> of <a href="#eq-ellipsoid">Equation&nbsp;<span>B.1</span></a>, are given by (see <span class="citation" data-cites="barthelemy2020">(<a href="references.html#ref-barthelemy2020" role="doc-biblioref">Barthélémy, 2020</a>)</span>) <span class="math display">\[\begin{aligned}
+\]</span> where the tensors <span class="math inline">\({\mathbb{{U}}}\)</span> and <span class="math inline">\({\mathbb{{V}}}\)</span>, depending only on the ellipsoidal tensor <span class="math inline">\({\mathbf{\boldsymbol{{A}}}}\)</span> of (<a href="#eq-ellipsoid"><span>B.1</span></a>), are given by (see <span class="citation" data-cites="barthelemy2020">(<a href="references.html#ref-barthelemy2020" role="doc-biblioref">Barthélémy, 2020</a>)</span>) <span class="math display">\[\begin{aligned}
 {\mathbb{{U}}} &amp;= \frac{\det{{\mathbf{\boldsymbol{{A}}}}}}{4\pi}
 \int_{{\lVert{{{\underline{{\xi}}}}}\rVert}=1}
 \frac{{\underline{{\xi}}}\otimes{\underline{{\xi}}}\otimes{\underline{{\xi}}}\otimes{\underline{{\xi}}}}
@@ -507,7 +507,7 @@ I_{ijkl}=\frac{\delta_{ik}\delta_{jl}+\delta_{il}\delta_{jk}}{2}
 ({\mathbf{\boldsymbol{{A}}}}^{-1}\cdot{\underline{{\zeta}}})
 }{{\lVert{{{\mathbf{\boldsymbol{{A}}}}^{-1}\cdot{\underline{{\zeta}}}}}\rVert}^2}
 {\,\mathrm{d}}S_{\zeta}
-\end{aligned}\]</span> For an arbitrary ellipsoid defined by <a href="#eq-ellipsoid">Equation&nbsp;<span>B.1</span></a>, the components of <span class="math inline">\({\mathbb{{U}}}\)</span> and <span class="math inline">\({\mathbb{{V}}}\)</span> write <span class="math display">\[\begin{aligned}
+\end{aligned}\]</span> For an arbitrary ellipsoid defined by (<a href="#eq-ellipsoid"><span>B.1</span></a>), the components of <span class="math inline">\({\mathbb{{U}}}\)</span> and <span class="math inline">\({\mathbb{{V}}}\)</span> write <span class="math display">\[\begin{aligned}
 U_{iiii}&amp;=\frac{3(I_i-\rho_i^2I_{ii})}{2}
 \quad\forall\, i\in\{1,2,3\}\\
 U_{iijj}=U_{ijij}=U_{ijji}&amp;=\frac{I_j-\rho_i^2I_{ij}}{2}
@@ -576,7 +576,7 @@ where <span class="math inline">\({\cal F}={\cal F}(\theta,\kappa)\)</span> and 
 </section>
 <section id="case-of-cracks" class="level2" data-number="B.3">
 <h2 data-number="B.3" class="anchored" data-anchor-id="case-of-cracks"><span class="header-section-number">B.3</span> Case of cracks</h2>
-<p>The case of cracks corresponds to ellipsoids for which the smallest radius is very small compared to the two others, in other words the characteristic tensor <span class="math inline">\({\mathbf{\boldsymbol{{A}}}}\)</span> <a href="#eq-ellipsoid">Equation&nbsp;<span>B.1</span></a> can be written here <span class="math display">\[
+<p>The case of cracks corresponds to ellipsoids for which the smallest radius is very small compared to the two others, in other words the characteristic tensor <span class="math inline">\({\mathbf{\boldsymbol{{A}}}}\)</span> (<a href="#eq-ellipsoid"><span>B.1</span></a>) can be written here <span class="math display">\[
 {\mathbf{\boldsymbol{{A}}}}=
 {\underline{{\ell}}}\otimes{\underline{{\ell}}}+
 \eta\,{\underline{{m}}}\otimes{\underline{{m}}}+
@@ -591,7 +591,7 @@ where <span class="math inline">\({\cal F}={\cal F}(\theta,\kappa)\)</span> and 
 <div>
 <p><embed src="images/crack.html" class="img-fluid" style="width:70.0%"> <a href="images/crack.html"><img src="images/arrow-expand.png" class="img-fluid figure-img" style="width:3.0%"></a></p>
 </div>
-<p></p><figcaption class="figure-caption">Figure&nbsp;B.1: Ellipsoidal crack</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Fig.&nbsp;B.1: Ellipsoidal crack</figcaption><p></p>
 </figure>
 </div>
 <p>In the case of cracks, it is useful to introduce the second Hill polarization tensor defined as <span class="math display">\[
@@ -601,7 +601,7 @@ where <span class="math inline">\({\cal F}={\cal F}(\theta,\kappa)\)</span> and 
 \lim_{\omega\to 0} \omega\,{\mathbb{{Q}}}^{-1}
 =\frac{3}{4}\,{\underline{{n}}}{\stackrel{s}{\otimes}}{\mathbf{\boldsymbol{{B}}}}{\stackrel{s}{\otimes}}{\underline{{n}}}
 \tag{B.4}\]</span></span></p>
-<p>For an arbitrarly anisotropic matrix, an algorithm allowing to estimate the limit <a href="#eq-L">Equation&nbsp;<span>B.4</span></a> is proposed in <span class="citation" data-cites="barthelemy2009c">(<a href="references.html#ref-barthelemy2009c" role="doc-biblioref">Barthélémy, 2009</a>)</span> whereas in the isotropic case <span class="math inline">\({\mathbf{\boldsymbol{{B}}}}\)</span> writes <span class="math display">\[
+<p>For an arbitrarly anisotropic matrix, an algorithm allowing to estimate the limit (<a href="#eq-L"><span>B.4</span></a>) is proposed in <span class="citation" data-cites="barthelemy2009c">(<a href="references.html#ref-barthelemy2009c" role="doc-biblioref">Barthélémy, 2009</a>)</span> whereas in the isotropic case <span class="math inline">\({\mathbf{\boldsymbol{{B}}}}\)</span> writes <span class="math display">\[
 {\mathbf{\boldsymbol{{B}}}}=
 B_{nn}\,{\underline{{n}}}\otimes{\underline{{n}}}
 +
@@ -684,7 +684,7 @@ B_{mm}=B_{\ell\ell}=\frac{B_{nn}}{1-\nu/2}
 <div id="fig-error" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="hill_elas_files/figure-html/fig-error-output-1.png" width="687" height="283" class="figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;B.2: Influence of the aspect ratio on the contribution tensor</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Fig.&nbsp;B.2: Influence of the aspect ratio on the contribution tensor</figcaption><p></p>
 </figure>
 </div>
 </div>

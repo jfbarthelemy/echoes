@@ -51,7 +51,7 @@ I_{ijkl}=\frac{\delta_{ik}\delta_{jl}+\delta_{il}\delta_{jk}}{2}
 \uuuu{K}=\uuuu{I}-\uuuu{J}
 \end{aligned}$${#eq-isoC}
 
-Introducing @eq-isoC in @eq-Hill leads to after some algebra
+Introducing (@eq-isoC) in (@eq-Hill) leads to after some algebra
 $$
 \uuuu{P}=
 \frac{1}{\lambda+2\,\mu}
@@ -59,7 +59,7 @@ $$
 +\frac{1}{\mu}(\uuuu{V}-\uuuu{U})
 $$
 where the tensors $\uuuu{U}$ and $\uuuu{V}$, depending only on the ellipsoidal
-tensor $\uu{A}$ of @eq-ellipsoid, are given by (see [@barthelemy2020])
+tensor $\uu{A}$ of (@eq-ellipsoid), are given by (see [@barthelemy2020])
 $$\begin{aligned}
 \uuuu{U} &= \frac{\det{\uu{A}}}{4\pi}
 \int_{\norm{\uv{\xi}}=1}
@@ -97,7 +97,7 @@ $$\begin{aligned}
 }{\norm{\uu{A}^{-1}\cdot\uv{\zeta}}^2}
 \ud S_{\zeta}
 \end{aligned}$$
-For an arbitrary ellipsoid defined by @eq-ellipsoid, the components of $\uuuu{U}$ and $\uuuu{V}$ write
+For an arbitrary ellipsoid defined by (@eq-ellipsoid), the components of $\uuuu{U}$ and $\uuuu{V}$ write
 $$\begin{aligned}
 U_{iiii}&=\frac{3(I_i-\rho_i^2I_{ii})}{2} 
 \quad\forall\, i\in\{1,2,3\}\\
@@ -184,7 +184,7 @@ $$
 
 ## Case of cracks
 
-The case of cracks corresponds to ellipsoids for which the smallest radius is very small compared to the two others, in other words the characteristic tensor $\uu{A}$ @eq-ellipsoid can be written here
+The case of cracks corresponds to ellipsoids for which the smallest radius is very small compared to the two others, in other words the characteristic tensor $\uu{A}$ (@eq-ellipsoid) can be written here
 $$
 \uu{A}=
 \uv{\ell}\otimes\uv{\ell}+
@@ -219,7 +219,7 @@ $$
 =\frac{3}{4}\,\uv{n}\sotimes\uu{B}\sotimes\uv{n}
 $${#eq-L}
 
-For an arbitrarly anisotropic matrix, an algorithm allowing to estimate the limit @eq-L is proposed in [@barthelemy2009c] whereas in the isotropic case $\uu{B}$ writes
+For an arbitrarly anisotropic matrix, an algorithm allowing to estimate the limit (@eq-L) is proposed in [@barthelemy2009c] whereas in the isotropic case $\uu{B}$ writes
 $$
 \uu{B}=
 B_{nn}\,\uv{n}\otimes\uv{n}
