@@ -1,2 +1,2 @@
-# Eshelby problem {#sec-eshelby_elas}
+# Eshelby problem in elasticity {#sec-eshelby_elas}
 

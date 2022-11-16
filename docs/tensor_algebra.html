@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ECHOES - Appendix A — Tensor algebra</title>
+<title>Echoes - Appendix A — Tensor algebra</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,25 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
+}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
 }
 </style>
 
@@ -61,6 +80,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -83,7 +103,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">ECHOES</a> 
+      <a href="./">Echoes</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/jfbarthelemy/echoes/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
     <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
@@ -142,7 +162,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./eshelby_elas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Eshelby problem</span></a>
+  <a href="./eshelby_elas.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Eshelby problem in elasticity</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -312,7 +332,15 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-tensoralgebra_convention" id="toc-sec-tensoralgebra_convention" class="nav-link active" data-scroll-target="#sec-tensoralgebra_convention"><span class="toc-section-number">A.1</span>  Conventions of tensor algebra</a></li>
+  <li><a href="#sec-KM" id="toc-sec-KM" class="nav-link" data-scroll-target="#sec-KM"><span class="toc-section-number">A.2</span>  Kelvin-Mandel convention</a></li>
+  <li><a href="#sec-Walpole" id="toc-sec-Walpole" class="nav-link" data-scroll-target="#sec-Walpole"><span class="toc-section-number">A.3</span>  Walpole basis</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jfbarthelemy/echoes/edit/main/tensor_algebra.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -334,8 +362,223 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="sec-tensoralgebra_convention" class="level2" data-number="A.1">
+<h2 data-number="A.1" class="anchored" data-anchor-id="sec-tensoralgebra_convention"><span class="header-section-number">A.1</span> Conventions of tensor algebra</h2>
+<p>This appendix presents some conventions regarding tensor algebra in the usual three-dimensional euclidean space <span class="math inline">\(E={\mathbb{{R}}}^3\)</span>. In the sequel, tensor components are associated to an orthonormal frame <span class="math inline">\(({{\underline{{{e}}}}_{{i}}})_{i=1,2,3}\)</span> so that introducing the notion of tensor variance is useless here. The following presentation relies on the prior knowledge of the definition of tensors as multilinear operators and the classical isomorphism between the euclidean space and its dual through the scalar product <span id="eq-scalarprod"><span class="math display">\[\begin{aligned}
+\phi\,\colon E &amp; \longrightarrow  E^* \\
+       {\underline{{v}}} &amp; \longmapsto {\underline{{v}}}\cdot\bullet
+\end{aligned} \tag{A.1}\]</span></span> which allows to identify vectors and linear forms.</p>
+<p>Consider two tensors <span class="math inline">\(\mathcal{T}\)</span> and <span class="math inline">\(\mathcal{T}'\)</span> of respective orders <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span>. The tensor product <span class="math inline">\(\mathcal{T}\otimes\mathcal{T}'\)</span> is the <span class="math inline">\((p+q)\)</span> order tensor decomposed as <span id="eq-otimes"><span class="math display">\[
+\mathcal{T}\otimes\mathcal{T}'=\mathcal{T}_{i_1,\ldots,i_p} \,\mathcal{T}'_{i_{p+1},\ldots,i_{p+q}}\,
+{{\underline{{{e}}}}_{{i_1}}}\otimes\ldots\otimes{{\underline{{{e}}}}_{{i_{p+q}}}}
+\tag{A.2}\]</span></span> where Einstein convention of immplicit summation over repeated indices is adopted and <span class="math inline">\({{\underline{{{e}}}}_{{i_1}}}\otimes\ldots\otimes{{\underline{{{e}}}}_{{i_{p+q}}}}\)</span> is the multilinear form such that<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> <span id="eq-multfom"><span class="math display">\[
+({{\underline{{{e}}}}_{{i_1}}}\otimes\ldots\otimes{{\underline{{{e}}}}_{{i_{p+q}}}})({{\underline{{{e}}}}_{{j_1}}},\ldots,{{\underline{{{e}}}}_{{j_{p+q}}}})
+=
+\delta_{i_1,j_1}\ldots \delta_{i_{p+q},j_{p+q}}
+\tag{A.3}\]</span></span> The notation <span class="math inline">\(\mathcal{T}{\stackrel{s}{\otimes}}\mathcal{T}'\)</span> indicates a tensor product followed by a symmetrization over the last index of <span class="math inline">\(\mathcal{T}\)</span> and the first of <span class="math inline">\(\mathcal{T}'\)</span>, i.e. <span id="eq-sotimes"><span class="math display">\[
+\mathcal{T}{\stackrel{s}{\otimes}}\mathcal{T}'=
+\frac{\mathcal{T}_{i_1,\ldots,i_p} \,\mathcal{T}'_{i_{p+1},\ldots,i_{p+q}}
++
+\mathcal{T}_{i_1,\ldots,i_{p+1}} \,\mathcal{T}'_{i_p,\ldots,i_{p+q}}
+}{2}
+\,{{\underline{{{e}}}}_{{i_1}}}\otimes\ldots\otimes{{\underline{{{e}}}}_{{i_{p+q}}}}
+\tag{A.4}\]</span></span> It follows that <span id="eq-sotimesuv"><span class="math display">\[
+{\underline{{u}}}{\stackrel{s}{\otimes}}{\underline{{v}}}=\frac{{\underline{{u}}}\otimes{\underline{{v}}}+{\underline{{v}}}\otimes{\underline{{u}}}}{2}
+\tag{A.5}\]</span></span> and an example of generalization involving a second-order tensor <span class="math inline">\({\mathbf{\boldsymbol{{a}}}}\)</span> and vectors <span class="math inline">\({\underline{{u}}}\)</span> and <span class="math inline">\({\underline{{v}}}\)</span> <span id="eq-sotimesuav"><span class="math display">\[
+{\underline{{u}}}{\stackrel{s}{\otimes}}{\mathbf{\boldsymbol{{a}}}}{\stackrel{s}{\otimes}}{\underline{{v}}}=
+\frac{u_i\,a_{jk}\,v_l+u_i\,a_{jl}\,v_k+u_j\,a_{ik}\,v_l+u_j\,a_{il}\,v_k}{4}
+\,{{\underline{{{e}}}}_{{i}}}\otimes{{\underline{{{e}}}}_{{j}}}\otimes{{\underline{{{e}}}}_{{k}}}\otimes{{\underline{{{e}}}}_{{l}}}
+\tag{A.6}\]</span></span></p>
+<p>The simple dot product or contracted product between <span class="math inline">\(\mathcal{T}\)</span> and <span class="math inline">\(\mathcal{T}'\)</span> involves by convention a contraction between the last index of <span class="math inline">\(\mathcal{T}\)</span> and the first of <span class="math inline">\(\mathcal{T}'\)</span>, which leads to the <span class="math inline">\((p+q-2)\)</span> order tensor <span id="eq-simpledot"><span class="math display">\[
+\mathcal{T}\cdot\mathcal{T}'=\mathcal{T}_{i_1,\ldots,i_{p-1},{\color{red}k}} \,\mathcal{T}'_{{\color{red}k},i_{p},\ldots,i_{p+q-2}}\,
+{{\underline{{{e}}}}_{{i_1}}}\otimes\ldots\otimes{{\underline{{{e}}}}_{{i_{p+q-2}}}}
+\tag{A.7}\]</span></span></p>
+<p>As regards the double dot product, the classical convention consists in consuming the indices going up from the extremities, which means that a first contraction acts as in the simple dot product then a second contraction is performed between the penultimate index of <span class="math inline">\(\mathcal{T}\)</span> and the second one of <span class="math inline">\(\mathcal{T}'\)</span>. However and alternate convention adopted here is proposed in <span class="citation" data-cites="brisard2014a">(<a href="references.html#ref-brisard2014a" role="doc-biblioref">Brisard, 2014</a>)</span><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, which somehow consists in considering that the double contraction operates over the two last indices of <span class="math inline">\(\mathcal{T}\)</span> as a pair and the two first indices of <span class="math inline">\(\mathcal{T}'\)</span> as the corresponding pair. In other words, this operation is such that if <span class="math inline">\({\mathbf{\boldsymbol{{a}}}}\)</span> and <span class="math inline">\({\mathbf{\boldsymbol{{b}}}}\)</span> are two second-order tensors and <span class="math inline">\({\mathbb{{T}}}\)</span> is a fourth-order tensor <span id="eq-doubledot"><span class="math display">\[
+{\mathbf{\boldsymbol{{a}}}}:{\mathbf{\boldsymbol{{b}}}}=a_{ij}b_{ij}
+\quad\textrm{and}\quad
+{\mathbb{{T}}}:{\mathbf{\boldsymbol{{a}}}}=T_{ijkl}\, a_{kl}\, {{\underline{{{e}}}}_{{i}}}\otimes{{\underline{{{e}}}}_{{j}}}
+\tag{A.8}\]</span></span> and the transpose tensor <span class="math inline">\({{}^{t}{{\mathbb{{T}}}}}\)</span> is consistently defined by <span id="eq-trans4"><span class="math display">\[
+{{}^{t}{{\mathbb{{T}}}}}:{\mathbf{\boldsymbol{{a}}}}={\mathbf{\boldsymbol{{a}}}}:{\mathbb{{T}}}
+\quad\Leftrightarrow\quad
+\left({{}^{t}{{\mathbb{{T}}}}}\right)_{ijkl}=\left({\mathbb{{T}}}\right)_{klij}
+\tag{A.9}\]</span></span></p>
+<p>Another useful operator introduced in <span class="citation" data-cites="brisard2014a">(<a href="references.html#ref-brisard2014a" role="doc-biblioref">Brisard, 2014</a>)</span> is the modified tensor product denoted by <span class="math inline">\(\boxtimes\)</span>. The fourth-order tensor <span class="math inline">\({\mathbf{\boldsymbol{{a}}}}\boxtimes{\mathbf{\boldsymbol{{b}}}}\)</span> (where <span class="math inline">\({\mathbf{\boldsymbol{{a}}}}\)</span> and <span class="math inline">\({\mathbf{\boldsymbol{{b}}}}\)</span> are two second-order tensors) is defined by its operation over any second-order tensor <span class="math inline">\({\mathbf{\boldsymbol{{p}}}}\)</span> and by its components <span id="eq-boxtimes"><span class="math display">\[\begin{aligned}
+&amp; ({\mathbf{\boldsymbol{{a}}}}\boxtimes{\mathbf{\boldsymbol{{b}}}}):{\mathbf{\boldsymbol{{p}}}}={\mathbf{\boldsymbol{{a}}}}\cdot{\mathbf{\boldsymbol{{p}}}}\cdot{{}^{t}{{\mathbf{\boldsymbol{{b}}}}}}
+=a_{ik}\,p_{kl}\,b_{jl}\,{{\underline{{{e}}}}_{{i}}}\otimes{{\underline{{{e}}}}_{{j}}}
+\\
+&amp; \left({\mathbf{\boldsymbol{{a}}}}\boxtimes{\mathbf{\boldsymbol{{b}}}}\right)_{ijkl}=a_{ik}\,b_{jl}
+\end{aligned} \tag{A.10}\]</span></span></p>
+<p>A symmetrized version of <span class="math inline">\(\boxtimes\)</span> denoted by <span class="math inline">\(\stackrel{s}{\boxtimes}\)</span> can also be introduced. It operates as <span id="eq-sboxtimes"><span class="math display">\[\begin{aligned}
+&amp; ({\mathbf{\boldsymbol{{a}}}}\stackrel{s}{\boxtimes}{\mathbf{\boldsymbol{{b}}}}):{\mathbf{\boldsymbol{{p}}}}=
+({\mathbf{\boldsymbol{{a}}}}\boxtimes{\mathbf{\boldsymbol{{b}}}}):\left(\frac{{\mathbf{\boldsymbol{{p}}}}+{{}^{t}{{\mathbf{\boldsymbol{{p}}}}}}}{2}\right)
+={\mathbf{\boldsymbol{{a}}}}\cdot\left(\frac{{\mathbf{\boldsymbol{{p}}}}+{{}^{t}{{\mathbf{\boldsymbol{{p}}}}}}}{2}\right)\cdot{{}^{t}{{\mathbf{\boldsymbol{{b}}}}}}
+\\
+&amp; ({\mathbf{\boldsymbol{{a}}}}\stackrel{s}{\boxtimes}{\mathbf{\boldsymbol{{b}}}})_{ijkl}=\frac{a_{ik}\,b_{jl}+a_{il}\,b_{jk}}{2}
+\end{aligned} \tag{A.11}\]</span></span></p>
+<p>It follows from these definitions that the fourth-order identity, as an operator over second-order tensors, writes where <span class="math inline">\({\mathbf{\boldsymbol{{1}}}}\)</span> is the second-order identity. The fourth-order operator allowing to extract the symmetric part of a second-order tensor writes . The latter tensor, which obviously complies with the conditions of minor symmetries, is classically used to play the role of fourth-order identity operating over symmetric second-order tensors.</p>
+<p>Some remarkable relationships result from the previous definitions <span id="eq-propboxtimes"><span class="math display">\[\begin{aligned}
+&amp;({\mathbf{\boldsymbol{{a}}}}\boxtimes{\mathbf{\boldsymbol{{b}}}}):({\underline{{u}}}\otimes{\underline{{v}}})=
+({\mathbf{\boldsymbol{{a}}}}\cdot{\underline{{u}}})\otimes({\mathbf{\boldsymbol{{b}}}}\cdot{\underline{{v}}})
+&amp;(a) \\
+&amp;({\mathbf{\boldsymbol{{a}}}}\boxtimes{\mathbf{\boldsymbol{{b}}}}):({\mathbf{\boldsymbol{{c}}}}\boxtimes{\mathbf{\boldsymbol{{d}}}})=
+({\mathbf{\boldsymbol{{a}}}}\cdot{\mathbf{\boldsymbol{{c}}}})\boxtimes({\mathbf{\boldsymbol{{b}}}}\cdot{\mathbf{\boldsymbol{{d}}}})
+&amp;(b) \\
+&amp;({\mathbf{\boldsymbol{{a}}}}\stackrel{s}{\boxtimes}{\mathbf{\boldsymbol{{b}}}}):({\mathbf{\boldsymbol{{c}}}}\stackrel{s}{\boxtimes}{\mathbf{\boldsymbol{{d}}}})=
+\frac{({\mathbf{\boldsymbol{{a}}}}\cdot{\mathbf{\boldsymbol{{c}}}})\stackrel{s}{\boxtimes}({\mathbf{\boldsymbol{{b}}}}\cdot{\mathbf{\boldsymbol{{d}}}})+
+({\mathbf{\boldsymbol{{a}}}}\cdot{\mathbf{\boldsymbol{{d}}}})\stackrel{s}{\boxtimes}({\mathbf{\boldsymbol{{b}}}}\cdot{\mathbf{\boldsymbol{{c}}}})}{2}
+&amp;(c) \\
+&amp;({\mathbf{\boldsymbol{{a}}}}\stackrel{s}{\boxtimes}{\mathbf{\boldsymbol{{a}}}}):({\mathbf{\boldsymbol{{b}}}}\stackrel{s}{\boxtimes}{\mathbf{\boldsymbol{{b}}}})=
+({\mathbf{\boldsymbol{{a}}}}\cdot{\mathbf{\boldsymbol{{b}}}})\stackrel{s}{\boxtimes}({\mathbf{\boldsymbol{{a}}}}\cdot{\mathbf{\boldsymbol{{b}}}})
+&amp;(d) \\
+&amp;{{}^{t}{({\mathbf{\boldsymbol{{a}}}}\boxtimes{\mathbf{\boldsymbol{{b}}}})}}={{}^{t}{{\mathbf{\boldsymbol{{a}}}}}}\boxtimes{{}^{t}{{\mathbf{\boldsymbol{{b}}}}}}
+&amp;(e) \\
+&amp;{{}^{t}{({\mathbf{\boldsymbol{{a}}}}\stackrel{s}{\boxtimes}{\mathbf{\boldsymbol{{a}}}})}}={{}^{t}{{\mathbf{\boldsymbol{{a}}}}}}\stackrel{s}{\boxtimes}{{}^{t}{{\mathbf{\boldsymbol{{a}}}}}}
+\;\textrm{ but }\;
+{{}^{t}{({\mathbf{\boldsymbol{{a}}}}\stackrel{s}{\boxtimes}{\mathbf{\boldsymbol{{b}}}})}}\neq{{}^{t}{{\mathbf{\boldsymbol{{a}}}}}}\stackrel{s}{\boxtimes}{{}^{t}{{\mathbf{\boldsymbol{{b}}}}}}
+&amp;(f) \\
+&amp;({\mathbf{\boldsymbol{{a}}}}\boxtimes{\mathbf{\boldsymbol{{b}}}})^{-1}={\mathbf{\boldsymbol{{a}}}}^{-1}\boxtimes{\mathbf{\boldsymbol{{b}}}}^{-1}
+&amp;(g) \\
+&amp;({\mathbf{\boldsymbol{{a}}}}\stackrel{s}{\boxtimes}{\mathbf{\boldsymbol{{a}}}})^{-1}:{\mathbf{\boldsymbol{{p}}}}=({\mathbf{\boldsymbol{{a}}}}^{-1}\stackrel{s}{\boxtimes}{\mathbf{\boldsymbol{{a}}}}^{-1}):{\mathbf{\boldsymbol{{p}}}}
+\;\textrm{ if }\;{{}^{t}{{\mathbf{\boldsymbol{{p}}}}}}={\mathbf{\boldsymbol{{p}}}}
+\;\textrm{ but }\;
+({\mathbf{\boldsymbol{{a}}}}\stackrel{s}{\boxtimes}{\mathbf{\boldsymbol{{b}}}})^{-1}\neq{\mathbf{\boldsymbol{{a}}}}^{-1}\stackrel{s}{\boxtimes}{\mathbf{\boldsymbol{{b}}}}^{-1}
+&amp;(h)
+\end{aligned} \tag{A.12}\]</span></span></p>
+</section>
+<section id="sec-KM" class="level2" data-number="A.2">
+<h2 data-number="A.2" class="anchored" data-anchor-id="sec-KM"><span class="header-section-number">A.2</span> Kelvin-Mandel convention</h2>
+<p>The Kelvin-Mandel convention allows to write the matrix of a symmetric second-order tensor in a given orthonormal frame under the form of a vector of <span class="math inline">\({\mathbb{{R}}}^6\)</span> <span id="eq-KM2"><span class="math display">\[
+   \mathop{\mathrm{Mat}}({{\mathbf{\boldsymbol{{{\varepsilon}}}}}},({{\underline{{{e}}}}_{{i}}}))=
+   \left(
+   \begin{array}{ccc}
+   \varepsilon_{11} &amp; \varepsilon_{12} &amp; \varepsilon_{31}\\
+   \varepsilon_{12} &amp; \varepsilon_{22} &amp; \varepsilon_{23}\\
+   \varepsilon_{31} &amp; \varepsilon_{23} &amp; \varepsilon_{33}
+   \end{array}
+   \right)
+   \mapsto
+   \left(
+   \begin{array}{c}
+   \varepsilon_{11} \\
+   \varepsilon_{22} \\
+   \varepsilon_{33} \\
+   \sqrt{2}\,\varepsilon_{23} \\
+   \sqrt{2}\,\varepsilon_{31} \\
+   \sqrt{2}\,\varepsilon_{12}
+   \end{array}
+   \right)
+\tag{A.13}\]</span></span></p>
+<p>The vector of <span class="math inline">\({\mathbb{{R}}}^6\)</span> in (<a href="#eq-KM2"><span>A.13</span></a>) corresponds to the components of the second-order tensor <span class="math inline">\({{\mathbf{\boldsymbol{{{\varepsilon}}}}}}\)</span> in the basis ordered as <span id="eq-basisKM"><span class="math display">\[
+\mathcal{B}=\left(
+{{\underline{{{e}}}}_{{1}}}\otimes{{\underline{{{e}}}}_{{1}}},
+{{\underline{{{e}}}}_{{2}}}\otimes{{\underline{{{e}}}}_{{2}}},
+{{\underline{{{e}}}}_{{3}}}\otimes{{\underline{{{e}}}}_{{3}}},
+\sqrt{2}\,{{\underline{{{e}}}}_{{2}}}\otimes{{\underline{{{e}}}}_{{3}}},
+\sqrt{2}\,{{\underline{{{e}}}}_{{3}}}\otimes{{\underline{{{e}}}}_{{1}}},
+\sqrt{2}\,{{\underline{{{e}}}}_{{1}}}\otimes{{\underline{{{e}}}}_{{2}}}
+\right)
+\tag{A.14}\]</span></span></p>
+<p>The tensors of the basis (<a href="#eq-basisKM"><span>A.14</span></a>) form an orthonormal frame spanning the space of symmetric second-order tensors equipped with the double contraction “<span class="math inline">\(:\)</span>” as scalar product. It follows that the double contraction between symmetric second-order tensors is no other than the classical scalar product of the corresponding vectors of <span class="math inline">\({\mathbb{{R}}}^6\)</span> written according to the convention (<a href="#eq-KM2"><span>A.13</span></a>).</p>
+<p>Moreover a fourth-order tensor with minor symetries (<span class="math inline">\(C_{ijkl}=C_{jikl}=C_{ijlk}\)</span>), which can be seen as a linear operator acting over symmetric second-order tensors by double contraction, writes in the same convention under the form of a <span class="math inline">\(6\times 6\)</span> square matrix (the solid lines separate blocks affected by different factors whereas the colored components highlight a central block playing a major role in the sequel) <span id="eq-KM4"><span class="math display">\[
+\mathop{\mathrm{Mat}}({\mathbb{{C}}},\mathcal{B})=
+   \left(
+   \begin{array}{ccc|ccc}
+   C_{1111} &amp; C_{1122} &amp; C_{1133} &amp; \sqrt{2}\,C_{1123} &amp; \sqrt{2}\,C_{1131} &amp; \sqrt{2}\,C_{1112} \\
+   C_{2211} &amp; C_{2222} &amp; C_{2233} &amp; \sqrt{2}\,C_{2223} &amp; \sqrt{2}\,C_{2231} &amp; \sqrt{2}\,C_{2212} \\
+   C_{3311} &amp; C_{3322} &amp; \color{red}C_{3333} &amp; \color{red}\sqrt{2}\,C_{3323} &amp; \color{red}\sqrt{2}\,C_{3331} &amp; \sqrt{2}\,C_{3312} \\
+   \hline
+   \sqrt{2}\,C_{2311} &amp; \sqrt{2}\,C_{2322} &amp; \color{red}\sqrt{2}\,C_{2333} &amp; \color{red}2\,C_{2323} &amp; \color{red}2\,C_{2331} &amp; 2\,C_{2312} \\
+   \sqrt{2}\,C_{3111} &amp; \sqrt{2}\,C_{3122} &amp; \color{red}\sqrt{2}\,C_{3133} &amp; \color{red}2\,C_{3123} &amp; \color{red}2\,C_{3131} &amp; 2\,C_{3112} \\
+   \sqrt{2}\,C_{1211} &amp; \sqrt{2}\,C_{1222} &amp; \sqrt{2}\,C_{1233} &amp; 2\,C_{1223} &amp; 2\,C_{1231} &amp; 2\,C_{1212}
+   \end{array}
+   \right)
+\tag{A.15}\]</span></span> The result of <span class="math inline">\({\mathbb{{C}}}:{{\mathbf{\boldsymbol{{{\varepsilon}}}}}}\)</span> writes as a classical matrix-vector product of (<a href="#eq-KM4"><span>A.15</span></a>) by (<a href="#eq-KM2"><span>A.13</span></a>).</p>
+<p>However another way of ordering the tensors of (<a href="#eq-basisKM"><span>A.14</span></a>) which proves useful for the calculation of crack compliance is based on a gathering of one set of three in-plane and another one of three out-of-plane tensors (the latter involving <span class="math inline">\({{\underline{{{n}}}}}={{\underline{{{e}}}}_{{3}}}\)</span> assumed to be the normal of the crack and the former not) <span id="eq-basisKM2"><span class="math display">\[
+\mathcal{B}^*=\Bigg(
+\underbrace{
+{{\underline{{{e}}}}_{{1}}}\otimes{{\underline{{{e}}}}_{{1}}},
+{{\underline{{{e}}}}_{{2}}}\otimes{{\underline{{{e}}}}_{{2}}},
+\sqrt{2}\,{{\underline{{{e}}}}_{{1}}}{\stackrel{s}{\otimes}}{{\underline{{{e}}}}_{{2}}}
+}_{\textrm{in-plane}},
+\quad
+\underbrace{
+{{\underline{{{e}}}}_{{3}}}\otimes{{\underline{{{e}}}}_{{3}}},
+\sqrt{2}\,{{\underline{{{e}}}}_{{2}}}{\stackrel{s}{\otimes}}{{\underline{{{e}}}}_{{3}}},
+\sqrt{2}\,{{\underline{{{e}}}}_{{3}}}{\stackrel{s}{\otimes}}{{\underline{{{e}}}}_{{1}}}
+}_{\textrm{out-of-plane}}
+\Bigg)
+\tag{A.16}\]</span></span> such that the matrix of <span class="math inline">\({\mathbb{{C}}}\)</span> in <span class="math inline">\(\mathcal{B}^*\)</span> is now obtained by permutations of lines and columns of (<a href="#eq-KM4"><span>A.15</span></a>) to give <span id="eq-KM4bis"><span class="math display">\[
+\mathop{\mathrm{Mat}}({\mathbb{{C}}},\mathcal{B}^*)=
+   \left(
+   \begin{array}{ccc|ccc}
+   C_{1111} &amp; C_{1122} &amp; \sqrt{2}\,C_{1112} &amp; C_{1133} &amp; \sqrt{2}\,C_{1123} &amp; \sqrt{2}\,C_{1131} \\
+   C_{2211} &amp; C_{2222} &amp; \sqrt{2}\,C_{2212} &amp; C_{2233} &amp; \sqrt{2}\,C_{2223} &amp; \sqrt{2}\,C_{2231} \\
+   \sqrt{2}\,C_{1211} &amp; \sqrt{2}\,C_{1222} &amp; 2\,C_{1212} &amp; \sqrt{2}\,C_{1233} &amp; 2\,C_{1223} &amp; 2\,C_{1231} \\
+   \hline
+   C_{3311} &amp; C_{3322} &amp; \sqrt{2}\,C_{3312} &amp; C_{3333} &amp; \sqrt{2}\,C_{3323} &amp; \sqrt{2}\,C_{3331} \\
+   \sqrt{2}\,C_{2311} &amp; \sqrt{2}\,C_{2322} &amp; 2\,C_{2312} &amp; \sqrt{2}\,C_{2333} &amp; 2\,C_{2323} &amp; 2\,C_{2331} \\
+   \sqrt{2}\,C_{3111} &amp; \sqrt{2}\,C_{3122} &amp; 2\,C_{3112} &amp; \sqrt{2}\,C_{3133} &amp; 2\,C_{3123} &amp; 2\,C_{3131}
+   \end{array}
+   \right)
+\tag{A.17}\]</span></span> One may notice that the bottom right <span class="math inline">\(3\times 3\)</span> block of (<a href="#eq-KM4bis"><span>A.17</span></a>) exactly corresponds to the colored block in (<a href="#eq-KM4"><span>A.15</span></a>).</p>
+</section>
+<section id="sec-Walpole" class="level2" data-number="A.3">
+<h2 data-number="A.3" class="anchored" data-anchor-id="sec-Walpole"><span class="header-section-number">A.3</span> Walpole basis</h2>
+<p>The Walpole basis <span class="citation" data-cites="walpole1984">(<a href="references.html#ref-walpole1984" role="doc-biblioref">Walpole, 1984</a>)</span> allowing to write any fourth-order transversely isotropic relatively to a an axis oriented by the unit vector <span class="math inline">\({{\underline{{{n}}}}}\)</span> is composed of the six following tensors built from <span class="math inline">\({\mathbf{\boldsymbol{{1}}}}_n={{\underline{{{n}}}}}\otimes{{\underline{{{n}}}}}\)</span> and <span class="math inline">\({\mathbf{\boldsymbol{{1}}}}_T={\mathbf{\boldsymbol{{1}}}}-{\mathbf{\boldsymbol{{1}}}}_n\)</span> <span id="eq-WalpoleBasis"><span class="math display">\[\begin{aligned}
+&amp; {\mathbb{{E}}}_1={\mathbf{\boldsymbol{{1}}}}_n\otimes{\mathbf{\boldsymbol{{1}}}}_n
+\quad\textrm{ ; }\quad
+{\mathbb{{E}}}_2=\frac{{\mathbf{\boldsymbol{{1}}}}_T\otimes{\mathbf{\boldsymbol{{1}}}}_T}{2}
+&amp;\textrm{ ; }&amp;
+{\mathbb{{E}}}_3=\frac{{\mathbf{\boldsymbol{{1}}}}_n\otimes{\mathbf{\boldsymbol{{1}}}}_T}{\sqrt{2}}
+\quad\textrm{ ; }\quad
+{\mathbb{{E}}}_4=\frac{{\mathbf{\boldsymbol{{1}}}}_T\otimes{\mathbf{\boldsymbol{{1}}}}_n}{\sqrt{2}}
+&amp;(a) \\
+&amp; {\mathbb{{E}}}_5={\mathbf{\boldsymbol{{1}}}}_T\stackrel{s}{\boxtimes}{\mathbf{\boldsymbol{{1}}}}_T-\frac{{\mathbf{\boldsymbol{{1}}}}_T\otimes{\mathbf{\boldsymbol{{1}}}}_T}{2}
+&amp;\textrm{ ; }&amp;
+{\mathbb{{E}}}_6={\mathbf{\boldsymbol{{1}}}}_T\stackrel{s}{\boxtimes}{\mathbf{\boldsymbol{{1}}}}_n+{\mathbf{\boldsymbol{{1}}}}_n\stackrel{s}{\boxtimes}{\mathbf{\boldsymbol{{1}}}}_T
+&amp;(b)
+\end{aligned} \tag{A.18}\]</span></span></p>
+<p>Any transversely isotropic fourth-order tensor can be decomposed as <span id="eq-decWalpole"><span class="math display">\[
+{{\mathbb{{L}}}} = {\ell}_{1}\,{{\mathbb{{E}}}}_{1} + {\ell}_{2}\,{{\mathbb{{E}}}}_{2} +
+{\ell}_{3}\,{{\mathbb{{E}}}}_{3}+ {\ell}_{4}\,{{\mathbb{{E}}}}_{4}+ {\ell}_{5}\,{{\mathbb{{E}}}}_{5}+
+{\ell}_{6}\,{{\mathbb{{E}}}}_{6}
+\tag{A.19}\]</span></span></p>
+<p>The six parameters can be conveniently gathered in a triplet composed of a <span class="math inline">\(2 \times 2\)</span> matrix containing the four first parameters <span class="math inline">\(\ell_i\)</span> (<span class="math inline">\(1\leq i \leq 4\)</span>) and the two last parameters <span class="math inline">\(\ell_5\)</span> and <span class="math inline">\(\ell_6\)</span> <span id="eq-syntWalpole"><span class="math display">\[
+{\mathbb{{L}}} \equiv \left( L , {\ell}_{5} , {\ell}_{6}
+\right) , \quad
+L = \left(
+      \begin{array}{cc}
+        {\ell}_{1} &amp; {\ell}_{3} \\
+        {\ell}_{4} &amp; {\ell}_{2} \\
+      \end{array}
+    \right)
+\tag{A.20}\]</span></span></p>
+<p>Such a synthetic notation allows simple calculations of products and inverses which consist in classical matrix or scalar products and inverses <span id="eq-calWalpole"><span class="math display">\[\begin{aligned}
+&amp; {\mathbb{{L}}} : {\mathbb{{M}}} \equiv \left( L M , {\ell}_{5} m_5 , {\ell}_{6} m_6
+\right)
+&amp;(a) \\
+&amp; {{\mathbb{{L}}}}^{-1} \equiv \left( {L}^{-1} , \frac{1}{{\ell}_{5}} , \frac{1}{{\ell}_{6}}
+\right)
+&amp;(b)
+\end{aligned} \tag{A.21}\]</span></span></p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-brisard2014a" class="csl-entry" role="doc-biblioentry">
+Brisard, S., 2014. Sébastien <span>Brisard</span>’s blog. <span class="nocase">https://sbrisard.github.io</span>.
+</div>
+<div id="ref-walpole1984" class="csl-entry" role="doc-biblioentry">
+Walpole, L.J., 1984. Fourth-rank tensors of the thirty-two crystal classes: Multiplication tables. Proceedings of the Royal Society of London. A. Mathematical and Physical Sciences 391, 149–179. <a href="https://doi.org/10.1098/rspa.1984.0008">https://doi.org/10.1098/rspa.1984.0008</a>
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p><span class="math inline">\(\delta_{ij}=1\)</span> if <span class="math inline">\(i=j\)</span> and <span class="math inline">\(0\)</span> if <span class="math inline">\(i\neq j\)</span> (Kronecker symbol)<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>see <a href="https://sbrisard.github.io/posts/20140219-on_the_double_dot_product.html">https://sbrisard.github.io/posts/20140219-on_the_double_dot_product.html</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

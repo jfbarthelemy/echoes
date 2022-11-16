@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 book:
-  title: "ECHOES"
+  title: "Echoes"
   subtitle: "Extended Calculator of HOmogEnization Schemes"
   author: "Jean-François Barthélémy"
   # cover-image: images/cover.png
@@ -77,6 +77,11 @@ format:
       - config/_preamble.tex
       - config/_macros.tex
     keep-tex: false
+
+crossref:
+  fig-title: "Fig."
+  tbl-title: "Tab."
+  eq-prefix: ""
 
 engine: jupyter
 execute:

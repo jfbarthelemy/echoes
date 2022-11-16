@@ -1,15 +1,22 @@
-\DeclareMathSymbol{\N}{\mathbin}{AMSb}{"4E}
-\DeclareMathSymbol{\Z}{\mathbin}{AMSb}{"5A}
-\DeclareMathSymbol{\R}{\mathbin}{AMSb}{"52}
-\DeclareMathSymbol{\Q}{\mathbin}{AMSb}{"51}
-%\DeclareMathSymbol{\I}{\mathbin}{AMSb}{"49}
-\DeclareMathSymbol{\C}{\mathbin}{AMSb}{"43}
+\newcommand{\C}{{\mathbb{{C}}}}
+\newcommand{\R}{{\mathbb{{R}}}}
+\newcommand{\Q}{{\mathbb{{Q}}}}
+\newcommand{\Z}{{\mathbb{{Z}}}}
+\newcommand{\N}{{\mathbb{{N}}}}
 
 \newcommand{\uu}[1]{{\mathbf{\boldsymbol{{#1}}}}}
 \newcommand{\uuuu}[1]{{\mathbb{{#1}}}}
 \newcommand{\uv}[1]{{\underline{{#1}}}}
+\newcommand{\ve}[1]{{\uv{{e}}_{{#1}}}}
+\newcommand{\x}{{\uv{{x}}}}
+\newcommand{\n}{{\uv{{n}}}}
+\newcommand{\eps}{{\uu{{\varepsilon}}}}
+\newcommand{\E}{{\uu{{E}}}}
+\newcommand{\sig}{{\uu{{\sigma}}}}
+\newcommand{\Sig}{{\uu{{\Sigma}}}}
 \newcommand{\trans}[1]{{{}^{t}{#1}}}
 \newcommand{\sotimes}{{\stackrel{s}{\otimes}}}
+\newcommand{\sboxtimes}{\stackrel{s}{\boxtimes}}
 \newcommand{\norm}[1]{{\lVert{{#1}}\rVert}}
 \newcommand{\ud}{{\,\mathrm{d}}}
 \DeclareMathOperator{\arcosh}{arcosh}
@@ -18,6 +25,7 @@
 \DeclareMathOperator{\hess}{hess}
 \DeclareMathOperator{\gradu}{\uv{grad}}
 \DeclareMathOperator{\graduu}{\uu{grad}}
+\DeclareMathOperator{\Mat}{Mat}
 
 \newcommand{\jump}[1]{[\hspace*{-.15em}[\hspace*{.1em}{#1}%
      \hspace*{.1em}]\hspace*{-.15em}]}
