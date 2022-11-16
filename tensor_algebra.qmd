@@ -85,10 +85,10 @@ $$\begin{aligned}
 \end{aligned}$${#eq-sboxtimes}
 
 It follows from these definitions that the fourth-order identity, as an operator
-over second-order tensors, writes \mbox{$\uuuu{1}=\uu{1}\boxtimes\uu{1}$} where
+over second-order tensors, writes $\uuuu{1}=\uu{1}\boxtimes\uu{1}$ where
 $\uu{1}$ is the second-order identity.
 The fourth-order operator allowing to extract the symmetric part of a
-second-order tensor writes \mbox{$\uuuu{I}=\uu{1}\sboxtimes\uu{1}$}.
+second-order tensor writes $\uuuu{I}=\uu{1}\sboxtimes\uu{1}$.
 The latter tensor, which obviously complies with the conditions of minor
 symmetries, is classically used to play the role of fourth-order identity
 operating over symmetric second-order tensors.
