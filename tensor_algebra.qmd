@@ -293,7 +293,7 @@ $$
 $${#eq-rotT4}
 where the fourth-order rotation tensor $\uuuu{R}=\uu{R}\sboxtimes\uu{R}$ can be expressed in Kelvin-Mandel notation (@eq-KM4) by means of the components of $\uu{R}$ defined in (@eq-rot3)
 $$
-\tiny
+\scriptsize
 \Mat(\uuuu{R},\mathcal{B})=
    \left(
 \begin{array}{cccccc}
