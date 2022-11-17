@@ -65,6 +65,10 @@ $$
 \quad\Leftrightarrow\quad
 \left(\trans{\uuuu{T}}\right)_{ijkl}=\left(\uuuu{T}\right)_{klij}
 $${#eq-trans4}
+The quadruple dot product is introduced as a scalar product between fourth-order tensors as
+$$
+\uuuu{T}:\uuuu{T}'=T_{ijkl} T'_{ijkl}
+$${#eq-dot4}
 
 Another useful operator introduced in [@brisard2014a] is the modified tensor product denoted by $\boxtimes$. The fourth-order tensor $\uu{a}\boxtimes\uu{b}$ (where $\uu{a}$ and $\uu{b}$ are two second-order tensors) is defined by its operation over any second-order tensor $\uu{p}$ and by its components
 $$\begin{aligned}
@@ -171,13 +175,14 @@ the corresponding vectors of $\R^6$ written according to the
 convention (@eq-KM2).
 
 Moreover a fourth-order tensor with minor symetries
-($C_{ijkl}=C_{jikl}=C_{ijlk}$),
+($C_{jikl}=C_{ijlk}=C_{ijkl}$),
 which can be seen as a linear operator acting
 over symmetric second-order tensors by double contraction, writes in the same
 convention under the form of a $6\times 6$ square matrix
 (the solid lines separate blocks affected by different factors whereas the
 colored components highlight a central block playing a major role in the sequel)
 $$
+\small
 \Mat(\uuuu{C},\mathcal{B})=
    \left(
    \begin{array}{ccc|ccc}
@@ -216,6 +221,7 @@ $${#eq-basisKM2}
 such that the matrix of $\uuuu{C}$ in $\mathcal{B}^*$ is now obtained by
 permutations of lines and columns of (@eq-KM4) to give
 $$
+\small
 \Mat(\uuuu{C},\mathcal{B}^*)=
    \left(
    \begin{array}{ccc|ccc}
@@ -232,9 +238,174 @@ $${#eq-KM4bis}
 One may notice that the bottom right $3\times 3$ block
 of (@eq-KM4bis) exactly corresponds to the colored block in (@eq-KM4).
 
-## Walpole basis {#sec-Walpole}
+## Rotation of tensors {#sec-rottens}
 
-The Walpole basis [@walpole1984] allowing to write any
+Recalling that the set of second-order tensors is isomorphic to the set of endomorphism in an euclidean space, it is natural to define a rotation tensor as an element of the special orthogonal group, i.e. tensors $\uu{R}$ such that $\trans{\uu{R}}\cdot\uu{R}=\uu{1}$ and $\det{\uu{R}}=1$.
+In $\R^3$ equipped with an orthonormal frame $(\ve{i})_{i=1,2,3}$, these tensors can be defined by three Euler angles (see @fig-eurlerangles)
+$0\leq\theta\leq\pi$, $0\leq\phi\leq 2\pi$ and $0\leq\psi\leq 2\pi$ such that^[with the simplifying writing convention $c_\theta=\cos\theta$, $s_\theta=\sin\theta$, $c_\phi=\cos\phi$, $s_\phi=\sin\phi$, $c_\psi=\cos\psi$, $s_\psi=\sin\psi$]
+$$
+\small
+\Mat(\uu{R},(\ve{i}))=
+   \left(
+   \begin{array}{ccc}
+   c_\theta  c_\psi  c_\phi - s_\psi  s_\phi & - c_\theta  c_\phi  s_\psi - c_\psi  s_\phi & c_\phi  s_\theta \\
+   c_\theta  c_\psi  s_\phi + c_\phi  s_\psi & - c_\theta  s_\psi  s_\phi + c_\psi  c_\phi & s_\theta  s_\phi \\
+   - c_\psi  s_\theta & s_\theta  s_\psi & c_\theta \\
+   \end{array}
+   \right) 
+$${#eq-rot3}
+A rotated frame $(\underline{e}'_i)_{i=1,2,3}$ is obtained by application of the rotation $\uu{R}$ on the vectors $\ve{i}$ (see @fig-eurlerangles)
+$$
+\forall i \in \{1,2,3\}\quad \underline{e}'_i=\uu{R}\cdot\ve{i}
+$${#eq-Rei}
+
+::: {#fig-eurlerangles}
+::: {.content-visible unless-format="html"}
+![](images/sphcoor){width=40%}
+:::
+::: {.content-visible when-format="html"}
+![](images/sphcoor.html){width=90%}
+[![](images/arrow-expand.png){width=3%}](images/sphcoor.html)
+:::
+Euler angles
+:::
+
+The rotation of Eurler angles $(\theta,\phi,\psi)$ applies on a $p$ order tensor $\mathcal{T}$ as
+$$
+\mathcal{T}=
+\mathcal{T}_{i_1,\ldots,i_p} \,\ve{i_1}\otimes\ldots\otimes\ve{i_{p}}
+\overset{\uu{R}}{\longmapsto}
+\uu{R}(\mathcal{T})=
+\mathcal{T}_{i_1,\ldots,i_p} \,(\uu{R}\cdot\ve{i_1})\otimes\ldots\otimes(\uu{R}\cdot\ve{i_{p}})
+$${#eq-rotT}
+
+The application of (@eq-rotT) to a second-order tensor $\uu{a}$ therefore gives
+$$
+\uu{R}(\uu{a})=\uu{R}\cdot 
+\uu{a}
+\cdot\trans{\uu{R}}
+$${#eq-rotT2}
+and to a fourth-order tensor $\uuuu{T}$
+$$
+\uu{R}(\uuuu{T})=(\uu{R}\sboxtimes\uu{R}):
+\uuuu{T}
+:\trans{(\uu{R}\sboxtimes\uu{R})}
+$${#eq-rotT4}
+where the fourth-order rotation tensor $\uuuu{R}=\uu{R}\sboxtimes\uu{R}$ can be expressed in Kelvin-Mandel notation (@eq-KM4) by means of the components of $\uu{R}$ defined in (@eq-rot3)
+$$
+\tiny
+\Mat(\uuuu{R},\mathcal{B})=
+   \left(
+\begin{array}{cccccc}
+R_{1 1}^{2} & R_{1 2}^{2} & R_{1 3}^{2} & \sqrt{2}  R_{1 2}  R_{1 3} & \sqrt{2}  R_{1 1}  R_{1 3} & \sqrt{2}  R_{1 1}  R_{1 2} \\
+R_{2 1}^{2} & R_{2 2}^{2} & R_{2 3}^{2} & \sqrt{2}  R_{2 2}  R_{2 3} & \sqrt{2}  R_{2 1}  R_{2 3} & \sqrt{2}  R_{2 1}  R_{2 2} \\
+R_{3 1}^{2} & R_{3 2}^{2} & R_{3 3}^{2} & \sqrt{2}  R_{3 2}  R_{3 3} & \sqrt{2}  R_{3 1}  R_{3 3} & \sqrt{2}  R_{3 1}  R_{3 2} \\
+\sqrt{2}  R_{2 1}  R_{3 1} & \sqrt{2}  R_{2 2}  R_{3 2} & \sqrt{2}  R_{2 3}  R_{3 3} & R_{2 2}  R_{3 3} + R_{2 3}  R_{3 2} & R_{2 1}  R_{3 3} + R_{2 3}  R_{3 1} & R_{2 1}  R_{3 2} + R_{2 2}  R_{3 1} \\
+\sqrt{2}  R_{1 1}  R_{3 1} & \sqrt{2}  R_{1 2}  R_{3 2} & \sqrt{2}  R_{1 3}  R_{3 3} & R_{1 2}  R_{3 3} + R_{1 3}  R_{3 2} & R_{1 1}  R_{3 3} + R_{1 3}  R_{3 1} & R_{1 1}  R_{3 2} + R_{1 2}  R_{3 1} \\
+\sqrt{2}  R_{1 1}  R_{2 1} & \sqrt{2}  R_{1 2}  R_{2 2} & \sqrt{2}  R_{1 3}  R_{2 3} & R_{1 2}  R_{2 3} + R_{1 3}  R_{2 2} & R_{1 1}  R_{2 3} + R_{1 3}  R_{2 1} & R_{1 1}  R_{2 2} + R_{1 2}  R_{2 1} \\
+\end{array}
+\right)
+$${#eq-rot6}
+It results that (@eq-rotT4) can be seen as a classical rotation operation involving matrix multiplications in $\R^6$.
+
+## Fourth-order isotropic tensors {#sec-ISO}
+
+This paragraph concerns fourth-order tensors operating over symmetrical second-order tensors, which allows to impose that they satisfy the minor symmetries ($C_{jikl}=C_{ijlk}=C_{ijkl}$).
+The identity operator is given by
+$$
+\uuuu{I}=\uu{1}\sboxtimes\uu{1}=
+\frac{\delta_{ik}\delta_{jl}+\delta_{il}\delta_{jk}}{2}\,\ve{i}\otimes\ve{j}\otimes\ve{k}\otimes\ve{l}
+$${#eq-tensI}
+of identity matrix in Kelvin-Mandel convention
+$$
+\small
+\Mat(\uuuu{I},\mathcal{B})=
+   \left(
+   \begin{array}{ccc|ccc}
+   1 & 0 & 0 & 0 & 0 & 0 \\
+   0 & 1 & 0 & 0 & 0 & 0 \\
+   0 & 0 & 1 & 0 & 0 & 0 \\
+   \hline
+   0 & 0 & 0 & 1 & 0 & 0 \\
+   0 & 0 & 0 & 0 & 1 & 0 \\
+   0 & 0 & 0 & 0 & 0 & 1 \\
+   \end{array}
+   \right)
+$${#eq-matI}
+
+It is classically proven that any minor-symmetrical fourth-order tensor invariant by rotation (@eq-rotT4) write as a linear combination on the two projectors $\uuuu{J}$ and $\uuuu{K}$ which respectively extract the spherical and deviatoric part of any symmetrical second-order tensor
+$$
+\uuuu{J}:\uu{a}=\frac{1}{3}\tr{\uu{a}}\,\uu{1}
+\quad \textrm{and} \quad
+\uuuu{K}:\uu{a}=\uu{a}-\frac{1}{3}\tr{\uu{a}}\,\uu{1}
+$${#eq-JKext}
+In other words, $\uuuu{J}$ and $\uuuu{K}$ are defined by
+$$
+\uuuu{J}=\frac{1}{3}\uu{1}\otimes\uu{1}
+\quad \textrm{and} \quad
+\uuuu{K}=\uuuu{I}-\uuuu{J}=\uu{1}\sboxtimes\uu{1}-\frac{1}{3}\uu{1}\otimes\uu{1}
+$${#eq-JK}
+their components by
+$$
+J_{ijkl}=\frac{1}{3}\delta_{ij}\delta_{ik}
+\quad \textrm{and} \quad
+K_{ijkl}=\frac{\delta_{ik}\delta_{jl}+\delta_{il}\delta_{jk}}{2}-\frac{1}{3}\delta_{ij}\delta_{ik}
+$${#eq-JKijkl}
+and their matrices in Kelvin-Mandel notation relatively to any orthonormal frame by
+$$
+\small
+\Mat(\uuuu{J},\mathcal{B})=
+   \left(
+   \begin{array}{ccc|ccc}
+   \frac{1}{3} & \frac{1}{3} & \frac{1}{3} & 0 & 0 & 0 \\
+   \frac{1}{3} & \frac{1}{3} & \frac{1}{3} & 0 & 0 & 0 \\
+   \frac{1}{3} & \frac{1}{3} & \frac{1}{3} & 0 & 0 & 0 \\
+   \hline
+   0 & 0 & 0 & 0 & 0 & 0 \\
+   0 & 0 & 0 & 0 & 0 & 0 \\
+   0 & 0 & 0 & 0 & 0 & 0 \\
+   \end{array}
+   \right)
+$${#eq-matJ}
+
+$$
+\small
+\Mat(\uuuu{K},\mathcal{B})=
+   \left(
+   \begin{array}{ccc|ccc}
+   \frac{2}{3} & \frac{-1}{3} & \frac{-1}{3} & 0 & 0 & 0 \\
+   \frac{-1}{3} & \frac{2}{3} & \frac{-1}{3} & 0 & 0 & 0 \\
+   \frac{-1}{3} & \frac{-1}{3} & \frac{2}{3} & 0 & 0 & 0 \\
+   \hline
+   0 & 0 & 0 & 1 & 0 & 0 \\
+   0 & 0 & 0 & 0 & 1 & 0 \\
+   0 & 0 & 0 & 0 & 0 & 1 \\
+   \end{array}
+   \right)
+$${#eq-matK}
+
+The following relationships are easily obtained
+$$
+\uuuu{J}:\uuuu{J}=\uuuu{J}
+\quad ; \quad
+\uuuu{K}:\uuuu{K}=\uuuu{K}
+\quad ; \quad
+\uuuu{J}:\uuuu{K}=\uuuu{0}
+\quad ; \quad
+\uuuu{J}::\uuuu{J}=1
+\quad ; \quad
+\uuuu{K}::\uuuu{K}=5
+$${#eq-relJK}
+
+The isotropisation of any fourth-order tensor $\uuuu{T}$ is defined by [@bornert2001a]
+$$
+\ISO(\uuuu{T})=\left(\uuuu{T}::\uuuu{J}\right)\,\uuuu{J}+\left(\frac{\uuuu{T}::\uuuu{K}}{5}\right)\,\uuuu{K}
+$${#eq-isoT}
+It is easy to show that (@eq-isoT) is no other than the closest isotropic tensor to $\uuuu{T}$ if the distance is chosen as the euclidean one i.e. associated to the scalar product (@eq-dot4).
+
+## Fourth-order transversely isotropic tensors and Walpole basis {#sec-TI}
+
+The Walpole basis ([@walpole1984], [@brisard2014a]^[see [https://sbrisard.github.io/posts/20140226-decomposition_of_transverse_isotropic_fourth-rank_tensors.html](https://sbrisard.github.io/posts/20140226-decomposition_of_transverse_isotropic_fourth-rank_tensors.html)]) allowing to write any
 fourth-order transversely isotropic relatively to a an axis oriented by the unit
 vector $\n$ is composed of the six following tensors
 built from $\uu{1}_n=\n\otimes\n$
