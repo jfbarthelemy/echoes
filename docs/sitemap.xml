@@ -2,126 +2,126 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/index.html</loc>
-    <lastmod>2022-11-17T23:14:37.356Z</lastmod>
+    <lastmod>2022-11-17T23:29:44.121Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/intro.html</loc>
-    <lastmod>2022-11-17T23:14:37.357Z</lastmod>
+    <lastmod>2022-11-17T23:29:44.123Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/hom_elas.html</loc>
-    <lastmod>2022-11-17T23:14:37.359Z</lastmod>
+    <lastmod>2022-11-17T23:29:44.125Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/basics_elas.html</loc>
-    <lastmod>2022-11-17T23:14:37.361Z</lastmod>
+    <lastmod>2022-11-17T23:29:44.127Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/eshelby_elas.html</loc>
-    <lastmod>2022-11-17T23:14:37.362Z</lastmod>
+    <lastmod>2022-11-17T23:29:44.127Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/cracks_elas.html</loc>
-    <lastmod>2022-11-17T23:14:37.364Z</lastmod>
+    <lastmod>2022-11-17T23:29:44.129Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/mrp_elas.html</loc>
-    <lastmod>2022-11-17T23:14:37.366Z</lastmod>
+    <lastmod>2022-11-17T23:29:44.131Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/schemes_elas.html</loc>
-    <lastmod>2022-11-17T23:14:37.367Z</lastmod>
+    <lastmod>2022-11-17T23:29:44.132Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/hom_cond.html</loc>
-    <lastmod>2022-11-17T23:14:37.368Z</lastmod>
+    <lastmod>2022-11-17T23:29:44.134Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/basics_cond.html</loc>
-    <lastmod>2022-11-17T23:14:37.369Z</lastmod>
+    <lastmod>2022-11-17T23:29:44.135Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/eshelby_cond.html</loc>
-    <lastmod>2022-11-17T23:14:37.369Z</lastmod>
+    <lastmod>2022-11-17T23:29:44.136Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/cracks_cond.html</loc>
-    <lastmod>2022-11-17T23:14:37.370Z</lastmod>
+    <lastmod>2022-11-17T23:29:44.136Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/mrp_cond.html</loc>
-    <lastmod>2022-11-17T23:14:37.371Z</lastmod>
+    <lastmod>2022-11-17T23:29:44.137Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/schemes_cond.html</loc>
-    <lastmod>2022-11-17T23:14:37.372Z</lastmod>
+    <lastmod>2022-11-17T23:29:44.138Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/nonlinear_hom.html</loc>
-    <lastmod>2022-11-17T23:14:37.374Z</lastmod>
+    <lastmod>2022-11-17T23:29:44.139Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/second_order_moments.html</loc>
-    <lastmod>2022-11-17T23:14:37.375Z</lastmod>
+    <lastmod>2022-11-17T23:29:44.140Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/conc_tensor_deriv.html</loc>
-    <lastmod>2022-11-17T23:14:37.376Z</lastmod>
+    <lastmod>2022-11-17T23:29:44.141Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/schemes_deriv.html</loc>
-    <lastmod>2022-11-17T23:14:37.376Z</lastmod>
+    <lastmod>2022-11-17T23:29:44.142Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/viscoelas_freq.html</loc>
-    <lastmod>2022-11-17T23:14:37.377Z</lastmod>
+    <lastmod>2022-11-17T23:29:44.143Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/basics_freq.html</loc>
-    <lastmod>2022-11-17T23:14:37.378Z</lastmod>
+    <lastmod>2022-11-17T23:29:44.144Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/schemes_freq.html</loc>
-    <lastmod>2022-11-17T23:14:37.380Z</lastmod>
+    <lastmod>2022-11-17T23:29:44.146Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/viscoelas_time.html</loc>
-    <lastmod>2022-11-17T23:14:37.381Z</lastmod>
+    <lastmod>2022-11-17T23:29:44.146Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/basics_time.html</loc>
-    <lastmod>2022-11-17T23:14:37.382Z</lastmod>
+    <lastmod>2022-11-17T23:29:44.147Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/schemes_time.html</loc>
-    <lastmod>2022-11-17T23:14:37.383Z</lastmod>
+    <lastmod>2022-11-17T23:29:44.148Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/examples.html</loc>
-    <lastmod>2022-11-17T23:14:37.384Z</lastmod>
+    <lastmod>2022-11-17T23:29:44.149Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/concrete_strength.html</loc>
-    <lastmod>2022-11-17T23:14:37.385Z</lastmod>
+    <lastmod>2022-11-17T23:29:44.150Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/references.html</loc>
-    <lastmod>2022-11-17T23:14:37.385Z</lastmod>
+    <lastmod>2022-11-17T23:29:44.151Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/tensor_algebra.html</loc>
-    <lastmod>2022-11-17T23:14:37.392Z</lastmod>
+    <lastmod>2022-11-17T23:29:44.157Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/hill_elas.html</loc>
-    <lastmod>2022-11-17T23:14:37.401Z</lastmod>
+    <lastmod>2022-11-17T23:29:44.165Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/hill_cond.html</loc>
-    <lastmod>2022-11-17T23:14:37.404Z</lastmod>
+    <lastmod>2022-11-17T23:29:44.167Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/Echoes.pdf</loc>
-    <lastmod>2022-11-17T23:14:36.154Z</lastmod>
+    <lastmod>2022-11-17T23:29:42.943Z</lastmod>
   </url>
 </urlset>
