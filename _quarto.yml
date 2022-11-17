@@ -66,6 +66,7 @@ format:
     code-block-border-left: "#31BAE9"
     code-fold: true
     coce-link: true
+    code-tools: true
     echo: true
     html-math-method: mathjax
     fontsize: normal
@@ -80,7 +81,9 @@ format:
 
 crossref:
   fig-title: "Fig."
+  fig-prefix: "Fig."
   tbl-title: "Tab."
+  tbl-prefix: "Tab."
   eq-prefix: ""
 
 engine: jupyter

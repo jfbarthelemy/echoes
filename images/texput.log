@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=latex 2022.11.9)  12 NOV 2022 11:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=latex 2022.11.9)  17 NOV 2022 22:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -57,7 +57,7 @@ File: dvips.def 2022/09/22 v3.1e Graphics/color driver for dvips
 
 *
 (c:/texlive/2022/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2022-09-22 v7.00t Hypertext links for LaTeX
+Package: hyperref 2022-11-13 v7.00u Hypertext links for LaTeX
 
 (c:/texlive/2022/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
@@ -113,7 +113,7 @@ Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 \Hy@pagecounter=\count195
 
 (c:/texlive/2022/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2022-09-22 v7.00t Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2022-11-13 v7.00u Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
@@ -126,7 +126,7 @@ Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 \Hy@SavedSpaceFactor=\count196
 
 (c:/texlive/2022/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2022-09-22 v7.00t Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2022-11-13 v7.00u Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
@@ -175,10 +175,10 @@ package with kernel methods
 Package hyperref Info: Driver (default): hdvips.
 
 (c:/texlive/2022/texmf-dist/tex/latex/hyperref/hdvips.def
-File: hdvips.def 2022-09-22 v7.00t Hyperref driver for dvips
+File: hdvips.def 2022-11-13 v7.00u Hyperref driver for dvips
 
 (c:/texlive/2022/texmf-dist/tex/latex/hyperref/pdfmark.def
-File: pdfmark.def 2022-09-22 v7.00t Hyperref definitions for pdfmark specials
+File: pdfmark.def 2022-11-13 v7.00u Hyperref definitions for pdfmark specials
 \pdf@docset=\toks17
 \pdf@box=\box51
 \pdf@toks=\toks18
@@ -261,6 +261,20 @@ Package: ocgbase 2022/08/04 v0.22 support package for ocgx2.sty
 (Please type a command or say `\end')
 *
 (Please type a command or say `\end')
+*\usepackage{bm}
+
+*
+(c:/texlive/2022/texmf-dist/tex/latex/tools/bm.sty
+Package: bm 2022/01/05 v1.2f Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup4
+\symboldletters=\mathgroup5
+\symboldsymbols=\mathgroup6
+Package bm Info: No bold for \OMX/cmex/m/n, using \pmb.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
+)
+(Please type a command or say `\end')
+*
+(Please type a command or say `\end')
 *\newbox\ASYbox
 \ASYbox=\box57
 
@@ -315,7 +329,7 @@ Package: ocgbase 2022/08/04 v0.22 support package for ocgx2.sty
 *\makeatother
 
 *\begin{document}
-No file texput.aux.
+(./texput.aux)
 \openout1 = `texput.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 0.
@@ -341,6 +355,7 @@ Package hyperref Info: Link coloring OFF on input line 0.
 \openout4 = `texput.out'.
 
 
+
 Package hyperref Warning: Rerun to get /PageLabels entry.
 
 
@@ -356,7 +371,11 @@ Package hyperref Warning: Rerun to get /PageLabels entry.
 
 *\makeatother%
 
-*\fontsize{12}{14.4}\selectfont%
+*\fontsize{18}{21.6}\selectfont%
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <18> not available
+(Font)              size <17.28> substituted on input line 0.
+
 
 *
 (Please type a command or say `\end')
@@ -364,14 +383,735 @@ Package hyperref Warning: Rerun to get /PageLabels entry.
 
 *
 (Please type a command or say `\end')
-*\setbox\ASYbox=\hbox{\hbox to 0pt{\includegraphics[hiresbb]{cover+0.eps}\hss}%
+*\setbox\ASYbox=\hbox{$\underline{e}_1$}
+LaTeX Font Info:    Calculating math sizes for size <18> on input line 0.
 
-File: cover+0.eps Graphic file (type eps)
-<cover+0.eps>
-*\includemedia[noplaybutton,3Dlights=Headlamp,3Dmenu,3Dtoolbar=true,label=,3Dor
-tho=0.004974618,3Dc2w=0.707106781 -0.707106781 0 -0.23570226 -0.23570226 0.9428
-09042 -0.666666667 -0.666666667 -0.333333333 230.940107676 230.940107676 115.47
-0053838,3Droo=346.410161514,3Dpsob=Max,3Dbg=1 1 1,add3Djscript=asylabels.js]{\p
-hantom{\includegraphics[hiresbb]{cover+0.eps}}}{cover+0.prc}}
-File: cover+0.eps Graphic file (type eps)
-<cover+0.eps> <cover+0.prc . . . . . . . . . .
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <12.59995> not available
+(Font)              size <12> substituted on input line 0.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <18> not available
+(Font)              size <17.28> substituted on input line 0.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <12.59995> not available
+(Font)              size <12> substituted on input line 0.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <18> not available
+(Font)              size <17.28> substituted on input line 0.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <12.59995> not available
+(Font)              size <12> substituted on input line 0.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <18> on input line 0.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12.59995> on input line 0.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 0.
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <18> not available
+(Font)              size <17.28> substituted on input line 0.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <12.59995> not available
+(Font)              size <12> substituted on input line 0.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <18> not available
+(Font)              size <17.28> substituted on input line 0.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <12.59995> not available
+(Font)              size <12> substituted on input line 0.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <18> not available
+(Font)              size <17.28> substituted on input line 0.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <12.59995> not available
+(Font)              size <12> substituted on input line 0.
+
+
+*
+(Please type a command or say `\end')
+*\immediate\write16{>dim(\the\wd\ASYbox)dim}
+>dim(14.21686pt)dim
+
+*\immediate\write16{>dim(\the\ht\ASYbox)dim}
+>dim(7.44pt)dim
+
+*\immediate\write16{>dim(\the\dp\ASYbox)dim}
+>dim(2.59988pt)dim
+
+*\fontsize{18}{21.6}\selectfont%
+
+*
+(Please type a command or say `\end')
+*\usefont{\ASYencoding}{\ASYfamily}{\ASYseries}{\ASYshape}%
+
+*
+(Please type a command or say `\end')
+*\setbox\ASYbox=\hbox{$\underline{e}_2$}
+
+*
+(Please type a command or say `\end')
+*\immediate\write16{>dim(\the\wd\ASYbox)dim}
+>dim(14.21686pt)dim
+
+*\immediate\write16{>dim(\the\ht\ASYbox)dim}
+>dim(7.44pt)dim
+
+*\immediate\write16{>dim(\the\dp\ASYbox)dim}
+>dim(2.59988pt)dim
+
+*\fontsize{18}{21.6}\selectfont%
+
+*
+(Please type a command or say `\end')
+*\usefont{\ASYencoding}{\ASYfamily}{\ASYseries}{\ASYshape}%
+
+*
+(Please type a command or say `\end')
+*\setbox\ASYbox=\hbox{$\underline{e}_3$}
+
+*
+(Please type a command or say `\end')
+*\immediate\write16{>dim(\the\wd\ASYbox)dim}
+>dim(14.21686pt)dim
+
+*\immediate\write16{>dim(\the\ht\ASYbox)dim}
+>dim(7.44pt)dim
+
+*\immediate\write16{>dim(\the\dp\ASYbox)dim}
+>dim(2.59988pt)dim
+
+*\fontsize{18}{21.6}\selectfont%
+
+*
+(Please type a command or say `\end')
+*\usefont{\ASYencoding}{\ASYfamily}{\ASYseries}{\ASYshape}%
+
+*
+(Please type a command or say `\end')
+*\setbox\ASYbox=\hbox{$\rm O$}
+
+*
+(Please type a command or say `\end')
+*\immediate\write16{>dim(\the\wd\ASYbox)dim}
+>dim(12.43878pt)dim
+
+*\immediate\write16{>dim(\the\ht\ASYbox)dim}
+>dim(11.80556pt)dim
+
+*\immediate\write16{>dim(\the\dp\ASYbox)dim}
+>dim(0.0pt)dim
+
+*\fontsize{18}{21.6}\selectfont%
+
+*
+(Please type a command or say `\end')
+*\usefont{\ASYencoding}{\ASYfamily}{\ASYseries}{\ASYshape}%
+
+*
+(Please type a command or say `\end')
+*\setbox\ASYbox=\hbox{$\underline{e}'_1$}
+
+*
+(Please type a command or say `\end')
+*\immediate\write16{>dim(\the\wd\ASYbox)dim}
+>dim(14.21686pt)dim
+
+*\immediate\write16{>dim(\the\ht\ASYbox)dim}
+>dim(12.93745pt)dim
+
+*\immediate\write16{>dim(\the\dp\ASYbox)dim}
+>dim(4.27191pt)dim
+
+*\fontsize{18}{21.6}\selectfont%
+
+*
+(Please type a command or say `\end')
+*\usefont{\ASYencoding}{\ASYfamily}{\ASYseries}{\ASYshape}%
+
+*
+(Please type a command or say `\end')
+*\setbox\ASYbox=\hbox{$\underline{e}'_2$}
+
+*
+(Please type a command or say `\end')
+*\immediate\write16{>dim(\the\wd\ASYbox)dim}
+>dim(14.21686pt)dim
+
+*\immediate\write16{>dim(\the\ht\ASYbox)dim}
+>dim(12.93745pt)dim
+
+*\immediate\write16{>dim(\the\dp\ASYbox)dim}
+>dim(4.27191pt)dim
+
+*\fontsize{18}{21.6}\selectfont%
+
+*
+(Please type a command or say `\end')
+*\usefont{\ASYencoding}{\ASYfamily}{\ASYseries}{\ASYshape}%
+
+*
+(Please type a command or say `\end')
+*\setbox\ASYbox=\hbox{$\underline{e}'_3$}
+
+*
+(Please type a command or say `\end')
+*\immediate\write16{>dim(\the\wd\ASYbox)dim}
+>dim(14.21686pt)dim
+
+*\immediate\write16{>dim(\the\ht\ASYbox)dim}
+>dim(12.93745pt)dim
+
+*\immediate\write16{>dim(\the\dp\ASYbox)dim}
+>dim(4.27191pt)dim
+
+*\fontsize{18}{21.6}\selectfont%
+
+*
+(Please type a command or say `\end')
+*\usefont{\ASYencoding}{\ASYfamily}{\ASYseries}{\ASYshape}%
+
+*
+(Please type a command or say `\end')
+*\setbox\ASYbox=\hbox{$\theta$}
+
+*
+(Please type a command or say `\end')
+*\immediate\write16{>dim(\the\wd\ASYbox)dim}
+>dim(8.35489pt)dim
+
+*\immediate\write16{>dim(\the\ht\ASYbox)dim}
+>dim(11.99998pt)dim
+
+*\immediate\write16{>dim(\the\dp\ASYbox)dim}
+>dim(0.0pt)dim
+
+*\fontsize{18}{21.6}\selectfont%
+
+*
+(Please type a command or say `\end')
+*\usefont{\ASYencoding}{\ASYfamily}{\ASYseries}{\ASYshape}%
+
+*
+(Please type a command or say `\end')
+*\setbox\ASYbox=\hbox{$\phi$}
+
+*
+(Please type a command or say `\end')
+*\immediate\write16{>dim(\the\wd\ASYbox)dim}
+>dim(10.01387pt)dim
+
+*\immediate\write16{>dim(\the\ht\ASYbox)dim}
+>dim(11.99998pt)dim
+
+*\immediate\write16{>dim(\the\dp\ASYbox)dim}
+>dim(3.35999pt)dim
+
+*\fontsize{18}{21.6}\selectfont%
+
+*
+(Please type a command or say `\end')
+*\usefont{\ASYencoding}{\ASYfamily}{\ASYseries}{\ASYshape}%
+
+*
+(Please type a command or say `\end')
+*\setbox\ASYbox=\hbox{$\psi$}
+
+*
+(Please type a command or say `\end')
+*\immediate\write16{>dim(\the\wd\ASYbox)dim}
+>dim(11.61987pt)dim
+
+*\immediate\write16{>dim(\the\ht\ASYbox)dim}
+>dim(11.99998pt)dim
+
+*\immediate\write16{>dim(\the\dp\ASYbox)dim}
+>dim(3.35999pt)dim
+
+*\fontsize{18}{21.6}\selectfont%
+
+*
+(Please type a command or say `\end')
+*\usefont{\ASYencoding}{\ASYfamily}{\ASYseries}{\ASYshape}%
+
+*
+(Please type a command or say `\end')
+*\setbox\ASYbox=\hbox{$\psi$}
+
+*
+(Please type a command or say `\end')
+*\immediate\write16{>dim(\the\wd\ASYbox)dim}
+>dim(11.61987pt)dim
+
+*\immediate\write16{>dim(\the\ht\ASYbox)dim}
+>dim(11.99998pt)dim
+
+*\immediate\write16{>dim(\the\dp\ASYbox)dim}
+>dim(3.35999pt)dim
+
+*\fontsize{18}{21.6}\selectfont%
+
+*
+(Please type a command or say `\end')
+*\usefont{\ASYencoding}{\ASYfamily}{\ASYseries}{\ASYshape}%
+
+*
+(Please type a command or say `\end')
+*\setbox\ASYbox=\hbox{$\underline{e}_1$}
+
+*
+(Please type a command or say `\end')
+*\immediate\write16{>dim(\the\wd\ASYbox)dim}
+>dim(14.21686pt)dim
+
+*\immediate\write16{>dim(\the\ht\ASYbox)dim}
+>dim(7.44pt)dim
+
+*\immediate\write16{>dim(\the\dp\ASYbox)dim}
+>dim(2.59988pt)dim
+
+*\fontsize{18}{21.6}\selectfont%
+
+*
+(Please type a command or say `\end')
+*\usefont{\ASYencoding}{\ASYfamily}{\ASYseries}{\ASYshape}%
+
+*
+(Please type a command or say `\end')
+*\setbox\ASYbox=\hbox{$\underline{e}_1$}
+
+*
+(Please type a command or say `\end')
+*\immediate\write16{>dim(\the\wd\ASYbox)dim}
+>dim(14.21686pt)dim
+
+*\immediate\write16{>dim(\the\ht\ASYbox)dim}
+>dim(7.44pt)dim
+
+*\immediate\write16{>dim(\the\dp\ASYbox)dim}
+>dim(2.59988pt)dim
+
+*\fontsize{18}{21.6}\selectfont%
+
+*
+(Please type a command or say `\end')
+*\usefont{\ASYencoding}{\ASYfamily}{\ASYseries}{\ASYshape}%
+
+*
+(Please type a command or say `\end')
+*\setbox\ASYbox=\hbox{$\underline{e}_2$}
+
+*
+(Please type a command or say `\end')
+*\immediate\write16{>dim(\the\wd\ASYbox)dim}
+>dim(14.21686pt)dim
+
+*\immediate\write16{>dim(\the\ht\ASYbox)dim}
+>dim(7.44pt)dim
+
+*\immediate\write16{>dim(\the\dp\ASYbox)dim}
+>dim(2.59988pt)dim
+
+*\fontsize{18}{21.6}\selectfont%
+
+*
+(Please type a command or say `\end')
+*\usefont{\ASYencoding}{\ASYfamily}{\ASYseries}{\ASYshape}%
+
+*
+(Please type a command or say `\end')
+*\setbox\ASYbox=\hbox{$\underline{e}_2$}
+
+*
+(Please type a command or say `\end')
+*\immediate\write16{>dim(\the\wd\ASYbox)dim}
+>dim(14.21686pt)dim
+
+*\immediate\write16{>dim(\the\ht\ASYbox)dim}
+>dim(7.44pt)dim
+
+*\immediate\write16{>dim(\the\dp\ASYbox)dim}
+>dim(2.59988pt)dim
+
+*\fontsize{18}{21.6}\selectfont%
+
+*
+(Please type a command or say `\end')
+*\usefont{\ASYencoding}{\ASYfamily}{\ASYseries}{\ASYshape}%
+
+*
+(Please type a command or say `\end')
+*\setbox\ASYbox=\hbox{$\underline{e}_3$}
+
+*
+(Please type a command or say `\end')
+*\immediate\write16{>dim(\the\wd\ASYbox)dim}
+>dim(14.21686pt)dim
+
+*\immediate\write16{>dim(\the\ht\ASYbox)dim}
+>dim(7.44pt)dim
+
+*\immediate\write16{>dim(\the\dp\ASYbox)dim}
+>dim(2.59988pt)dim
+
+*\fontsize{18}{21.6}\selectfont%
+
+*
+(Please type a command or say `\end')
+*\usefont{\ASYencoding}{\ASYfamily}{\ASYseries}{\ASYshape}%
+
+*
+(Please type a command or say `\end')
+*\setbox\ASYbox=\hbox{$\underline{e}_3$}
+
+*
+(Please type a command or say `\end')
+*\immediate\write16{>dim(\the\wd\ASYbox)dim}
+>dim(14.21686pt)dim
+
+*\immediate\write16{>dim(\the\ht\ASYbox)dim}
+>dim(7.44pt)dim
+
+*\immediate\write16{>dim(\the\dp\ASYbox)dim}
+>dim(2.59988pt)dim
+
+*\fontsize{18}{21.6}\selectfont%
+
+*
+(Please type a command or say `\end')
+*\usefont{\ASYencoding}{\ASYfamily}{\ASYseries}{\ASYshape}%
+
+*
+(Please type a command or say `\end')
+*\setbox\ASYbox=\hbox{$\rm O$}
+
+*
+(Please type a command or say `\end')
+*\immediate\write16{>dim(\the\wd\ASYbox)dim}
+>dim(12.43878pt)dim
+
+*\immediate\write16{>dim(\the\ht\ASYbox)dim}
+>dim(11.80556pt)dim
+
+*\immediate\write16{>dim(\the\dp\ASYbox)dim}
+>dim(0.0pt)dim
+
+*\fontsize{18}{21.6}\selectfont%
+
+*
+(Please type a command or say `\end')
+*\usefont{\ASYencoding}{\ASYfamily}{\ASYseries}{\ASYshape}%
+
+*
+(Please type a command or say `\end')
+*\setbox\ASYbox=\hbox{$\rm O$}
+
+*
+(Please type a command or say `\end')
+*\immediate\write16{>dim(\the\wd\ASYbox)dim}
+>dim(12.43878pt)dim
+
+*\immediate\write16{>dim(\the\ht\ASYbox)dim}
+>dim(11.80556pt)dim
+
+*\immediate\write16{>dim(\the\dp\ASYbox)dim}
+>dim(0.0pt)dim
+
+*\fontsize{18}{21.6}\selectfont%
+
+*
+(Please type a command or say `\end')
+*\usefont{\ASYencoding}{\ASYfamily}{\ASYseries}{\ASYshape}%
+
+*
+(Please type a command or say `\end')
+*\setbox\ASYbox=\hbox{$\underline{e}'_1$}
+
+*
+(Please type a command or say `\end')
+*\immediate\write16{>dim(\the\wd\ASYbox)dim}
+>dim(14.21686pt)dim
+
+*\immediate\write16{>dim(\the\ht\ASYbox)dim}
+>dim(12.93745pt)dim
+
+*\immediate\write16{>dim(\the\dp\ASYbox)dim}
+>dim(4.27191pt)dim
+
+*\fontsize{18}{21.6}\selectfont%
+
+*
+(Please type a command or say `\end')
+*\usefont{\ASYencoding}{\ASYfamily}{\ASYseries}{\ASYshape}%
+
+*
+(Please type a command or say `\end')
+*\setbox\ASYbox=\hbox{$\underline{e}'_1$}
+
+*
+(Please type a command or say `\end')
+*\immediate\write16{>dim(\the\wd\ASYbox)dim}
+>dim(14.21686pt)dim
+
+*\immediate\write16{>dim(\the\ht\ASYbox)dim}
+>dim(12.93745pt)dim
+
+*\immediate\write16{>dim(\the\dp\ASYbox)dim}
+>dim(4.27191pt)dim
+
+*\fontsize{18}{21.6}\selectfont%
+
+*
+(Please type a command or say `\end')
+*\usefont{\ASYencoding}{\ASYfamily}{\ASYseries}{\ASYshape}%
+
+*
+(Please type a command or say `\end')
+*\setbox\ASYbox=\hbox{$\underline{e}'_2$}
+
+*
+(Please type a command or say `\end')
+*\immediate\write16{>dim(\the\wd\ASYbox)dim}
+>dim(14.21686pt)dim
+
+*\immediate\write16{>dim(\the\ht\ASYbox)dim}
+>dim(12.93745pt)dim
+
+*\immediate\write16{>dim(\the\dp\ASYbox)dim}
+>dim(4.27191pt)dim
+
+*\fontsize{18}{21.6}\selectfont%
+
+*
+(Please type a command or say `\end')
+*\usefont{\ASYencoding}{\ASYfamily}{\ASYseries}{\ASYshape}%
+
+*
+(Please type a command or say `\end')
+*\setbox\ASYbox=\hbox{$\underline{e}'_2$}
+
+*
+(Please type a command or say `\end')
+*\immediate\write16{>dim(\the\wd\ASYbox)dim}
+>dim(14.21686pt)dim
+
+*\immediate\write16{>dim(\the\ht\ASYbox)dim}
+>dim(12.93745pt)dim
+
+*\immediate\write16{>dim(\the\dp\ASYbox)dim}
+>dim(4.27191pt)dim
+
+*\fontsize{18}{21.6}\selectfont%
+
+*
+(Please type a command or say `\end')
+*\usefont{\ASYencoding}{\ASYfamily}{\ASYseries}{\ASYshape}%
+
+*
+(Please type a command or say `\end')
+*\setbox\ASYbox=\hbox{$\underline{e}'_3$}
+
+*
+(Please type a command or say `\end')
+*\immediate\write16{>dim(\the\wd\ASYbox)dim}
+>dim(14.21686pt)dim
+
+*\immediate\write16{>dim(\the\ht\ASYbox)dim}
+>dim(12.93745pt)dim
+
+*\immediate\write16{>dim(\the\dp\ASYbox)dim}
+>dim(4.27191pt)dim
+
+*\fontsize{18}{21.6}\selectfont%
+
+*
+(Please type a command or say `\end')
+*\usefont{\ASYencoding}{\ASYfamily}{\ASYseries}{\ASYshape}%
+
+*
+(Please type a command or say `\end')
+*\setbox\ASYbox=\hbox{$\underline{e}'_3$}
+
+*
+(Please type a command or say `\end')
+*\immediate\write16{>dim(\the\wd\ASYbox)dim}
+>dim(14.21686pt)dim
+
+*\immediate\write16{>dim(\the\ht\ASYbox)dim}
+>dim(12.93745pt)dim
+
+*\immediate\write16{>dim(\the\dp\ASYbox)dim}
+>dim(4.27191pt)dim
+
+*\fontsize{18}{21.6}\selectfont%
+
+*
+(Please type a command or say `\end')
+*\usefont{\ASYencoding}{\ASYfamily}{\ASYseries}{\ASYshape}%
+
+*
+(Please type a command or say `\end')
+*\setbox\ASYbox=\hbox{$\theta$}
+
+*
+(Please type a command or say `\end')
+*\immediate\write16{>dim(\the\wd\ASYbox)dim}
+>dim(8.35489pt)dim
+
+*\immediate\write16{>dim(\the\ht\ASYbox)dim}
+>dim(11.99998pt)dim
+
+*\immediate\write16{>dim(\the\dp\ASYbox)dim}
+>dim(0.0pt)dim
+
+*\fontsize{18}{21.6}\selectfont%
+
+*
+(Please type a command or say `\end')
+*\usefont{\ASYencoding}{\ASYfamily}{\ASYseries}{\ASYshape}%
+
+*
+(Please type a command or say `\end')
+*\setbox\ASYbox=\hbox{$\theta$}
+
+*
+(Please type a command or say `\end')
+*\immediate\write16{>dim(\the\wd\ASYbox)dim}
+>dim(8.35489pt)dim
+
+*\immediate\write16{>dim(\the\ht\ASYbox)dim}
+>dim(11.99998pt)dim
+
+*\immediate\write16{>dim(\the\dp\ASYbox)dim}
+>dim(0.0pt)dim
+
+*\fontsize{18}{21.6}\selectfont%
+
+*
+(Please type a command or say `\end')
+*\usefont{\ASYencoding}{\ASYfamily}{\ASYseries}{\ASYshape}%
+
+*
+(Please type a command or say `\end')
+*\setbox\ASYbox=\hbox{$\phi$}
+
+*
+(Please type a command or say `\end')
+*\immediate\write16{>dim(\the\wd\ASYbox)dim}
+>dim(10.01387pt)dim
+
+*\immediate\write16{>dim(\the\ht\ASYbox)dim}
+>dim(11.99998pt)dim
+
+*\immediate\write16{>dim(\the\dp\ASYbox)dim}
+>dim(3.35999pt)dim
+
+*\fontsize{18}{21.6}\selectfont%
+
+*
+(Please type a command or say `\end')
+*\usefont{\ASYencoding}{\ASYfamily}{\ASYseries}{\ASYshape}%
+
+*
+(Please type a command or say `\end')
+*\setbox\ASYbox=\hbox{$\phi$}
+
+*
+(Please type a command or say `\end')
+*\immediate\write16{>dim(\the\wd\ASYbox)dim}
+>dim(10.01387pt)dim
+
+*\immediate\write16{>dim(\the\ht\ASYbox)dim}
+>dim(11.99998pt)dim
+
+*\immediate\write16{>dim(\the\dp\ASYbox)dim}
+>dim(3.35999pt)dim
+
+*\fontsize{18}{21.6}\selectfont%
+
+*
+(Please type a command or say `\end')
+*\usefont{\ASYencoding}{\ASYfamily}{\ASYseries}{\ASYshape}%
+
+*
+(Please type a command or say `\end')
+*\setbox\ASYbox=\hbox{$\psi$}
+
+*
+(Please type a command or say `\end')
+*\immediate\write16{>dim(\the\wd\ASYbox)dim}
+>dim(11.61987pt)dim
+
+*\immediate\write16{>dim(\the\ht\ASYbox)dim}
+>dim(11.99998pt)dim
+
+*\immediate\write16{>dim(\the\dp\ASYbox)dim}
+>dim(3.35999pt)dim
+
+*\fontsize{18}{21.6}\selectfont%
+
+*
+(Please type a command or say `\end')
+*\usefont{\ASYencoding}{\ASYfamily}{\ASYseries}{\ASYshape}%
+
+*
+(Please type a command or say `\end')
+*\setbox\ASYbox=\hbox{$\psi$}
+
+*
+(Please type a command or say `\end')
+*\immediate\write16{>dim(\the\wd\ASYbox)dim}
+>dim(11.61987pt)dim
+
+*\immediate\write16{>dim(\the\ht\ASYbox)dim}
+>dim(11.99998pt)dim
+
+*\immediate\write16{>dim(\the\dp\ASYbox)dim}
+>dim(3.35999pt)dim
+
+*\fontsize{18}{21.6}\selectfont%
+
+*
+(Please type a command or say `\end')
+*\usefont{\ASYencoding}{\ASYfamily}{\ASYseries}{\ASYshape}%
+
+*
+(Please type a command or say `\end')
+*\setbox\ASYbox=\hbox{$\psi$}
+
+*
+(Please type a command or say `\end')
+*\immediate\write16{>dim(\the\wd\ASYbox)dim}
+>dim(11.61987pt)dim
+
+*\immediate\write16{>dim(\the\ht\ASYbox)dim}
+>dim(11.99998pt)dim
+
+*\immediate\write16{>dim(\the\dp\ASYbox)dim}
+>dim(3.35999pt)dim
+
+*\fontsize{18}{21.6}\selectfont%
+
+*
+(Please type a command or say `\end')
+*\usefont{\ASYencoding}{\ASYfamily}{\ASYseries}{\ASYshape}%
+
+*
+(Please type a command or say `\end')
+*\setbox\ASYbox=\hbox{$\psi$}
+
+*
+(Please type a command or say `\end')
+*\immediate\write16{>dim(\the\wd\ASYbox)dim}
+>dim(11.61987pt)dim
+
+*\immediate\write16{>dim(\the\ht\ASYbox)dim}
+>dim(11.99998pt)d
