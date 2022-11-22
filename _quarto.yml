@@ -63,10 +63,10 @@ format:
   html:
     theme: journal
     code-block-bg: true
-    code-block-border-left: "#31BAE9"
+    code-block-border-left: "#FF00FF"
     code-fold: true
     coce-link: true
-    code-tools: true
+    code-tools: false
     echo: true
     html-math-method: mathjax
     fontsize: normal

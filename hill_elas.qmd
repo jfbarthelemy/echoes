@@ -253,6 +253,7 @@ $$
 #| error: false
 #| warning: false
 #| code-fold: false
+#| include: false
 
 import numpy as np
 from echoes import *

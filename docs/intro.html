@@ -401,7 +401,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span id="sec-intro" class="quarto-section-identifier d-none d-lg-block">Introduction</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<h1 class="title"><span id="sec-intro" class="quarto-section-identifier d-none d-lg-block">Introduction</span></h1>
 </div>
 
 
@@ -416,10 +416,12 @@ div.csl-indent {
 
 </header>
 
-<p>This book does not aim at providing an exhaustive presentation of the theory of random medium homogeneization (see <span class="citation" data-cites="milton2002">(<a href="references.html#ref-milton2002" role="doc-biblioref">Milton, 2002</a>)</span>, <span class="citation" data-cites="torquato2002">(<a href="references.html#ref-torquato2002" role="doc-biblioref">Torquato, 2002</a>)</span> or <span class="citation" data-cites="kachanov2018">(<a href="references.html#ref-kachanov2018" role="doc-biblioref">Kachanov and Sevostianov, 2018</a>)</span> among others) but it is rather intended to recall some of the basic notations and results related to the implementation of the <strong>Echoes</strong> library.</p>
+<p>This book does not provide an exhaustive presentation of the theory of random medium homogeneization (see <span class="citation" data-cites="milton2002">(<a href="references.html#ref-milton2002" role="doc-biblioref">Milton, 2002</a>)</span>, <span class="citation" data-cites="torquato2002">(<a href="references.html#ref-torquato2002" role="doc-biblioref">Torquato, 2002</a>)</span> or <span class="citation" data-cites="kachanov2018">(<a href="references.html#ref-kachanov2018" role="doc-biblioref">Kachanov and Sevostianov, 2018</a>)</span> among others) but it is rather intended to recall some of the basic notations and results related to the implementation of the <strong>Echoes</strong> library.</p>
+<p>In this manual, some snippets of Python codes calling <strong>Echoes</strong> library are presented. Except when it is necessary to show the imported libraries, the following starting lines will be implicit</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
-
-<!-- -->
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
 <div id="ref-kachanov2018" class="csl-entry" role="doc-biblioentry">
@@ -499,57 +501,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
-    });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
-    }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
-  }
   function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
@@ -629,11 +580,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         <span class="nav-page-text">Linear elasticity</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introduction {.unnumbered #sec-intro}</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>This book does not aim at providing an exhaustive presentation of the theory of random medium homogeneization (see <span class="co">[</span><span class="ot">@milton2002</span><span class="co">]</span>, <span class="co">[</span><span class="ot">@torquato2002</span><span class="co">]</span> or <span class="co">[</span><span class="ot">@kachanov2018</span><span class="co">]</span> among others) but it is rather intended to recall some of the basic notations and results related to the implementation of the **Echoes** library.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></div></div></div></div>
+</nav>
 </div> <!-- /content -->
 
 
