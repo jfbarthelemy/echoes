@@ -127,9 +127,9 @@ $$\begin{aligned}
 &(h)
 \end{aligned}$${#eq-propboxtimes}
 
-## Kelvin-Mandel convention {#sec-KM}
+## Kelvin-Mandel notation {#sec-KM}
 
-The Kelvin-Mandel convention allows to write the matrix of a symmetric
+The Kelvin-Mandel notation allows to write the matrix of a symmetric
 second-order
 tensor in a given orthonormal frame \mbox{$(\ve{i})_{i=1,2,3}$}
 under the form of a vector of $\R^6$
@@ -402,6 +402,7 @@ $$
 \ISO(\uuuu{T})=\left(\uuuu{T}::\uuuu{J}\right)\,\uuuu{J}+\left(\frac{\uuuu{T}::\uuuu{K}}{5}\right)\,\uuuu{K}
 $${#eq-isoT}
 It is easy to show that (@eq-isoT) is no other than the closest isotropic tensor to $\uuuu{T}$ if the distance is chosen as the euclidean one i.e. associated to the scalar product (@eq-dot4).
+Note however that this isotropisation relying on euclidean distance to the set of isotropic tensors does not lead to the same result if $\uuuu{T}'$ is considered instead of $\uuuu{T}$. Other distance definitions such as log-Euclidean distance fullfilling invariance by inversion are analyzed in [@morin2020].
 
 ## Fourth-order transversely isotropic tensors and Walpole basis {#sec-TI}
 

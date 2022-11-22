@@ -6,5 +6,23 @@ The library **ECHOES** allows to implement various homogenization schemes involv
 
 This manual aims at recalling some fundamental aspects of the theory of homogenization of random media along with a presentation of the main features of the library **ECHOES** as well as code examples.
 
+## Download
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7348759.svg)](https://doi.org/10.5281/zenodo.7348759)
+
+## Citation
+
+```
+@misc{Echoes,
+	author  = {Jean-François Barthélémy},
+	title   = {Echoes library (Extended Calculator of HOmogEnization Schemes)},
+	url     = {https://jfbarthelemy.github.io/echoes/},
+    doi     = {10.5281/zenodo.7348759}
+	version = {v1.0.0},
+	year    = {2022},
+	month   = {11}
+}
+```
+
 ----------------
 Created thanks to [Quarto](https://quarto.org/).

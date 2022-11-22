@@ -20,69 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
@@ -400,7 +337,7 @@ div.csl-indent {
    
   <ul>
   <li><a href="#sec-tensoralgebra_convention" id="toc-sec-tensoralgebra_convention" class="nav-link active" data-scroll-target="#sec-tensoralgebra_convention"><span class="toc-section-number">A.1</span>  Conventions of tensor algebra</a></li>
-  <li><a href="#sec-KM" id="toc-sec-KM" class="nav-link" data-scroll-target="#sec-KM"><span class="toc-section-number">A.2</span>  Kelvin-Mandel convention</a></li>
+  <li><a href="#sec-KM" id="toc-sec-KM" class="nav-link" data-scroll-target="#sec-KM"><span class="toc-section-number">A.2</span>  Kelvin-Mandel notation</a></li>
   <li><a href="#sec-rottens" id="toc-sec-rottens" class="nav-link" data-scroll-target="#sec-rottens"><span class="toc-section-number">A.3</span>  Rotation of tensors</a></li>
   <li><a href="#sec-ISO" id="toc-sec-ISO" class="nav-link" data-scroll-target="#sec-ISO"><span class="toc-section-number">A.4</span>  Fourth-order isotropic tensors</a></li>
   <li><a href="#sec-TI" id="toc-sec-TI" class="nav-link" data-scroll-target="#sec-TI"><span class="toc-section-number">A.5</span>  Fourth-order transversely isotropic tensors and Walpole basis</a></li>
@@ -412,7 +349,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span id="sec-tensor_algebra" class="quarto-section-identifier d-none d-lg-block">Appendix A — Tensor algebra</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<h1 class="title"><span id="sec-tensor_algebra" class="quarto-section-identifier d-none d-lg-block">Appendix A — Tensor algebra</span></h1>
 </div>
 
 
@@ -513,8 +450,8 @@ div.csl-indent {
 \end{aligned} \tag{A.13}\]</span></span></p>
 </section>
 <section id="sec-KM" class="level2" data-number="A.2">
-<h2 data-number="A.2" class="anchored" data-anchor-id="sec-KM"><span class="header-section-number">A.2</span> Kelvin-Mandel convention</h2>
-<p>The Kelvin-Mandel convention allows to write the matrix of a symmetric second-order tensor in a given orthonormal frame under the form of a vector of <span class="math inline">\({\mathbb{{R}}}^6\)</span> <span id="eq-KM2"><span class="math display">\[
+<h2 data-number="A.2" class="anchored" data-anchor-id="sec-KM"><span class="header-section-number">A.2</span> Kelvin-Mandel notation</h2>
+<p>The Kelvin-Mandel notation allows to write the matrix of a symmetric second-order tensor in a given orthonormal frame under the form of a vector of <span class="math inline">\({\mathbb{{R}}}^6\)</span> <span id="eq-KM2"><span class="math display">\[
    \mathop{\mathrm{Mat}}({{\mathbf{\boldsymbol{{{\varepsilon}}}}}},({{\underline{{{e}}}}_{{i}}}))=
    \left(
    \begin{array}{ccc}
@@ -719,7 +656,7 @@ K_{ijkl}=\frac{\delta_{ik}\delta_{jl}+\delta_{il}\delta_{jk}}{2}-\frac{1}{3}\del
 \tag{A.32}\]</span></span></p>
 <p>The isotropisation of any fourth-order tensor <span class="math inline">\({\mathbb{{T}}}\)</span> is defined by <span class="citation" data-cites="bornert2001a">(<a href="references.html#ref-bornert2001a" role="doc-biblioref">Bornert et al., 2001</a>)</span> <span id="eq-isoT"><span class="math display">\[
 \mathop{\mathrm{ISO}}({\mathbb{{T}}})=\left({\mathbb{{T}}}::{\mathbb{{J}}}\right)\,{\mathbb{{J}}}+\left(\frac{{\mathbb{{T}}}::{\mathbb{{K}}}}{5}\right)\,{\mathbb{{K}}}
-\tag{A.33}\]</span></span> It is easy to show that (<a href="#eq-isoT"><span>A.33</span></a>) is no other than the closest isotropic tensor to <span class="math inline">\({\mathbb{{T}}}\)</span> if the distance is chosen as the euclidean one i.e.&nbsp;associated to the scalar product (<a href="#eq-dot4"><span>A.10</span></a>).</p>
+\tag{A.33}\]</span></span> It is easy to show that (<a href="#eq-isoT"><span>A.33</span></a>) is no other than the closest isotropic tensor to <span class="math inline">\({\mathbb{{T}}}\)</span> if the distance is chosen as the euclidean one i.e.&nbsp;associated to the scalar product (<a href="#eq-dot4"><span>A.10</span></a>). Note however that this isotropisation relying on euclidean distance to the set of isotropic tensors does not lead to the same result if <span class="math inline">\({\mathbb{{T}}}'\)</span> is considered instead of <span class="math inline">\({\mathbb{{T}}}\)</span>. Other distance definitions such as log-Euclidean distance fullfilling invariance by inversion are analyzed in <span class="citation" data-cites="morin2020">(<a href="references.html#ref-morin2020" role="doc-biblioref">Morin et al., 2020</a>)</span>.</p>
 </section>
 <section id="sec-TI" class="level2" data-number="A.5">
 <h2 data-number="A.5" class="anchored" data-anchor-id="sec-TI"><span class="header-section-number">A.5</span> Fourth-order transversely isotropic tensors and Walpole basis</h2>
@@ -762,14 +699,15 @@ L = \left(
 \end{aligned} \tag{A.37}\]</span></span></p>
 
 
-<!-- -->
-
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
 <div id="ref-bornert2001a" class="csl-entry" role="doc-biblioentry">
 Bornert, M., Bretheau, T., Gilormini, P., 2001. Homogénéisation en mécanique des matériaux. <span>Hermes science</span>.
 </div>
 <div id="ref-brisard2014a" class="csl-entry" role="doc-biblioentry">
 Brisard, S., 2014. Sébastien <span>Brisard</span>’s blog. <span class="nocase">https://sbrisard.github.io</span>.
+</div>
+<div id="ref-morin2020" class="csl-entry" role="doc-biblioentry">
+Morin, L., Gilormini, P., Derrien, K., 2020. Generalized <span>Euclidean Distances</span> for <span>Elasticity Tensors</span>. Journal of Elasticity 138, 221–232. <a href="https://doi.org/10.1007/s10659-019-09741-z">https://doi.org/10.1007/s10659-019-09741-z</a>
 </div>
 <div id="ref-walpole1984" class="csl-entry" role="doc-biblioentry">
 Walpole, L.J., 1984. Fourth-rank tensors of the thirty-two crystal classes: Multiplication tables. Proceedings of the Royal Society of London. A. Mathematical and Physical Sciences 391, 149–179. <a href="https://doi.org/10.1098/rspa.1984.0008">https://doi.org/10.1098/rspa.1984.0008</a>
@@ -852,57 +790,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
-    });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
-    }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
-  }
   function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
@@ -982,469 +869,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Hill polarization tensor in elasticity</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>::: {.content-hidden}</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>{{&lt; include config/_macros.tex &gt;}}</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu"># Tensor algebra {#sec-tensor_algebra}</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conventions of tensor algebra {#sec-tensoralgebra_convention}</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>This appendix presents some conventions regarding tensor algebra in the usual three-dimensional euclidean space $E=\R^3$. In the sequel, tensor components are associated to an orthonormal frame $(\ve{i})_{i=1,2,3}$ so that introducing the notion of tensor variance is useless here. The following presentation relies on the prior knowledge of the definition of tensors as multilinear operators and the classical isomorphism between the euclidean space and its dual through the scalar product</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>$$\begin{aligned}</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>\phi\,\colon E &amp; \longrightarrow  E^* <span class="sc">\\</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>       \uv{v} &amp; \longmapsto \uv{v}\cdot\bullet</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>\end{aligned}$${#eq-scalarprod}</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>which allows to identify vectors and linear forms.</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>Consider two tensors $\mathcal{T}$ and $\mathcal{T}'$ of respective orders $p$ and $q$. The tensor product $\mathcal{T}\otimes\mathcal{T}'$ is the $(p+q)$ order tensor decomposed as</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>\mathcal{T}\otimes\mathcal{T}'=\mathcal{T}_{i_1,\ldots,i_p} \,\mathcal{T}'_{i_{p+1},\ldots,i_{p+q}}\,</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>\ve{i_1}\otimes\ldots\otimes\ve{i_{p+q}}</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>$${#eq-otimes}</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>where Einstein convention of immplicit summation over repeated indices is adopted</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>and $\ve{i_1}\otimes\ldots\otimes\ve{i_{p+q}}$ is the multilinear form such that^<span class="co">[</span><span class="ot">$\delta_{ij}=1$ if $i=j$ and $0$ if $i\neq j$ (Kronecker symbol)</span><span class="co">]</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>(\ve{i_1}\otimes\ldots\otimes\ve{i_{p+q}})(\ve{j_1},\ldots,\ve{j_{p+q}})</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>=</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>\delta_{i_1,j_1}\ldots \delta_{i_{p+q},j_{p+q}}</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>$${#eq-multfom}</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>The notation $\mathcal{T}\sotimes\mathcal{T}'$ indicates a tensor product followed by a symmetrization over the last index of $\mathcal{T}$ and the first of $\mathcal{T}'$, i.e.</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>\mathcal{T}\sotimes\mathcal{T}'=</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>\frac{\mathcal{T}_{i_1,\ldots,i_p} \,\mathcal{T}'_{i_{p+1},\ldots,i_{p+q}}</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>+</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>\mathcal{T}_{i_1,\ldots,i_{p+1}} \,\mathcal{T}'_{i_p,\ldots,i_{p+q}}</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>}{2}</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>\,\ve{i_1}\otimes\ldots\otimes\ve{i_{p+q}}</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>$${#eq-sotimes}</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>It follows that</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>\uv{u}\sotimes\uv{v}=\frac{\uv{u}\otimes\uv{v}+\uv{v}\otimes\uv{u}}{2}</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>$${#eq-sotimesuv}</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>and an example of generalization involving a second-order tensor $\uu{a}$ and vectors $\uv{u}$ and $\uv{v}$ </span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>\uv{u}\sotimes\uu{a}\sotimes\uv{v}=</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>\frac{u_i\,a_{jk}\,v_l+u_i\,a_{jl}\,v_k+u_j\,a_{ik}\,v_l+u_j\,a_{il}\,v_k}{4}</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>\,\ve{i}\otimes\ve{j}\otimes\ve{k}\otimes\ve{l}</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>$${#eq-sotimesuav}</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>The simple dot product or contracted product between $\mathcal{T}$ and $\mathcal{T}'$ involves by convention a contraction between the last index of $\mathcal{T}$ and the first of $\mathcal{T}'$, which leads to the $(p+q-2)$ order tensor</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>\mathcal{T}\cdot\mathcal{T}'=\mathcal{T}_{i_1,\ldots,i_{p-1},{\color{red}k}} \,\mathcal{T}'_{{\color{red}k},i_{p},\ldots,i_{p+q-2}}\,</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>\ve{i_1}\otimes\ldots\otimes\ve{i_{p+q-2}}</span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>$${#eq-simpledot}</span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>As regards the double dot product, the classical convention consists in consuming the indices going up from the extremities, which means that a first contraction acts as in the simple dot product then a second contraction is performed between the penultimate index of $\mathcal{T}$ and the second one of $\mathcal{T}'$. However and alternate convention adopted here is proposed in <span class="co">[</span><span class="ot">@brisard2014a</span><span class="co">]</span>^<span class="co">[</span><span class="ot">see [https://sbrisard.github.io/posts/20140219-on_the_double_dot_product.html](https://sbrisard.github.io/posts/20140219-on_the_double_dot_product.html)</span><span class="co">]</span>, which somehow consists in considering that the double contraction operates over the two last indices of $\mathcal{T}$ as a pair and the two first indices of $\mathcal{T}'$ as the corresponding pair. In other words, this operation is such that if $\uu{a}$ and $\uu{b}$ are two second-order tensors and $\uuuu{T}$ is a fourth-order tensor</span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>\uu{a}:\uu{b}=a_{ij}b_{ij}</span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>\quad\textrm{and}\quad</span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>\uuuu{T}:\uu{a}=T_{ijkl}\, a_{kl}\, \ve{i}\otimes\ve{j}</span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>$${#eq-doubledot}</span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>and the transpose tensor $\trans{\uuuu{T}}$ is consistently defined by</span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>\trans{\uuuu{T}}:\uu{a}=\uu{a}:\uuuu{T}</span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>\quad\Leftrightarrow\quad</span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>\left(\trans{\uuuu{T}}\right)_{ijkl}=\left(\uuuu{T}\right)_{klij}</span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>$${#eq-trans4}</span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>The quadruple dot product is introduced as a scalar product between fourth-order tensors as</span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>\uuuu{T}:\uuuu{T}'=T_{ijkl} T'_{ijkl}</span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>$${#eq-dot4}</span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>Another useful operator introduced in <span class="co">[</span><span class="ot">@brisard2014a</span><span class="co">]</span> is the modified tensor product denoted by $\boxtimes$. The fourth-order tensor $\uu{a}\boxtimes\uu{b}$ (where $\uu{a}$ and $\uu{b}$ are two second-order tensors) is defined by its operation over any second-order tensor $\uu{p}$ and by its components</span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>$$\begin{aligned}</span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>&amp; (\uu{a}\boxtimes\uu{b}):\uu{p}=\uu{a}\cdot\uu{p}\cdot\trans{\uu{b}}</span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>=a_{ik}\,p_{kl}\,b_{jl}\,\ve{i}\otimes\ve{j}</span>
-<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="sc">\\</span></span>
-<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>&amp; \left(\uu{a}\boxtimes\uu{b}\right)_{ijkl}=a_{ik}\,b_{jl}</span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>\end{aligned}$${#eq-boxtimes}</span>
-<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>A symmetrized version of $\boxtimes$ denoted by $\sboxtimes$ can also be</span>
-<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>introduced. It operates as</span>
-<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>$$\begin{aligned}</span>
-<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>&amp; (\uu{a}\sboxtimes\uu{b}):\uu{p}=</span>
-<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>(\uu{a}\boxtimes\uu{b}):\left(\frac{\uu{p}+\trans{\uu{p}}}{2}\right)</span>
-<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>=\uu{a}\cdot\left(\frac{\uu{p}+\trans{\uu{p}}}{2}\right)\cdot\trans{\uu{b}}</span>
-<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="sc">\\</span></span>
-<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>&amp; (\uu{a}\sboxtimes\uu{b})_{ijkl}=\frac{a_{ik}\,b_{jl}+a_{il}\,b_{jk}}{2}</span>
-<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>\end{aligned}$${#eq-sboxtimes}</span>
-<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>It follows from these definitions that the fourth-order identity, as an operator</span>
-<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>over second-order tensors, writes $\uuuu{1}=\uu{1}\boxtimes\uu{1}$ where</span>
-<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>$\uu{1}$ is the second-order identity.</span>
-<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>The fourth-order operator allowing to extract the symmetric part of a</span>
-<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>second-order tensor writes $\uuuu{I}=\uu{1}\sboxtimes\uu{1}$.</span>
-<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>The latter tensor, which obviously complies with the conditions of minor</span>
-<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>symmetries, is classically used to play the role of fourth-order identity</span>
-<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>operating over symmetric second-order tensors.</span>
-<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>Some remarkable relationships result from the previous definitions</span>
-<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>$$\begin{aligned}</span>
-<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>&amp;(\uu{a}\boxtimes\uu{b}):(\uv{u}\otimes\uv{v})=</span>
-<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>(\uu{a}\cdot\uv{u})\otimes(\uu{b}\cdot\uv{v})</span>
-<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>&amp;(a) <span class="sc">\\</span></span>
-<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>&amp;(\uu{a}\boxtimes\uu{b}):(\uu{c}\boxtimes\uu{d})=</span>
-<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>(\uu{a}\cdot\uu{c})\boxtimes(\uu{b}\cdot\uu{d})</span>
-<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>&amp;(b) <span class="sc">\\</span></span>
-<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>&amp;(\uu{a}\sboxtimes\uu{b}):(\uu{c}\sboxtimes\uu{d})=</span>
-<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>\frac{(\uu{a}\cdot\uu{c})\sboxtimes(\uu{b}\cdot\uu{d})+</span>
-<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>(\uu{a}\cdot\uu{d})\sboxtimes(\uu{b}\cdot\uu{c})}{2}</span>
-<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>&amp;(c) <span class="sc">\\</span></span>
-<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>&amp;(\uu{a}\sboxtimes\uu{a}):(\uu{b}\sboxtimes\uu{b})=</span>
-<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>(\uu{a}\cdot\uu{b})\sboxtimes(\uu{a}\cdot\uu{b})</span>
-<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>&amp;(d) <span class="sc">\\</span></span>
-<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>&amp;\trans{(\uu{a}\boxtimes\uu{b})}=\trans{\uu{a}}\boxtimes\trans{\uu{b}}</span>
-<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>&amp;(e) <span class="sc">\\</span></span>
-<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>&amp;\trans{(\uu{a}\sboxtimes\uu{a})}=\trans{\uu{a}}\sboxtimes\trans{\uu{a}}</span>
-<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>\;\textrm{ but }\;</span>
-<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>\trans{(\uu{a}\sboxtimes\uu{b})}\neq\trans{\uu{a}}\sboxtimes\trans{\uu{b}}</span>
-<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>&amp;(f) <span class="sc">\\</span></span>
-<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>&amp;(\uu{a}\boxtimes\uu{b})^{-1}=\uu{a}^{-1}\boxtimes\uu{b}^{-1}</span>
-<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>&amp;(g) <span class="sc">\\</span></span>
-<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>&amp;(\uu{a}\sboxtimes\uu{a})^{-1}:\uu{p}=(\uu{a}^{-1}\sboxtimes\uu{a}^{-1}):\uu{p}</span>
-<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>\;\textrm{ if }\;\trans{\uu{p}}=\uu{p}</span>
-<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a>\;\textrm{ but }\;</span>
-<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a>(\uu{a}\sboxtimes\uu{b})^{-1}\neq\uu{a}^{-1}\sboxtimes\uu{b}^{-1}</span>
-<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>&amp;(h)</span>
-<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>\end{aligned}$${#eq-propboxtimes}</span>
-<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a><span class="fu">## Kelvin-Mandel convention {#sec-KM}</span></span>
-<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a>The Kelvin-Mandel convention allows to write the matrix of a symmetric</span>
-<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a>second-order</span>
-<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a>tensor in a given orthonormal frame \mbox{$(\ve{i})_{i=1,2,3}$}</span>
-<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a>under the form of a vector of $\R^6$</span>
-<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a>   \Mat(\eps,(\ve{i}))=</span>
-<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a>   \left(</span>
-<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a>   \begin{array}{ccc}</span>
-<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a>   \varepsilon_{11} &amp; \varepsilon_{12} &amp; \varepsilon_{31}<span class="sc">\\</span></span>
-<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a>   \varepsilon_{12} &amp; \varepsilon_{22} &amp; \varepsilon_{23}<span class="sc">\\</span></span>
-<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a>   \varepsilon_{31} &amp; \varepsilon_{23} &amp; \varepsilon_{33}</span>
-<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a>   \end{array}</span>
-<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a>   \right)</span>
-<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a>   \mapsto</span>
-<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a>   \left(</span>
-<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a>   \begin{array}{c}</span>
-<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a>   \varepsilon_{11} <span class="sc">\\</span></span>
-<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a>   \varepsilon_{22} <span class="sc">\\</span></span>
-<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a>   \varepsilon_{33} <span class="sc">\\</span></span>
-<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a>   \sqrt{2}\,\varepsilon_{23} <span class="sc">\\</span></span>
-<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a>   \sqrt{2}\,\varepsilon_{31} <span class="sc">\\</span></span>
-<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a>   \sqrt{2}\,\varepsilon_{12}</span>
-<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a>   \end{array}</span>
-<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a>   \right)</span>
-<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a>$${#eq-KM2}</span>
-<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a>The vector of $\R^6$ in (@eq-KM2) corresponds to the components of the second-order tensor $\eps$ in the basis ordered as</span>
-<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a>\mathcal{B}=\left(</span>
-<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a>\ve{1}\otimes\ve{1},</span>
-<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a>\ve{2}\otimes\ve{2},</span>
-<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a>\ve{3}\otimes\ve{3},</span>
-<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a>\sqrt{2}\,\ve{2}\otimes\ve{3},</span>
-<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a>\sqrt{2}\,\ve{3}\otimes\ve{1},</span>
-<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a>\sqrt{2}\,\ve{1}\otimes\ve{2}</span>
-<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a>\right)</span>
-<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a>$${#eq-basisKM}</span>
-<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a>The tensors of the basis (@eq-basisKM) form an orthonormal frame spanning</span>
-<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a>the space of symmetric second-order tensors equipped with the double contraction</span>
-<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a>"$:$" as scalar product. It follows that the double contraction between</span>
-<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a>symmetric second-order tensors is no other than the classical scalar product of</span>
-<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a>the corresponding vectors of $\R^6$ written according to the</span>
-<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a>convention (@eq-KM2).</span>
-<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a>Moreover a fourth-order tensor with minor symetries</span>
-<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a>($C_{jikl}=C_{ijlk}=C_{ijkl}$),</span>
-<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a>which can be seen as a linear operator acting</span>
-<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a>over symmetric second-order tensors by double contraction, writes in the same</span>
-<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a>convention under the form of a $6\times 6$ square matrix</span>
-<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a>(the solid lines separate blocks affected by different factors whereas the</span>
-<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a>colored components highlight a central block playing a major role in the sequel)</span>
-<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a>\small</span>
-<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a>\Mat(\uuuu{C},\mathcal{B})=</span>
-<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a>   \left(</span>
-<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a>   \begin{array}{ccc|ccc}</span>
-<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a>   C_{1111} &amp; C_{1122} &amp; C_{1133} &amp; \sqrt{2}\,C_{1123} &amp; \sqrt{2}\,C_{1131} &amp; \sqrt{2}\,C_{1112} <span class="sc">\\</span></span>
-<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a>   C_{2211} &amp; C_{2222} &amp; C_{2233} &amp; \sqrt{2}\,C_{2223} &amp; \sqrt{2}\,C_{2231} &amp; \sqrt{2}\,C_{2212} <span class="sc">\\</span></span>
-<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a>   C_{3311} &amp; C_{3322} &amp; \color{red}C_{3333} &amp; \color{red}\sqrt{2}\,C_{3323} &amp; \color{red}\sqrt{2}\,C_{3331} &amp; \sqrt{2}\,C_{3312} <span class="sc">\\</span></span>
-<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a>   \hline</span>
-<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a>   \sqrt{2}\,C_{2311} &amp; \sqrt{2}\,C_{2322} &amp; \color{red}\sqrt{2}\,C_{2333} &amp; \color{red}2\,C_{2323} &amp; \color{red}2\,C_{2331} &amp; 2\,C_{2312} <span class="sc">\\</span></span>
-<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a>   \sqrt{2}\,C_{3111} &amp; \sqrt{2}\,C_{3122} &amp; \color{red}\sqrt{2}\,C_{3133} &amp; \color{red}2\,C_{3123} &amp; \color{red}2\,C_{3131} &amp; 2\,C_{3112} <span class="sc">\\</span></span>
-<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a>   \sqrt{2}\,C_{1211} &amp; \sqrt{2}\,C_{1222} &amp; \sqrt{2}\,C_{1233} &amp; 2\,C_{1223} &amp; 2\,C_{1231} &amp; 2\,C_{1212}</span>
-<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a>   \end{array}</span>
-<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a>   \right)</span>
-<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a>$${#eq-KM4}</span>
-<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a>The result of $\uuuu{C}:\eps$ writes as a classical</span>
-<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a>matrix-vector product of (@eq-KM4) by (@eq-KM2).</span>
-<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a>However another way of ordering the tensors of (@eq-basisKM) which proves</span>
-<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a>useful for the calculation of crack compliance is based on a gathering of</span>
-<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a>one set of three in-plane and another one of three out-of-plane tensors</span>
-<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a>(the latter involving $\n=\ve{3}$ assumed to be the normal of the crack and the former not)</span>
-<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a>\mathcal{B}^*=\Bigg(</span>
-<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a>\underbrace{</span>
-<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a>\ve{1}\otimes\ve{1},</span>
-<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a>\ve{2}\otimes\ve{2},</span>
-<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a>\sqrt{2}\,\ve{1}\sotimes\ve{2}</span>
-<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a>}_{\textrm{in-plane}},</span>
-<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a>\quad</span>
-<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a>\underbrace{</span>
-<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a>\ve{3}\otimes\ve{3},</span>
-<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a>\sqrt{2}\,\ve{2}\sotimes\ve{3},</span>
-<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a>\sqrt{2}\,\ve{3}\sotimes\ve{1}</span>
-<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a>}_{\textrm{out-of-plane}}</span>
-<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a>\Bigg)</span>
-<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a>$${#eq-basisKM2}</span>
-<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a>such that the matrix of $\uuuu{C}$ in $\mathcal{B}^*$ is now obtained by</span>
-<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a>permutations of lines and columns of (@eq-KM4) to give</span>
-<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a>\small</span>
-<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a>\Mat(\uuuu{C},\mathcal{B}^*)=</span>
-<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a>   \left(</span>
-<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a>   \begin{array}{ccc|ccc}</span>
-<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a>   C_{1111} &amp; C_{1122} &amp; \sqrt{2}\,C_{1112} &amp; C_{1133} &amp; \sqrt{2}\,C_{1123} &amp; \sqrt{2}\,C_{1131} <span class="sc">\\</span></span>
-<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a>   C_{2211} &amp; C_{2222} &amp; \sqrt{2}\,C_{2212} &amp; C_{2233} &amp; \sqrt{2}\,C_{2223} &amp; \sqrt{2}\,C_{2231} <span class="sc">\\</span></span>
-<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a>   \sqrt{2}\,C_{1211} &amp; \sqrt{2}\,C_{1222} &amp; 2\,C_{1212} &amp; \sqrt{2}\,C_{1233} &amp; 2\,C_{1223} &amp; 2\,C_{1231} <span class="sc">\\</span></span>
-<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a>   \hline</span>
-<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a>   C_{3311} &amp; C_{3322} &amp; \sqrt{2}\,C_{3312} &amp; C_{3333} &amp; \sqrt{2}\,C_{3323} &amp; \sqrt{2}\,C_{3331} <span class="sc">\\</span></span>
-<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a>   \sqrt{2}\,C_{2311} &amp; \sqrt{2}\,C_{2322} &amp; 2\,C_{2312} &amp; \sqrt{2}\,C_{2333} &amp; 2\,C_{2323} &amp; 2\,C_{2331} <span class="sc">\\</span></span>
-<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a>   \sqrt{2}\,C_{3111} &amp; \sqrt{2}\,C_{3122} &amp; 2\,C_{3112} &amp; \sqrt{2}\,C_{3133} &amp; 2\,C_{3123} &amp; 2\,C_{3131}</span>
-<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a>   \end{array}</span>
-<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a>   \right)</span>
-<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a>$${#eq-KM4bis}</span>
-<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a>One may notice that the bottom right $3\times 3$ block</span>
-<span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a>of (@eq-KM4bis) exactly corresponds to the colored block in (@eq-KM4).</span>
-<span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a><span class="fu">## Rotation of tensors {#sec-rottens}</span></span>
-<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a>Recalling that the set of second-order tensors is isomorphic to the set of endomorphism in an euclidean space, it is natural to define a rotation tensor as an element of the special orthogonal group, i.e. tensors $\uu{R}$ such that $\trans{\uu{R}}\cdot\uu{R}=\uu{1}$ and $\det{\uu{R}}=1$.</span>
-<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a>In $\R^3$ equipped with an orthonormal frame $(\ve{i})_{i=1,2,3}$, these tensors can be defined by three Euler angles (see @fig-eurlerangles)</span>
-<span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a>$0\leq\theta\leq\pi$, $0\leq\phi\leq 2\pi$ and $0\leq\psi\leq 2\pi$ such that^<span class="co">[</span><span class="ot">with the simplifying writing convention $c_\theta=\cos\theta$, $s_\theta=\sin\theta$, $c_\phi=\cos\phi$, $s_\phi=\sin\phi$, $c_\psi=\cos\psi$, $s_\psi=\sin\psi$</span><span class="co">]</span></span>
-<span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a>\small</span>
-<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a>\Mat(\uu{R},(\ve{i}))=</span>
-<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a>   \left(</span>
-<span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a>   \begin{array}{ccc}</span>
-<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a>   c_\theta  c_\psi  c_\phi - s_\psi  s_\phi &amp; - c_\theta  c_\phi  s_\psi - c_\psi  s_\phi &amp; c_\phi  s_\theta <span class="sc">\\</span></span>
-<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a>   c_\theta  c_\psi  s_\phi + c_\phi  s_\psi &amp; - c_\theta  s_\psi  s_\phi + c_\psi  c_\phi &amp; s_\theta  s_\phi <span class="sc">\\</span></span>
-<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>c_\psi  s_\theta &amp; s_\theta  s_\psi &amp; c_\theta <span class="sc">\\</span></span>
-<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a>   \end{array}</span>
-<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a>   \right) </span>
-<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a>$${#eq-rot3}</span>
-<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a>A rotated frame $(\underline{e}'_i)_{i=1,2,3}$ is obtained by application of the rotation $\uu{R}$ on the vectors $\ve{i}$ (see @fig-eurlerangles)</span>
-<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a>\forall i \in <span class="sc">\{</span>1,2,3<span class="sc">\}</span>\quad \underline{e}'_i=\uu{R}\cdot\ve{i}</span>
-<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a>$${#eq-Rei}</span>
-<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a>::: {#fig-eurlerangles}</span>
-<span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="html"}</span>
-<span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/sphcoor)</span>{width=40%}</span>
-<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="html"}</span>
-<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/sphcoor.html)</span>{width=90%}</span>
-<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="al">![](images/arrow-expand.png)</span><span class="ot">{width=3%}</span><span class="co">](images/sphcoor.html)</span></span>
-<span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a>Euler angles</span>
-<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a>The rotation of Eurler angles $(\theta,\phi,\psi)$ applies on a $p$ order tensor $\mathcal{T}$ as</span>
-<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a>\mathcal{T}=</span>
-<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a>\mathcal{T}_{i_1,\ldots,i_p} \,\ve{i_1}\otimes\ldots\otimes\ve{i_{p}}</span>
-<span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a>\overset{\uu{R}}{\longmapsto}</span>
-<span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a>\uu{R}(\mathcal{T})=</span>
-<span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a>\mathcal{T}_{i_1,\ldots,i_p} \,(\uu{R}\cdot\ve{i_1})\otimes\ldots\otimes(\uu{R}\cdot\ve{i_{p}})</span>
-<span id="cb1-280"><a href="#cb1-280" aria-hidden="true" tabindex="-1"></a>$${#eq-rotT}</span>
-<span id="cb1-281"><a href="#cb1-281" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-282"><a href="#cb1-282" aria-hidden="true" tabindex="-1"></a>The application of (@eq-rotT) to a second-order tensor $\uu{a}$ therefore gives</span>
-<span id="cb1-283"><a href="#cb1-283" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-284"><a href="#cb1-284" aria-hidden="true" tabindex="-1"></a>\uu{R}(\uu{a})=\uu{R}\cdot </span>
-<span id="cb1-285"><a href="#cb1-285" aria-hidden="true" tabindex="-1"></a>\uu{a}</span>
-<span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a>\cdot\trans{\uu{R}}</span>
-<span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a>$${#eq-rotT2}</span>
-<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a>and to a fourth-order tensor $\uuuu{T}$</span>
-<span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a>\uu{R}(\uuuu{T})=(\uu{R}\sboxtimes\uu{R}):</span>
-<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a>\uuuu{T}</span>
-<span id="cb1-292"><a href="#cb1-292" aria-hidden="true" tabindex="-1"></a>:\trans{(\uu{R}\sboxtimes\uu{R})}</span>
-<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a>$${#eq-rotT4}</span>
-<span id="cb1-294"><a href="#cb1-294" aria-hidden="true" tabindex="-1"></a>where the fourth-order rotation tensor $\uuuu{R}=\uu{R}\sboxtimes\uu{R}$ can be expressed in Kelvin-Mandel notation (@eq-KM4) by means of the components of $\uu{R}$ defined in (@eq-rot3)</span>
-<span id="cb1-295"><a href="#cb1-295" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-296"><a href="#cb1-296" aria-hidden="true" tabindex="-1"></a>\scriptsize</span>
-<span id="cb1-297"><a href="#cb1-297" aria-hidden="true" tabindex="-1"></a>\Mat(\uuuu{R},\mathcal{B})=</span>
-<span id="cb1-298"><a href="#cb1-298" aria-hidden="true" tabindex="-1"></a>   \left(</span>
-<span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a>\begin{array}{cccccc}</span>
-<span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a>R_{1 1}^{2} &amp; R_{1 2}^{2} &amp; R_{1 3}^{2} &amp; \sqrt{2}  R_{1 2}  R_{1 3} &amp; \sqrt{2}  R_{1 1}  R_{1 3} &amp; \sqrt{2}  R_{1 1}  R_{1 2} <span class="sc">\\</span></span>
-<span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a>R_{2 1}^{2} &amp; R_{2 2}^{2} &amp; R_{2 3}^{2} &amp; \sqrt{2}  R_{2 2}  R_{2 3} &amp; \sqrt{2}  R_{2 1}  R_{2 3} &amp; \sqrt{2}  R_{2 1}  R_{2 2} <span class="sc">\\</span></span>
-<span id="cb1-302"><a href="#cb1-302" aria-hidden="true" tabindex="-1"></a>R_{3 1}^{2} &amp; R_{3 2}^{2} &amp; R_{3 3}^{2} &amp; \sqrt{2}  R_{3 2}  R_{3 3} &amp; \sqrt{2}  R_{3 1}  R_{3 3} &amp; \sqrt{2}  R_{3 1}  R_{3 2} <span class="sc">\\</span></span>
-<span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a>\sqrt{2}  R_{2 1}  R_{3 1} &amp; \sqrt{2}  R_{2 2}  R_{3 2} &amp; \sqrt{2}  R_{2 3}  R_{3 3} &amp; R_{2 2}  R_{3 3} + R_{2 3}  R_{3 2} &amp; R_{2 1}  R_{3 3} + R_{2 3}  R_{3 1} &amp; R_{2 1}  R_{3 2} + R_{2 2}  R_{3 1} <span class="sc">\\</span></span>
-<span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a>\sqrt{2}  R_{1 1}  R_{3 1} &amp; \sqrt{2}  R_{1 2}  R_{3 2} &amp; \sqrt{2}  R_{1 3}  R_{3 3} &amp; R_{1 2}  R_{3 3} + R_{1 3}  R_{3 2} &amp; R_{1 1}  R_{3 3} + R_{1 3}  R_{3 1} &amp; R_{1 1}  R_{3 2} + R_{1 2}  R_{3 1} <span class="sc">\\</span></span>
-<span id="cb1-305"><a href="#cb1-305" aria-hidden="true" tabindex="-1"></a>\sqrt{2}  R_{1 1}  R_{2 1} &amp; \sqrt{2}  R_{1 2}  R_{2 2} &amp; \sqrt{2}  R_{1 3}  R_{2 3} &amp; R_{1 2}  R_{2 3} + R_{1 3}  R_{2 2} &amp; R_{1 1}  R_{2 3} + R_{1 3}  R_{2 1} &amp; R_{1 1}  R_{2 2} + R_{1 2}  R_{2 1} <span class="sc">\\</span></span>
-<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a>\end{array}</span>
-<span id="cb1-307"><a href="#cb1-307" aria-hidden="true" tabindex="-1"></a>\right)</span>
-<span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a>$${#eq-rot6}</span>
-<span id="cb1-309"><a href="#cb1-309" aria-hidden="true" tabindex="-1"></a>It results that (@eq-rotT4) can be seen as a classical rotation operation involving matrix multiplications in $\R^6$.</span>
-<span id="cb1-310"><a href="#cb1-310" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-311"><a href="#cb1-311" aria-hidden="true" tabindex="-1"></a><span class="fu">## Fourth-order isotropic tensors {#sec-ISO}</span></span>
-<span id="cb1-312"><a href="#cb1-312" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-313"><a href="#cb1-313" aria-hidden="true" tabindex="-1"></a>This paragraph concerns fourth-order tensors operating over symmetrical second-order tensors, which allows to impose that they satisfy the minor symmetries ($C_{jikl}=C_{ijlk}=C_{ijkl}$).</span>
-<span id="cb1-314"><a href="#cb1-314" aria-hidden="true" tabindex="-1"></a>The identity operator is given by</span>
-<span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-316"><a href="#cb1-316" aria-hidden="true" tabindex="-1"></a>\uuuu{I}=\uu{1}\sboxtimes\uu{1}=</span>
-<span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a>\frac{\delta_{ik}\delta_{jl}+\delta_{il}\delta_{jk}}{2}\,\ve{i}\otimes\ve{j}\otimes\ve{k}\otimes\ve{l}</span>
-<span id="cb1-318"><a href="#cb1-318" aria-hidden="true" tabindex="-1"></a>$${#eq-tensI}</span>
-<span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a>of identity matrix in Kelvin-Mandel convention</span>
-<span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a>\small</span>
-<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a>\Mat(\uuuu{I},\mathcal{B})=</span>
-<span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a>   \left(</span>
-<span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a>   \begin{array}{ccc|ccc}</span>
-<span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a>   1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 <span class="sc">\\</span></span>
-<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a>   0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 <span class="sc">\\</span></span>
-<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a>   0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 <span class="sc">\\</span></span>
-<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a>   \hline</span>
-<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a>   0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 <span class="sc">\\</span></span>
-<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a>   0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 <span class="sc">\\</span></span>
-<span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a>   0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 <span class="sc">\\</span></span>
-<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a>   \end{array}</span>
-<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a>   \right)</span>
-<span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a>$${#eq-matI}</span>
-<span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a>It is classically proven that any minor-symmetrical fourth-order tensor invariant by rotation (@eq-rotT4) write as a linear combination on the two projectors $\uuuu{J}$ and $\uuuu{K}$ which respectively extract the spherical and deviatoric part of any symmetrical second-order tensor</span>
-<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a>\uuuu{J}:\uu{a}=\frac{1}{3}\tr{\uu{a}}\,\uu{1}</span>
-<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a>\quad \textrm{and} \quad</span>
-<span id="cb1-340"><a href="#cb1-340" aria-hidden="true" tabindex="-1"></a>\uuuu{K}:\uu{a}=\uu{a}-\frac{1}{3}\tr{\uu{a}}\,\uu{1}</span>
-<span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a>$${#eq-JKext}</span>
-<span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a>In other words, $\uuuu{J}$ and $\uuuu{K}$ are defined by</span>
-<span id="cb1-343"><a href="#cb1-343" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-344"><a href="#cb1-344" aria-hidden="true" tabindex="-1"></a>\uuuu{J}=\frac{1}{3}\uu{1}\otimes\uu{1}</span>
-<span id="cb1-345"><a href="#cb1-345" aria-hidden="true" tabindex="-1"></a>\quad \textrm{and} \quad</span>
-<span id="cb1-346"><a href="#cb1-346" aria-hidden="true" tabindex="-1"></a>\uuuu{K}=\uuuu{I}-\uuuu{J}=\uu{1}\sboxtimes\uu{1}-\frac{1}{3}\uu{1}\otimes\uu{1}</span>
-<span id="cb1-347"><a href="#cb1-347" aria-hidden="true" tabindex="-1"></a>$${#eq-JK}</span>
-<span id="cb1-348"><a href="#cb1-348" aria-hidden="true" tabindex="-1"></a>their components by</span>
-<span id="cb1-349"><a href="#cb1-349" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-350"><a href="#cb1-350" aria-hidden="true" tabindex="-1"></a>J_{ijkl}=\frac{1}{3}\delta_{ij}\delta_{ik}</span>
-<span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a>\quad \textrm{and} \quad</span>
-<span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a>K_{ijkl}=\frac{\delta_{ik}\delta_{jl}+\delta_{il}\delta_{jk}}{2}-\frac{1}{3}\delta_{ij}\delta_{ik}</span>
-<span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a>$${#eq-JKijkl}</span>
-<span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a>and their matrices in Kelvin-Mandel notation relatively to any orthonormal frame by</span>
-<span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a>\small</span>
-<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a>\Mat(\uuuu{J},\mathcal{B})=</span>
-<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a>   \left(</span>
-<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a>   \begin{array}{ccc|ccc}</span>
-<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a>   \frac{1}{3} &amp; \frac{1}{3} &amp; \frac{1}{3} &amp; 0 &amp; 0 &amp; 0 <span class="sc">\\</span></span>
-<span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a>   \frac{1}{3} &amp; \frac{1}{3} &amp; \frac{1}{3} &amp; 0 &amp; 0 &amp; 0 <span class="sc">\\</span></span>
-<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a>   \frac{1}{3} &amp; \frac{1}{3} &amp; \frac{1}{3} &amp; 0 &amp; 0 &amp; 0 <span class="sc">\\</span></span>
-<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a>   \hline</span>
-<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a>   0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 <span class="sc">\\</span></span>
-<span id="cb1-365"><a href="#cb1-365" aria-hidden="true" tabindex="-1"></a>   0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 <span class="sc">\\</span></span>
-<span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a>   0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 <span class="sc">\\</span></span>
-<span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a>   \end{array}</span>
-<span id="cb1-368"><a href="#cb1-368" aria-hidden="true" tabindex="-1"></a>   \right)</span>
-<span id="cb1-369"><a href="#cb1-369" aria-hidden="true" tabindex="-1"></a>$${#eq-matJ}</span>
-<span id="cb1-370"><a href="#cb1-370" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-371"><a href="#cb1-371" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-372"><a href="#cb1-372" aria-hidden="true" tabindex="-1"></a>\small</span>
-<span id="cb1-373"><a href="#cb1-373" aria-hidden="true" tabindex="-1"></a>\Mat(\uuuu{K},\mathcal{B})=</span>
-<span id="cb1-374"><a href="#cb1-374" aria-hidden="true" tabindex="-1"></a>   \left(</span>
-<span id="cb1-375"><a href="#cb1-375" aria-hidden="true" tabindex="-1"></a>   \begin{array}{ccc|ccc}</span>
-<span id="cb1-376"><a href="#cb1-376" aria-hidden="true" tabindex="-1"></a>   \frac{2}{3} &amp; \frac{-1}{3} &amp; \frac{-1}{3} &amp; 0 &amp; 0 &amp; 0 <span class="sc">\\</span></span>
-<span id="cb1-377"><a href="#cb1-377" aria-hidden="true" tabindex="-1"></a>   \frac{-1}{3} &amp; \frac{2}{3} &amp; \frac{-1}{3} &amp; 0 &amp; 0 &amp; 0 <span class="sc">\\</span></span>
-<span id="cb1-378"><a href="#cb1-378" aria-hidden="true" tabindex="-1"></a>   \frac{-1}{3} &amp; \frac{-1}{3} &amp; \frac{2}{3} &amp; 0 &amp; 0 &amp; 0 <span class="sc">\\</span></span>
-<span id="cb1-379"><a href="#cb1-379" aria-hidden="true" tabindex="-1"></a>   \hline</span>
-<span id="cb1-380"><a href="#cb1-380" aria-hidden="true" tabindex="-1"></a>   0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 <span class="sc">\\</span></span>
-<span id="cb1-381"><a href="#cb1-381" aria-hidden="true" tabindex="-1"></a>   0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 <span class="sc">\\</span></span>
-<span id="cb1-382"><a href="#cb1-382" aria-hidden="true" tabindex="-1"></a>   0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 <span class="sc">\\</span></span>
-<span id="cb1-383"><a href="#cb1-383" aria-hidden="true" tabindex="-1"></a>   \end{array}</span>
-<span id="cb1-384"><a href="#cb1-384" aria-hidden="true" tabindex="-1"></a>   \right)</span>
-<span id="cb1-385"><a href="#cb1-385" aria-hidden="true" tabindex="-1"></a>$${#eq-matK}</span>
-<span id="cb1-386"><a href="#cb1-386" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-387"><a href="#cb1-387" aria-hidden="true" tabindex="-1"></a>The following relationships are easily obtained</span>
-<span id="cb1-388"><a href="#cb1-388" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-389"><a href="#cb1-389" aria-hidden="true" tabindex="-1"></a>\uuuu{J}:\uuuu{J}=\uuuu{J}</span>
-<span id="cb1-390"><a href="#cb1-390" aria-hidden="true" tabindex="-1"></a>\quad ; \quad</span>
-<span id="cb1-391"><a href="#cb1-391" aria-hidden="true" tabindex="-1"></a>\uuuu{K}:\uuuu{K}=\uuuu{K}</span>
-<span id="cb1-392"><a href="#cb1-392" aria-hidden="true" tabindex="-1"></a>\quad ; \quad</span>
-<span id="cb1-393"><a href="#cb1-393" aria-hidden="true" tabindex="-1"></a>\uuuu{J}:\uuuu{K}=\uuuu{0}</span>
-<span id="cb1-394"><a href="#cb1-394" aria-hidden="true" tabindex="-1"></a>\quad ; \quad</span>
-<span id="cb1-395"><a href="#cb1-395" aria-hidden="true" tabindex="-1"></a>\uuuu{J}::\uuuu{J}=1</span>
-<span id="cb1-396"><a href="#cb1-396" aria-hidden="true" tabindex="-1"></a>\quad ; \quad</span>
-<span id="cb1-397"><a href="#cb1-397" aria-hidden="true" tabindex="-1"></a>\uuuu{K}::\uuuu{K}=5</span>
-<span id="cb1-398"><a href="#cb1-398" aria-hidden="true" tabindex="-1"></a>$${#eq-relJK}</span>
-<span id="cb1-399"><a href="#cb1-399" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-400"><a href="#cb1-400" aria-hidden="true" tabindex="-1"></a>The isotropisation of any fourth-order tensor $\uuuu{T}$ is defined by <span class="co">[</span><span class="ot">@bornert2001a</span><span class="co">]</span></span>
-<span id="cb1-401"><a href="#cb1-401" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-402"><a href="#cb1-402" aria-hidden="true" tabindex="-1"></a>\ISO(\uuuu{T})=\left(\uuuu{T}::\uuuu{J}\right)\,\uuuu{J}+\left(\frac{\uuuu{T}::\uuuu{K}}{5}\right)\,\uuuu{K}</span>
-<span id="cb1-403"><a href="#cb1-403" aria-hidden="true" tabindex="-1"></a>$${#eq-isoT}</span>
-<span id="cb1-404"><a href="#cb1-404" aria-hidden="true" tabindex="-1"></a>It is easy to show that (@eq-isoT) is no other than the closest isotropic tensor to $\uuuu{T}$ if the distance is chosen as the euclidean one i.e. associated to the scalar product (@eq-dot4).</span>
-<span id="cb1-405"><a href="#cb1-405" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-406"><a href="#cb1-406" aria-hidden="true" tabindex="-1"></a><span class="fu">## Fourth-order transversely isotropic tensors and Walpole basis {#sec-TI}</span></span>
-<span id="cb1-407"><a href="#cb1-407" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-408"><a href="#cb1-408" aria-hidden="true" tabindex="-1"></a>The Walpole basis (<span class="co">[</span><span class="ot">@walpole1984</span><span class="co">]</span>, <span class="co">[</span><span class="ot">@brisard2014a</span><span class="co">]</span>^<span class="co">[</span><span class="ot">see [https://sbrisard.github.io/posts/20140226-decomposition_of_transverse_isotropic_fourth-rank_tensors.html](https://sbrisard.github.io/posts/20140226-decomposition_of_transverse_isotropic_fourth-rank_tensors.html)</span><span class="co">]</span>) allowing to write any</span>
-<span id="cb1-409"><a href="#cb1-409" aria-hidden="true" tabindex="-1"></a>fourth-order transversely isotropic relatively to a an axis oriented by the unit</span>
-<span id="cb1-410"><a href="#cb1-410" aria-hidden="true" tabindex="-1"></a>vector $\n$ is composed of the six following tensors</span>
-<span id="cb1-411"><a href="#cb1-411" aria-hidden="true" tabindex="-1"></a>built from $\uu{1}_n=\n\otimes\n$</span>
-<span id="cb1-412"><a href="#cb1-412" aria-hidden="true" tabindex="-1"></a>and $\uu{1}_T=\uu{1}-\uu{1}_n$</span>
-<span id="cb1-413"><a href="#cb1-413" aria-hidden="true" tabindex="-1"></a>$$\begin{aligned}</span>
-<span id="cb1-414"><a href="#cb1-414" aria-hidden="true" tabindex="-1"></a>&amp; \uuuu{E}_1=\uu{1}_n\otimes\uu{1}_n</span>
-<span id="cb1-415"><a href="#cb1-415" aria-hidden="true" tabindex="-1"></a>\quad\textrm{ ; }\quad</span>
-<span id="cb1-416"><a href="#cb1-416" aria-hidden="true" tabindex="-1"></a>\uuuu{E}_2=\frac{\uu{1}_T\otimes\uu{1}_T}{2}</span>
-<span id="cb1-417"><a href="#cb1-417" aria-hidden="true" tabindex="-1"></a>&amp;\textrm{ ; }&amp;</span>
-<span id="cb1-418"><a href="#cb1-418" aria-hidden="true" tabindex="-1"></a>\uuuu{E}_3=\frac{\uu{1}_n\otimes\uu{1}_T}{\sqrt{2}}</span>
-<span id="cb1-419"><a href="#cb1-419" aria-hidden="true" tabindex="-1"></a>\quad\textrm{ ; }\quad</span>
-<span id="cb1-420"><a href="#cb1-420" aria-hidden="true" tabindex="-1"></a>\uuuu{E}_4=\frac{\uu{1}_T\otimes\uu{1}_n}{\sqrt{2}}</span>
-<span id="cb1-421"><a href="#cb1-421" aria-hidden="true" tabindex="-1"></a>&amp;(a) <span class="sc">\\</span></span>
-<span id="cb1-422"><a href="#cb1-422" aria-hidden="true" tabindex="-1"></a>&amp; \uuuu{E}_5=\uu{1}_T\sboxtimes\uu{1}_T-\frac{\uu{1}_T\otimes\uu{1}_T}{2}</span>
-<span id="cb1-423"><a href="#cb1-423" aria-hidden="true" tabindex="-1"></a>&amp;\textrm{ ; }&amp;</span>
-<span id="cb1-424"><a href="#cb1-424" aria-hidden="true" tabindex="-1"></a>\uuuu{E}_6=\uu{1}_T\sboxtimes\uu{1}_n+\uu{1}_n\sboxtimes\uu{1}_T</span>
-<span id="cb1-425"><a href="#cb1-425" aria-hidden="true" tabindex="-1"></a>&amp;(b)</span>
-<span id="cb1-426"><a href="#cb1-426" aria-hidden="true" tabindex="-1"></a>\end{aligned}$${#eq-WalpoleBasis}</span>
-<span id="cb1-427"><a href="#cb1-427" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-428"><a href="#cb1-428" aria-hidden="true" tabindex="-1"></a>Any transversely isotropic fourth-order tensor can be decomposed as</span>
-<span id="cb1-429"><a href="#cb1-429" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-430"><a href="#cb1-430" aria-hidden="true" tabindex="-1"></a>{\uuuu{L}} = {\ell}_{1}\,{\uuuu{E}}_{1} + {\ell}_{2}\,{\uuuu{E}}_{2} +</span>
-<span id="cb1-431"><a href="#cb1-431" aria-hidden="true" tabindex="-1"></a>{\ell}_{3}\,{\uuuu{E}}_{3}+ {\ell}_{4}\,{\uuuu{E}}_{4}+ {\ell}_{5}\,{\uuuu{E}}_{5}+</span>
-<span id="cb1-432"><a href="#cb1-432" aria-hidden="true" tabindex="-1"></a>{\ell}_{6}\,{\uuuu{E}}_{6}</span>
-<span id="cb1-433"><a href="#cb1-433" aria-hidden="true" tabindex="-1"></a>$${#eq-decWalpole}</span>
-<span id="cb1-434"><a href="#cb1-434" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-435"><a href="#cb1-435" aria-hidden="true" tabindex="-1"></a>The six parameters can be conveniently gathered in a triplet</span>
-<span id="cb1-436"><a href="#cb1-436" aria-hidden="true" tabindex="-1"></a>composed of</span>
-<span id="cb1-437"><a href="#cb1-437" aria-hidden="true" tabindex="-1"></a>a $2 \times 2$ matrix containing the four first parameters</span>
-<span id="cb1-438"><a href="#cb1-438" aria-hidden="true" tabindex="-1"></a>$\ell_i$ ($1\leq i \leq 4$) and the two last parameters $\ell_5$</span>
-<span id="cb1-439"><a href="#cb1-439" aria-hidden="true" tabindex="-1"></a>and $\ell_6$</span>
-<span id="cb1-440"><a href="#cb1-440" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-441"><a href="#cb1-441" aria-hidden="true" tabindex="-1"></a>\uuuu{L} \equiv \left( L , {\ell}_{5} , {\ell}_{6}</span>
-<span id="cb1-442"><a href="#cb1-442" aria-hidden="true" tabindex="-1"></a>\right) , \quad</span>
-<span id="cb1-443"><a href="#cb1-443" aria-hidden="true" tabindex="-1"></a>L = \left(</span>
-<span id="cb1-444"><a href="#cb1-444" aria-hidden="true" tabindex="-1"></a>      \begin{array}{cc}</span>
-<span id="cb1-445"><a href="#cb1-445" aria-hidden="true" tabindex="-1"></a>        {\ell}_{1} &amp; {\ell}_{3} <span class="sc">\\</span></span>
-<span id="cb1-446"><a href="#cb1-446" aria-hidden="true" tabindex="-1"></a>        {\ell}_{4} &amp; {\ell}_{2} <span class="sc">\\</span></span>
-<span id="cb1-447"><a href="#cb1-447" aria-hidden="true" tabindex="-1"></a>      \end{array}</span>
-<span id="cb1-448"><a href="#cb1-448" aria-hidden="true" tabindex="-1"></a>    \right)</span>
-<span id="cb1-449"><a href="#cb1-449" aria-hidden="true" tabindex="-1"></a>$${#eq-syntWalpole}</span>
-<span id="cb1-450"><a href="#cb1-450" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-451"><a href="#cb1-451" aria-hidden="true" tabindex="-1"></a>Such a synthetic notation allows simple calculations</span>
-<span id="cb1-452"><a href="#cb1-452" aria-hidden="true" tabindex="-1"></a>of products and inverses which consist in classical matrix or scalar products</span>
-<span id="cb1-453"><a href="#cb1-453" aria-hidden="true" tabindex="-1"></a>and inverses</span>
-<span id="cb1-454"><a href="#cb1-454" aria-hidden="true" tabindex="-1"></a>$$\begin{aligned}</span>
-<span id="cb1-455"><a href="#cb1-455" aria-hidden="true" tabindex="-1"></a>&amp; \uuuu{L} : \uuuu{M} \equiv \left( L M , {\ell}_{5} m_5 , {\ell}_{6} m_6</span>
-<span id="cb1-456"><a href="#cb1-456" aria-hidden="true" tabindex="-1"></a>\right)</span>
-<span id="cb1-457"><a href="#cb1-457" aria-hidden="true" tabindex="-1"></a>&amp;(a) <span class="sc">\\</span></span>
-<span id="cb1-458"><a href="#cb1-458" aria-hidden="true" tabindex="-1"></a>&amp; {\uuuu{L}}^{-1} \equiv \left( {L}^{-1} , \frac{1}{{\ell}_{5}} , \frac{1}{{\ell}_{6}}</span>
-<span id="cb1-459"><a href="#cb1-459" aria-hidden="true" tabindex="-1"></a>\right)</span>
-<span id="cb1-460"><a href="#cb1-460" aria-hidden="true" tabindex="-1"></a>&amp;(b)</span>
-<span id="cb1-461"><a href="#cb1-461" aria-hidden="true" tabindex="-1"></a>\end{aligned}$${#eq-calWalpole}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></div></div></div></div>
+</nav>
 </div> <!-- /content -->
 
 
