@@ -14,13 +14,13 @@ This manual aims at recalling some fundamental aspects of the theory of homogeni
 
 ```
 @misc{Echoes,
-	author  = {Jean-François Barthélémy},
-	title   = {Echoes library (Extended Calculator of HOmogEnization Schemes)},
-	url     = {https://jfbarthelemy.github.io/echoes/},
-    doi     = {10.5281/zenodo.7348759}
-	version = {v1.0.0},
-	year    = {2022},
-	month   = {11}
+ author  = {Jean-François Barthélémy},
+ title   = {Echoes library (Extended Calculator of HOmogEnization Schemes)},
+ url     = {https://jfbarthelemy.github.io/echoes/},
+ doi     = {10.5281/zenodo.7348759}
+ version = {v1.0.0},
+ year    = {2022},
+ month   = {11}
 }
 ```
 
