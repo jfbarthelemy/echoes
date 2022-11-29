@@ -8,13 +8,29 @@ This manual aims at recalling some fundamental aspects of the theory of homogeni
 
 ## Download
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7348759.svg)](https://doi.org/10.5281/zenodo.7348759)
+The core of **Echoes** has been developed in C++ and wrapped by a Python interface. Hence its use requires first the installation of a Python environment with `pip` executable (for instance [Anaconda](https://www.anaconda.com/products/distribution)).
+
+Wheel packages can be downloaded for Python 3.7, 3.8 and 3.9 under Windows or Linux by choosing the appropriate file for your configuration under the link [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7348759.svg)](https://doi.org/10.5281/zenodo.7348759)
+
+Once in possession of the relevant `.whl` file, the package can be installed in a console (Anaconda console or any console allowing to run `pip`) by
+
+```python
+pip install -U echoes-XYZ.whl # replacing echoes-XYZ.whl by the correct path to the whl file
+```
 
 ## Citation
 
+If you use **Echoes**, please cite it as
+
+```
+Barthélémy, Jean-François, 2022. Echoes: Extended Calculator of HOmogEnization Schemes. https://doi.org/10.5281/ZENODO.7348759
+```
+
+or in `bibtex` style
+
 ```
 @misc{Echoes,
- author  = {Jean-François Barthélémy},
+ author  = {Barthélémy, Jean-François},
  title   = {Echoes library (Extended Calculator of HOmogEnization Schemes)},
  url     = {https://jfbarthelemy.github.io/echoes/},
  doi     = {10.5281/zenodo.7348759}
