@@ -41,9 +41,11 @@ pip install -U echoes-XYZ.whl # replacing echoes-XYZ.whl by the correct path to 
 
 If you use **Echoes**, please cite it as [@echoes]
 
+::: {.content-visible when-format="html"}
 ```
 Barthélémy, Jean-François, 2022. Echoes: Extended Calculator of HOmogEnization Schemes. https://doi.org/10.5281/ZENODO.7348759
 ```
+:::
 
 or in `bibtex` style
 
