@@ -1,6 +1,6 @@
 # Introduction {.unnumbered #sec-intro}
 
-This book does not provide an exhaustive presentation of the theory of random medium homogeneization (see [@milton2002], [@torquato2002] or [@kachanov2018] among others) but it is rather intended to recall some of the basic notations and results related to the implementation of the **Echoes** library.
+This book does not provide an exhaustive presentation of the theory of random medium homogenization (see [@milton2002], [@torquato2002] or [@kachanov2018] among others) but it is rather intended to recall some of the basic notations and results related to the implementation of the **Echoes** library.
 
 
 
