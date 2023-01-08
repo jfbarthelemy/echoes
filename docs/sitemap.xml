@@ -2,126 +2,126 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/index.html</loc>
-    <lastmod>2023-01-08T17:28:39.211Z</lastmod>
+    <lastmod>2023-01-08T17:43:14.803Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/intro.html</loc>
-    <lastmod>2023-01-08T17:27:20.103Z</lastmod>
+    <lastmod>2023-01-08T17:43:14.804Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/hom_elas.html</loc>
-    <lastmod>2023-01-08T17:27:20.103Z</lastmod>
+    <lastmod>2023-01-08T17:43:14.806Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/elasticity/basics_elas.html</loc>
-    <lastmod>2023-01-08T17:27:20.103Z</lastmod>
+    <lastmod>2023-01-08T17:43:14.808Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/elasticity/eshelby_elas.html</loc>
-    <lastmod>2023-01-08T17:27:20.103Z</lastmod>
+    <lastmod>2023-01-08T17:43:14.810Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/elasticity/cracks_elas.html</loc>
-    <lastmod>2023-01-08T17:27:20.103Z</lastmod>
+    <lastmod>2023-01-08T17:43:14.812Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/elasticity/mrp_elas.html</loc>
-    <lastmod>2023-01-08T17:27:20.103Z</lastmod>
+    <lastmod>2023-01-08T17:43:14.814Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/elasticity/schemes_elas.html</loc>
-    <lastmod>2023-01-08T17:27:20.103Z</lastmod>
+    <lastmod>2023-01-08T17:43:14.816Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/hom_cond.html</loc>
-    <lastmod>2023-01-08T17:27:20.103Z</lastmod>
+    <lastmod>2023-01-08T17:43:14.817Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/conductivity/basics_cond.html</loc>
-    <lastmod>2023-01-08T17:27:20.103Z</lastmod>
+    <lastmod>2023-01-08T17:43:14.818Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/conductivity/eshelby_cond.html</loc>
-    <lastmod>2023-01-08T17:27:20.103Z</lastmod>
+    <lastmod>2023-01-08T17:43:14.820Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/conductivity/cracks_cond.html</loc>
-    <lastmod>2023-01-08T17:27:20.103Z</lastmod>
+    <lastmod>2023-01-08T17:43:14.822Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/conductivity/mrp_cond.html</loc>
-    <lastmod>2023-01-08T17:27:20.103Z</lastmod>
+    <lastmod>2023-01-08T17:43:14.824Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/conductivity/schemes_cond.html</loc>
-    <lastmod>2023-01-08T17:27:20.103Z</lastmod>
+    <lastmod>2023-01-08T17:43:14.825Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/nonlinear_hom.html</loc>
-    <lastmod>2023-01-08T17:27:20.103Z</lastmod>
+    <lastmod>2023-01-08T17:43:14.826Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/nonlinear/second_order_moments.html</loc>
-    <lastmod>2023-01-08T17:27:20.119Z</lastmod>
+    <lastmod>2023-01-08T17:43:14.827Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/nonlinear/conc_tensor_deriv.html</loc>
-    <lastmod>2023-01-08T17:27:20.119Z</lastmod>
+    <lastmod>2023-01-08T17:43:14.828Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/nonlinear/schemes_deriv.html</loc>
-    <lastmod>2023-01-08T17:27:20.119Z</lastmod>
+    <lastmod>2023-01-08T17:43:14.829Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/viscoelas_freq.html</loc>
-    <lastmod>2023-01-08T17:27:20.119Z</lastmod>
+    <lastmod>2023-01-08T17:43:14.830Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/viscoelasticity_freq/basics_freq.html</loc>
-    <lastmod>2023-01-08T17:27:20.119Z</lastmod>
+    <lastmod>2023-01-08T17:43:14.831Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/viscoelasticity_freq/schemes_freq.html</loc>
-    <lastmod>2023-01-08T17:27:20.119Z</lastmod>
+    <lastmod>2023-01-08T17:43:14.832Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/viscoelas_time.html</loc>
-    <lastmod>2023-01-08T17:27:20.119Z</lastmod>
+    <lastmod>2023-01-08T17:43:14.833Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/viscoelasticity_time/basics_time.html</loc>
-    <lastmod>2023-01-08T17:27:20.119Z</lastmod>
+    <lastmod>2023-01-08T17:43:14.834Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/viscoelasticity_time/schemes_time.html</loc>
-    <lastmod>2023-01-08T17:27:20.119Z</lastmod>
+    <lastmod>2023-01-08T17:43:14.835Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/examples.html</loc>
-    <lastmod>2023-01-08T17:27:20.119Z</lastmod>
+    <lastmod>2023-01-08T17:43:14.835Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/examples/concrete_strength.html</loc>
-    <lastmod>2023-01-08T17:27:20.119Z</lastmod>
+    <lastmod>2023-01-08T17:43:14.836Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/references.html</loc>
-    <lastmod>2023-01-08T17:27:20.119Z</lastmod>
+    <lastmod>2023-01-08T17:43:14.837Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/appendices/tensor_algebra.html</loc>
-    <lastmod>2023-01-08T17:27:20.135Z</lastmod>
+    <lastmod>2023-01-08T17:43:14.839Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/appendices/hill_elas.html</loc>
-    <lastmod>2023-01-08T17:27:20.135Z</lastmod>
+    <lastmod>2023-01-08T17:43:14.843Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/appendices/hill_cond.html</loc>
-    <lastmod>2023-01-08T17:27:20.135Z</lastmod>
+    <lastmod>2023-01-08T17:43:14.844Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/Echoes.pdf</loc>
-    <lastmod>2023-01-08T17:27:18.572Z</lastmod>
+    <lastmod>2023-01-08T17:43:13.164Z</lastmod>
   </url>
 </urlset>

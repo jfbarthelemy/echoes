@@ -7,11 +7,11 @@ $$
 ## Welcome {.unnumbered #sec-welcome}
 
 ::: {.content-visible unless-format="html"}
-![](../images/cover){width=40% fig-align="center"}
+![](images/cover){width=40% fig-align="center"}
 :::
 ::: {.content-visible when-format="html"}
-![](../images/cover.html){width=95%}
-[![](../images/arrow-expand.png){width=3%}](../images/cover.html)
+![](images/cover.html){width=95%}
+[![](images/arrow-expand.png){width=3%}](images/cover.html)
 :::
 
 The library **Echoes** allows to implement various homogenization schemes involving different types of heterogeneities in the framework of elasticity, conductivity, viscoelasticity as well as tools to properly calculate the derivatives of macroscopic stiffness with respect to lower scale moduli (fundamental tool of the modified secant method in nonlinear homogenization).
