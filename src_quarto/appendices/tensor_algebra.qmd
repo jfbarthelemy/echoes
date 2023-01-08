@@ -70,7 +70,7 @@ $$
 \uuuu{T}:\uuuu{T}'=T_{ijkl} T'_{ijkl}
 $${#eq-dot4}
 
-Another useful operator introduced in [@brisard2014a] is the modified tensor product denoted by $\boxtimes$. The fourth-order tensor $\uu{a}\boxtimes\uu{b}$ (where $\uu{a}$ and $\uu{b}$ are two second-order tensors) is defined by its operation over any second-order tensor $\uu{p}$ and by its components
+Another useful operator introduced in [@brisard2014a]^[see [https://sbrisard.github.io/posts/20140226-decomposition_of_transverse_isotropic_fourth-rank_tensors.html](https://sbrisard.github.io/posts/20140226-decomposition_of_transverse_isotropic_fourth-rank_tensors.html)]) is the modified tensor product denoted by $\boxtimes$. The fourth-order tensor $\uu{a}\boxtimes\uu{b}$ (where $\uu{a}$ and $\uu{b}$ are two second-order tensors) is defined by its operation over any second-order tensor $\uu{p}$ and by its components
 $$\begin{aligned}
 & (\uu{a}\boxtimes\uu{b}):\uu{p}=\uu{a}\cdot\uu{p}\cdot\trans{\uu{b}}
 =a_{ik}\,p_{kl}\,b_{jl}\,\ve{i}\otimes\ve{j}
@@ -261,11 +261,11 @@ $${#eq-Rei}
 
 ::: {#fig-eurlerangles}
 ::: {.content-visible unless-format="html"}
-![](../../images/sphcoor){width=40%}
+![](../images/sphcoor){width=40%}
 :::
 ::: {.content-visible when-format="html"}
-![](../../images/sphcoor.html){width=90%}
-[![](../../images/arrow-expand.png){width=3%}](../../images/sphcoor.html)
+![](../images/sphcoor.html){width=90%}
+[![](../images/arrow-expand.png){width=3%}](../images/sphcoor.html)
 :::
 Euler angles
 :::
