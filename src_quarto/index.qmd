@@ -1,7 +1,9 @@
+::: {.content-visible when-format="html"}
 ::: {.content-hidden}
 $$
 {{< include config/_macros.tex >}}
 $$
+:::
 :::
 
 ## Welcome {.unnumbered #sec-welcome}
