@@ -361,35 +361,38 @@ div.csl-indent {
 
 </header>
 
+<div>
+
+</div>
 <section id="sec-basics_elas_sys_eq" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="sec-basics_elas_sys_eq"><span class="header-section-number">1.1</span> System of equations</h2>
-<p>Consider a representative volume element (RVE) <span class="math inline">\(\Omega\)</span> composed of a heterogeneous material. Neglecting body forces in a problem posed at the scale of a RVE is consistent with the fact that the order of magnitude of mechanical effects induced by body forces is in general much lower than that of the macroscopic strain <span class="math inline">\({{\mathbf{\boldsymbol{{{E}}}}}}\)</span> or stress <span class="math inline">\({{\mathbf{\boldsymbol{{{\Sigma}}}}}}\)</span> effects accounting for interactions with particles surrounding the RVE (see <span class="citation" data-cites="dormieux2006">(<a href="../references.html#ref-dormieux2006" role="doc-biblioref">Dormieux et al., 2006</a>)</span>). The hypothesis of quasi-static equilibrium is also invoked here to write the balance law involving the Cauchy stress field <span class="math inline">\({{\mathbf{\boldsymbol{{{\sigma}}}}}}\)</span> <span id="eq-divsigma"><span class="math display">\[
-\mathop{\mathrm{{\underline{{div}}}}}{{{\mathbf{\boldsymbol{{{\sigma}}}}}}}={\underline{{0}}} \quad(\Omega)
+<p>Consider a representative volume element (RVE) <span class="math inline">\(\Omega\)</span> composed of a heterogeneous material. Neglecting body forces in a problem posed at the scale of a RVE is consistent with the fact that the order of magnitude of mechanical effects induced by body forces is in general much lower than that of the macroscopic strain <span class="math inline">\({{\symbf{{{E}}}}}\)</span> or stress <span class="math inline">\({{\symbf{{{\Sigma}}}}}\)</span> effects accounting for interactions with particles surrounding the RVE (see <span class="citation" data-cites="dormieux2006">(<a href="../references.html#ref-dormieux2006" role="doc-biblioref">Dormieux et al., 2006</a>)</span>). The hypothesis of quasi-static equilibrium is also invoked here to write the balance law involving the Cauchy stress field <span class="math inline">\({{\symbf{{{\sigma}}}}}\)</span> <span id="eq-divsigma"><span class="math display">\[
+\mathop{\mathrm{{\underline{{div}}}}}{{{\symbf{{{\sigma}}}}}}={\underline{{0}}} \quad(\Omega)
 \tag{1.1}\]</span></span></p>
-<p>In the sequel, the small perturbation hypothesis is adopted so that the strain field <span class="math inline">\({{\mathbf{\boldsymbol{{{\varepsilon}}}}}}\)</span> derives from the displacement one <span class="math inline">\({\underline{{u}}}\)</span> as the symmetrical part of its gradient <span id="eq-epsgradu"><span class="math display">\[
-{{\mathbf{\boldsymbol{{{\varepsilon}}}}}}=\frac{\mathop{\mathrm{{\mathbf{\boldsymbol{{grad}}}}}}{{\underline{{u}}}}+{{}^{t}{\mathop{\mathrm{{\mathbf{\boldsymbol{{grad}}}}}}{{\underline{{u}}}}}}}{2} \quad(\Omega)
+<p>In the sequel, the small perturbation hypothesis is adopted so that the strain field <span class="math inline">\({{\symbf{{{\varepsilon}}}}}\)</span> derives from the displacement one <span class="math inline">\({\underline{{u}}}\)</span> as the symmetrical part of its gradient <span id="eq-epsgradu"><span class="math display">\[
+{{\symbf{{{\varepsilon}}}}}=\frac{\mathop{\mathrm{{\symbf{{grad}}}}}{{\underline{{u}}}}+{{}^{t}{\mathop{\mathrm{{\symbf{{grad}}}}}{{\underline{{u}}}}}}}{2} \quad(\Omega)
 \tag{1.2}\]</span></span></p>
 <p>In the framework of random media homogenization, two types of conditions applied at the boundary <span class="math inline">\(\partial\Omega\)</span> of a RVE <span class="math inline">\(\Omega\)</span> are usually considered:</p>
 <ul>
 <li><p><em>homogeneous strain boundary conditions</em> corresponding to prescribed displacements <span class="math inline">\({\underline{{u}}}^g\)</span> at <span class="math inline">\(\partial\Omega\)</span> <span id="eq-homstrainBC"><span class="math display">\[
-{\underline{{u}}}^g={{\mathbf{\boldsymbol{{{E}}}}}}\cdot{{\underline{{{x}}}}}\quad(\partial\Omega)
+{\underline{{u}}}^g={{\symbf{{{E}}}}}\cdot{{\underline{{{x}}}}}\quad(\partial\Omega)
 \tag{1.3}\]</span></span> It is noticeable that in this case the divergence theorem implies the following relationship between the microscopic and macroscopic strain tensors <span id="eq-EhomstrainBC"><span class="math display">\[
-&lt;{{\mathbf{\boldsymbol{{{\varepsilon}}}}}}&gt;_{\Omega}=\frac{1}{\lvert \Omega \rvert}\int_\Omega {{\mathbf{\boldsymbol{{{\varepsilon}}}}}}{\,\mathrm{d}}\Omega
+&lt;{{\symbf{{{\varepsilon}}}}}&gt;_{\Omega}=\frac{1}{\lvert \Omega \rvert}\int_\Omega {{\symbf{{{\varepsilon}}}}}{\,\mathrm{d}}\Omega
 =\frac{1}{\lvert \Omega \rvert}\int_{\partial\Omega} {\underline{{u}}}{\stackrel{s}{\otimes}}{{\underline{{{n}}}}}{\,\mathrm{d}}S
-={{\mathbf{\boldsymbol{{{E}}}}}}
+={{\symbf{{{E}}}}}
 \tag{1.4}\]</span></span> where the spatial average over a domain <span class="math inline">\(\omega\)</span> is denoted by <span class="math inline">\(&lt;\bullet&gt;_\omega\)</span> and <span class="math inline">\({{\underline{{{n}}}}}\)</span> is the unit outward normal at the boundary. The macroscopic stress tensor is then simply defined as the average <span id="eq-ShomstrainBC"><span class="math display">\[
-{{\mathbf{\boldsymbol{{{\Sigma}}}}}}=
-&lt;{{\mathbf{\boldsymbol{{{\sigma}}}}}}&gt;_{\Omega}=\frac{1}{\lvert \Omega \rvert}\int_\Omega {{\mathbf{\boldsymbol{{{\sigma}}}}}}{\,\mathrm{d}}\Omega
+{{\symbf{{{\Sigma}}}}}=
+&lt;{{\symbf{{{\sigma}}}}}&gt;_{\Omega}=\frac{1}{\lvert \Omega \rvert}\int_\Omega {{\symbf{{{\sigma}}}}}{\,\mathrm{d}}\Omega
 \tag{1.5}\]</span></span></p></li>
 <li><p><em>homogeneous stress boundary conditions</em> corresponding to prescribed surface tractions <span class="math inline">\({\underline{{T}}}^g\)</span> at <span class="math inline">\(\partial\Omega\)</span> <span id="eq-homstressBC"><span class="math display">\[
-{\underline{{T}}}^g={{\mathbf{\boldsymbol{{{\Sigma}}}}}}\cdot{{\underline{{{n}}}}}\quad(\partial\Omega)
-\tag{1.6}\]</span></span> Now owing to the remarkable identity <span class="math inline">\((x_i\sigma_{jk})_{,k}=\sigma_{ij}\)</span> resulting from (<a href="#eq-divsigma"><span>1.1</span></a>) and the symmetry of <span class="math inline">\({{\mathbf{\boldsymbol{{{\sigma}}}}}}\)</span>, the relationship between the microscopic and macroscopic stress is ensured by the divergence theorem <span id="eq-ShomstressBC"><span class="math display">\[
-&lt;{{\mathbf{\boldsymbol{{{\sigma}}}}}}&gt;_{\Omega}=\frac{1}{\lvert \Omega \rvert}\int_\Omega {{\mathbf{\boldsymbol{{{\sigma}}}}}}{\,\mathrm{d}}\Omega
-=\frac{1}{\lvert \Omega \rvert}\int_{\partial\Omega} {{\underline{{{x}}}}}{\stackrel{s}{\otimes}}({{\mathbf{\boldsymbol{{{\sigma}}}}}}\cdot{{\underline{{{n}}}}}) {\,\mathrm{d}}S
-={{\mathbf{\boldsymbol{{{\Sigma}}}}}}
+{\underline{{T}}}^g={{\symbf{{{\Sigma}}}}}\cdot{{\underline{{{n}}}}}\quad(\partial\Omega)
+\tag{1.6}\]</span></span> Now owing to the remarkable identity <span class="math inline">\((x_i\sigma_{jk})_{,k}=\sigma_{ij}\)</span> resulting from (<a href="#eq-divsigma"><span>1.1</span></a>) and the symmetry of <span class="math inline">\({{\symbf{{{\sigma}}}}}\)</span>, the relationship between the microscopic and macroscopic stress is ensured by the divergence theorem <span id="eq-ShomstressBC"><span class="math display">\[
+&lt;{{\symbf{{{\sigma}}}}}&gt;_{\Omega}=\frac{1}{\lvert \Omega \rvert}\int_\Omega {{\symbf{{{\sigma}}}}}{\,\mathrm{d}}\Omega
+=\frac{1}{\lvert \Omega \rvert}\int_{\partial\Omega} {{\underline{{{x}}}}}{\stackrel{s}{\otimes}}({{\symbf{{{\sigma}}}}}\cdot{{\underline{{{n}}}}}) {\,\mathrm{d}}S
+={{\symbf{{{\Sigma}}}}}
 \tag{1.7}\]</span></span> The macroscopic stress tensor is then simply defined as the average <span id="eq-EhomstressBC"><span class="math display">\[
-{{\mathbf{\boldsymbol{{{E}}}}}}=
-&lt;{{\mathbf{\boldsymbol{{{\varepsilon}}}}}}&gt;_{\Omega}=\frac{1}{\lvert \Omega \rvert}\int_\Omega {{\mathbf{\boldsymbol{{{\varepsilon}}}}}}{\,\mathrm{d}}\Omega
+{{\symbf{{{E}}}}}=
+&lt;{{\symbf{{{\varepsilon}}}}}&gt;_{\Omega}=\frac{1}{\lvert \Omega \rvert}\int_\Omega {{\symbf{{{\varepsilon}}}}}{\,\mathrm{d}}\Omega
 \tag{1.8}\]</span></span></p></li>
 </ul>
 <div class="callout-note callout callout-style-default callout-captioned">
@@ -403,25 +406,25 @@ Hill lemma
 </div>
 <div class="callout-body-container callout-body">
 <p>Note that whatever the choice of boundary conditions between (<a href="#eq-homstrainBC"><span>1.3</span></a>) and (<a href="#eq-homstressBC"><span>1.6</span></a>), the consistency between the microscopic and macroscopic works is ensured by <span id="eq-Hilllemma"><span class="math display">\[
-&lt;{{\mathbf{\boldsymbol{{{\sigma}}}}}}:{{\mathbf{\boldsymbol{{{\varepsilon}}}}}}&gt;_{\Omega}
-=\frac{1}{\lvert \Omega \rvert}\int_\Omega {{\mathbf{\boldsymbol{{{\sigma}}}}}}:{{\mathbf{\boldsymbol{{{\varepsilon}}}}}}{\,\mathrm{d}}\Omega
-=\frac{1}{\lvert \Omega \rvert}\int_{\partial\Omega} {\underline{{u}}}\cdot{{\mathbf{\boldsymbol{{{\sigma}}}}}}\cdot{{\underline{{{n}}}}}{\,\mathrm{d}}S
-={{\mathbf{\boldsymbol{{{\Sigma}}}}}}:{{\mathbf{\boldsymbol{{{E}}}}}}
+&lt;{{\symbf{{{\sigma}}}}}:{{\symbf{{{\varepsilon}}}}}&gt;_{\Omega}
+=\frac{1}{\lvert \Omega \rvert}\int_\Omega {{\symbf{{{\sigma}}}}}:{{\symbf{{{\varepsilon}}}}}{\,\mathrm{d}}\Omega
+=\frac{1}{\lvert \Omega \rvert}\int_{\partial\Omega} {\underline{{u}}}\cdot{{\symbf{{{\sigma}}}}}\cdot{{\underline{{{n}}}}}{\,\mathrm{d}}S
+={{\symbf{{{\Sigma}}}}}:{{\symbf{{{E}}}}}
 \tag{1.9}\]</span></span> which results from the application of the divergence theorem to <span class="math inline">\((u_i\sigma_{ij})_{,k}=u_{i,j}\sigma_{ij}=\varepsilon_{ij}\sigma_{ij}\)</span>.</p>
 </div>
 </div>
 <p>The set of equations defining the problem posed on the RVE is finally completed by the local constitutive law relating the strain and stress fields. The hypothesis of linear elasticity is adopted in this part so that <span id="eq-Hooke"><span class="math display">\[
-{{\mathbf{\boldsymbol{{{\sigma}}}}}}={\mathbb{{c}}}:{{\mathbf{\boldsymbol{{{\varepsilon}}}}}}\quad(\Omega)
-\tag{1.10}\]</span></span> where <span class="math inline">\({\mathbb{{c}}}({{\underline{{{x}}}}})\)</span> denotes the heterogeneous (positive definite fourth-order) stiffness tensor field satisfying the conditions of minor (<span class="math inline">\(c_{jikl}=c_{ijlk}=c_{ijkl}\)</span>) and major (<span class="math inline">\(c_{klij}=c_{ijkl}\)</span>) symmetries. The compliance tensor field is introduced as the inverse <span class="math inline">\({\mathbb{{s}}}={\mathbb{{c}}}^{-1}\)</span> in the sense of fourth-order tensors operating over symmetrical second-order tensors.</p>
+{{\symbf{{{\sigma}}}}}={\symbb{{c}}}:{{\symbf{{{\varepsilon}}}}}\quad(\Omega)
+\tag{1.10}\]</span></span> where <span class="math inline">\({\symbb{{c}}}({{\underline{{{x}}}}})\)</span> denotes the heterogeneous (positive definite fourth-order) stiffness tensor field satisfying the conditions of minor (<span class="math inline">\(c_{jikl}=c_{ijlk}=c_{ijkl}\)</span>) and major (<span class="math inline">\(c_{klij}=c_{ijkl}\)</span>) symmetries. The compliance tensor field is introduced as the inverse <span class="math inline">\({\symbb{{s}}}={\symbb{{c}}}^{-1}\)</span> in the sense of fourth-order tensors operating over symmetrical second-order tensors.</p>
 <p>In short, the system of equations posed on the RVE is given by (<a href="#eq-divsigma"><span>1.1</span></a>), (<a href="#eq-epsgradu"><span>1.2</span></a>), (<a href="#eq-homstrainBC"><span>1.3</span></a>) or (<a href="#eq-homstressBC"><span>1.6</span></a>) and (<a href="#eq-Hooke"><span>1.10</span></a>).</p>
 </section>
 <section id="sec-basics_elas_mac_stiff" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="sec-basics_elas_mac_stiff"><span class="header-section-number">1.2</span> Macroscopic stiffness or compliance tensors</h2>
-<p>Whatever the boundary condition of homogeneous strain or stress type (<a href="#eq-homstrainBC"><span>1.3</span></a>) or (<a href="#eq-homstressBC"><span>1.6</span></a>), the linearity of the problem allows to invoke the existence of concentration tensors relating the microscopic strain <span class="math inline">\({{\mathbf{\boldsymbol{{{\varepsilon}}}}}}\)</span> and stress <span class="math inline">\({{\mathbf{\boldsymbol{{{\sigma}}}}}}\)</span> fields to the macroscopic strain <span class="math inline">\({{\mathbf{\boldsymbol{{{E}}}}}}\)</span> or stress <span class="math inline">\({{\mathbf{\boldsymbol{{{\Sigma}}}}}}\)</span> tensors <span id="eq-conc"><span class="math display">\[\begin{aligned}
-{{\mathbf{\boldsymbol{{{\varepsilon}}}}}}&amp; =  {\mathbb{{A}}}_E:{{\mathbf{\boldsymbol{{{E}}}}}}\\
-{{\mathbf{\boldsymbol{{{\sigma}}}}}}&amp; =  {\mathbb{{B}}}_E:{{\mathbf{\boldsymbol{{{E}}}}}}\quad\textrm{with}\quad {\mathbb{{B}}}_E={\mathbb{{c}}}:{\mathbb{{A}}}_E \\
-{{\mathbf{\boldsymbol{{{\sigma}}}}}}&amp; =  {\mathbb{{B}}}_\Sigma:{{\mathbf{\boldsymbol{{{\Sigma}}}}}}\\
-{{\mathbf{\boldsymbol{{{\varepsilon}}}}}}&amp; =  {\mathbb{{A}}}_\Sigma:{{\mathbf{\boldsymbol{{{\Sigma}}}}}}\quad\textrm{with}\quad {\mathbb{{A}}}_\Sigma={\mathbb{{s}}}:{\mathbb{{B}}}_\Sigma
+<p>Whatever the boundary condition of homogeneous strain or stress type (<a href="#eq-homstrainBC"><span>1.3</span></a>) or (<a href="#eq-homstressBC"><span>1.6</span></a>), the linearity of the problem allows to invoke the existence of concentration tensors relating the microscopic strain <span class="math inline">\({{\symbf{{{\varepsilon}}}}}\)</span> and stress <span class="math inline">\({{\symbf{{{\sigma}}}}}\)</span> fields to the macroscopic strain <span class="math inline">\({{\symbf{{{E}}}}}\)</span> or stress <span class="math inline">\({{\symbf{{{\Sigma}}}}}\)</span> tensors <span id="eq-conc"><span class="math display">\[\begin{aligned}
+{{\symbf{{{\varepsilon}}}}}&amp; =  {\symbb{{A}}}_E:{{\symbf{{{E}}}}}\\
+{{\symbf{{{\sigma}}}}}&amp; =  {\symbb{{B}}}_E:{{\symbf{{{E}}}}}\quad\textrm{with}\quad {\symbb{{B}}}_E={\symbb{{c}}}:{\symbb{{A}}}_E \\
+{{\symbf{{{\sigma}}}}}&amp; =  {\symbb{{B}}}_\Sigma:{{\symbf{{{\Sigma}}}}}\\
+{{\symbf{{{\varepsilon}}}}}&amp; =  {\symbb{{A}}}_\Sigma:{{\symbf{{{\Sigma}}}}}\quad\textrm{with}\quad {\symbb{{A}}}_\Sigma={\symbb{{s}}}:{\symbb{{B}}}_\Sigma
 \end{aligned} \tag{1.11}\]</span></span></p>
 
 
