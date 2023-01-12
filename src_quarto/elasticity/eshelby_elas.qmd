@@ -1,2 +1,0 @@
-# Eshelby problem in elasticity {#sec-eshelby_elas}
-

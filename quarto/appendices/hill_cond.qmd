@@ -1,0 +1,3 @@
+# Hill polarization tensor in conductivity {#sec-hill_cond}
+
+$\,$

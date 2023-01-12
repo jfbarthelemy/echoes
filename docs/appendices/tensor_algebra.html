@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.280">
+<meta name="generator" content="quarto-1.2.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -346,6 +346,42 @@ div.csl-indent {
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
+$$
+\newcommand{\C}{{\mathbb{{C}}}}
+\newcommand{\R}{{\mathbb{{R}}}}
+\newcommand{\Q}{{\mathbb{{Q}}}}
+\newcommand{\Z}{{\mathbb{{Z}}}}
+\newcommand{\N}{{\mathbb{{N}}}}
+
+\newcommand{\uu}[1]{{\boldsymbol{{#1}}}}
+\newcommand{\uuuu}[1]{{\symbb{{#1}}}}
+\newcommand{\uv}[1]{{\underline{{#1}}}}
+\newcommand{\ve}[1]{{\uv{{e}}_{{#1}}}}
+\newcommand{\x}{{\uv{{x}}}}
+\newcommand{\n}{{\uv{{n}}}}
+\newcommand{\eps}{{\uu{{\varepsilon}}}}
+\newcommand{\E}{{\uu{{E}}}}
+\newcommand{\sig}{{\uu{{\sigma}}}}
+\newcommand{\Sig}{{\uu{{\Sigma}}}}
+\newcommand{\cod}{{\uv{{\symscr{b}}}}}
+\newcommand{\trans}[1]{{{}^{t}{#1}}}
+\newcommand{\sotimes}{{\stackrel{s}{\otimes}}}
+\newcommand{\sboxtimes}{\stackrel{s}{\boxtimes}}
+\newcommand{\norm}[1]{{\lVert{{#1}}\rVert}}
+\newcommand{\ud}{{\,\mathrm{d}}}
+\DeclareMathOperator{\arcosh}{arcosh}
+\DeclareMathOperator{\divz}{div}
+\DeclareMathOperator{\divu}{\uv{div}}
+\DeclareMathOperator{\hess}{hess}
+\DeclareMathOperator{\gradu}{\uv{grad}}
+\DeclareMathOperator{\graduu}{\uu{grad}}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\ISO}{ISO}
+
+\newcommand{\jump}[1]{[\hspace*{-.15em}[\hspace*{.1em}{#1}%
+     \hspace*{.1em}]\hspace*{-.15em}]}
+$$
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -364,98 +400,95 @@ div.csl-indent {
 
 </header>
 
-<div>
-
-</div>
 <section id="sec-tensoralgebra_convention" class="level2" data-number="A.1">
 <h2 data-number="A.1" class="anchored" data-anchor-id="sec-tensoralgebra_convention"><span class="header-section-number">A.1</span> Conventions of tensor algebra</h2>
-<p>This appendix presents some conventions regarding tensor algebra in the usual three-dimensional euclidean space <span class="math inline">\(E={\mathbb{{R}}}^3\)</span>. In the sequel, tensor components are associated to an orthonormal frame <span class="math inline">\(({{\underline{{{e}}}}_{{i}}})_{i=1,2,3}\)</span> so that introducing the notion of tensor variance is useless here. The following presentation relies on the prior knowledge of the definition of tensors as multilinear operators and the classical isomorphism between the euclidean space and its dual through the scalar product <span id="eq-scalarprod"><span class="math display">\[\begin{aligned}
+<p>This appendix presents some conventions regarding tensor algebra in the usual three-dimensional euclidean space <span class="math inline">\(E=\R^3\)</span>. In the sequel, tensor components are associated to an orthonormal frame <span class="math inline">\((\ve{i})_{i=1,2,3}\)</span> so that introducing the notion of tensor variance is useless here. The following presentation relies on the prior knowledge of the definition of tensors as multilinear operators and the classical isomorphism between the euclidean space and its dual through the scalar product <span id="eq-scalarprod"><span class="math display">\[\begin{aligned}
 \phi\,\colon E &amp; \longrightarrow  E^* \\
-       {\underline{{v}}} &amp; \longmapsto {\underline{{v}}}\cdot\bullet
+       \uv{v} &amp; \longmapsto \uv{v}\cdot\bullet
 \end{aligned} \tag{A.1}\]</span></span> which allows to identify vectors and linear forms.</p>
 <p>Consider two tensors <span class="math inline">\(\mathcal{T}\)</span> and <span class="math inline">\(\mathcal{T}'\)</span> of respective orders <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span>. The tensor product <span class="math inline">\(\mathcal{T}\otimes\mathcal{T}'\)</span> is the <span class="math inline">\((p+q)\)</span> order tensor decomposed as <span id="eq-otimes"><span class="math display">\[
 \mathcal{T}\otimes\mathcal{T}'=\mathcal{T}_{i_1,\ldots,i_p} \,\mathcal{T}'_{i_{p+1},\ldots,i_{p+q}}\,
-{{\underline{{{e}}}}_{{i_1}}}\otimes\ldots\otimes{{\underline{{{e}}}}_{{i_{p+q}}}}
-\tag{A.2}\]</span></span> where Einstein convention of immplicit summation over repeated indices is adopted and <span class="math inline">\({{\underline{{{e}}}}_{{i_1}}}\otimes\ldots\otimes{{\underline{{{e}}}}_{{i_{p+q}}}}\)</span> is the multilinear form such that<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> <span id="eq-multfom"><span class="math display">\[
-({{\underline{{{e}}}}_{{i_1}}}\otimes\ldots\otimes{{\underline{{{e}}}}_{{i_{p+q}}}})({{\underline{{{e}}}}_{{j_1}}},\ldots,{{\underline{{{e}}}}_{{j_{p+q}}}})
+\ve{i_1}\otimes\ldots\otimes\ve{i_{p+q}}
+\tag{A.2}\]</span></span> where Einstein convention of immplicit summation over repeated indices is adopted and <span class="math inline">\(\ve{i_1}\otimes\ldots\otimes\ve{i_{p+q}}\)</span> is the multilinear form such that<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> <span id="eq-multfom"><span class="math display">\[
+(\ve{i_1}\otimes\ldots\otimes\ve{i_{p+q}})(\ve{j_1},\ldots,\ve{j_{p+q}})
 =
 \delta_{i_1,j_1}\ldots \delta_{i_{p+q},j_{p+q}}
-\tag{A.3}\]</span></span> The notation <span class="math inline">\(\mathcal{T}{\stackrel{s}{\otimes}}\mathcal{T}'\)</span> indicates a tensor product followed by a symmetrization over the last index of <span class="math inline">\(\mathcal{T}\)</span> and the first of <span class="math inline">\(\mathcal{T}'\)</span>, i.e. <span id="eq-sotimes"><span class="math display">\[
-\mathcal{T}{\stackrel{s}{\otimes}}\mathcal{T}'=
+\tag{A.3}\]</span></span> The notation <span class="math inline">\(\mathcal{T}\sotimes\mathcal{T}'\)</span> indicates a tensor product followed by a symmetrization over the last index of <span class="math inline">\(\mathcal{T}\)</span> and the first of <span class="math inline">\(\mathcal{T}'\)</span>, i.e. <span id="eq-sotimes"><span class="math display">\[
+\mathcal{T}\sotimes\mathcal{T}'=
 \frac{\mathcal{T}_{i_1,\ldots,i_p} \,\mathcal{T}'_{i_{p+1},\ldots,i_{p+q}}
 +
 \mathcal{T}_{i_1,\ldots,i_{p+1}} \,\mathcal{T}'_{i_p,\ldots,i_{p+q}}
 }{2}
-\,{{\underline{{{e}}}}_{{i_1}}}\otimes\ldots\otimes{{\underline{{{e}}}}_{{i_{p+q}}}}
+\,\ve{i_1}\otimes\ldots\otimes\ve{i_{p+q}}
 \tag{A.4}\]</span></span> It follows that <span id="eq-sotimesuv"><span class="math display">\[
-{\underline{{u}}}{\stackrel{s}{\otimes}}{\underline{{v}}}=\frac{{\underline{{u}}}\otimes{\underline{{v}}}+{\underline{{v}}}\otimes{\underline{{u}}}}{2}
-\tag{A.5}\]</span></span> and an example of generalization involving a second-order tensor <span class="math inline">\({\symbf{{a}}}\)</span> and vectors <span class="math inline">\({\underline{{u}}}\)</span> and <span class="math inline">\({\underline{{v}}}\)</span> <span id="eq-sotimesuav"><span class="math display">\[
-{\underline{{u}}}{\stackrel{s}{\otimes}}{\symbf{{a}}}{\stackrel{s}{\otimes}}{\underline{{v}}}=
+\uv{u}\sotimes\uv{v}=\frac{\uv{u}\otimes\uv{v}+\uv{v}\otimes\uv{u}}{2}
+\tag{A.5}\]</span></span> and an example of generalization involving a second-order tensor <span class="math inline">\(\uu{a}\)</span> and vectors <span class="math inline">\(\uv{u}\)</span> and <span class="math inline">\(\uv{v}\)</span> <span id="eq-sotimesuav"><span class="math display">\[
+\uv{u}\sotimes\uu{a}\sotimes\uv{v}=
 \frac{u_i\,a_{jk}\,v_l+u_i\,a_{jl}\,v_k+u_j\,a_{ik}\,v_l+u_j\,a_{il}\,v_k}{4}
-\,{{\underline{{{e}}}}_{{i}}}\otimes{{\underline{{{e}}}}_{{j}}}\otimes{{\underline{{{e}}}}_{{k}}}\otimes{{\underline{{{e}}}}_{{l}}}
+\,\ve{i}\otimes\ve{j}\otimes\ve{k}\otimes\ve{l}
 \tag{A.6}\]</span></span></p>
 <p>The simple dot product or contracted product between <span class="math inline">\(\mathcal{T}\)</span> and <span class="math inline">\(\mathcal{T}'\)</span> involves by convention a contraction between the last index of <span class="math inline">\(\mathcal{T}\)</span> and the first of <span class="math inline">\(\mathcal{T}'\)</span>, which leads to the <span class="math inline">\((p+q-2)\)</span> order tensor <span id="eq-simpledot"><span class="math display">\[
 \mathcal{T}\cdot\mathcal{T}'=\mathcal{T}_{i_1,\ldots,i_{p-1},{\color{red}k}} \,\mathcal{T}'_{{\color{red}k},i_{p},\ldots,i_{p+q-2}}\,
-{{\underline{{{e}}}}_{{i_1}}}\otimes\ldots\otimes{{\underline{{{e}}}}_{{i_{p+q-2}}}}
+\ve{i_1}\otimes\ldots\otimes\ve{i_{p+q-2}}
 \tag{A.7}\]</span></span></p>
-<p>As regards the double dot product, the classical convention consists in consuming the indices going up from the extremities, which means that a first contraction acts as in the simple dot product then a second contraction is performed between the penultimate index of <span class="math inline">\(\mathcal{T}\)</span> and the second one of <span class="math inline">\(\mathcal{T}'\)</span>. However and alternate convention adopted here is proposed in <span class="citation" data-cites="brisard2014a">(<a href="../references.html#ref-brisard2014a" role="doc-biblioref">Brisard, 2014</a>)</span><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, which somehow consists in considering that the double contraction operates over the two last indices of <span class="math inline">\(\mathcal{T}\)</span> as a pair and the two first indices of <span class="math inline">\(\mathcal{T}'\)</span> as the corresponding pair. In other words, this operation is such that if <span class="math inline">\({\symbf{{a}}}\)</span> and <span class="math inline">\({\symbf{{b}}}\)</span> are two second-order tensors and <span class="math inline">\({\symbb{{T}}}\)</span> is a fourth-order tensor <span id="eq-doubledot"><span class="math display">\[
-{\symbf{{a}}}:{\symbf{{b}}}=a_{ij}b_{ij}
+<p>As regards the double dot product, the classical convention consists in consuming the indices going up from the extremities, which means that a first contraction acts as in the simple dot product then a second contraction is performed between the penultimate index of <span class="math inline">\(\mathcal{T}\)</span> and the second one of <span class="math inline">\(\mathcal{T}'\)</span>. However and alternate convention adopted here is proposed in <span class="citation" data-cites="brisard2014a">(<a href="../references.html#ref-brisard2014a" role="doc-biblioref">Brisard, 2014</a>)</span><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, which somehow consists in considering that the double contraction operates over the two last indices of <span class="math inline">\(\mathcal{T}\)</span> as a pair and the two first indices of <span class="math inline">\(\mathcal{T}'\)</span> as the corresponding pair. In other words, this operation is such that if <span class="math inline">\(\uu{a}\)</span> and <span class="math inline">\(\uu{b}\)</span> are two second-order tensors and <span class="math inline">\(\uuuu{T}\)</span> is a fourth-order tensor <span id="eq-doubledot"><span class="math display">\[
+\uu{a}:\uu{b}=a_{ij}b_{ij}
 \quad\textrm{and}\quad
-{\symbb{{T}}}:{\symbf{{a}}}=T_{ijkl}\, a_{kl}\, {{\underline{{{e}}}}_{{i}}}\otimes{{\underline{{{e}}}}_{{j}}}
-\tag{A.8}\]</span></span> and the transpose tensor <span class="math inline">\({{}^{t}{{\symbb{{T}}}}}\)</span> is consistently defined by <span id="eq-trans4"><span class="math display">\[
-{{}^{t}{{\symbb{{T}}}}}:{\symbf{{a}}}={\symbf{{a}}}:{\symbb{{T}}}
+\uuuu{T}:\uu{a}=T_{ijkl}\, a_{kl}\, \ve{i}\otimes\ve{j}
+\tag{A.8}\]</span></span> and the transpose tensor <span class="math inline">\(\trans{\uuuu{T}}\)</span> is consistently defined by <span id="eq-trans4"><span class="math display">\[
+\trans{\uuuu{T}}:\uu{a}=\uu{a}:\uuuu{T}
 \quad\Leftrightarrow\quad
-\left({{}^{t}{{\symbb{{T}}}}}\right)_{ijkl}=\left({\symbb{{T}}}\right)_{klij}
+\left(\trans{\uuuu{T}}\right)_{ijkl}=\left(\uuuu{T}\right)_{klij}
 \tag{A.9}\]</span></span> The quadruple dot product is introduced as a scalar product between fourth-order tensors as <span id="eq-dot4"><span class="math display">\[
-{\symbb{{T}}}:{\symbb{{T}}}'=T_{ijkl} T'_{ijkl}
+\uuuu{T}:\uuuu{T}'=T_{ijkl} T'_{ijkl}
 \tag{A.10}\]</span></span></p>
-<p>Another useful operator introduced in <span class="citation" data-cites="brisard2014a">(<a href="../references.html#ref-brisard2014a" role="doc-biblioref">Brisard, 2014</a>)</span><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> is the modified tensor product denoted by <span class="math inline">\(\boxtimes\)</span>. The fourth-order tensor <span class="math inline">\({\symbf{{a}}}\boxtimes{\symbf{{b}}}\)</span> (where <span class="math inline">\({\symbf{{a}}}\)</span> and <span class="math inline">\({\symbf{{b}}}\)</span> are two second-order tensors) is defined by its operation over any second-order tensor <span class="math inline">\({\symbf{{p}}}\)</span> and by its components <span id="eq-boxtimes"><span class="math display">\[\begin{aligned}
-&amp; ({\symbf{{a}}}\boxtimes{\symbf{{b}}}):{\symbf{{p}}}={\symbf{{a}}}\cdot{\symbf{{p}}}\cdot{{}^{t}{{\symbf{{b}}}}}
-=a_{ik}\,p_{kl}\,b_{jl}\,{{\underline{{{e}}}}_{{i}}}\otimes{{\underline{{{e}}}}_{{j}}}
+<p>Another useful operator introduced in <span class="citation" data-cites="brisard2014a">(<a href="../references.html#ref-brisard2014a" role="doc-biblioref">Brisard, 2014</a>)</span><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> is the modified tensor product denoted by <span class="math inline">\(\boxtimes\)</span>. The fourth-order tensor <span class="math inline">\(\uu{a}\boxtimes\uu{b}\)</span> (where <span class="math inline">\(\uu{a}\)</span> and <span class="math inline">\(\uu{b}\)</span> are two second-order tensors) is defined by its operation over any second-order tensor <span class="math inline">\(\uu{p}\)</span> and by its components <span id="eq-boxtimes"><span class="math display">\[\begin{aligned}
+&amp; (\uu{a}\boxtimes\uu{b}):\uu{p}=\uu{a}\cdot\uu{p}\cdot\trans{\uu{b}}
+=a_{ik}\,p_{kl}\,b_{jl}\,\ve{i}\otimes\ve{j}
 \\
-&amp; \left({\symbf{{a}}}\boxtimes{\symbf{{b}}}\right)_{ijkl}=a_{ik}\,b_{jl}
+&amp; \left(\uu{a}\boxtimes\uu{b}\right)_{ijkl}=a_{ik}\,b_{jl}
 \end{aligned} \tag{A.11}\]</span></span></p>
-<p>A symmetrized version of <span class="math inline">\(\boxtimes\)</span> denoted by <span class="math inline">\(\stackrel{s}{\boxtimes}\)</span> can also be introduced. It operates as <span id="eq-sboxtimes"><span class="math display">\[\begin{aligned}
-&amp; ({\symbf{{a}}}\stackrel{s}{\boxtimes}{\symbf{{b}}}):{\symbf{{p}}}=
-({\symbf{{a}}}\boxtimes{\symbf{{b}}}):\left(\frac{{\symbf{{p}}}+{{}^{t}{{\symbf{{p}}}}}}{2}\right)
-={\symbf{{a}}}\cdot\left(\frac{{\symbf{{p}}}+{{}^{t}{{\symbf{{p}}}}}}{2}\right)\cdot{{}^{t}{{\symbf{{b}}}}}
+<p>A symmetrized version of <span class="math inline">\(\boxtimes\)</span> denoted by <span class="math inline">\(\sboxtimes\)</span> can also be introduced. It operates as <span id="eq-sboxtimes"><span class="math display">\[\begin{aligned}
+&amp; (\uu{a}\sboxtimes\uu{b}):\uu{p}=
+(\uu{a}\boxtimes\uu{b}):\left(\frac{\uu{p}+\trans{\uu{p}}}{2}\right)
+=\uu{a}\cdot\left(\frac{\uu{p}+\trans{\uu{p}}}{2}\right)\cdot\trans{\uu{b}}
 \\
-&amp; ({\symbf{{a}}}\stackrel{s}{\boxtimes}{\symbf{{b}}})_{ijkl}=\frac{a_{ik}\,b_{jl}+a_{il}\,b_{jk}}{2}
+&amp; (\uu{a}\sboxtimes\uu{b})_{ijkl}=\frac{a_{ik}\,b_{jl}+a_{il}\,b_{jk}}{2}
 \end{aligned} \tag{A.12}\]</span></span></p>
-<p>It follows from these definitions that the fourth-order identity, as an operator over second-order tensors, writes <span class="math inline">\({\symbb{{1}}}={\symbf{{1}}}\boxtimes{\symbf{{1}}}\)</span> where <span class="math inline">\({\symbf{{1}}}\)</span> is the second-order identity. The fourth-order operator allowing to extract the symmetric part of a second-order tensor writes <span class="math inline">\({\symbb{{I}}}={\symbf{{1}}}\stackrel{s}{\boxtimes}{\symbf{{1}}}\)</span>. The latter tensor, which obviously complies with the conditions of minor symmetries, is classically used to play the role of fourth-order identity operating over symmetric second-order tensors.</p>
+<p>It follows from these definitions that the fourth-order identity, as an operator over second-order tensors, writes <span class="math inline">\(\uuuu{1}=\uu{1}\boxtimes\uu{1}\)</span> where <span class="math inline">\(\uu{1}\)</span> is the second-order identity. The fourth-order operator allowing to extract the symmetric part of a second-order tensor writes <span class="math inline">\(\uuuu{I}=\uu{1}\sboxtimes\uu{1}\)</span>. The latter tensor, which obviously complies with the conditions of minor symmetries, is classically used to play the role of fourth-order identity operating over symmetric second-order tensors.</p>
 <p>Some remarkable relationships result from the previous definitions <span id="eq-propboxtimes"><span class="math display">\[\begin{aligned}
-&amp;({\symbf{{a}}}\boxtimes{\symbf{{b}}}):({\underline{{u}}}\otimes{\underline{{v}}})=
-({\symbf{{a}}}\cdot{\underline{{u}}})\otimes({\symbf{{b}}}\cdot{\underline{{v}}})
+&amp;(\uu{a}\boxtimes\uu{b}):(\uv{u}\otimes\uv{v})=
+(\uu{a}\cdot\uv{u})\otimes(\uu{b}\cdot\uv{v})
 &amp;(a) \\
-&amp;({\symbf{{a}}}\boxtimes{\symbf{{b}}}):({\symbf{{c}}}\boxtimes{\symbf{{d}}})=
-({\symbf{{a}}}\cdot{\symbf{{c}}})\boxtimes({\symbf{{b}}}\cdot{\symbf{{d}}})
+&amp;(\uu{a}\boxtimes\uu{b}):(\uu{c}\boxtimes\uu{d})=
+(\uu{a}\cdot\uu{c})\boxtimes(\uu{b}\cdot\uu{d})
 &amp;(b) \\
-&amp;({\symbf{{a}}}\stackrel{s}{\boxtimes}{\symbf{{b}}}):({\symbf{{c}}}\stackrel{s}{\boxtimes}{\symbf{{d}}})=
-\frac{({\symbf{{a}}}\cdot{\symbf{{c}}})\stackrel{s}{\boxtimes}({\symbf{{b}}}\cdot{\symbf{{d}}})+
-({\symbf{{a}}}\cdot{\symbf{{d}}})\stackrel{s}{\boxtimes}({\symbf{{b}}}\cdot{\symbf{{c}}})}{2}
+&amp;(\uu{a}\sboxtimes\uu{b}):(\uu{c}\sboxtimes\uu{d})=
+\frac{(\uu{a}\cdot\uu{c})\sboxtimes(\uu{b}\cdot\uu{d})+
+(\uu{a}\cdot\uu{d})\sboxtimes(\uu{b}\cdot\uu{c})}{2}
 &amp;(c) \\
-&amp;({\symbf{{a}}}\stackrel{s}{\boxtimes}{\symbf{{a}}}):({\symbf{{b}}}\stackrel{s}{\boxtimes}{\symbf{{b}}})=
-({\symbf{{a}}}\cdot{\symbf{{b}}})\stackrel{s}{\boxtimes}({\symbf{{a}}}\cdot{\symbf{{b}}})
+&amp;(\uu{a}\sboxtimes\uu{a}):(\uu{b}\sboxtimes\uu{b})=
+(\uu{a}\cdot\uu{b})\sboxtimes(\uu{a}\cdot\uu{b})
 &amp;(d) \\
-&amp;{{}^{t}{({\symbf{{a}}}\boxtimes{\symbf{{b}}})}}={{}^{t}{{\symbf{{a}}}}}\boxtimes{{}^{t}{{\symbf{{b}}}}}
+&amp;\trans{(\uu{a}\boxtimes\uu{b})}=\trans{\uu{a}}\boxtimes\trans{\uu{b}}
 &amp;(e) \\
-&amp;{{}^{t}{({\symbf{{a}}}\stackrel{s}{\boxtimes}{\symbf{{a}}})}}={{}^{t}{{\symbf{{a}}}}}\stackrel{s}{\boxtimes}{{}^{t}{{\symbf{{a}}}}}
+&amp;\trans{(\uu{a}\sboxtimes\uu{a})}=\trans{\uu{a}}\sboxtimes\trans{\uu{a}}
 \;\textrm{ but }\;
-{{}^{t}{({\symbf{{a}}}\stackrel{s}{\boxtimes}{\symbf{{b}}})}}\neq{{}^{t}{{\symbf{{a}}}}}\stackrel{s}{\boxtimes}{{}^{t}{{\symbf{{b}}}}}
+\trans{(\uu{a}\sboxtimes\uu{b})}\neq\trans{\uu{a}}\sboxtimes\trans{\uu{b}}
 &amp;(f) \\
-&amp;({\symbf{{a}}}\boxtimes{\symbf{{b}}})^{-1}={\symbf{{a}}}^{-1}\boxtimes{\symbf{{b}}}^{-1}
+&amp;(\uu{a}\boxtimes\uu{b})^{-1}=\uu{a}^{-1}\boxtimes\uu{b}^{-1}
 &amp;(g) \\
-&amp;({\symbf{{a}}}\stackrel{s}{\boxtimes}{\symbf{{a}}})^{-1}:{\symbf{{p}}}=({\symbf{{a}}}^{-1}\stackrel{s}{\boxtimes}{\symbf{{a}}}^{-1}):{\symbf{{p}}}
-\;\textrm{ if }\;{{}^{t}{{\symbf{{p}}}}}={\symbf{{p}}}
+&amp;(\uu{a}\sboxtimes\uu{a})^{-1}:\uu{p}=(\uu{a}^{-1}\sboxtimes\uu{a}^{-1}):\uu{p}
+\;\textrm{ if }\;\trans{\uu{p}}=\uu{p}
 \;\textrm{ but }\;
-({\symbf{{a}}}\stackrel{s}{\boxtimes}{\symbf{{b}}})^{-1}\neq{\symbf{{a}}}^{-1}\stackrel{s}{\boxtimes}{\symbf{{b}}}^{-1}
+(\uu{a}\sboxtimes\uu{b})^{-1}\neq\uu{a}^{-1}\sboxtimes\uu{b}^{-1}
 &amp;(h)
 \end{aligned} \tag{A.13}\]</span></span></p>
 </section>
 <section id="sec-KM" class="level2" data-number="A.2">
 <h2 data-number="A.2" class="anchored" data-anchor-id="sec-KM"><span class="header-section-number">A.2</span> Kelvin-Mandel notation</h2>
-<p>The Kelvin-Mandel notation allows to write the matrix of a symmetric second-order tensor in a given orthonormal frame under the form of a vector of <span class="math inline">\({\mathbb{{R}}}^6\)</span> <span id="eq-KM2"><span class="math display">\[
-   \mathop{\mathrm{Mat}}({{\symbf{{{\varepsilon}}}}},({{\underline{{{e}}}}_{{i}}}))=
+<p>The Kelvin-Mandel notation allows to write the matrix of a symmetric second-order tensor in a given orthonormal frame under the form of a vector of <span class="math inline">\(\R^6\)</span> <span id="eq-KM2"><span class="math display">\[
+   \Mat(\eps,(\ve{i}))=
    \left(
    \begin{array}{ccc}
    \varepsilon_{11} &amp; \varepsilon_{12} &amp; \varepsilon_{31}\\
@@ -475,20 +508,20 @@ div.csl-indent {
    \end{array}
    \right)
 \tag{A.14}\]</span></span></p>
-<p>The vector of <span class="math inline">\({\mathbb{{R}}}^6\)</span> in (<a href="#eq-KM2"><span>A.14</span></a>) corresponds to the components of the second-order tensor <span class="math inline">\({{\symbf{{{\varepsilon}}}}}\)</span> in the basis ordered as <span id="eq-basisKM"><span class="math display">\[
+<p>The vector of <span class="math inline">\(\R^6\)</span> in (<a href="#eq-KM2"><span>A.14</span></a>) corresponds to the components of the second-order tensor <span class="math inline">\(\eps\)</span> in the basis ordered as <span id="eq-basisKM"><span class="math display">\[
 \mathcal{B}=\left(
-{{\underline{{{e}}}}_{{1}}}\otimes{{\underline{{{e}}}}_{{1}}},
-{{\underline{{{e}}}}_{{2}}}\otimes{{\underline{{{e}}}}_{{2}}},
-{{\underline{{{e}}}}_{{3}}}\otimes{{\underline{{{e}}}}_{{3}}},
-\sqrt{2}\,{{\underline{{{e}}}}_{{2}}}\otimes{{\underline{{{e}}}}_{{3}}},
-\sqrt{2}\,{{\underline{{{e}}}}_{{3}}}\otimes{{\underline{{{e}}}}_{{1}}},
-\sqrt{2}\,{{\underline{{{e}}}}_{{1}}}\otimes{{\underline{{{e}}}}_{{2}}}
+\ve{1}\otimes\ve{1},
+\ve{2}\otimes\ve{2},
+\ve{3}\otimes\ve{3},
+\sqrt{2}\,\ve{2}\otimes\ve{3},
+\sqrt{2}\,\ve{3}\otimes\ve{1},
+\sqrt{2}\,\ve{1}\otimes\ve{2}
 \right)
 \tag{A.15}\]</span></span></p>
-<p>The tensors of the basis (<a href="#eq-basisKM"><span>A.15</span></a>) form an orthonormal frame spanning the space of symmetric second-order tensors equipped with the double contraction “<span class="math inline">\(:\)</span>” as scalar product. It follows that the double contraction between symmetric second-order tensors is no other than the classical scalar product of the corresponding vectors of <span class="math inline">\({\mathbb{{R}}}^6\)</span> written according to the convention (<a href="#eq-KM2"><span>A.14</span></a>).</p>
+<p>The tensors of the basis (<a href="#eq-basisKM"><span>A.15</span></a>) form an orthonormal frame spanning the space of symmetric second-order tensors equipped with the double contraction “<span class="math inline">\(:\)</span>” as scalar product. It follows that the double contraction between symmetric second-order tensors is no other than the classical scalar product of the corresponding vectors of <span class="math inline">\(\R^6\)</span> written according to the convention (<a href="#eq-KM2"><span>A.14</span></a>).</p>
 <p>Moreover a fourth-order tensor with minor symetries (<span class="math inline">\(C_{jikl}=C_{ijlk}=C_{ijkl}\)</span>), which can be seen as a linear operator acting over symmetric second-order tensors by double contraction, writes in the same convention under the form of a <span class="math inline">\(6\times 6\)</span> square matrix (the solid lines separate blocks affected by different factors whereas the colored components highlight a central block playing a major role in the sequel) <span id="eq-KM4"><span class="math display">\[
 \small
-\mathop{\mathrm{Mat}}({\symbb{{C}}},\mathcal{B})=
+\Mat(\uuuu{C},\mathcal{B})=
    \left(
    \begin{array}{ccc|ccc}
    C_{1111} &amp; C_{1122} &amp; C_{1133} &amp; \sqrt{2}\,C_{1123} &amp; \sqrt{2}\,C_{1131} &amp; \sqrt{2}\,C_{1112} \\
@@ -500,24 +533,24 @@ div.csl-indent {
    \sqrt{2}\,C_{1211} &amp; \sqrt{2}\,C_{1222} &amp; \sqrt{2}\,C_{1233} &amp; 2\,C_{1223} &amp; 2\,C_{1231} &amp; 2\,C_{1212}
    \end{array}
    \right)
-\tag{A.16}\]</span></span> The result of <span class="math inline">\({\symbb{{C}}}:{{\symbf{{{\varepsilon}}}}}\)</span> writes as a classical matrix-vector product of (<a href="#eq-KM4"><span>A.16</span></a>) by (<a href="#eq-KM2"><span>A.14</span></a>).</p>
-<p>However another way of ordering the tensors of (<a href="#eq-basisKM"><span>A.15</span></a>) which proves useful for the calculation of crack compliance is based on a gathering of one set of three in-plane and another one of three out-of-plane tensors (the latter involving <span class="math inline">\({{\underline{{{n}}}}}={{\underline{{{e}}}}_{{3}}}\)</span> assumed to be the normal of the crack and the former not) <span id="eq-basisKM2"><span class="math display">\[
+\tag{A.16}\]</span></span> The result of <span class="math inline">\(\uuuu{C}:\eps\)</span> writes as a classical matrix-vector product of (<a href="#eq-KM4"><span>A.16</span></a>) by (<a href="#eq-KM2"><span>A.14</span></a>).</p>
+<p>However another way of ordering the tensors of (<a href="#eq-basisKM"><span>A.15</span></a>) which proves useful for the calculation of crack compliance is based on a gathering of one set of three in-plane and another one of three out-of-plane tensors (the latter involving <span class="math inline">\(\n=\ve{3}\)</span> assumed to be the normal of the crack and the former not) <span id="eq-basisKM2"><span class="math display">\[
 \mathcal{B}^*=\Bigg(
 \underbrace{
-{{\underline{{{e}}}}_{{1}}}\otimes{{\underline{{{e}}}}_{{1}}},
-{{\underline{{{e}}}}_{{2}}}\otimes{{\underline{{{e}}}}_{{2}}},
-\sqrt{2}\,{{\underline{{{e}}}}_{{1}}}{\stackrel{s}{\otimes}}{{\underline{{{e}}}}_{{2}}}
+\ve{1}\otimes\ve{1},
+\ve{2}\otimes\ve{2},
+\sqrt{2}\,\ve{1}\sotimes\ve{2}
 }_{\textrm{in-plane}},
 \quad
 \underbrace{
-{{\underline{{{e}}}}_{{3}}}\otimes{{\underline{{{e}}}}_{{3}}},
-\sqrt{2}\,{{\underline{{{e}}}}_{{2}}}{\stackrel{s}{\otimes}}{{\underline{{{e}}}}_{{3}}},
-\sqrt{2}\,{{\underline{{{e}}}}_{{3}}}{\stackrel{s}{\otimes}}{{\underline{{{e}}}}_{{1}}}
+\ve{3}\otimes\ve{3},
+\sqrt{2}\,\ve{2}\sotimes\ve{3},
+\sqrt{2}\,\ve{3}\sotimes\ve{1}
 }_{\textrm{out-of-plane}}
 \Bigg)
-\tag{A.17}\]</span></span> such that the matrix of <span class="math inline">\({\symbb{{C}}}\)</span> in <span class="math inline">\(\mathcal{B}^*\)</span> is now obtained by permutations of lines and columns of (<a href="#eq-KM4"><span>A.16</span></a>) to give <span id="eq-KM4bis"><span class="math display">\[
+\tag{A.17}\]</span></span> such that the matrix of <span class="math inline">\(\uuuu{C}\)</span> in <span class="math inline">\(\mathcal{B}^*\)</span> is now obtained by permutations of lines and columns of (<a href="#eq-KM4"><span>A.16</span></a>) to give <span id="eq-KM4bis"><span class="math display">\[
 \small
-\mathop{\mathrm{Mat}}({\symbb{{C}}},\mathcal{B}^*)=
+\Mat(\uuuu{C},\mathcal{B}^*)=
    \left(
    \begin{array}{ccc|ccc}
    C_{1111} &amp; C_{1122} &amp; \sqrt{2}\,C_{1112} &amp; C_{1133} &amp; \sqrt{2}\,C_{1123} &amp; \sqrt{2}\,C_{1131} \\
@@ -533,9 +566,9 @@ div.csl-indent {
 </section>
 <section id="sec-rottens" class="level2" data-number="A.3">
 <h2 data-number="A.3" class="anchored" data-anchor-id="sec-rottens"><span class="header-section-number">A.3</span> Rotation of tensors</h2>
-<p>Recalling that the set of second-order tensors is isomorphic to the set of endomorphism in an euclidean space, it is natural to define a rotation tensor as an element of the special orthogonal group, i.e.&nbsp;tensors <span class="math inline">\({\symbf{{R}}}\)</span> such that <span class="math inline">\({{}^{t}{{\symbf{{R}}}}}\cdot{\symbf{{R}}}={\symbf{{1}}}\)</span> and <span class="math inline">\(\det{{\symbf{{R}}}}=1\)</span>. In <span class="math inline">\({\mathbb{{R}}}^3\)</span> equipped with an orthonormal frame <span class="math inline">\(({{\underline{{{e}}}}_{{i}}})_{i=1,2,3}\)</span>, these tensors can be defined by three Euler angles (see <a href="#fig-eurlerangles">Fig.&nbsp;<span>A.1</span></a>) <span class="math inline">\(0\leq\theta\leq\pi\)</span>, <span class="math inline">\(0\leq\phi\leq 2\pi\)</span> and <span class="math inline">\(0\leq\psi\leq 2\pi\)</span> such that<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> <span id="eq-rot3"><span class="math display">\[
+<p>Recalling that the set of second-order tensors is isomorphic to the set of endomorphism in an euclidean space, it is natural to define a rotation tensor as an element of the special orthogonal group, i.e.&nbsp;tensors <span class="math inline">\(\uu{R}\)</span> such that <span class="math inline">\(\trans{\uu{R}}\cdot\uu{R}=\uu{1}\)</span> and <span class="math inline">\(\det{\uu{R}}=1\)</span>. In <span class="math inline">\(\R^3\)</span> equipped with an orthonormal frame <span class="math inline">\((\ve{i})_{i=1,2,3}\)</span>, these tensors can be defined by three Euler angles (see <a href="#fig-eurlerangles">Fig.&nbsp;<span>A.1</span></a>) <span class="math inline">\(0\leq\theta\leq\pi\)</span>, <span class="math inline">\(0\leq\phi\leq 2\pi\)</span> and <span class="math inline">\(0\leq\psi\leq 2\pi\)</span> such that<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> <span id="eq-rot3"><span class="math display">\[
 \small
-\mathop{\mathrm{Mat}}({\symbf{{R}}},({{\underline{{{e}}}}_{{i}}}))=
+\Mat(\uu{R},(\ve{i}))=
    \left(
    \begin{array}{ccc}
    c_\theta  c_\psi  c_\phi - s_\psi  s_\phi &amp; - c_\theta  c_\phi  s_\psi - c_\psi  s_\phi &amp; c_\phi  s_\theta \\
@@ -543,8 +576,8 @@ div.csl-indent {
    - c_\psi  s_\theta &amp; s_\theta  s_\psi &amp; c_\theta \\
    \end{array}
    \right)
-\tag{A.19}\]</span></span> A rotated frame <span class="math inline">\((\underline{e}'_i)_{i=1,2,3}\)</span> is obtained by application of the rotation <span class="math inline">\({\symbf{{R}}}\)</span> on the vectors <span class="math inline">\({{\underline{{{e}}}}_{{i}}}\)</span> (see <a href="#fig-eurlerangles">Fig.&nbsp;<span>A.1</span></a>) <span id="eq-Rei"><span class="math display">\[
-\forall i \in \{1,2,3\}\quad \underline{e}'_i={\symbf{{R}}}\cdot{{\underline{{{e}}}}_{{i}}}
+\tag{A.19}\]</span></span> A rotated frame <span class="math inline">\((\underline{e}'_i)_{i=1,2,3}\)</span> is obtained by application of the rotation <span class="math inline">\(\uu{R}\)</span> on the vectors <span class="math inline">\(\ve{i}\)</span> (see <a href="#fig-eurlerangles">Fig.&nbsp;<span>A.1</span></a>) <span id="eq-Rei"><span class="math display">\[
+\forall i \in \{1,2,3\}\quad \underline{e}'_i=\uu{R}\cdot\ve{i}
 \tag{A.20}\]</span></span></p>
 <div id="fig-eurlerangles" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -556,22 +589,22 @@ div.csl-indent {
 </div>
 <p>The rotation of Eurler angles <span class="math inline">\((\theta,\phi,\psi)\)</span> applies on a <span class="math inline">\(p\)</span> order tensor <span class="math inline">\(\mathcal{T}\)</span> as <span id="eq-rotT"><span class="math display">\[
 \mathcal{T}=
-\mathcal{T}_{i_1,\ldots,i_p} \,{{\underline{{{e}}}}_{{i_1}}}\otimes\ldots\otimes{{\underline{{{e}}}}_{{i_{p}}}}
-\overset{{\symbf{{R}}}}{\longmapsto}
-{\symbf{{R}}}(\mathcal{T})=
-\mathcal{T}_{i_1,\ldots,i_p} \,({\symbf{{R}}}\cdot{{\underline{{{e}}}}_{{i_1}}})\otimes\ldots\otimes({\symbf{{R}}}\cdot{{\underline{{{e}}}}_{{i_{p}}}})
+\mathcal{T}_{i_1,\ldots,i_p} \,\ve{i_1}\otimes\ldots\otimes\ve{i_{p}}
+\overset{\uu{R}}{\longmapsto}
+\uu{R}(\mathcal{T})=
+\mathcal{T}_{i_1,\ldots,i_p} \,(\uu{R}\cdot\ve{i_1})\otimes\ldots\otimes(\uu{R}\cdot\ve{i_{p}})
 \tag{A.21}\]</span></span></p>
-<p>The application of (<a href="#eq-rotT"><span>A.21</span></a>) to a second-order tensor <span class="math inline">\({\symbf{{a}}}\)</span> therefore gives <span id="eq-rotT2"><span class="math display">\[
-{\symbf{{R}}}({\symbf{{a}}})={\symbf{{R}}}\cdot
-{\symbf{{a}}}
-\cdot{{}^{t}{{\symbf{{R}}}}}
-\tag{A.22}\]</span></span> and to a fourth-order tensor <span class="math inline">\({\symbb{{T}}}\)</span> <span id="eq-rotT4"><span class="math display">\[
-{\symbf{{R}}}({\symbb{{T}}})=({\symbf{{R}}}\stackrel{s}{\boxtimes}{\symbf{{R}}}):
-{\symbb{{T}}}
-:{{}^{t}{({\symbf{{R}}}\stackrel{s}{\boxtimes}{\symbf{{R}}})}}
-\tag{A.23}\]</span></span> where the fourth-order rotation tensor <span class="math inline">\({\symbb{{R}}}={\symbf{{R}}}\stackrel{s}{\boxtimes}{\symbf{{R}}}\)</span> can be expressed in Kelvin-Mandel notation (<a href="#eq-KM4"><span>A.16</span></a>) by means of the components of <span class="math inline">\({\symbf{{R}}}\)</span> defined in (<a href="#eq-rot3"><span>A.19</span></a>) <span id="eq-rot6"><span class="math display">\[
+<p>The application of (<a href="#eq-rotT"><span>A.21</span></a>) to a second-order tensor <span class="math inline">\(\uu{a}\)</span> therefore gives <span id="eq-rotT2"><span class="math display">\[
+\uu{R}(\uu{a})=\uu{R}\cdot
+\uu{a}
+\cdot\trans{\uu{R}}
+\tag{A.22}\]</span></span> and to a fourth-order tensor <span class="math inline">\(\uuuu{T}\)</span> <span id="eq-rotT4"><span class="math display">\[
+\uu{R}(\uuuu{T})=(\uu{R}\sboxtimes\uu{R}):
+\uuuu{T}
+:\trans{(\uu{R}\sboxtimes\uu{R})}
+\tag{A.23}\]</span></span> where the fourth-order rotation tensor <span class="math inline">\(\uuuu{R}=\uu{R}\sboxtimes\uu{R}\)</span> can be expressed in Kelvin-Mandel notation (<a href="#eq-KM4"><span>A.16</span></a>) by means of the components of <span class="math inline">\(\uu{R}\)</span> defined in (<a href="#eq-rot3"><span>A.19</span></a>) <span id="eq-rot6"><span class="math display">\[
 \scriptsize
-\mathop{\mathrm{Mat}}({\symbb{{R}}},\mathcal{B})=
+\Mat(\uuuu{R},\mathcal{B})=
    \left(
 \begin{array}{cccccc}
 R_{1 1}^{2} &amp; R_{1 2}^{2} &amp; R_{1 3}^{2} &amp; \sqrt{2}  R_{1 2}  R_{1 3} &amp; \sqrt{2}  R_{1 1}  R_{1 3} &amp; \sqrt{2}  R_{1 1}  R_{1 2} \\
@@ -582,16 +615,16 @@ R_{3 1}^{2} &amp; R_{3 2}^{2} &amp; R_{3 3}^{2} &amp; \sqrt{2}  R_{3 2}  R_{3 3}
 \sqrt{2}  R_{1 1}  R_{2 1} &amp; \sqrt{2}  R_{1 2}  R_{2 2} &amp; \sqrt{2}  R_{1 3}  R_{2 3} &amp; R_{1 2}  R_{2 3} + R_{1 3}  R_{2 2} &amp; R_{1 1}  R_{2 3} + R_{1 3}  R_{2 1} &amp; R_{1 1}  R_{2 2} + R_{1 2}  R_{2 1} \\
 \end{array}
 \right)
-\tag{A.24}\]</span></span> It results that (<a href="#eq-rotT4"><span>A.23</span></a>) can be seen as a classical rotation operation involving matrix multiplications in <span class="math inline">\({\mathbb{{R}}}^6\)</span>.</p>
+\tag{A.24}\]</span></span> It results that (<a href="#eq-rotT4"><span>A.23</span></a>) can be seen as a classical rotation operation involving matrix multiplications in <span class="math inline">\(\R^6\)</span>.</p>
 </section>
 <section id="sec-ISO" class="level2" data-number="A.4">
 <h2 data-number="A.4" class="anchored" data-anchor-id="sec-ISO"><span class="header-section-number">A.4</span> Fourth-order isotropic tensors</h2>
 <p>This paragraph concerns fourth-order tensors operating over symmetrical second-order tensors, which allows to impose that they satisfy the minor symmetries (<span class="math inline">\(C_{jikl}=C_{ijlk}=C_{ijkl}\)</span>). The identity operator is given by <span id="eq-tensI"><span class="math display">\[
-{\symbb{{I}}}={\symbf{{1}}}\stackrel{s}{\boxtimes}{\symbf{{1}}}=
-\frac{\delta_{ik}\delta_{jl}+\delta_{il}\delta_{jk}}{2}\,{{\underline{{{e}}}}_{{i}}}\otimes{{\underline{{{e}}}}_{{j}}}\otimes{{\underline{{{e}}}}_{{k}}}\otimes{{\underline{{{e}}}}_{{l}}}
+\uuuu{I}=\uu{1}\sboxtimes\uu{1}=
+\frac{\delta_{ik}\delta_{jl}+\delta_{il}\delta_{jk}}{2}\,\ve{i}\otimes\ve{j}\otimes\ve{k}\otimes\ve{l}
 \tag{A.25}\]</span></span> of identity matrix in Kelvin-Mandel convention <span id="eq-matI"><span class="math display">\[
 \small
-\mathop{\mathrm{Mat}}({\symbb{{I}}},\mathcal{B})=
+\Mat(\uuuu{I},\mathcal{B})=
    \left(
    \begin{array}{ccc|ccc}
    1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
@@ -604,21 +637,21 @@ R_{3 1}^{2} &amp; R_{3 2}^{2} &amp; R_{3 3}^{2} &amp; \sqrt{2}  R_{3 2}  R_{3 3}
    \end{array}
    \right)
 \tag{A.26}\]</span></span></p>
-<p>It is classically proven that any minor-symmetrical fourth-order tensor invariant by rotation (<a href="#eq-rotT4"><span>A.23</span></a>) write as a linear combination on the two projectors <span class="math inline">\({\symbb{{J}}}\)</span> and <span class="math inline">\({\symbb{{K}}}\)</span> which respectively extract the spherical and deviatoric part of any symmetrical second-order tensor <span id="eq-JKext"><span class="math display">\[
-{\symbb{{J}}}:{\symbf{{a}}}=\frac{1}{3}\mathop{\mathrm{tr}}{{\symbf{{a}}}}\,{\symbf{{1}}}
+<p>It is classically proven that any minor-symmetrical fourth-order tensor invariant by rotation (<a href="#eq-rotT4"><span>A.23</span></a>) write as a linear combination on the two projectors <span class="math inline">\(\uuuu{J}\)</span> and <span class="math inline">\(\uuuu{K}\)</span> which respectively extract the spherical and deviatoric part of any symmetrical second-order tensor <span id="eq-JKext"><span class="math display">\[
+\uuuu{J}:\uu{a}=\frac{1}{3}\tr{\uu{a}}\,\uu{1}
 \quad \textrm{and} \quad
-{\symbb{{K}}}:{\symbf{{a}}}={\symbf{{a}}}-\frac{1}{3}\mathop{\mathrm{tr}}{{\symbf{{a}}}}\,{\symbf{{1}}}
-\tag{A.27}\]</span></span> In other words, <span class="math inline">\({\symbb{{J}}}\)</span> and <span class="math inline">\({\symbb{{K}}}\)</span> are defined by <span id="eq-JK"><span class="math display">\[
-{\symbb{{J}}}=\frac{1}{3}{\symbf{{1}}}\otimes{\symbf{{1}}}
+\uuuu{K}:\uu{a}=\uu{a}-\frac{1}{3}\tr{\uu{a}}\,\uu{1}
+\tag{A.27}\]</span></span> In other words, <span class="math inline">\(\uuuu{J}\)</span> and <span class="math inline">\(\uuuu{K}\)</span> are defined by <span id="eq-JK"><span class="math display">\[
+\uuuu{J}=\frac{1}{3}\uu{1}\otimes\uu{1}
 \quad \textrm{and} \quad
-{\symbb{{K}}}={\symbb{{I}}}-{\symbb{{J}}}={\symbf{{1}}}\stackrel{s}{\boxtimes}{\symbf{{1}}}-\frac{1}{3}{\symbf{{1}}}\otimes{\symbf{{1}}}
+\uuuu{K}=\uuuu{I}-\uuuu{J}=\uu{1}\sboxtimes\uu{1}-\frac{1}{3}\uu{1}\otimes\uu{1}
 \tag{A.28}\]</span></span> their components by <span id="eq-JKijkl"><span class="math display">\[
 J_{ijkl}=\frac{1}{3}\delta_{ij}\delta_{ik}
 \quad \textrm{and} \quad
 K_{ijkl}=\frac{\delta_{ik}\delta_{jl}+\delta_{il}\delta_{jk}}{2}-\frac{1}{3}\delta_{ij}\delta_{ik}
 \tag{A.29}\]</span></span> and their matrices in Kelvin-Mandel notation relatively to any orthonormal frame by <span id="eq-matJ"><span class="math display">\[
 \small
-\mathop{\mathrm{Mat}}({\symbb{{J}}},\mathcal{B})=
+\Mat(\uuuu{J},\mathcal{B})=
    \left(
    \begin{array}{ccc|ccc}
    \frac{1}{3} &amp; \frac{1}{3} &amp; \frac{1}{3} &amp; 0 &amp; 0 &amp; 0 \\
@@ -633,7 +666,7 @@ K_{ijkl}=\frac{\delta_{ik}\delta_{jl}+\delta_{il}\delta_{jk}}{2}-\frac{1}{3}\del
 \tag{A.30}\]</span></span></p>
 <p><span id="eq-matK"><span class="math display">\[
 \small
-\mathop{\mathrm{Mat}}({\symbb{{K}}},\mathcal{B})=
+\Mat(\uuuu{K},\mathcal{B})=
    \left(
    \begin{array}{ccc|ccc}
    \frac{2}{3} &amp; \frac{-1}{3} &amp; \frac{-1}{3} &amp; 0 &amp; 0 &amp; 0 \\
@@ -647,43 +680,43 @@ K_{ijkl}=\frac{\delta_{ik}\delta_{jl}+\delta_{il}\delta_{jk}}{2}-\frac{1}{3}\del
    \right)
 \tag{A.31}\]</span></span></p>
 <p>The following relationships are easily obtained <span id="eq-relJK"><span class="math display">\[
-{\symbb{{J}}}:{\symbb{{J}}}={\symbb{{J}}}
+\uuuu{J}:\uuuu{J}=\uuuu{J}
 \quad ; \quad
-{\symbb{{K}}}:{\symbb{{K}}}={\symbb{{K}}}
+\uuuu{K}:\uuuu{K}=\uuuu{K}
 \quad ; \quad
-{\symbb{{J}}}:{\symbb{{K}}}={\symbb{{0}}}
+\uuuu{J}:\uuuu{K}=\uuuu{0}
 \quad ; \quad
-{\symbb{{J}}}::{\symbb{{J}}}=1
+\uuuu{J}::\uuuu{J}=1
 \quad ; \quad
-{\symbb{{K}}}::{\symbb{{K}}}=5
+\uuuu{K}::\uuuu{K}=5
 \tag{A.32}\]</span></span></p>
-<p>The isotropisation of any fourth-order tensor <span class="math inline">\({\symbb{{T}}}\)</span> is defined by <span class="citation" data-cites="bornert2001a">(<a href="../references.html#ref-bornert2001a" role="doc-biblioref">Bornert et al., 2001</a>)</span> <span id="eq-isoT"><span class="math display">\[
-\mathop{\mathrm{ISO}}({\symbb{{T}}})=\left({\symbb{{T}}}::{\symbb{{J}}}\right)\,{\symbb{{J}}}+\left(\frac{{\symbb{{T}}}::{\symbb{{K}}}}{5}\right)\,{\symbb{{K}}}
-\tag{A.33}\]</span></span> It is easy to show that (<a href="#eq-isoT"><span>A.33</span></a>) is no other than the closest isotropic tensor to <span class="math inline">\({\symbb{{T}}}\)</span> if the distance is chosen as the euclidean one i.e.&nbsp;associated to the scalar product (<a href="#eq-dot4"><span>A.10</span></a>). Note however that this isotropisation relying on euclidean distance to the set of isotropic tensors does not lead to the same result if <span class="math inline">\({\symbb{{T}}}'\)</span> is considered instead of <span class="math inline">\({\symbb{{T}}}\)</span>. Other distance definitions such as log-Euclidean distance fullfilling invariance by inversion are analyzed in <span class="citation" data-cites="morin2020">(<a href="../references.html#ref-morin2020" role="doc-biblioref">Morin et al., 2020</a>)</span>.</p>
+<p>The isotropisation of any fourth-order tensor <span class="math inline">\(\uuuu{T}\)</span> is defined by <span class="citation" data-cites="bornert2001a">(<a href="../references.html#ref-bornert2001a" role="doc-biblioref">Bornert et al., 2001</a>)</span> <span id="eq-isoT"><span class="math display">\[
+\ISO(\uuuu{T})=\left(\uuuu{T}::\uuuu{J}\right)\,\uuuu{J}+\left(\frac{\uuuu{T}::\uuuu{K}}{5}\right)\,\uuuu{K}
+\tag{A.33}\]</span></span> It is easy to show that (<a href="#eq-isoT"><span>A.33</span></a>) is no other than the closest isotropic tensor to <span class="math inline">\(\uuuu{T}\)</span> if the distance is chosen as the euclidean one i.e.&nbsp;associated to the scalar product (<a href="#eq-dot4"><span>A.10</span></a>). Note however that this isotropisation relying on euclidean distance to the set of isotropic tensors does not lead to the same result if <span class="math inline">\(\uuuu{T}'\)</span> is considered instead of <span class="math inline">\(\uuuu{T}\)</span>. Other distance definitions such as log-Euclidean distance fullfilling invariance by inversion are analyzed in <span class="citation" data-cites="morin2020">(<a href="../references.html#ref-morin2020" role="doc-biblioref">Morin et al., 2020</a>)</span>.</p>
 </section>
 <section id="sec-TI" class="level2" data-number="A.5">
 <h2 data-number="A.5" class="anchored" data-anchor-id="sec-TI"><span class="header-section-number">A.5</span> Fourth-order transversely isotropic tensors and Walpole basis</h2>
-<p>The Walpole basis (<span class="citation" data-cites="walpole1984">(<a href="../references.html#ref-walpole1984" role="doc-biblioref">Walpole, 1984</a>)</span>, <span class="citation" data-cites="brisard2014a">(<a href="../references.html#ref-brisard2014a" role="doc-biblioref">Brisard, 2014</a>)</span><a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>) allowing to write any fourth-order transversely isotropic relatively to a an axis oriented by the unit vector <span class="math inline">\({{\underline{{{n}}}}}\)</span> is composed of the six following tensors built from <span class="math inline">\({\symbf{{1}}}_n={{\underline{{{n}}}}}\otimes{{\underline{{{n}}}}}\)</span> and <span class="math inline">\({\symbf{{1}}}_T={\symbf{{1}}}-{\symbf{{1}}}_n\)</span> <span id="eq-WalpoleBasis"><span class="math display">\[\begin{aligned}
-&amp; {\symbb{{E}}}_1={\symbf{{1}}}_n\otimes{\symbf{{1}}}_n
+<p>The Walpole basis (<span class="citation" data-cites="walpole1984">(<a href="../references.html#ref-walpole1984" role="doc-biblioref">Walpole, 1984</a>)</span>, <span class="citation" data-cites="brisard2014a">(<a href="../references.html#ref-brisard2014a" role="doc-biblioref">Brisard, 2014</a>)</span><a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>) allowing to write any fourth-order transversely isotropic relatively to a an axis oriented by the unit vector <span class="math inline">\(\n\)</span> is composed of the six following tensors built from <span class="math inline">\(\uu{1}_n=\n\otimes\n\)</span> and <span class="math inline">\(\uu{1}_T=\uu{1}-\uu{1}_n\)</span> <span id="eq-WalpoleBasis"><span class="math display">\[\begin{aligned}
+&amp; \uuuu{E}_1=\uu{1}_n\otimes\uu{1}_n
 \quad\textrm{ ; }\quad
-{\symbb{{E}}}_2=\frac{{\symbf{{1}}}_T\otimes{\symbf{{1}}}_T}{2}
+\uuuu{E}_2=\frac{\uu{1}_T\otimes\uu{1}_T}{2}
 &amp;\textrm{ ; }&amp;
-{\symbb{{E}}}_3=\frac{{\symbf{{1}}}_n\otimes{\symbf{{1}}}_T}{\sqrt{2}}
+\uuuu{E}_3=\frac{\uu{1}_n\otimes\uu{1}_T}{\sqrt{2}}
 \quad\textrm{ ; }\quad
-{\symbb{{E}}}_4=\frac{{\symbf{{1}}}_T\otimes{\symbf{{1}}}_n}{\sqrt{2}}
+\uuuu{E}_4=\frac{\uu{1}_T\otimes\uu{1}_n}{\sqrt{2}}
 &amp;(a) \\
-&amp; {\symbb{{E}}}_5={\symbf{{1}}}_T\stackrel{s}{\boxtimes}{\symbf{{1}}}_T-\frac{{\symbf{{1}}}_T\otimes{\symbf{{1}}}_T}{2}
+&amp; \uuuu{E}_5=\uu{1}_T\sboxtimes\uu{1}_T-\frac{\uu{1}_T\otimes\uu{1}_T}{2}
 &amp;\textrm{ ; }&amp;
-{\symbb{{E}}}_6={\symbf{{1}}}_T\stackrel{s}{\boxtimes}{\symbf{{1}}}_n+{\symbf{{1}}}_n\stackrel{s}{\boxtimes}{\symbf{{1}}}_T
+\uuuu{E}_6=\uu{1}_T\sboxtimes\uu{1}_n+\uu{1}_n\sboxtimes\uu{1}_T
 &amp;(b)
 \end{aligned} \tag{A.34}\]</span></span></p>
 <p>Any transversely isotropic fourth-order tensor can be decomposed as <span id="eq-decWalpole"><span class="math display">\[
-{{\symbb{{L}}}} = {\ell}_{1}\,{{\symbb{{E}}}}_{1} + {\ell}_{2}\,{{\symbb{{E}}}}_{2} +
-{\ell}_{3}\,{{\symbb{{E}}}}_{3}+ {\ell}_{4}\,{{\symbb{{E}}}}_{4}+ {\ell}_{5}\,{{\symbb{{E}}}}_{5}+
-{\ell}_{6}\,{{\symbb{{E}}}}_{6}
+{\uuuu{L}} = {\ell}_{1}\,{\uuuu{E}}_{1} + {\ell}_{2}\,{\uuuu{E}}_{2} +
+{\ell}_{3}\,{\uuuu{E}}_{3}+ {\ell}_{4}\,{\uuuu{E}}_{4}+ {\ell}_{5}\,{\uuuu{E}}_{5}+
+{\ell}_{6}\,{\uuuu{E}}_{6}
 \tag{A.35}\]</span></span></p>
 <p>The six parameters can be conveniently gathered in a triplet composed of a <span class="math inline">\(2 \times 2\)</span> matrix containing the four first parameters <span class="math inline">\(\ell_i\)</span> (<span class="math inline">\(1\leq i \leq 4\)</span>) and the two last parameters <span class="math inline">\(\ell_5\)</span> and <span class="math inline">\(\ell_6\)</span> <span id="eq-syntWalpole"><span class="math display">\[
-{\symbb{{L}}} \equiv \left( L , {\ell}_{5} , {\ell}_{6}
+\uuuu{L} \equiv \left( L , {\ell}_{5} , {\ell}_{6}
 \right) , \quad
 L = \left(
       \begin{array}{cc}
@@ -693,10 +726,10 @@ L = \left(
     \right)
 \tag{A.36}\]</span></span></p>
 <p>Such a synthetic notation allows simple calculations of products and inverses which consist in classical matrix or scalar products and inverses <span id="eq-calWalpole"><span class="math display">\[\begin{aligned}
-&amp; {\symbb{{L}}} : {\symbb{{M}}} \equiv \left( L M , {\ell}_{5} m_5 , {\ell}_{6} m_6
+&amp; \uuuu{L} : \uuuu{M} \equiv \left( L M , {\ell}_{5} m_5 , {\ell}_{6} m_6
 \right)
 &amp;(a) \\
-&amp; {{\symbb{{L}}}}^{-1} \equiv \left( {L}^{-1} , \frac{1}{{\ell}_{5}} , \frac{1}{{\ell}_{6}}
+&amp; {\uuuu{L}}^{-1} \equiv \left( {L}^{-1} , \frac{1}{{\ell}_{5}} , \frac{1}{{\ell}_{6}}
 \right)
 &amp;(b)
 \end{aligned} \tag{A.37}\]</span></span></p>

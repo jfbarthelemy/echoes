@@ -1,0 +1,103 @@
+project:
+  type: book
+  output-dir: ../docs
+
+book:
+  title: "Echoes"
+  subtitle: "Extended Calculator of HOmogEnization Schemes"
+  author: "Jean-François Barthélémy"
+  # cover-image: images/cover.png
+  site-url: https://jfbarthelemy.github.io/echoes/
+  repo-url: https://github.com/jfbarthelemy/echoes/
+  repo-branch: main
+  repo-actions: [edit]
+  sharing: [twitter, facebook, linkedin]
+  date: last-modified
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - part: hom_elas.qmd
+      chapters: 
+        - elasticity/basics_elas.qmd
+        - elasticity/eshelby_elas.qmd
+        - elasticity/cracks_elas.qmd
+        - elasticity/mrp_elas.qmd
+        - elasticity/schemes_elas.qmd
+    - part: hom_cond.qmd
+      chapters: 
+        - conductivity/basics_cond.qmd
+        - conductivity/eshelby_cond.qmd
+        - conductivity/cracks_cond.qmd
+        - conductivity/mrp_cond.qmd
+        - conductivity/schemes_cond.qmd
+    - part: nonlinear_hom.qmd
+      chapters: 
+        - nonlinear/second_order_moments.qmd
+        - nonlinear/conc_tensor_deriv.qmd
+        - nonlinear/schemes_deriv.qmd
+    - part: viscoelas_freq.qmd
+      chapters: 
+        - viscoelasticity_freq/basics_freq.qmd
+        - viscoelasticity_freq/schemes_freq.qmd
+    - part: viscoelas_time.qmd
+      chapters: 
+        - viscoelasticity_time/basics_time.qmd
+        - viscoelasticity_time/schemes_time.qmd
+    - part: examples.qmd
+      chapters: 
+        - examples/concrete_strength.qmd
+        - "..."
+    - references.qmd
+  appendices:
+    - appendices/tensor_algebra.qmd
+    - appendices/hill_elas.qmd
+    - appendices/hill_cond.qmd
+
+tbl-cap-location: bottom
+
+bibliography: echoes.bib
+csl: https://www.zotero.org/styles/elsevier-harvard
+link-citations: true
+
+format:
+  latex:
+    pdf-engine: lualatex
+    mainfont: TeX Gyre Termes X
+    mathfont: TeX Gyre Termes Math
+    monofont: TeX Gyre Cursor
+    sansfont: TeX Gyre Heros
+    include-in-header: config/_macros.tex
+  html:
+    theme: journal
+    code-block-bg: true
+    code-block-border-left: "#FF00FF"
+    code-fold: true
+    coce-link: true
+    code-tools: false
+    echo: true
+    html-math-method: mathjax
+    fontsize: 90%
+    include-before-body: config/_macros_html.tex
+  pdf:
+    documentclass: scrreprt
+    pdf-engine: lualatex
+    highlight-style: tango
+    include-in-header:
+      - config/_preamble.tex
+      - config/_macros.tex
+    keep-tex: false
+
+crossref:
+  fig-title: "Fig."
+  fig-prefix: "Fig."
+  tbl-title: "Tab."
+  tbl-prefix: "Tab."
+  eq-prefix: ""
+
+engine: jupyter
+execute:
+  freeze: auto
+  echo: true
+  warning: false
+  error: false
+  keep-ipynb: false
