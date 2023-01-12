@@ -1,0 +1,243 @@
+---
+title: "Stress intensity factors around an elliptical crack in a transformed transversely isotropic matrix"
+
+author:
+  - name: Jean-François Barthélémy
+    email: jf.barthelemy@cerema.fr
+    affiliations: 
+        - id: Cerema
+          name: Cerema, Univ Gustave Eiffel, UMR MCD, F-77171 Sourdun, France
+          # department: UMR MCD
+          # address: Street Address
+          # city: Sourdun
+          # state: France
+          # postal-code: F-77171 
+    attributes:
+        corresponding: true
+  - name: Sébastien Brisard
+    email: sebastien.brisard@univ-eiffel.fr
+    affiliations: 
+        - id: UGE
+          name: Navier, Ecole des Ponts, Univ Gustave Eiffel, IFSTTAR, CNRS, Marne-la-Vallée, France
+    attributes:
+        corresponding: false
+toc: false
+number-sections: true
+abstract: |
+  Abstract here.
+keywords: 
+  - stress intensity factors
+  - displacement intensity factors
+  - crack compliance
+  - transformed transversely isotropic
+date: last-modified
+
+bibliography: sifaniso.bib
+link-citations: true
+csl: config/elsevier-harvard.csl
+
+latex-auto-install: true
+
+format:
+  latex:
+    pdf-engine: lualatex
+    mainfont: TeX Gyre Termes X
+    mathfont: TeX Gyre Termes Math
+    monofont: TeX Gyre Cursor
+    sansfont: TeX Gyre Heros
+    include-in-header: config/_macros.tex
+  html:
+    theme: journal
+    code-block-bg: true
+    code-block-border-left: "#31BAE9"
+    code-fold: true
+    echo: true
+    html-math-method: mathjax
+    fontsize: 90%
+    include-before-body: config/_macros_html.tex
+  pdf:
+    pdf-engine: lualatex
+    highlight-style: tango
+    include-in-header:
+      - config/_preamble.tex
+      - config/_macros.tex
+    keep-tex: true
+  elsevier-pdf:
+    pdf-engine: lualatex
+    highlight-style: tango
+    include-in-header:
+      - config/_preamble.tex
+      - config/_macros.tex
+    keep-tex: true
+    journal:
+      name: Journal Name
+      formatting: preprint
+      model: 3p
+      cite-style: number
+    code-block-bg: true
+
+crossref:
+  fig-title: "Fig."
+  fig-prefix: "Fig."
+  tbl-title: "Tab."
+  tbl-prefix: "Tab."
+  eq-prefix: ""
+
+jupyter: julia-1.8
+execute:
+  freeze: auto
+  echo: true
+  warning: false
+  error: false
+  keep-ipynb: true
+---
+
+<!-- ::: {.content-visible when-format="html"}
+::: {.content-hidden}
+$$
+{{< include config/_macros_html.tex >}}
+$$
+:::
+::: -->
+
+---------------------
+
+# Introduction {#sec-intro}
+
+# Crack opening displacement and compliance tensors {#sec-BH}
+
+This section recalls important definitions and results as regards the calculation of tensors quantifying the compliant effect induced by the presence of an elliptical or cylindrical crack in a solid matrix. Geometrically, an elliptical crack is defined as an interface $\symcal{I}^\text{ell}$ of equation
+$$
+\x\cdot\n=0
+\quad\textrm{and}\quad
+\left(\x\cdot\uv{ℓ}\right)^2+
+\left(\frac{\x\cdot\uv{m}}{η}\right)^2
+\leq a^2
+\quad(\symcal{I}^\text{ell})
+$${#eq-ellipticalcrack}
+where $\x$ is the position vector, $\n$ the unit vector normal to the crack plane,
+$\uv{ℓ}$ and $\uv{m}$ are unit vectors directed along respectively the major and minor axes, $a$ is the major radius and $η≤1$ is the aspect ratio of the ellipse so that $b=η\,a$ is the minor radius.
+The case of a cylindrical crack $(\symcal{I}^\text{cyl})$ is given by the following geometrical definition invariant along the direction $\uv{ℓ}$
+$$
+\x\cdot\n=0
+\quad\textrm{and}\quad
+\lvert \x\cdot\uv{m} \rvert \leq b
+\quad(\symcal{I}^\text{cyl})
+$${#eq-cylindricalcrack}
+
+In order to exploit results of Eshelby's problem [@eshelby1957] in the sequel, it proves useful to consider that an elliptical crack is the limit of an ellipsoid (see @fig-crack-ellip) of equation
+$$
+\x\cdot(\trans{\uu{A}}\cdot\uu{A})^{-1}\cdot\x\leq 1
+\quad\textrm{with}\quad
+\uu{A}=a\,\left(
+\uv{ℓ}\otimes\uv{ℓ}+
+η\,\uv{m}\otimes\uv{m}+
+ω\,\n\otimes\n\right)
+$${#eq-ellipsoid}
+when the smallest aspect ratio $ω=\frac{c}{a}$ tends towards $0$.
+Similarly the cylindrical crack is obtained as the limit of a 3D cylinder of elliptical section (see @fig-crack-cylind)
+$$
+\x\cdot(\trans{\uu{A}}\cdot\uu{A})^{†}\cdot\x\leq 1
+\quad\textrm{with}\quad
+\uu{A}=b\,\left(
+\uv{m}\otimes\uv{m}+
+ρ\,\n\otimes\n\right)
+$${#eq-cylinder}
+when the aspect ratio $ρ=\frac{c}{b}$ of the section tends towards $0$ and $(\trans{\uu{A}}\cdot\uu{A})^{†}$ is the generalized inverse of $\trans{\uu{A}}\cdot\uu{A}$, namely
+$$
+(\trans{\uu{A}}\cdot\uu{A})^{†}=
+\frac{1}{b^2}\,\left(
+\uv{m}\otimes\uv{m}+
+\frac{1}{ρ^2}\,\n\otimes\n\right)
+$${#eq-pseudoinversetAA}
+
+::: {.callout-warning}
+Given the length $b$, the cylindrical crack of equation (@eq-cylindricalcrack) can be seen as the limit of an ellipsoid of equation (@eq-ellipsoid) when both the large radius $a$ tends towards infinity and the smallest radius $c$ tends towards $0$. However the order in which the limits are taken is of great importance since it has an impact on the ratio between the surface $S$ of the crack seen as an interface and the volume $V$ of the 3D crack which tends to the interface. Indeed, in the case of an ellipsoid, this ratio is
+$$
+κ^\text{ell}=
+\frac{S^\text{ell}}{V^\text{ell}}=\frac{π\,a\,b}{\frac{4}{3}\,π\,a\,b\,c}=\frac{3}{4\,c}
+$${#eq-SVell}
+whereas the same ratio writes for a cylinder
+$$
+κ^\text{cyl}=
+\frac{S^\text{cyl}}{V^\text{cyl}}=\frac{2\,b\,L}{π\,b\,c\,L}=\frac{2}{π\,c}
+$${#eq-SVcyl}
+In (@eq-SVcyl), the intermediate length $L$ plays the role of the cylinder length assumed to tend towards infinity and $κ^\text{cyl}$ can also be defined as the ratio between the width of the crack $2\,b$ and the cross section surface $π\,b\,c$.
+From the comparison between (@eq-SVell) and (@eq-SVcyl), it is obvious that considering a cylinder of length $L$ tending towards infinity is not equivalent to making the major radius $a$ of an ellipsoid tend towards infinity as regards this surface/volume ratio. However as shown later this ratio is important to establish the correspondence between Eshelby's result [@eshelby1957] for 3D inhomogeneity and the interface behavior.
+:::
+
+::: {#fig-crack layout-ncol=2 .content-visible when-format="html"}
+![Elliptical crack as limit of ellipsoid](images/crack-ellip.html){#fig-crack-ellip}
+
+![Cylindrical crack as limit of cylinder of elliptical section](images/crack-cylind.html){#fig-crack-cylind}
+
+Models of cracks
+:::
+
+::: {#fig-crack layout-ncol=2 .content-visible unless-format="html"}
+![Elliptical crack](images/crack-ellip.pdf){#fig-crack-ellip}
+
+![Cylindrical crack](images/crack-cylind.pdf){#fig-crack-cylind}
+
+Models of cracks
+:::
+
+A single open crack is embedded in an infinite elastic matrix of stiffness tensor $\uuuu{C}$ and subjected to a remote stress tensor $\Sig$. The action of the loading induces a crack opening displacement (COD) defined as a displacement discontinuity $\uv{u}^+-\uv{u}^-$ between points located on opposite lips of the crack and initially coincident ($\uv{u}^+$ denotes the displacement on the lip directed towards $+\n$ called upper lip in the sequel and $\uv{u}^-$ on the lower lip).
+A normalized COD is also introduced such that he length which divides the COD depends on the crack model: either $a$ for an elliptical crack defined in (@eq-ellipticalcrack) or $b$ for a cylindrical crack defined in (@eq-cylindricalcrack)
+$$
+\cod=\frac{\uv{u}^+-\uv{u}^-}{a}\;(\symcal{I}^\text{ell})
+\quad\text{or}\quad
+\cod=\frac{\uv{u}^+-\uv{u}^-}{b}\;(\symcal{I}^\text{cyl})
+$${#eq-normCOD}
+Besides the notations for averaging over the crack are introduced
+$$
+<\cod>_{\symcal{I}^\text{ell}}=\frac{∫_{\symcal{I}^\text{ell}}\cod \ud S}{π\,a^2\,η}
+\;(\symcal{I}^\text{ell})
+\quad\text{;}\quad
+<\cod>_{\symcal{I}^\text{cyl}}=\frac{∫_{y=-b}^b \cod \ud S}{2\,b}
+\;(\symcal{I}^\text{cyl})
+$${#eq-avnormCOD}
+where it is assumed that, in the case of a cylindrical crack, the field $\cod$ defined over the crack surface is invariant in the direction of the cylinder axis so that the average is obtained by integrating over the transverse in-plane direction.
+
+Due to the linearity of the problem and by invoking the principle of superposition --- showing that the deformation of the crack would be the same if the remote stress $\Sig$ was replaced by a uniform traction $\Sig⋅\n$ (resp. $-\Sig⋅\n$) applied on the upper (resp. lower) lip of the crack ---, the average COD can linearly be related to $\Sig⋅\n$ thanks to the second-order COD tensors $\uu{B}^\text{ell}$ and $\uu{B}^\text{cyl}$ ([@kachanov1992], [@kachanov1993])
+$$
+<\cod>_{\symcal{I}^\text{ell}}=\uu{B}^\text{ell}⋅\Sig⋅\n
+\quad\text{;}\quad
+<\cod>_{\symcal{I}^\text{cyl}}=\uu{B}^\text{cyl}⋅\Sig⋅\n
+$${#eq-B}
+Focusing now on the ellipsoidal geometry, the open crack is considered as an ellipsoidal pore for which Eshelby's solution [@eshelby1957] can apply. This fundamental result states that the strain tensor within the ellipsoidal pore $\symcal{E}$ induced by the application of the remote stress $\Sig$ writes
+$$
+∀\x ∈ \symcal{E},\; \eps=\uuuu{Q}^{-1}:\Sig
+\quad\text{with}\quad
+\uuuu{Q}=\uuuu{C}-\uuuu{C}:\uuuu{P}:\uuuu{C}
+$${#eq-Q}
+
+$\sig$
+
+
+it has been shown by many authors ([@laws1977], [@laws1985], [@nemat-nasser1999], [@sevostianov2008a], [@barthelemyIJSS2009], [@dormieux2016], [@barthelemyIJES2021], [@barthelemyMMS2023])
+
+
+
+
+
+::: {#fig-crack-sif}
+::: {.content-visible when-format="html"}
+![](images/crack-sif.html)
+[![](images/arrow-expand.png){width=3%}](images/crack-sif.html)
+:::
+::: {.content-visible unless-format="html"}
+![](images/crack-sif.pdf)
+:::
+Local frame and coordinates at crack boundary
+:::
+
+
+
+# Conclusion {#sec-conclu}
+
+
+# References {.unnumbered}
+
+::: {#refs}
+:::

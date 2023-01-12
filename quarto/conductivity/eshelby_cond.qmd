@@ -1,0 +1,3 @@
+# Eshelby problem {#sec-eshelby_cond}
+
+$\,$

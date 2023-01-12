@@ -1,0 +1,58 @@
+## Welcome {.unnumbered #sec-welcome}
+
+::: {.content-visible unless-format="html"}
+![](images/cover){width=40% fig-align="center"}
+:::
+::: {.content-visible when-format="html"}
+![](images/cover.html){width=95%}
+[![](images/arrow-expand.png){width=3%}](images/cover.html)
+:::
+
+The library **Echoes** allows to implement various homogenization schemes involving different types of heterogeneities in the framework of elasticity, conductivity, viscoelasticity as well as tools to properly calculate the derivatives of macroscopic stiffness with respect to lower scale moduli (fundamental tool of the modified secant method in nonlinear homogenization).
+
+This manual aims at recalling some fundamental aspects of the theory of homogenization of random media along with a presentation of the main features of the library **Echoes** as well as code examples.
+
+## Download
+
+The core of **Echoes** has been developed in C++ and wrapped by a Python interface. Hence its use requires first the installation of a Python environment with `pip` executable (for instance [Anaconda](https://www.anaconda.com/products/distribution)).
+
+Wheel packages can be downloaded for Python 3.7, 3.8 and 3.9 under Windows or Linux by choosing the appropriate file for your configuration under the link
+
+::: {.content-visible unless-format="html"}
+https://doi.org/10.5281/zenodo.7348759
+:::
+::: {.content-visible when-format="html"}
+[![](https://zenodo.org/badge/DOI/10.5281/zenodo.7348759.svg)](https://doi.org/10.5281/zenodo.7348759)
+:::
+
+Once in possession of the relevant `.whl` file, the package can be installed in a console (Anaconda console or any console allowing to run `pip`) by
+
+```python
+pip install -U echoes-XYZ.whl # replacing echoes-XYZ.whl by the correct path to the whl file
+```
+
+## Citation
+
+If you use **Echoes**, please cite it as [@echoes]
+
+::: {.content-visible when-format="html"}
+```
+Barthélémy, Jean-François, 2022. Echoes: Extended Calculator of HOmogEnization Schemes. https://doi.org/10.5281/ZENODO.7348759
+```
+:::
+
+or in `bibtex` style
+
+```
+@misc{Echoes,
+ author  = {Barthélémy, Jean-François},
+ title   = {Echoes library (Extended Calculator of HOmogEnization Schemes)},
+ url     = {https://jfbarthelemy.github.io/echoes/},
+ doi     = {10.5281/zenodo.7348759}
+ version = {v1.0.0},
+ year    = {2022},
+ month   = {11}
+}
+```
+
+$\,$

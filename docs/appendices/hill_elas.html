@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.280">
+<meta name="generator" content="quarto-1.2.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -405,14 +405,50 @@ div.csl-indent {
   <li><a href="#application-of-hill-calculation" id="toc-application-of-hill-calculation" class="nav-link" data-scroll-target="#application-of-hill-calculation"><span class="toc-section-number">B.4</span>  Application of Hill calculation</a>
   <ul class="collapse">
   <li><a href="#definition-of-the-matrix-tensor" id="toc-definition-of-the-matrix-tensor" class="nav-link" data-scroll-target="#definition-of-the-matrix-tensor"><span class="toc-section-number">B.4.1</span>  Definition of the matrix tensor</a></li>
-  <li><a href="#calculation-of-the-crack-compliance-mathbbllim_omegato-0omegamathbbq-1" id="toc-calculation-of-the-crack-compliance-mathbbllim_omegato-0omegamathbbq-1" class="nav-link" data-scroll-target="#calculation-of-the-crack-compliance-mathbbllim_omegato-0omegamathbbq-1"><span class="toc-section-number">B.4.2</span>  Calculation of the crack compliance <span class="math inline">\({\mathbb{{L}}}=\lim_{\omega\to 0}\omega\,{\mathbb{{Q}}}^{-1}\)</span></a></li>
-  <li><a href="#checking-the-aspect-ratio-for-which-omegamathbbq-1approx-lim_omegato-0omegamathbbq-1-is-acceptable" id="toc-checking-the-aspect-ratio-for-which-omegamathbbq-1approx-lim_omegato-0omegamathbbq-1-is-acceptable" class="nav-link" data-scroll-target="#checking-the-aspect-ratio-for-which-omegamathbbq-1approx-lim_omegato-0omegamathbbq-1-is-acceptable"><span class="toc-section-number">B.4.3</span>  Checking the aspect ratio for which <span class="math inline">\(\omega\,{\mathbb{{Q}}}^{-1}\approx \lim_{\omega\to 0}\omega\,{\mathbb{{Q}}}^{-1}\)</span> is acceptable</a></li>
+  <li><a href="#calculation-of-the-crack-compliance-uuuullim_omegato-0omegauuuuq-1" id="toc-calculation-of-the-crack-compliance-uuuullim_omegato-0omegauuuuq-1" class="nav-link" data-scroll-target="#calculation-of-the-crack-compliance-uuuullim_omegato-0omegauuuuq-1"><span class="toc-section-number">B.4.2</span>  Calculation of the crack compliance <span class="math inline">\(\uuuu{L}=\lim_{\omega\to 0}\omega\,\uuuu{Q}^{-1}\)</span></a></li>
+  <li><a href="#checking-the-aspect-ratio-for-which-omegauuuuq-1approx-lim_omegato-0omegauuuuq-1-is-acceptable" id="toc-checking-the-aspect-ratio-for-which-omegauuuuq-1approx-lim_omegato-0omegauuuuq-1-is-acceptable" class="nav-link" data-scroll-target="#checking-the-aspect-ratio-for-which-omegauuuuq-1approx-lim_omegato-0omegauuuuq-1-is-acceptable"><span class="toc-section-number">B.4.3</span>  Checking the aspect ratio for which <span class="math inline">\(\omega\,\uuuu{Q}^{-1}\approx \lim_{\omega\to 0}\omega\,\uuuu{Q}^{-1}\)</span> is acceptable</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jfbarthelemy/echoes/edit/main/appendices/hill_elas.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
+$$
+\newcommand{\C}{{\mathbb{{C}}}}
+\newcommand{\R}{{\mathbb{{R}}}}
+\newcommand{\Q}{{\mathbb{{Q}}}}
+\newcommand{\Z}{{\mathbb{{Z}}}}
+\newcommand{\N}{{\mathbb{{N}}}}
+
+\newcommand{\uu}[1]{{\boldsymbol{{#1}}}}
+\newcommand{\uuuu}[1]{{\symbb{{#1}}}}
+\newcommand{\uv}[1]{{\underline{{#1}}}}
+\newcommand{\ve}[1]{{\uv{{e}}_{{#1}}}}
+\newcommand{\x}{{\uv{{x}}}}
+\newcommand{\n}{{\uv{{n}}}}
+\newcommand{\eps}{{\uu{{\varepsilon}}}}
+\newcommand{\E}{{\uu{{E}}}}
+\newcommand{\sig}{{\uu{{\sigma}}}}
+\newcommand{\Sig}{{\uu{{\Sigma}}}}
+\newcommand{\cod}{{\uv{{\symscr{b}}}}}
+\newcommand{\trans}[1]{{{}^{t}{#1}}}
+\newcommand{\sotimes}{{\stackrel{s}{\otimes}}}
+\newcommand{\sboxtimes}{\stackrel{s}{\boxtimes}}
+\newcommand{\norm}[1]{{\lVert{{#1}}\rVert}}
+\newcommand{\ud}{{\,\mathrm{d}}}
+\DeclareMathOperator{\arcosh}{arcosh}
+\DeclareMathOperator{\divz}{div}
+\DeclareMathOperator{\divu}{\uv{div}}
+\DeclareMathOperator{\hess}{hess}
+\DeclareMathOperator{\gradu}{\uv{grad}}
+\DeclareMathOperator{\graduu}{\uu{grad}}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\ISO}{ISO}
+
+\newcommand{\jump}[1]{[\hspace*{-.15em}[\hspace*{.1em}{#1}%
+     \hspace*{.1em}]\hspace*{-.15em}]}
+$$
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -431,86 +467,83 @@ div.csl-indent {
 
 </header>
 
-<div>
-
-</div>
-<p>This section recalls some results about the calculation of the Hill polarization tensors related to a matrix of stiffness <span class="math inline">\(\mathbb{C}\)</span> and an ellipsoid <span class="math inline">\(\mathcal{E}_{{\mathbf{\boldsymbol{{A}}}}}\)</span> of equation <span class="math display">\[
-{\underline{{x}}}\in\mathcal{E}_{{\mathbf{\boldsymbol{{A}}}}}
+<p>This section recalls some results about the calculation of the Hill polarization tensors related to a matrix of stiffness <span class="math inline">\(\mathbb{C}\)</span> and an ellipsoid <span class="math inline">\(\mathcal{E}_{\uu{A}}\)</span> of equation <span class="math display">\[
+\uv{x}\in\mathcal{E}_{\uu{A}}
 \quad\Leftrightarrow\quad
-{\underline{{x}}}\cdot({{}^{t}{{\mathbf{\boldsymbol{{A}}}}}}\cdot{\mathbf{\boldsymbol{{A}}}})^{-1}\cdot{\underline{{x}}}\leq 1
-\]</span> where <span class="math inline">\({\mathbf{\boldsymbol{{A}}}}\)</span> is an invertible second-order tensor so that <span class="math inline">\({{}^{t}{{\mathbf{\boldsymbol{{A}}}}}}\cdot{\mathbf{\boldsymbol{{A}}}}\)</span> is a positive definite symmetric tensor associated to 3 radii (eigenvalues <span class="math inline">\(a\geq b \geq c\)</span> possibly written <span class="math inline">\(\rho_1 \geq \rho_2 \geq \rho_3\)</span> for convenience) and 3 angles (orientation of the frame of eigenvectors <span class="math inline">\({\underline{{e}}}_1, {\underline{{e}}}_2, {\underline{{e}}}_3\)</span>) <span id="eq-ellipsoid"><span class="math display">\[
-{{}^{t}{{\mathbf{\boldsymbol{{A}}}}}}\cdot{\mathbf{\boldsymbol{{A}}}}=a^2 {\underline{{e}}}_1\otimes{\underline{{e}}}_1 + b^2 {\underline{{e}}}_2\otimes{\underline{{e}}}_2 + c^2 {\underline{{e}}}_3\otimes{\underline{{e}}}_3 = \sum_{i=1}^3 \rho_i {\underline{{e}}}_i\otimes{\underline{{e}}}_i
+\uv{x}\cdot(\trans{\uu{A}}\cdot\uu{A})^{-1}\cdot\uv{x}\leq 1
+\]</span> where <span class="math inline">\(\uu{A}\)</span> is an invertible second-order tensor so that <span class="math inline">\(\trans{\uu{A}}\cdot\uu{A}\)</span> is a positive definite symmetric tensor associated to 3 radii (eigenvalues <span class="math inline">\(a\geq b \geq c\)</span> possibly written <span class="math inline">\(\rho_1 \geq \rho_2 \geq \rho_3\)</span> for convenience) and 3 angles (orientation of the frame of eigenvectors <span class="math inline">\(\uv{e}_1, \uv{e}_2, \uv{e}_3\)</span>) <span id="eq-ellipsoid"><span class="math display">\[
+\trans{\uu{A}}\cdot\uu{A}=a^2 \uv{e}_1\otimes\uv{e}_1 + b^2 \uv{e}_2\otimes\uv{e}_2 + c^2 \uv{e}_3\otimes\uv{e}_3 = \sum_{i=1}^3 \rho_i \uv{e}_i\otimes\uv{e}_i
 \tag{B.1}\]</span></span></p>
 <section id="general-expression" class="level2" data-number="B.1">
 <h2 data-number="B.1" class="anchored" data-anchor-id="general-expression"><span class="header-section-number">B.1</span> General expression</h2>
 <p>A general expression of the elastic polarization tensor is derived in <span class="citation" data-cites="willis1977">(<a href="../references.html#ref-willis1977" role="doc-biblioref">Willis, 1977</a>)</span> (see also <span class="citation" data-cites="mura1987">(<a href="../references.html#ref-mura1987" role="doc-biblioref">Mura, 1987</a>)</span>) <span id="eq-Hill"><span class="math display">\[\begin{aligned}
-{\mathbb{{P}}}({\mathbf{\boldsymbol{{A}}}},{\mathbb{{C}}})&amp;=\frac{1}{4\pi}
-\int_{{\lVert{{{\underline{{\zeta}}}}}\rVert}=1}
-({\mathbf{\boldsymbol{{A}}}}^{-1}\cdot{\underline{{\zeta}}}){\stackrel{s}{\otimes}}
-\Big(({\mathbf{\boldsymbol{{A}}}}^{-1}\cdot{\underline{{\zeta}}})\cdot{\mathbb{{C}}}
-\cdot({\mathbf{\boldsymbol{{A}}}}^{-1}\cdot{\underline{{\zeta}}})\Big)^{-1}
-{\stackrel{s}{\otimes}}({\mathbf{\boldsymbol{{A}}}}^{-1}\cdot{\underline{{\zeta}}})
-{\,\mathrm{d}}S_\zeta\\
+\uuuu{P}(\uu{A},\uuuu{C})&amp;=\frac{1}{4\pi}
+\int_{\norm{\uv{\zeta}}=1}
+(\uu{A}^{-1}\cdot\uv{\zeta})\sotimes
+\Big((\uu{A}^{-1}\cdot\uv{\zeta})\cdot\uuuu{C}
+\cdot(\uu{A}^{-1}\cdot\uv{\zeta})\Big)^{-1}
+\sotimes(\uu{A}^{-1}\cdot\uv{\zeta})
+\ud S_\zeta\\
 &amp;=
-\frac{\det{{\mathbf{\boldsymbol{{A}}}}}}{4\pi}
-\int_{{\lVert{{{\underline{{\xi}}}}}\rVert}=1}
-\frac{{\underline{{\xi}}}{\stackrel{s}{\otimes}}
-({\underline{{\xi}}}\cdot{\mathbb{{C}}}
-\cdot{\underline{{\xi}}})^{-1}
-{\stackrel{s}{\otimes}}{\underline{{\xi}}}}{{\lVert{{{\mathbf{\boldsymbol{{A}}}}\cdot{\underline{{\xi}}}}}\rVert}^3}
-{\,\mathrm{d}}S_{\xi}
+\frac{\det{\uu{A}}}{4\pi}
+\int_{\norm{\uv{\xi}}=1}
+\frac{\uv{\xi}\sotimes
+(\uv{\xi}\cdot\uuuu{C}
+\cdot\uv{\xi})^{-1}
+\sotimes\uv{\xi}}{\norm{\uu{A}\cdot\uv{\xi}}^3}
+\ud S_{\xi}
 \end{aligned} \tag{B.2}\]</span></span></p>
-<p>When <span class="math inline">\({\mathbb{{C}}}\)</span> is arbitrarily anisotropic, it is necessary to resort to numerical cubature to estimate <span class="math inline">\({\mathbb{{P}}}\)</span> as proposed in <span class="citation" data-cites="ghahremani1977">(<a href="../references.html#ref-ghahremani1977" role="doc-biblioref">Ghahremani, 1977</a>)</span>, <span class="citation" data-cites="gavazzi1990">(<a href="../references.html#ref-gavazzi1990" role="doc-biblioref">Gavazzi and Lagoudas, 1990</a>)</span> or <span class="citation" data-cites="masson2008">(<a href="../references.html#ref-masson2008" role="doc-biblioref">Masson, 2008</a>)</span>. However in some cases of anisotropy, analytical solutions are available (<span class="citation" data-cites="withers1989">(<a href="../references.html#ref-withers1989" role="doc-biblioref">Withers, 1989</a>)</span>, <span class="citation" data-cites="barthelemyIJES2020_hilltrans">(<a href="../references.html#ref-barthelemyIJES2020_hilltrans" role="doc-biblioref">Barthélémy, 2020</a>)</span>). The case of isotropic matrix is particularly developed in the next section.</p>
+<p>When <span class="math inline">\(\uuuu{C}\)</span> is arbitrarily anisotropic, it is necessary to resort to numerical cubature to estimate <span class="math inline">\(\uuuu{P}\)</span> as proposed in <span class="citation" data-cites="ghahremani1977">(<a href="../references.html#ref-ghahremani1977" role="doc-biblioref">Ghahremani, 1977</a>)</span>, <span class="citation" data-cites="gavazzi1990">(<a href="../references.html#ref-gavazzi1990" role="doc-biblioref">Gavazzi and Lagoudas, 1990</a>)</span> or <span class="citation" data-cites="masson2008">(<a href="../references.html#ref-masson2008" role="doc-biblioref">Masson, 2008</a>)</span>. However in some cases of anisotropy, analytical solutions are available (<span class="citation" data-cites="withers1989">(<a href="../references.html#ref-withers1989" role="doc-biblioref">Withers, 1989</a>)</span>, <span class="citation" data-cites="barthelemyIJES2020_hilltrans">(<a href="../references.html#ref-barthelemyIJES2020_hilltrans" role="doc-biblioref">Barthélémy, 2020</a>)</span>). The case of isotropic matrix is particularly developed in the next section.</p>
 </section>
 <section id="isotropic-matrix" class="level2" data-number="B.2">
 <h2 data-number="B.2" class="anchored" data-anchor-id="isotropic-matrix"><span class="header-section-number">B.2</span> Isotropic matrix</h2>
 <p>In this section, the matrix is assumed isotropic so that its stiffness tensor writes by means of a bulk <span class="math inline">\(k\)</span> and shear <span class="math inline">\(\mu\)</span> or Lamé <span class="math inline">\(\lambda\)</span> and <span class="math inline">\(\mu\)</span> moduli or even Young modulus <span class="math inline">\(E\)</span> and Poisson ratio <span class="math inline">\(\nu\)</span> with <span class="math inline">\(k=\frac{E}{3(1-2\nu)}\)</span> and <span class="math inline">\(\mu=\frac{E}{2(1+\nu)}\)</span>. <span id="eq-isoC"><span class="math display">\[\begin{aligned}
-{\mathbb{{C}}} =&amp; {} 3k{\mathbb{{J}}}+2\mu{\mathbb{{K}}} =  3\lambda{\mathbb{{I}}}+2\mu{\mathbb{{K}}}\\
+\uuuu{C} =&amp; {} 3k\uuuu{J}+2\mu\uuuu{K} =  3\lambda\uuuu{I}+2\mu\uuuu{K}\\
 &amp; \quad\textrm{with}\quad J_{ijkl}=\frac{\delta_{ij}\delta_{kl}}{3},
 I_{ijkl}=\frac{\delta_{ik}\delta_{jl}+\delta_{il}\delta_{jk}}{2}
 \textrm{ and }
-{\mathbb{{K}}}={\mathbb{{I}}}-{\mathbb{{J}}}
+\uuuu{K}=\uuuu{I}-\uuuu{J}
 \end{aligned} \tag{B.3}\]</span></span></p>
 <p>Introducing (<a href="#eq-isoC"><span>B.3</span></a>) in (<a href="#eq-Hill"><span>B.2</span></a>) leads to after some algebra <span class="math display">\[
-{\mathbb{{P}}}=
+\uuuu{P}=
 \frac{1}{\lambda+2\,\mu}
-{\mathbb{{U}}}
-+\frac{1}{\mu}({\mathbb{{V}}}-{\mathbb{{U}}})
-\]</span> where the tensors <span class="math inline">\({\mathbb{{U}}}\)</span> and <span class="math inline">\({\mathbb{{V}}}\)</span>, depending only on the ellipsoidal tensor <span class="math inline">\({\mathbf{\boldsymbol{{A}}}}\)</span> of (<a href="#eq-ellipsoid"><span>B.1</span></a>), are given by (see <span class="citation" data-cites="barthelemyIJES2020_hilltrans">(<a href="../references.html#ref-barthelemyIJES2020_hilltrans" role="doc-biblioref">Barthélémy, 2020</a>)</span>) <span class="math display">\[\begin{aligned}
-{\mathbb{{U}}} &amp;= \frac{\det{{\mathbf{\boldsymbol{{A}}}}}}{4\pi}
-\int_{{\lVert{{{\underline{{\xi}}}}}\rVert}=1}
-\frac{{\underline{{\xi}}}\otimes{\underline{{\xi}}}\otimes{\underline{{\xi}}}\otimes{\underline{{\xi}}}}
-{{\lVert{{{\mathbf{\boldsymbol{{A}}}}\cdot{\underline{{\xi}}}}}\rVert}^3}{\,\mathrm{d}}S_{\xi}\\
+\uuuu{U}
++\frac{1}{\mu}(\uuuu{V}-\uuuu{U})
+\]</span> where the tensors <span class="math inline">\(\uuuu{U}\)</span> and <span class="math inline">\(\uuuu{V}\)</span>, depending only on the ellipsoidal tensor <span class="math inline">\(\uu{A}\)</span> of (<a href="#eq-ellipsoid"><span>B.1</span></a>), are given by (see <span class="citation" data-cites="barthelemyIJES2020_hilltrans">(<a href="../references.html#ref-barthelemyIJES2020_hilltrans" role="doc-biblioref">Barthélémy, 2020</a>)</span>) <span class="math display">\[\begin{aligned}
+\uuuu{U} &amp;= \frac{\det{\uu{A}}}{4\pi}
+\int_{\norm{\uv{\xi}}=1}
+\frac{\uv{\xi}\otimes\uv{\xi}\otimes\uv{\xi}\otimes\uv{\xi}}
+{\norm{\uu{A}\cdot\uv{\xi}}^3}\ud S_{\xi}\\
 &amp;=
 \frac{1}{4\pi}
-\int_{{\lVert{{{\underline{{\zeta}}}}}\rVert}=1}
+\int_{\norm{\uv{\zeta}}=1}
 \frac{%
-({\mathbf{\boldsymbol{{A}}}}^{-1}\cdot{\underline{{\zeta}}})
+(\uu{A}^{-1}\cdot\uv{\zeta})
 \otimes
-({\mathbf{\boldsymbol{{A}}}}^{-1}\cdot{\underline{{\zeta}}})
+(\uu{A}^{-1}\cdot\uv{\zeta})
 \otimes
-({\mathbf{\boldsymbol{{A}}}}^{-1}\cdot{\underline{{\zeta}}})
+(\uu{A}^{-1}\cdot\uv{\zeta})
 \otimes
-({\mathbf{\boldsymbol{{A}}}}^{-1}\cdot{\underline{{\zeta}}})
-}{{\lVert{{{\mathbf{\boldsymbol{{A}}}}^{-1}\cdot{\underline{{\zeta}}}}}\rVert}^4}
-{\,\mathrm{d}}S_{\zeta}
+(\uu{A}^{-1}\cdot\uv{\zeta})
+}{\norm{\uu{A}^{-1}\cdot\uv{\zeta}}^4}
+\ud S_{\zeta}
 \end{aligned}\]</span> and <span class="math display">\[\begin{aligned}
-{\mathbb{{V}}} &amp;= \frac{\det{{\mathbf{\boldsymbol{{A}}}}}}{4\pi}
-\int_{{\lVert{{{\underline{{\xi}}}}}\rVert}=1}
-\frac{{\underline{{\xi}}}{\stackrel{s}{\otimes}}{\mathbf{\boldsymbol{{1}}}}{\stackrel{s}{\otimes}}{\underline{{\xi}}}}
-{{\lVert{{{\mathbf{\boldsymbol{{A}}}}\cdot{\underline{{\xi}}}}}\rVert}^3}{\,\mathrm{d}}S_{\xi}\\
+\uuuu{V} &amp;= \frac{\det{\uu{A}}}{4\pi}
+\int_{\norm{\uv{\xi}}=1}
+\frac{\uv{\xi}\sotimes\uu{1}\sotimes\uv{\xi}}
+{\norm{\uu{A}\cdot\uv{\xi}}^3}\ud S_{\xi}\\
 &amp;=
 \frac{1}{4\pi}
-\int_{{\lVert{{{\underline{{\zeta}}}}}\rVert}=1}
+\int_{\norm{\uv{\zeta}}=1}
 \frac{%
-({\mathbf{\boldsymbol{{A}}}}^{-1}\cdot{\underline{{\zeta}}})
-{\stackrel{s}{\otimes}}
-{\mathbf{\boldsymbol{{1}}}}
-{\stackrel{s}{\otimes}}
-({\mathbf{\boldsymbol{{A}}}}^{-1}\cdot{\underline{{\zeta}}})
-}{{\lVert{{{\mathbf{\boldsymbol{{A}}}}^{-1}\cdot{\underline{{\zeta}}}}}\rVert}^2}
-{\,\mathrm{d}}S_{\zeta}
-\end{aligned}\]</span> For an arbitrary ellipsoid defined by (<a href="#eq-ellipsoid"><span>B.1</span></a>), the components of <span class="math inline">\({\mathbb{{U}}}\)</span> and <span class="math inline">\({\mathbb{{V}}}\)</span> write <span class="math display">\[\begin{aligned}
+(\uu{A}^{-1}\cdot\uv{\zeta})
+\sotimes
+\uu{1}
+\sotimes
+(\uu{A}^{-1}\cdot\uv{\zeta})
+}{\norm{\uu{A}^{-1}\cdot\uv{\zeta}}^2}
+\ud S_{\zeta}
+\end{aligned}\]</span> For an arbitrary ellipsoid defined by (<a href="#eq-ellipsoid"><span>B.1</span></a>), the components of <span class="math inline">\(\uuuu{U}\)</span> and <span class="math inline">\(\uuuu{V}\)</span> write <span class="math display">\[\begin{aligned}
 U_{iiii}&amp;=\frac{3(I_i-\rho_i^2I_{ii})}{2}
 \quad\forall\, i\in\{1,2,3\}\\
 U_{iijj}=U_{ijij}=U_{ijji}&amp;=\frac{I_j-\rho_i^2I_{ij}}{2}
@@ -542,7 +575,7 @@ where <span class="math inline">\({\cal F}={\cal F}(\theta,\kappa)\)</span> and 
   \]</span></li>
 <li>if <span class="math inline">\(a &gt; b = c\)</span> (prolate spheroid) <span class="math display">\[\begin{aligned}
   I_2=I_3&amp;=a\,
-  \frac{a\sqrt{a^2-c^2}-c^2\,\mathop{\mathrm{arcosh}}{(a/c)}}
+  \frac{a\sqrt{a^2-c^2}-c^2\,\arcosh{(a/c)}}
   {2\left(a^2-c^2\right)^{3/2}}\\
   I_1&amp;=1-2\,I_3\\
   I_{1i}=I_{i1}&amp;=\frac{I_i-I_1}{a^2-\rho_i^2}\quad
@@ -571,19 +604,19 @@ where <span class="math inline">\({\cal F}={\cal F}(\theta,\kappa)\)</span> and 
   I_{ij}&amp;=\frac{1}{5\,a^2}\quad\forall\, i,j\in\{1,2,3\}
   \end{aligned}\]</span></li>
 </ul>
-<p>In this last case of spherical inclusion (<span class="math inline">\({\mathbf{\boldsymbol{{A}}}}={\mathbf{\boldsymbol{{1}}}}\)</span>), <span class="math inline">\({\mathbb{{U}}}\)</span> and <span class="math inline">\({\mathbb{{V}}}\)</span> are simply decomposed as <span class="math display">\[
-{\mathbb{{U}}}=\frac{1}{3}{\mathbb{{J}}}+\frac{2}{15}{\mathbb{{K}}}
+<p>In this last case of spherical inclusion (<span class="math inline">\(\uu{A}=\uu{1}\)</span>), <span class="math inline">\(\uuuu{U}\)</span> and <span class="math inline">\(\uuuu{V}\)</span> are simply decomposed as <span class="math display">\[
+\uuuu{U}=\frac{1}{3}\uuuu{J}+\frac{2}{15}\uuuu{K}
 \quad\textrm{ and }\quad
-{\mathbb{{V}}}=\frac{1}{3}{\mathbb{{I}}}
+\uuuu{V}=\frac{1}{3}\uuuu{I}
 \]</span></p>
 </section>
 <section id="case-of-cracks" class="level2" data-number="B.3">
 <h2 data-number="B.3" class="anchored" data-anchor-id="case-of-cracks"><span class="header-section-number">B.3</span> Case of cracks</h2>
-<p>The case of cracks corresponds to ellipsoids for which the smallest radius is very small compared to the two others, in other words the characteristic tensor <span class="math inline">\({\mathbf{\boldsymbol{{A}}}}\)</span> (<a href="#eq-ellipsoid"><span>B.1</span></a>) can be written here <span class="math display">\[
-{\mathbf{\boldsymbol{{A}}}}=
-{\underline{{\ell}}}\otimes{\underline{{\ell}}}+
-\eta\,{\underline{{m}}}\otimes{\underline{{m}}}+
-\omega\,{\underline{{n}}}\otimes{\underline{{n}}}
+<p>The case of cracks corresponds to ellipsoids for which the smallest radius is very small compared to the two others, in other words the characteristic tensor <span class="math inline">\(\uu{A}\)</span> (<a href="#eq-ellipsoid"><span>B.1</span></a>) can be written here <span class="math display">\[
+\uu{A}=
+\uv{\ell}\otimes\uv{\ell}+
+\eta\,\uv{m}\otimes\uv{m}+
+\omega\,\uv{n}\otimes\uv{n}
 \quad\textrm{with}\quad
 \eta=\frac{b}{a}
 \quad\textrm{and}\quad
@@ -598,19 +631,19 @@ where <span class="math inline">\({\cal F}={\cal F}(\theta,\kappa)\)</span> and 
 </figure>
 </div>
 <p>In the case of cracks, it is useful to introduce the second Hill polarization tensor defined as <span class="math display">\[
-{\mathbb{{Q}}}={\mathbb{{C}}}-{\mathbb{{C}}}:{\mathbb{{P}}}:{\mathbb{{C}}}
-\]</span> and in particular <span class="math inline">\(\lim_{\omega\to 0}\omega\,{\mathbb{{Q}}}^{-1}\)</span> in which it is recalled that <span class="math inline">\({\mathbb{{P}}}\)</span> and thus <span class="math inline">\({\mathbb{{Q}}}\)</span> depend on <span class="math inline">\(\omega\)</span> such that the components <span class="math inline">\(Q_{nijk}\)</span> (with <span class="math inline">\(n\)</span> corresponding to the crack normal) behave as <span class="math inline">\(1/\omega\)</span> when <span class="math inline">\(\omega\)</span> tends towards <span class="math inline">\(0\)</span>. The analytical expressions of this limit are fully detailed in <span class="citation" data-cites="barthelemyIJES2021">(<a href="../references.html#ref-barthelemyIJES2021" role="doc-biblioref">Barthélémy et al., 2021</a>)</span> which recalls in particular that <span class="math inline">\({\mathbb{{L}}}\)</span> actually derives from a symmetric second-order tensor <span class="math inline">\({\mathbf{\boldsymbol{{B}}}}\)</span> as <span id="eq-L"><span class="math display">\[
-{\mathbb{{L}}}=
-\lim_{\omega\to 0} \omega\,{\mathbb{{Q}}}^{-1}
-=\frac{3}{4}\,{\underline{{n}}}{\stackrel{s}{\otimes}}{\mathbf{\boldsymbol{{B}}}}{\stackrel{s}{\otimes}}{\underline{{n}}}
+\uuuu{Q}=\uuuu{C}-\uuuu{C}:\uuuu{P}:\uuuu{C}
+\]</span> and in particular <span class="math inline">\(\lim_{\omega\to 0}\omega\,\uuuu{Q}^{-1}\)</span> in which it is recalled that <span class="math inline">\(\uuuu{P}\)</span> and thus <span class="math inline">\(\uuuu{Q}\)</span> depend on <span class="math inline">\(\omega\)</span> such that the components <span class="math inline">\(Q_{nijk}\)</span> (with <span class="math inline">\(n\)</span> corresponding to the crack normal) behave as <span class="math inline">\(1/\omega\)</span> when <span class="math inline">\(\omega\)</span> tends towards <span class="math inline">\(0\)</span>. The analytical expressions of this limit are fully detailed in <span class="citation" data-cites="barthelemyIJES2021">(<a href="../references.html#ref-barthelemyIJES2021" role="doc-biblioref">Barthélémy et al., 2021</a>)</span> which recalls in particular that <span class="math inline">\(\uuuu{L}\)</span> actually derives from a symmetric second-order tensor <span class="math inline">\(\uu{B}\)</span> as <span id="eq-L"><span class="math display">\[
+\uuuu{L}=
+\lim_{\omega\to 0} \omega\,\uuuu{Q}^{-1}
+=\frac{3}{4}\,\uv{n}\sotimes\uu{B}\sotimes\uv{n}
 \tag{B.4}\]</span></span></p>
-<p>For an arbitrarly anisotropic matrix, an algorithm allowing to estimate the limit (<a href="#eq-L"><span>B.4</span></a>) is proposed in <span class="citation" data-cites="barthelemyIJSS2009">(<a href="../references.html#ref-barthelemyIJSS2009" role="doc-biblioref">Barthélémy, 2009</a>)</span> whereas in the isotropic case <span class="math inline">\({\mathbf{\boldsymbol{{B}}}}\)</span> writes <span class="math display">\[
-{\mathbf{\boldsymbol{{B}}}}=
-B_{nn}\,{\underline{{n}}}\otimes{\underline{{n}}}
+<p>For an arbitrarly anisotropic matrix, an algorithm allowing to estimate the limit (<a href="#eq-L"><span>B.4</span></a>) is proposed in <span class="citation" data-cites="barthelemyIJSS2009">(<a href="../references.html#ref-barthelemyIJSS2009" role="doc-biblioref">Barthélémy, 2009</a>)</span> whereas in the isotropic case <span class="math inline">\(\uu{B}\)</span> writes <span class="math display">\[
+\uu{B}=
+B_{nn}\,\uv{n}\otimes\uv{n}
 +
-B_{mm}\,{\underline{{m}}}\otimes{\underline{{m}}}
+B_{mm}\,\uv{m}\otimes\uv{m}
 +
-B_{\ell\ell}\,{\underline{{\ell}}}\otimes{\underline{{\ell}}}
+B_{\ell\ell}\,\uv{\ell}\otimes\uv{\ell}
 \]</span> with <span class="math display">\[\begin{aligned}
 B_{nn}&amp;=\frac{8\,\eta\,(1-\nu^2)}{3\,E}\,
 \frac{1}{\mathcal{E}_\eta}\label{eq:Bnn}\\
@@ -619,7 +652,7 @@ B_{mm}&amp;=\frac{8\,\eta\,(1-\nu^2)}{3\,E}\,
 \,\mathcal{E}_\eta-\nu\,\eta^2\,\mathcal{K}_\eta}\\
 B_{\ell\ell}&amp;=\frac{8\,\eta\,(1-\nu^2)}{3\,E}\,
 \frac{1-\eta^2}{(1-\nu-\eta^2)\,\mathcal{E}_\eta+\nu\,\eta^2\,\mathcal{K}_\eta}
-\end{aligned}\]</span> where <span class="math inline">\(\mathcal{K}_\eta=\mathcal{K}(\sqrt{1-\eta^2})\)</span> and <span class="math inline">\(\mathcal{E}_\eta=\mathcal{E}(\sqrt{1-\eta^2})\)</span> are the complete elliptic integrals of respectively the first and second kind (see <span class="citation" data-cites="abramowitz1972">(<a href="../references.html#ref-abramowitz1972" role="doc-biblioref">Abramowitz and Stegun, 1972</a>)</span>). If the crack is circular, the components of <span class="math inline">\({\mathbf{\boldsymbol{{B}}}}\)</span> become <span class="math display">\[
+\end{aligned}\]</span> where <span class="math inline">\(\mathcal{K}_\eta=\mathcal{K}(\sqrt{1-\eta^2})\)</span> and <span class="math inline">\(\mathcal{E}_\eta=\mathcal{E}(\sqrt{1-\eta^2})\)</span> are the complete elliptic integrals of respectively the first and second kind (see <span class="citation" data-cites="abramowitz1972">(<a href="../references.html#ref-abramowitz1972" role="doc-biblioref">Abramowitz and Stegun, 1972</a>)</span>). If the crack is circular, the components of <span class="math inline">\(\uu{B}\)</span> become <span class="math display">\[
 B_{nn}=\frac{16\,(1-\nu^2)}{3\,\pi\,E}
 \quad\textrm{;}\quad
 B_{mm}=B_{\ell\ell}=\frac{B_{nn}}{1-\nu/2}
@@ -643,8 +676,8 @@ B_{mm}=B_{\ell\ell}=\frac{B_{nn}}{1-\nu/2}
 </div>
 </div>
 </section>
-<section id="calculation-of-the-crack-compliance-mathbbllim_omegato-0omegamathbbq-1" class="level3" data-number="B.4.2">
-<h3 data-number="B.4.2" class="anchored" data-anchor-id="calculation-of-the-crack-compliance-mathbbllim_omegato-0omegamathbbq-1"><span class="header-section-number">B.4.2</span> Calculation of the crack compliance <span class="math inline">\({\mathbb{{L}}}=\lim_{\omega\to 0}\omega\,{\mathbb{{Q}}}^{-1}\)</span></h3>
+<section id="calculation-of-the-crack-compliance-uuuullim_omegato-0omegauuuuq-1" class="level3" data-number="B.4.2">
+<h3 data-number="B.4.2" class="anchored" data-anchor-id="calculation-of-the-crack-compliance-uuuullim_omegato-0omegauuuuq-1"><span class="header-section-number">B.4.2</span> Calculation of the crack compliance <span class="math inline">\(\uuuu{L}=\lim_{\omega\to 0}\omega\,\uuuu{Q}^{-1}\)</span></h3>
 <p>Note that in <em>Echoes</em> it is necessary to provide an aspect ratio <span class="math inline">\(\omega\)</span> for the crack even if the crack compliance is actually calculated as a limit (not depending on <span class="math inline">\(\omega\)</span>)</p>
 <div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ω <span class="op">=</span> <span class="fl">1.e-4</span></span>
@@ -659,8 +692,8 @@ B_{mm}=B_{\ell\ell}=\frac{B_{nn}}{1-\nu/2}
 </div>
 </div>
 </section>
-<section id="checking-the-aspect-ratio-for-which-omegamathbbq-1approx-lim_omegato-0omegamathbbq-1-is-acceptable" class="level3" data-number="B.4.3">
-<h3 data-number="B.4.3" class="anchored" data-anchor-id="checking-the-aspect-ratio-for-which-omegamathbbq-1approx-lim_omegato-0omegamathbbq-1-is-acceptable"><span class="header-section-number">B.4.3</span> Checking the aspect ratio for which <span class="math inline">\(\omega\,{\mathbb{{Q}}}^{-1}\approx \lim_{\omega\to 0}\omega\,{\mathbb{{Q}}}^{-1}\)</span> is acceptable</h3>
+<section id="checking-the-aspect-ratio-for-which-omegauuuuq-1approx-lim_omegato-0omegauuuuq-1-is-acceptable" class="level3" data-number="B.4.3">
+<h3 data-number="B.4.3" class="anchored" data-anchor-id="checking-the-aspect-ratio-for-which-omegauuuuq-1approx-lim_omegato-0omegauuuuq-1-is-acceptable"><span class="header-section-number">B.4.3</span> Checking the aspect ratio for which <span class="math inline">\(\omega\,\uuuu{Q}^{-1}\approx \lim_{\omega\to 0}\omega\,\uuuu{Q}^{-1}\)</span> is acceptable</h3>
 <div class="cell" data-execution_count="4">
 <details>
 <summary>Code</summary>

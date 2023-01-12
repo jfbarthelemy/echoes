@@ -1,0 +1,12 @@
+# Introduction {.unnumbered #sec-intro}
+
+This book does not provide an exhaustive presentation of the theory of random medium homogenization (see [@milton2002], [@torquato2002] or [@kachanov2018] among others) but it is rather intended to recall some of the basic notations and results related to the implementation of the **Echoes** library.
+
+In this manual, some snippets of Python codes calling **Echoes** library are presented. Except when it is necessary to show the imported libraries, the following starting lines will be implicit
+```python
+import numpy as np
+from echoes import *
+import matplotlib.pyplot as plt
+```
+
+$\,$
