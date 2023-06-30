@@ -77,15 +77,37 @@ format:
     echo: true
     html-math-method: mathjax
     fontsize: 90%
-    include-before-body: config/_macros_html.tex
+    include-before-body: config/_macros_html.md
   pdf:
     documentclass: scrreprt
     pdf-engine: lualatex
+    classoption: DIV=12
+    papersize: a4
+    mainfont: TeX Gyre Pagella
+    mathfont: Asana Math
+    monofont: Noto Sans Mono
     highlight-style: tango
     include-in-header:
       - config/_preamble.tex
       - config/_macros.tex
     keep-tex: false
+
+# exemple Sébastien
+# format:
+#   html:
+#     theme: cosmo
+#     html-math-method: mathjax
+#     include-before-body: config/_macros_html.tex
+#   pdf:
+#     documentclass: scrreprt
+#     classoption: DIV=12
+#     papersize: a4
+#     mainfont: TeX Gyre Pagella
+#     mathfont: Asana Math
+#     monofont: Noto Sans Mono
+#     include-in-header:
+#       - config/_preamble.tex
+#       - config/_macros.tex
 
 crossref:
   fig-title: "Fig."

@@ -206,7 +206,7 @@ $$
 \uuuu{Q}=\uuuu{C}-\uuuu{C}:\uuuu{P}:\uuuu{C}
 $$
 and in particular $\lim_{\omega\to 0}\omega\,\uuuu{Q}^{-1}$
-in which it is recalled that $\uuuu{P}$ and thus $\uuuu{Q}$ depend on $\omega$ such that the components $Q_{nijk}$ (with $n$ corresponding to the crack normal) behave as $1/\omega$ when $\omega$ tends towards $0$. The analytical expressions of this limit are fully detailed in [@barthelemyIJES2021] which recalls in particular that $\uuuu{L}$ actually derives from a symmetric second-order tensor $\uu{B}$ as
+in which it is recalled that $\uuuu{P}$ and thus $\uuuu{Q}$ depend on $\omega$ such that the components $\left(\uuuu{Q}^{-1}\right)_{nijk}$ (with $n$ corresponding to the crack normal) behave as $1/\omega$ when $\omega$ tends towards $0$. The analytical expressions of this limit are fully detailed in [@barthelemyIJES2021] which recalls in particular that $\uuuu{L}$ actually derives from a symmetric second-order tensor $\uu{B}$ as
 $$
 \uuuu{L}=
 \lim_{\omega\to 0} \omega\,\uuuu{Q}^{-1}
