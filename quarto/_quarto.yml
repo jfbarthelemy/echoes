@@ -72,7 +72,7 @@ format:
     code-block-bg: true
     code-block-border-left: "#FF00FF"
     code-fold: true
-    coce-link: true
+    code-link: true
     code-tools: false
     echo: true
     html-math-method: mathjax
