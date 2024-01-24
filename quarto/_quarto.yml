@@ -60,13 +60,13 @@ csl: https://www.zotero.org/styles/elsevier-harvard
 link-citations: true
 
 format:
-  latex:
-    pdf-engine: lualatex
-    mainfont: TeX Gyre Termes X
-    mathfont: TeX Gyre Termes Math
-    monofont: TeX Gyre Cursor
-    sansfont: TeX Gyre Heros
-    include-in-header: config/_macros.tex
+  # latex:
+  #   pdf-engine: lualatex
+  #   mainfont: TeX Gyre Termes X
+  #   mathfont: TeX Gyre Termes Math
+  #   monofont: TeX Gyre Cursor
+  #   sansfont: TeX Gyre Heros
+  #   include-in-header: config/_macros.tex
   html:
     theme: journal
     code-block-bg: true
@@ -84,30 +84,14 @@ format:
     classoption: DIV=12
     papersize: a4
     mainfont: TeX Gyre Pagella
-    mathfont: Asana Math
+    sansfont: TeX Gyre Heros
     monofont: Noto Sans Mono
+    # mathfont: TeX Gyre Termes Math
     highlight-style: tango
     include-in-header:
       - config/_preamble.tex
       - config/_macros.tex
     keep-tex: false
-
-# exemple Sébastien
-# format:
-#   html:
-#     theme: cosmo
-#     html-math-method: mathjax
-#     include-before-body: config/_macros_html.tex
-#   pdf:
-#     documentclass: scrreprt
-#     classoption: DIV=12
-#     papersize: a4
-#     mainfont: TeX Gyre Pagella
-#     mathfont: Asana Math
-#     monofont: Noto Sans Mono
-#     include-in-header:
-#       - config/_preamble.tex
-#       - config/_macros.tex
 
 crossref:
   fig-title: "Fig."

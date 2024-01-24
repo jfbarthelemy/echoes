@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -24,6 +24,7 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -66,7 +67,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -75,6 +82,7 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -84,6 +92,33 @@ div.csl-indent {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 </head>
 
 <body class="nav-sidebar floating">
@@ -92,12 +127,12 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendices/tensor_algebra.html">Appendices</a></li><li class="breadcrumb-item"><a href="../appendices/tensor_algebra.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Tensor algebra</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendices/tensor_algebra.html">Appendices</a></li><li class="breadcrumb-item"><a href="../appendices/tensor_algebra.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Tensor algebra</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -107,12 +142,12 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Echoes</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/jfbarthelemy/echoes/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/jfbarthelemy/echoes/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -370,7 +405,7 @@ div.csl-indent {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -383,7 +418,7 @@ div.csl-indent {
   <li><a href="#sec-ISO" id="toc-sec-ISO" class="nav-link" data-scroll-target="#sec-ISO"><span class="header-section-number">A.4</span> Fourth-order isotropic tensors</a></li>
   <li><a href="#sec-TI" id="toc-sec-TI" class="nav-link" data-scroll-target="#sec-TI"><span class="header-section-number">A.5</span> Fourth-order transversely isotropic tensors and Walpole basis</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jfbarthelemy/echoes/edit/main/appendices/tensor_algebra.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/appendices/tensor_algebra.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -424,7 +459,7 @@ $$
      \hspace*{.1em}]\hspace*{-.15em}]}
 $$
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendices/tensor_algebra.html">Appendices</a></li><li class="breadcrumb-item"><a href="../appendices/tensor_algebra.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Tensor algebra</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-tensor_algebra" class="quarto-section-identifier">Appendix A — Tensor algebra</span></h1>
 </div>
@@ -439,7 +474,9 @@ $$
   </div>
   
 
+
 </header>
+
 
 <section id="sec-tensoralgebra_convention" class="level2" data-number="A.1">
 <h2 data-number="A.1" class="anchored" data-anchor-id="sec-tensoralgebra_convention"><span class="header-section-number">A.1</span> Conventions of tensor algebra</h2>
@@ -549,7 +586,7 @@ $$
    \end{array}
    \right)
 \tag{A.14}\]</span></span></p>
-<p>The vector of <span class="math inline">\(\R^6\)</span> in (<a href="#eq-KM2"><span>A.14</span></a>) corresponds to the components of the second-order tensor <span class="math inline">\(\eps\)</span> in the basis ordered as <span id="eq-basisKM"><span class="math display">\[
+<p>The vector of <span class="math inline">\(\R^6\)</span> in (<a href="#eq-KM2" class="quarto-xref"><span>A.14</span></a>) corresponds to the components of the second-order tensor <span class="math inline">\(\eps\)</span> in the basis ordered as <span id="eq-basisKM"><span class="math display">\[
 \mathcal{B}=\left(
 \ve{1}\otimes\ve{1},
 \ve{2}\otimes\ve{2},
@@ -559,7 +596,7 @@ $$
 \sqrt{2}\,\ve{1}\otimes\ve{2}
 \right)
 \tag{A.15}\]</span></span></p>
-<p>The tensors of the basis (<a href="#eq-basisKM"><span>A.15</span></a>) form an orthonormal frame spanning the space of symmetric second-order tensors equipped with the double contraction “<span class="math inline">\(:\)</span>” as scalar product. It follows that the double contraction between symmetric second-order tensors is no other than the classical scalar product of the corresponding vectors of <span class="math inline">\(\R^6\)</span> written according to the convention (<a href="#eq-KM2"><span>A.14</span></a>).</p>
+<p>The tensors of the basis (<a href="#eq-basisKM" class="quarto-xref"><span>A.15</span></a>) form an orthonormal frame spanning the space of symmetric second-order tensors equipped with the double contraction “<span class="math inline">\(:\)</span>” as scalar product. It follows that the double contraction between symmetric second-order tensors is no other than the classical scalar product of the corresponding vectors of <span class="math inline">\(\R^6\)</span> written according to the convention (<a href="#eq-KM2" class="quarto-xref"><span>A.14</span></a>).</p>
 <p>Moreover a fourth-order tensor with minor symetries (<span class="math inline">\(C_{jikl}=C_{ijlk}=C_{ijkl}\)</span>), which can be seen as a linear operator acting over symmetric second-order tensors by double contraction, writes in the same convention under the form of a <span class="math inline">\(6\times 6\)</span> square matrix (the solid lines separate blocks affected by different factors whereas the colored components highlight a central block playing a major role in the sequel) <span id="eq-KM4"><span class="math display">\[
 \small
 \Mat(\uuuu{C},\mathcal{B})=
@@ -574,8 +611,8 @@ $$
    \sqrt{2}\,C_{1211} &amp; \sqrt{2}\,C_{1222} &amp; \sqrt{2}\,C_{1233} &amp; 2\,C_{1223} &amp; 2\,C_{1231} &amp; 2\,C_{1212}
    \end{array}
    \right)
-\tag{A.16}\]</span></span> The result of <span class="math inline">\(\uuuu{C}:\eps\)</span> writes as a classical matrix-vector product of (<a href="#eq-KM4"><span>A.16</span></a>) by (<a href="#eq-KM2"><span>A.14</span></a>).</p>
-<p>However another way of ordering the tensors of (<a href="#eq-basisKM"><span>A.15</span></a>) which proves useful for the calculation of crack compliance is based on a gathering of one set of three in-plane and another one of three out-of-plane tensors (the latter involving <span class="math inline">\(\n=\ve{3}\)</span> assumed to be the normal of the crack and the former not) <span id="eq-basisKM2"><span class="math display">\[
+\tag{A.16}\]</span></span> The result of <span class="math inline">\(\uuuu{C}:\eps\)</span> writes as a classical matrix-vector product of (<a href="#eq-KM4" class="quarto-xref"><span>A.16</span></a>) by (<a href="#eq-KM2" class="quarto-xref"><span>A.14</span></a>).</p>
+<p>However another way of ordering the tensors of (<a href="#eq-basisKM" class="quarto-xref"><span>A.15</span></a>) which proves useful for the calculation of crack compliance is based on a gathering of one set of three in-plane and another one of three out-of-plane tensors (the latter involving <span class="math inline">\(\n=\ve{3}\)</span> assumed to be the normal of the crack and the former not) <span id="eq-basisKM2"><span class="math display">\[
 \mathcal{B}^*=\Bigg(
 \underbrace{
 \ve{1}\otimes\ve{1},
@@ -589,7 +626,7 @@ $$
 \sqrt{2}\,\ve{3}\sotimes\ve{1}
 }_{\textrm{out-of-plane}}
 \Bigg)
-\tag{A.17}\]</span></span> such that the matrix of <span class="math inline">\(\uuuu{C}\)</span> in <span class="math inline">\(\mathcal{B}^*\)</span> is now obtained by permutations of lines and columns of (<a href="#eq-KM4"><span>A.16</span></a>) to give <span id="eq-KM4bis"><span class="math display">\[
+\tag{A.17}\]</span></span> such that the matrix of <span class="math inline">\(\uuuu{C}\)</span> in <span class="math inline">\(\mathcal{B}^*\)</span> is now obtained by permutations of lines and columns of (<a href="#eq-KM4" class="quarto-xref"><span>A.16</span></a>) to give <span id="eq-KM4bis"><span class="math display">\[
 \small
 \Mat(\uuuu{C},\mathcal{B}^*)=
    \left(
@@ -603,11 +640,11 @@ $$
    \sqrt{2}\,C_{3111} &amp; \sqrt{2}\,C_{3122} &amp; 2\,C_{3112} &amp; \sqrt{2}\,C_{3133} &amp; 2\,C_{3123} &amp; 2\,C_{3131}
    \end{array}
    \right)
-\tag{A.18}\]</span></span> One may notice that the bottom right <span class="math inline">\(3\times 3\)</span> block of (<a href="#eq-KM4bis"><span>A.18</span></a>) exactly corresponds to the colored block in (<a href="#eq-KM4"><span>A.16</span></a>).</p>
+\tag{A.18}\]</span></span> One may notice that the bottom right <span class="math inline">\(3\times 3\)</span> block of (<a href="#eq-KM4bis" class="quarto-xref"><span>A.18</span></a>) exactly corresponds to the colored block in (<a href="#eq-KM4" class="quarto-xref"><span>A.16</span></a>).</p>
 </section>
 <section id="sec-rottens" class="level2" data-number="A.3">
 <h2 data-number="A.3" class="anchored" data-anchor-id="sec-rottens"><span class="header-section-number">A.3</span> Rotation of tensors</h2>
-<p>Recalling that the set of second-order tensors is isomorphic to the set of endomorphism in an euclidean space, it is natural to define a rotation tensor as an element of the special orthogonal group, i.e.&nbsp;tensors <span class="math inline">\(\uu{R}\)</span> such that <span class="math inline">\(\trans{\uu{R}}\cdot\uu{R}=\uu{1}\)</span> and <span class="math inline">\(\det{\uu{R}}=1\)</span>. In <span class="math inline">\(\R^3\)</span> equipped with an orthonormal frame <span class="math inline">\((\ve{i})_{i=1,2,3}\)</span>, these tensors can be defined by three Euler angles (see <a href="#fig-eurlerangles">Fig.&nbsp;<span>A.1</span></a>) <span class="math inline">\(0\leq\theta\leq\pi\)</span>, <span class="math inline">\(0\leq\phi\leq 2\pi\)</span> and <span class="math inline">\(0\leq\psi\leq 2\pi\)</span> such that<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> <span id="eq-rot3"><span class="math display">\[
+<p>Recalling that the set of second-order tensors is isomorphic to the set of endomorphism in an euclidean space, it is natural to define a rotation tensor as an element of the special orthogonal group, i.e.&nbsp;tensors <span class="math inline">\(\uu{R}\)</span> such that <span class="math inline">\(\trans{\uu{R}}\cdot\uu{R}=\uu{1}\)</span> and <span class="math inline">\(\det{\uu{R}}=1\)</span>. In <span class="math inline">\(\R^3\)</span> equipped with an orthonormal frame <span class="math inline">\((\ve{i})_{i=1,2,3}\)</span>, these tensors can be defined by three Euler angles (see <a href="#fig-eurlerangles" class="quarto-xref">Fig.&nbsp;<span>A.1</span></a>) <span class="math inline">\(0\leq\theta\leq\pi\)</span>, <span class="math inline">\(0\leq\phi\leq 2\pi\)</span> and <span class="math inline">\(0\leq\psi\leq 2\pi\)</span> such that<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> <span id="eq-rot3"><span class="math display">\[
 \small
 \Mat(\uu{R},(\ve{i}))=
    \left(
@@ -617,13 +654,17 @@ $$
    - c_\psi  s_\theta &amp; s_\theta  s_\psi &amp; c_\theta \\
    \end{array}
    \right)
-\tag{A.19}\]</span></span> A rotated frame <span class="math inline">\((\underline{e}'_i)_{i=1,2,3}\)</span> is obtained by application of the rotation <span class="math inline">\(\uu{R}\)</span> on the vectors <span class="math inline">\(\ve{i}\)</span> (see <a href="#fig-eurlerangles">Fig.&nbsp;<span>A.1</span></a>) <span id="eq-Rei"><span class="math display">\[
+\tag{A.19}\]</span></span> A rotated frame <span class="math inline">\((\underline{e}'_i)_{i=1,2,3}\)</span> is obtained by application of the rotation <span class="math inline">\(\uu{R}\)</span> on the vectors <span class="math inline">\(\ve{i}\)</span> (see <a href="#fig-eurlerangles" class="quarto-xref">Fig.&nbsp;<span>A.1</span></a>) <span id="eq-Rei"><span class="math display">\[
 \forall i \in \{1,2,3\}\quad \underline{e}'_i=\uu{R}\cdot\ve{i}
 \tag{A.20}\]</span></span></p>
-<div id="fig-eurlerangles" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
+<div id="fig-eurlerangles" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-eurlerangles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <p><embed src="../images/sphcoor.html" class="img-fluid" style="width:90.0%"> <a href="../images/sphcoor.html"><img src="../images/arrow-expand.png" class="img-fluid figure-img" style="width:3.0%"></a></p>
-<figcaption class="figure-caption">Fig.&nbsp;A.1: Euler angles</figcaption>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-eurlerangles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Fig.&nbsp;A.1: Euler angles
+</figcaption>
 </figure>
 </div>
 <p>The rotation of Eurler angles <span class="math inline">\((\theta,\phi,\psi)\)</span> applies on a <span class="math inline">\(p\)</span> order tensor <span class="math inline">\(\mathcal{T}\)</span> as <span id="eq-rotT"><span class="math display">\[
@@ -633,7 +674,7 @@ $$
 \uu{R}(\mathcal{T})=
 \mathcal{T}_{i_1,\ldots,i_p} \,(\uu{R}\cdot\ve{i_1})\otimes\ldots\otimes(\uu{R}\cdot\ve{i_{p}})
 \tag{A.21}\]</span></span></p>
-<p>The application of (<a href="#eq-rotT"><span>A.21</span></a>) to a second-order tensor <span class="math inline">\(\uu{a}\)</span> therefore gives <span id="eq-rotT2"><span class="math display">\[
+<p>The application of (<a href="#eq-rotT" class="quarto-xref"><span>A.21</span></a>) to a second-order tensor <span class="math inline">\(\uu{a}\)</span> therefore gives <span id="eq-rotT2"><span class="math display">\[
 \uu{R}(\uu{a})=\uu{R}\cdot
 \uu{a}
 \cdot\trans{\uu{R}}
@@ -641,7 +682,7 @@ $$
 \uu{R}(\uuuu{T})=(\uu{R}\sboxtimes\uu{R}):
 \uuuu{T}
 :\trans{(\uu{R}\sboxtimes\uu{R})}
-\tag{A.23}\]</span></span> where the fourth-order rotation tensor <span class="math inline">\(\uuuu{R}=\uu{R}\sboxtimes\uu{R}\)</span> can be expressed in Kelvin-Mandel notation (<a href="#eq-KM4"><span>A.16</span></a>) by means of the components of <span class="math inline">\(\uu{R}\)</span> defined in (<a href="#eq-rot3"><span>A.19</span></a>) <span id="eq-rot6"><span class="math display">\[
+\tag{A.23}\]</span></span> where the fourth-order rotation tensor <span class="math inline">\(\uuuu{R}=\uu{R}\sboxtimes\uu{R}\)</span> can be expressed in Kelvin-Mandel notation (<a href="#eq-KM4" class="quarto-xref"><span>A.16</span></a>) by means of the components of <span class="math inline">\(\uu{R}\)</span> defined in (<a href="#eq-rot3" class="quarto-xref"><span>A.19</span></a>) <span id="eq-rot6"><span class="math display">\[
 \scriptsize
 \Mat(\uuuu{R},\mathcal{B})=
    \left(
@@ -654,7 +695,7 @@ R_{3 1}^{2} &amp; R_{3 2}^{2} &amp; R_{3 3}^{2} &amp; \sqrt{2}  R_{3 2}  R_{3 3}
 \sqrt{2}  R_{1 1}  R_{2 1} &amp; \sqrt{2}  R_{1 2}  R_{2 2} &amp; \sqrt{2}  R_{1 3}  R_{2 3} &amp; R_{1 2}  R_{2 3} + R_{1 3}  R_{2 2} &amp; R_{1 1}  R_{2 3} + R_{1 3}  R_{2 1} &amp; R_{1 1}  R_{2 2} + R_{1 2}  R_{2 1} \\
 \end{array}
 \right)
-\tag{A.24}\]</span></span> It results that (<a href="#eq-rotT4"><span>A.23</span></a>) can be seen as a classical rotation operation involving matrix multiplications in <span class="math inline">\(\R^6\)</span>.</p>
+\tag{A.24}\]</span></span> It results that (<a href="#eq-rotT4" class="quarto-xref"><span>A.23</span></a>) can be seen as a classical rotation operation involving matrix multiplications in <span class="math inline">\(\R^6\)</span>.</p>
 </section>
 <section id="sec-ISO" class="level2" data-number="A.4">
 <h2 data-number="A.4" class="anchored" data-anchor-id="sec-ISO"><span class="header-section-number">A.4</span> Fourth-order isotropic tensors</h2>
@@ -676,7 +717,7 @@ R_{3 1}^{2} &amp; R_{3 2}^{2} &amp; R_{3 3}^{2} &amp; \sqrt{2}  R_{3 2}  R_{3 3}
    \end{array}
    \right)
 \tag{A.26}\]</span></span></p>
-<p>It is classically proven that any minor-symmetrical fourth-order tensor invariant by rotation (<a href="#eq-rotT4"><span>A.23</span></a>) write as a linear combination on the two projectors <span class="math inline">\(\uuuu{J}\)</span> and <span class="math inline">\(\uuuu{K}\)</span> which respectively extract the spherical and deviatoric part of any symmetrical second-order tensor <span id="eq-JKext"><span class="math display">\[
+<p>It is classically proven that any minor-symmetrical fourth-order tensor invariant by rotation (<a href="#eq-rotT4" class="quarto-xref"><span>A.23</span></a>) write as a linear combination on the two projectors <span class="math inline">\(\uuuu{J}\)</span> and <span class="math inline">\(\uuuu{K}\)</span> which respectively extract the spherical and deviatoric part of any symmetrical second-order tensor <span id="eq-JKext"><span class="math display">\[
 \uuuu{J}:\uu{a}=\frac{1}{3}\tr{\uu{a}}\,\uu{1}
 \quad \textrm{and} \quad
 \uuuu{K}:\uu{a}=\uu{a}-\frac{1}{3}\tr{\uu{a}}\,\uu{1}
@@ -731,7 +772,7 @@ K_{ijkl}=\frac{\delta_{ik}\delta_{jl}+\delta_{il}\delta_{jk}}{2}-\frac{1}{3}\del
 \tag{A.32}\]</span></span></p>
 <p>The isotropisation of any fourth-order tensor <span class="math inline">\(\uuuu{T}\)</span> is defined by <span class="citation" data-cites="bornert2001a">(<a href="../references.html#ref-bornert2001a" role="doc-biblioref">Bornert et al., 2001</a>)</span> <span id="eq-isoT"><span class="math display">\[
 \ISO(\uuuu{T})=\left(\uuuu{T}::\uuuu{J}\right)\,\uuuu{J}+\left(\frac{\uuuu{T}::\uuuu{K}}{5}\right)\,\uuuu{K}
-\tag{A.33}\]</span></span> It is easy to show that (<a href="#eq-isoT"><span>A.33</span></a>) is no other than the closest isotropic tensor to <span class="math inline">\(\uuuu{T}\)</span> if the distance is chosen as the euclidean one i.e.&nbsp;associated to the scalar product (<a href="#eq-dot4"><span>A.10</span></a>). Note however that this isotropisation relying on euclidean distance to the set of isotropic tensors does not lead to the same result if <span class="math inline">\(\uuuu{T}'\)</span> is considered instead of <span class="math inline">\(\uuuu{T}\)</span>. Other distance definitions such as log-Euclidean distance fullfilling invariance by inversion are analyzed in <span class="citation" data-cites="morin2020">(<a href="../references.html#ref-morin2020" role="doc-biblioref">Morin et al., 2020</a>)</span>.</p>
+\tag{A.33}\]</span></span> It is easy to show that (<a href="#eq-isoT" class="quarto-xref"><span>A.33</span></a>) is no other than the closest isotropic tensor to <span class="math inline">\(\uuuu{T}\)</span> if the distance is chosen as the euclidean one i.e.&nbsp;associated to the scalar product (<a href="#eq-dot4" class="quarto-xref"><span>A.10</span></a>). Note however that this isotropisation relying on euclidean distance to the set of isotropic tensors does not lead to the same result if <span class="math inline">\(\uuuu{T}'\)</span> is considered instead of <span class="math inline">\(\uuuu{T}\)</span>. Other distance definitions such as log-Euclidean distance fullfilling invariance by inversion are analyzed in <span class="citation" data-cites="morin2020">(<a href="../references.html#ref-morin2020" role="doc-biblioref">Morin et al., 2020</a>)</span>.</p>
 </section>
 <section id="sec-TI" class="level2" data-number="A.5">
 <h2 data-number="A.5" class="anchored" data-anchor-id="sec-TI"><span class="header-section-number">A.5</span> Fourth-order transversely isotropic tensors and Walpole basis</h2>
@@ -774,7 +815,7 @@ L = \left(
 \end{aligned} \tag{A.37}\]</span></span></p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-bornert2001a" class="csl-entry" role="listitem">
 Bornert, M., Bretheau, T., Gilormini, P., 2001. Homogénéisation en mécanique des matériaux. <span>Hermes science</span>.
 </div>
@@ -880,10 +921,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -893,8 +933,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -907,6 +956,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -950,6 +1118,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -975,6 +1144,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1036,12 +1231,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../references.html" class="pagination-link">
+      <a href="../references.html" class="pagination-link  aria-label=" references"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">References</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../appendices/hill_elas.html" class="pagination-link">
+      <a href="../appendices/hill_elas.html" class="pagination-link" aria-label="<span class='chapter-number'>B</span>&nbsp; <span class='chapter-title'>Hill polarization tensor in elasticity</span>">
         <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Hill polarization tensor in elasticity</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -1050,4 +1245,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/appendices/tensor_algebra.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
