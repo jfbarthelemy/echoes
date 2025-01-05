@@ -1,3 +1,0 @@
-# Linear elasticity {#sec-hom_elas}
-
-$\,$

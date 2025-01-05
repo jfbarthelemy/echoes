@@ -1,3 +1,0 @@
-# Homogenization schemes {#sec-schemes_freq}
-
-$\,$

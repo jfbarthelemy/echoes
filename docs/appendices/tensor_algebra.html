@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Echoes - Appendix A — Tensor algebra</title>
+<title>Appendix A — Tensor algebra – Echoes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -52,15 +52,16 @@ div.csl-indent {
 <meta name="quarto:offset" content="../">
 <link href="../appendices/hill_elas.html" rel="next">
 <link href="../references.html" rel="prev">
+<link href="../images/cover.html" rel="icon" type="text/html">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-381d77dc618acb510d64ca5ed805e9fe.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -89,7 +90,7 @@ div.csl-indent {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -127,45 +128,48 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendices/tensor_algebra.html">Appendices</a></li><li class="breadcrumb-item"><a href="../appendices/tensor_algebra.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Tensor algebra</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/cover.html" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Echoes</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/jfbarthelemy/echoes/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
-      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
-              <i class="bi bi-bi-twitter pe-1"></i>
+              <i class="bi bi-twitter pe-1"></i>
             Twitter
             </a>
           </li>
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-              <i class="bi bi-bi-facebook pe-1"></i>
+              <i class="bi bi-facebook pe-1"></i>
             Facebook
             </a>
           </li>
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
-              <i class="bi bi-bi-linkedin pe-1"></i>
+              <i class="bi bi-linkedin pe-1"></i>
             LinkedIn
             </a>
           </li>
@@ -195,174 +199,23 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../hom_elas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Linear elasticity</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Elements of tensor calculus</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../elasticity/basics_elas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Basic problem of elasticity homogenization</span></span></a>
+  <a href="../tensor_calculus/kelvin_mandel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Kelvin-Mandel notation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../elasticity/eshelby_elas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Eshelby problem in elasticity</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../elasticity/cracks_elas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cracks</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../elasticity/mrp_elas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Morphologically representative patterns</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../elasticity/schemes_elas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Homogenization schemes</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../hom_cond.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Conductivity</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../conductivity/basics_cond.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Basic problem</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../conductivity/eshelby_cond.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Eshelby problem</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../conductivity/cracks_cond.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Cracks</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../conductivity/mrp_cond.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Morphologically representative patterns</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../conductivity/schemes_cond.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Homogenization schemes</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../nonlinear_hom.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Nonlinear homogenization</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../nonlinear/second_order_moments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Second order moments</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../nonlinear/conc_tensor_deriv.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Differentiation of concentration tensors</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../nonlinear/schemes_deriv.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Homogenization schemes</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../viscoelas_freq.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Viscoelasticity in frequency domain</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../viscoelasticity_freq/basics_freq.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Basic problem</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../viscoelasticity_freq/schemes_freq.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Homogenization schemes</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../viscoelas_time.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Viscoelasticity in time domain</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../viscoelasticity_time/basics_time.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Basic problem</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../viscoelasticity_time/schemes_time.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Homogenization schemes</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../examples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Examples of implementation</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../examples/concrete_strength.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Concrete strength</span></span></a>
+  <a href="../tensor_calculus/rot_matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Rotation matrices</span></span></a>
   </div>
 </li>
       </ul>
@@ -375,13 +228,13 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../appendices/tensor_algebra.html" class="sidebar-item-text sidebar-link active">
@@ -396,8 +249,8 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../appendices/hill_cond.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Hill polarization tensor in conductivity</span></span></a>
+  <a href="../appendices/basics_elas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Basic problem of elasticity homogenization</span></span></a>
   </div>
 </li>
       </ul>
@@ -421,43 +274,79 @@ window.Quarto = {
 <div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/appendices/tensor_algebra.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 $$
+
 \newcommand{\C}{{\mathbb{{C}}}}
+
 \newcommand{\R}{{\mathbb{{R}}}}
+
 \newcommand{\Q}{{\mathbb{{Q}}}}
+
 \newcommand{\Z}{{\mathbb{{Z}}}}
+
 \newcommand{\N}{{\mathbb{{N}}}}
 
+
+
 \newcommand{\uu}[1]{{\boldsymbol{{#1}}}}
+
 \newcommand{\uuuu}[1]{{\symbb{{#1}}}}
+
 \newcommand{\uv}[1]{{\underline{{#1}}}}
+
 \newcommand{\ve}[1]{{\uv{{e}}_{{#1}}}}
+
 \newcommand{\x}{{\uv{{x}}}}
+
 \newcommand{\n}{{\uv{{n}}}}
+
 \newcommand{\eps}{{\uu{{\varepsilon}}}}
+
 \newcommand{\E}{{\uu{{E}}}}
+
 \newcommand{\sig}{{\uu{{\sigma}}}}
+
 \newcommand{\Sig}{{\uu{{\Sigma}}}}
+
 \newcommand{\cod}{{\uv{{\symscr{b}}}}}
+
 \newcommand{\trans}[1]{{{}^{t}{#1}}}
+
 \newcommand{\sotimes}{{\stackrel{s}{\otimes}}}
+
 \newcommand{\sboxtimes}{\stackrel{s}{\boxtimes}}
+
 \newcommand{\norm}[1]{{\lVert{{#1}}\rVert}}
+
 \newcommand{\ud}{{\,\mathrm{d}}}
+
 \DeclareMathOperator{\arcosh}{arcosh}
+
 \DeclareMathOperator{\divz}{div}
+
 \DeclareMathOperator{\divu}{\uv{div}}
+
 \DeclareMathOperator{\hess}{hess}
+
 \DeclareMathOperator{\gradu}{\uv{grad}}
+
 \DeclareMathOperator{\graduu}{\uu{grad}}
+
 \DeclareMathOperator{\Mat}{Mat}
+
 \DeclareMathOperator{\tr}{tr}
+
 \DeclareMathOperator{\ISO}{ISO}
 
+
+
 \newcommand{\jump}[1]{[\hspace*{-.15em}[\hspace*{.1em}{#1}%
+
      \hspace*{.1em}]\hspace*{-.15em}]}
+
 $$
+
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendices/tensor_algebra.html">Appendices</a></li><li class="breadcrumb-item"><a href="../appendices/tensor_algebra.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Tensor algebra</span></a></li></ol></nav>
 <div class="quarto-title">
@@ -466,7 +355,7 @@ $$
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     
   
@@ -597,7 +486,20 @@ $$
 \right)
 \tag{A.15}\]</span></span></p>
 <p>The tensors of the basis (<a href="#eq-basisKM" class="quarto-xref"><span>A.15</span></a>) form an orthonormal frame spanning the space of symmetric second-order tensors equipped with the double contraction “<span class="math inline">\(:\)</span>” as scalar product. It follows that the double contraction between symmetric second-order tensors is no other than the classical scalar product of the corresponding vectors of <span class="math inline">\(\R^6\)</span> written according to the convention (<a href="#eq-KM2" class="quarto-xref"><span>A.14</span></a>).</p>
-<p>Moreover a fourth-order tensor with minor symetries (<span class="math inline">\(C_{jikl}=C_{ijlk}=C_{ijkl}\)</span>), which can be seen as a linear operator acting over symmetric second-order tensors by double contraction, writes in the same convention under the form of a <span class="math inline">\(6\times 6\)</span> square matrix (the solid lines separate blocks affected by different factors whereas the colored components highlight a central block playing a major role in the sequel) <span id="eq-KM4"><span class="math display">\[
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note the effect of <span class="math inline">\(\sqrt{2}\)</span> on the off-diagonal components. Unlike <a href="https://en.wikipedia.org/wiki/Voigt_notation">Voigt convention</a>, the choice of Kelvin-Mandel convention throughout all the library allows to address strain and stress tensors under the same synthetic representation.</p>
+</div>
+</div>
+<p>A fourth-order tensor with minor symetries (<span class="math inline">\(C_{jikl}=C_{ijlk}=C_{ijkl}\)</span>), which can be seen as a linear operator acting over symmetric second-order tensors by double contraction, writes in the same convention under the form of a <span class="math inline">\(6\times 6\)</span> square matrix (the solid lines separate blocks affected by different factors whereas the colored components highlight a central block playing a major role in the sequel) <span id="eq-KM4"><span class="math display">\[
 \small
 \Mat(\uuuu{C},\mathcal{B})=
    \left(
@@ -644,7 +546,7 @@ $$
 </section>
 <section id="sec-rottens" class="level2" data-number="A.3">
 <h2 data-number="A.3" class="anchored" data-anchor-id="sec-rottens"><span class="header-section-number">A.3</span> Rotation of tensors</h2>
-<p>Recalling that the set of second-order tensors is isomorphic to the set of endomorphism in an euclidean space, it is natural to define a rotation tensor as an element of the special orthogonal group, i.e.&nbsp;tensors <span class="math inline">\(\uu{R}\)</span> such that <span class="math inline">\(\trans{\uu{R}}\cdot\uu{R}=\uu{1}\)</span> and <span class="math inline">\(\det{\uu{R}}=1\)</span>. In <span class="math inline">\(\R^3\)</span> equipped with an orthonormal frame <span class="math inline">\((\ve{i})_{i=1,2,3}\)</span>, these tensors can be defined by three Euler angles (see <a href="#fig-eurlerangles" class="quarto-xref">Fig.&nbsp;<span>A.1</span></a>) <span class="math inline">\(0\leq\theta\leq\pi\)</span>, <span class="math inline">\(0\leq\phi\leq 2\pi\)</span> and <span class="math inline">\(0\leq\psi\leq 2\pi\)</span> such that<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> <span id="eq-rot3"><span class="math display">\[
+<p>Recalling that the set of second-order tensors is isomorphic to the set of endomorphism in an euclidean space, it is natural to define a rotation tensor as an element of the special orthogonal group, i.e.&nbsp;tensors <span class="math inline">\(\uu{R}\)</span> such that <span class="math inline">\(\trans{\uu{R}}\cdot\uu{R}=\uu{1}\)</span> and <span class="math inline">\(\det{\uu{R}}=1\)</span>. In <span class="math inline">\(\R^3\)</span> equipped with an orthonormal frame <span class="math inline">\((\ve{i})_{i=1,2,3}\)</span>, these tensors can be defined by three Euler angles <span class="math inline">\((θ,ϕ,ψ)∈[0,π]×[0,2π]×[0,2π]\)</span> (see <a href="#fig-eurlerangles" class="quarto-xref">Fig.&nbsp;<span>A.1</span></a>) such that<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> <span id="eq-rot3"><span class="math display">\[
 \small
 \Mat(\uu{R},(\ve{i}))=
    \left(
@@ -657,7 +559,7 @@ $$
 \tag{A.19}\]</span></span> A rotated frame <span class="math inline">\((\underline{e}'_i)_{i=1,2,3}\)</span> is obtained by application of the rotation <span class="math inline">\(\uu{R}\)</span> on the vectors <span class="math inline">\(\ve{i}\)</span> (see <a href="#fig-eurlerangles" class="quarto-xref">Fig.&nbsp;<span>A.1</span></a>) <span id="eq-Rei"><span class="math display">\[
 \forall i \in \{1,2,3\}\quad \underline{e}'_i=\uu{R}\cdot\ve{i}
 \tag{A.20}\]</span></span></p>
-<div id="fig-eurlerangles" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-eurlerangles" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-eurlerangles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <p><embed src="../images/sphcoor.html" class="img-fluid" style="width:90.0%"> <a href="../images/sphcoor.html"><img src="../images/arrow-expand.png" class="img-fluid figure-img" style="width:3.0%"></a></p>
@@ -817,10 +719,10 @@ L = \left(
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-bornert2001a" class="csl-entry" role="listitem">
-Bornert, M., Bretheau, T., Gilormini, P., 2001. Homogénéisation en mécanique des matériaux. <span>Hermes science</span>.
+Bornert, M., Bretheau, T., Gilormini, P., 2001. Homogénéisation en mécanique des matériaux. Hermes science.
 </div>
 <div id="ref-brisard2014a" class="csl-entry" role="listitem">
-Brisard, S., 2014. Tensor algebra section in <span>Sébastien Brisard</span>’s blog.
+Brisard, S., 2014. Tensor algebra section in <span>Sébastien Brisard</span>’s blog [WWW Document]. URL <a href="https://sbrisard.github.io/category/tensor-algebra.html">https://sbrisard.github.io/category/tensor-algebra.html</a>
 </div>
 <div id="ref-morin2020" class="csl-entry" role="listitem">
 Morin, L., Gilormini, P., Derrien, K., 2020. Generalized <span>Euclidean Distances</span> for <span>Elasticity Tensors</span>. Journal of Elasticity 138, 221–232. <a href="https://doi.org/10.1007/s10659-019-09741-z">https://doi.org/10.1007/s10659-019-09741-z</a>
@@ -877,18 +779,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -920,7 +811,45 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/jfbarthelemy\.github\.io\/echoes\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -955,7 +884,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -1003,7 +936,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -1229,14 +1161,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../references.html" class="pagination-link  aria-label=" references"="">
+      <a href="../references.html" class="pagination-link" aria-label="References">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">References</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../appendices/hill_elas.html" class="pagination-link" aria-label="<span class='chapter-number'>B</span>&nbsp; <span class='chapter-title'>Hill polarization tensor in elasticity</span>">
+      <a href="../appendices/hill_elas.html" class="pagination-link" aria-label="Hill polarization tensor in elasticity">
         <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Hill polarization tensor in elasticity</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>

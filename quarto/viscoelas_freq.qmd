@@ -1,3 +1,0 @@
-# Viscoelasticity in frequency domain {#sec-viscoelas_freq}
-
-$\,$
