@@ -1,3 +1,0 @@
-# Second order moments {#sec-second_order_moments}
-
-$\,$

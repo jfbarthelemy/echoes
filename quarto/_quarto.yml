@@ -6,52 +6,30 @@ book:
   title: "Echoes"
   subtitle: "Extended Calculator of HOmogEnization Schemes"
   author: "Jean-François Barthélémy"
-  # cover-image: images/cover.png
+  cover-image: images/cover.html
+  favicon: images/cover.html
   site-url: https://jfbarthelemy.github.io/echoes/
   repo-url: https://github.com/jfbarthelemy/echoes/
   repo-branch: main
   repo-actions: [edit]
   sharing: [twitter, facebook, linkedin]
   date: last-modified
+  sidebar:
+    collapse-level: 1
   chapters:
     - index.qmd
     - intro.qmd
-    - part: hom_elas.qmd
+    - part: "Elements of tensor calculus"
       chapters: 
-        - elasticity/basics_elas.qmd
-        - elasticity/eshelby_elas.qmd
-        - elasticity/cracks_elas.qmd
-        - elasticity/mrp_elas.qmd
-        - elasticity/schemes_elas.qmd
-    - part: hom_cond.qmd
-      chapters: 
-        - conductivity/basics_cond.qmd
-        - conductivity/eshelby_cond.qmd
-        - conductivity/cracks_cond.qmd
-        - conductivity/mrp_cond.qmd
-        - conductivity/schemes_cond.qmd
-    - part: nonlinear_hom.qmd
-      chapters: 
-        - nonlinear/second_order_moments.qmd
-        - nonlinear/conc_tensor_deriv.qmd
-        - nonlinear/schemes_deriv.qmd
-    - part: viscoelas_freq.qmd
-      chapters: 
-        - viscoelasticity_freq/basics_freq.qmd
-        - viscoelasticity_freq/schemes_freq.qmd
-    - part: viscoelas_time.qmd
-      chapters: 
-        - viscoelasticity_time/basics_time.qmd
-        - viscoelasticity_time/schemes_time.qmd
-    - part: examples.qmd
-      chapters: 
-        - examples/concrete_strength.qmd
-        - "..."
+        - tensor_calculus/kelvin_mandel.qmd
+        - tensor_calculus/rot_matrices.qmd
     - references.qmd
   appendices:
     - appendices/tensor_algebra.qmd
     - appendices/hill_elas.qmd
-    - appendices/hill_cond.qmd
+    - appendices/basics_elas.qmd
+
+number-depth: 2
 
 tbl-cap-location: bottom
 
@@ -68,16 +46,24 @@ format:
   #   sansfont: TeX Gyre Heros
   #   include-in-header: config/_macros.tex
   html:
-    theme: journal
-    code-block-bg: true
-    code-block-border-left: "#FF00FF"
+    # theme: journal
+    theme:
+      - brand
+      - config/customjfb.scss
+    # css: config/styles.css
+    toc: true
+    page-layout: full
+    code-overflow: wrap
+    code-block-bg: "#EBF1D4"
+    code-block-border-left: "#448D60"
     code-fold: true
     code-link: true
     code-tools: false
     echo: true
     html-math-method: mathjax
-    fontsize: 90%
+    fontsize: 100%
     include-before-body: config/_macros_html.md
+    default-image-extension: html
   pdf:
     documentclass: scrreprt
     pdf-engine: lualatex
@@ -85,13 +71,14 @@ format:
     papersize: a4
     mainfont: TeX Gyre Pagella
     sansfont: TeX Gyre Heros
-    monofont: Noto Sans Mono
+    monofont: JuliaMono
     # mathfont: TeX Gyre Termes Math
     highlight-style: tango
     include-in-header:
       - config/_preamble.tex
       - config/_macros.tex
     keep-tex: false
+    default-image-extension: pdf
 
 crossref:
   fig-title: "Fig."
@@ -100,7 +87,10 @@ crossref:
   tbl-prefix: "Tab."
   eq-prefix: ""
 
-engine: jupyter
+editor:
+  render-on-save: true
+
+jupyter: python3
 execute:
   freeze: auto
   echo: true

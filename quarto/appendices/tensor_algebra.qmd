@@ -168,7 +168,15 @@ symmetric second-order tensors is no other than the classical scalar product of
 the corresponding vectors of $\R^6$ written according to the
 convention (@eq-KM2).
 
-Moreover a fourth-order tensor with minor symetries
+::: {.callout-note} 
+
+## Note
+
+Note the effect of $\sqrt{2}$ on the off-diagonal components. Unlike [Voigt convention](https://en.wikipedia.org/wiki/Voigt_notation), the choice of Kelvin-Mandel convention throughout all the library allows to address strain and stress tensors under the same synthetic representation.
+
+:::
+
+A fourth-order tensor with minor symetries
 ($C_{jikl}=C_{ijlk}=C_{ijkl}$),
 which can be seen as a linear operator acting
 over symmetric second-order tensors by double contraction, writes in the same
@@ -235,8 +243,8 @@ of (@eq-KM4bis) exactly corresponds to the colored block in (@eq-KM4).
 ## Rotation of tensors {#sec-rottens}
 
 Recalling that the set of second-order tensors is isomorphic to the set of endomorphism in an euclidean space, it is natural to define a rotation tensor as an element of the special orthogonal group, i.e. tensors $\uu{R}$ such that $\trans{\uu{R}}\cdot\uu{R}=\uu{1}$ and $\det{\uu{R}}=1$.
-In $\R^3$ equipped with an orthonormal frame $(\ve{i})_{i=1,2,3}$, these tensors can be defined by three Euler angles (see @fig-eurlerangles)
-$0\leq\theta\leq\pi$, $0\leq\phi\leq 2\pi$ and $0\leq\psi\leq 2\pi$ such that^[with the simplifying writing convention $c_\theta=\cos\theta$, $s_\theta=\sin\theta$, $c_\phi=\cos\phi$, $s_\phi=\sin\phi$, $c_\psi=\cos\psi$, $s_\psi=\sin\psi$]
+In $\R^3$ equipped with an orthonormal frame $(\ve{i})_{i=1,2,3}$, these tensors can be defined by three Euler angles
+$(θ,ϕ,ψ)∈[0,π]×[0,2π]×[0,2π]$ (see @fig-eurlerangles) such that^[with the simplifying writing convention $c_\theta=\cos\theta$, $s_\theta=\sin\theta$, $c_\phi=\cos\phi$, $s_\phi=\sin\phi$, $c_\psi=\cos\psi$, $s_\psi=\sin\psi$]
 $$
 \small
 \Mat(\uu{R},(\ve{i}))=

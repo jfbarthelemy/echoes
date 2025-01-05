@@ -1,0 +1,74 @@
+# Rotation matrices {#sec-rot_tensors}
+
+::: {.callout-important icon=false} 
+
+## {{< iconify pajamas issue-type-objective >}} Objectives
+
+This tutorial presents the construction of rotation matrices in $\R^3$ in the convention proposed in @sec-rottens for Euler angles.
+
+:::
+
+The rotation matrix (@eq-rot3) can be built with `rot3(θ, ϕ, ψ)`. See @sec-rottens and more particularly @fig-eurlerangles for more details about Euler angles `θ, ϕ, ψ`.
+
+```{python}
+#| error: false
+#| warning: false
+#| code-fold: false
+#| include: true
+
+import numpy as np
+from echoes import *
+import math
+
+np.set_printoptions(precision=8, suppress=True)
+# to display only 8 significant digits of array components
+
+π = math.pi
+θ, ϕ, ψ = π/3, π/4, π/5
+R = rot3(θ, ϕ, ψ)
+print(R)
+```
+
+The vectors of the spherical basis correspond to the column of the rotation matrix for $\psi=0$. They can individually be obtained by the function `es(i, θ, ϕ)`
+
+::: {.callout-warning} 
+
+## Warning
+
+Python numbering starts at 0 so `i` takes the values 0, 1 and 2.
+
+Besides vectors of the spherical basis are ordered as $\ve{\theta}$, $\ve{\phi}$, $\ve{r}$.
+
+:::
+
+```{python}
+#| error: false
+#| warning: false
+#| code-fold: false
+#| include: true
+
+θ, ϕ = π/8, π/5
+R = rot3(θ, ϕ)
+print("R =\n",R)
+for i in range(3): print(f"es({i}, θ, ϕ) = ", es(i, θ, ϕ), f" → e̱{['θ','ϕ','r'][i]}")
+```
+
+As shown in @sec-rottens the rotation matrix applying on fourth-order tensors in Kelvin-Mandel notation can be deduced from the $3×3$ rotation matrix from @eq-rot6. It can be directly calculated by `rot6(θ, ϕ, ψ)`. 
+
+```{python}
+#| error: false
+#| warning: false
+#| code-fold: false
+#| include: true
+
+θ, ϕ, ψ = π/3, π/4, π/5
+R = rot3(θ, ϕ, ψ)
+sboxtimes=lambda a,b:0.5*(np.einsum('ik,jl',a,b)+np.einsum('il,jk',a,b))
+print("R⊠ˢR =\n",KM(sboxtimes(R,R)))
+
+R6 = rot6(θ, ϕ, ψ)
+print("R6 =\n",R6)
+```
+
+
+$\,$

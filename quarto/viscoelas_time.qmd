@@ -1,3 +1,0 @@
-# Viscoelasticity in time domain {#sec-viscoelas_time}
-
-$\,$

@@ -1,12 +1,63 @@
 # Introduction {.unnumbered #sec-intro}
 
-This book does not provide an exhaustive presentation of the theory of random medium homogenization (see [@milton2002], [@torquato2002] or [@kachanov2018] among others) but it is rather intended to recall some of the basic notations and results related to the implementation of the **Echoes** library.
+This book is aimed at researchers, engineers and students, knowing the fundamentals of mean-field theory to help them learn how to use the `echoes` library with some brief theoretical recalls when relevant.
+For a more exhaustive presentation of the theory of random medium homogenization, see [@bornert2001a], [@milton2002], [@torquato2002] or [@kachanov2018] among others. 
 
-In this manual, some snippets of Python codes calling **Echoes** library are presented. Except when it is necessary to show the imported libraries, the following starting lines will be implicit
+The objectives of the library can be summarized as follows:
+
+- simple and quick implementation of Eshelby problems and homogenization schemes,
+
+- multi-physics and multi-scale homogenization,
+
+- effects of microstructure changes by chemical, physical or mechanical process.
+
+::: {.callout-note icon=false} 
+
+## Features
+
+- Eshelby problem solved at 2nd (conductivity) et 4th orders (elasticity)
+
+- Isotropy and anisotropy
+  
+- Several types of inclusions including generic (user-defined) inclusion
+  
+- Large variety of schemes
+
+- Derivatives of the macroscopic elasticity with respect to lower scale moduli
+
+- Aging linear viscoelasticity
+  
+- Complex moduli
+:::
+
+In this manual, some snippets of Python codes are presented. The `echoes` library can be imported as
+
 ```python
+from echoes import *
+```
+
+or, to avoid any ambiguity between libraries, as
+
+```python
+import echoes as ec
+```
+
+A usual start of any tutorial could be the following
+
+```{python}
+#| error: false
+#| warning: false
+#| code-fold: false
+#| include: true
+
 import numpy as np
 from echoes import *
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt # if plots are needed
+
+np.set_printoptions(precision=8, suppress=True)
+# to display only 8 significant digits of array components
 ```
+
+Whenever they are omitted, it is implicitly considered that these lines have previously been added.
 
 $\,$

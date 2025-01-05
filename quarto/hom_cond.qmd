@@ -1,3 +1,0 @@
-# Conductivity {#sec-hom_cond}
-
-$\,$
