@@ -1,6 +1,6 @@
 project:
   type: book
-  output-dir: site
+  output-dir: docs
 
 book:
   title: "Echoes"
