@@ -86,7 +86,7 @@ div.csl-indent {
 <meta name="quarto:offset" content="../">
 <link href="../appendices/basics_elas.html" rel="next">
 <link href="../appendices/tensor_algebra.html" rel="prev">
-<link href="../_img/cover.html" rel="icon" type="text/html">
+<link href="../img/cover.html" rel="icon" type="text/html">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -180,7 +180,7 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../index.html" class="sidebar-logo-link">
-      <img src="../_img/cover.html" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <img src="../img/cover.html" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Echoes</a> 
@@ -563,7 +563,7 @@ where <span class="math inline">\({\cal F}={\cal F}(\theta,\kappa)\)</span> and 
 <div id="fig-crack" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-crack-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p><embed src="../_img/crack.html" class="img-fluid" style="width:70.0%"> <a href="../_img/crack.html"><img src="../_img/arrow-expand.png" class="img-fluid figure-img" style="width:3.0%"></a></p>
+<p><embed src="../img/crack.html" class="img-fluid" style="width:70.0%"> <a href="../img/crack.html"><img src="../img/arrow-expand.png" class="img-fluid figure-img" style="width:3.0%"></a></p>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-crack-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Fig.&nbsp;B.1: Ellipsoidal crack
@@ -602,7 +602,7 @@ B_{mm}=B_{\ell\ell}=\frac{B_{nn}}{1-\nu/2}
 <h2 data-number="B.4" class="anchored" data-anchor-id="application-of-hill-calculation"><span class="header-section-number">B.4</span> Application of Hill calculation</h2>
 <section id="definition-of-the-matrix-tensor" class="level3">
 <h3 class="anchored" data-anchor-id="definition-of-the-matrix-tensor">Definition of the matrix tensor</h3>
-<div id="352a271e" class="cell" data-execution_count="2">
+<div id="3ccf6e45" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> stiff_Enu(<span class="fl">1.</span>,<span class="fl">0.2</span>) <span class="op">;</span> <span class="bu">print</span>(C)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Order 4 ISO tensor | Param(size=2)=[ 1.66667 0.833333 ] | Angles(size=0)=[ ]
@@ -619,7 +619,7 @@ B_{mm}=B_{\ell\ell}=\frac{B_{nn}}{1-\nu/2}
 <section id="calculation-of-the-crack-compliance-uuuullim_omegato-0omegauuuuq-1" class="level3">
 <h3 class="anchored" data-anchor-id="calculation-of-the-crack-compliance-uuuullim_omegato-0omegauuuuq-1">Calculation of the crack compliance <span class="math inline">\(\uuuu{L}=\lim_{\omega\to 0}\omega\,\uuuu{Q}^{-1}\)</span></h3>
 <p>Note that in <em>Echoes</em> it is necessary to provide an aspect ratio <span class="math inline">\(\omega\)</span> for the crack even if the crack compliance is actually calculated as a limit (not depending on <span class="math inline">\(\omega\)</span>)</p>
-<div id="ab20d8ef" class="cell" data-execution_count="3">
+<div id="c9cb66eb" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ω <span class="op">=</span> <span class="fl">1.e-4</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>L <span class="op">=</span> crack_compliance(spheroidal(ω), C) <span class="op">;</span> <span class="bu">print</span>(L)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
