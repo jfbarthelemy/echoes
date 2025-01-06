@@ -192,11 +192,11 @@ $$
 
 ::: {#fig-crack}
 ::: {.content-visible unless-format="html"}
-![](../_img/crack){width=70%}
+![](../img/crack){width=70%}
 :::
 ::: {.content-visible when-format="html"}
-![](../_img/crack.html){width=70%}
-[![](../_img/arrow-expand.png){width=3%}](../_img/crack.html)
+![](../img/crack.html){width=70%}
+[![](../img/arrow-expand.png){width=3%}](../img/crack.html)
 :::
 Ellipsoidal crack
 :::
