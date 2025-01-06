@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Jean-François Barthélémy">
-<meta name="dcterms.date" content="2025-01-05">
 
-<title>Echoes</title>
+<title>Appendix C — Basic problem of elasticity homogenization – Echoes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 /* CSS for citations */
 div.csl-bib-body { }
@@ -79,25 +43,24 @@ div.csl-indent {
 }</style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./intro.html" rel="next">
-<link href="./images/cover.html" rel="icon" type="text/html">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-381d77dc618acb510d64ca5ed805e9fe.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../appendices/hill_elas.html" rel="prev">
+<link href="../_img/cover.html" rel="icon" type="text/html">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-381d77dc618acb510d64ca5ed805e9fe.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -167,7 +130,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Welcome</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendices/tensor_algebra.html">Appendices</a></li><li class="breadcrumb-item"><a href="../appendices/basics_elas.html"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Basic problem of elasticity homogenization</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -181,11 +144,11 @@ window.Quarto = {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./images/cover.html" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../_img/cover.html" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Echoes</a> 
+      <a href="../">Echoes</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/jfbarthelemy/echoes/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
@@ -223,13 +186,13 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
   </div>
 </li>
@@ -244,13 +207,13 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tensor_calculus/kelvin_mandel.html" class="sidebar-item-text sidebar-link">
+  <a href="../tensor_calculus/kelvin_mandel.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Kelvin-Mandel notation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tensor_calculus/rot_matrices.html" class="sidebar-item-text sidebar-link">
+  <a href="../tensor_calculus/rot_matrices.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Rotation matrices</span></span></a>
   </div>
 </li>
@@ -258,34 +221,34 @@ window.Quarto = {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendices/tensor_algebra.html" class="sidebar-item-text sidebar-link">
+  <a href="../appendices/tensor_algebra.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Tensor algebra</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendices/hill_elas.html" class="sidebar-item-text sidebar-link">
+  <a href="../appendices/hill_elas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Hill polarization tensor in elasticity</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendices/basics_elas.html" class="sidebar-item-text sidebar-link">
+  <a href="../appendices/basics_elas.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Basic problem of elasticity homogenization</span></span></a>
   </div>
 </li>
@@ -301,12 +264,10 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#sec-welcome" id="toc-sec-welcome" class="nav-link active" data-scroll-target="#sec-welcome">Welcome</a></li>
-  <li><a href="#download" id="toc-download" class="nav-link" data-scroll-target="#download">Download</a></li>
-  <li><a href="#citation" id="toc-citation" class="nav-link" data-scroll-target="#citation">Citation</a></li>
-  <li><a href="#about-the-author" id="toc-about-the-author" class="nav-link" data-scroll-target="#about-the-author">About the author</a></li>
+  <li><a href="#sec-basics_elas_sys_eq" id="toc-sec-basics_elas_sys_eq" class="nav-link active" data-scroll-target="#sec-basics_elas_sys_eq"><span class="header-section-number">C.1</span> System of equations</a></li>
+  <li><a href="#sec-basics_elas_mac_stiff" id="toc-sec-basics_elas_mac_stiff" class="nav-link" data-scroll-target="#sec-basics_elas_mac_stiff"><span class="header-section-number">C.2</span> Macroscopic stiffness or compliance tensors</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/appendices/basics_elas.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
@@ -383,29 +344,16 @@ $$
 $$
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendices/tensor_algebra.html">Appendices</a></li><li class="breadcrumb-item"><a href="../appendices/basics_elas.html"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Basic problem of elasticity homogenization</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Echoes</h1>
-<p class="subtitle lead">Extended Calculator of HOmogEnization Schemes</p>
+<h1 class="title"><span id="sec-basics_elas" class="quarto-section-identifier">Appendix C — Basic problem of elasticity homogenization</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta column-body">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Jean-François Barthélémy </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">January 5, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -415,68 +363,73 @@ $$
 </header>
 
 
-
-<!-- ::: {.content-visible when-format="html"}
-![](images/cover.html){width=95%}
-[![](images/arrow-expand.png){width=3%}](images/cover.html)julia
-::: -->
-<section id="sec-welcome" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="sec-welcome">Welcome</h2><p><embed src="images/cover.html" title="Echoes" class="quarto-cover-image img-fluid"></p>
-<p>The library <code>echoes</code> allows to implement various mean-field homogenization schemes of random media involving different types of heterogeneities in the framework of elasticity, conductivity, viscoelasticity as well as nonlinear homogenization.</p>
-<p>This book gathers tutorials presenting the main features of the library:</p>
+<section id="sec-basics_elas_sys_eq" class="level2" data-number="C.1">
+<h2 data-number="C.1" class="anchored" data-anchor-id="sec-basics_elas_sys_eq"><span class="header-section-number">C.1</span> System of equations</h2>
+<p>Consider a representative volume element (RVE) <span class="math inline">\(\Omega\)</span> composed of a heterogeneous material. Neglecting body forces in a problem posed at the scale of a RVE is consistent with the fact that the order of magnitude of mechanical effects induced by body forces is in general much lower than that of the macroscopic strain <span class="math inline">\(\E\)</span> or stress <span class="math inline">\(\Sig\)</span> effects accounting for interactions with particles surrounding the RVE (see <span class="citation" data-cites="dormieux2006">(<a href="../references.html#ref-dormieux2006" role="doc-biblioref">Dormieux et al., 2006</a>)</span>). The hypothesis of quasi-static equilibrium is also invoked here to write the balance law involving the Cauchy stress field <span class="math inline">\(\sig\)</span> <span id="eq-divsigma"><span class="math display">\[
+\divu{\sig}=\uv{0} \quad(\Omega)
+\tag{C.1}\]</span></span></p>
+<p>In the sequel, the small perturbation hypothesis is adopted so that the strain field <span class="math inline">\(\eps\)</span> derives from the displacement one <span class="math inline">\(\uv{u}\)</span> as the symmetrical part of its gradient <span id="eq-epsgradu"><span class="math display">\[
+\eps=\frac{\graduu{\uv{u}}+\trans{\graduu{\uv{u}}}}{2} \quad(\Omega)
+\tag{C.2}\]</span></span></p>
+<p>In the framework of random media homogenization, two types of conditions applied at the boundary <span class="math inline">\(\partial\Omega\)</span> of a RVE <span class="math inline">\(\Omega\)</span> are usually considered:</p>
 <ul>
-<li>elements of tensor calculus,</li>
-<li>Hill and Eshelby tensors and their derivatives with respect to reference medium moduli,</li>
-<li>concentration problems,</li>
-<li>RVEs and schemes in linear homogenization,</li>
-<li>extension to nonlinear homogenization,</li>
-<li>extension to linear time-dependent behaviors.</li>
+<li><p><em>homogeneous strain boundary conditions</em> corresponding to prescribed displacements <span class="math inline">\(\uv{u}^g\)</span> at <span class="math inline">\(\partial\Omega\)</span> <span id="eq-homstrainBC"><span class="math display">\[
+\uv{u}^g=\E\cdot\x \quad(\partial\Omega)
+\tag{C.3}\]</span></span> It is noticeable that in this case the divergence theorem implies the following relationship between the microscopic and macroscopic strain tensors <span id="eq-EhomstrainBC"><span class="math display">\[
+&lt;\eps&gt;_{\Omega}=\frac{1}{\lvert \Omega \rvert}\int_\Omega \eps\ud \Omega
+=\frac{1}{\lvert \Omega \rvert}\int_{\partial\Omega} \uv{u}\sotimes\n \ud S
+=\E
+\tag{C.4}\]</span></span> where the spatial average over a domain <span class="math inline">\(\omega\)</span> is denoted by <span class="math inline">\(&lt;\bullet&gt;_\omega\)</span> and <span class="math inline">\(\n\)</span> is the unit outward normal at the boundary. The macroscopic stress tensor is then simply defined as the average <span id="eq-ShomstrainBC"><span class="math display">\[
+\Sig=
+&lt;\sig&gt;_{\Omega}=\frac{1}{\lvert \Omega \rvert}\int_\Omega \sig\ud \Omega
+\tag{C.5}\]</span></span></p></li>
+<li><p><em>homogeneous stress boundary conditions</em> corresponding to prescribed surface tractions <span class="math inline">\(\uv{T}^g\)</span> at <span class="math inline">\(\partial\Omega\)</span> <span id="eq-homstressBC"><span class="math display">\[
+\uv{T}^g=\Sig\cdot\n \quad(\partial\Omega)
+\tag{C.6}\]</span></span> Now owing to the remarkable identity <span class="math inline">\((x_i\sigma_{jk})_{,k}=\sigma_{ij}\)</span> resulting from (<a href="#eq-divsigma" class="quarto-xref"><span>C.1</span></a>) and the symmetry of <span class="math inline">\(\sig\)</span>, the relationship between the microscopic and macroscopic stress is ensured by the divergence theorem <span id="eq-ShomstressBC"><span class="math display">\[
+&lt;\sig&gt;_{\Omega}=\frac{1}{\lvert \Omega \rvert}\int_\Omega \sig\ud \Omega
+=\frac{1}{\lvert \Omega \rvert}\int_{\partial\Omega} \x\sotimes(\sig\cdot\n) \ud S
+=\Sig
+\tag{C.7}\]</span></span> The macroscopic stress tensor is then simply defined as the average <span id="eq-EhomstressBC"><span class="math display">\[
+\E=
+&lt;\eps&gt;_{\Omega}=\frac{1}{\lvert \Omega \rvert}\int_\Omega \eps\ud \Omega
+\tag{C.8}\]</span></span></p></li>
 </ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hill lemma
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note that whatever the choice of boundary conditions between (<a href="#eq-homstrainBC" class="quarto-xref"><span>C.3</span></a>) and (<a href="#eq-homstressBC" class="quarto-xref"><span>C.6</span></a>), the consistency between the microscopic and macroscopic works is ensured by <span id="eq-Hilllemma"><span class="math display">\[
+&lt;\sig:\eps&gt;_{\Omega}
+=\frac{1}{\lvert \Omega \rvert}\int_\Omega \sig:\eps\ud \Omega
+=\frac{1}{\lvert \Omega \rvert}\int_{\partial\Omega} \uv{u}\cdot\sig\cdot\n \ud S
+=\Sig:\E
+\tag{C.9}\]</span></span> which results from the application of the divergence theorem to <span class="math inline">\((u_i\sigma_{ij})_{,k}=u_{i,j}\sigma_{ij}=\varepsilon_{ij}\sigma_{ij}\)</span>.</p>
+</div>
+</div>
+<p>The set of equations defining the problem posed on the RVE is finally completed by the local constitutive law relating the strain and stress fields. The hypothesis of linear elasticity is adopted in this part so that <span id="eq-Hooke"><span class="math display">\[
+\sig=\uuuu{c}:\eps \quad(\Omega)
+\tag{C.10}\]</span></span> where <span class="math inline">\(\uuuu{c}(\x)\)</span> denotes the heterogeneous (positive definite fourth-order) stiffness tensor field satisfying the conditions of minor (<span class="math inline">\(c_{jikl}=c_{ijlk}=c_{ijkl}\)</span>) and major (<span class="math inline">\(c_{klij}=c_{ijkl}\)</span>) symmetries. The compliance tensor field is introduced as the inverse <span class="math inline">\(\uuuu{s}=\uuuu{c}^{-1}\)</span> in the sense of fourth-order tensors operating over symmetrical second-order tensors.</p>
+<p>In short, the system of equations posed on the RVE is given by (<a href="#eq-divsigma" class="quarto-xref"><span>C.1</span></a>), (<a href="#eq-epsgradu" class="quarto-xref"><span>C.2</span></a>), (<a href="#eq-homstrainBC" class="quarto-xref"><span>C.3</span></a>) or (<a href="#eq-homstressBC" class="quarto-xref"><span>C.6</span></a>) and (<a href="#eq-Hooke" class="quarto-xref"><span>C.10</span></a>).</p>
 </section>
-<section id="download" class="level2">
-<h2 class="anchored" data-anchor-id="download">Download</h2>
-<p>The core of <code>echoes</code> has been developed in C++ and wrapped by a Python interface. Hence its use requires first the installation of a Python environment including <code>pip</code> executable (for instance <a href="https://www.anaconda.com/products/distribution">Anaconda</a>).</p>
-<p>Wheel packages can be downloaded for various versions of Python under Windows or Linux by choosing the appropriate file for your configuration under the link</p>
-<p><a href="https://doi.org/10.5281/zenodo.10559657"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.10559657.svg" class="img-fluid"></a></p>
-<p>Once in possession of the relevant <code>.whl</code> file, the package can be installed in a console (Anaconda console or any console allowing to run <code>pip</code>) by</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pip install <span class="op">-</span>U echoes<span class="op">-</span>XYZ.whl</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># replacing echoes-XYZ.whl by the correct path to the whl file</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="citation" class="level2">
-<h2 class="anchored" data-anchor-id="citation">Citation</h2>
-<p>If you use <code>echoes</code>, please cite it as <span class="citation" data-cites="echoes">(<a href="references.html#ref-echoes" role="doc-biblioref">Barthélémy, 2022</a>)</span> or in <code>bibtex</code> style</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode tex code-with-copy"><code class="sourceCode latex"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>@software{echoes,</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  title = {Echoes: {{Extended Calculator}} of {{HOmogEnization Schemes}}},</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  shorttitle = {Echoes},</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  author = {Barthélémy, Jean-François},</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  date = {2022-11-22},</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  doi = {10.5281/ZENODO.10559657},</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  url = {https://zenodo.org/record/10559657},</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  organization = {Zenodo},</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  version = {v1.0.0},</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>All this work is licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> <img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" class="img-fluid" alt="license">.</p>
-</section>
-<section id="about-the-author" class="level2">
-<h2 class="anchored" data-anchor-id="about-the-author">About the author</h2>
-<p>Jean-François Barthélémy is a researcher at <a href="https://www.cerema.fr/en">Cerema</a> in the research team <a href="https://www.cerema.fr/fr/presse/dossier%20cerema-universite-gustave-eiffel-creent-unite-mixte">UMR MCD</a>.</p>
-<ul>
-<li><p><iconify-icon role="img" inline="" icon="fa6-brands:github" aria-label="Icon github from fa6-brands Iconify.design set." title="Icon github from fa6-brands Iconify.design set."></iconify-icon> <a href="https://github.com/jfbarthelemy">GitHub</a></p></li>
-<li><p><iconify-icon role="img" inline="" icon="academicons:researchgate" aria-label="Icon researchgate from academicons Iconify.design set." title="Icon researchgate from academicons Iconify.design set."></iconify-icon> <a href="https://www.researchgate.net/profile/Jean-Francois_Barthelemy">ResearchGate</a></p></li>
-<li><p><iconify-icon role="img" inline="" icon="academicons:google-scholar" aria-label="Icon google-scholar from academicons Iconify.design set." title="Icon google-scholar from academicons Iconify.design set."></iconify-icon> <a href="https://scholar.google.com/citations?user=RVjtCiAAAAAJ&amp;hl=en">Google scholar</a></p></li>
-<li><p>📚 <a href="https://hal.archives-ouvertes.fr/search/index/?q=%2A&amp;authIdHal_s=jfbarthelemy">HAL</a></p></li>
-<li><p>🌍 <a href="https://www.webofscience.com/wos/author/record/449919">Web Of Science</a></p></li>
-<li><p><iconify-icon role="img" inline="" icon="simple-icons:orcid" aria-label="Icon orcid from simple-icons Iconify.design set." title="Icon orcid from simple-icons Iconify.design set."></iconify-icon> <a href="https://orcid.org/0000-0002-1968-8939">ORCID</a></p></li>
-<li><p>📩 <a href="mailto:jf.barthelemy@cerema.fr">Email</a></p></li>
-</ul>
-<hr>
-<p>Powered by <a href="https://quarto.org/">Quarto</a>.</p>
-<p><span class="math inline">\(\,\)</span></p>
+<section id="sec-basics_elas_mac_stiff" class="level2" data-number="C.2">
+<h2 data-number="C.2" class="anchored" data-anchor-id="sec-basics_elas_mac_stiff"><span class="header-section-number">C.2</span> Macroscopic stiffness or compliance tensors</h2>
+<p>Whatever the boundary condition of homogeneous strain or stress type (<a href="#eq-homstrainBC" class="quarto-xref"><span>C.3</span></a>) or (<a href="#eq-homstressBC" class="quarto-xref"><span>C.6</span></a>), the linearity of the problem allows to invoke the existence of concentration tensors relating the microscopic strain <span class="math inline">\(\eps\)</span> and stress <span class="math inline">\(\sig\)</span> fields to the macroscopic strain <span class="math inline">\(\E\)</span> or stress <span class="math inline">\(\Sig\)</span> tensors <span id="eq-conc"><span class="math display">\[\begin{aligned}
+\eps &amp; =  \uuuu{A}_E:\E \\
+\sig &amp; =  \uuuu{B}_E:\E \quad\textrm{with}\quad \uuuu{B}_E=\uuuu{c}:\uuuu{A}_E \\
+\sig &amp; =  \uuuu{B}_\Sigma:\Sig \\
+\eps &amp; =  \uuuu{A}_\Sigma:\Sig \quad\textrm{with}\quad \uuuu{A}_\Sigma=\uuuu{s}:\uuuu{B}_\Sigma
+\end{aligned} \tag{C.11}\]</span></span></p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-echoes" class="csl-entry" role="listitem">
-Barthélémy, J.-F., 2022. Echoes: <span>Extended Calculator</span> of <span>HOmogEnization Schemes</span>. <a href="https://doi.org/10.5281/ZENODO.10559657">https://doi.org/10.5281/ZENODO.10559657</a>
+<div id="ref-dormieux2006" class="csl-entry" role="listitem">
+Dormieux, L., Kondo, D., Ulm, F.-J., 2006. Microporomechanics. John Wiley &amp; Sons, Chichester, West Sussex, England ; Hoboken, NJ. <a href="https://doi.org/10.1002/0470032006">https://doi.org/10.1002/0470032006</a>
 </div>
 </div>
 </section>
@@ -901,11 +854,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
+      <a href="../appendices/hill_elas.html" class="pagination-link" aria-label="Hill polarization tensor in elasticity">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Hill polarization tensor in elasticity</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intro.html" class="pagination-link" aria-label="Introduction">
-        <span class="nav-page-text">Introduction</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -913,4 +866,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/appendices/basics_elas.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

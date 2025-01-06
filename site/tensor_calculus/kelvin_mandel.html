@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction – Echoes</title>
+<title>1&nbsp; Kelvin-Mandel notation – Echoes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -54,48 +54,29 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./tensor_calculus/kelvin_mandel.html" rel="next">
-<link href="./index.html" rel="prev">
-<link href="./images/cover.html" rel="icon" type="text/html">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-381d77dc618acb510d64ca5ed805e9fe.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../tensor_calculus/rot_matrices.html" rel="next">
+<link href="../intro.html" rel="prev">
+<link href="../_img/cover.html" rel="icon" type="text/html">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-381d77dc618acb510d64ca5ed805e9fe.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -165,7 +146,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">Introduction</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tensor_calculus/kelvin_mandel.html">Elements of tensor calculus</a></li><li class="breadcrumb-item"><a href="../tensor_calculus/kelvin_mandel.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Kelvin-Mandel notation</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -179,11 +160,11 @@ window.Quarto = {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./images/cover.html" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../_img/cover.html" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Echoes</a> 
+      <a href="../">Echoes</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/jfbarthelemy/echoes/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
@@ -221,34 +202,34 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link active">
+  <a href="../intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Elements of tensor calculus</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tensor_calculus/kelvin_mandel.html" class="sidebar-item-text sidebar-link">
+  <a href="../tensor_calculus/kelvin_mandel.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Kelvin-Mandel notation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tensor_calculus/rot_matrices.html" class="sidebar-item-text sidebar-link">
+  <a href="../tensor_calculus/rot_matrices.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Rotation matrices</span></span></a>
   </div>
 </li>
@@ -256,7 +237,7 @@ window.Quarto = {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
 </li>
@@ -271,19 +252,19 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendices/tensor_algebra.html" class="sidebar-item-text sidebar-link">
+  <a href="../appendices/tensor_algebra.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Tensor algebra</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendices/hill_elas.html" class="sidebar-item-text sidebar-link">
+  <a href="../appendices/hill_elas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Hill polarization tensor in elasticity</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendices/basics_elas.html" class="sidebar-item-text sidebar-link">
+  <a href="../appendices/basics_elas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Basic problem of elasticity homogenization</span></span></a>
   </div>
 </li>
@@ -372,9 +353,9 @@ $$
 $$
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tensor_calculus/kelvin_mandel.html">Elements of tensor calculus</a></li><li class="breadcrumb-item"><a href="../tensor_calculus/kelvin_mandel.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Kelvin-Mandel notation</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-intro" class="quarto-section-identifier">Introduction</span></h1>
+<h1 class="title"><span id="sec-kelvin_mandel" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Kelvin-Mandel notation</span></span></h1>
 </div>
 
 
@@ -391,65 +372,101 @@ $$
 </header>
 
 
-<p>This book is aimed at researchers, engineers and students, knowing the fundamentals of mean-field theory to help them learn how to use the <code>echoes</code> library with some brief theoretical recalls when relevant. For a more exhaustive presentation of the theory of random medium homogenization, see <span class="citation" data-cites="bornert2001a">(<a href="references.html#ref-bornert2001a" role="doc-biblioref">Bornert et al., 2001</a>)</span>, <span class="citation" data-cites="milton2002">(<a href="references.html#ref-milton2002" role="doc-biblioref">Milton, 2002</a>)</span>, <span class="citation" data-cites="torquato2002">(<a href="references.html#ref-torquato2002" role="doc-biblioref">Torquato, 2002</a>)</span> or <span class="citation" data-cites="kachanov2018">(<a href="references.html#ref-kachanov2018" role="doc-biblioref">Kachanov and Sevostianov, 2018</a>)</span> among others.</p>
-<p>The objectives of the library can be summarized as follows:</p>
-<ul>
-<li><p>simple and quick implementation of Eshelby problems and homogenization schemes,</p></li>
-<li><p>multi-physics and multi-scale homogenization,</p></li>
-<li><p>effects of microstructure changes by chemical, physical or mechanical process.</p></li>
-</ul>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout callout-style-default callout-important no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Features
+<iconify-icon role="img" inline="" icon="pajamas:issue-type-objective" aria-label="Icon issue-type-objective from pajamas Iconify.design set." title="Icon issue-type-objective from pajamas Iconify.design set."></iconify-icon> Objectives
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ul>
-<li><p>Eshelby problem solved at 2nd (conductivity) et 4th orders (elasticity)</p></li>
-<li><p>Isotropy and anisotropy</p></li>
-<li><p>Several types of inclusions including generic (user-defined) inclusion</p></li>
-<li><p>Large variety of schemes</p></li>
-<li><p>Derivatives of the macroscopic elasticity with respect to lower scale moduli</p></li>
-<li><p>Aging linear viscoelasticity</p></li>
-<li><p>Complex moduli</p></li>
-</ul>
+<p>Before introducing the specific objects of <code>echoes</code> devoted to tensor calculations in isotropic or anisotropic contexts, this tutorial aims at providing the syntax allowing to represent second-order or fourth-order tensors under the form of matrices in the Kelvin-Mandel notation as detailed in <a href="../appendices/tensor_algebra.html#sec-KM" class="quarto-xref"><span>Section A.2</span></a>.</p>
 </div>
 </div>
-<p>In this manual, some snippets of Python codes are presented. The <code>echoes</code> library can be imported as</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>or, to avoid any ambiguity between libraries, as</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> echoes <span class="im">as</span> ec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>A usual start of any tutorial could be the following</p>
-<div id="d04db1ae" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt <span class="co"># if plots are needed</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>np.set_printoptions(precision<span class="op">=</span><span class="dv">8</span>, suppress<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># to display only 8 significant digits of array components</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A symmetric <span class="math inline">\(3×3\)</span> second-order matrix can be transformed in a vector of <span class="math inline">\(\R^6\)</span> by the function <code>KM</code> consistently with <a href="../appendices/tensor_algebra.html#eq-KM2" class="quarto-xref"><span>A.14</span></a>. The inverse is done by <code>invKM</code>.</p>
+<div id="3a54cb2e" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>np.set_printoptions(precision<span class="op">=</span><span class="dv">8</span>, suppress<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># to display only 8 significant digits of array components</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>α <span class="op">=</span> np.random.rand(<span class="dv">3</span>, <span class="dv">3</span>) <span class="op">;</span> ε <span class="op">=</span> (α<span class="op">+</span>α.T)<span class="op">/</span><span class="dv">2</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"ε =</span><span class="ch">\n</span><span class="st">"</span>,ε)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"KM(ε) =</span><span class="ch">\n</span><span class="st">"</span>,KM(ε))</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> np.allclose(invKM(KM(ε)), ε), <span class="st">"error"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ε =
+ [[0.00286549 0.65266664 0.33328129]
+ [0.65266664 0.17263783 0.54571588]
+ [0.33328129 0.54571588 0.7776444 ]]
+KM(ε) =
+ [0.00286549 0.17263783 0.7776444  0.77175881 0.47133092 0.92301001]</code></pre>
 </div>
-<p>Whenever they are omitted, it is implicitly considered that these lines have previously been added.</p>
+</div>
+<p>Given a <span class="math inline">\(3×3×3×3\)</span> array <code>c</code> (of type <code>numpy.ndarray</code>) satisfying major and minor symmetries (see <a href="../appendices/tensor_algebra.html#sec-KM" class="quarto-xref"><span>Section A.2</span></a>), the corresponding <span class="math inline">\(6×6\)</span> matrix <code>C</code> obtained by Kelvin-Mandel transform is calculated by <code>C = KM(c)</code>. Conversely, if <code>C</code> is a positive definite matrix, <code>c</code> is calculated by <code>c = invKM(C)</code>.</p>
+<div id="bf30d0a7" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.random.rand(<span class="dv">6</span>,<span class="dv">6</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> A.T.dot(A) <span class="op">+</span> np.eye(<span class="dv">6</span>) <span class="co"># generation of an arbitrary positive definite matrix</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> invKM(C)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"C =</span><span class="ch">\n</span><span class="st">"</span>,C)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"c =</span><span class="ch">\n</span><span class="st">"</span>,c)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> np.allclose(KM(c), C), <span class="st">"error: KM(c) should be equal to C"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>C =
+ [[3.87777703 1.90534027 1.48026935 2.33750492 1.94498466 1.54343627]
+ [1.90534027 2.51114345 1.07372976 1.76431072 1.24950257 1.0813922 ]
+ [1.48026935 1.07372976 2.27840598 1.14917624 1.21558587 0.88500021]
+ [2.33750492 1.76431072 1.14917624 3.45866386 1.22835461 1.09651295]
+ [1.94498466 1.24950257 1.21558587 1.22835461 2.68743681 1.22274783]
+ [1.54343627 1.0813922  0.88500021 1.09651295 1.22274783 1.9649498 ]]
+c =
+ [[[[3.87777703 1.09137425 1.37531184]
+   [1.09137425 1.90534027 1.65286558]
+   [1.37531184 1.65286558 1.48026935]]
+
+  [[1.09137425 0.9824749  0.61137392]
+   [0.9824749  0.76465976 0.54825648]
+   [0.61137392 0.54825648 0.62578965]]
+
+  [[1.37531184 0.61137392 1.34371841]
+   [0.61137392 0.88353174 0.61417731]
+   [1.34371841 0.61417731 0.85954901]]]
+
+
+ [[[1.09137425 0.9824749  0.61137392]
+   [0.9824749  0.76465976 0.54825648]
+   [0.61137392 0.54825648 0.62578965]]
+
+  [[1.90534027 0.76465976 0.88353174]
+   [0.76465976 2.51114345 1.24755608]
+   [0.88353174 1.24755608 1.07372976]]
+
+  [[1.65286558 0.54825648 0.61417731]
+   [0.54825648 1.24755608 1.72933193]
+   [0.61417731 1.72933193 0.81259031]]]
+
+
+ [[[1.37531184 0.61137392 1.34371841]
+   [0.61137392 0.88353174 0.61417731]
+   [1.34371841 0.61417731 0.85954901]]
+
+  [[1.65286558 0.54825648 0.61417731]
+   [0.54825648 1.24755608 1.72933193]
+   [0.61417731 1.72933193 0.81259031]]
+
+  [[1.48026935 0.62578965 0.85954901]
+   [0.62578965 1.07372976 0.81259031]
+   [0.85954901 0.81259031 2.27840598]]]]</code></pre>
+</div>
+</div>
 <p><span class="math inline">\(\,\)</span></p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-bornert2001a" class="csl-entry" role="listitem">
-Bornert, M., Bretheau, T., Gilormini, P., 2001. Homogénéisation en mécanique des matériaux. Hermes science.
-</div>
-<div id="ref-kachanov2018" class="csl-entry" role="listitem">
-Kachanov, M., Sevostianov, I., 2018. Micromechanics of <span>Materials</span>, with <span>Applications</span>, Solid <span>Mechanics</span> and <span>Its Applications</span>. Springer International Publishing, Cham. <a href="https://doi.org/10.1007/978-3-319-76204-3">https://doi.org/10.1007/978-3-319-76204-3</a>
-</div>
-<div id="ref-milton2002" class="csl-entry" role="listitem">
-Milton, G.W., 2002. The <span>Theory</span> of <span>Composites</span>, Cambridge <span>Monographs</span> on <span>Applied</span> and <span>Computational Mathematics</span>. Cambridge University Press, Cambridge. <a href="https://doi.org/10.1017/CBO9780511613357">https://doi.org/10.1017/CBO9780511613357</a>
-</div>
-<div id="ref-torquato2002" class="csl-entry" role="listitem">
-Torquato, S., 2002. Random <span>Heterogeneous Materials</span>, Interdisciplinary <span>Applied Mathematics</span>. Springer New York, New York, NY. <a href="https://doi.org/10.1007/978-1-4757-6355-3">https://doi.org/10.1007/978-1-4757-6355-3</a>
-</div>
-</div>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -871,13 +888,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-page-right">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Welcome">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Welcome</span>
+      <a href="../intro.html" class="pagination-link" aria-label="Introduction">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./tensor_calculus/kelvin_mandel.html" class="pagination-link" aria-label="Kelvin-Mandel notation">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Kelvin-Mandel notation</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../tensor_calculus/rot_matrices.html" class="pagination-link" aria-label="Rotation matrices">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Rotation matrices</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -886,4 +903,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/intro.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/tensor_calculus/kelvin_mandel.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

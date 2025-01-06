@@ -1,9 +1,9 @@
 ::: {.content-visible unless-format="html"}
-![](images/cover){width=20% fig-align="center"}
+![](_img/cover){width=20% fig-align="center"}
 :::
 <!-- ::: {.content-visible when-format="html"}
-![](images/cover.html){width=95%}
-[![](images/arrow-expand.png){width=3%}](images/cover.html)julia
+![](_img/cover.html){width=95%}
+[![](_img/arrow-expand.png){width=3%}](_img/cover.html)julia
 ::: -->
 
 ## Welcome {.unnumbered #sec-welcome}
