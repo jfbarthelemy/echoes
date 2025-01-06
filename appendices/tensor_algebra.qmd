@@ -263,11 +263,11 @@ $${#eq-Rei}
 
 ::: {#fig-eurlerangles}
 ::: {.content-visible unless-format="html"}
-![](../images/sphcoor){width=40%}
+![](../_img/sphcoor){width=40%}
 :::
 ::: {.content-visible when-format="html"}
-![](../images/sphcoor.html){width=90%}
-[![](../images/arrow-expand.png){width=3%}](../images/sphcoor.html)
+![](../_img/sphcoor.html){width=90%}
+[![](../_img/arrow-expand.png){width=3%}](../_img/sphcoor.html)
 :::
 Euler angles
 :::

@@ -16,7 +16,7 @@ process = start_server()
 time.sleep(1)
 
 # Ouvrir le fichier index.html dans un nouvel onglet
-url = f"http://localhost:{port}/docs/index.html"
+url = f"http://localhost:{port}/site/index.html"
 new = 2  # open in a new tab, if possible
 webbrowser.open(url, new=new)
 print(f"Opening {url} in a new tab...")
