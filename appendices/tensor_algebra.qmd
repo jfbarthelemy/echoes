@@ -414,17 +414,17 @@ vector $\n$ is composed of the six following tensors
 built from $\uu{1}_n=\n\otimes\n$
 and $\uu{1}_T=\uu{1}-\uu{1}_n$
 $$\begin{aligned}
-& \uuuu{E}_1=\uu{1}_n\otimes\uu{1}_n
+& \uuuu{W}_1=\uu{1}_n\otimes\uu{1}_n
 \quad\textrm{ ; }\quad
-\uuuu{E}_2=\frac{\uu{1}_T\otimes\uu{1}_T}{2}
+\uuuu{W}_2=\frac{\uu{1}_T\otimes\uu{1}_T}{2}
 &\textrm{ ; }&
-\uuuu{E}_3=\frac{\uu{1}_n\otimes\uu{1}_T}{\sqrt{2}}
+\uuuu{W}_3=\frac{\uu{1}_n\otimes\uu{1}_T}{\sqrt{2}}
 \quad\textrm{ ; }\quad
-\uuuu{E}_4=\frac{\uu{1}_T\otimes\uu{1}_n}{\sqrt{2}}
+\uuuu{W}_4=\frac{\uu{1}_T\otimes\uu{1}_n}{\sqrt{2}}
 &(a) \\
-& \uuuu{E}_5=\uu{1}_T\sboxtimes\uu{1}_T-\frac{\uu{1}_T\otimes\uu{1}_T}{2}
+& \uuuu{W}_5=\uu{1}_T\sboxtimes\uu{1}_T-\frac{\uu{1}_T\otimes\uu{1}_T}{2}
 &\textrm{ ; }&
-\uuuu{E}_6=\uu{1}_T\sboxtimes\uu{1}_n+\uu{1}_n\sboxtimes\uu{1}_T
+\uuuu{W}_6=\uu{1}_T\sboxtimes\uu{1}_n+\uu{1}_n\sboxtimes\uu{1}_T
 &(b)
 \end{aligned}$${#eq-WalpoleBasis}
 
@@ -462,3 +462,18 @@ $$\begin{aligned}
 \right)
 &(b)
 \end{aligned}$${#eq-calWalpole}
+
+A symmetrized version of the Walpole also exists; it is composed of the following tensors
+
+$$\begin{aligned}
+& \uuuu{W}^s_1=\uu{1}_n\otimes\uu{1}_n
+\quad\textrm{ ; }\quad
+\uuuu{W}^s_2=\frac{\uu{1}_T\otimes\uu{1}_T}{2}
+&\textrm{ ; }&
+\uuuu{W}^s_3=\frac{\uu{1}_n\otimes\uu{1}_T}{\sqrt{2}}+\frac{\uu{1}_T\otimes\uu{1}_n}{\sqrt{2}}
+&(a) \\
+& \uuuu{W}^s_4=\uu{1}_T\sboxtimes\uu{1}_T-\frac{\uu{1}_T\otimes\uu{1}_T}{2}
+&\textrm{ ; }&
+\uuuu{W}^s_5=\uu{1}_T\sboxtimes\uu{1}_n+\uu{1}_n\sboxtimes\uu{1}_T
+&(b)
+\end{aligned}$${#eq-symWalpoleBasis}

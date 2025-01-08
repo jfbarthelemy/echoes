@@ -21,6 +21,7 @@ $$
 \newcommand{\sboxtimes}{\stackrel{s}{\boxtimes}}
 \newcommand{\norm}[1]{{\lVert{{#1}}\rVert}}
 \newcommand{\ud}{{\,\mathrm{d}}}
+\newcommand{\mat}{\mathsf}
 \DeclareMathOperator{\arcosh}{arcosh}
 \DeclareMathOperator{\divz}{div}
 \DeclareMathOperator{\divu}{\uv{div}}

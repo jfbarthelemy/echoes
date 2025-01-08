@@ -61,7 +61,7 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-381d77dc618acb510d64ca5ed805e9fe.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-524c77680309a51d71956d08d82e3b1d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -218,6 +218,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Rotation matrices</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tensor_calculus/special_tensors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Special tensors</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -320,6 +326,8 @@ $$
 \newcommand{\norm}[1]{{\lVert{{#1}}\rVert}}
 
 \newcommand{\ud}{{\,\mathrm{d}}}
+
+\newcommand{\mat}{\mathsf}
 
 \DeclareMathOperator{\arcosh}{arcosh}
 
@@ -679,17 +687,17 @@ K_{ijkl}=\frac{\delta_{ik}\delta_{jl}+\delta_{il}\delta_{jk}}{2}-\frac{1}{3}\del
 <section id="sec-TI" class="level2" data-number="A.5">
 <h2 data-number="A.5" class="anchored" data-anchor-id="sec-TI"><span class="header-section-number">A.5</span> Fourth-order transversely isotropic tensors and Walpole basis</h2>
 <p>The Walpole basis (<span class="citation" data-cites="walpole1984">(<a href="../references.html#ref-walpole1984" role="doc-biblioref">Walpole, 1984</a>)</span>, <span class="citation" data-cites="brisard2014a">(<a href="../references.html#ref-brisard2014a" role="doc-biblioref">Brisard, 2014</a>)</span><a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>) allowing to write any fourth-order transversely isotropic relatively to a an axis oriented by the unit vector <span class="math inline">\(\n\)</span> is composed of the six following tensors built from <span class="math inline">\(\uu{1}_n=\n\otimes\n\)</span> and <span class="math inline">\(\uu{1}_T=\uu{1}-\uu{1}_n\)</span> <span id="eq-WalpoleBasis"><span class="math display">\[\begin{aligned}
-&amp; \uuuu{E}_1=\uu{1}_n\otimes\uu{1}_n
+&amp; \uuuu{W}_1=\uu{1}_n\otimes\uu{1}_n
 \quad\textrm{ ; }\quad
-\uuuu{E}_2=\frac{\uu{1}_T\otimes\uu{1}_T}{2}
+\uuuu{W}_2=\frac{\uu{1}_T\otimes\uu{1}_T}{2}
 &amp;\textrm{ ; }&amp;
-\uuuu{E}_3=\frac{\uu{1}_n\otimes\uu{1}_T}{\sqrt{2}}
+\uuuu{W}_3=\frac{\uu{1}_n\otimes\uu{1}_T}{\sqrt{2}}
 \quad\textrm{ ; }\quad
-\uuuu{E}_4=\frac{\uu{1}_T\otimes\uu{1}_n}{\sqrt{2}}
+\uuuu{W}_4=\frac{\uu{1}_T\otimes\uu{1}_n}{\sqrt{2}}
 &amp;(a) \\
-&amp; \uuuu{E}_5=\uu{1}_T\sboxtimes\uu{1}_T-\frac{\uu{1}_T\otimes\uu{1}_T}{2}
+&amp; \uuuu{W}_5=\uu{1}_T\sboxtimes\uu{1}_T-\frac{\uu{1}_T\otimes\uu{1}_T}{2}
 &amp;\textrm{ ; }&amp;
-\uuuu{E}_6=\uu{1}_T\sboxtimes\uu{1}_n+\uu{1}_n\sboxtimes\uu{1}_T
+\uuuu{W}_6=\uu{1}_T\sboxtimes\uu{1}_n+\uu{1}_n\sboxtimes\uu{1}_T
 &amp;(b)
 \end{aligned} \tag{A.34}\]</span></span></p>
 <p>Any transversely isotropic fourth-order tensor can be decomposed as <span id="eq-decWalpole"><span class="math display">\[
@@ -715,6 +723,19 @@ L = \left(
 \right)
 &amp;(b)
 \end{aligned} \tag{A.37}\]</span></span></p>
+<p>A symmetrized version of the Walpole also exists; it is composed of the following tensors</p>
+<p><span id="eq-symWalpoleBasis"><span class="math display">\[\begin{aligned}
+&amp; \uuuu{W}^s_1=\uu{1}_n\otimes\uu{1}_n
+\quad\textrm{ ; }\quad
+\uuuu{W}^s_2=\frac{\uu{1}_T\otimes\uu{1}_T}{2}
+&amp;\textrm{ ; }&amp;
+\uuuu{W}^s_3=\frac{\uu{1}_n\otimes\uu{1}_T}{\sqrt{2}}+\frac{\uu{1}_T\otimes\uu{1}_n}{\sqrt{2}}
+&amp;(a) \\
+&amp; \uuuu{W}^s_4=\uu{1}_T\sboxtimes\uu{1}_T-\frac{\uu{1}_T\otimes\uu{1}_T}{2}
+&amp;\textrm{ ; }&amp;
+\uuuu{W}^s_5=\uu{1}_T\sboxtimes\uu{1}_n+\uu{1}_n\sboxtimes\uu{1}_T
+&amp;(b)
+\end{aligned} \tag{A.38}\]</span></span></p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">

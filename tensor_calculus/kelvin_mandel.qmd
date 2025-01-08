@@ -8,6 +8,38 @@ Before introducing the specific objects of `echoes` devoted to tensor calculatio
 
 :::
 
+::: {.callout-note icon=false collapse=true} 
+
+## {{< iconify flowbite download-outline >}} Download
+
+- [Python script](kelvin_mandel.py)
+
+- [Jupyter notebook](kelvin_mandel.ipynb)
+
+:::
+
+::: {.callout-tip icon=false collapse=true} 
+
+## {{< iconify ix import >}} Imports
+
+```{python}
+#| error: false
+#| warning: false
+#| code-fold: false
+#| code-summary: Code for library imports
+#| include: true
+
+import numpy as np
+from echoes import *
+import math, random
+
+np.set_printoptions(precision=8, suppress=True)
+# to display only 8 significant digits of array components
+```
+
+:::
+
+
 A symmetric $3×3$ second-order matrix can be transformed in a vector of $\R^6$ by the function `KM` consistently with @eq-KM2. The inverse is done by `invKM`.
 
 ```{python}
@@ -15,14 +47,6 @@ A symmetric $3×3$ second-order matrix can be transformed in a vector of $\R^6$ 
 #| warning: false
 #| code-fold: false
 #| include: true
-
-import numpy as np
-from echoes import *
-import math
-import random
-
-np.set_printoptions(precision=8, suppress=True)
-# to display only 8 significant digits of array components
 
 α = np.random.rand(3, 3) ; ε = (α+α.T)/2
 print("ε =\n",ε)
