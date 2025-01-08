@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../references.html" rel="next">
+<link href="../tensor_calculus/special_tensors.html" rel="next">
 <link href="../tensor_calculus/kelvin_mandel.html" rel="prev">
 <link href="../img/cover.html" rel="icon" type="text/html">
 <script src="../site_libs/quarto-html/quarto.js"></script>
@@ -75,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-381d77dc618acb510d64ca5ed805e9fe.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-524c77680309a51d71956d08d82e3b1d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
@@ -233,6 +233,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Rotation matrices</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tensor_calculus/special_tensors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Special tensors</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -326,6 +332,8 @@ $$
 
 \newcommand{\ud}{{\,\mathrm{d}}}
 
+\newcommand{\mat}{\mathsf}
+
 \DeclareMathOperator{\arcosh}{arcosh}
 
 \DeclareMathOperator{\divz}{div}
@@ -385,21 +393,68 @@ $$
 <p>This tutorial presents the construction of rotation matrices in <span class="math inline">\(\R^3\)</span> in the convention proposed in <a href="../appendices/tensor_algebra.html#sec-rottens" class="quarto-xref"><span>Section A.3</span></a> for Euler angles.</p>
 </div>
 </div>
-<p>The rotation matrix (<a href="../appendices/tensor_algebra.html#eq-rot3" class="quarto-xref"><span>A.19</span></a>) can be built with <code>rot3(θ, ϕ, ψ)</code>. See <a href="../appendices/tensor_algebra.html#sec-rottens" class="quarto-xref"><span>Section A.3</span></a> and more particularly <a href="../appendices/tensor_algebra.html#fig-eurlerangles" class="quarto-xref">Fig.&nbsp;<span>A.1</span></a> for more details about Euler angles <code>θ, ϕ, ψ</code>.</p>
-<div id="e66746b9" class="cell" data-execution_count="1">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<iconify-icon role="img" inline="" icon="flowbite:download-outline" aria-label="Icon download-outline from flowbite Iconify.design set." title="Icon download-outline from flowbite Iconify.design set."></iconify-icon> Download
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><a href="rot_matrices.py">Python script</a></p></li>
+<li><p><a href="rot_matrices.ipynb">Jupyter notebook</a></p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<iconify-icon role="img" inline="" icon="ix:import" aria-label="Icon import from ix Iconify.design set." title="Icon import from ix Iconify.design set."></iconify-icon> Imports
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div id="4fc5f2dc" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math, random</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>np.set_printoptions(precision<span class="op">=</span><span class="dv">8</span>, suppress<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># to display only 8 significant digits of array components</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>π <span class="op">=</span> math.pi</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>θ, ϕ, ψ <span class="op">=</span> π<span class="op">/</span><span class="dv">3</span>, π<span class="op">/</span><span class="dv">4</span>, π<span class="op">/</span><span class="dv">5</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> rot3(θ, ϕ, ψ)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(R)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># to display only 8 significant digits of array components</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>Given the Euler angles <code>θ, ϕ, ψ</code> defined in <a href="../appendices/tensor_algebra.html#sec-rottens" class="quarto-xref"><span>Section A.3</span></a> and more particularly in <a href="../appendices/tensor_algebra.html#fig-eurlerangles" class="quarto-xref">Fig.&nbsp;<span>A.1</span></a>, the rotation matrix (<a href="../appendices/tensor_algebra.html#eq-rot3" class="quarto-xref"><span>A.19</span></a>) recalled here <span class="math display">\[
+\small
+\mat{R}=
+   \left(
+   \begin{array}{ccc}
+   c_\theta  c_\psi  c_\phi - s_\psi  s_\phi &amp; - c_\theta  c_\phi  s_\psi - c_\psi  s_\phi &amp; c_\phi  s_\theta \\
+   c_\theta  c_\psi  s_\phi + c_\phi  s_\psi &amp; - c_\theta  s_\psi  s_\phi + c_\psi  c_\phi &amp; s_\theta  s_\phi \\
+   - c_\psi  s_\theta &amp; s_\theta  s_\psi &amp; c_\theta \\
+   \end{array}
+   \right)
+\]</span></p>
+<p>can be built with <code>rot3(θ, ϕ, ψ)</code></p>
+<div id="f09f7da4" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>π <span class="op">=</span> math.pi</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>θ, ϕ, ψ <span class="op">=</span> π<span class="op">/</span><span class="dv">3</span>, π<span class="op">/</span><span class="dv">4</span>, π<span class="op">/</span><span class="dv">5</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> rot3(θ, ϕ, ψ)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"R =</span><span class="ch">\n</span><span class="st">"</span>,R)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[[-0.12959624 -0.77987487  0.61237244]
+<pre><code>R =
+ [[-0.12959624 -0.77987487  0.61237244]
  [ 0.70165764  0.36424793  0.61237244]
  [-0.70062927  0.50903696  0.5       ]]</code></pre>
 </div>
@@ -419,11 +474,11 @@ Warning
 <p>Besides vectors of the spherical basis are ordered as <span class="math inline">\(\ve{\theta}\)</span>, <span class="math inline">\(\ve{\phi}\)</span>, <span class="math inline">\(\ve{r}\)</span>.</p>
 </div>
 </div>
-<div id="8c6adc30" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>θ, ϕ <span class="op">=</span> π<span class="op">/</span><span class="dv">8</span>, π<span class="op">/</span><span class="dv">5</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> rot3(θ, ϕ)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"R =</span><span class="ch">\n</span><span class="st">"</span>,R)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>): <span class="bu">print</span>(<span class="ss">f"es(</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">, θ, ϕ) = "</span>, es(i, θ, ϕ), <span class="ss">f" → e̱</span><span class="sc">{</span>[<span class="st">'θ'</span>,<span class="st">'ϕ'</span>,<span class="st">'r'</span>][i]<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="be76e31c" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>θ, ϕ <span class="op">=</span> π<span class="op">/</span><span class="dv">8</span>, π<span class="op">/</span><span class="dv">5</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> rot3(θ, ϕ)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"R =</span><span class="ch">\n</span><span class="st">"</span>,R)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>): <span class="bu">print</span>(<span class="ss">f"es(</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">, θ, ϕ) = "</span>, es(i, θ, ϕ), <span class="ss">f" → e̱</span><span class="sc">{</span>[<span class="st">'θ'</span>,<span class="st">'ϕ'</span>,<span class="st">'r'</span>][i]<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>R =
  [[ 0.74743424 -0.58778525  0.3095974 ]
@@ -434,15 +489,28 @@ es(1, θ, ϕ) =  [-0.58778525  0.80901699  0.        ]  → e̱ϕ
 es(2, θ, ϕ) =  [0.3095974  0.22493568 0.92387953]  → e̱r</code></pre>
 </div>
 </div>
-<p>As shown in <a href="../appendices/tensor_algebra.html#sec-rottens" class="quarto-xref"><span>Section A.3</span></a> the rotation matrix applying on fourth-order tensors in Kelvin-Mandel notation can be deduced from the <span class="math inline">\(3×3\)</span> rotation matrix from <a href="../appendices/tensor_algebra.html#eq-rot6" class="quarto-xref"><span>A.24</span></a>. It can be directly calculated by <code>rot6(θ, ϕ, ψ)</code>.</p>
-<div id="48f88bf0" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>θ, ϕ, ψ <span class="op">=</span> π<span class="op">/</span><span class="dv">3</span>, π<span class="op">/</span><span class="dv">4</span>, π<span class="op">/</span><span class="dv">5</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> rot3(θ, ϕ, ψ)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>sboxtimes<span class="op">=</span><span class="kw">lambda</span> a,b:<span class="fl">0.5</span><span class="op">*</span>(np.einsum(<span class="st">'ik,jl'</span>,a,b)<span class="op">+</span>np.einsum(<span class="st">'il,jk'</span>,a,b))</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"R⊠ˢR =</span><span class="ch">\n</span><span class="st">"</span>,KM(sboxtimes(R,R)))</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>R6 <span class="op">=</span> rot6(θ, ϕ, ψ)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"R6 =</span><span class="ch">\n</span><span class="st">"</span>,R6)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>As shown in <a href="../appendices/tensor_algebra.html#sec-rottens" class="quarto-xref"><span>Section A.3</span></a> the rotation matrix applying on fourth-order tensors in Kelvin-Mandel notation can be deduced from the <span class="math inline">\(3×3\)</span> rotation matrix from <a href="../appendices/tensor_algebra.html#eq-rot6" class="quarto-xref"><span>A.24</span></a> <span class="math display">\[
+\scriptsize
+   \left(
+\begin{array}{cccccc}
+R_{1 1}^{2} &amp; R_{1 2}^{2} &amp; R_{1 3}^{2} &amp; \sqrt{2}  R_{1 2}  R_{1 3} &amp; \sqrt{2}  R_{1 1}  R_{1 3} &amp; \sqrt{2}  R_{1 1}  R_{1 2} \\
+R_{2 1}^{2} &amp; R_{2 2}^{2} &amp; R_{2 3}^{2} &amp; \sqrt{2}  R_{2 2}  R_{2 3} &amp; \sqrt{2}  R_{2 1}  R_{2 3} &amp; \sqrt{2}  R_{2 1}  R_{2 2} \\
+R_{3 1}^{2} &amp; R_{3 2}^{2} &amp; R_{3 3}^{2} &amp; \sqrt{2}  R_{3 2}  R_{3 3} &amp; \sqrt{2}  R_{3 1}  R_{3 3} &amp; \sqrt{2}  R_{3 1}  R_{3 2} \\
+\sqrt{2}  R_{2 1}  R_{3 1} &amp; \sqrt{2}  R_{2 2}  R_{3 2} &amp; \sqrt{2}  R_{2 3}  R_{3 3} &amp; R_{2 2}  R_{3 3} + R_{2 3}  R_{3 2} &amp; R_{2 1}  R_{3 3} + R_{2 3}  R_{3 1} &amp; R_{2 1}  R_{3 2} + R_{2 2}  R_{3 1} \\
+\sqrt{2}  R_{1 1}  R_{3 1} &amp; \sqrt{2}  R_{1 2}  R_{3 2} &amp; \sqrt{2}  R_{1 3}  R_{3 3} &amp; R_{1 2}  R_{3 3} + R_{1 3}  R_{3 2} &amp; R_{1 1}  R_{3 3} + R_{1 3}  R_{3 1} &amp; R_{1 1}  R_{3 2} + R_{1 2}  R_{3 1} \\
+\sqrt{2}  R_{1 1}  R_{2 1} &amp; \sqrt{2}  R_{1 2}  R_{2 2} &amp; \sqrt{2}  R_{1 3}  R_{2 3} &amp; R_{1 2}  R_{2 3} + R_{1 3}  R_{2 2} &amp; R_{1 1}  R_{2 3} + R_{1 3}  R_{2 1} &amp; R_{1 1}  R_{2 2} + R_{1 2}  R_{2 1} \\
+\end{array}
+\right)
+\]</span></p>
+<p>It can be directly obtained by <code>rot6(θ, ϕ, ψ)</code>.</p>
+<div id="6f3e5a7a" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>θ, ϕ, ψ <span class="op">=</span> π<span class="op">/</span><span class="dv">3</span>, π<span class="op">/</span><span class="dv">4</span>, π<span class="op">/</span><span class="dv">5</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> rot3(θ, ϕ, ψ)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>sboxtimes<span class="op">=</span><span class="kw">lambda</span> a,b:<span class="fl">0.5</span><span class="op">*</span>(np.einsum(<span class="st">'ik,jl'</span>,a,b)<span class="op">+</span>np.einsum(<span class="st">'il,jk'</span>,a,b))</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"R⊠ˢR =</span><span class="ch">\n</span><span class="st">"</span>,KM(sboxtimes(R,R)))</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>ℝ <span class="op">=</span> rot6(θ, ϕ, ψ)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"ℝ =</span><span class="ch">\n</span><span class="st">"</span>,ℝ)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>R⊠ˢR =
  [[ 0.01679518  0.60820482  0.375      -0.67539145 -0.11223363  0.14293294]
@@ -451,7 +519,7 @@ es(2, θ, ϕ) =  [0.3095974  0.22493568 0.92387953]  → e̱r</code></pre>
  [-0.69523004  0.26221734  0.4330127   0.49384417 -0.07821723  0.10196691]
  [ 0.12840906 -0.56142176  0.4330127  -0.07821723 -0.49384417  0.48043389]
  [-0.12859754 -0.40173255  0.53033009 -0.25451848  0.35031463 -0.59441032]]
-R6 =
+ℝ =
  [[ 0.01679518  0.60820482  0.375      -0.67539145 -0.11223363  0.14293294]
  [ 0.49232344  0.13267656  0.375       0.31544796  0.60765334  0.36144095]
  [ 0.49088137  0.25911863  0.25        0.35994349 -0.49541971 -0.50437388]
@@ -889,8 +957,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../references.html" class="pagination-link" aria-label="References">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../tensor_calculus/special_tensors.html" class="pagination-link" aria-label="Special tensors">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Special tensors</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

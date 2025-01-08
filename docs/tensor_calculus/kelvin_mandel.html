@@ -75,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-381d77dc618acb510d64ca5ed805e9fe.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-524c77680309a51d71956d08d82e3b1d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
@@ -233,6 +233,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Rotation matrices</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tensor_calculus/special_tensors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Special tensors</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -326,6 +332,8 @@ $$
 
 \newcommand{\ud}{{\,\mathrm{d}}}
 
+\newcommand{\mat}{\mathsf}
+
 \DeclareMathOperator{\arcosh}{arcosh}
 
 \DeclareMathOperator{\divz}{div}
@@ -385,83 +393,117 @@ $$
 <p>Before introducing the specific objects of <code>echoes</code> devoted to tensor calculations in isotropic or anisotropic contexts, this tutorial aims at providing the syntax allowing to represent second-order or fourth-order tensors under the form of matrices in the Kelvin-Mandel notation as detailed in <a href="../appendices/tensor_algebra.html#sec-KM" class="quarto-xref"><span>Section A.2</span></a>.</p>
 </div>
 </div>
-<p>A symmetric <span class="math inline">\(3×3\)</span> second-order matrix can be transformed in a vector of <span class="math inline">\(\R^6\)</span> by the function <code>KM</code> consistently with <a href="../appendices/tensor_algebra.html#eq-KM2" class="quarto-xref"><span>A.14</span></a>. The inverse is done by <code>invKM</code>.</p>
-<div id="3a54cb2e" class="cell" data-execution_count="1">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<iconify-icon role="img" inline="" icon="flowbite:download-outline" aria-label="Icon download-outline from flowbite Iconify.design set." title="Icon download-outline from flowbite Iconify.design set."></iconify-icon> Download
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><a href="kelvin_mandel.py">Python script</a></p></li>
+<li><p><a href="kelvin_mandel.ipynb">Jupyter notebook</a></p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<iconify-icon role="img" inline="" icon="ix:import" aria-label="Icon import from ix Iconify.design set." title="Icon import from ix Iconify.design set."></iconify-icon> Imports
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div id="0a34beec" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>np.set_printoptions(precision<span class="op">=</span><span class="dv">8</span>, suppress<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># to display only 8 significant digits of array components</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>α <span class="op">=</span> np.random.rand(<span class="dv">3</span>, <span class="dv">3</span>) <span class="op">;</span> ε <span class="op">=</span> (α<span class="op">+</span>α.T)<span class="op">/</span><span class="dv">2</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"ε =</span><span class="ch">\n</span><span class="st">"</span>,ε)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"KM(ε) =</span><span class="ch">\n</span><span class="st">"</span>,KM(ε))</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> np.allclose(invKM(KM(ε)), ε), <span class="st">"error"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math, random</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>np.set_printoptions(precision<span class="op">=</span><span class="dv">8</span>, suppress<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># to display only 8 significant digits of array components</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>A symmetric <span class="math inline">\(3×3\)</span> second-order matrix can be transformed in a vector of <span class="math inline">\(\R^6\)</span> by the function <code>KM</code> consistently with <a href="../appendices/tensor_algebra.html#eq-KM2" class="quarto-xref"><span>A.14</span></a>. The inverse is done by <code>invKM</code>.</p>
+<div id="953f4d31" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>α <span class="op">=</span> np.random.rand(<span class="dv">3</span>, <span class="dv">3</span>) <span class="op">;</span> ε <span class="op">=</span> (α<span class="op">+</span>α.T)<span class="op">/</span><span class="dv">2</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"ε =</span><span class="ch">\n</span><span class="st">"</span>,ε)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"KM(ε) =</span><span class="ch">\n</span><span class="st">"</span>,KM(ε))</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> np.allclose(invKM(KM(ε)), ε), <span class="st">"error"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>ε =
- [[0.00286549 0.65266664 0.33328129]
- [0.65266664 0.17263783 0.54571588]
- [0.33328129 0.54571588 0.7776444 ]]
+ [[0.98683379 0.76238019 0.41854677]
+ [0.76238019 0.37740781 0.53284156]
+ [0.41854677 0.53284156 0.79209251]]
 KM(ε) =
- [0.00286549 0.17263783 0.7776444  0.77175881 0.47133092 0.92301001]</code></pre>
+ [0.98683379 0.37740781 0.79209251 0.75355176 0.59191452 1.0781684 ]</code></pre>
 </div>
 </div>
 <p>Given a <span class="math inline">\(3×3×3×3\)</span> array <code>c</code> (of type <code>numpy.ndarray</code>) satisfying major and minor symmetries (see <a href="../appendices/tensor_algebra.html#sec-KM" class="quarto-xref"><span>Section A.2</span></a>), the corresponding <span class="math inline">\(6×6\)</span> matrix <code>C</code> obtained by Kelvin-Mandel transform is calculated by <code>C = KM(c)</code>. Conversely, if <code>C</code> is a positive definite matrix, <code>c</code> is calculated by <code>c = invKM(C)</code>.</p>
-<div id="bf30d0a7" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.random.rand(<span class="dv">6</span>,<span class="dv">6</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> A.T.dot(A) <span class="op">+</span> np.eye(<span class="dv">6</span>) <span class="co"># generation of an arbitrary positive definite matrix</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> invKM(C)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"C =</span><span class="ch">\n</span><span class="st">"</span>,C)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"c =</span><span class="ch">\n</span><span class="st">"</span>,c)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> np.allclose(KM(c), C), <span class="st">"error: KM(c) should be equal to C"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="02adb9d0" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.random.rand(<span class="dv">6</span>,<span class="dv">6</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> A.T.dot(A) <span class="op">+</span> np.eye(<span class="dv">6</span>) <span class="co"># generation of an arbitrary positive definite matrix</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> invKM(C)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"C =</span><span class="ch">\n</span><span class="st">"</span>,C)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"c =</span><span class="ch">\n</span><span class="st">"</span>,c)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> np.allclose(KM(c), C), <span class="st">"error: KM(c) should be equal to C"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>C =
- [[3.87777703 1.90534027 1.48026935 2.33750492 1.94498466 1.54343627]
- [1.90534027 2.51114345 1.07372976 1.76431072 1.24950257 1.0813922 ]
- [1.48026935 1.07372976 2.27840598 1.14917624 1.21558587 0.88500021]
- [2.33750492 1.76431072 1.14917624 3.45866386 1.22835461 1.09651295]
- [1.94498466 1.24950257 1.21558587 1.22835461 2.68743681 1.22274783]
- [1.54343627 1.0813922  0.88500021 1.09651295 1.22274783 1.9649498 ]]
+ [[2.62539179 1.92058314 1.17054457 0.88086639 1.13303109 1.72965078]
+ [1.92058314 4.25435671 1.47897311 1.34510875 2.10014811 2.35224679]
+ [1.17054457 1.47897311 2.92549081 1.17490385 1.49674829 1.24371515]
+ [0.88086639 1.34510875 1.17490385 2.99673735 1.79017799 1.05668747]
+ [1.13303109 2.10014811 1.49674829 1.79017799 3.48977294 1.42797654]
+ [1.72965078 2.35224679 1.24371515 1.05668747 1.42797654 2.95608996]]
 c =
- [[[[3.87777703 1.09137425 1.37531184]
-   [1.09137425 1.90534027 1.65286558]
-   [1.37531184 1.65286558 1.48026935]]
+ [[[[2.62539179 1.2230478  0.80117397]
+   [1.2230478  1.92058314 0.6228666 ]
+   [0.80117397 0.6228666  1.17054457]]
 
-  [[1.09137425 0.9824749  0.61137392]
-   [0.9824749  0.76465976 0.54825648]
-   [0.61137392 0.54825648 0.62578965]]
+  [[1.2230478  1.47804498 0.71398827]
+   [1.47804498 1.66328966 0.52834373]
+   [0.71398827 0.52834373 0.87943942]]
 
-  [[1.37531184 0.61137392 1.34371841]
-   [0.61137392 0.88353174 0.61417731]
-   [1.34371841 0.61417731 0.85954901]]]
-
-
- [[[1.09137425 0.9824749  0.61137392]
-   [0.9824749  0.76465976 0.54825648]
-   [0.61137392 0.54825648 0.62578965]]
-
-  [[1.90534027 0.76465976 0.88353174]
-   [0.76465976 2.51114345 1.24755608]
-   [0.88353174 1.24755608 1.07372976]]
-
-  [[1.65286558 0.54825648 0.61417731]
-   [0.54825648 1.24755608 1.72933193]
-   [0.61417731 1.72933193 0.81259031]]]
+  [[0.80117397 0.71398827 1.74488647]
+   [0.71398827 1.48502897 0.895089  ]
+   [1.74488647 0.895089   1.05836086]]]
 
 
- [[[1.37531184 0.61137392 1.34371841]
-   [0.61137392 0.88353174 0.61417731]
-   [1.34371841 0.61417731 0.85954901]]
+ [[[1.2230478  1.47804498 0.71398827]
+   [1.47804498 1.66328966 0.52834373]
+   [0.71398827 0.52834373 0.87943942]]
 
-  [[1.65286558 0.54825648 0.61417731]
-   [0.54825648 1.24755608 1.72933193]
-   [0.61417731 1.72933193 0.81259031]]
+  [[1.92058314 1.66328966 1.48502897]
+   [1.66328966 4.25435671 0.95113552]
+   [1.48502897 0.95113552 1.47897311]]
 
-  [[1.48026935 0.62578965 0.85954901]
-   [0.62578965 1.07372976 0.81259031]
-   [0.85954901 0.81259031 2.27840598]]]]</code></pre>
+  [[0.6228666  0.52834373 0.895089  ]
+   [0.52834373 0.95113552 1.49836867]
+   [0.895089   1.49836867 0.83078248]]]
+
+
+ [[[0.80117397 0.71398827 1.74488647]
+   [0.71398827 1.48502897 0.895089  ]
+   [1.74488647 0.895089   1.05836086]]
+
+  [[0.6228666  0.52834373 0.895089  ]
+   [0.52834373 0.95113552 1.49836867]
+   [0.895089   1.49836867 0.83078248]]
+
+  [[1.17054457 0.87943942 1.05836086]
+   [0.87943942 1.47897311 0.83078248]
+   [1.05836086 0.83078248 2.92549081]]]]</code></pre>
 </div>
 </div>
 <p><span class="math inline">\(\,\)</span></p>
