@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.39">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>4&nbsp; The tensor object – Echoes</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../2_eshelby/eshelby_hill.html" rel="next">
+<link href="../1_tensor_calculus/special_tensors.html" rel="prev">
+<link href="../img/cover.html" rel="icon" type="text/html">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-524c77680309a51d71956d08d82e3b1d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../1_tensor_calculus/kelvin_mandel.html">𝗘𝗹𝗲𝗺𝗲𝗻𝘁𝘀 𝗼𝗳 𝘁𝗲𝗻𝘀𝗼𝗿 𝗰𝗮𝗹𝗰𝘂𝗹𝘂𝘀</a></li><li class="breadcrumb-item"><a href="../1_tensor_calculus/tensor.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The <code>tensor</code> object</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../img/cover.html" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Echoes</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/jfbarthelemy/echoes/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">𝗘𝗹𝗲𝗺𝗲𝗻𝘁𝘀 𝗼𝗳 𝘁𝗲𝗻𝘀𝗼𝗿 𝗰𝗮𝗹𝗰𝘂𝗹𝘂𝘀</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../1_tensor_calculus/kelvin_mandel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Kelvin-Mandel notation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../1_tensor_calculus/rot_matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Rotation matrices</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../1_tensor_calculus/special_tensors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Special tensors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../1_tensor_calculus/tensor.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The <code>tensor</code> object</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">𝗘𝘀𝗵𝗲𝗹𝗯𝘆 𝗶𝗻𝗰𝗹𝘂𝘀𝗶𝗼𝗻 𝗽𝗿𝗼𝗯𝗹𝗲𝗺</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../2_eshelby/eshelby_hill.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Eshelby and Hill polarization tensors</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../99_appendices/tensor_algebra.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Tensor algebra</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../99_appendices/hill_elas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Hill polarization tensor in elasticity</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../99_appendices/basics_elas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Basic problem of elasticity homogenization</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#definition-of-the-tensor-object" id="toc-definition-of-the-tensor-object" class="nav-link active" data-scroll-target="#definition-of-the-tensor-object">Definition of the <code>tensor</code> object</a></li>
+  <li><a href="#second-order-tensors" id="toc-second-order-tensors" class="nav-link" data-scroll-target="#second-order-tensors">Second-order tensors</a></li>
+  <li><a href="#isotropic-fourth-order-tensors-iso" id="toc-isotropic-fourth-order-tensors-iso" class="nav-link" data-scroll-target="#isotropic-fourth-order-tensors-iso">Isotropic fourth-order tensors (<code>ISO</code>)</a></li>
+  <li><a href="#symmetric-transversely-isotropic-fourth-order-tensors-ti" id="toc-symmetric-transversely-isotropic-fourth-order-tensors-ti" class="nav-link" data-scroll-target="#symmetric-transversely-isotropic-fourth-order-tensors-ti">Symmetric transversely isotropic fourth-order tensors (<code>TI</code>)</a></li>
+  <li><a href="#symmetric-orthotropic-fourth-order-tensors-ortho" id="toc-symmetric-orthotropic-fourth-order-tensors-ortho" class="nav-link" data-scroll-target="#symmetric-orthotropic-fourth-order-tensors-ortho">Symmetric orthotropic fourth-order tensors (<code>ORTHO</code>)</a></li>
+  <li><a href="#symmetric-anisotropic-fourth-order-tensors-aniso" id="toc-symmetric-anisotropic-fourth-order-tensors-aniso" class="nav-link" data-scroll-target="#symmetric-anisotropic-fourth-order-tensors-aniso">Symmetric anisotropic fourth-order tensors (<code>ANISO</code>)</a></li>
+  <li><a href="#construction-of-a-fourth-order-tensor-from-a-66-matrix-and-projections" id="toc-construction-of-a-fourth-order-tensor-from-a-66-matrix-and-projections" class="nav-link" data-scroll-target="#construction-of-a-fourth-order-tensor-from-a-66-matrix-and-projections">Construction of a fourth-order <code>tensor</code> from a <span class="math inline">\(6×6\)</span> matrix and projections</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/1_tensor_calculus/tensor.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+$$
+
+\newcommand{\C}{{\mathbb{{C}}}}
+
+\newcommand{\R}{{\mathbb{{R}}}}
+
+\newcommand{\Q}{{\mathbb{{Q}}}}
+
+\newcommand{\Z}{{\mathbb{{Z}}}}
+
+\newcommand{\N}{{\mathbb{{N}}}}
+
+
+
+\newcommand{\uu}[1]{{\boldsymbol{{#1}}}}
+
+\newcommand{\uuuu}[1]{{\symbb{{#1}}}}
+
+\newcommand{\uv}[1]{{\underline{{#1}}}}
+
+\newcommand{\ve}[1]{{\uv{{e}}_{{#1}}}}
+
+\newcommand{\x}{{\uv{{x}}}}
+
+\newcommand{\n}{{\uv{{n}}}}
+
+\newcommand{\eps}{{\uu{{\varepsilon}}}}
+
+\newcommand{\E}{{\uu{{E}}}}
+
+\newcommand{\sig}{{\uu{{\sigma}}}}
+
+\newcommand{\Sig}{{\uu{{\Sigma}}}}
+
+\newcommand{\cod}{{\uv{{\symscr{b}}}}}
+
+\newcommand{\trans}[1]{{{}^{t}{#1}}}
+
+\newcommand{\sotimes}{{\stackrel{s}{\otimes}}}
+
+\newcommand{\sboxtimes}{\stackrel{s}{\boxtimes}}
+
+\newcommand{\norm}[1]{{\lVert{{#1}}\rVert}}
+
+\newcommand{\ud}{{\,\mathrm{d}}}
+
+\newcommand{\mat}{\mathsf}
+
+\DeclareMathOperator{\arcosh}{arcosh}
+
+\DeclareMathOperator{\divz}{div}
+
+\DeclareMathOperator{\divu}{\uv{div}}
+
+\DeclareMathOperator{\hess}{hess}
+
+\DeclareMathOperator{\gradu}{\uv{grad}}
+
+\DeclareMathOperator{\graduu}{\uu{grad}}
+
+\DeclareMathOperator{\Mat}{Mat}
+
+\DeclareMathOperator{\tr}{tr}
+
+\DeclareMathOperator{\ISO}{ISO}
+
+
+
+\newcommand{\jump}[1]{[\hspace*{-.15em}[\hspace*{.1em}{#1}%
+
+     \hspace*{.1em}]\hspace*{-.15em}]}
+
+$$
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../1_tensor_calculus/kelvin_mandel.html">𝗘𝗹𝗲𝗺𝗲𝗻𝘁𝘀 𝗼𝗳 𝘁𝗲𝗻𝘀𝗼𝗿 𝗰𝗮𝗹𝗰𝘂𝗹𝘂𝘀</a></li><li class="breadcrumb-item"><a href="../1_tensor_calculus/tensor.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The <code>tensor</code> object</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-tensor" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The <code>tensor</code> object</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-body">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<iconify-icon role="img" inline="" icon="pajamas:issue-type-objective" aria-label="Icon issue-type-objective from pajamas Iconify.design set." title="Icon issue-type-objective from pajamas Iconify.design set."></iconify-icon> Objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This tutorial presents the object <code>tensor</code> which is the main structure of <code>echoes</code> allowing to represent symmetric second-order or fourth-order tensors both in matrix and synthetic forms and containing information about anisotropy.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<iconify-icon role="img" inline="" icon="flowbite:download-outline" aria-label="Icon download-outline from flowbite Iconify.design set." title="Icon download-outline from flowbite Iconify.design set."></iconify-icon> Download
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><a href="tensor.py">Python script</a></p></li>
+<li><p><a href="tensor.ipynb">Jupyter notebook</a></p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<iconify-icon role="img" inline="" icon="ix:import" aria-label="Icon import from ix Iconify.design set." title="Icon import from ix Iconify.design set."></iconify-icon> Imports
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div id="5135c223" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>np.set_printoptions(precision<span class="op">=</span><span class="dv">6</span>, suppress<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># to display only 6 significant digits of array components</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<section id="definition-of-the-tensor-object" class="level2">
+<h2 class="anchored" data-anchor-id="definition-of-the-tensor-object">Definition of the <code>tensor</code> object</h2>
+<p>The <code>tensor</code> object is a structure designed to represent <strong>symmetric</strong> second-order or fourth-order tensors. It gathers four members</p>
+<ul>
+<li><strong>the material symmetry</strong>: <code>ISO</code> (isotropic), <code>TI</code> (transversely isotropic), <code>ORTHO</code> (orthotropic) or <code>ANISO</code> (anisotropic) <em>[other material symmetries exist but have not been implemented]</em></li>
+<li><strong>a condensed vector of parameters</strong> <em>[as shown below the size of this vector unambiguously defines the order of the tensor]</em></li>
+<li><strong>a vector of angles (in radians)</strong> <em>[if required]</em></li>
+<li><strong>a matrix</strong> <em>[<span class="math inline">\(3×3\)</span> for a second-order or <span class="math inline">\(6×6\)</span> for a fourth-order tensor]</em></li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It is important to note that the <code>tensor</code> object is designed only to contain or retrieve information about a symmetric second-order or fourth-order tensor (for instance the material symmetry) and not to perform calculation. Although simple calculations such as addition, subtraction, multiplication by a scalar, inversion are available, most of other operations (products, contractions…) have not been implemented. To do so, it is necessary to extract the parameters or matrix and perform operations using usual <code>numpy</code> or <code>scipy</code> operations (<code>dot</code>, <code>einsum</code>…) before eventually building a new <code>tensor</code>.</p>
+</div>
+</div>
+<p>If <code>C</code> is a python variable of <code>tensor</code> type, its members can be accessed by</p>
+<ul>
+<li><strong>material symmetry</strong>: <code>C.sym</code></li>
+<li><strong>parameters</strong>: <code>C.param</code> or <code>C.p</code></li>
+<li><strong>angles</strong>: <code>C.angles</code></li>
+<li><strong>matrix</strong>: <code>C.array</code> or <code>C.a</code></li>
+</ul>
+</section>
+<section id="second-order-tensors" class="level2">
+<h2 class="anchored" data-anchor-id="second-order-tensors">Second-order tensors</h2>
+<p>A symmetric second-order <code>tensor</code> object is designed by means of its three eigenvalues and the orientation of the eigenbasis through three Euler angles <span class="math inline">\(\theta\)</span>, <span class="math inline">\(\phi\)</span> and <span class="math inline">\(\psi\)</span> (see <a href="../99_appendices/tensor_algebra.html#fig-eulerangles" class="quarto-xref">Fig.&nbsp;<span>A.1</span></a>). It is built using one of the following constructors</p>
+<ul>
+<li><code>T = tensor(T₁, T₂, T₃, θ=0, ϕ=0, ψ=0)</code> # default values of the angles are 0</li>
+<li><code>T = tensor([T₁, T₂, T₃], angles=[0, 0, 0])</code></li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>The eigenvalues and eigenvectors are systematically reordered in decreasing order of eigenvalues and angles are recomputed accordingly.</li>
+<li>The eigenvalues are analyzed in order to characterize the symmetry type between <code>ISO</code>, <code>TI</code> and <code>ORTHO</code>.</li>
+<li>The Euler angles are not unique since unit eigenvectors are determined up to a multiplicative factor of ±1.</li>
+<li>Note that the six parameters of the constructor <code>tensor</code> should not be confused with the components of the Kelvin-Mandel representation of symmetric second-order tensors (see <a href="../99_appendices/tensor_algebra.html#sec-KM" class="quarto-xref"><span>Section A.2</span></a>).</li>
+</ul>
+</div>
+</div>
+<div id="6f9e5236" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> tensor(<span class="fl">2.</span>, <span class="fl">1.</span>, <span class="fl">3.</span>) <span class="op">;</span> <span class="bu">print</span>(T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Order 2 ORTHO tensor | Param(size=3)=[ 3 2 1 ] | Angles(size=3)=[ 1.5708 4.71239 3.14159 ]
+[ 2 0 0 
+  0 1 0 
+  0 0 3 ]
+</code></pre>
+</div>
+</div>
+<div id="9cca9756" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>π <span class="op">=</span> math.pi</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> tensor(<span class="fl">2.</span>, <span class="fl">1.</span>, <span class="fl">2.</span>, π<span class="op">/</span><span class="dv">3</span>, π<span class="op">/</span><span class="dv">4</span>, π<span class="op">/</span><span class="dv">5</span>) <span class="op">;</span> <span class="bu">print</span>(T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Order 2 TI tensor | Param(size=3)=[ 2 2 1 ] | Angles(size=3)=[ 2.10486 5.84624 0.619825 ]
+[ 1.3918 0.284068 0.396985 
+  0.284068 1.86732 -0.185416 
+  0.396985 -0.185416 1.74088 ]
+</code></pre>
+</div>
+</div>
+<div id="0eb5978c" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> tensor([<span class="fl">2.</span>, <span class="fl">1.</span>, <span class="fl">3.</span>], angles<span class="op">=</span>[π<span class="op">/</span><span class="dv">3</span>, π<span class="op">/</span><span class="dv">4</span>, π<span class="op">/</span><span class="dv">5</span>]) <span class="op">;</span> <span class="bu">print</span>(T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Order 2 ORTHO tensor | Param(size=3)=[ 3 2 1 ] | Angles(size=3)=[ 2.10486 5.84624 2.19062 ]
+[ 1.7668 0.659068 0.703171 
+  0.659068 2.24232 0.120771 
+  0.703171 0.120771 1.99088 ]
+</code></pre>
+</div>
+</div>
+<p>A symmetric second-order <code>tensor</code> can also be built from a symmetric <span class="math inline">\(3×3\)</span> matrix. In this case a diagonalization is performed so as to find the <code>param</code> vector (the eigenvalues) and the <code>angles</code> determining the orientation of the eigenvectors (see <a href="../99_appendices/tensor_algebra.html#fig-eulerangles" class="quarto-xref">Fig.&nbsp;<span>A.1</span></a>)</p>
+<div id="373060ed" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>M <span class="op">=</span> np.array([ [<span class="fl">1.7668</span>, <span class="fl">0.659068</span>, <span class="fl">0.703171</span>], </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">0.659068</span>, <span class="fl">2.24232</span>, <span class="fl">0.120771</span>], </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">0.703171</span>, <span class="fl">0.120771</span>, <span class="fl">1.99088</span>] ])</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> tensor(M) <span class="op">;</span> <span class="bu">print</span>(T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Order 2 ORTHO tensor | Param(size=3)=[ 3 2 1 ] | Angles(size=3)=[ 1.03673 2.70464 0.950971 ]
+[ 1.7668 0.659068 0.703171 
+  0.659068 2.24232 0.120771 
+  0.703171 0.120771 1.99088 ]
+</code></pre>
+</div>
+</div>
+</section>
+<section id="isotropic-fourth-order-tensors-iso" class="level2">
+<h2 class="anchored" data-anchor-id="isotropic-fourth-order-tensors-iso">Isotropic fourth-order tensors (<code>ISO</code>)</h2>
+<p>The special isotropic tensors <span class="math inline">\(\uuuu{I}\)</span>, <span class="math inline">\(\uuuu{J}\)</span> and <span class="math inline">\(\uuuu{K}\)</span> are available under the global variables <code>tId4</code>, <code>tJ4</code> and <code>tK4</code>.</p>
+<div id="d7861c8e" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> T <span class="kw">in</span> [tId4, tJ4, tK4]:</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Order 4 ISO tensor | Param(size=2)=[ 1 1 ] | Angles(size=0)=[ ]
+[ 1 0 0 0 0 0 
+  0 1 0 0 0 0 
+  0 0 1 0 0 0 
+  0 0 0 1 0 0 
+  0 0 0 0 1 0 
+  0 0 0 0 0 1 ]
+
+Order 4 ISO tensor | Param(size=2)=[ 1 0 ] | Angles(size=0)=[ ]
+[ 0.333333 0.333333 0.333333 0 0 0 
+  0.333333 0.333333 0.333333 0 0 0 
+  0.333333 0.333333 0.333333 0 0 0 
+  0 0 0 0 0 0 
+  0 0 0 0 0 0 
+  0 0 0 0 0 0 ]
+
+Order 4 ISO tensor | Param(size=2)=[ 1.11022e-16 1 ] | Angles(size=0)=[ ]
+[ 0.666667 -0.333333 -0.333333 0 0 0 
+  -0.333333 0.666667 -0.333333 0 0 0 
+  -0.333333 -0.333333 0.666667 0 0 0 
+  0 0 0 1 0 0 
+  0 0 0 0 1 0 
+  0 0 0 0 0 1 ]
+</code></pre>
+</div>
+</div>
+<p>Any fourth-order tensor depends on two parameters <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> such that <span class="math inline">\(\uuuu{T}=\alpha \uuuu{J} + \beta \uuuu{K}\)</span> and can be built by one of these constructors</p>
+<ul>
+<li><code>T = tensor(α, β)</code></li>
+<li><code>T = tensor([α, β])</code></li>
+<li><code>T = tensor(np.array([α, β]))</code></li>
+</ul>
+<div id="bb327361" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>α, β <span class="op">=</span> <span class="fl">7.2</span>, <span class="fl">6.1</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>𝕋 <span class="op">=</span> tensor(α, β)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"𝕋 =</span><span class="ch">\n</span><span class="st">"</span>, 𝕋)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"𝕋.sym ="</span>, 𝕋.sym)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"𝕋.a =</span><span class="ch">\n</span><span class="st">"</span>, 𝕋.a)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"𝕋.angles ="</span>, 𝕋.angles)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"𝕋.p ="</span>, 𝕋.p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>𝕋 =
+ Order 4 ISO tensor | Param(size=2)=[ 7.2 6.1 ] | Angles(size=0)=[ ]
+[ 6.46667 0.366667 0.366667 0 0 0 
+  0.366667 6.46667 0.366667 0 0 0 
+  0.366667 0.366667 6.46667 0 0 0 
+  0 0 0 6.1 0 0 
+  0 0 0 0 6.1 0 
+  0 0 0 0 0 6.1 ]
+
+𝕋.sym = ISO
+𝕋.a =
+ [[6.466667 0.366667 0.366667 0.       0.       0.      ]
+ [0.366667 6.466667 0.366667 0.       0.       0.      ]
+ [0.366667 0.366667 6.466667 0.       0.       0.      ]
+ [0.       0.       0.       6.1      0.       0.      ]
+ [0.       0.       0.       0.       6.1      0.      ]
+ [0.       0.       0.       0.       0.       6.1     ]]
+𝕋.angles = []
+𝕋.p = [7.2 6.1]</code></pre>
+</div>
+</div>
+<div id="d9715397" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>𝕀, 𝕁, 𝕂 <span class="op">=</span> tId4, tJ4, tK4 <span class="co"># just to make it look nice!</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>𝕋<span class="dv">2</span> <span class="op">=</span> α<span class="op">*</span>𝕁 <span class="op">+</span> β<span class="op">*</span>𝕂</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"𝕋2 =</span><span class="ch">\n</span><span class="st">"</span>, 𝕋<span class="dv">2</span>)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> np.allclose(𝕋.a, 𝕋<span class="fl">2.</span><span class="er">a</span>), <span class="st">"error 𝕋.a and 𝕋2.a should be equal"</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> np.allclose(𝕋.p, 𝕋<span class="fl">2.</span><span class="er">p</span>), <span class="st">"error 𝕋.p and 𝕋2.p should be equal"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>𝕋2 =
+ Order 4 ISO tensor | Param(size=2)=[ 7.2 6.1 ] | Angles(size=0)=[ ]
+[ 6.46667 0.366667 0.366667 0 0 0 
+  0.366667 6.46667 0.366667 0 0 0 
+  0.366667 0.366667 6.46667 0 0 0 
+  0 0 0 6.1 0 0 
+  0 0 0 0 6.1 0 
+  0 0 0 0 0 6.1 ]
+</code></pre>
+</div>
+</div>
+<p>A symmetric fourth-order tensor representing a stiffness tensor can also be built by means of</p>
+<ul>
+<li><em>bulk and shear moduli</em> <code>stiff_kmu(k, µ)</code> → <span class="math inline">\(3\,k \uuuu{J} + 2\,\mu \uuuu{K}\)</span></li>
+<li><em>Young modulus and Poisson ratio</em> <code>stiff_Enu(E, ν)</code> → <span class="math inline">\(\frac{E}{1-2\,\nu} \uuuu{J} + \frac{E}{1+\nu} \uuuu{K}\)</span></li>
+<li><em>Lamé moduli</em> <code>stiff_lambdamu(λ, μ)</code> → <span class="math inline">\(3\,\lambda \uuuu{J} + 2\,\mu \uuuu{I}\)</span></li>
+</ul>
+<p>Some converters are also available (see <a href="https://en.wikipedia.org/wiki/Lam%C3%A9_parameters">conversion table</a>)</p>
+<ul>
+<li><code>E = E_from_kmu(k, µ)</code></li>
+<li><code>ν = nu_from_kmu(k, µ)</code></li>
+<li><code>k = k_from_Enu(E, ν)</code></li>
+<li><code>µ = mu_from_Enu(E, ν)</code></li>
+<li><code>E, ν = Enu_from_kmu(k, µ)</code></li>
+<li><code>k, µ = kmu_from_Enu(E, ν)</code></li>
+</ul>
+<div id="c3c48bf5" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>k, µ <span class="op">=</span> <span class="fl">72.5</span>, <span class="fl">32.7</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>ℂ <span class="op">=</span> stiff_kmu(k, µ)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"ℂ =</span><span class="ch">\n</span><span class="st">"</span>, ℂ)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"E = </span><span class="sc">{</span><span class="bu">round</span>(ℂ.E,<span class="dv">2</span>)<span class="sc">}</span><span class="ss"> ; ν = </span><span class="sc">{</span><span class="bu">round</span>(ℂ.nu,<span class="dv">2</span>)<span class="sc">}</span><span class="ss"> ; λ = </span><span class="sc">{</span><span class="bu">round</span>(ℂ.lamelambda,<span class="dv">2</span>)<span class="sc">}</span><span class="ss"> ; μ = </span><span class="sc">{</span><span class="bu">round</span>(ℂ.mu,<span class="dv">2</span>)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>E, ν <span class="op">=</span> Enu_from_kmu(k, µ)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> np.allclose([k, μ], [<span class="op">*</span>kmu_from_Enu(E, ν)]), <span class="st">"error kmu_from_Enu(E, ν) should return k, μ"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ℂ =
+ Order 4 ISO tensor | Param(size=2)=[ 217.5 65.4 ] | Angles(size=0)=[ ]
+[ 116.1 50.7 50.7 0 0 0 
+  50.7 116.1 50.7 0 0 0 
+  50.7 50.7 116.1 0 0 0 
+  0 0 0 65.4 0 0 
+  0 0 0 0 65.4 0 
+  0 0 0 0 0 65.4 ]
+
+E = 85.28 ; ν = 0.3 ; λ = 50.7 ; μ = 32.7</code></pre>
+</div>
+</div>
+</section>
+<section id="symmetric-transversely-isotropic-fourth-order-tensors-ti" class="level2">
+<h2 class="anchored" data-anchor-id="symmetric-transversely-isotropic-fourth-order-tensors-ti">Symmetric transversely isotropic fourth-order tensors (<code>TI</code>)</h2>
+<p>Such a tensor depends on 5 parameters and 2 angles <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\phi\)</span> defining the orientation of the normal to the isotropy plane (see <a href="../99_appendices/tensor_algebra.html#fig-eulerangles" class="quarto-xref">Fig.&nbsp;<span>A.1</span></a>).</p>
+<p>The decomposition on the symmetric Walpole tensors writes by means of five parameters <span class="math inline">\((t_i)_{i=1,\ldots,5}\)</span>. In the frame where <span class="math inline">\(\uv{n}=\ve{3}\)</span> the matrix is given by</p>
+<p><span class="math display">\[
+\uuuu{T}=\sum_{i=1}^5 t_i \uuuu{W}^s_i
+\mapsto
+\left(
+\begin{array}{cccccc}
+\frac{t_2 + t_4}{2} &amp; \frac{t_2 - t_4}{2} &amp; \frac{\sqrt{2} \, t_3}{2} &amp; 0 &amp; 0 &amp; 0 \\
+\frac{t_2 - t_4}{2} &amp; \frac{t_2 + t_4}{2} &amp; \frac{\sqrt{2} \, t_3}{2} &amp; 0 &amp; 0 &amp; 0 \\
+\frac{\sqrt{2} \, t_3}{2} &amp; \frac{\sqrt{2} \, t_3}{2} &amp; t_1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; t_5 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; t_5 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; t_4 \\
+\end{array}
+\right)
+\]</span></p>
+<p>A fourth-order transversely isotropic tensor can be built by one of these constructors</p>
+<ul>
+<li><code>T = tensor(t1, t2, t3, t4, t5, θ=0, ϕ=0)</code></li>
+<li><code>T = tensor(param, angles=[0, 0])</code></li>
+</ul>
+<p>where <code>param</code> is a <code>list</code> or a <code>numpy.ndarray</code> of 5 items and <code>angles</code> is a <code>list</code> or a <code>numpy.ndarray</code> of 2 items <code>θ, ϕ</code> (if <code>angles</code> is omitted the angles are null and the axis is oriented along <span class="math inline">\(\ve{3}\)</span>)</p>
+<div id="ff04b8aa" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>param <span class="op">=</span> [<span class="fl">3.</span>, <span class="fl">4.</span>, math.sqrt(<span class="dv">2</span>), <span class="fl">2.</span>, <span class="fl">1.</span>]</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>angles <span class="op">=</span> [π<span class="op">/</span><span class="dv">3</span>, π<span class="op">/</span><span class="dv">4</span>]</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tensor(param))</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tensor(param, angles))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Order 4 TI tensor | Param(size=5)=[ 3 4 1.41421 2 1 ] | Angles(size=2)=[ 0 0 ]
+[ 3 1 1 0 0 0 
+  1 3 1 0 0 0 
+  1 1 3 0 0 0 
+  0 0 0 1 0 0 
+  0 0 0 0 1 0 
+  0 0 0 0 0 2 ]
+
+Order 4 TI tensor | Param(size=5)=[ 3 4 1.41421 2 1 ] | Angles(size=2)=[ 1.0472 0.785398 ]
+[ 2.53125 1.28125 1.1875 0.32476 -0.108253 -0.132583 
+  1.28125 2.53125 1.1875 -0.108253 0.32476 -0.132583 
+  1.1875 1.1875 2.625 -0.216506 -0.216506 0.265165 
+  0.32476 -0.108253 -0.216506 1.75 3.33067e-16 0.153093 
+  -0.108253 0.32476 -0.216506 3.33067e-16 1.75 0.153093 
+  -0.132583 -0.132583 0.265165 0.153093 0.153093 1.8125 ]
+</code></pre>
+</div>
+</div>
+<p>It is also possible to build a <code>TI</code> tensor by means of 5 <span class="math inline">\(C_{ijkl}\)</span> moduli:</p>
+<p><span class="math display">\[
+(T_{1 1 1 1}, T_{1 1 2 2}, T_{1 1 3 3}, T_{3 3 3 3}, T_{2 3 2 3})
+\mapsto
+\left(
+\begin{array}{cccccc}
+T_{1 1 1 1} &amp; T_{1 1 2 2} &amp; T_{1 1 3 3} &amp; 0 &amp; 0 &amp; 0 \\
+T_{1 1 2 2} &amp; T_{1 1 1 1} &amp; T_{1 1 3 3} &amp; 0 &amp; 0 &amp; 0 \\
+T_{1 1 3 3} &amp; T_{1 1 3 3} &amp; T_{3 3 3 3} &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 2 \, T_{2 3 2 3} &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 2 \, T_{2 3 2 3} &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; T_{1 1 1 1} - T_{1 1 2 2} \\
+\end{array}
+\right)
+\]</span></p>
+<p>by</p>
+<p><code>T = stiff_TI(T₁₁₁₁, T₁₁₂₂, T₁₁₃₃, T₃₃₃₃, T₂₃₂₃, θ=0, ϕ=0)</code></p>
+<div id="de06bfab" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> stiff_TI(<span class="fl">6.2</span>, <span class="fl">5.6</span>, <span class="fl">1.3</span>, <span class="fl">2.1</span>, <span class="fl">2.3</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">all</span>(v <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">for</span> v <span class="kw">in</span> np.linalg.eigvals(T.a)), <span class="st">"one eigenvalue is negative"</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># check that T is positive definite</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(T)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(stiff_TI(<span class="fl">6.2</span>, <span class="fl">5.6</span>, <span class="fl">1.3</span>, <span class="fl">2.1</span>, <span class="fl">2.3</span>, π<span class="op">/</span><span class="dv">3</span>, π<span class="op">/</span><span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Order 4 TI tensor | Param(size=5)=[ 2.1 11.8 1.83848 0.6 4.6 ] | Angles(size=2)=[ 0 0 ]
+[ 6.2 5.6 1.3 0 0 0 
+  5.6 6.2 1.3 0 0 0 
+  1.3 1.3 2.1 0 0 0 
+  0 0 0 4.6 0 0 
+  0 0 0 0 4.6 0 
+  0 0 0 0 0 0.6 ]
+
+Order 4 TI tensor | Param(size=5)=[ 2.1 11.8 1.83848 0.6 4.6 ] | Angles(size=2)=[ 1.0472 0.785398 ]
+[ 5.48281 1.88281 2.58437 -2.43028 -0.698233 -0.855157 
+  1.88281 5.48281 2.58438 -0.698233 -2.43028 -0.855157 
+  2.58437 2.58438 5.83125 -0.50879 -0.50879 -2.74446 
+  -2.43028 -0.698233 -0.50879 2.44375 0.84375 0.421006 
+  -0.698233 -2.43028 -0.50879 0.84375 2.44375 0.421006 
+  -0.855157 -0.855157 -2.74446 0.421006 0.421006 2.61563 ]
+</code></pre>
+</div>
+</div>
+<p>A engineering construction based on directional moduli and Poisson ratio is also available:</p>
+<p><span class="math display">\[
+(E_1, E_3, \nu_{1 2}, \nu_{3 1}, G_{3 1})
+\mapsto
+\left(
+\begin{array}{cccccc}
+\frac{1}{E_1} &amp; \frac{ - \nu_{1 2}}{E_1} &amp; \frac{ - \nu_{3 1}}{E_3} &amp; 0 &amp; 0 &amp; 0 \\
+\frac{ - \nu_{1 2}}{E_1} &amp; \frac{1}{E_1} &amp; \frac{ - \nu_{3 1}}{E_3} &amp; 0 &amp; 0 &amp; 0 \\
+\frac{ - \nu_{3 1}}{E_3} &amp; \frac{ - \nu_{3 1}}{E_3} &amp; \frac{1}{E_3} &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; \frac{1}{2 \, G_{3 1}} &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; \frac{1}{2 \, G_{3 1}} &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \frac{1 + \nu_{1 2}}{E_1} \\
+\end{array}
+\right)
+\]</span></p>
+<p>by</p>
+<p><code>S = comp_TI(E₁, E₃, ν₁₂, ν₃₁, G₃₁, θ=0, ϕ=0)</code></p>
+<div id="21876249" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>S <span class="op">=</span> comp_TI(<span class="fl">1.</span>, <span class="fl">4.</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">2.</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(S)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(inv(S))</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(comp_TI(<span class="fl">1.</span>, <span class="fl">4.</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">2.</span>, π<span class="op">/</span><span class="dv">3</span>, π<span class="op">/</span><span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Order 4 TI tensor | Param(size=5)=[ 0.25 0.8 -0.0353553 1.2 0.25 ] | Angles(size=2)=[ 0 0 ]
+[ 1 -0.2 -0.025 0 0 0 
+  -0.2 1 -0.025 0 0 0 
+  -0.025 -0.025 0.25 0 0 0 
+  0 0 0 0.25 0 0 
+  0 0 0 0 0.25 0 
+  0 0 0 0 0 1.2 ]
+
+Order 4 TI tensor | Param(size=5)=[ 4.02516 1.25786 0.177888 0.833333 4 ] | Angles(size=2)=[ 0 0 ]
+[ 1.0456 0.212264 0.125786 0 0 0 
+  0.212264 1.0456 0.125786 0 0 0 
+  0.125786 0.125786 4.02516 0 0 0 
+  0 0 0 4 0 0 
+  0 0 0 0 4 0 
+  0 0 0 0 0 0.833333 ]
+
+Order 4 TI tensor | Param(size=5)=[ 0.25 0.8 -0.0353553 1.2 0.25 ] | Angles(size=2)=[ 1.0472 0.785398 ]
+[ 0.53125 0.04375 -0.015625 0.205681 -0.205681 -0.251907 
+  0.04375 0.53125 -0.015625 -0.205681 0.205681 -0.251907 
+  -0.015625 -0.015625 0.6625 -0.248982 -0.248982 0.198874 
+  0.205681 -0.205681 -0.248982 0.75625 -0.20625 -0.107165 
+  -0.205681 0.205681 -0.248982 -0.20625 0.75625 -0.107165 
+  -0.251907 -0.251907 0.198874 -0.107165 -0.107165 0.7125 ]
+</code></pre>
+</div>
+</div>
+</section>
+<section id="symmetric-orthotropic-fourth-order-tensors-ortho" class="level2">
+<h2 class="anchored" data-anchor-id="symmetric-orthotropic-fourth-order-tensors-ortho">Symmetric orthotropic fourth-order tensors (<code>ORTHO</code>)</h2>
+<p>Such a tensor depends on 9 parameters and 3 angles <span class="math inline">\(\theta\)</span>, <span class="math inline">\(\phi\)</span> and <span class="math inline">\(\psi\)</span> defining the orientation of an orthonormal frame (see <a href="../99_appendices/tensor_algebra.html#fig-eulerangles" class="quarto-xref">Fig.&nbsp;<span>A.1</span></a>).</p>
+<p>The convention here relies on the components <span class="math inline">\(T_{1 1 1 1}, T_{1 1 2 2}, T_{1 1 3 3}, T_{2 2 2 2}, T_{2 2 3 3}, T_{3 3 3 3}, T_{2 3 2 3}, T_{3 1 3 1}, T_{1 2 1 2}\)</span> as inputs. In the canonical frame the matrix is given by</p>
+<p><span class="math display">\[
+\small
+(T_{1 1 1 1}, T_{1 1 2 2}, T_{1 1 3 3}, T_{2 2 2 2}, T_{2 2 3 3}, T_{3 3 3 3}, T_{2 3 2 3}, T_{3 1 3 1}, T_{1 2 1 2})
+\mapsto
+\left(
+\begin{array}{cccccc}
+T_{1 1 1 1} &amp; T_{1 1 2 2} &amp; T_{1 1 3 3} &amp; 0 &amp; 0 &amp; 0 \\
+T_{1 1 2 2} &amp; T_{2 2 2 2} &amp; T_{2 2 3 3} &amp; 0 &amp; 0 &amp; 0 \\
+T_{1 1 3 3} &amp; T_{2 2 3 3} &amp; T_{3 3 3 3} &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 2 \, T_{2 3 2 3} &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 2 \, T_{3 1 3 1} &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 2 \, T_{1 2 1 2} \\
+\end{array}
+\right)
+\]</span></p>
+<p>A fourth-order isotropic tensor can be built by one of these constructors</p>
+<ul>
+<li><code>T = tensor(T₁₁₁₁, T₁₁₂₂, T₁₁₃₃, T₂₂₂₂, T₂₂₃₃, T₃₃₃₃, T₂₃₂₃, T₃₁₃₁, T₁₂₁₂, θ=0, ϕ=0, ψ=0)</code></li>
+<li><code>T = tensor(param, angles=[0, 0, 0])</code></li>
+</ul>
+<p>where <code>param</code> is a <code>list</code> or a <code>numpy.ndarray</code> of 9 items and <code>angles</code> is a <code>list</code> or a <code>numpy.ndarray</code> of 3 items <code>θ, ϕ, ψ</code> (if <code>angles</code> is omitted the frame is the canonical one).</p>
+<div id="90cccb8d" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> tensor([<span class="fl">9.</span>,<span class="fl">3.</span>,<span class="fl">5.</span>,<span class="fl">6.</span>,<span class="fl">3.</span>,<span class="fl">7.</span>,<span class="fl">1.</span>,<span class="fl">4.</span>,<span class="fl">3.</span>])</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">all</span>(v <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">for</span> v <span class="kw">in</span> np.linalg.eigvals(T.a)), <span class="st">"one eigenvalue is negative"</span> <span class="co"># check that T is positive definite</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(T)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tensor([<span class="fl">9.</span>,<span class="fl">3.</span>,<span class="fl">5.</span>,<span class="fl">6.</span>,<span class="fl">3.</span>,<span class="fl">7.</span>,<span class="fl">1.</span>,<span class="fl">4.</span>,<span class="fl">3.</span>], [π<span class="op">/</span><span class="dv">3</span>, π<span class="op">/</span><span class="dv">4</span>, π<span class="op">/</span><span class="dv">5</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Order 4 ORTHO tensor | Param(size=9)=[ 9 3 5 6 3 7 1 4 3 ] | Angles(size=3)=[ 0 0 0 ]
+[ 9 3 5 0 0 0 
+  3 6 3 0 0 0 
+  5 3 7 0 0 0 
+  0 0 0 2 0 0 
+  0 0 0 0 8 0 
+  0 0 0 0 0 6 ]
+
+Order 4 ORTHO tensor | Param(size=9)=[ 9 3 5 6 3 7 1 4 3 ] | Angles(size=3)=[ 1.0472 0.785398 0.628319 ]
+[ 5.83478 3.57431 3.79988 0.0416272 0.710013 -0.509607 
+  3.57431 9.74488 2.26743 -1.24237 -0.0801039 0.934783 
+  3.79988 2.26743 9.1371 -0.976365 1.31117 0.522827 
+  0.0416272 -1.24237 -0.976365 3.25126 -0.192475 -0.544059 
+  0.710013 -0.0801039 1.31117 -0.192475 5.36512 -1.53671 
+  -0.509607 0.934783 0.522827 -0.544059 -1.53671 4.66686 ]
+</code></pre>
+</div>
+</div>
+</section>
+<section id="symmetric-anisotropic-fourth-order-tensors-aniso" class="level2">
+<h2 class="anchored" data-anchor-id="symmetric-anisotropic-fourth-order-tensors-aniso">Symmetric anisotropic fourth-order tensors (<code>ANISO</code>)</h2>
+<p>Such a tensor depends on 21 parameters, by convention here the 21 components of the Kelvin-Mandel notation. Components are considered line after line of the upper triangular part of the Kelvin-Mandel matrix</p>
+<p><span class="math display">\[
+\begin{array}{cccccc}
+   (T_{11},&amp;T_{12},&amp;T_{13},&amp;T_{14},&amp;T_{15},&amp;T_{16}\\
+                          &amp;T_{22},&amp;T_{23},&amp;T_{24},&amp;T_{25},&amp;T_{26}\\
+                          &amp;            &amp;T_{33},&amp;T_{34},&amp;T_{35},&amp;T_{36}\\
+                          &amp;            &amp;             &amp;T_{44},&amp;T_{45},&amp;T_{46}\\
+                          &amp;            &amp;             &amp;            &amp;T_{55},&amp;T_{56}\\
+                          &amp;            &amp;             &amp;            &amp;            &amp;T_{66})
+   \end{array}
+\mapsto
+\left(
+\begin{array}{cccccc}
+     T_{11}&amp;T_{12}&amp;T_{13}&amp;T_{14}&amp;T_{15}&amp;T_{16}\\
+     T_{12}&amp;T_{22}&amp;T_{23}&amp;T_{24}&amp;T_{25}&amp;T_{26}\\
+     T_{13}&amp;T_{23}&amp;T_{33}&amp;T_{34}&amp;T_{35}&amp;T_{36}\\
+     T_{14}&amp;T_{24}&amp;T_{34}&amp;T_{44}&amp;T_{45}&amp;T_{46}\\
+     T_{15}&amp;T_{25}&amp;T_{35}&amp;T_{45}&amp;T_{55}&amp;T_{56}\\
+     T_{16}&amp;T_{26}&amp;T_{36}&amp;T_{46}&amp;T_{56}&amp;T_{66}
+\end{array}
+\right)
+\]</span></p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It is important to recall here that the parameters <span class="math inline">\(T_{IJ}\)</span> with <span class="math inline">\(1\leq I,J\leq 6\)</span> do not all coincide with the components <span class="math inline">\(T_{ijkl}\)</span>. Indeed the convention presented in <a href="../99_appendices/tensor_algebra.html#sec-KM" class="quarto-xref"><span>Section A.2</span></a> implies that <span class="math inline">\(T_{11}=T_{1111}\)</span> but <span class="math inline">\(T_{14}=\sqrt{2}\,T_{1123}\)</span> and <span class="math inline">\(T_{44}=2\,T_{2323}\)</span>.</p>
+</div>
+</div>
+<p>Such a tensor is built by</p>
+<p><code>T = tensor(param)</code></p>
+<p>where <code>param</code> is a <code>list</code> or a <code>numpy.ndarray</code> of 21 items.</p>
+<div id="046b1c82" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>param <span class="op">=</span> [ <span class="fl">2.66011</span>, <span class="fl">1.26432</span>, <span class="fl">0.662772</span>, <span class="fl">1.9402</span>, <span class="fl">1.54905</span>, <span class="fl">1.10384</span>, <span class="fl">3.6072</span>, <span class="fl">1.78964</span>, <span class="fl">2.0247</span>, <span class="fl">1.2701</span>, <span class="fl">1.1089</span>, <span class="fl">2.743</span>, <span class="fl">1.3367</span>, <span class="fl">1.2962</span>, <span class="fl">0.897632</span>, <span class="fl">4.42684</span>, <span class="fl">2.05632</span>, <span class="fl">1.52686</span>, <span class="fl">3.54431</span>, <span class="fl">1.3445</span>, <span class="fl">1.99356</span> ]</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> tensor(param)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">all</span>(v <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">for</span> v <span class="kw">in</span> np.linalg.eigvals(T.a)), <span class="st">"one eigenvalue is negative"</span> <span class="co"># check that T is positive definite</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Order 4 ANISO tensor | Param(size=21)=[ 2.66011 1.26432 0.662772 1.9402 1.54905 1.10384 3.6072 1.78964 2.0247 1.2701 1.1089 2.743 1.3367 1.2962 0.897632 4.42684 2.05632 1.52686 3.54431 1.3445 1.99356 ] | Angles(size=0)=[ ]
+[ 2.66011 1.26432 0.662772 1.9402 1.54905 1.10384 
+  1.26432 3.6072 1.78964 2.0247 1.2701 1.1089 
+  0.662772 1.78964 2.743 1.3367 1.2962 0.897632 
+  1.9402 2.0247 1.3367 4.42684 2.05632 1.52686 
+  1.54905 1.2701 1.2962 2.05632 3.54431 1.3445 
+  1.10384 1.1089 0.897632 1.52686 1.3445 1.99356 ]
+</code></pre>
+</div>
+</div>
+</section>
+<section id="construction-of-a-fourth-order-tensor-from-a-66-matrix-and-projections" class="level2">
+<h2 class="anchored" data-anchor-id="construction-of-a-fourth-order-tensor-from-a-66-matrix-and-projections">Construction of a fourth-order <code>tensor</code> from a <span class="math inline">\(6×6\)</span> matrix and projections</h2>
+<p>Given a symmetric positive definite <span class="math inline">\(6×6\)</span> matrix <code>M</code> (warning: these properties are not checked on construction), a tensor can be built by one of the function</p>
+<ul>
+<li><code>T = tensor(M)</code></li>
+<li><code>T = tensor(M, angles=[θ, ϕ])</code></li>
+</ul>
+<p>By default, this function finds out whether <code>M</code> represents an <code>ISO</code>, <code>TI</code> or <code>ORTHO</code> tensor in the canonical frame if <code>angles</code> is not precised or in the frame defined by <code>angles</code>. If none of these symmetries is suitable, the tensor is considered <code>ANISO</code>.</p>
+<div id="ce8bb811" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>angles <span class="op">=</span> [π<span class="op">/</span><span class="dv">3</span>, π<span class="op">/</span><span class="dv">4</span>, π<span class="op">/</span><span class="dv">5</span>]</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> tensor([<span class="fl">9.</span>,<span class="fl">3.</span>,<span class="fl">5.</span>,<span class="fl">6.</span>,<span class="fl">3.</span>,<span class="fl">7.</span>,<span class="fl">1.</span>,<span class="fl">4.</span>,<span class="fl">3.</span>], angles)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>M <span class="op">=</span> T.a</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"M =</span><span class="ch">\n</span><span class="st">"</span>, M) <span class="co"># the information about ORTHO symmetry has vanished in M</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>T2 <span class="op">=</span> tensor(M, angles<span class="op">=</span>angles)</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(T2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>M =
+ [[ 5.834782  3.574311  3.799884  0.041627  0.710013 -0.509607]
+ [ 3.574311  9.744881  2.267425 -1.242374 -0.080104  0.934783]
+ [ 3.799884  2.267425  9.137098 -0.976365  1.311174  0.522827]
+ [ 0.041627 -1.242374 -0.976365  3.25126  -0.192475 -0.544059]
+ [ 0.710013 -0.080104  1.311174 -0.192475  5.36512  -1.536706]
+ [-0.509607  0.934783  0.522827 -0.544059 -1.536706  4.666858]]
+Order 4 ORTHO tensor | Param(size=9)=[ 9 3 5 6 3 7 1 4 3 ] | Angles(size=3)=[ 1.0472 0.785398 0.628319 ]
+[ 5.83478 3.57431 3.79988 0.0416272 0.710013 -0.509607 
+  3.57431 9.74488 2.26743 -1.24237 -0.0801039 0.934783 
+  3.79988 2.26743 9.1371 -0.976365 1.31117 0.522827 
+  0.0416272 -1.24237 -0.976365 3.25126 -0.192475 -0.544059 
+  0.710013 -0.0801039 1.31117 -0.192475 5.36512 -1.53671 
+  -0.509607 0.934783 0.522827 -0.544059 -1.53671 4.66686 ]
+</code></pre>
+</div>
+</div>
+<p>Given a <span class="math inline">\(6×6\)</span> matrix supposed to represent a tensor in the canonical frame, it is possible to find the closest tensor (in the sense of least-squares relatively to the euclidean matrix norm) among a family of given material symmetry. The syntax is simply <code>T = tensor(M, SYM)</code> where <code>SYM</code> denotes the chosen class of symmetry (<code>ISO</code>, <code>TI</code>, <code>ORTHO</code>).</p>
+<p>For example the closest <code>ISO</code> tensor is calculated by</p>
+<p><code>T = tensor(M, ISO)</code></p>
+<p>In this case it boils down to the “isotropisation” of the tensor <span class="math inline">\(\uuuu{T}\)</span> given by <span class="citation" data-cites="bornert2001a">(<a href="../references.html#ref-bornert2001a" role="doc-biblioref">Bornert et al., 2001</a>)</span></p>
+<p><span class="math display">\[
+\ISO(\uuuu{T})=\left(\uuuu{T}::\uuuu{J}\right)\,\uuuu{J}+\left(\frac{\uuuu{T}::\uuuu{K}}{5}\right)\,\uuuu{K}
+\]</span></p>
+<div id="a0e25f55" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>M <span class="op">=</span> np.array([ [<span class="fl">2.66011</span>, <span class="fl">1.26432</span>, <span class="fl">0.662772</span>, <span class="fl">1.9402</span>, <span class="fl">1.54905</span>, <span class="fl">1.10384</span>],</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">1.26432</span>, <span class="fl">3.6072</span>, <span class="fl">1.78964</span>, <span class="fl">2.0247</span>, <span class="fl">1.2701</span>, <span class="fl">1.1089</span>], </span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">0.662772</span>, <span class="fl">1.78964</span>, <span class="fl">2.743</span>, <span class="fl">1.3367</span>, <span class="fl">1.2962</span>, <span class="fl">0.897632</span>], </span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">1.9402</span>, <span class="fl">2.0247</span> ,<span class="fl">1.3367</span>, <span class="fl">4.42684</span>, <span class="fl">2.05632</span>, <span class="fl">1.52686</span>], </span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">1.54905</span>, <span class="fl">1.2701</span>, <span class="fl">1.2962</span>, <span class="fl">2.05632</span>, <span class="fl">3.54431</span>, <span class="fl">1.3445</span>], </span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">1.10384</span>, <span class="fl">1.1089</span>, <span class="fl">0.897632</span>, <span class="fl">1.52686</span>, <span class="fl">1.3445</span>, <span class="fl">1.99356</span>] ])</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> tensor(M,ISO)</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"T =</span><span class="ch">\n</span><span class="st">"</span>, T)</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>cont4<span class="op">=</span><span class="kw">lambda</span> T1,T2:np.einsum(<span class="st">'ij,ij'</span>,T1,T2) <span class="co"># T1 and T2 in KM notation so 2 indices</span></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>T2 <span class="op">=</span> tensor(cont4(M,J4), cont4(M,K4)<span class="op">/</span><span class="dv">5</span>)</span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"T2 =</span><span class="ch">\n</span><span class="st">"</span>, T2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>T =
+ Order 4 ISO tensor | Param(size=2)=[ 5.48126 2.69875 ] | Angles(size=0)=[ ]
+[ 3.62625 0.927502 0.927502 0 0 0 
+  0.927502 3.62625 0.927502 0 0 0 
+  0.927502 0.927502 3.62625 0 0 0 
+  0 0 0 2.69875 0 0 
+  0 0 0 0 2.69875 0 
+  0 0 0 0 0 2.69875 ]
+
+T2 =
+ Order 4 ISO tensor | Param(size=2)=[ 5.48126 2.69875 ] | Angles(size=0)=[ ]
+[ 3.62625 0.927502 0.927502 0 0 0 
+  0.927502 3.62625 0.927502 0 0 0 
+  0.927502 0.927502 3.62625 0 0 0 
+  0 0 0 2.69875 0 0 
+  0 0 0 0 2.69875 0 
+  0 0 0 0 0 2.69875 ]
+</code></pre>
+</div>
+</div>
+<p>Check a well-known result stating that the inverse of the closest isotropic tensor is in general <strong>not</strong> the closest isotropic tensor of the inverse.</p>
+<div id="c0b7d1b2" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>M <span class="op">=</span> np.array([ [<span class="fl">2.66011</span>, <span class="fl">1.26432</span>, <span class="fl">0.662772</span>, <span class="fl">1.9402</span>, <span class="fl">1.54905</span>, <span class="fl">1.10384</span>],</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">1.26432</span>, <span class="fl">3.6072</span>, <span class="fl">1.78964</span>, <span class="fl">2.0247</span>, <span class="fl">1.2701</span>, <span class="fl">1.1089</span>], </span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">0.662772</span>, <span class="fl">1.78964</span>, <span class="fl">2.743</span>, <span class="fl">1.3367</span>, <span class="fl">1.2962</span>, <span class="fl">0.897632</span>], </span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">1.9402</span>, <span class="fl">2.0247</span> ,<span class="fl">1.3367</span>, <span class="fl">4.42684</span>, <span class="fl">2.05632</span>, <span class="fl">1.52686</span>], </span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">1.54905</span>, <span class="fl">1.2701</span>, <span class="fl">1.2962</span>, <span class="fl">2.05632</span>, <span class="fl">3.54431</span>, <span class="fl">1.3445</span>], </span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">1.10384</span>, <span class="fl">1.1089</span>, <span class="fl">0.897632</span>, <span class="fl">1.52686</span>, <span class="fl">1.3445</span>, <span class="fl">1.99356</span>] ])</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> tensor(M, ISO)</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"inv(ISO(M)) =</span><span class="ch">\n</span><span class="st">"</span>, inv(tensor(M, ISO)))</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"ISO(inv(M)) =</span><span class="ch">\n</span><span class="st">"</span>, tensor(np.linalg.inv(M), ISO))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>inv(ISO(M)) =
+ Order 4 ISO tensor | Param(size=2)=[ 0.18244 0.370542 ] | Angles(size=0)=[ ]
+[ 0.307841 -0.0627006 -0.0627006 0 0 0 
+  -0.0627006 0.307841 -0.0627006 0 0 0 
+  -0.0627006 -0.0627006 0.307841 0 0 0 
+  0 0 0 0.370542 0 0 
+  0 0 0 0 0.370542 0 
+  0 0 0 0 0 0.370542 ]
+
+ISO(inv(M)) =
+ Order 4 ISO tensor | Param(size=2)=[ 0.416399 0.615133 ] | Angles(size=0)=[ ]
+[ 0.548889 -0.0662448 -0.0662448 0 0 0 
+  -0.0662448 0.548889 -0.0662448 0 0 0 
+  -0.0662448 -0.0662448 0.548889 0 0 0 
+  0 0 0 0.615133 0 0 
+  0 0 0 0 0.615133 0 
+  0 0 0 0 0 0.615133 ]
+</code></pre>
+</div>
+</div>
+<p>The closest <code>TI</code> tensor in the frame defined by given angles is calculated by</p>
+<p><code>T = tensor(M, TI, angles=[θ, ϕ], epsrel=1.e-3)</code></p>
+<p>where <code>epsrel</code> is a relative stop criterion for the iterative least-square algorithm.</p>
+<div id="8e4581ab" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tensor(M, TI, angles<span class="op">=</span>[π<span class="op">/</span><span class="dv">3</span>,π<span class="op">/</span><span class="dv">4</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Order 4 TI tensor | Param(size=5)=[ 9.90471 1.93007 0.947144 1.68894 1.88118 ] | Angles(size=2)=[ 1.0472 0.785398 ]
+[ 3.29543 1.46231 1.08371 1.31151 1.39476 1.70822 
+  1.46231 3.29543 1.08371 1.39476 1.31151 1.70822 
+  1.08371 1.08371 2.59348 1.03685 1.03685 1.16792 
+  1.31151 1.39476 1.03685 3.04891 1.31191 1.57733 
+  1.39476 1.31151 1.03685 1.31191 3.04891 1.57733 
+  1.70822 1.70822 1.16792 1.57733 1.57733 3.69285 ]
+</code></pre>
+</div>
+</div>
+<p>One can also optimize with respect to the angles so as to find the best frame for a given symmetry</p>
+<p><code>T = tensor(M, TI, epsrel=1.e-3, optiangles=True)</code></p>
+<p>where <code>epsrel</code> is a relative stop criterion for the iterative least-square algorithm.</p>
+<div id="7d75e508" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tensor(M, TI, epsrel<span class="op">=</span><span class="fl">1.e-3</span>, optiangles<span class="op">=</span><span class="va">True</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Order 4 TI tensor | Param(size=5)=[ 10.2696 1.81638 0.89854 1.70466 1.73988 ] | Angles(size=2)=[ 0.92234 0.891541 ]
+[ 2.52626 1.12576 1.07821 1.27354 1.04336 1.07127 
+  1.12576 3.30972 1.51116 1.80824 1.44496 1.49908 
+  1.07821 1.51116 3.17755 1.73199 1.39846 1.42041 
+  1.27354 1.80824 1.73199 3.77321 1.65983 1.70366 
+  1.04336 1.44496 1.39846 1.65983 3.05771 1.38017 
+  1.07127 1.49908 1.42041 1.70366 1.38017 3.13058 ]
+</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<iconify-icon role="img" inline="" icon="healthicons:exercise-outline" aria-label="Icon exercise-outline from healthicons Iconify.design set." title="Icon exercise-outline from healthicons Iconify.design set."></iconify-icon> Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Find the closest <code>ORTHO</code> tensor <code>T</code> from the previous matrix <code>M</code> (also optimizing the angles)</p></li>
+<li><p>Build a new tensor from the matrix of <code>T</code> (in the canonical frame)</p></li>
+<li><p>Build a new tensor from the matrix of <code>T</code> and the angles of <code>T</code></p></li>
+<li><p>Find the tensor of best symmetry from the matrix of <code>T</code> with angle optimization</p></li>
+</ol>
+<div id="ebff3692" class="cell" data-execution_count="20">
+<details class="code-fold">
+<summary>Solution</summary>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>M <span class="op">=</span> np.array([ [<span class="fl">2.66011</span>, <span class="fl">1.26432</span>, <span class="fl">0.662772</span>, <span class="fl">1.9402</span>, <span class="fl">1.54905</span>, <span class="fl">1.10384</span>],</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">1.26432</span>, <span class="fl">3.6072</span>, <span class="fl">1.78964</span>, <span class="fl">2.0247</span>, <span class="fl">1.2701</span>, <span class="fl">1.1089</span>], </span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">0.662772</span>, <span class="fl">1.78964</span>, <span class="fl">2.743</span>, <span class="fl">1.3367</span>, <span class="fl">1.2962</span>, <span class="fl">0.897632</span>], </span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">1.9402</span>, <span class="fl">2.0247</span> ,<span class="fl">1.3367</span>, <span class="fl">4.42684</span>, <span class="fl">2.05632</span>, <span class="fl">1.52686</span>], </span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">1.54905</span>, <span class="fl">1.2701</span>, <span class="fl">1.2962</span>, <span class="fl">2.05632</span>, <span class="fl">3.54431</span>, <span class="fl">1.3445</span>], </span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">1.10384</span>, <span class="fl">1.1089</span>, <span class="fl">0.897632</span>, <span class="fl">1.52686</span>, <span class="fl">1.3445</span>, <span class="fl">1.99356</span>] ])</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> tensor(M, ORTHO, optiangles<span class="op">=</span><span class="va">True</span>) <span class="op">;</span> <span class="bu">print</span>(T)</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tensor(T.a))</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tensor(T.a, angles <span class="op">=</span> T.angles))</span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tensor(T.a, optiangles <span class="op">=</span> <span class="va">True</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Order 4 ORTHO tensor | Param(size=9)=[ 10.2695 -0.375452 1.64478 2.06277 -0.00326333 1.57933 0.792497 1.03801 0.701183 ] | Angles(size=3)=[ 1.522 2.49696 0.924649 ]
+[ 2.80357 1.20599 1.14979 1.63413 1.50234 1.16022 
+  1.20599 3.38542 1.441 2.18362 1.51678 1.17623 
+  1.14979 1.441 2.6612 1.44697 1.1142 0.974349 
+  1.63413 2.18362 1.44697 4.52485 2.11525 1.42722 
+  1.50234 1.51678 1.1142 2.11525 3.37899 1.16562 
+  1.16022 1.17623 0.974349 1.42722 1.16562 2.22099 ]
+
+Order 4 ANISO tensor | Param(size=21)=[ 2.80357 1.20599 1.14979 1.63413 1.50234 1.16022 3.38542 1.441 2.18362 1.51678 1.17623 2.6612 1.44697 1.1142 0.974349 4.52485 2.11525 1.42722 3.37899 1.16562 2.22099 ] | Angles(size=0)=[ ]
+[ 2.80357 1.20599 1.14979 1.63413 1.50234 1.16022 
+  1.20599 3.38542 1.441 2.18362 1.51678 1.17623 
+  1.14979 1.441 2.6612 1.44697 1.1142 0.974349 
+  1.63413 2.18362 1.44697 4.52485 2.11525 1.42722 
+  1.50234 1.51678 1.1142 2.11525 3.37899 1.16562 
+  1.16022 1.17623 0.974349 1.42722 1.16562 2.22099 ]
+
+Order 4 ORTHO tensor | Param(size=9)=[ 10.2695 -0.375452 1.64478 2.06277 -0.00326333 1.57933 0.792497 1.03801 0.701183 ] | Angles(size=3)=[ 1.522 2.49696 0.924649 ]
+[ 2.80357 1.20599 1.14979 1.63413 1.50234 1.16022 
+  1.20599 3.38542 1.441 2.18362 1.51678 1.17623 
+  1.14979 1.441 2.6612 1.44697 1.1142 0.974349 
+  1.63413 2.18362 1.44697 4.52485 2.11525 1.42722 
+  1.50234 1.51678 1.1142 2.11525 3.37899 1.16562 
+  1.16022 1.17623 0.974349 1.42722 1.16562 2.22099 ]
+
+Order 4 ORTHO tensor | Param(size=9)=[ 10.2695 -0.375452 1.64478 2.06277 -0.00326333 1.57933 0.792497 1.03801 0.701183 ] | Angles(size=3)=[ 1.522 2.49696 0.924649 ]
+[ 2.80357 1.20599 1.14979 1.63413 1.50234 1.16022 
+  1.20599 3.38542 1.441 2.18362 1.51678 1.17623 
+  1.14979 1.441 2.6612 1.44697 1.1142 0.974349 
+  1.63413 2.18362 1.44697 4.52485 2.11525 1.42722 
+  1.50234 1.51678 1.1142 2.11525 3.37899 1.16562 
+  1.16022 1.17623 0.974349 1.42722 1.16562 2.22099 ]
+</code></pre>
+</div>
+</div>
+</div>
+</div>
+<p><span class="math inline">\(\,\)</span></p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-bornert2001a" class="csl-entry" role="listitem">
+Bornert, M., Bretheau, T., Gilormini, P., 2001. Homogénéisation en mécanique des matériaux. Hermes science.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/jfbarthelemy\.github\.io\/echoes\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation column-body">
+  <div class="nav-page nav-page-previous">
+      <a href="../1_tensor_calculus/special_tensors.html" class="pagination-link" aria-label="Special tensors">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Special tensors</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../2_eshelby/eshelby_hill.html" class="pagination-link" aria-label="Eshelby and Hill polarization tensors">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Eshelby and Hill polarization tensors</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/1_tensor_calculus/tensor.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
