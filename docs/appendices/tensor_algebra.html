@@ -224,6 +224,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Special tensors</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tensor_calculus/tensor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The <code>tensor</code> object</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -271,11 +277,11 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#sec-tensoralgebra_convention" id="toc-sec-tensoralgebra_convention" class="nav-link active" data-scroll-target="#sec-tensoralgebra_convention"><span class="header-section-number">A.1</span> Conventions of tensor algebra</a></li>
-  <li><a href="#sec-KM" id="toc-sec-KM" class="nav-link" data-scroll-target="#sec-KM"><span class="header-section-number">A.2</span> Kelvin-Mandel notation</a></li>
-  <li><a href="#sec-rottens" id="toc-sec-rottens" class="nav-link" data-scroll-target="#sec-rottens"><span class="header-section-number">A.3</span> Rotation of tensors</a></li>
-  <li><a href="#sec-ISO" id="toc-sec-ISO" class="nav-link" data-scroll-target="#sec-ISO"><span class="header-section-number">A.4</span> Fourth-order isotropic tensors</a></li>
-  <li><a href="#sec-TI" id="toc-sec-TI" class="nav-link" data-scroll-target="#sec-TI"><span class="header-section-number">A.5</span> Fourth-order transversely isotropic tensors and Walpole basis</a></li>
+  <li><a href="#sec-tensoralgebra_convention" id="toc-sec-tensoralgebra_convention" class="nav-link active" data-scroll-target="#sec-tensoralgebra_convention">Conventions of tensor algebra</a></li>
+  <li><a href="#sec-KM" id="toc-sec-KM" class="nav-link" data-scroll-target="#sec-KM">Kelvin-Mandel notation</a></li>
+  <li><a href="#sec-rottens" id="toc-sec-rottens" class="nav-link" data-scroll-target="#sec-rottens">Rotation of tensors</a></li>
+  <li><a href="#sec-ISO" id="toc-sec-ISO" class="nav-link" data-scroll-target="#sec-ISO">Fourth-order isotropic tensors</a></li>
+  <li><a href="#sec-TI" id="toc-sec-TI" class="nav-link" data-scroll-target="#sec-TI">Fourth-order transversely isotropic tensors and Walpole basis</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/appendices/tensor_algebra.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
@@ -375,8 +381,8 @@ $$
 </header>
 
 
-<section id="sec-tensoralgebra_convention" class="level2" data-number="A.1">
-<h2 data-number="A.1" class="anchored" data-anchor-id="sec-tensoralgebra_convention"><span class="header-section-number">A.1</span> Conventions of tensor algebra</h2>
+<section id="sec-tensoralgebra_convention" class="level2">
+<h2 class="anchored" data-anchor-id="sec-tensoralgebra_convention">Conventions of tensor algebra</h2>
 <p>This appendix presents some conventions regarding tensor algebra in the usual three-dimensional euclidean space <span class="math inline">\(E=\R^3\)</span>. In the sequel, tensor components are associated to an orthonormal frame <span class="math inline">\((\ve{i})_{i=1,2,3}\)</span> so that introducing the notion of tensor variance is useless here. The following presentation relies on the prior knowledge of the definition of tensors as multilinear operators and the classical isomorphism between the euclidean space and its dual through the scalar product <span id="eq-scalarprod"><span class="math display">\[\begin{aligned}
 \phi\,\colon E &amp; \longrightarrow  E^* \\
        \uv{v} &amp; \longmapsto \uv{v}\cdot\bullet
@@ -460,8 +466,8 @@ $$
 &amp;(h)
 \end{aligned} \tag{A.13}\]</span></span></p>
 </section>
-<section id="sec-KM" class="level2" data-number="A.2">
-<h2 data-number="A.2" class="anchored" data-anchor-id="sec-KM"><span class="header-section-number">A.2</span> Kelvin-Mandel notation</h2>
+<section id="sec-KM" class="level2">
+<h2 class="anchored" data-anchor-id="sec-KM">Kelvin-Mandel notation</h2>
 <p>The Kelvin-Mandel notation allows to write the matrix of a symmetric second-order tensor in a given orthonormal frame under the form of a vector of <span class="math inline">\(\R^6\)</span> <span id="eq-KM2"><span class="math display">\[
    \Mat(\eps,(\ve{i}))=
    \left(
@@ -552,8 +558,8 @@ Note
    \right)
 \tag{A.18}\]</span></span> One may notice that the bottom right <span class="math inline">\(3\times 3\)</span> block of (<a href="#eq-KM4bis" class="quarto-xref"><span>A.18</span></a>) exactly corresponds to the colored block in (<a href="#eq-KM4" class="quarto-xref"><span>A.16</span></a>).</p>
 </section>
-<section id="sec-rottens" class="level2" data-number="A.3">
-<h2 data-number="A.3" class="anchored" data-anchor-id="sec-rottens"><span class="header-section-number">A.3</span> Rotation of tensors</h2>
+<section id="sec-rottens" class="level2">
+<h2 class="anchored" data-anchor-id="sec-rottens">Rotation of tensors</h2>
 <p>Recalling that the set of second-order tensors is isomorphic to the set of endomorphism in an euclidean space, it is natural to define a rotation tensor as an element of the special orthogonal group, i.e.&nbsp;tensors <span class="math inline">\(\uu{R}\)</span> such that <span class="math inline">\(\trans{\uu{R}}\cdot\uu{R}=\uu{1}\)</span> and <span class="math inline">\(\det{\uu{R}}=1\)</span>. In <span class="math inline">\(\R^3\)</span> equipped with an orthonormal frame <span class="math inline">\((\ve{i})_{i=1,2,3}\)</span>, these tensors can be defined by three Euler angles <span class="math inline">\((θ,ϕ,ψ)∈[0,π]×[0,2π]×[0,2π]\)</span> (see <a href="#fig-eurlerangles" class="quarto-xref">Fig.&nbsp;<span>A.1</span></a>) such that<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> <span id="eq-rot3"><span class="math display">\[
 \small
 \Mat(\uu{R},(\ve{i}))=
@@ -607,8 +613,8 @@ R_{3 1}^{2} &amp; R_{3 2}^{2} &amp; R_{3 3}^{2} &amp; \sqrt{2}  R_{3 2}  R_{3 3}
 \right)
 \tag{A.24}\]</span></span> It results that (<a href="#eq-rotT4" class="quarto-xref"><span>A.23</span></a>) can be seen as a classical rotation operation involving matrix multiplications in <span class="math inline">\(\R^6\)</span>.</p>
 </section>
-<section id="sec-ISO" class="level2" data-number="A.4">
-<h2 data-number="A.4" class="anchored" data-anchor-id="sec-ISO"><span class="header-section-number">A.4</span> Fourth-order isotropic tensors</h2>
+<section id="sec-ISO" class="level2">
+<h2 class="anchored" data-anchor-id="sec-ISO">Fourth-order isotropic tensors</h2>
 <p>This paragraph concerns fourth-order tensors operating over symmetrical second-order tensors, which allows to impose that they satisfy the minor symmetries (<span class="math inline">\(C_{jikl}=C_{ijlk}=C_{ijkl}\)</span>). The identity operator is given by <span id="eq-tensI"><span class="math display">\[
 \uuuu{I}=\uu{1}\sboxtimes\uu{1}=
 \frac{\delta_{ik}\delta_{jl}+\delta_{il}\delta_{jk}}{2}\,\ve{i}\otimes\ve{j}\otimes\ve{k}\otimes\ve{l}
@@ -684,8 +690,8 @@ K_{ijkl}=\frac{\delta_{ik}\delta_{jl}+\delta_{il}\delta_{jk}}{2}-\frac{1}{3}\del
 \ISO(\uuuu{T})=\left(\uuuu{T}::\uuuu{J}\right)\,\uuuu{J}+\left(\frac{\uuuu{T}::\uuuu{K}}{5}\right)\,\uuuu{K}
 \tag{A.33}\]</span></span> It is easy to show that (<a href="#eq-isoT" class="quarto-xref"><span>A.33</span></a>) is no other than the closest isotropic tensor to <span class="math inline">\(\uuuu{T}\)</span> if the distance is chosen as the euclidean one i.e.&nbsp;associated to the scalar product (<a href="#eq-dot4" class="quarto-xref"><span>A.10</span></a>). Note however that this isotropisation relying on euclidean distance to the set of isotropic tensors does not lead to the same result if <span class="math inline">\(\uuuu{T}'\)</span> is considered instead of <span class="math inline">\(\uuuu{T}\)</span>. Other distance definitions such as log-Euclidean distance fullfilling invariance by inversion are analyzed in <span class="citation" data-cites="morin2020">(<a href="../references.html#ref-morin2020" role="doc-biblioref">Morin et al., 2020</a>)</span>.</p>
 </section>
-<section id="sec-TI" class="level2" data-number="A.5">
-<h2 data-number="A.5" class="anchored" data-anchor-id="sec-TI"><span class="header-section-number">A.5</span> Fourth-order transversely isotropic tensors and Walpole basis</h2>
+<section id="sec-TI" class="level2">
+<h2 class="anchored" data-anchor-id="sec-TI">Fourth-order transversely isotropic tensors and Walpole basis</h2>
 <p>The Walpole basis (<span class="citation" data-cites="walpole1984">(<a href="../references.html#ref-walpole1984" role="doc-biblioref">Walpole, 1984</a>)</span>, <span class="citation" data-cites="brisard2014a">(<a href="../references.html#ref-brisard2014a" role="doc-biblioref">Brisard, 2014</a>)</span><a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>) allowing to write any fourth-order transversely isotropic relatively to a an axis oriented by the unit vector <span class="math inline">\(\n\)</span> is composed of the six following tensors built from <span class="math inline">\(\uu{1}_n=\n\otimes\n\)</span> and <span class="math inline">\(\uu{1}_T=\uu{1}-\uu{1}_n\)</span> <span id="eq-WalpoleBasis"><span class="math display">\[\begin{aligned}
 &amp; \uuuu{W}_1=\uu{1}_n\otimes\uu{1}_n
 \quad\textrm{ ; }\quad

@@ -258,6 +258,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Special tensors</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tensor_calculus/tensor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The <code>tensor</code> object</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -305,10 +311,10 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#general-expression" id="toc-general-expression" class="nav-link active" data-scroll-target="#general-expression"><span class="header-section-number">B.1</span> General expression</a></li>
-  <li><a href="#isotropic-matrix" id="toc-isotropic-matrix" class="nav-link" data-scroll-target="#isotropic-matrix"><span class="header-section-number">B.2</span> Isotropic matrix</a></li>
-  <li><a href="#case-of-cracks" id="toc-case-of-cracks" class="nav-link" data-scroll-target="#case-of-cracks"><span class="header-section-number">B.3</span> Case of cracks</a></li>
-  <li><a href="#application-of-hill-calculation" id="toc-application-of-hill-calculation" class="nav-link" data-scroll-target="#application-of-hill-calculation"><span class="header-section-number">B.4</span> Application of Hill calculation</a>
+  <li><a href="#general-expression" id="toc-general-expression" class="nav-link active" data-scroll-target="#general-expression">General expression</a></li>
+  <li><a href="#isotropic-matrix" id="toc-isotropic-matrix" class="nav-link" data-scroll-target="#isotropic-matrix">Isotropic matrix</a></li>
+  <li><a href="#case-of-cracks" id="toc-case-of-cracks" class="nav-link" data-scroll-target="#case-of-cracks">Case of cracks</a></li>
+  <li><a href="#application-of-hill-calculation" id="toc-application-of-hill-calculation" class="nav-link" data-scroll-target="#application-of-hill-calculation">Application of Hill calculation</a>
   <ul class="collapse">
   <li><a href="#definition-of-the-matrix-tensor" id="toc-definition-of-the-matrix-tensor" class="nav-link" data-scroll-target="#definition-of-the-matrix-tensor">Definition of the matrix tensor</a></li>
   <li><a href="#calculation-of-the-crack-compliance-uuuullim_omegato-0omegauuuuq-1" id="toc-calculation-of-the-crack-compliance-uuuullim_omegato-0omegauuuuq-1" class="nav-link" data-scroll-target="#calculation-of-the-crack-compliance-uuuullim_omegato-0omegauuuuq-1">Calculation of the crack compliance <span class="math inline">\(\uuuu{L}=\lim_{\omega\to 0}\omega\,\uuuu{Q}^{-1}\)</span></a></li>
@@ -420,8 +426,8 @@ $$
 \]</span> where <span class="math inline">\(\uu{A}\)</span> is an invertible second-order tensor so that <span class="math inline">\(\trans{\uu{A}}\cdot\uu{A}\)</span> is a positive definite symmetric tensor associated to 3 radii (eigenvalues <span class="math inline">\(a\geq b \geq c\)</span> possibly written <span class="math inline">\(\rho_1 \geq \rho_2 \geq \rho_3\)</span> for convenience) and 3 angles (orientation of the frame of eigenvectors <span class="math inline">\(\uv{e}_1, \uv{e}_2, \uv{e}_3\)</span>) <span id="eq-ellipsoid"><span class="math display">\[
 \trans{\uu{A}}\cdot\uu{A}=a^2 \uv{e}_1\otimes\uv{e}_1 + b^2 \uv{e}_2\otimes\uv{e}_2 + c^2 \uv{e}_3\otimes\uv{e}_3 = \sum_{i=1}^3 \rho_i \uv{e}_i\otimes\uv{e}_i
 \tag{B.1}\]</span></span></p>
-<section id="general-expression" class="level2" data-number="B.1">
-<h2 data-number="B.1" class="anchored" data-anchor-id="general-expression"><span class="header-section-number">B.1</span> General expression</h2>
+<section id="general-expression" class="level2">
+<h2 class="anchored" data-anchor-id="general-expression">General expression</h2>
 <p>A general expression of the elastic polarization tensor is derived in <span class="citation" data-cites="willis1977">(<a href="../references.html#ref-willis1977" role="doc-biblioref">Willis, 1977</a>)</span> (see also <span class="citation" data-cites="mura1987">(<a href="../references.html#ref-mura1987" role="doc-biblioref">Mura, 1987</a>)</span>) <span id="eq-Hill"><span class="math display">\[\begin{aligned}
 \uuuu{P}(\uu{A},\uuuu{C})&amp;=\frac{1}{4\pi}
 \int_{\norm{\uv{\zeta}}=1}
@@ -441,8 +447,8 @@ $$
 \end{aligned} \tag{B.2}\]</span></span></p>
 <p>When <span class="math inline">\(\uuuu{C}\)</span> is arbitrarily anisotropic, it is necessary to resort to numerical cubature to estimate <span class="math inline">\(\uuuu{P}\)</span> as proposed in <span class="citation" data-cites="ghahremani1977">(<a href="../references.html#ref-ghahremani1977" role="doc-biblioref">Ghahremani, 1977</a>)</span>, <span class="citation" data-cites="gavazzi1990">(<a href="../references.html#ref-gavazzi1990" role="doc-biblioref">Gavazzi and Lagoudas, 1990</a>)</span> or <span class="citation" data-cites="masson2008">(<a href="../references.html#ref-masson2008" role="doc-biblioref">Masson, 2008</a>)</span>. However in some cases of anisotropy, analytical solutions are available (<span class="citation" data-cites="withers1989">(<a href="../references.html#ref-withers1989" role="doc-biblioref">Withers, 1989</a>)</span>, <span class="citation" data-cites="barthelemyIJES2020_hilltrans">(<a href="../references.html#ref-barthelemyIJES2020_hilltrans" role="doc-biblioref">Barthélémy, 2020</a>)</span>). The case of isotropic matrix is particularly developed in the next section.</p>
 </section>
-<section id="isotropic-matrix" class="level2" data-number="B.2">
-<h2 data-number="B.2" class="anchored" data-anchor-id="isotropic-matrix"><span class="header-section-number">B.2</span> Isotropic matrix</h2>
+<section id="isotropic-matrix" class="level2">
+<h2 class="anchored" data-anchor-id="isotropic-matrix">Isotropic matrix</h2>
 <p>In this section, the matrix is assumed isotropic so that its stiffness tensor writes by means of a bulk <span class="math inline">\(k\)</span> and shear <span class="math inline">\(\mu\)</span> or Lamé <span class="math inline">\(\lambda\)</span> and <span class="math inline">\(\mu\)</span> moduli or even Young modulus <span class="math inline">\(E\)</span> and Poisson ratio <span class="math inline">\(\nu\)</span> with <span class="math inline">\(k=\frac{E}{3(1-2\nu)}\)</span> and <span class="math inline">\(\mu=\frac{E}{2(1+\nu)}\)</span>. <span id="eq-isoC"><span class="math display">\[\begin{aligned}
 \uuuu{C} =&amp; {} 3k\uuuu{J}+2\mu\uuuu{K} =  3\lambda\uuuu{I}+2\mu\uuuu{K}\\
 &amp; \quad\textrm{with}\quad J_{ijkl}=\frac{\delta_{ij}\delta_{kl}}{3},
@@ -556,8 +562,8 @@ where <span class="math inline">\({\cal F}={\cal F}(\theta,\kappa)\)</span> and 
 \uuuu{V}=\frac{1}{3}\uuuu{I}
 \]</span></p>
 </section>
-<section id="case-of-cracks" class="level2" data-number="B.3">
-<h2 data-number="B.3" class="anchored" data-anchor-id="case-of-cracks"><span class="header-section-number">B.3</span> Case of cracks</h2>
+<section id="case-of-cracks" class="level2">
+<h2 class="anchored" data-anchor-id="case-of-cracks">Case of cracks</h2>
 <p>The case of cracks corresponds to ellipsoids for which the smallest radius is very small compared to the two others, in other words the characteristic tensor <span class="math inline">\(\uu{A}\)</span> (<a href="#eq-ellipsoid" class="quarto-xref"><span>B.1</span></a>) can be written here <span class="math display">\[
 \uu{A}=
 \uv{\ell}\otimes\uv{\ell}+
@@ -606,8 +612,8 @@ B_{nn}=\frac{16\,(1-\nu^2)}{3\,\pi\,E}
 B_{mm}=B_{\ell\ell}=\frac{B_{nn}}{1-\nu/2}
 \]</span></p>
 </section>
-<section id="application-of-hill-calculation" class="level2" data-number="B.4">
-<h2 data-number="B.4" class="anchored" data-anchor-id="application-of-hill-calculation"><span class="header-section-number">B.4</span> Application of Hill calculation</h2>
+<section id="application-of-hill-calculation" class="level2">
+<h2 class="anchored" data-anchor-id="application-of-hill-calculation">Application of Hill calculation</h2>
 <section id="definition-of-the-matrix-tensor" class="level3">
 <h3 class="anchored" data-anchor-id="definition-of-the-matrix-tensor">Definition of the matrix tensor</h3>
 <div id="3ccf6e45" class="cell" data-execution_count="2">
