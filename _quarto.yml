@@ -27,13 +27,14 @@ book:
         - tensor_calculus/kelvin_mandel.qmd
         - tensor_calculus/rot_matrices.qmd
         - tensor_calculus/special_tensors.qmd
+        - tensor_calculus/tensor.qmd
     - references.qmd
   appendices:
     - appendices/tensor_algebra.qmd
     - appendices/hill_elas.qmd
     - appendices/basics_elas.qmd
 
-number-depth: 2
+number-depth: 1
 
 tbl-cap-location: bottom
 

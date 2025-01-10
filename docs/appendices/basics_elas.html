@@ -223,6 +223,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Special tensors</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tensor_calculus/tensor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The <code>tensor</code> object</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -270,8 +276,8 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#sec-basics_elas_sys_eq" id="toc-sec-basics_elas_sys_eq" class="nav-link active" data-scroll-target="#sec-basics_elas_sys_eq"><span class="header-section-number">C.1</span> System of equations</a></li>
-  <li><a href="#sec-basics_elas_mac_stiff" id="toc-sec-basics_elas_mac_stiff" class="nav-link" data-scroll-target="#sec-basics_elas_mac_stiff"><span class="header-section-number">C.2</span> Macroscopic stiffness or compliance tensors</a></li>
+  <li><a href="#sec-basics_elas_sys_eq" id="toc-sec-basics_elas_sys_eq" class="nav-link active" data-scroll-target="#sec-basics_elas_sys_eq">System of equations</a></li>
+  <li><a href="#sec-basics_elas_mac_stiff" id="toc-sec-basics_elas_mac_stiff" class="nav-link" data-scroll-target="#sec-basics_elas_mac_stiff">Macroscopic stiffness or compliance tensors</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/appendices/basics_elas.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
@@ -371,8 +377,8 @@ $$
 </header>
 
 
-<section id="sec-basics_elas_sys_eq" class="level2" data-number="C.1">
-<h2 data-number="C.1" class="anchored" data-anchor-id="sec-basics_elas_sys_eq"><span class="header-section-number">C.1</span> System of equations</h2>
+<section id="sec-basics_elas_sys_eq" class="level2">
+<h2 class="anchored" data-anchor-id="sec-basics_elas_sys_eq">System of equations</h2>
 <p>Consider a representative volume element (RVE) <span class="math inline">\(\Omega\)</span> composed of a heterogeneous material. Neglecting body forces in a problem posed at the scale of a RVE is consistent with the fact that the order of magnitude of mechanical effects induced by body forces is in general much lower than that of the macroscopic strain <span class="math inline">\(\E\)</span> or stress <span class="math inline">\(\Sig\)</span> effects accounting for interactions with particles surrounding the RVE (see <span class="citation" data-cites="dormieux2006">(<a href="../references.html#ref-dormieux2006" role="doc-biblioref">Dormieux et al., 2006</a>)</span>). The hypothesis of quasi-static equilibrium is also invoked here to write the balance law involving the Cauchy stress field <span class="math inline">\(\sig\)</span> <span id="eq-divsigma"><span class="math display">\[
 \divu{\sig}=\uv{0} \quad(\Omega)
 \tag{C.1}\]</span></span></p>
@@ -425,8 +431,8 @@ Hill lemma
 \tag{C.10}\]</span></span> where <span class="math inline">\(\uuuu{c}(\x)\)</span> denotes the heterogeneous (positive definite fourth-order) stiffness tensor field satisfying the conditions of minor (<span class="math inline">\(c_{jikl}=c_{ijlk}=c_{ijkl}\)</span>) and major (<span class="math inline">\(c_{klij}=c_{ijkl}\)</span>) symmetries. The compliance tensor field is introduced as the inverse <span class="math inline">\(\uuuu{s}=\uuuu{c}^{-1}\)</span> in the sense of fourth-order tensors operating over symmetrical second-order tensors.</p>
 <p>In short, the system of equations posed on the RVE is given by (<a href="#eq-divsigma" class="quarto-xref"><span>C.1</span></a>), (<a href="#eq-epsgradu" class="quarto-xref"><span>C.2</span></a>), (<a href="#eq-homstrainBC" class="quarto-xref"><span>C.3</span></a>) or (<a href="#eq-homstressBC" class="quarto-xref"><span>C.6</span></a>) and (<a href="#eq-Hooke" class="quarto-xref"><span>C.10</span></a>).</p>
 </section>
-<section id="sec-basics_elas_mac_stiff" class="level2" data-number="C.2">
-<h2 data-number="C.2" class="anchored" data-anchor-id="sec-basics_elas_mac_stiff"><span class="header-section-number">C.2</span> Macroscopic stiffness or compliance tensors</h2>
+<section id="sec-basics_elas_mac_stiff" class="level2">
+<h2 class="anchored" data-anchor-id="sec-basics_elas_mac_stiff">Macroscopic stiffness or compliance tensors</h2>
 <p>Whatever the boundary condition of homogeneous strain or stress type (<a href="#eq-homstrainBC" class="quarto-xref"><span>C.3</span></a>) or (<a href="#eq-homstressBC" class="quarto-xref"><span>C.6</span></a>), the linearity of the problem allows to invoke the existence of concentration tensors relating the microscopic strain <span class="math inline">\(\eps\)</span> and stress <span class="math inline">\(\sig\)</span> fields to the macroscopic strain <span class="math inline">\(\E\)</span> or stress <span class="math inline">\(\Sig\)</span> tensors <span id="eq-conc"><span class="math display">\[\begin{aligned}
 \eps &amp; =  \uuuu{A}_E:\E \\
 \sig &amp; =  \uuuu{B}_E:\E \quad\textrm{with}\quad \uuuu{B}_E=\uuuu{c}:\uuuu{A}_E \\

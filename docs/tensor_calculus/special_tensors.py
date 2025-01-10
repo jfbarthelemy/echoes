@@ -46,7 +46,7 @@
 
 import numpy as np
 from echoes import *
-import math, random
+import math
 
 np.set_printoptions(precision=6, suppress=True)
 # to display only 6 significant digits of array components
@@ -54,9 +54,9 @@ np.set_printoptions(precision=6, suppress=True)
 
 # :::
 #
-# ## Second order identity
+# ## Second-order identity
 #
-# The second order identity $\uu{1}=\delta_{ij}\ve{i}\otimes\ve{j}$ is given in Kelvin-Mandel notation (i.e. vector of $\R^6$) by the constant vector `Id2`
+# The second-order identity $\uu{1}=\delta_{ij}\ve{i}\otimes\ve{j}$ is given in Kelvin-Mandel notation (i.e. vector of $\R^6$) by the constant vector `Id2`
 
 # +
 #| error: false
@@ -69,7 +69,7 @@ print("𝟏 (Kelvin-Mandel notation) =\n",δ)
 print("𝟏 =\n",invKM(δ))
 # -
 
-# ## Fourth order isotropic tensors
+# ## Fourth-order isotropic tensors
 #
 # As detailed in @sec-ISO, the fourth-order identity tensor is
 #
@@ -100,7 +100,7 @@ for T in [Id4, J4, K4]:
 
 # ## Walpole bases
 #
-# The Walpole bases are useful to decompose transversely isotropic fourth order tensors. They are presented in @sec-TI. The Kelvin-Mandel representation of the $i^\textrm{th}$ Walpole tensor oriented along an axis $\n$ is constructed by `W(i,n=e₃)` ($i \in \{0,..,5\}$ and the normal is by default oriented along the third axis). The symmetrized version is provided by `WS(i,n=e₃)` ($i \in \{0,..,4\}$).
+# The Walpole bases are useful to decompose transversely isotropic fourth-order tensors. They are presented in @sec-TI. The Kelvin-Mandel representation of the $i^\textrm{th}$ Walpole tensor oriented along an axis $\n$ is constructed by `W(i,n=e₃)` ($i \in \{0,..,5\}$ and the normal is by default oriented along the third axis). The symmetrized version is provided by `WS(i,n=e₃)` ($i \in \{0,..,4\}$).
 #
 # ::: {.callout-warning} 
 #
@@ -115,6 +115,7 @@ for T in [Id4, J4, K4]:
 #| warning: false
 #| code-fold: false
 #| include: true
+
 for i in range(6):
     print("𝕎"+str(i+1)+" =\n",W(i))
 

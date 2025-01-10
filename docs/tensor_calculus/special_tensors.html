@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../references.html" rel="next">
+<link href="../tensor_calculus/tensor.html" rel="next">
 <link href="../tensor_calculus/rot_matrices.html" rel="prev">
 <link href="../img/cover.html" rel="icon" type="text/html">
 <script src="../site_libs/quarto-html/quarto.js"></script>
@@ -239,6 +239,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Special tensors</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tensor_calculus/tensor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The <code>tensor</code> object</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -286,9 +292,9 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#second-order-identity" id="toc-second-order-identity" class="nav-link active" data-scroll-target="#second-order-identity"><span class="header-section-number">3.1</span> Second order identity</a></li>
-  <li><a href="#fourth-order-isotropic-tensors" id="toc-fourth-order-isotropic-tensors" class="nav-link" data-scroll-target="#fourth-order-isotropic-tensors"><span class="header-section-number">3.2</span> Fourth order isotropic tensors</a></li>
-  <li><a href="#walpole-bases" id="toc-walpole-bases" class="nav-link" data-scroll-target="#walpole-bases"><span class="header-section-number">3.3</span> Walpole bases</a></li>
+  <li><a href="#second-order-identity" id="toc-second-order-identity" class="nav-link active" data-scroll-target="#second-order-identity">Second-order identity</a></li>
+  <li><a href="#fourth-order-isotropic-tensors" id="toc-fourth-order-isotropic-tensors" class="nav-link" data-scroll-target="#fourth-order-isotropic-tensors">Fourth-order isotropic tensors</a></li>
+  <li><a href="#walpole-bases" id="toc-walpole-bases" class="nav-link" data-scroll-target="#walpole-bases">Walpole bases</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/tensor_calculus/special_tensors.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
@@ -432,10 +438,10 @@ $$
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="3cb87d40" class="cell" data-execution_count="1">
+<div id="c7763f66" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math, random</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>np.set_printoptions(precision<span class="op">=</span><span class="dv">6</span>, suppress<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># to display only 6 significant digits of array components</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -443,10 +449,10 @@ $$
 </div>
 </div>
 </div>
-<section id="second-order-identity" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="second-order-identity"><span class="header-section-number">3.1</span> Second order identity</h2>
-<p>The second order identity <span class="math inline">\(\uu{1}=\delta_{ij}\ve{i}\otimes\ve{j}\)</span> is given in Kelvin-Mandel notation (i.e.&nbsp;vector of <span class="math inline">\(\R^6\)</span>) by the constant vector <code>Id2</code></p>
-<div id="07ec2fab" class="cell" data-execution_count="2">
+<section id="second-order-identity" class="level2">
+<h2 class="anchored" data-anchor-id="second-order-identity">Second-order identity</h2>
+<p>The second-order identity <span class="math inline">\(\uu{1}=\delta_{ij}\ve{i}\otimes\ve{j}\)</span> is given in Kelvin-Mandel notation (i.e.&nbsp;vector of <span class="math inline">\(\R^6\)</span>) by the constant vector <code>Id2</code></p>
+<div id="058eaf14" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>δ <span class="op">=</span> Id2</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"𝟏 (Kelvin-Mandel notation) =</span><span class="ch">\n</span><span class="st">"</span>,δ)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"𝟏 =</span><span class="ch">\n</span><span class="st">"</span>,invKM(δ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -460,8 +466,8 @@ $$
 </div>
 </div>
 </section>
-<section id="fourth-order-isotropic-tensors" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="fourth-order-isotropic-tensors"><span class="header-section-number">3.2</span> Fourth order isotropic tensors</h2>
+<section id="fourth-order-isotropic-tensors" class="level2">
+<h2 class="anchored" data-anchor-id="fourth-order-isotropic-tensors">Fourth-order isotropic tensors</h2>
 <p>As detailed in <a href="../appendices/tensor_algebra.html#sec-ISO" class="quarto-xref"><span>Section A.4</span></a>, the fourth-order identity tensor is</p>
 <p><span class="math display">\[
 \uuuu{I}=\uu{1}\sboxtimes\uu{1}=
@@ -474,7 +480,7 @@ $$
 \uuuu{K}=\uuuu{I}-\uuuu{J}=\uu{1}\sboxtimes\uu{1}-\frac{1}{3}\uu{1}\otimes\uu{1}
 \]</span></p>
 <p>which are provided in <code>echoes</code> by <code>Id4</code>, <code>J4</code> and <code>K4</code></p>
-<div id="4938db39" class="cell" data-execution_count="3">
+<div id="af86abea" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> T <span class="kw">in</span> [Id4, J4, K4]:</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -499,9 +505,9 @@ $$
 </div>
 </div>
 </section>
-<section id="walpole-bases" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="walpole-bases"><span class="header-section-number">3.3</span> Walpole bases</h2>
-<p>The Walpole bases are useful to decompose transversely isotropic fourth order tensors. They are presented in <a href="../appendices/tensor_algebra.html#sec-TI" class="quarto-xref"><span>Section A.5</span></a>. The Kelvin-Mandel representation of the <span class="math inline">\(i^\textrm{th}\)</span> Walpole tensor oriented along an axis <span class="math inline">\(\n\)</span> is constructed by <code>W(i,n=e₃)</code> (<span class="math inline">\(i \in \{0,..,5\}\)</span> and the normal is by default oriented along the third axis). The symmetrized version is provided by <code>WS(i,n=e₃)</code> (<span class="math inline">\(i \in \{0,..,4\}\)</span>).</p>
+<section id="walpole-bases" class="level2">
+<h2 class="anchored" data-anchor-id="walpole-bases">Walpole bases</h2>
+<p>The Walpole bases are useful to decompose transversely isotropic fourth-order tensors. They are presented in <a href="../appendices/tensor_algebra.html#sec-TI" class="quarto-xref"><span>Section A.5</span></a>. The Kelvin-Mandel representation of the <span class="math inline">\(i^\textrm{th}\)</span> Walpole tensor oriented along an axis <span class="math inline">\(\n\)</span> is constructed by <code>W(i,n=e₃)</code> (<span class="math inline">\(i \in \{0,..,5\}\)</span> and the normal is by default oriented along the third axis). The symmetrized version is provided by <code>WS(i,n=e₃)</code> (<span class="math inline">\(i \in \{0,..,4\}\)</span>).</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -515,7 +521,7 @@ Warning
 <p>Note again the shift in indices between the Python convention starting at 0 and the tensors presented in <a href="../appendices/tensor_algebra.html#sec-TI" class="quarto-xref"><span>Section A.5</span></a>.</p>
 </div>
 </div>
-<div id="dc9db6a5" class="cell" data-execution_count="4">
+<div id="75dadbde" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">6</span>):</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"𝕎"</span><span class="op">+</span><span class="bu">str</span>(i<span class="op">+</span><span class="dv">1</span>)<span class="op">+</span><span class="st">" =</span><span class="ch">\n</span><span class="st">"</span>,W(i))</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1031,8 +1037,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../references.html" class="pagination-link" aria-label="References">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../tensor_calculus/tensor.html" class="pagination-link" aria-label="The `tensor` object">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The <code>tensor</code> object</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
