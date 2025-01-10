@@ -86,17 +86,11 @@ np.set_printoptions(precision=6, suppress=True)
 # - `T = tensor([T₁, T₂, T₃], angles=[0, 0, 0])`
 #
 # ::: {.callout-warning} 
-#
 # ## Warning
-#
 # - The eigenvalues and eigenvectors are systematically reordered in decreasing order of eigenvalues and angles are recomputed accordingly.
-#
 # - The eigenvalues are analyzed in order to characterize the symmetry type between `ISO`, `TI` and `ORTHO`.
-#
 # - The Euler angles are not unique since unit eigenvectors are determined up to a multiplicative factor of ±1.
-#
 # - Note that the six parameters of the constructor `tensor` should not be confused with the components of the Kelvin-Mandel representation of symmetric second-order tensors (see @sec-KM).
-#
 # :::
 
 # +
