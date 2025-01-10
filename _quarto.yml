@@ -18,21 +18,24 @@ book:
   sharing: [twitter, facebook, linkedin]
   date: last-modified
   sidebar:
-    collapse-level: 1
+    collapse-level: 2
   chapters:
     - index.qmd
     - intro.qmd
-    - part: "Elements of tensor calculus"
+    - part: "𝗘𝗹𝗲𝗺𝗲𝗻𝘁𝘀 𝗼𝗳 𝘁𝗲𝗻𝘀𝗼𝗿 𝗰𝗮𝗹𝗰𝘂𝗹𝘂𝘀"
       chapters: 
-        - tensor_calculus/kelvin_mandel.qmd
-        - tensor_calculus/rot_matrices.qmd
-        - tensor_calculus/special_tensors.qmd
-        - tensor_calculus/tensor.qmd
+        - 1_tensor_calculus/kelvin_mandel.qmd
+        - 1_tensor_calculus/rot_matrices.qmd
+        - 1_tensor_calculus/special_tensors.qmd
+        - 1_tensor_calculus/tensor.qmd
+    - part: "𝗘𝘀𝗵𝗲𝗹𝗯𝘆 𝗶𝗻𝗰𝗹𝘂𝘀𝗶𝗼𝗻 𝗽𝗿𝗼𝗯𝗹𝗲𝗺"
+      chapters: 
+        - 2_eshelby/eshelby_hill.qmd
     - references.qmd
   appendices:
-    - appendices/tensor_algebra.qmd
-    - appendices/hill_elas.qmd
-    - appendices/basics_elas.qmd
+    - 99_appendices/tensor_algebra.qmd
+    - 99_appendices/hill_elas.qmd
+    - 99_appendices/basics_elas.qmd
 
 number-depth: 1
 
@@ -69,21 +72,21 @@ format:
     fontsize: 100%
     include-before-body: _config/_macros_html.md
     default-image-extension: html
-  pdf:
-    documentclass: scrreprt
-    pdf-engine: lualatex
-    classoption: DIV=12
-    papersize: a4
-    mainfont: TeX Gyre Pagella
-    sansfont: TeX Gyre Heros
-    monofont: JuliaMono
-    # mathfont: TeX Gyre Termes Math
-    highlight-style: tango
-    include-in-header:
-      - _config/_preamble.tex
-      - _config/_macros.tex
-    keep-tex: false
-    default-image-extension: pdf
+  # pdf:
+  #   documentclass: scrreprt
+  #   pdf-engine: lualatex
+  #   classoption: DIV=12
+  #   papersize: a4
+  #   mainfont: TeX Gyre Pagella
+  #   sansfont: TeX Gyre Heros
+  #   monofont: JuliaMono
+  #   # mathfont: TeX Gyre Termes Math
+  #   highlight-style: tango
+  #   include-in-header:
+  #     - _config/_preamble.tex
+  #     - _config/_macros.tex
+  #   keep-tex: false
+  #   default-image-extension: pdf
 
 crossref:
   fig-title: "Fig."
