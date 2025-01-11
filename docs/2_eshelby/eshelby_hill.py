@@ -91,7 +91,7 @@ np.set_printoptions(precision=8, suppress=True)
 # Eshelby inclusion problem
 # :::
 #
-# The important result derived in @eshelby1957 is that the strain tensor field solution to this problem is uniform within the ellipsoidal domain (not outside!) and writes
+# The important result derived in [@eshelby1957] is that the strain tensor field solution to this problem is uniform within the ellipsoidal domain (not outside!) and writes
 #
 # $$
 #    \forall \x \in \mathcal{E}_{\uu{A}},\quad \eps(\x)=-\uuuu{P}:\uu{\tau}\quad\textrm{(uniform)}
@@ -257,15 +257,18 @@ print("P=\n", P)
 #
 # where the keyword argument `algo` can be either `NUMINT` or `RESIDUES` (default: `NUMINT`).
 #
-# - `NUMINT` based on the cubature DECUHR algorithm provided in @espelid1994 applied on the integral formulation @eq-Hill over the unit sphere
+# - `NUMINT` based on the cubature DECUHR algorithm provided in [@espelid1994] applied on the integral formulation @eq-Hill over the unit sphere
 #     - `epsabs` is the tolerance of absolute error (default: 1.e-4)
 #     - `epsrel` is the tolerance of relative error (default: 1.e-4)
 #     - `maxnb` is the maximum number of subdivisions (default: 100000)
 #     
-#   For more information about these parameters see @espelid1994. 
+#   For more information about these parameters see [@espelid1994]. 
 #
-# - `RESIDUES` based on the residue Cauchy theorem to transform the 2D cubature over the unit sphere @eq-Hill into a 1D quadrature as demonstrated in @masson2008
+# - `RESIDUES` based on the residue Cauchy theorem to transform the 2D cubature over the unit sphere @eq-Hill into a 1D quadrature as demonstrated in [@masson2008]
 #     - `epsroots` is the tolerance for the criterion of multiple poles, i.e. if the distance between two poles of the integrand function is under this value they are considered as a unique multiple pole (default: 1.e-4)
+#     - `epsabs` is the tolerance of absolute error for the 1D quadrature (default: 1.e-4)
+#     - `epsrel` is the tolerance of relative error for the 1D quadrature (default: 1.e-4)
+#     - `maxnb` is the maximum number of subdivisions for the 1D quadrature (default: 100000)
 #  
 # ::: {.callout-warning} 
 #
