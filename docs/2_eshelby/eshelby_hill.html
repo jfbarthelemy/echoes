@@ -476,7 +476,7 @@ $$
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="f6c3a75a" class="cell" data-execution_count="1">
+<div id="9083a433" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
@@ -520,7 +520,7 @@ Fig.&nbsp;5.1: Eshelby inclusion problem
 </figcaption>
 </figure>
 </div>
-<p>The important result derived in <span class="citation" data-cites="eshelby1957">Eshelby (<a href="../references.html#ref-eshelby1957" role="doc-biblioref">1957</a>)</span> is that the strain tensor field solution to this problem is uniform within the ellipsoidal domain (not outside!) and writes</p>
+<p>The important result derived in <span class="citation" data-cites="eshelby1957">(<a href="../references.html#ref-eshelby1957" role="doc-biblioref">Eshelby, 1957</a>)</span> is that the strain tensor field solution to this problem is uniform within the ellipsoidal domain (not outside!) and writes</p>
 <p><span id="eq-defHill"><span class="math display">\[
    \forall \x \in \mathcal{E}_{\uu{A}},\quad \eps(\x)=-\uuuu{P}:\uu{\tau}\quad\textrm{(uniform)}
 \tag{5.2}\]</span></span> where <span class="math inline">\(\uuuu{P}\)</span>, called the Hill polarization tensor, depends on the shape and orientation of the ellipsoid (i.e.&nbsp;<span class="math inline">\(\uu{A}\)</span> up to a multiplicative constant) and on the matrix behavior (i.e.&nbsp;<span class="math inline">\(\uuuu{C}\)</span>), in other words <span class="math inline">\(\uuuu{P}=\uuuu{P}(\uu{A},\uuuu{C})\)</span>.</p>
@@ -610,7 +610,7 @@ Warning
 <p>These objects are supposed to describe an inclusion in the Eshelby problem, thus they are defined up to a multiplicative constant. This explains why the spheroidal shape is defined only with an aspect ratio and the sphere is not defined with a radius. On the contrary the general ellipsoidal shape depends on three radii but the result of <span class="math inline">\(\uuuu{P}\)</span> will only depend on two ratios.</p>
 </div>
 </div>
-<div id="90881972" class="cell" data-execution_count="2">
+<div id="d3f9b6f7" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>π <span class="op">=</span> math.pi</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>a, b, c <span class="op">=</span> <span class="fl">10.</span>, <span class="fl">5.</span>, <span class="fl">2.</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>θ, ϕ, ψ <span class="op">=</span> π<span class="op">/</span><span class="dv">3</span>, π<span class="op">/</span><span class="dv">4</span>, π<span class="op">/</span><span class="dv">5</span></span>
@@ -650,7 +650,7 @@ Warning
 <p>The functions <code>hill</code> and <code>eshelby</code> return <span class="math inline">\(6×6\)</span> matrices i.e.&nbsp;of type <code>numpy.ndarray</code> (not <code>tensor</code>). It is however possible to build a <code>tensor</code> object from the matrix for the Hill tensor <span class="math inline">\(\uuuu{P}\)</span> since the latter is always positive definite. This is not in general the case for the Eshelby tensor <span class="math inline">\(\uuuu{S}\)</span>.</p>
 </div>
 </div>
-<div id="80aecf65" class="cell" data-execution_count="3">
+<div id="addce66b" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>a, b, c <span class="op">=</span> <span class="fl">10.</span>, <span class="fl">5.</span>, <span class="fl">2.</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>θ, ϕ, ψ <span class="op">=</span> π<span class="op">/</span><span class="dv">3</span>, π<span class="op">/</span><span class="dv">4</span>, π<span class="op">/</span><span class="dv">5</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>k, µ <span class="op">=</span> <span class="fl">72.</span>, <span class="fl">32.</span> </span>
@@ -698,7 +698,7 @@ S=
 </div>
 <div class="callout-body-container callout-body">
 <p>For a spherical shape we have</p>
-<div id="bbd53c0b" class="cell" data-execution_count="4">
+<div id="90a707dd" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>k, µ <span class="op">=</span> <span class="fl">72.</span>, <span class="fl">32.</span> <span class="op">;</span> C <span class="op">=</span> stiff_kmu(k, µ)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"P=</span><span class="ch">\n</span><span class="st">"</span>, hill(spherical,C))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -715,7 +715,7 @@ S=
 <p><span class="math display">\[
 \uuuu{P}(\uu{1},3\,k\,\uuuu{J}+2\,\mu\,\uuuu{K})=\frac{1}{3\,k+4\,\mu}\,\left(\uuuu{J}+\frac{3\,(k+2\,\mu)}{5\,\mu}\uuuu{K}\right)
 \]</span></p>
-<div id="aeeda86c" class="cell" data-execution_count="5">
+<div id="ca109e40" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Solution</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>P <span class="op">=</span> <span class="dv">1</span><span class="op">/</span>(<span class="dv">3</span><span class="op">*</span>k<span class="op">+</span><span class="dv">4</span><span class="op">*</span>µ)<span class="op">*</span>(J4<span class="op">+</span><span class="dv">3</span><span class="op">*</span>(k<span class="op">+</span><span class="dv">2</span><span class="op">*</span>µ)<span class="op">/</span>(<span class="dv">5</span><span class="op">*</span>μ)<span class="op">*</span>K4)</span>
@@ -743,16 +743,19 @@ S=
 </ul>
 <p>where the keyword argument <code>algo</code> can be either <code>NUMINT</code> or <code>RESIDUES</code> (default: <code>NUMINT</code>).</p>
 <ul>
-<li><p><code>NUMINT</code> based on the cubature DECUHR algorithm provided in <span class="citation" data-cites="espelid1994">Espelid and Genz (<a href="../references.html#ref-espelid1994" role="doc-biblioref">1994</a>)</span> applied on the integral formulation <a href="../99_appendices/hill_elas.html#eq-Hill" class="quarto-xref"><span>B.2</span></a> over the unit sphere</p>
+<li><p><code>NUMINT</code> based on the cubature DECUHR algorithm provided in <span class="citation" data-cites="espelid1994">(<a href="../references.html#ref-espelid1994" role="doc-biblioref">Espelid and Genz, 1994</a>)</span> applied on the integral formulation <a href="../99_appendices/hill_elas.html#eq-Hill" class="quarto-xref"><span>B.2</span></a> over the unit sphere</p>
 <ul>
 <li><code>epsabs</code> is the tolerance of absolute error (default: 1.e-4)</li>
 <li><code>epsrel</code> is the tolerance of relative error (default: 1.e-4)</li>
 <li><code>maxnb</code> is the maximum number of subdivisions (default: 100000)</li>
 </ul>
-<p>For more information about these parameters see <span class="citation" data-cites="espelid1994">Espelid and Genz (<a href="../references.html#ref-espelid1994" role="doc-biblioref">1994</a>)</span>.</p></li>
-<li><p><code>RESIDUES</code> based on the residue Cauchy theorem to transform the 2D cubature over the unit sphere <a href="../99_appendices/hill_elas.html#eq-Hill" class="quarto-xref"><span>B.2</span></a> into a 1D quadrature as demonstrated in <span class="citation" data-cites="masson2008">Masson (<a href="../references.html#ref-masson2008" role="doc-biblioref">2008</a>)</span></p>
+<p>For more information about these parameters see <span class="citation" data-cites="espelid1994">(<a href="../references.html#ref-espelid1994" role="doc-biblioref">Espelid and Genz, 1994</a>)</span>.</p></li>
+<li><p><code>RESIDUES</code> based on the residue Cauchy theorem to transform the 2D cubature over the unit sphere <a href="../99_appendices/hill_elas.html#eq-Hill" class="quarto-xref"><span>B.2</span></a> into a 1D quadrature as demonstrated in <span class="citation" data-cites="masson2008">(<a href="../references.html#ref-masson2008" role="doc-biblioref">Masson, 2008</a>)</span></p>
 <ul>
 <li><code>epsroots</code> is the tolerance for the criterion of multiple poles, i.e.&nbsp;if the distance between two poles of the integrand function is under this value they are considered as a unique multiple pole (default: 1.e-4)</li>
+<li><code>epsabs</code> is the tolerance of absolute error (default: 1.e-4)</li>
+<li><code>epsrel</code> is the tolerance of relative error (default: 1.e-4)</li>
+<li><code>maxnb</code> is the maximum number of subdivisions (default: 100000)</li>
 </ul></li>
 </ul>
 <div class="callout callout-style-default callout-warning callout-titled">
@@ -768,7 +771,7 @@ Warning
 <p>The <code>RESIDUES</code> algorithm is much faster than the <code>NUMINT</code> one in case of full anisotropy. Nevertheless the latter proves to be more robust in the neighborhood of symmetry axes where the presence of close poles may induce numerical errors in the application of the Cauchy residue theorem. This is why <code>NUMINT</code> is chosen by default.</p>
 </div>
 </div>
-<div id="259450e8" class="cell" data-execution_count="6">
+<div id="c5e00f4f" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>param <span class="op">=</span> [ <span class="fl">2.66011</span>, <span class="fl">1.26432</span>, <span class="fl">0.662772</span>, <span class="fl">1.9402</span>, <span class="fl">1.54905</span>, <span class="fl">1.10384</span>, <span class="fl">3.6072</span>, <span class="fl">1.78964</span>, <span class="fl">2.0247</span>, <span class="fl">1.2701</span>, <span class="fl">1.1089</span>, <span class="fl">2.743</span>, <span class="fl">1.3367</span>, <span class="fl">1.2962</span>, <span class="fl">0.897632</span>, <span class="fl">4.42684</span>, <span class="fl">2.05632</span>, <span class="fl">1.52686</span>, <span class="fl">3.54431</span>, <span class="fl">1.3445</span>, <span class="fl">1.99356</span> ]</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> tensor(param)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(hill(shape, C, algo<span class="op">=</span>NUMINT),<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
@@ -790,7 +793,7 @@ Warning
 </div>
 </div>
 <p>See below how a too large <code>epsroots</code> parameter can degrade the precision of the result</p>
-<div id="2b581c65" class="cell" data-execution_count="7">
+<div id="4d51170e" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>param <span class="op">=</span> [<span class="fl">3.</span>,<span class="fl">4.</span>,math.sqrt(<span class="dv">2</span>),<span class="fl">2.</span>,<span class="fl">1.</span>]</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">1948</span>)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>α <span class="op">=</span> <span class="fl">1.e-2</span><span class="op">*</span>np.random.rand(<span class="dv">6</span>, <span class="dv">6</span>)</span>
