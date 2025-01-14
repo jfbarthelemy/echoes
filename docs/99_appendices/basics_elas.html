@@ -402,7 +402,7 @@ $$
 
 <section id="sec-basics_elas_sys_eq" class="level2">
 <h2 class="anchored" data-anchor-id="sec-basics_elas_sys_eq">System of equations</h2>
-<p>Consider a representative volume element (RVE) <span class="math inline">\(\Omega\)</span> composed of a heterogeneous material. Neglecting body forces in a problem posed at the scale of a RVE is consistent with the fact that the order of magnitude of mechanical effects induced by body forces is in general much lower than that of the macroscopic strain <span class="math inline">\(\E\)</span> or stress <span class="math inline">\(\Sig\)</span> effects accounting for interactions with particles surrounding the RVE (see <span class="citation" data-cites="dormieux2006">(<a href="#ref-dormieux2006" role="doc-biblioref">Dormieux et al., 2006</a>)</span>). The hypothesis of quasi-static equilibrium is also invoked here to write the balance law involving the Cauchy stress field <span class="math inline">\(\sig\)</span> <span id="eq-divsigma"><span class="math display">\[
+<p>Consider a representative volume element (RVE) <span class="math inline">\(\Omega\)</span> composed of a heterogeneous material. Neglecting body forces in a problem posed at the scale of a RVE is consistent with the fact that the order of magnitude of mechanical effects induced by body forces is in general much lower than that of the macroscopic strain <span class="math inline">\(\E\)</span> or stress <span class="math inline">\(\Sig\)</span> effects accounting for interactions with particles surrounding the RVE (see <span class="citation" data-cites="dormieux2006">(<a href="../references.html#ref-dormieux2006" role="doc-biblioref">Dormieux et al., 2006</a>)</span>). The hypothesis of quasi-static equilibrium is also invoked here to write the balance law involving the Cauchy stress field <span class="math inline">\(\sig\)</span> <span id="eq-divsigma"><span class="math display">\[
 \divu{\sig}=\uv{0} \quad(\Omega)
 \tag{C.1}\]</span></span></p>
 <p>In the sequel, the small perturbation hypothesis is adopted so that the strain field <span class="math inline">\(\eps\)</span> derives from the displacement one <span class="math inline">\(\uv{u}\)</span> as the symmetrical part of its gradient <span id="eq-epsgradu"><span class="math display">\[
@@ -422,7 +422,7 @@ $$
 \tag{C.5}\]</span></span></p></li>
 <li><p><em>homogeneous stress boundary conditions</em> corresponding to prescribed surface tractions <span class="math inline">\(\uv{T}^g\)</span> at <span class="math inline">\(\partial\Omega\)</span> <span id="eq-homstressBC"><span class="math display">\[
 \uv{T}^g=\Sig\cdot\n \quad(\partial\Omega)
-\tag{C.6}\]</span></span> Now owing to the remarkable identity <span class="math inline">\((x_i\sigma_{jk})_{,k}=\sigma_{ij}\)</span> resulting from (<a href="#eq-divsigma" class="quarto-xref"><span class="quarto-unresolved-ref">eq-divsigma</span></a>) and the symmetry of <span class="math inline">\(\sig\)</span>, the relationship between the microscopic and macroscopic stress is ensured by the divergence theorem <span id="eq-ShomstressBC"><span class="math display">\[
+\tag{C.6}\]</span></span> Now owing to the remarkable identity <span class="math inline">\((x_i\sigma_{jk})_{,k}=\sigma_{ij}\)</span> resulting from (<a href="#eq-divsigma" class="quarto-xref"><span>C.1</span></a>) and the symmetry of <span class="math inline">\(\sig\)</span>, the relationship between the microscopic and macroscopic stress is ensured by the divergence theorem <span id="eq-ShomstressBC"><span class="math display">\[
 &lt;\sig&gt;_{\Omega}=\frac{1}{\lvert \Omega \rvert}\int_\Omega \sig\ud \Omega
 =\frac{1}{\lvert \Omega \rvert}\int_{\partial\Omega} \x\sotimes(\sig\cdot\n) \ud S
 =\Sig
@@ -441,7 +441,7 @@ Hill lemma
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Note that whatever the choice of boundary conditions between (<a href="#eq-homstrainBC" class="quarto-xref"><span class="quarto-unresolved-ref">eq-homstrainBC</span></a>) and (<a href="#eq-homstressBC" class="quarto-xref"><span class="quarto-unresolved-ref">eq-homstressBC</span></a>), the consistency between the microscopic and macroscopic works is ensured by <span id="eq-Hilllemma"><span class="math display">\[
+<p>Note that whatever the choice of boundary conditions between (<a href="#eq-homstrainBC" class="quarto-xref"><span>C.3</span></a>) and (<a href="#eq-homstressBC" class="quarto-xref"><span>C.6</span></a>), the consistency between the microscopic and macroscopic works is ensured by <span id="eq-Hilllemma"><span class="math display">\[
 &lt;\sig:\eps&gt;_{\Omega}
 =\frac{1}{\lvert \Omega \rvert}\int_\Omega \sig:\eps\ud \Omega
 =\frac{1}{\lvert \Omega \rvert}\int_{\partial\Omega} \uv{u}\cdot\sig\cdot\n \ud S
@@ -452,11 +452,11 @@ Hill lemma
 <p>The set of equations defining the problem posed on the RVE is finally completed by the local constitutive law relating the strain and stress fields. The hypothesis of linear elasticity is adopted in this part so that <span id="eq-Hooke"><span class="math display">\[
 \sig=\uuuu{c}:\eps \quad(\Omega)
 \tag{C.10}\]</span></span> where <span class="math inline">\(\uuuu{c}(\x)\)</span> denotes the heterogeneous (positive definite fourth-order) stiffness tensor field satisfying the conditions of minor (<span class="math inline">\(c_{jikl}=c_{ijlk}=c_{ijkl}\)</span>) and major (<span class="math inline">\(c_{klij}=c_{ijkl}\)</span>) symmetries. The compliance tensor field is introduced as the inverse <span class="math inline">\(\uuuu{s}=\uuuu{c}^{-1}\)</span> in the sense of fourth-order tensors operating over symmetrical second-order tensors.</p>
-<p>In short, the system of equations posed on the RVE is given by (<a href="#eq-divsigma" class="quarto-xref"><span class="quarto-unresolved-ref">eq-divsigma</span></a>), (<a href="#eq-epsgradu" class="quarto-xref"><span class="quarto-unresolved-ref">eq-epsgradu</span></a>), (<a href="#eq-homstrainBC" class="quarto-xref"><span class="quarto-unresolved-ref">eq-homstrainBC</span></a>) or (<a href="#eq-homstressBC" class="quarto-xref"><span class="quarto-unresolved-ref">eq-homstressBC</span></a>) and (<a href="#eq-Hooke" class="quarto-xref"><span class="quarto-unresolved-ref">eq-Hooke</span></a>).</p>
+<p>In short, the system of equations posed on the RVE is given by (<a href="#eq-divsigma" class="quarto-xref"><span>C.1</span></a>), (<a href="#eq-epsgradu" class="quarto-xref"><span>C.2</span></a>), (<a href="#eq-homstrainBC" class="quarto-xref"><span>C.3</span></a>) or (<a href="#eq-homstressBC" class="quarto-xref"><span>C.6</span></a>) and (<a href="#eq-Hooke" class="quarto-xref"><span>C.10</span></a>).</p>
 </section>
 <section id="sec-basics_elas_mac_stiff" class="level2">
 <h2 class="anchored" data-anchor-id="sec-basics_elas_mac_stiff">Macroscopic stiffness or compliance tensors</h2>
-<p>Whatever the boundary condition of homogeneous strain or stress type (<a href="#eq-homstrainBC" class="quarto-xref"><span class="quarto-unresolved-ref">eq-homstrainBC</span></a>) or (<a href="#eq-homstressBC" class="quarto-xref"><span class="quarto-unresolved-ref">eq-homstressBC</span></a>), the linearity of the problem allows to invoke the existence of concentration tensors relating the microscopic strain <span class="math inline">\(\eps\)</span> and stress <span class="math inline">\(\sig\)</span> fields to the macroscopic strain <span class="math inline">\(\E\)</span> or stress <span class="math inline">\(\Sig\)</span> tensors <span id="eq-conc"><span class="math display">\[\begin{aligned}
+<p>Whatever the boundary condition of homogeneous strain or stress type (<a href="#eq-homstrainBC" class="quarto-xref"><span>C.3</span></a>) or (<a href="#eq-homstressBC" class="quarto-xref"><span>C.6</span></a>), the linearity of the problem allows to invoke the existence of concentration tensors relating the microscopic strain <span class="math inline">\(\eps\)</span> and stress <span class="math inline">\(\sig\)</span> fields to the macroscopic strain <span class="math inline">\(\E\)</span> or stress <span class="math inline">\(\Sig\)</span> tensors <span id="eq-conc"><span class="math display">\[\begin{aligned}
 \eps &amp; =  \uuuu{A}_E:\E \\
 \sig &amp; =  \uuuu{B}_E:\E \quad\textrm{with}\quad \uuuu{B}_E=\uuuu{c}:\uuuu{A}_E \\
 \sig &amp; =  \uuuu{B}_\Sigma:\Sig \\
@@ -464,7 +464,7 @@ Hill lemma
 \end{aligned} \tag{C.11}\]</span></span></p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-dormieux2006" class="csl-entry" role="listitem">
 Dormieux, L., Kondo, D., Ulm, F.-J., 2006. Microporomechanics. John Wiley &amp; Sons, Chichester, West Sussex, England ; Hoboken, NJ. <a href="https://doi.org/10.1002/0470032006">https://doi.org/10.1002/0470032006</a>
 </div>

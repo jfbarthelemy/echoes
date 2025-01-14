@@ -494,7 +494,7 @@ $$
 </div>
 </div>
 <section id="the-eshelby-inclusion-problem-in-elasticity-eshelby1957" class="level2">
-<h2 class="anchored" data-anchor-id="the-eshelby-inclusion-problem-in-elasticity-eshelby1957">The Eshelby inclusion problem in elasticity <span class="citation" data-cites="eshelby1957">(<a href="#ref-eshelby1957" role="doc-biblioref">Eshelby, 1957</a>)</span></h2>
+<h2 class="anchored" data-anchor-id="the-eshelby-inclusion-problem-in-elasticity-eshelby1957">The Eshelby inclusion problem in elasticity <span class="citation" data-cites="eshelby1957">(<a href="../references.html#ref-eshelby1957" role="doc-biblioref">Eshelby, 1957</a>)</span></h2>
 <p>Let the studied domain be the whole <span class="math inline">\(\R^3\)</span> space here filled with a linear elastic material of uniform stiffness tensor <span class="math inline">\(\uuuu{C}\)</span>. An ellipsoid centered at the origin of the domain is defined by the equation</p>
 <p><span id="eq-defell"><span class="math display">\[
    \uv{x}\in\mathcal{E}_{\uu{A}}
@@ -526,11 +526,11 @@ Fig.&nbsp;5.1: Eshelby inclusion problem
 </figcaption>
 </figure>
 </div>
-<p>The important result derived in <span class="citation" data-cites="eshelby1957">(<a href="#ref-eshelby1957" role="doc-biblioref">Eshelby, 1957</a>)</span> is that the strain tensor field solution to this problem is uniform within the ellipsoidal domain (not outside!) and writes</p>
+<p>The important result derived in <span class="citation" data-cites="eshelby1957">(<a href="../references.html#ref-eshelby1957" role="doc-biblioref">Eshelby, 1957</a>)</span> is that the strain tensor field solution to this problem is uniform within the ellipsoidal domain (not outside!) and writes</p>
 <p><span id="eq-defHill"><span class="math display">\[
    \forall \x \in \mathcal{E}_{\uu{A}},\quad \eps(\x)=-\uuuu{P}:\uu{\tau}\quad\textrm{(uniform)}
 \tag{5.4}\]</span></span> where <span class="math inline">\(\uuuu{P}\)</span>, called the Hill polarization tensor, depends on the shape and orientation of the ellipsoid (i.e.&nbsp;<span class="math inline">\(\uu{A}\)</span> up to a multiplicative constant) and on the matrix behavior (i.e.&nbsp;<span class="math inline">\(\uuuu{C}\)</span>), in other words <span class="math inline">\(\uuuu{P}=\uuuu{P}(\uu{A},\uuuu{C})\)</span>.</p>
-<p>The polarization problem can be alternatively posed thanks to an eigenstrain tensor <span class="math inline">\(\eps^*\)</span>, uniform in the ellipsoid, such that <span class="math inline">\(\eps^*=-\uuuu{C}^{-1}:\uu{\tau}\)</span>. It follows that <a href="#eq-law" class="quarto-xref"><span class="quarto-unresolved-ref">eq-law</span></a> rewrites</p>
+<p>The polarization problem can be alternatively posed thanks to an eigenstrain tensor <span class="math inline">\(\eps^*\)</span>, uniform in the ellipsoid, such that <span class="math inline">\(\eps^*=-\uuuu{C}^{-1}:\uu{\tau}\)</span>. It follows that <a href="#eq-law" class="quarto-xref"><span>5.3</span></a> rewrites</p>
 <p><span id="eq-law2"><span class="math display">\[
     \sig(\x)=\uuuu{C}:(\eps(\x)-\eps^*(\x))\quad\textrm{where}\quad
     \eps^*(\x)=
@@ -540,11 +540,11 @@ Fig.&nbsp;5.1: Eshelby inclusion problem
     \eps^*\textrm{ (uniform)}&amp;\textrm{ if }\x \in \mathcal{E}_{\uu{A}}
     \end{array}
     \right.
-\tag{5.5}\]</span></span> and the Eshelby tensor <span class="math inline">\(\uuuu{S}\)</span> is introduced by rewriting <a href="#eq-defHill" class="quarto-xref"><span class="quarto-unresolved-ref">eq-defHill</span></a> under the form <span id="eq-defEshelby"><span class="math display">\[
+\tag{5.5}\]</span></span> and the Eshelby tensor <span class="math inline">\(\uuuu{S}\)</span> is introduced by rewriting <a href="#eq-defHill" class="quarto-xref"><span>5.4</span></a> under the form <span id="eq-defEshelby"><span class="math display">\[
    \forall \x \in \mathcal{E}_{\uu{A}},\quad \eps(\x)=\uuuu{S}:\eps^*\quad\textrm{where}\quad\uuuu{S}=\uuuu{P}:\uuuu{C}
 \tag{5.6}\]</span></span></p>
-<p>See in <a href="#sec-hill_elas" class="quarto-xref"><span class="quarto-unresolved-ref">sec-hill_elas</span></a> explicit expressions to calculate the Hill polarization tensor.</p>
-<p>A straightforward consequence of the uniformity of the strain state wihin the ellipsoid is the uniformity of the stress state. A dual point of view of the expression (<a href="#eq-defHill" class="quarto-xref"><span class="quarto-unresolved-ref">eq-defHill</span></a>) consists in relating the uniform stress within the ellipsoid to the eigenstrain introduced in (<a href="#eq-law2" class="quarto-xref"><span class="quarto-unresolved-ref">eq-law2</span></a>). Using (<a href="#eq-defEshelby" class="quarto-xref"><span class="quarto-unresolved-ref">eq-defEshelby</span></a>) in (<a href="#eq-law2" class="quarto-xref"><span class="quarto-unresolved-ref">eq-law2</span></a>) allows to exhibit the dual counterpart of (<a href="#eq-defHill" class="quarto-xref"><span class="quarto-unresolved-ref">eq-defHill</span></a>) involving the so-called second Hill polarization tensor <span class="math inline">\(\uuuu{Q}\)</span> <span id="eq-defsecondHill"><span class="math display">\[
+<p>See in <a href="../99_appendices/hill_elas.html" class="quarto-xref"><span>Appendix B</span></a> explicit expressions to calculate the Hill polarization tensor.</p>
+<p>A straightforward consequence of the uniformity of the strain state wihin the ellipsoid is the uniformity of the stress state. A dual point of view of the expression (<a href="#eq-defHill" class="quarto-xref"><span>5.4</span></a>) consists in relating the uniform stress within the ellipsoid to the eigenstrain introduced in (<a href="#eq-law2" class="quarto-xref"><span>5.5</span></a>). Using (<a href="#eq-defEshelby" class="quarto-xref"><span>5.6</span></a>) in (<a href="#eq-law2" class="quarto-xref"><span>5.5</span></a>) allows to exhibit the dual counterpart of (<a href="#eq-defHill" class="quarto-xref"><span>5.4</span></a>) involving the so-called second Hill polarization tensor <span class="math inline">\(\uuuu{Q}\)</span> <span id="eq-defsecondHill"><span class="math display">\[
    \forall \x \in \mathcal{E}_{\uu{A}},\quad \sig(\x)=-\uuuu{Q}:\eps^*\quad\textrm{with}\quad\uuuu{Q}=\uuuu{C}-\uuuu{C}:\uuuu{P}:\uuuu{C}
 \tag{5.7}\]</span></span></p>
 </section>
@@ -552,7 +552,7 @@ Fig.&nbsp;5.1: Eshelby inclusion problem
 <h2 class="anchored" data-anchor-id="sec-ellipsoidal">Definition of the <code>ellipsoidal</code> shape</h2>
 <p>An <code>ellipsoidal</code> shape intended for use in the construction of <span class="math inline">\(\uuuu{P}\)</span> can be built by means of the following constructor</p>
 <p><code>shape = ellipsoidal(a, b, c, θ=0., ϕ=0., ψ=0.) # default values 0 for the angles</code></p>
-<p>where <span class="math inline">\(a, b, c\)</span> are the radii and <span class="math inline">\(\theta, \phi, \psi\)</span> the Euler angles already presented in <a href="#fig-eulerangles" class="quarto-xref">Fig.&nbsp;<span class="quarto-unresolved-ref">fig-eulerangles</span></a></p>
+<p>where <span class="math inline">\(a, b, c\)</span> are the radii and <span class="math inline">\(\theta, \phi, \psi\)</span> the Euler angles already presented in <a href="../99_appendices/tensor_algebra.html#fig-eulerangles" class="quarto-xref">Fig.&nbsp;<span>A.1</span></a></p>
 <div id="e196b80a" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>π <span class="op">=</span> math.pi</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>a, b, c <span class="op">=</span> <span class="fl">10.</span>, <span class="fl">5.</span>, <span class="fl">2.</span></span>
@@ -586,7 +586,7 @@ Warning
 </div>
 <p>When two radii are equal the ellipsoidal shape becomes a spheroidal one which can also be directly defined by</p>
 <p><code>shape = spheroidal(ω, θ=0., ϕ=0.) # default values 0 for the angles</code></p>
-<p>where <span class="math inline">\(\omega\)</span> is the aspect ratio (<span class="math inline">\(\omega \leq 1\)</span> for an oblate shape and <span class="math inline">\(\omega \geq 1\)</span> for a prolate shape) (see <a href="#fig-spheroidal" class="quarto-xref">Fig.&nbsp;<span class="quarto-unresolved-ref">fig-spheroidal</span></a>).</p>
+<p>where <span class="math inline">\(\omega\)</span> is the aspect ratio (<span class="math inline">\(\omega \leq 1\)</span> for an oblate shape and <span class="math inline">\(\omega \geq 1\)</span> for a prolate shape) (see <a href="#fig-spheroidal" class="quarto-xref">Fig.&nbsp;<span>5.2</span></a>).</p>
 <div id="fig-spheroidal" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-spheroidal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -662,7 +662,7 @@ Warning
 <li><code>S = eshelby(shape, C)</code></li>
 </ul>
 <p>where <code>shape</code> is an ellipsoidal shape as previously defined and <code>C</code> is an isotropic tensor.</p>
-<p>Note that an isotropic tensor <code>C</code> simply allows to resort to analytical expressions as seen in <a href="#sec-hill_elas" class="quarto-xref"><span class="quarto-unresolved-ref">sec-hill_elas</span></a>. The anisotropic cases are also available with numerical algorithms as will be seen below.</p>
+<p>Note that an isotropic tensor <code>C</code> simply allows to resort to analytical expressions as seen in <a href="../99_appendices/hill_elas.html" class="quarto-xref"><span>Appendix B</span></a>. The anisotropic cases are also available with numerical algorithms as will be seen below.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -779,14 +779,14 @@ Warning
 </ul>
 <p>where the keyword argument <code>algo</code> can be either <code>NUMINT</code> or <code>RESIDUES</code> (default: <code>NUMINT</code>).</p>
 <ul>
-<li><p><code>NUMINT</code> based on the cubature DECUHR algorithm provided in <span class="citation" data-cites="espelid1994">(<a href="#ref-espelid1994" role="doc-biblioref">Espelid and Genz, 1994</a>)</span> applied on the integral formulation <a href="#eq-Hill" class="quarto-xref"><span class="quarto-unresolved-ref">eq-Hill</span></a> over the unit sphere</p>
+<li><p><code>NUMINT</code> based on the cubature DECUHR algorithm provided in <span class="citation" data-cites="espelid1994">(<a href="../references.html#ref-espelid1994" role="doc-biblioref">Espelid and Genz, 1994</a>)</span> applied on the integral formulation <a href="../99_appendices/hill_elas.html#eq-Hill" class="quarto-xref"><span>B.2</span></a> over the unit sphere</p>
 <ul>
 <li><code>epsabs</code> is the tolerance of absolute error (default: 1.e-4)</li>
 <li><code>epsrel</code> is the tolerance of relative error (default: 1.e-4)</li>
 <li><code>maxnb</code> is the maximum number of subdivisions (default: 100000)</li>
 </ul>
-<p>For more information about these parameters see <span class="citation" data-cites="espelid1994">(<a href="#ref-espelid1994" role="doc-biblioref">Espelid and Genz, 1994</a>)</span>.</p></li>
-<li><p><code>RESIDUES</code> based on the residue Cauchy theorem to transform the 2D cubature over the unit sphere <a href="#eq-Hill" class="quarto-xref"><span class="quarto-unresolved-ref">eq-Hill</span></a> into a 1D quadrature as demonstrated in <span class="citation" data-cites="masson2008">(<a href="#ref-masson2008" role="doc-biblioref">Masson, 2008</a>)</span></p>
+<p>For more information about these parameters see <span class="citation" data-cites="espelid1994">(<a href="../references.html#ref-espelid1994" role="doc-biblioref">Espelid and Genz, 1994</a>)</span>.</p></li>
+<li><p><code>RESIDUES</code> based on the residue Cauchy theorem to transform the 2D cubature over the unit sphere <a href="../99_appendices/hill_elas.html#eq-Hill" class="quarto-xref"><span>B.2</span></a> into a 1D quadrature as demonstrated in <span class="citation" data-cites="masson2008">(<a href="../references.html#ref-masson2008" role="doc-biblioref">Masson, 2008</a>)</span></p>
 <ul>
 <li><code>epsroots</code> is the tolerance for the criterion of multiple poles, i.e.&nbsp;if the distance between two poles of the integrand function is under this value they are considered as a unique multiple pole (default: 1.e-4)</li>
 <li><code>epsabs</code> is the tolerance of absolute error for the 1D quadrature (default: 1.e-4)</li>
@@ -897,7 +897,7 @@ P(NUMINT) =
 <p><span class="math inline">\(\,\)</span></p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-eshelby1957" class="csl-entry" role="listitem">
 Eshelby, J.D., 1957. The determination of the elastic field of an ellipsoidal inclusion, and related problems. Proceedings of the Royal Society of London. Series A. Mathematical and Physical Sciences 241, 376–396. <a href="https://doi.org/10.1098/rspa.1957.0133">https://doi.org/10.1098/rspa.1957.0133</a>
 </div>
