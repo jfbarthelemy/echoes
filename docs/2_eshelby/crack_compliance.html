@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1&nbsp; Kelvin-Mandel notation – Echoes</title>
+<title>6&nbsp; Crack compliance – Echoes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -54,7 +54,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -64,8 +84,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../1_tensor_calculus/rot_matrices.html" rel="next">
-<link href="../intro.html" rel="prev">
+<link href="../references.html" rel="next">
+<link href="../2_eshelby/eshelby_hill.html" rel="prev">
 <link href="../img/cover.html" rel="icon" type="text/html">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -146,7 +166,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../1_tensor_calculus/kelvin_mandel.html">𝗘𝗹𝗲𝗺𝗲𝗻𝘁𝘀 𝗼𝗳 𝘁𝗲𝗻𝘀𝗼𝗿 𝗰𝗮𝗹𝗰𝘂𝗹𝘂𝘀</a></li><li class="breadcrumb-item"><a href="../1_tensor_calculus/kelvin_mandel.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Kelvin-Mandel notation</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../2_eshelby/eshelby_hill.html">𝗘𝘀𝗵𝗲𝗹𝗯𝘆 𝗶𝗻𝗰𝗹𝘂𝘀𝗶𝗼𝗻 𝗽𝗿𝗼𝗯𝗹𝗲𝗺</a></li><li class="breadcrumb-item"><a href="../2_eshelby/crack_compliance.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Crack compliance</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -223,7 +243,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../1_tensor_calculus/kelvin_mandel.html" class="sidebar-item-text sidebar-link active">
+  <a href="../1_tensor_calculus/kelvin_mandel.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Kelvin-Mandel notation</span></span></a>
   </div>
 </li>
@@ -264,7 +284,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../2_eshelby/crack_compliance.html" class="sidebar-item-text sidebar-link">
+  <a href="../2_eshelby/crack_compliance.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Crack compliance</span></span></a>
   </div>
 </li>
@@ -310,11 +330,18 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#definition-of-the-crack-compliance" id="toc-definition-of-the-crack-compliance" class="nav-link active" data-scroll-target="#definition-of-the-crack-compliance">Definition of the crack compliance</a></li>
+  <li><a href="#numerical-implementation" id="toc-numerical-implementation" class="nav-link" data-scroll-target="#numerical-implementation">Numerical implementation</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/2_eshelby/crack_compliance.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 $$
 
 \newcommand{\C}{{\mathbb{{C}}}}
@@ -390,14 +417,14 @@ $$
 $$
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../1_tensor_calculus/kelvin_mandel.html">𝗘𝗹𝗲𝗺𝗲𝗻𝘁𝘀 𝗼𝗳 𝘁𝗲𝗻𝘀𝗼𝗿 𝗰𝗮𝗹𝗰𝘂𝗹𝘂𝘀</a></li><li class="breadcrumb-item"><a href="../1_tensor_calculus/kelvin_mandel.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Kelvin-Mandel notation</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../2_eshelby/eshelby_hill.html">𝗘𝘀𝗵𝗲𝗹𝗯𝘆 𝗶𝗻𝗰𝗹𝘂𝘀𝗶𝗼𝗻 𝗽𝗿𝗼𝗯𝗹𝗲𝗺</a></li><li class="breadcrumb-item"><a href="../2_eshelby/crack_compliance.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Crack compliance</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-kelvin_mandel" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Kelvin-Mandel notation</span></span></h1>
+<h1 class="title"><span id="sec-crack_compliance" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Crack compliance</span></span></h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-page-right">
+<div class="quarto-title-meta column-body">
 
     
   
@@ -419,7 +446,7 @@ $$
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Before introducing the specific objects of <code>echoes</code> devoted to tensor calculations in isotropic or anisotropic contexts, this tutorial aims at providing the syntax allowing to represent second-order or fourth-order tensors under the form of matrices in the Kelvin-Mandel notation as detailed in <a href="#sec-KM" class="quarto-xref"><span class="quarto-unresolved-ref">sec-KM</span></a>.</p>
+<p>This tutorial shows how to calculate the crack compliance of an elliptical crack embedded in an infinite elastic matrix of arbitrary anisotropy.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -435,8 +462,8 @@ $$
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
-<li><p><a href="kelvin_mandel.py">Python script</a></p></li>
-<li><p><a href="kelvin_mandel.ipynb">Jupyter notebook</a></p></li>
+<li><p><a href="crack_compliance.py">Python script</a></p></li>
+<li><p><a href="crack_compliance.ipynb">Jupyter notebook</a></p></li>
 </ul>
 </div>
 </div>
@@ -453,91 +480,240 @@ $$
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="5e6c7419" class="cell" data-execution_count="1">
+<div id="0215b307" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math, random</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>np.set_printoptions(precision<span class="op">=</span><span class="dv">8</span>, suppress<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># to display only 8 significant digits of array components</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>np.set_printoptions(precision<span class="op">=</span><span class="dv">8</span>, suppress<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># to display only 8 significant digits of array components</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 </div>
-<p>A symmetric <span class="math inline">\(3×3\)</span> second-order matrix can be transformed in a vector of <span class="math inline">\(\R^6\)</span> by the function <code>KM</code> consistently with <a href="#eq-KM2" class="quarto-xref"><span class="quarto-unresolved-ref">eq-KM2</span></a>. The inverse is done by <code>invKM</code>.</p>
-<div id="c256663a" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>α <span class="op">=</span> np.random.rand(<span class="dv">3</span>, <span class="dv">3</span>) <span class="op">;</span> ε <span class="op">=</span> (α<span class="op">+</span>α.T)<span class="op">/</span><span class="dv">2</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"ε =</span><span class="ch">\n</span><span class="st">"</span>,ε)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"KM(ε) =</span><span class="ch">\n</span><span class="st">"</span>,KM(ε))</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> np.allclose(invKM(KM(ε)), ε), <span class="st">"error"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>ε =
- [[0.90574852 0.5101637  0.34317283]
- [0.5101637  0.49722925 0.5821801 ]
- [0.34317283 0.5821801  0.05330175]]
-KM(ε) =
- [0.90574852 0.49722925 0.05330175 0.82332699 0.48531967 0.72148043]</code></pre>
+<section id="definition-of-the-crack-compliance" class="level2">
+<h2 class="anchored" data-anchor-id="definition-of-the-crack-compliance">Definition of the crack compliance</h2>
+<p>Geometrically an elliptical crack can be defined as the limit domain of an ellipsoid for which the smallest aspect ratio tends towards 0. Keeping the definition of the ellipsoid by means of the tensor <span class="math inline">\(\uu{A}\)</span> in (<a href="eshelby_hill.html#eq-defell" class="quarto-xref"><span>5.1</span></a>)-(<a href="eshelby_hill.html#eq-defA" class="quarto-xref"><span>5.2</span></a>), the latter tensor becomes here <span class="math display">\[
+\uu{A}=
+\uv{\ell}\otimes\uv{\ell}+
+\eta\,\uv{m}\otimes\uv{m}+
+\omega\,\uv{n}\otimes\uv{n}
+\quad\textrm{with}\quad
+\eta=\frac{b}{a}
+\quad\textrm{and}\quad
+\omega=\frac{c}{a}
+\]</span></p>
+<div id="fig-crack" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-crack-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p><embed src="../img/crack.html" class="img-fluid" style="width:70.0%"> <a href="../img/crack.html"><img src="../img/arrow-expand.png" class="img-fluid figure-img" style="width:3.0%"></a></p>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-crack-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Fig.&nbsp;6.1: Ellipsoidal crack
+</figcaption>
+</figure>
+</div>
+<p>In the case of cracks, it is useful to recall the second Hill polarization tensor defined as (see (<a href="eshelby_hill.html#eq-defsecondHill" class="quarto-xref"><span>5.7</span></a>)) <span class="math display">\[
+\uuuu{Q}=\uuuu{C}-\uuuu{C}:\uuuu{P}:\uuuu{C}
+\]</span> and in particular the so-called crack compliance <span class="citation" data-cites="kachanov1992">(<a href="../references.html#ref-kachanov1992" role="doc-biblioref">Kachanov, 1992</a>)</span>, <span class="citation" data-cites="kachanov1993">(<a href="../references.html#ref-kachanov1993" role="doc-biblioref">Kachanov, 1993</a>)</span>, <span class="citation" data-cites="sevostianov2002">(<a href="../references.html#ref-sevostianov2002" role="doc-biblioref">Sevostianov and Kachanov, 2002</a>)</span>, <span class="citation" data-cites="barthelemyIJES2021">(<a href="../references.html#ref-barthelemyIJES2021" role="doc-biblioref">Barthélémy et al., 2021</a>)</span> <span class="math display">\[
+\uuuu{H}=\lim_{\omega\to 0}\omega\,\uuuu{Q}^{-1}
+\]</span> in which it is recalled that <span class="math inline">\(\uuuu{P}\)</span> and thus <span class="math inline">\(\uuuu{Q}\)</span> depend on <span class="math inline">\(\omega\)</span> such that the components <span class="math inline">\(\left(\uuuu{Q}^{-1}\right)_{nijk}\)</span> (with <span class="math inline">\(n\)</span> corresponding to the crack normal) behave as <span class="math inline">\(1/\omega\)</span> when <span class="math inline">\(\omega\)</span> tends towards <span class="math inline">\(0\)</span>. It is also shown in previously cited references that <span class="math inline">\(\uuuu{H}\)</span> actually derives from a symmetric second-order tensor <span class="math inline">\(\uu{B}\)</span> as <span id="eq-H"><span class="math display">\[
+\uuuu{H}=
+\lim_{\omega\to 0} \omega\,\uuuu{Q}^{-1}
+=\frac{3}{4}\,\uv{n}\sotimes\uu{B}\sotimes\uv{n}
+\tag{6.1}\]</span></span> For more details about this limit, the reader can also refer to <span class="citation" data-cites="laws1977">(<a href="../references.html#ref-laws1977" role="doc-biblioref">Laws, 1977</a>)</span>, <span class="citation" data-cites="laws1985">(<a href="../references.html#ref-laws1985" role="doc-biblioref">Laws, 1985</a>)</span>, <span class="citation" data-cites="nemat-nasser1999">(<a href="../references.html#ref-nemat-nasser1999" role="doc-biblioref">Nemat-Nasser and Hori, 1999</a>)</span>, <span class="citation" data-cites="barthelemyIJSS2009">(<a href="../references.html#ref-barthelemyIJSS2009" role="doc-biblioref">Barthélémy, 2009</a>)</span>, <span class="citation" data-cites="kachanov2018">(<a href="../references.html#ref-kachanov2018" role="doc-biblioref">Kachanov and Sevostianov, 2018</a>)</span>, <span class="citation" data-cites="barthelemyIJES2021">(<a href="../references.html#ref-barthelemyIJES2021" role="doc-biblioref">Barthélémy et al., 2021</a>)</span>.</p>
+<p>For an arbitrarly anisotropic matrix, an algorithm allowing to estimate the limit (<a href="#eq-H" class="quarto-xref"><span>6.1</span></a>) is proposed in <span class="citation" data-cites="barthelemyIJSS2009">(<a href="../references.html#ref-barthelemyIJSS2009" role="doc-biblioref">Barthélémy, 2009</a>)</span> whereas in the isotropic case <span class="math inline">\(\uu{B}\)</span> writes <span class="math display">\[
+\uu{B}=
+B_{nn}\,\uv{n}\otimes\uv{n}
++
+B_{mm}\,\uv{m}\otimes\uv{m}
++
+B_{\ell\ell}\,\uv{\ell}\otimes\uv{\ell}
+\]</span> with <span class="math display">\[\begin{aligned}
+B_{nn}&amp;=\frac{8\,\eta\,(1-\nu^2)}{3\,E}\,
+\frac{1}{\mathcal{E}_\eta}\label{eq:Bnn}\\
+B_{mm}&amp;=\frac{8\,\eta\,(1-\nu^2)}{3\,E}\,
+\frac{1-\eta^2}{\left(1-(1-\nu)\,\eta^2\right)
+\,\mathcal{E}_\eta-\nu\,\eta^2\,\mathcal{K}_\eta}\\
+B_{\ell\ell}&amp;=\frac{8\,\eta\,(1-\nu^2)}{3\,E}\,
+\frac{1-\eta^2}{(1-\nu-\eta^2)\,\mathcal{E}_\eta+\nu\,\eta^2\,\mathcal{K}_\eta}
+\end{aligned}\]</span> where <span class="math inline">\(\mathcal{K}_\eta=\mathcal{K}(\sqrt{1-\eta^2})\)</span> and <span class="math inline">\(\mathcal{E}_\eta=\mathcal{E}(\sqrt{1-\eta^2})\)</span> are the complete elliptic integrals of respectively the first and second kind (see <span class="citation" data-cites="abramowitz1972">(<a href="../references.html#ref-abramowitz1972" role="doc-biblioref">Abramowitz and Stegun, 1972</a>)</span>). If the crack is circular, the components of <span class="math inline">\(\uu{B}\)</span> become <span class="math display">\[
+B_{nn}=\frac{16\,(1-\nu^2)}{3\,\pi\,E}
+\quad\textrm{;}\quad
+B_{mm}=B_{\ell\ell}=\frac{B_{nn}}{1-\nu/2}
+\]</span></p>
+</section>
+<section id="numerical-implementation" class="level2">
+<h2 class="anchored" data-anchor-id="numerical-implementation">Numerical implementation</h2>
+<p>The syntax allowing to calculate the compliance <span class="math inline">\(\uuuu{H}\)</span> of an elliptical crack embedded in an infinite matrix of elastic stiffness <span class="math inline">\(\uuuu{C}\)</span> is very close to that corresponding to <code>hill</code> and <code>eshelby</code> in <a href="eshelby_hill.html" class="quarto-xref"><span>Chapter 5</span></a>, in other words</p>
+<p><code>H = crack_compliance(shape, C, algo=NUMINT, epsroots=1.e-4, epsabs=1.e-4, epsrel=1.e-4, maxnb=100000)</code></p>
+<p>where the keyword argument <code>algo</code> can be either <code>NUMINT</code> or <code>RESIDUES</code> (default: <code>NUMINT</code>). See <span class="citation" data-cites="barthelemyIJSS2009">(<a href="../references.html#ref-barthelemyIJSS2009" role="doc-biblioref">Barthélémy, 2009</a>)</span> for more details.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
 </div>
 </div>
-<p>Given a <span class="math inline">\(3×3×3×3\)</span> array <code>c</code> (of type <code>numpy.ndarray</code>) satisfying major and minor symmetries (see <a href="#sec-KM" class="quarto-xref"><span class="quarto-unresolved-ref">sec-KM</span></a>), the corresponding <span class="math inline">\(6×6\)</span> matrix <code>C</code> obtained by Kelvin-Mandel transform is calculated by <code>C = KM(c)</code>. Conversely, if <code>C</code> is a positive definite matrix, <code>c</code> is calculated by <code>c = invKM(C)</code>.</p>
-<div id="4179bb28" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.random.rand(<span class="dv">6</span>,<span class="dv">6</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> A.T.dot(A) <span class="op">+</span> np.eye(<span class="dv">6</span>) <span class="co"># generation of an arbitrary positive definite matrix</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> invKM(C)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"C =</span><span class="ch">\n</span><span class="st">"</span>,C)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"c =</span><span class="ch">\n</span><span class="st">"</span>,c)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> np.allclose(KM(c), C), <span class="st">"error: KM(c) should be equal to C"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout-body-container callout-body">
+<p>As recalled above the elliptical crack is described as a flat ellipsoid. However the calculation of the crack compliance <span class="math inline">\(\uuuu{H}\)</span> (<a href="#eq-H" class="quarto-xref"><span>6.1</span></a>) relies on an <code>ellipsoidal</code> argument (see <a href="eshelby_hill.html#sec-ellipsoidal" class="quarto-xref"><span>Section 5.2</span></a>) in which even the smallest aspect ratio should be strictly positive for numerical reasons. It is then necessary to provide an aspect ratio <span class="math inline">\(\omega\)</span> for the crack even if the crack compliance is actually calculated as a limit (not depending on <span class="math inline">\(\omega\)</span>)</p>
+</div>
+</div>
+<p><strong>Isotropic example</strong></p>
+<div id="0f40ff69" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> stiff_Enu(<span class="fl">1.</span>,<span class="fl">0.2</span>) <span class="op">;</span> <span class="bu">print</span>(<span class="st">"C =</span><span class="ch">\n</span><span class="st">"</span>, C)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>ω <span class="op">=</span> <span class="fl">1.e-4</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>H <span class="op">=</span> crack_compliance(spheroidal(ω), C) <span class="op">;</span> <span class="bu">print</span>(<span class="st">"H =</span><span class="ch">\n</span><span class="st">"</span>, H)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>C =
- [[1.54444728 0.95343879 0.93818895 0.68400435 0.80896849 0.70365313]
- [0.95343879 4.23086656 2.51452906 1.65020662 1.45882039 2.4819481 ]
- [0.93818895 2.51452906 3.59509372 1.63956838 1.24456147 2.44007178]
- [0.68400435 1.65020662 1.63956838 2.62371405 0.74342609 1.47989791]
- [0.80896849 1.45882039 1.24456147 0.74342609 2.48384566 1.07765741]
- [0.70365313 2.4819481  2.44007178 1.47989791 1.07765741 3.74690372]]
-c =
- [[[[1.54444728 0.4975579  0.57202711]
-   [0.4975579  0.95343879 0.48366411]
-   [0.57202711 0.48366411 0.93818895]]
+ Order 4 ISO tensor | Param(size=2)=[ 1.66667 0.833333 ] | Angles(size=0)=[ ]
+[ 1.11111 0.277778 0.277778 0 0 0 
+  0.277778 1.11111 0.277778 0 0 0 
+  0.277778 0.277778 1.11111 0 0 0 
+  0 0 0 0.833333 0 0 
+  0 0 0 0 0.833333 0 
+  0 0 0 0 0 0.833333 ]
 
-  [[0.4975579  1.87345186 0.5388287 ]
-   [1.87345186 1.75500233 0.73994896]
-   [0.5388287  0.73994896 1.7253913 ]]
+H =
+ [[0.         0.         0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.        ]
+ [0.         0.         1.22230996 0.         0.         0.        ]
+ [0.         0.         0.         0.67906109 0.         0.        ]
+ [0.         0.         0.         0.         0.67906109 0.        ]
+ [0.         0.         0.         0.         0.         0.        ]]</code></pre>
+</div>
+</div>
+<p><strong>Anisotropic example</strong></p>
+<div id="6e90e978" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>M <span class="op">=</span> np.array([ [<span class="fl">2.66011</span>, <span class="fl">1.26432</span>, <span class="fl">0.662772</span>, <span class="fl">1.9402</span>, <span class="fl">1.54905</span>, <span class="fl">1.10384</span>],</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">1.26432</span>, <span class="fl">3.6072</span>, <span class="fl">1.78964</span>, <span class="fl">2.0247</span>, <span class="fl">1.2701</span>, <span class="fl">1.1089</span>], </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">0.662772</span>, <span class="fl">1.78964</span>, <span class="fl">2.743</span>, <span class="fl">1.3367</span>, <span class="fl">1.2962</span>, <span class="fl">0.897632</span>], </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">1.9402</span>, <span class="fl">2.0247</span> ,<span class="fl">1.3367</span>, <span class="fl">4.42684</span>, <span class="fl">2.05632</span>, <span class="fl">1.52686</span>], </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">1.54905</span>, <span class="fl">1.2701</span>, <span class="fl">1.2962</span>, <span class="fl">2.05632</span>, <span class="fl">3.54431</span>, <span class="fl">1.3445</span>], </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">1.10384</span>, <span class="fl">1.1089</span>, <span class="fl">0.897632</span>, <span class="fl">1.52686</span>, <span class="fl">1.3445</span>, <span class="fl">1.99356</span>] ])</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> tensor(M) <span class="op">;</span> <span class="bu">print</span>(C)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>ω <span class="op">=</span> <span class="fl">1.e-4</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>H <span class="op">=</span> crack_compliance(spheroidal(ω), C, algo<span class="op">=</span>NUMINT) <span class="op">;</span> <span class="bu">print</span>(<span class="st">"H =</span><span class="ch">\n</span><span class="st">"</span>, H)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Order 4 ANISO tensor | Param(size=21)=[ 2.66011 1.26432 0.662772 1.9402 1.54905 1.10384 3.6072 1.78964 2.0247 1.2701 1.1089 2.743 1.3367 1.2962 0.897632 4.42684 2.05632 1.52686 3.54431 1.3445 1.99356 ] | Angles(size=0)=[ ]
+[ 2.66011 1.26432 0.662772 1.9402 1.54905 1.10384 
+  1.26432 3.6072 1.78964 2.0247 1.2701 1.1089 
+  0.662772 1.78964 2.743 1.3367 1.2962 0.897632 
+  1.9402 2.0247 1.3367 4.42684 2.05632 1.52686 
+  1.54905 1.2701 1.2962 2.05632 3.54431 1.3445 
+  1.10384 1.1089 0.897632 1.52686 1.3445 1.99356 ]
 
-  [[0.57202711 0.5388287  1.24192283]
-   [0.5388287  1.03154179 0.37171305]
-   [1.24192283 0.37171305 0.88003786]]]
-
-
- [[[0.4975579  1.87345186 0.5388287 ]
-   [1.87345186 1.75500233 0.73994896]
-   [0.5388287  0.73994896 1.7253913 ]]
-
-  [[0.95343879 1.75500233 1.03154179]
-   [1.75500233 4.23086656 1.16687229]
-   [1.03154179 1.16687229 2.51452906]]
-
-  [[0.48366411 0.73994896 0.37171305]
-   [0.73994896 1.16687229 1.31185702]
-   [0.37171305 1.31185702 1.15934992]]]
-
-
- [[[0.57202711 0.5388287  1.24192283]
-   [0.5388287  1.03154179 0.37171305]
-   [1.24192283 0.37171305 0.88003786]]
-
-  [[0.48366411 0.73994896 0.37171305]
-   [0.73994896 1.16687229 1.31185702]
-   [0.37171305 1.31185702 1.15934992]]
-
-  [[0.93818895 1.7253913  0.88003786]
-   [1.7253913  2.51452906 1.15934992]
-   [0.88003786 1.15934992 3.59509372]]]]</code></pre>
+H =
+ [[ 0.          0.          0.          0.          0.          0.        ]
+ [ 0.          0.          0.          0.          0.          0.        ]
+ [ 0.          0.          0.57167315 -0.08924584 -0.10580477  0.        ]
+ [ 0.          0.         -0.08924584  0.2711102  -0.06996412  0.        ]
+ [ 0.          0.         -0.10580477 -0.06996412  0.34412187  0.        ]
+ [ 0.          0.          0.          0.          0.          0.        ]]</code></pre>
+</div>
+</div>
+<div id="fafd89fb" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>H <span class="op">=</span> crack_compliance(spheroidal(ω), C, algo<span class="op">=</span>RESIDUES) <span class="op">;</span> <span class="bu">print</span>(<span class="st">"H =</span><span class="ch">\n</span><span class="st">"</span>, H)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>H =
+ [[ 0.          0.          0.          0.          0.          0.        ]
+ [ 0.          0.          0.          0.          0.          0.        ]
+ [ 0.          0.          0.57167315 -0.08924584 -0.10580477  0.        ]
+ [ 0.          0.         -0.08924584  0.2711102  -0.06996412  0.        ]
+ [ 0.          0.         -0.10580477 -0.06996412  0.34412187  0.        ]
+ [ 0.          0.          0.          0.          0.          0.        ]]</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<iconify-icon role="img" inline="" icon="healthicons:exercise-outline" aria-label="Icon exercise-outline from healthicons Iconify.design set." title="Icon exercise-outline from healthicons Iconify.design set."></iconify-icon> Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This exercise aims at checking the aspect ratio for which the approximation <span class="math inline">\(\omega\,\uuuu{Q}^{-1}\approx \lim_{\omega\to 0}\omega\,\uuuu{Q}^{-1}\)</span> remains acceptable. For this purpose it is proposed to build the graph of relative distance between these two tensors as function of the aspect ratio <span class="math inline">\(\omega\)</span> for different reference stiffness tensors <span class="math inline">\(\uuuu{C}\)</span>.</p>
+<p><em>Hints: with <code>hill_dual</code> use preferably <code>algo=NUMINT</code> and decrease the values of <code>epsrel</code> and <code>espabs</code> to avoid roundoff error prior to inversion of <span class="math inline">\(\uuuu{Q}\)</span></em></p>
+<div id="cell-fig-errorH" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Solution</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">3</span>))</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    A <span class="op">=</span> np.random.rand(<span class="dv">6</span>,<span class="dv">6</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    C <span class="op">=</span> tensor(A.T.dot(A) <span class="op">+</span> np.eye(<span class="dv">6</span>)) <span class="co"># generation of an arbitrary positive definite matrix</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    ω <span class="op">=</span> <span class="fl">1.e-4</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    H <span class="op">=</span> crack_compliance(spheroidal(ω), C)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    tω <span class="op">=</span> np.logspace(<span class="op">-</span><span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">20</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    tabδ <span class="op">=</span> []</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> ω <span class="kw">in</span> tω:</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>        Q <span class="op">=</span> hill_dual(spheroidal(ω), C, algo<span class="op">=</span>NUMINT, epsrel<span class="op">=</span><span class="fl">1.e-12</span>, epsabs<span class="op">=</span><span class="fl">1.e-12</span>)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>        Hω <span class="op">=</span> ω<span class="op">*</span>np.linalg.inv(Q)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>        δH <span class="op">=</span> np.linalg.norm(Hω<span class="op">-</span>H)<span class="op">/</span>np.linalg.norm(H)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>        tabδ.append(δH)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    plt.loglog(tω,tabδ,<span class="st">'+-'</span>)</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="vs">r"$\omega$"</span>)</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="vs">r"$\frac{||\mathbb</span><span class="sc">{H}</span><span class="vs">-\omega\,\mathbb</span><span class="sc">{Q}</span><span class="vs">^{-1}||}{||\mathbb</span><span class="sc">{H}</span><span class="vs">||}$"</span>)</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>,which<span class="op">=</span><span class="st">'both'</span>)</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-errorh" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-errorh-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="crack_compliance_files/figure-html/fig-errorh-output-1.png" width="687" height="288" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-errorh-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Fig.&nbsp;6.2: Influence of the aspect ratio on the crack compliance contribution tensor
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </div>
 </div>
 <p><span class="math inline">\(\,\)</span></p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-abramowitz1972" class="csl-entry" role="listitem">
+Abramowitz, M., Stegun, I.A., 1972. Handbook of <span>Mathematical Functions</span>. National Bureau of Standards - Applied Mathematics Series - 55, Washington D.C.
+</div>
+<div id="ref-barthelemyIJSS2009" class="csl-entry" role="listitem">
+Barthélémy, J.-F., 2009. Compliance and <span>Hill</span> polarization tensor of a crack in an anisotropic matrix. International Journal of Solids and Structures 46, 4064–4072. <a href="https://doi.org/10.1016/j.ijsolstr.2009.08.003">https://doi.org/10.1016/j.ijsolstr.2009.08.003</a>
+</div>
+<div id="ref-barthelemyIJES2021" class="csl-entry" role="listitem">
+Barthélémy, J.-F., Sevostianov, I., Giraud, A., 2021. Micromechanical modeling of a cracked elliptically orthotropic medium. International Journal of Engineering Science 161, 103454. <a href="https://doi.org/10.1016/j.ijengsci.2021.103454">https://doi.org/10.1016/j.ijengsci.2021.103454</a>
+</div>
+<div id="ref-kachanov1993" class="csl-entry" role="listitem">
+Kachanov, M., 1993. Elastic <span>Solids</span> with <span>Many Cracks</span> and <span>Related Problems</span>. Advances in Applied Mechanics 30, 259–445. <a href="https://doi.org/10.1016/S0065-2156(08)70176-5">https://doi.org/10.1016/S0065-2156(08)70176-5</a>
+</div>
+<div id="ref-kachanov1992" class="csl-entry" role="listitem">
+Kachanov, M., 1992. Effective <span>Elastic Properties</span> of <span>Cracked Solids</span>: <span>Critical Review</span> of <span>Some Basic Concepts</span>. Applied Mechanics Reviews 45, 304–335. <a href="https://doi.org/10.1115/1.3119761">https://doi.org/10.1115/1.3119761</a>
+</div>
+<div id="ref-kachanov2018" class="csl-entry" role="listitem">
+Kachanov, M., Sevostianov, I., 2018. Micromechanics of <span>Materials</span>, with <span>Applications</span>, Solid <span>Mechanics</span> and <span>Its Applications</span>. Springer International Publishing, Cham. <a href="https://doi.org/10.1007/978-3-319-76204-3">https://doi.org/10.1007/978-3-319-76204-3</a>
+</div>
+<div id="ref-laws1985" class="csl-entry" role="listitem">
+Laws, N., 1985. A short note on penny-shaped cracks in transversely isotropic materials. Mech. Mater. 4, 209–212.
+</div>
+<div id="ref-laws1977" class="csl-entry" role="listitem">
+Laws, N., 1977. A note on interaction energies associated with cracks in anisotropic solids. Philos. Magazine 36, 367–372.
+</div>
+<div id="ref-nemat-nasser1999" class="csl-entry" role="listitem">
+Nemat-Nasser, S., Hori, M., 1999. Micromechanics: <span>Overall Properties</span> of <span>Heterogeneous Materials</span> 2nd <span>Edition</span>, North Holland. ed. North Holland, Amsterdam, The Netherlands.
+</div>
+<div id="ref-sevostianov2002" class="csl-entry" role="listitem">
+Sevostianov, I., Kachanov, M., 2002. On elastic compliances of irregularly shaped cracks. International Journal of Fracture 114, 245–257. <a href="https://doi.org/10.1023/A:1015534127172">https://doi.org/10.1023/A:1015534127172</a>
+</div>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -957,15 +1133,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation column-page-right">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../intro.html" class="pagination-link" aria-label="Introduction">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction</span>
+      <a href="../2_eshelby/eshelby_hill.html" class="pagination-link" aria-label="Eshelby and Hill polarization tensors">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Eshelby and Hill polarization tensors</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../1_tensor_calculus/rot_matrices.html" class="pagination-link" aria-label="Rotation matrices">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Rotation matrices</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../references.html" class="pagination-link" aria-label="References">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -974,4 +1150,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/1_tensor_calculus/kelvin_mandel.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/2_eshelby/crack_compliance.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

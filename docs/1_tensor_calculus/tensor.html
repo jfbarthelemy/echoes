@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -92,7 +92,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-524c77680309a51d71956d08d82e3b1d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -280,6 +280,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../2_eshelby/eshelby_hill.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Eshelby and Hill polarization tensors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../2_eshelby/crack_compliance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Crack compliance</span></span></a>
   </div>
 </li>
       </ul>
@@ -522,7 +528,7 @@ Warning
 </section>
 <section id="second-order-tensors" class="level2">
 <h2 class="anchored" data-anchor-id="second-order-tensors">Second-order tensors</h2>
-<p>A symmetric second-order <code>tensor</code> object is designed by means of its three eigenvalues and the orientation of the eigenbasis through three Euler angles <span class="math inline">\(\theta\)</span>, <span class="math inline">\(\phi\)</span> and <span class="math inline">\(\psi\)</span> (see <a href="../99_appendices/tensor_algebra.html#fig-eulerangles" class="quarto-xref">Fig.&nbsp;<span>A.1</span></a>). It is built using one of the following constructors</p>
+<p>A symmetric second-order <code>tensor</code> object is designed by means of its three eigenvalues and the orientation of the eigenbasis through three Euler angles <span class="math inline">\(\theta\)</span>, <span class="math inline">\(\phi\)</span> and <span class="math inline">\(\psi\)</span> (see <a href="#fig-eulerangles" class="quarto-xref">Fig.&nbsp;<span class="quarto-unresolved-ref">fig-eulerangles</span></a>). It is built using one of the following constructors</p>
 <ul>
 <li><code>T = tensor(T₁, T₂, T₃, θ=0, ϕ=0, ψ=0)</code> # default values of the angles are 0</li>
 <li><code>T = tensor([T₁, T₂, T₃], angles=[0, 0, 0])</code></li>
@@ -541,7 +547,7 @@ Warning
 <li>The eigenvalues and eigenvectors are systematically reordered in decreasing order of eigenvalues and angles are recomputed accordingly.</li>
 <li>The eigenvalues are analyzed in order to characterize the symmetry type between <code>ISO</code>, <code>TI</code> and <code>ORTHO</code>.</li>
 <li>The Euler angles are not unique since unit eigenvectors are determined up to a multiplicative factor of ±1.</li>
-<li>Note that the six parameters of the constructor <code>tensor</code> should not be confused with the components of the Kelvin-Mandel representation of symmetric second-order tensors (see <a href="../99_appendices/tensor_algebra.html#sec-KM" class="quarto-xref"><span>Section A.2</span></a>).</li>
+<li>Note that the six parameters of the constructor <code>tensor</code> should not be confused with the components of the Kelvin-Mandel representation of symmetric second-order tensors (see <a href="#sec-KM" class="quarto-xref"><span class="quarto-unresolved-ref">sec-KM</span></a>).</li>
 </ul>
 </div>
 </div>
@@ -576,7 +582,7 @@ Warning
 </code></pre>
 </div>
 </div>
-<p>A symmetric second-order <code>tensor</code> can also be built from a symmetric <span class="math inline">\(3×3\)</span> matrix. In this case a diagonalization is performed so as to find the <code>param</code> vector (the eigenvalues) and the <code>angles</code> determining the orientation of the eigenvectors (see <a href="../99_appendices/tensor_algebra.html#fig-eulerangles" class="quarto-xref">Fig.&nbsp;<span>A.1</span></a>)</p>
+<p>A symmetric second-order <code>tensor</code> can also be built from a symmetric <span class="math inline">\(3×3\)</span> matrix. In this case a diagonalization is performed so as to find the <code>param</code> vector (the eigenvalues) and the <code>angles</code> determining the orientation of the eigenvectors (see <a href="#fig-eulerangles" class="quarto-xref">Fig.&nbsp;<span class="quarto-unresolved-ref">fig-eulerangles</span></a>)</p>
 <div id="373060ed" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>M <span class="op">=</span> np.array([ [<span class="fl">1.7668</span>, <span class="fl">0.659068</span>, <span class="fl">0.703171</span>], </span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">0.659068</span>, <span class="fl">2.24232</span>, <span class="fl">0.120771</span>], </span>
@@ -717,7 +723,7 @@ E = 85.28 ; ν = 0.3 ; λ = 50.7 ; μ = 32.7</code></pre>
 </section>
 <section id="symmetric-transversely-isotropic-fourth-order-tensors-ti" class="level2">
 <h2 class="anchored" data-anchor-id="symmetric-transversely-isotropic-fourth-order-tensors-ti">Symmetric transversely isotropic fourth-order tensors (<code>TI</code>)</h2>
-<p>Such a tensor depends on 5 parameters and 2 angles <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\phi\)</span> defining the orientation of the normal to the isotropy plane (see <a href="../99_appendices/tensor_algebra.html#fig-eulerangles" class="quarto-xref">Fig.&nbsp;<span>A.1</span></a>).</p>
+<p>Such a tensor depends on 5 parameters and 2 angles <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\phi\)</span> defining the orientation of the normal to the isotropy plane (see <a href="#fig-eulerangles" class="quarto-xref">Fig.&nbsp;<span class="quarto-unresolved-ref">fig-eulerangles</span></a>).</p>
 <p>The decomposition on the symmetric Walpole tensors writes by means of five parameters <span class="math inline">\((t_i)_{i=1,\ldots,5}\)</span>. In the frame where <span class="math inline">\(\uv{n}=\ve{3}\)</span> the matrix is given by</p>
 <p><span class="math display">\[
 \uuuu{T}=\sum_{i=1}^5 t_i \uuuu{W}^s_i
@@ -857,7 +863,7 @@ Order 4 TI tensor | Param(size=5)=[ 0.25 0.8 -0.0353553 1.2 0.25 ] | Angles(size
 </section>
 <section id="symmetric-orthotropic-fourth-order-tensors-ortho" class="level2">
 <h2 class="anchored" data-anchor-id="symmetric-orthotropic-fourth-order-tensors-ortho">Symmetric orthotropic fourth-order tensors (<code>ORTHO</code>)</h2>
-<p>Such a tensor depends on 9 parameters and 3 angles <span class="math inline">\(\theta\)</span>, <span class="math inline">\(\phi\)</span> and <span class="math inline">\(\psi\)</span> defining the orientation of an orthonormal frame (see <a href="../99_appendices/tensor_algebra.html#fig-eulerangles" class="quarto-xref">Fig.&nbsp;<span>A.1</span></a>).</p>
+<p>Such a tensor depends on 9 parameters and 3 angles <span class="math inline">\(\theta\)</span>, <span class="math inline">\(\phi\)</span> and <span class="math inline">\(\psi\)</span> defining the orientation of an orthonormal frame (see <a href="#fig-eulerangles" class="quarto-xref">Fig.&nbsp;<span class="quarto-unresolved-ref">fig-eulerangles</span></a>).</p>
 <p>The convention here relies on the components <span class="math inline">\(T_{1 1 1 1}, T_{1 1 2 2}, T_{1 1 3 3}, T_{2 2 2 2}, T_{2 2 3 3}, T_{3 3 3 3}, T_{2 3 2 3}, T_{3 1 3 1}, T_{1 2 1 2}\)</span> as inputs. In the canonical frame the matrix is given by</p>
 <p><span class="math display">\[
 \small
@@ -939,7 +945,7 @@ Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>It is important to recall here that the parameters <span class="math inline">\(T_{IJ}\)</span> with <span class="math inline">\(1\leq I,J\leq 6\)</span> do not all coincide with the components <span class="math inline">\(T_{ijkl}\)</span>. Indeed the convention presented in <a href="../99_appendices/tensor_algebra.html#sec-KM" class="quarto-xref"><span>Section A.2</span></a> implies that <span class="math inline">\(T_{11}=T_{1111}\)</span> but <span class="math inline">\(T_{14}=\sqrt{2}\,T_{1123}\)</span> and <span class="math inline">\(T_{44}=2\,T_{2323}\)</span>.</p>
+<p>It is important to recall here that the parameters <span class="math inline">\(T_{IJ}\)</span> with <span class="math inline">\(1\leq I,J\leq 6\)</span> do not all coincide with the components <span class="math inline">\(T_{ijkl}\)</span>. Indeed the convention presented in <a href="#sec-KM" class="quarto-xref"><span class="quarto-unresolved-ref">sec-KM</span></a> implies that <span class="math inline">\(T_{11}=T_{1111}\)</span> but <span class="math inline">\(T_{14}=\sqrt{2}\,T_{1123}\)</span> and <span class="math inline">\(T_{44}=2\,T_{2323}\)</span>.</p>
 </div>
 </div>
 <p>Such a tensor is built by</p>
@@ -998,7 +1004,7 @@ Order 4 ORTHO tensor | Param(size=9)=[ 9 3 5 6 3 7 1 4 3 ] | Angles(size=3)=[ 1.
 <p>Given a <span class="math inline">\(6×6\)</span> matrix supposed to represent a tensor in the canonical frame, it is possible to find the closest tensor (in the sense of least-squares relatively to the euclidean matrix norm) among a family of given material symmetry. The syntax is simply <code>T = tensor(M, SYM)</code> where <code>SYM</code> denotes the chosen class of symmetry (<code>ISO</code>, <code>TI</code>, <code>ORTHO</code>).</p>
 <p>For example the closest <code>ISO</code> tensor is calculated by</p>
 <p><code>T = tensor(M, ISO)</code></p>
-<p>In this case it boils down to the “isotropisation” of the tensor <span class="math inline">\(\uuuu{T}\)</span> given by <span class="citation" data-cites="bornert2001a">(<a href="../references.html#ref-bornert2001a" role="doc-biblioref">Bornert et al., 2001</a>)</span></p>
+<p>In this case it boils down to the “isotropisation” of the tensor <span class="math inline">\(\uuuu{T}\)</span> given by <span class="citation" data-cites="bornert2001a">(<a href="#ref-bornert2001a" role="doc-biblioref">Bornert et al., 2001</a>)</span></p>
 <p><span class="math display">\[
 \ISO(\uuuu{T})=\left(\uuuu{T}::\uuuu{J}\right)\,\uuuu{J}+\left(\frac{\uuuu{T}::\uuuu{K}}{5}\right)\,\uuuu{K}
 \]</span></p>
@@ -1171,7 +1177,7 @@ Order 4 ORTHO tensor | Param(size=9)=[ 10.2695 -0.375452 1.64478 2.06277 -0.0032
 <p><span class="math inline">\(\,\)</span></p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-bornert2001a" class="csl-entry" role="listitem">
 Bornert, M., Bretheau, T., Gilormini, P., 2001. Homogénéisation en mécanique des matériaux. Hermes science.
 </div>

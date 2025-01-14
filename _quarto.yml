@@ -31,6 +31,7 @@ book:
     - part: "𝗘𝘀𝗵𝗲𝗹𝗯𝘆 𝗶𝗻𝗰𝗹𝘂𝘀𝗶𝗼𝗻 𝗽𝗿𝗼𝗯𝗹𝗲𝗺"
       chapters: 
         - 2_eshelby/eshelby_hill.qmd
+        - 2_eshelby/crack_compliance.qmd
     - references.qmd
   appendices:
     - 99_appendices/tensor_algebra.qmd
