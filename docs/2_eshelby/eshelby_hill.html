@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -84,7 +84,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../references.html" rel="next">
+<link href="../2_eshelby/crack_compliance.html" rel="next">
 <link href="../1_tensor_calculus/tensor.html" rel="prev">
 <link href="../img/cover.html" rel="icon" type="text/html">
 <script src="../site_libs/quarto-html/quarto.js"></script>
@@ -92,7 +92,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-524c77680309a51d71956d08d82e3b1d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -282,6 +282,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Eshelby and Hill polarization tensors</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../2_eshelby/crack_compliance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Crack compliance</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -330,7 +336,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#the-eshelby-inclusion-problem-in-elasticity-eshelby1957" id="toc-the-eshelby-inclusion-problem-in-elasticity-eshelby1957" class="nav-link active" data-scroll-target="#the-eshelby-inclusion-problem-in-elasticity-eshelby1957">The Eshelby inclusion problem in elasticity <span class="citation" data-cites="eshelby1957">(Eshelby, 1957)</span></a></li>
-  <li><a href="#definition-of-the-ellipsoidal-shape" id="toc-definition-of-the-ellipsoidal-shape" class="nav-link" data-scroll-target="#definition-of-the-ellipsoidal-shape">Definition of the <code>ellipsoidal</code> shape</a></li>
+  <li><a href="#sec-ellipsoidal" id="toc-sec-ellipsoidal" class="nav-link" data-scroll-target="#sec-ellipsoidal">Definition of the <code>ellipsoidal</code> shape</a></li>
   <li><a href="#calculation-of-hill-and-eshelby-tensors-for-an-isotropic-matrix" id="toc-calculation-of-hill-and-eshelby-tensors-for-an-isotropic-matrix" class="nav-link" data-scroll-target="#calculation-of-hill-and-eshelby-tensors-for-an-isotropic-matrix">Calculation of Hill and Eshelby tensors for an isotropic matrix</a></li>
   <li><a href="#calculation-of-hill-and-eshelby-tensors-for-an-arbitrary-anisotropic-matrix" id="toc-calculation-of-hill-and-eshelby-tensors-for-an-arbitrary-anisotropic-matrix" class="nav-link" data-scroll-target="#calculation-of-hill-and-eshelby-tensors-for-an-arbitrary-anisotropic-matrix">Calculation of Hill and Eshelby tensors for an arbitrary anisotropic matrix</a></li>
   </ul>
@@ -442,7 +448,7 @@ $$
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Before introducing the specific objects of <code>echoes</code> devoted to tensor calculations in isotropic or anisotropic contexts, this tutorial aims at providing the syntax allowing to represent second-order or fourth-order tensors under the form of matrices in the Kelvin-Mandel notation as detailed in <a href="../99_appendices/tensor_algebra.html#sec-KM" class="quarto-xref"><span>Section A.2</span></a>.</p>
+<p>This tutorial provides the instructions to build Eshelby and Hill polarization tensors related to an ellipsoidal shape embedded in an infinite elastic matrix of arbitrary anisotropy.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -476,7 +482,7 @@ $$
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="9083a433" class="cell" data-execution_count="1">
+<div id="8de965b7" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
@@ -488,16 +494,16 @@ $$
 </div>
 </div>
 <section id="the-eshelby-inclusion-problem-in-elasticity-eshelby1957" class="level2">
-<h2 class="anchored" data-anchor-id="the-eshelby-inclusion-problem-in-elasticity-eshelby1957">The Eshelby inclusion problem in elasticity <span class="citation" data-cites="eshelby1957">(<a href="../references.html#ref-eshelby1957" role="doc-biblioref">Eshelby, 1957</a>)</span></h2>
+<h2 class="anchored" data-anchor-id="the-eshelby-inclusion-problem-in-elasticity-eshelby1957">The Eshelby inclusion problem in elasticity <span class="citation" data-cites="eshelby1957">(<a href="#ref-eshelby1957" role="doc-biblioref">Eshelby, 1957</a>)</span></h2>
 <p>Let the studied domain be the whole <span class="math inline">\(\R^3\)</span> space here filled with a linear elastic material of uniform stiffness tensor <span class="math inline">\(\uuuu{C}\)</span>. An ellipsoid centered at the origin of the domain is defined by the equation</p>
-<p><span class="math display">\[
+<p><span id="eq-defell"><span class="math display">\[
    \uv{x}\in\mathcal{E}_{\uu{A}}
 \quad\Leftrightarrow\quad   
 \uv{x}\cdot(\trans{\uu{A}}\cdot\uu{A})^{-1}\cdot\uv{x}\leq 1
-\]</span> where <span class="math inline">\(\uu{A}\)</span> is an invertible second-order tensor so that <span class="math inline">\(\trans{\uu{A}}\cdot\uu{A}\)</span> is a positive definite symmetric tensor associated to 3 radii (eigenvalues <span class="math inline">\(a\geq b \geq c\)</span> possibly written <span class="math inline">\(\rho_1 \geq \rho_2 \geq \rho_3\)</span> for convenience) and 3 angles (orientation of the frame of eigenvectors <span class="math inline">\(\uv{e}_1, \uv{e}_2, \uv{e}_3\)</span>)</p>
-<p><span class="math display">\[
+\tag{5.1}\]</span></span> where <span class="math inline">\(\uu{A}\)</span> is an invertible second-order tensor so that <span class="math inline">\(\trans{\uu{A}}\cdot\uu{A}\)</span> is a positive definite symmetric tensor associated to 3 radii (eigenvalues <span class="math inline">\(a\geq b \geq c\)</span> possibly written <span class="math inline">\(\rho_1 \geq \rho_2 \geq \rho_3\)</span> for convenience) and 3 angles (orientation of the frame of eigenvectors <span class="math inline">\(\uv{e}_1, \uv{e}_2, \uv{e}_3\)</span>)</p>
+<p><span id="eq-defA"><span class="math display">\[
 \trans{\uu{A}}\cdot\uu{A}=a^2 \uv{e}_1\otimes\uv{e}_1 + b^2 \uv{e}_2\otimes\uv{e}_2 + c^2 \uv{e}_3\otimes\uv{e}_3 = \sum_{i=1}^3 \rho_i \uv{e}_i\otimes\uv{e}_i
-\]</span></p>
+\tag{5.2}\]</span></span></p>
 <p>A polarization field is introduced as a second-order symmetric tensor field <span class="math inline">\(\uu{\tau}\)</span> such that the constitutive law of the medium is given by</p>
 <p><span id="eq-law"><span class="math display">\[
     \sig(\x)=\uuuu{C}:\eps(\x)+\uu{\tau}(\x)\quad\textrm{where}\quad
@@ -508,7 +514,7 @@ $$
     \uu{\tau}\textrm{ (uniform)}&amp;\textrm{ if }\x \in \mathcal{E}_{\uu{A}}
     \end{array}
     \right.
-\tag{5.1}\]</span></span></p>
+\tag{5.3}\]</span></span></p>
 <p>In addition the displacement tends towards <span class="math inline">\(\uv{0}\)</span> at infinity.</p>
 <div id="fig-eurlerangles" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -520,11 +526,11 @@ Fig.&nbsp;5.1: Eshelby inclusion problem
 </figcaption>
 </figure>
 </div>
-<p>The important result derived in <span class="citation" data-cites="eshelby1957">(<a href="../references.html#ref-eshelby1957" role="doc-biblioref">Eshelby, 1957</a>)</span> is that the strain tensor field solution to this problem is uniform within the ellipsoidal domain (not outside!) and writes</p>
+<p>The important result derived in <span class="citation" data-cites="eshelby1957">(<a href="#ref-eshelby1957" role="doc-biblioref">Eshelby, 1957</a>)</span> is that the strain tensor field solution to this problem is uniform within the ellipsoidal domain (not outside!) and writes</p>
 <p><span id="eq-defHill"><span class="math display">\[
    \forall \x \in \mathcal{E}_{\uu{A}},\quad \eps(\x)=-\uuuu{P}:\uu{\tau}\quad\textrm{(uniform)}
-\tag{5.2}\]</span></span> where <span class="math inline">\(\uuuu{P}\)</span>, called the Hill polarization tensor, depends on the shape and orientation of the ellipsoid (i.e.&nbsp;<span class="math inline">\(\uu{A}\)</span> up to a multiplicative constant) and on the matrix behavior (i.e.&nbsp;<span class="math inline">\(\uuuu{C}\)</span>), in other words <span class="math inline">\(\uuuu{P}=\uuuu{P}(\uu{A},\uuuu{C})\)</span>.</p>
-<p>The polarization problem can be alternatively posed thanks to an eigenstrain tensor <span class="math inline">\(\eps^*\)</span>, uniform in the ellipsoid, such that <span class="math inline">\(\eps^*=-\uuuu{C}^{-1}:\uu{\tau}\)</span>. It follows that <a href="#eq-law" class="quarto-xref"><span>5.1</span></a> rewrites</p>
+\tag{5.4}\]</span></span> where <span class="math inline">\(\uuuu{P}\)</span>, called the Hill polarization tensor, depends on the shape and orientation of the ellipsoid (i.e.&nbsp;<span class="math inline">\(\uu{A}\)</span> up to a multiplicative constant) and on the matrix behavior (i.e.&nbsp;<span class="math inline">\(\uuuu{C}\)</span>), in other words <span class="math inline">\(\uuuu{P}=\uuuu{P}(\uu{A},\uuuu{C})\)</span>.</p>
+<p>The polarization problem can be alternatively posed thanks to an eigenstrain tensor <span class="math inline">\(\eps^*\)</span>, uniform in the ellipsoid, such that <span class="math inline">\(\eps^*=-\uuuu{C}^{-1}:\uu{\tau}\)</span>. It follows that <a href="#eq-law" class="quarto-xref"><span class="quarto-unresolved-ref">eq-law</span></a> rewrites</p>
 <p><span id="eq-law2"><span class="math display">\[
     \sig(\x)=\uuuu{C}:(\eps(\x)-\eps^*(\x))\quad\textrm{where}\quad
     \eps^*(\x)=
@@ -534,16 +540,29 @@ Fig.&nbsp;5.1: Eshelby inclusion problem
     \eps^*\textrm{ (uniform)}&amp;\textrm{ if }\x \in \mathcal{E}_{\uu{A}}
     \end{array}
     \right.
-\tag{5.3}\]</span></span> and the Eshelby tensor <span class="math inline">\(\uuuu{S}\)</span> is introduced by rewriting <a href="#eq-defHill" class="quarto-xref"><span>5.2</span></a> under the form <span class="math display">\[
+\tag{5.5}\]</span></span> and the Eshelby tensor <span class="math inline">\(\uuuu{S}\)</span> is introduced by rewriting <a href="#eq-defHill" class="quarto-xref"><span class="quarto-unresolved-ref">eq-defHill</span></a> under the form <span id="eq-defEshelby"><span class="math display">\[
    \forall \x \in \mathcal{E}_{\uu{A}},\quad \eps(\x)=\uuuu{S}:\eps^*\quad\textrm{where}\quad\uuuu{S}=\uuuu{P}:\uuuu{C}
-\]</span></p>
-<p>See in <a href="../99_appendices/hill_elas.html" class="quarto-xref"><span>Appendix B</span></a> explicit expressions to calculate the Hill polarization tensor.</p>
+\tag{5.6}\]</span></span></p>
+<p>See in <a href="#sec-hill_elas" class="quarto-xref"><span class="quarto-unresolved-ref">sec-hill_elas</span></a> explicit expressions to calculate the Hill polarization tensor.</p>
+<p>A straightforward consequence of the uniformity of the strain state wihin the ellipsoid is the uniformity of the stress state. A dual point of view of the expression (<a href="#eq-defHill" class="quarto-xref"><span class="quarto-unresolved-ref">eq-defHill</span></a>) consists in relating the uniform stress within the ellipsoid to the eigenstrain introduced in (<a href="#eq-law2" class="quarto-xref"><span class="quarto-unresolved-ref">eq-law2</span></a>). Using (<a href="#eq-defEshelby" class="quarto-xref"><span class="quarto-unresolved-ref">eq-defEshelby</span></a>) in (<a href="#eq-law2" class="quarto-xref"><span class="quarto-unresolved-ref">eq-law2</span></a>) allows to exhibit the dual counterpart of (<a href="#eq-defHill" class="quarto-xref"><span class="quarto-unresolved-ref">eq-defHill</span></a>) involving the so-called second Hill polarization tensor <span class="math inline">\(\uuuu{Q}\)</span> <span id="eq-defsecondHill"><span class="math display">\[
+   \forall \x \in \mathcal{E}_{\uu{A}},\quad \sig(\x)=-\uuuu{Q}:\eps^*\quad\textrm{with}\quad\uuuu{Q}=\uuuu{C}-\uuuu{C}:\uuuu{P}:\uuuu{C}
+\tag{5.7}\]</span></span></p>
 </section>
-<section id="definition-of-the-ellipsoidal-shape" class="level2">
-<h2 class="anchored" data-anchor-id="definition-of-the-ellipsoidal-shape">Definition of the <code>ellipsoidal</code> shape</h2>
+<section id="sec-ellipsoidal" class="level2">
+<h2 class="anchored" data-anchor-id="sec-ellipsoidal">Definition of the <code>ellipsoidal</code> shape</h2>
 <p>An <code>ellipsoidal</code> shape intended for use in the construction of <span class="math inline">\(\uuuu{P}\)</span> can be built by means of the following constructor</p>
 <p><code>shape = ellipsoidal(a, b, c, θ=0., ϕ=0., ψ=0.) # default values 0 for the angles</code></p>
-<p>where <span class="math inline">\(a, b, c\)</span> are the radii and <span class="math inline">\(\theta, \phi, \psi\)</span> the Euler angles already presented in <a href="../99_appendices/tensor_algebra.html#fig-eulerangles" class="quarto-xref">Fig.&nbsp;<span>A.1</span></a></p>
+<p>where <span class="math inline">\(a, b, c\)</span> are the radii and <span class="math inline">\(\theta, \phi, \psi\)</span> the Euler angles already presented in <a href="#fig-eulerangles" class="quarto-xref">Fig.&nbsp;<span class="quarto-unresolved-ref">fig-eulerangles</span></a></p>
+<div id="e196b80a" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>π <span class="op">=</span> math.pi</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>a, b, c <span class="op">=</span> <span class="fl">10.</span>, <span class="fl">5.</span>, <span class="fl">2.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>θ, ϕ, ψ <span class="op">=</span> π<span class="op">/</span><span class="dv">3</span>, π<span class="op">/</span><span class="dv">4</span>, π<span class="op">/</span><span class="dv">5</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ellipsoidal(a, b, c, θ, ϕ, ψ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Ellipsoidal shape:  Radii=[10 5 2]; Angles=[1.0472 0.785398 0.628319]
+</code></pre>
+</div>
+</div>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -557,9 +576,17 @@ Warning
 <p>If the radii are not entered in decreasing order, the constructor reorders them and recomputes the angles accordingly.</p>
 </div>
 </div>
+<p>See below how the constructor reorders the radii and recomputes the angles accordingly</p>
+<div id="a418e1c0" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ellipsoidal(c, b, a, θ, ϕ, ψ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Ellipsoidal shape:  Radii=[10 5 2]; Angles=[0.794517 4.89503 5.48883]
+</code></pre>
+</div>
+</div>
 <p>When two radii are equal the ellipsoidal shape becomes a spheroidal one which can also be directly defined by</p>
 <p><code>shape = spheroidal(ω, θ=0., ϕ=0.) # default values 0 for the angles</code></p>
-<p>where <span class="math inline">\(\omega\)</span> is the aspect ratio (<span class="math inline">\(\omega \leq 1\)</span> for an oblate shape and <span class="math inline">\(\omega \geq 1\)</span> for a prolate shape) (see <a href="#fig-spheroidal" class="quarto-xref">Fig.&nbsp;<span>5.2</span></a>).</p>
+<p>where <span class="math inline">\(\omega\)</span> is the aspect ratio (<span class="math inline">\(\omega \leq 1\)</span> for an oblate shape and <span class="math inline">\(\omega \geq 1\)</span> for a prolate shape) (see <a href="#fig-spheroidal" class="quarto-xref">Fig.&nbsp;<span class="quarto-unresolved-ref">fig-spheroidal</span></a>).</p>
 <div id="fig-spheroidal" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-spheroidal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -595,6 +622,14 @@ Fig.&nbsp;5.2: Spheroidal shapes
 </figcaption>
 </figure>
 </div>
+<div id="82dfd0f4" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ω <span class="op">=</span> <span class="fl">0.1</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(spheroidal(ω, θ, ϕ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Ellipsoidal shape:  Radii=[1 1 0.1]; Angles=[1.0472 0.785398 0]
+</code></pre>
+</div>
+</div>
 <p>Finally if the three radii are equal, the shape becomes spherical</p>
 <p><code>shape = spherical</code></p>
 <div class="callout callout-style-default callout-warning callout-titled">
@@ -610,33 +645,24 @@ Warning
 <p>These objects are supposed to describe an inclusion in the Eshelby problem, thus they are defined up to a multiplicative constant. This explains why the spheroidal shape is defined only with an aspect ratio and the sphere is not defined with a radius. On the contrary the general ellipsoidal shape depends on three radii but the result of <span class="math inline">\(\uuuu{P}\)</span> will only depend on two ratios.</p>
 </div>
 </div>
-<div id="d3f9b6f7" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>π <span class="op">=</span> math.pi</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>a, b, c <span class="op">=</span> <span class="fl">10.</span>, <span class="fl">5.</span>, <span class="fl">2.</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>θ, ϕ, ψ <span class="op">=</span> π<span class="op">/</span><span class="dv">3</span>, π<span class="op">/</span><span class="dv">4</span>, π<span class="op">/</span><span class="dv">5</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ellipsoidal(a, b, c, θ, ϕ, ψ))</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ellipsoidal(c, b, a, θ, ϕ, ψ)) <span class="co"># the constructor reorders the radii and recomputes the angles accordingly</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>ω <span class="op">=</span> <span class="fl">0.1</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(spheroidal(ω, θ, ϕ))</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(spherical)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a1f764a3" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(spherical)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Ellipsoidal shape:  Radii=[10 5 2]; Angles=[1.0472 0.785398 0.628319]
-
-Ellipsoidal shape:  Radii=[10 5 2]; Angles=[0.794517 4.89503 5.48883]
-
-Ellipsoidal shape:  Radii=[1 1 0.1]; Angles=[1.0472 0.785398 0]
-
-Ellipsoidal shape:  Radii=[1 1 1]; Angles=[0 0 0]
+<pre><code>Ellipsoidal shape:  Radii=[1 1 1]; Angles=[0 0 0]
 </code></pre>
 </div>
 </div>
 </section>
 <section id="calculation-of-hill-and-eshelby-tensors-for-an-isotropic-matrix" class="level2">
 <h2 class="anchored" data-anchor-id="calculation-of-hill-and-eshelby-tensors-for-an-isotropic-matrix">Calculation of Hill and Eshelby tensors for an isotropic matrix</h2>
-<p>The Hill and Eshelby tensors are simply calculated by</p>
-<p><code>P = hill(shape,C)</code> <code>S = eshelby(shape,C)</code></p>
+<p>The Hill, second Hill and Eshelby tensors are simply calculated by</p>
+<ul>
+<li><code>P = hill(shape, C)</code></li>
+<li><code>Q = hill_dual(shape, C)</code></li>
+<li><code>S = eshelby(shape, C)</code></li>
+</ul>
 <p>where <code>shape</code> is an ellipsoidal shape as previously defined and <code>C</code> is an isotropic tensor.</p>
-<p>Note that an isotropic tensor <code>C</code> simply allows to resort to analytical expressions as seen in <a href="../99_appendices/hill_elas.html" class="quarto-xref"><span>Appendix B</span></a>. The anisotropic cases are also available with numerical algorithms as will be seen below.</p>
+<p>Note that an isotropic tensor <code>C</code> simply allows to resort to analytical expressions as seen in <a href="#sec-hill_elas" class="quarto-xref"><span class="quarto-unresolved-ref">sec-hill_elas</span></a>. The anisotropic cases are also available with numerical algorithms as will be seen below.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -650,35 +676,44 @@ Warning
 <p>The functions <code>hill</code> and <code>eshelby</code> return <span class="math inline">\(6×6\)</span> matrices i.e.&nbsp;of type <code>numpy.ndarray</code> (not <code>tensor</code>). It is however possible to build a <code>tensor</code> object from the matrix for the Hill tensor <span class="math inline">\(\uuuu{P}\)</span> since the latter is always positive definite. This is not in general the case for the Eshelby tensor <span class="math inline">\(\uuuu{S}\)</span>.</p>
 </div>
 </div>
-<div id="addce66b" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>a, b, c <span class="op">=</span> <span class="fl">10.</span>, <span class="fl">5.</span>, <span class="fl">2.</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>θ, ϕ, ψ <span class="op">=</span> π<span class="op">/</span><span class="dv">3</span>, π<span class="op">/</span><span class="dv">4</span>, π<span class="op">/</span><span class="dv">5</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>k, µ <span class="op">=</span> <span class="fl">72.</span>, <span class="fl">32.</span> </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>shape <span class="op">=</span> ellipsoidal(a, b, c, θ, ϕ, ψ)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> stiff_kmu(k, µ)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>P <span class="op">=</span> hill(shape,C)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"P=</span><span class="ch">\n</span><span class="st">"</span>,P)</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"tensor P=</span><span class="ch">\n</span><span class="st">"</span>,tensor(P, optiangles<span class="op">=</span><span class="va">True</span>))</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>S <span class="op">=</span> eshelby(shape,C)</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"S=</span><span class="ch">\n</span><span class="st">"</span>,S)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="aed48381" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>a, b, c <span class="op">=</span> <span class="fl">10.</span>, <span class="fl">5.</span>, <span class="fl">2.</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>θ, ϕ, ψ <span class="op">=</span> π<span class="op">/</span><span class="dv">3</span>, π<span class="op">/</span><span class="dv">4</span>, π<span class="op">/</span><span class="dv">5</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>k, µ <span class="op">=</span> <span class="fl">72.</span>, <span class="fl">32.</span> </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>shape <span class="op">=</span> ellipsoidal(a, b, c, θ, ϕ, ψ)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> stiff_kmu(k, µ)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>P <span class="op">=</span> hill(shape, C)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"P =</span><span class="ch">\n</span><span class="st">"</span>, P)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>P=
+<pre><code>P =
  [[ 0.00692827 -0.00193834 -0.0015172  -0.00149755  0.00105145  0.00132946]
  [-0.00193834  0.0065809  -0.00179461  0.00180799 -0.00117706  0.00179171]
  [-0.0015172  -0.00179461  0.00571206  0.00216042  0.00151431 -0.00104477]
  [-0.00149755  0.00180799  0.00216042  0.0058138   0.00115308  0.00009474]
  [ 0.00105145 -0.00117706  0.00151431  0.00115308  0.00748803  0.00101249]
- [ 0.00132946  0.00179171 -0.00104477  0.00009474  0.00101249  0.00744786]]
-tensor P=
- Order 4 ORTHO tensor | Param(size=9)=[ 0.00844038 -0.000810579 -0.00188706 0.0021519 -0.000509166 0.00454226 0.00215879 0.00517997 0.00507943 ] | Angles(size=3)=[ 1.03673 2.70464 0.950972 ]
+ [ 0.00132946  0.00179171 -0.00104477  0.00009474  0.00101249  0.00744786]]</code></pre>
+</div>
+</div>
+<p>A <code>tensor</code> object can be constructed</p>
+<div id="db3e1e70" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"tensor P =</span><span class="ch">\n</span><span class="st">"</span>, tensor(P, optiangles<span class="op">=</span><span class="va">True</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tensor P =
+ Order 4 ORTHO tensor | Param(size=9)=[ 0.0021519 -0.000509166 -0.000810579 0.00454226 -0.00188706 0.00844038 0.00517997 0.00507943 0.00215879 ] | Angles(size=3)=[ 1.0472 0.785398 0.628319 ]
 [ 0.00692827 -0.00193834 -0.0015172 -0.00149755 0.00105145 0.00132946 
   -0.00193834 0.0065809 -0.00179461 0.00180799 -0.00117706 0.00179171 
   -0.0015172 -0.00179461 0.00571206 0.00216042 0.00151431 -0.00104477 
   -0.00149755 0.00180799 0.00216042 0.0058138 0.00115308 9.47382e-05 
   0.00105145 -0.00117706 0.00151431 0.00115308 0.00748803 0.00101249 
   0.00132946 0.00179171 -0.00104477 9.47382e-05 0.00101249 0.00744786 ]
-
-S=
+</code></pre>
+</div>
+</div>
+<div id="dc53ad2f" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>S <span class="op">=</span> eshelby(shape, C)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"S =</span><span class="ch">\n</span><span class="st">"</span>, S)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>S =
  [[ 0.61936138  0.05189785  0.07885111 -0.09584313  0.06729291  0.08508541]
  [ 0.02024195  0.56547341  0.02944088  0.11571165 -0.0753318   0.11466945]
  [ 0.02451205  0.00675772  0.48718459  0.13826715  0.09691609 -0.06686496]
@@ -698,11 +733,11 @@ S=
 </div>
 <div class="callout-body-container callout-body">
 <p>For a spherical shape we have</p>
-<div id="90a707dd" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>k, µ <span class="op">=</span> <span class="fl">72.</span>, <span class="fl">32.</span> <span class="op">;</span> C <span class="op">=</span> stiff_kmu(k, µ)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"P=</span><span class="ch">\n</span><span class="st">"</span>, hill(spherical,C))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a8d641c0" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>k, µ <span class="op">=</span> <span class="fl">72.</span>, <span class="fl">32.</span> <span class="op">;</span> C <span class="op">=</span> stiff_kmu(k, µ)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"P =</span><span class="ch">\n</span><span class="st">"</span>, hill(spherical,C))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>P=
+<pre><code>P =
  [[ 0.00591085 -0.00150194 -0.00150194  0.          0.          0.        ]
  [-0.00150194  0.00591085 -0.00150194  0.          0.          0.        ]
  [-0.00150194 -0.00150194  0.00591085  0.          0.          0.        ]
@@ -715,14 +750,14 @@ S=
 <p><span class="math display">\[
 \uuuu{P}(\uu{1},3\,k\,\uuuu{J}+2\,\mu\,\uuuu{K})=\frac{1}{3\,k+4\,\mu}\,\left(\uuuu{J}+\frac{3\,(k+2\,\mu)}{5\,\mu}\uuuu{K}\right)
 \]</span></p>
-<div id="ca109e40" class="cell" data-execution_count="5">
+<div id="ff89577c" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Solution</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>P <span class="op">=</span> <span class="dv">1</span><span class="op">/</span>(<span class="dv">3</span><span class="op">*</span>k<span class="op">+</span><span class="dv">4</span><span class="op">*</span>µ)<span class="op">*</span>(J4<span class="op">+</span><span class="dv">3</span><span class="op">*</span>(k<span class="op">+</span><span class="dv">2</span><span class="op">*</span>µ)<span class="op">/</span>(<span class="dv">5</span><span class="op">*</span>μ)<span class="op">*</span>K4)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"P=</span><span class="ch">\n</span><span class="st">"</span>, P)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>P <span class="op">=</span> <span class="dv">1</span><span class="op">/</span>(<span class="dv">3</span><span class="op">*</span>k<span class="op">+</span><span class="dv">4</span><span class="op">*</span>µ)<span class="op">*</span>(J4<span class="op">+</span><span class="dv">3</span><span class="op">*</span>(k<span class="op">+</span><span class="dv">2</span><span class="op">*</span>µ)<span class="op">/</span>(<span class="dv">5</span><span class="op">*</span>μ)<span class="op">*</span>K4)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"P =</span><span class="ch">\n</span><span class="st">"</span>, P)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>P=
+<pre><code>P =
  [[ 0.00591085 -0.00150194 -0.00150194  0.          0.          0.        ]
  [-0.00150194  0.00591085 -0.00150194  0.          0.          0.        ]
  [-0.00150194 -0.00150194  0.00591085  0.          0.          0.        ]
@@ -736,26 +771,27 @@ S=
 </section>
 <section id="calculation-of-hill-and-eshelby-tensors-for-an-arbitrary-anisotropic-matrix" class="level2">
 <h2 class="anchored" data-anchor-id="calculation-of-hill-and-eshelby-tensors-for-an-arbitrary-anisotropic-matrix">Calculation of Hill and Eshelby tensors for an arbitrary anisotropic matrix</h2>
-<p>The Hill and Eshelby tensors are numerically calculated by</p>
+<p>The Hill, second Hill and Eshelby tensors are numerically calculated by</p>
 <ul>
 <li><code>P = hill(shape, C, algo=NUMINT, epsroots=1.e-4, epsabs=1.e-4, epsrel=1.e-4, maxnb=100000)</code></li>
+<li><code>Q = hill_dual(shape, C, algo=NUMINT, epsroots=1.e-4, epsabs=1.e-4, epsrel=1.e-4, maxnb=100000)</code></li>
 <li><code>S = eshelby(shape, C, algo=NUMINT, epsroots=1.e-4, epsabs=1.e-4, epsrel=1.e-4, maxnb=100000)</code></li>
 </ul>
 <p>where the keyword argument <code>algo</code> can be either <code>NUMINT</code> or <code>RESIDUES</code> (default: <code>NUMINT</code>).</p>
 <ul>
-<li><p><code>NUMINT</code> based on the cubature DECUHR algorithm provided in <span class="citation" data-cites="espelid1994">(<a href="../references.html#ref-espelid1994" role="doc-biblioref">Espelid and Genz, 1994</a>)</span> applied on the integral formulation <a href="../99_appendices/hill_elas.html#eq-Hill" class="quarto-xref"><span>B.2</span></a> over the unit sphere</p>
+<li><p><code>NUMINT</code> based on the cubature DECUHR algorithm provided in <span class="citation" data-cites="espelid1994">(<a href="#ref-espelid1994" role="doc-biblioref">Espelid and Genz, 1994</a>)</span> applied on the integral formulation <a href="#eq-Hill" class="quarto-xref"><span class="quarto-unresolved-ref">eq-Hill</span></a> over the unit sphere</p>
 <ul>
 <li><code>epsabs</code> is the tolerance of absolute error (default: 1.e-4)</li>
 <li><code>epsrel</code> is the tolerance of relative error (default: 1.e-4)</li>
 <li><code>maxnb</code> is the maximum number of subdivisions (default: 100000)</li>
 </ul>
-<p>For more information about these parameters see <span class="citation" data-cites="espelid1994">(<a href="../references.html#ref-espelid1994" role="doc-biblioref">Espelid and Genz, 1994</a>)</span>.</p></li>
-<li><p><code>RESIDUES</code> based on the residue Cauchy theorem to transform the 2D cubature over the unit sphere <a href="../99_appendices/hill_elas.html#eq-Hill" class="quarto-xref"><span>B.2</span></a> into a 1D quadrature as demonstrated in <span class="citation" data-cites="masson2008">(<a href="../references.html#ref-masson2008" role="doc-biblioref">Masson, 2008</a>)</span></p>
+<p>For more information about these parameters see <span class="citation" data-cites="espelid1994">(<a href="#ref-espelid1994" role="doc-biblioref">Espelid and Genz, 1994</a>)</span>.</p></li>
+<li><p><code>RESIDUES</code> based on the residue Cauchy theorem to transform the 2D cubature over the unit sphere <a href="#eq-Hill" class="quarto-xref"><span class="quarto-unresolved-ref">eq-Hill</span></a> into a 1D quadrature as demonstrated in <span class="citation" data-cites="masson2008">(<a href="#ref-masson2008" role="doc-biblioref">Masson, 2008</a>)</span></p>
 <ul>
 <li><code>epsroots</code> is the tolerance for the criterion of multiple poles, i.e.&nbsp;if the distance between two poles of the integrand function is under this value they are considered as a unique multiple pole (default: 1.e-4)</li>
-<li><code>epsabs</code> is the tolerance of absolute error (default: 1.e-4)</li>
-<li><code>epsrel</code> is the tolerance of relative error (default: 1.e-4)</li>
-<li><code>maxnb</code> is the maximum number of subdivisions (default: 100000)</li>
+<li><code>epsabs</code> is the tolerance of absolute error for the 1D quadrature (default: 1.e-4)</li>
+<li><code>epsrel</code> is the tolerance of relative error for the 1D quadrature (default: 1.e-4)</li>
+<li><code>maxnb</code> is the maximum number of subdivisions for the 1D quadrature (default: 100000)</li>
 </ul></li>
 </ul>
 <div class="callout callout-style-default callout-warning callout-titled">
@@ -771,20 +807,26 @@ Warning
 <p>The <code>RESIDUES</code> algorithm is much faster than the <code>NUMINT</code> one in case of full anisotropy. Nevertheless the latter proves to be more robust in the neighborhood of symmetry axes where the presence of close poles may induce numerical errors in the application of the Cauchy residue theorem. This is why <code>NUMINT</code> is chosen by default.</p>
 </div>
 </div>
-<div id="c5e00f4f" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>param <span class="op">=</span> [ <span class="fl">2.66011</span>, <span class="fl">1.26432</span>, <span class="fl">0.662772</span>, <span class="fl">1.9402</span>, <span class="fl">1.54905</span>, <span class="fl">1.10384</span>, <span class="fl">3.6072</span>, <span class="fl">1.78964</span>, <span class="fl">2.0247</span>, <span class="fl">1.2701</span>, <span class="fl">1.1089</span>, <span class="fl">2.743</span>, <span class="fl">1.3367</span>, <span class="fl">1.2962</span>, <span class="fl">0.897632</span>, <span class="fl">4.42684</span>, <span class="fl">2.05632</span>, <span class="fl">1.52686</span>, <span class="fl">3.54431</span>, <span class="fl">1.3445</span>, <span class="fl">1.99356</span> ]</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> tensor(param)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(hill(shape, C, algo<span class="op">=</span>NUMINT),<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(hill(shape, C, algo<span class="op">=</span>RESIDUES))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="8878332e" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>param <span class="op">=</span> [ <span class="fl">2.66011</span>, <span class="fl">1.26432</span>, <span class="fl">0.662772</span>, <span class="fl">1.9402</span>, <span class="fl">1.54905</span>, <span class="fl">1.10384</span>, <span class="fl">3.6072</span>, <span class="fl">1.78964</span>, <span class="fl">2.0247</span>, <span class="fl">1.2701</span>, <span class="fl">1.1089</span>, <span class="fl">2.743</span>, <span class="fl">1.3367</span>, <span class="fl">1.2962</span>, <span class="fl">0.897632</span>, <span class="fl">4.42684</span>, <span class="fl">2.05632</span>, <span class="fl">1.52686</span>, <span class="fl">3.54431</span>, <span class="fl">1.3445</span>, <span class="fl">1.99356</span> ]</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> tensor(param)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hill tensor using NUMINT algorithm</span><span class="ch">\n</span><span class="st">"</span>, hill(shape, C, algo<span class="op">=</span>NUMINT),<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[[ 0.30105452 -0.0556282  -0.05649445 -0.07988352 -0.02044577  0.0289701 ]
+<pre><code>Hill tensor using NUMINT algorithm
+ [[ 0.30105452 -0.0556282  -0.05649445 -0.07988352 -0.02044577  0.0289701 ]
  [-0.0556282   0.23418979 -0.11124322  0.00818408 -0.07054317  0.05255232]
  [-0.05649445 -0.11124322  0.23332006  0.05738592  0.01557356 -0.08615589]
  [-0.07988352  0.00818408  0.05738592  0.14624976 -0.01872016 -0.06494597]
  [-0.02044577 -0.07054317  0.01557356 -0.01872016  0.22562638 -0.0435889 ]
  [ 0.0289701   0.05255232 -0.08615589 -0.06494597 -0.0435889   0.28756664]] 
-
-[[ 0.30105452 -0.05562819 -0.05649446 -0.07988353 -0.02044576  0.02897007]
+</code></pre>
+</div>
+</div>
+<div id="2abf7613" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hill tensor using RESIDUES algorithm</span><span class="ch">\n</span><span class="st">"</span>, hill(shape, C, algo<span class="op">=</span>RESIDUES))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Hill tensor using RESIDUES algorithm
+ [[ 0.30105452 -0.05562819 -0.05649446 -0.07988353 -0.02044576  0.02897007]
  [-0.05562819  0.23418974 -0.11124317  0.00818407 -0.07054315  0.05255245]
  [-0.05649446 -0.11124317  0.23332002  0.05738593  0.01557351 -0.08615598]
  [-0.07988353  0.00818407  0.05738593  0.14624981 -0.01872023 -0.06494593]
@@ -793,16 +835,15 @@ Warning
 </div>
 </div>
 <p>See below how a too large <code>epsroots</code> parameter can degrade the precision of the result</p>
-<div id="4d51170e" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>param <span class="op">=</span> [<span class="fl">3.</span>,<span class="fl">4.</span>,math.sqrt(<span class="dv">2</span>),<span class="fl">2.</span>,<span class="fl">1.</span>]</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">1948</span>)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>α <span class="op">=</span> <span class="fl">1.e-2</span><span class="op">*</span>np.random.rand(<span class="dv">6</span>, <span class="dv">6</span>)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> tensor(param)<span class="op">+</span>tensor((α<span class="op">+</span>α.T)<span class="op">/</span><span class="dv">2</span>) <span class="op">;</span> <span class="bu">print</span>(C)</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(hill(shape, C, algo<span class="op">=</span>NUMINT),<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ϵ <span class="kw">in</span> [<span class="fl">1.e-4</span>, <span class="fl">1.e-2</span>, <span class="fl">1.e-1</span>]:</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"ϵ=</span><span class="sc">{ϵ}</span><span class="ch">\n</span><span class="ss">"</span>,hill(shape, C, algo<span class="op">=</span>RESIDUES, epsroots<span class="op">=</span>ϵ),<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="388d24a1" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>param <span class="op">=</span> [<span class="fl">3.</span>,<span class="fl">4.</span>,math.sqrt(<span class="dv">2</span>),<span class="fl">2.</span>,<span class="fl">1.</span>]</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">1948</span>)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>α <span class="op">=</span> <span class="fl">1.e-2</span><span class="op">*</span>np.random.rand(<span class="dv">6</span>, <span class="dv">6</span>)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> tensor(param)<span class="op">+</span>tensor((α<span class="op">+</span>α.T)<span class="op">/</span><span class="dv">2</span>) <span class="op">;</span> <span class="bu">print</span>(<span class="st">"C =</span><span class="ch">\n</span><span class="st">"</span>,C)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"P(NUMINT) =</span><span class="ch">\n</span><span class="st">"</span>, hill(shape, C, algo<span class="op">=</span>NUMINT),<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Order 4 ANISO tensor | Param(size=21)=[ 3.00492 1.00447 1.00929 0.00592152 0.00348355 0.00354977 3.00439 1.00731 0.00550071 0.00399279 0.00592477 3.00679 0.0017438 0.00423288 0.002886 1.00473 0.00184015 0.00245616 1.00486 0.00267492 2.00665 ] | Angles(size=0)=[ ]
+<pre><code>C =
+ Order 4 ANISO tensor | Param(size=21)=[ 3.00492 1.00447 1.00929 0.00592152 0.00348355 0.00354977 3.00439 1.00731 0.00550071 0.00399279 0.00592477 3.00679 0.0017438 0.00423288 0.002886 1.00473 0.00184015 0.00245616 1.00486 0.00267492 2.00665 ] | Angles(size=0)=[ ]
 [ 3.00492 1.00447 1.00929 0.00592152 0.00348355 0.00354977 
   1.00447 3.00439 1.00731 0.00550071 0.00399279 0.00592477 
   1.00929 1.00731 3.00679 0.0017438 0.00423288 0.002886 
@@ -810,14 +851,22 @@ Warning
   0.00348355 0.00399279 0.00423288 0.00184015 1.00486 0.00267492 
   0.00354977 0.00592477 0.002886 0.00245616 0.00267492 2.00665 ]
 
-[[ 0.25110194 -0.0701023  -0.04611559 -0.05426724  0.04210944  0.04955294]
+P(NUMINT) =
+ [[ 0.25110194 -0.0701023  -0.04611559 -0.05426724  0.04210944  0.04955294]
  [-0.0701023   0.23651855 -0.05243438  0.07635292 -0.04221947  0.06126985]
  [-0.04611559 -0.05243438  0.22418927  0.1025223   0.07193575 -0.03146366]
  [-0.05426724  0.07635292  0.1025223   0.28119845  0.06974296  0.00574154]
  [ 0.04210944 -0.04221947  0.07193575  0.06974296  0.37772587  0.04657625]
  [ 0.04955294  0.06126985 -0.03146366  0.00574154  0.04657625  0.26695831]] 
-
-ϵ=0.0001
+</code></pre>
+</div>
+</div>
+<div id="176a8acd" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ϵ <span class="kw">in</span> [<span class="fl">1.e-4</span>, <span class="fl">1.e-2</span>, <span class="fl">1.e-1</span>]:</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"ϵ=</span><span class="sc">{ϵ}</span><span class="ch">\n</span><span class="ss">"</span>, <span class="st">"  P =</span><span class="ch">\n</span><span class="st">"</span>, hill(shape, C, algo<span class="op">=</span>RESIDUES, epsroots<span class="op">=</span>ϵ),<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ϵ=0.0001
+   P =
  [[ 0.25110194 -0.07010231 -0.04611559 -0.05426725  0.04210945  0.04955293]
  [-0.07010231  0.23651856 -0.05243438  0.07635292 -0.04221948  0.06126986]
  [-0.04611559 -0.05243438  0.22418926  0.1025223   0.07193575 -0.03146365]
@@ -826,6 +875,7 @@ Warning
  [ 0.04955293  0.06126986 -0.03146365  0.00574153  0.04657624  0.2669583 ]] 
 
 ϵ=0.01
+   P =
  [[ 0.25113345 -0.07011982 -0.04612298 -0.05432501  0.04189836  0.04958181]
  [-0.07011982  0.23657363 -0.05244598  0.07641503 -0.04218998  0.06107365]
  [-0.04612298 -0.05244598  0.2242458   0.10257051  0.07213861 -0.03135339]
@@ -834,6 +884,7 @@ Warning
  [ 0.04958181  0.06107365 -0.03135339  0.00568173  0.04653537  0.26696033]] 
 
 ϵ=0.1
+   P =
  [[ 0.25001229 -0.04308215 -0.06353735 -0.03174632 -0.02682333  0.03934497]
  [-0.04308215  0.21054579 -0.05318301  0.02847946  0.0009406   0.00133671]
  [-0.06353735 -0.05318301  0.25282017  0.13460029  0.09818096  0.01570746]
@@ -846,7 +897,7 @@ Warning
 <p><span class="math inline">\(\,\)</span></p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-eshelby1957" class="csl-entry" role="listitem">
 Eshelby, J.D., 1957. The determination of the elastic field of an ellipsoidal inclusion, and related problems. Proceedings of the Royal Society of London. Series A. Mathematical and Physical Sciences 241, 376–396. <a href="https://doi.org/10.1098/rspa.1957.0133">https://doi.org/10.1098/rspa.1957.0133</a>
 </div>
@@ -1284,8 +1335,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../references.html" class="pagination-link" aria-label="References">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../2_eshelby/crack_compliance.html" class="pagination-link" aria-label="Crack compliance">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Crack compliance</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

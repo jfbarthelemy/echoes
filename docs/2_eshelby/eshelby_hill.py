@@ -19,7 +19,7 @@
 #
 # ## {{< iconify pajamas issue-type-objective >}} Objectives
 #
-# Before introducing the specific objects of `echoes` devoted to tensor calculations in isotropic or anisotropic contexts, this tutorial aims at providing the syntax allowing to represent second-order or fourth-order tensors under the form of matrices in the Kelvin-Mandel notation as detailed in @sec-KM.
+# This tutorial provides the instructions to build Eshelby and Hill polarization tensors related to an ellipsoidal shape embedded in an infinite elastic matrix of arbitrary anisotropy.
 #
 # :::
 #
@@ -62,12 +62,12 @@ np.set_printoptions(precision=8, suppress=True)
 #    \uv{x}\in\mathcal{E}_{\uu{A}}
 # \quad\Leftrightarrow\quad   
 # \uv{x}\cdot(\trans{\uu{A}}\cdot\uu{A})^{-1}\cdot\uv{x}\leq 1
-# $$
+# $${#eq-defell}
 # where $\uu{A}$ is an invertible second-order tensor so that $\trans{\uu{A}}\cdot\uu{A}$ is a positive definite symmetric tensor associated to 3 radii (eigenvalues $a\geq b \geq c$ possibly written $\rho_1 \geq \rho_2 \geq \rho_3$ for convenience) and 3 angles (orientation of the frame of eigenvectors $\uv{e}_1, \uv{e}_2, \uv{e}_3$)
 #
 # $$
 # \trans{\uu{A}}\cdot\uu{A}=a^2 \uv{e}_1\otimes\uv{e}_1 + b^2 \uv{e}_2\otimes\uv{e}_2 + c^2 \uv{e}_3\otimes\uv{e}_3 = \sum_{i=1}^3 \rho_i \uv{e}_i\otimes\uv{e}_i
-# $$
+# $${#eq-defA}
 #
 # A polarization field is introduced as a second-order symmetric tensor field $\uu{\tau}$ such that the constitutive law of the medium is given by
 #
@@ -113,18 +113,36 @@ np.set_printoptions(precision=8, suppress=True)
 # and the Eshelby tensor $\uuuu{S}$ is introduced by rewriting @eq-defHill under the form
 # $$
 #    \forall \x \in \mathcal{E}_{\uu{A}},\quad \eps(\x)=\uuuu{S}:\eps^*\quad\textrm{where}\quad\uuuu{S}=\uuuu{P}:\uuuu{C}
-# $$
+# $${#eq-defEshelby}
 #
 # See in @sec-hill_elas explicit expressions to calculate the Hill polarization tensor.
 #
-# ## Definition of the `ellipsoidal` shape
+# A straightforward consequence of the uniformity of the strain state wihin the ellipsoid is the uniformity of the stress state. A dual point of view of the expression (@eq-defHill) consists in relating the uniform stress within the ellipsoid to the eigenstrain introduced in (@eq-law2). Using (@eq-defEshelby) in (@eq-law2) allows to exhibit the dual counterpart of (@eq-defHill) involving the so-called second Hill polarization tensor $\uuuu{Q}$
+# $$
+#    \forall \x \in \mathcal{E}_{\uu{A}},\quad \sig(\x)=-\uuuu{Q}:\eps^*\quad\textrm{with}\quad\uuuu{Q}=\uuuu{C}-\uuuu{C}:\uuuu{P}:\uuuu{C}
+# $${#eq-defsecondHill}
+#
+#
+# ## Definition of the `ellipsoidal` shape {#sec-ellipsoidal}
 #
 # An `ellipsoidal` shape intended for use in the construction of $\uuuu{P}$ can be built by means of the following constructor
 #
 # `shape = ellipsoidal(a, b, c, θ=0., ϕ=0., ψ=0.) # default values 0 for the angles`
 #
 # where $a, b, c$ are the radii and $\theta, \phi, \psi$ the Euler angles already presented in @fig-eulerangles
-#
+
+# +
+#| error: false
+#| warning: false
+#| code-fold: false
+#| include: true
+
+π = math.pi
+a, b, c = 10., 5., 2.
+θ, ϕ, ψ = π/3, π/4, π/5
+print(ellipsoidal(a, b, c, θ, ϕ, ψ))
+# -
+
 # ::: {.callout-warning} 
 #
 # ## Warning
@@ -133,6 +151,17 @@ np.set_printoptions(precision=8, suppress=True)
 #
 # :::
 #
+# See below how the constructor reorders the radii and recomputes the angles accordingly
+
+# +
+#| error: false
+#| warning: false
+#| code-fold: false
+#| include: true
+
+print(ellipsoidal(c, b, a, θ, ϕ, ψ))
+# -
+
 # When two radii are equal the ellipsoidal shape becomes a spheroidal one which can also be directly defined by
 #
 # `shape = spheroidal(ω, θ=0., ϕ=0.) # default values 0 for the angles`
@@ -147,7 +176,17 @@ np.set_printoptions(precision=8, suppress=True)
 #
 # Spheroidal shapes
 # :::
-#
+
+# +
+#| error: false
+#| warning: false
+#| code-fold: false
+#| include: true
+
+ω = 0.1
+print(spheroidal(ω, θ, ϕ))
+# -
+
 # Finally if the three radii are equal, the shape becomes spherical
 #
 # `shape = spherical`
@@ -166,22 +205,16 @@ np.set_printoptions(precision=8, suppress=True)
 #| code-fold: false
 #| include: true
 
-π = math.pi
-a, b, c = 10., 5., 2.
-θ, ϕ, ψ = π/3, π/4, π/5
-print(ellipsoidal(a, b, c, θ, ϕ, ψ))
-print(ellipsoidal(c, b, a, θ, ϕ, ψ)) # the constructor reorders the radii and recomputes the angles accordingly
-ω = 0.1
-print(spheroidal(ω, θ, ϕ))
 print(spherical)
 # -
 
 # ## Calculation of Hill and Eshelby tensors for an isotropic matrix
 #
-# The Hill and Eshelby tensors are simply calculated by
+# The Hill, second Hill and Eshelby tensors are simply calculated by
 #
-# `P = hill(shape,C)`
-# `S = eshelby(shape,C)`
+# - `P = hill(shape, C)`
+# - `Q = hill_dual(shape, C)`
+# - `S = eshelby(shape, C)`
 #
 # where `shape` is an ellipsoidal shape as previously defined and `C` is an isotropic tensor.
 #
@@ -206,11 +239,28 @@ a, b, c = 10., 5., 2.
 k, µ = 72., 32. 
 shape = ellipsoidal(a, b, c, θ, ϕ, ψ)
 C = stiff_kmu(k, µ)
-P = hill(shape,C)
-print("P=\n",P)
-print("tensor P=\n",tensor(P, optiangles=True))
-S = eshelby(shape,C)
-print("S=\n",S)
+P = hill(shape, C)
+print("P =\n", P)
+# -
+
+# A `tensor` object can be constructed
+
+# +
+#| error: false
+#| warning: false
+#| code-fold: false
+#| include: true
+
+print("tensor P =\n", tensor(P, optiangles=True))
+
+# +
+#| error: false
+#| warning: false
+#| code-fold: false
+#| include: true
+
+S = eshelby(shape, C)
+print("S =\n", S)
 # -
 
 # ::: {.callout-caution icon=false} 
@@ -226,7 +276,7 @@ print("S=\n",S)
 #| include: true
 
 k, µ = 72., 32. ; C = stiff_kmu(k, µ)
-print("P=\n", hill(spherical,C))
+print("P =\n", hill(spherical,C))
 # -
 
 # Check the following formula for the Hill tensor related to a sphere in an isotropic matrix
@@ -243,16 +293,17 @@ print("P=\n", hill(spherical,C))
 #| include: true
 
 P = 1/(3*k+4*µ)*(J4+3*(k+2*µ)/(5*μ)*K4)
-print("P=\n", P)
+print("P =\n", P)
 # -
 
 # :::
 #
 # ## Calculation of Hill and Eshelby tensors for an arbitrary anisotropic matrix 
 #
-# The Hill and Eshelby tensors are numerically calculated by
+# The Hill, second Hill and Eshelby tensors are numerically calculated by
 #
 # - `P = hill(shape, C, algo=NUMINT, epsroots=1.e-4, epsabs=1.e-4, epsrel=1.e-4, maxnb=100000)`
+# - `Q = hill_dual(shape, C, algo=NUMINT, epsroots=1.e-4, epsabs=1.e-4, epsrel=1.e-4, maxnb=100000)`
 # - `S = eshelby(shape, C, algo=NUMINT, epsroots=1.e-4, epsabs=1.e-4, epsrel=1.e-4, maxnb=100000)`
 #
 # where the keyword argument `algo` can be either `NUMINT` or `RESIDUES` (default: `NUMINT`).
@@ -286,8 +337,15 @@ print("P=\n", P)
 
 param = [ 2.66011, 1.26432, 0.662772, 1.9402, 1.54905, 1.10384, 3.6072, 1.78964, 2.0247, 1.2701, 1.1089, 2.743, 1.3367, 1.2962, 0.897632, 4.42684, 2.05632, 1.52686, 3.54431, 1.3445, 1.99356 ]
 C = tensor(param)
-print(hill(shape, C, algo=NUMINT),"\n")
-print(hill(shape, C, algo=RESIDUES))
+print("Hill tensor using NUMINT algorithm\n", hill(shape, C, algo=NUMINT),"\n")
+
+# +
+#| error: false
+#| warning: false
+#| code-fold: false
+#| include: true
+
+print("Hill tensor using RESIDUES algorithm\n", hill(shape, C, algo=RESIDUES))
 # -
 
 # See below how a too large `epsroots` parameter can degrade the precision of the result
@@ -301,10 +359,17 @@ print(hill(shape, C, algo=RESIDUES))
 param = [3.,4.,math.sqrt(2),2.,1.]
 np.random.seed(1948)
 α = 1.e-2*np.random.rand(6, 6)
-C = tensor(param)+tensor((α+α.T)/2) ; print(C)
-print(hill(shape, C, algo=NUMINT),"\n")
+C = tensor(param)+tensor((α+α.T)/2) ; print("C =\n",C)
+print("P(NUMINT) =\n", hill(shape, C, algo=NUMINT),"\n")
+
+# +
+#| error: false
+#| warning: false
+#| code-fold: false
+#| include: true
+
 for ϵ in [1.e-4, 1.e-2, 1.e-1]:
-    print(f"ϵ={ϵ}\n",hill(shape, C, algo=RESIDUES, epsroots=ϵ),"\n")
+    print(f"ϵ={ϵ}\n", "  P =\n", hill(shape, C, algo=RESIDUES, epsroots=ϵ),"\n")
 # -
 
 # $\,$

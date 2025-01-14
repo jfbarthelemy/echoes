@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -72,7 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-524c77680309a51d71956d08d82e3b1d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -262,6 +262,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Eshelby and Hill polarization tensors</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../2_eshelby/crack_compliance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Crack compliance</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -421,7 +427,7 @@ $$
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This tutorial presents the matrix representation of isotropic tensors of second and fourth orders as well as Walpole tensors useful for transverse isotropy. It strongly relies on conventions of tensor algebra introduced in <a href="../99_appendices/tensor_algebra.html" class="quarto-xref"><span>Appendix A</span></a> especially in terms of products and contractions.</p>
+<p>This tutorial presents the matrix representation of isotropic tensors of second and fourth orders as well as Walpole tensors useful for transverse isotropy. It strongly relies on conventions of tensor algebra introduced in <a href="#sec-tensor_algebra" class="quarto-xref"><span class="quarto-unresolved-ref">sec-tensor_algebra</span></a> especially in terms of products and contractions.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -485,7 +491,7 @@ $$
 </section>
 <section id="fourth-order-isotropic-tensors" class="level2">
 <h2 class="anchored" data-anchor-id="fourth-order-isotropic-tensors">Fourth-order isotropic tensors</h2>
-<p>As detailed in <a href="../99_appendices/tensor_algebra.html#sec-ISO" class="quarto-xref"><span>Section A.4</span></a>, the fourth-order identity tensor is</p>
+<p>As detailed in <a href="#sec-ISO" class="quarto-xref"><span class="quarto-unresolved-ref">sec-ISO</span></a>, the fourth-order identity tensor is</p>
 <p><span class="math display">\[
 \uuuu{I}=\uu{1}\sboxtimes\uu{1}=
 \frac{\delta_{ik}\delta_{jl}+\delta_{il}\delta_{jk}}{2}\,\ve{i}\otimes\ve{j}\otimes\ve{k}\otimes\ve{l}
@@ -524,7 +530,7 @@ $$
 </section>
 <section id="walpole-bases" class="level2">
 <h2 class="anchored" data-anchor-id="walpole-bases">Walpole bases</h2>
-<p>The Walpole bases are useful to decompose transversely isotropic fourth-order tensors. They are presented in <a href="../99_appendices/tensor_algebra.html#sec-TI" class="quarto-xref"><span>Section A.5</span></a>. The Kelvin-Mandel representation of the <span class="math inline">\(i^\textrm{th}\)</span> Walpole tensor oriented along an axis <span class="math inline">\(\n\)</span> is constructed by <code>W(i,n=e₃)</code> (<span class="math inline">\(i \in \{0,..,5\}\)</span> and the normal is by default oriented along the third axis). The symmetrized version is provided by <code>WS(i,n=e₃)</code> (<span class="math inline">\(i \in \{0,..,4\}\)</span>).</p>
+<p>The Walpole bases are useful to decompose transversely isotropic fourth-order tensors. They are presented in <a href="#sec-TI" class="quarto-xref"><span class="quarto-unresolved-ref">sec-TI</span></a>. The Kelvin-Mandel representation of the <span class="math inline">\(i^\textrm{th}\)</span> Walpole tensor oriented along an axis <span class="math inline">\(\n\)</span> is constructed by <code>W(i,n=e₃)</code> (<span class="math inline">\(i \in \{0,..,5\}\)</span> and the normal is by default oriented along the third axis). The symmetrized version is provided by <code>WS(i,n=e₃)</code> (<span class="math inline">\(i \in \{0,..,4\}\)</span>).</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -535,7 +541,7 @@ Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Note again the shift in indices between the Python convention starting at 0 and the tensors presented in <a href="../99_appendices/tensor_algebra.html#sec-TI" class="quarto-xref"><span>Section A.5</span></a>.</p>
+<p>Note again the shift in indices between the Python convention starting at 0 and the tensors presented in <a href="#sec-TI" class="quarto-xref"><span class="quarto-unresolved-ref">sec-TI</span></a>.</p>
 </div>
 </div>
 <div id="7f02b2be" class="cell" data-execution_count="4">
