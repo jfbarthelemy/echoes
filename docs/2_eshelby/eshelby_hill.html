@@ -769,14 +769,14 @@ Warning
 </ul>
 <p>where the keyword argument <code>algo</code> can be either <code>NUMINT</code> or <code>RESIDUES</code> (default: <code>NUMINT</code>).</p>
 <ul>
-<li><p><code>NUMINT</code> based on the cubature DECUHR algorithm provided in <span class="citation" data-cites="espelid1994">(<a href="../references.html#ref-espelid1994" role="doc-biblioref">Espelid and Genz, 1994</a>)</span> applied on the integral formulation <a href="../99_appendices/hill_tensors.html#eq-Hill" class="quarto-xref"><span>B.4</span></a> over the unit sphere</p>
+<li><p><code>NUMINT</code> based on the cubature DECUHR algorithm provided in <span class="citation" data-cites="espelid1994">(<a href="../references.html#ref-espelid1994" role="doc-biblioref">Espelid and Genz, 1994</a>)</span> applied on the integral formulation <a href="../99_appendices/hill_tensors.html#eq-Hill" class="quarto-xref"><span>B.6</span></a> over the unit sphere</p>
 <ul>
 <li><code>epsabs</code> is the tolerance of absolute error (default: 1.e-4)</li>
 <li><code>epsrel</code> is the tolerance of relative error (default: 1.e-4)</li>
 <li><code>maxnb</code> is the maximum number of subdivisions (default: 100000)</li>
 </ul>
 <p>For more information about these parameters see <span class="citation" data-cites="espelid1994">(<a href="../references.html#ref-espelid1994" role="doc-biblioref">Espelid and Genz, 1994</a>)</span>.</p></li>
-<li><p><code>RESIDUES</code> based on the residue Cauchy theorem to transform the 2D cubature over the unit sphere <a href="../99_appendices/hill_tensors.html#eq-Hill" class="quarto-xref"><span>B.4</span></a> into a 1D quadrature as demonstrated in <span class="citation" data-cites="masson2008">(<a href="../references.html#ref-masson2008" role="doc-biblioref">Masson, 2008</a>)</span></p>
+<li><p><code>RESIDUES</code> based on the residue Cauchy theorem to transform the 2D cubature over the unit sphere <a href="../99_appendices/hill_tensors.html#eq-Hill" class="quarto-xref"><span>B.6</span></a> into a 1D quadrature as demonstrated in <span class="citation" data-cites="masson2008">(<a href="../references.html#ref-masson2008" role="doc-biblioref">Masson, 2008</a>)</span></p>
 <ul>
 <li><code>epsroots</code> is the tolerance for the criterion of multiple poles, i.e.&nbsp;if the distance between two poles of the integrand function is under this value they are considered as a unique multiple pole (default: 1.e-4)</li>
 <li><code>epsabs</code> is the tolerance of absolute error for the 1D quadrature (default: 1.e-4)</li>
