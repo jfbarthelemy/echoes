@@ -71,9 +71,9 @@ In short, the system of equations posed on the RVE is given by (@eq-divsigma), (
 ## Macroscopic stiffness or compliance tensors {#sec-basics_elas_mac_stiff}
 
 Whatever the boundary condition of homogeneous strain or stress type (@eq-homstrainBC) or (@eq-homstressBC), the linearity of the problem allows to invoke the existence of concentration tensors relating the microscopic strain $\eps$ and stress $\sig$ fields to the macroscopic strain $\E$ or stress $\Sig$ tensors
-$$\begin{aligned}
+$$\begin{align}
 \eps & =  \uuuu{A}_E:\E \\
 \sig & =  \uuuu{B}_E:\E \quad\textrm{with}\quad \uuuu{B}_E=\uuuu{c}:\uuuu{A}_E \\
 \sig & =  \uuuu{B}_\Sigma:\Sig \\
 \eps & =  \uuuu{A}_\Sigma:\Sig \quad\textrm{with}\quad \uuuu{A}_\Sigma=\uuuu{s}:\uuuu{B}_\Sigma 
-\end{aligned}$${#eq-conc}
+\end{align}$${#eq-conc}

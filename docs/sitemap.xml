@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/index.html</loc>
-    <lastmod>2025-01-10T14:14:30.217Z</lastmod>
+    <lastmod>2025-01-22T14:08:05.829Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/intro.html</loc>
@@ -10,27 +10,27 @@
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/1_tensor_calculus/kelvin_mandel.html</loc>
-    <lastmod>2025-01-08T14:12:37.576Z</lastmod>
+    <lastmod>2025-01-24T10:29:19.666Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/1_tensor_calculus/rot_matrices.html</loc>
-    <lastmod>2025-01-10T16:17:52.336Z</lastmod>
+    <lastmod>2025-01-24T10:29:56.171Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/1_tensor_calculus/special_tensors.html</loc>
-    <lastmod>2025-01-10T08:23:34.234Z</lastmod>
+    <lastmod>2025-01-24T10:30:22.876Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/1_tensor_calculus/tensor.html</loc>
-    <lastmod>2025-01-10T16:17:52.321Z</lastmod>
+    <lastmod>2025-01-24T10:30:53.465Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/2_eshelby/eshelby_hill.html</loc>
-    <lastmod>2025-01-14T22:49:36.286Z</lastmod>
+    <lastmod>2025-01-24T10:31:53.212Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/2_eshelby/crack_compliance.html</loc>
-    <lastmod>2025-01-14T23:02:16.506Z</lastmod>
+    <lastmod>2025-01-24T19:01:05.454Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/references.html</loc>
@@ -38,14 +38,14 @@
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/99_appendices/tensor_algebra.html</loc>
-    <lastmod>2025-01-10T16:18:19.365Z</lastmod>
+    <lastmod>2025-01-24T19:01:05.453Z</lastmod>
   </url>
   <url>
-    <loc>https://jfbarthelemy.github.io/echoes/99_appendices/hill_elas.html</loc>
-    <lastmod>2025-01-12T19:49:47.309Z</lastmod>
+    <loc>https://jfbarthelemy.github.io/echoes/99_appendices/hill_tensors.html</loc>
+    <lastmod>2025-01-27T12:33:02.600Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/99_appendices/basics_elas.html</loc>
-    <lastmod>2025-01-02T17:50:31.429Z</lastmod>
+    <lastmod>2025-01-24T19:01:05.453Z</lastmod>
   </url>
 </urlset>

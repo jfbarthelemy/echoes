@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Appendix B — Hill polarization tensor in elasticity – Echoes</title>
+<title>Appendix B — Hill polarization tensors – Echoes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -61,7 +61,8 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-524c77680309a51d71956d08d82e3b1d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-347421651eda86bd14cf96a71aabf182.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -89,6 +90,15 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-DF66M2GWRG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DF66M2GWRG');
+</script>      
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -131,7 +141,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../99_appendices/tensor_algebra.html">Appendices</a></li><li class="breadcrumb-item"><a href="../99_appendices/hill_elas.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Hill polarization tensor in elasticity</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../99_appendices/tensor_algebra.html">Appendices</a></li><li class="breadcrumb-item"><a href="../99_appendices/hill_tensors.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Hill polarization tensors</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -278,8 +288,8 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../99_appendices/hill_elas.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Hill polarization tensor in elasticity</span></span></a>
+  <a href="../99_appendices/hill_tensors.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Hill polarization tensors</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -300,10 +310,14 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#general-expression" id="toc-general-expression" class="nav-link active" data-scroll-target="#general-expression">General expression</a></li>
+  <li><a href="#useful-integrals" id="toc-useful-integrals" class="nav-link active" data-scroll-target="#useful-integrals">Useful integrals</a></li>
+  <li><a href="#hill-polarization-tensor-in-elasticity" id="toc-hill-polarization-tensor-in-elasticity" class="nav-link" data-scroll-target="#hill-polarization-tensor-in-elasticity">Hill polarization tensor in elasticity</a>
+  <ul class="collapse">
+  <li><a href="#general-expression" id="toc-general-expression" class="nav-link" data-scroll-target="#general-expression">General expression</a></li>
   <li><a href="#isotropic-matrix" id="toc-isotropic-matrix" class="nav-link" data-scroll-target="#isotropic-matrix">Isotropic matrix</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/99_appendices/hill_elas.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/99_appendices/hill_tensors.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
@@ -382,9 +396,9 @@ $$
 $$
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../99_appendices/tensor_algebra.html">Appendices</a></li><li class="breadcrumb-item"><a href="../99_appendices/hill_elas.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Hill polarization tensor in elasticity</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../99_appendices/tensor_algebra.html">Appendices</a></li><li class="breadcrumb-item"><a href="../99_appendices/hill_tensors.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Hill polarization tensors</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-hill_elas" class="quarto-section-identifier">Appendix B — Hill polarization tensor in elasticity</span></h1>
+<h1 class="title"><span id="sec-hill_elas" class="quarto-section-identifier">Appendix B — Hill polarization tensors</span></h1>
 </div>
 
 
@@ -401,49 +415,34 @@ $$
 </header>
 
 
-<p>This section recalls some results about the calculation of the Hill polarization tensors related to a matrix of stiffness <span class="math inline">\(\mathbb{C}\)</span> and an ellipsoid <span class="math inline">\(\mathcal{E}_{\uu{A}}\)</span> of equation <span class="math display">\[
+<p><font size="6"></font></p><font size="6">
+<p><iconify-icon role="img" inline="" icon="noto:building-construction" aria-label="Icon building-construction from noto Iconify.design set." title="Icon building-construction from noto Iconify.design set."></iconify-icon> <span class="orangebox"><strong>Page under construction</strong></span> <iconify-icon role="img" inline="" icon="noto:building-construction" aria-label="Icon building-construction from noto Iconify.design set." title="Icon building-construction from noto Iconify.design set."></iconify-icon></p>
+</font><p><font size="6"></font></p>
+<p>The Hill polarization tensors defined in this section are related to an ellipsoid embedded in the whole space <span class="math inline">\(\R^3\)</span>. An ellipsoid <span class="math inline">\(\mathcal{E}_{\uu{A}}\)</span> can be defined by an equation such as <span class="math display">\[
 \uv{x}\in\mathcal{E}_{\uu{A}}
 \quad\Leftrightarrow\quad
 \uv{x}\cdot(\trans{\uu{A}}\cdot\uu{A})^{-1}\cdot\uv{x}\leq 1
-\]</span> where <span class="math inline">\(\uu{A}\)</span> is an invertible second-order tensor so that <span class="math inline">\(\trans{\uu{A}}\cdot\uu{A}\)</span> is a positive definite symmetric tensor associated to 3 radii (eigenvalues <span class="math inline">\(a\geq b \geq c\)</span> possibly written <span class="math inline">\(\rho_1 \geq \rho_2 \geq \rho_3\)</span> for convenience) and 3 angles (orientation of the frame of eigenvectors <span class="math inline">\(\uv{e}_1, \uv{e}_2, \uv{e}_3\)</span>) <span id="eq-ellipsoid"><span class="math display">\[
+\]</span> where <span class="math inline">\(\uu{A}\)</span> is an invertible second-order tensor so that <span class="math inline">\(\trans{\uu{A}}\cdot\uu{A}\)</span> is a positive definite symmetric tensor associated to 3 radii (eigenvalues <span class="math inline">\(a\geq b \geq c\)</span> possibly written <span class="math inline">\(\rho_1 \geq \rho_2 \geq \rho_3\)</span> for convenience) and 3 angles (orientation of the frame of orthonormal eigenvectors <span class="math inline">\(\uv{e}_1, \uv{e}_2, \uv{e}_3\)</span>) <span id="eq-ellipsoid"><span class="math display">\[
 \trans{\uu{A}}\cdot\uu{A}=a^2 \uv{e}_1\otimes\uv{e}_1 + b^2 \uv{e}_2\otimes\uv{e}_2 + c^2 \uv{e}_3\otimes\uv{e}_3 = \sum_{i=1}^3 \rho_i \uv{e}_i\otimes\uv{e}_i
 \tag{B.1}\]</span></span></p>
-<section id="general-expression" class="level2">
-<h2 class="anchored" data-anchor-id="general-expression">General expression</h2>
-<p>A general expression of the elastic polarization tensor is derived in <span class="citation" data-cites="willis1977">(<a href="../references.html#ref-willis1977" role="doc-biblioref">Willis, 1977</a>)</span> (see also <span class="citation" data-cites="mura1987">(<a href="../references.html#ref-mura1987" role="doc-biblioref">Mura, 1987</a>)</span>) <span id="eq-Hill"><span class="math display">\[\begin{aligned}
-\uuuu{P}(\uu{A},\uuuu{C})&amp;=\frac{1}{4\pi}
-\int_{\norm{\uv{\zeta}}=1}
-(\uu{A}^{-1}\cdot\uv{\zeta})\sotimes
-\Big((\uu{A}^{-1}\cdot\uv{\zeta})\cdot\uuuu{C}
-\cdot(\uu{A}^{-1}\cdot\uv{\zeta})\Big)^{-1}
-\sotimes(\uu{A}^{-1}\cdot\uv{\zeta})
-\ud S_\zeta\\
-&amp;=
-\frac{\det{\uu{A}}}{4\pi}
+<section id="useful-integrals" class="level2">
+<h2 class="anchored" data-anchor-id="useful-integrals">Useful integrals</h2>
+<p>Some integrals useful for further calculations and intimately connected to the Newtonian potential are introduced as</p>
+<p><span id="eq-tensIUV"><span class="math display">\[\begin{align}
+\uu{I} &amp;= \frac{\det{\uu{A}}}{4\pi}
 \int_{\norm{\uv{\xi}}=1}
-\frac{\uv{\xi}\sotimes
-(\uv{\xi}\cdot\uuuu{C}
-\cdot\uv{\xi})^{-1}
-\sotimes\uv{\xi}}{\norm{\uu{A}\cdot\uv{\xi}}^3}
-\ud S_{\xi}
-\end{aligned} \tag{B.2}\]</span></span></p>
-<p>When <span class="math inline">\(\uuuu{C}\)</span> is arbitrarily anisotropic, it is necessary to resort to numerical cubature to estimate <span class="math inline">\(\uuuu{P}\)</span> as proposed in <span class="citation" data-cites="ghahremani1977">(<a href="../references.html#ref-ghahremani1977" role="doc-biblioref">Ghahremani, 1977</a>)</span>, <span class="citation" data-cites="gavazzi1990">(<a href="../references.html#ref-gavazzi1990" role="doc-biblioref">Gavazzi and Lagoudas, 1990</a>)</span> or <span class="citation" data-cites="masson2008">(<a href="../references.html#ref-masson2008" role="doc-biblioref">Masson, 2008</a>)</span>. However in some cases of anisotropy, analytical solutions are available (<span class="citation" data-cites="withers1989">(<a href="../references.html#ref-withers1989" role="doc-biblioref">Withers, 1989</a>)</span>, <span class="citation" data-cites="barthelemyIJES2020_hilltrans">(<a href="../references.html#ref-barthelemyIJES2020_hilltrans" role="doc-biblioref">Barthélémy, 2020</a>)</span>). The case of isotropic matrix is particularly developed in the next section.</p>
-</section>
-<section id="isotropic-matrix" class="level2">
-<h2 class="anchored" data-anchor-id="isotropic-matrix">Isotropic matrix</h2>
-<p>In this section, the matrix is assumed isotropic so that its stiffness tensor writes by means of a bulk <span class="math inline">\(k\)</span> and shear <span class="math inline">\(\mu\)</span> or Lamé <span class="math inline">\(\lambda\)</span> and <span class="math inline">\(\mu\)</span> moduli or even Young modulus <span class="math inline">\(E\)</span> and Poisson ratio <span class="math inline">\(\nu\)</span> with <span class="math inline">\(k=\frac{E}{3(1-2\nu)}\)</span> and <span class="math inline">\(\mu=\frac{E}{2(1+\nu)}\)</span>. <span id="eq-isoC"><span class="math display">\[\begin{aligned}
-\uuuu{C} =&amp; {} 3k\uuuu{J}+2\mu\uuuu{K} =  3\lambda\uuuu{I}+2\mu\uuuu{K}\\
-&amp; \quad\textrm{with}\quad J_{ijkl}=\frac{\delta_{ij}\delta_{kl}}{3},
-I_{ijkl}=\frac{\delta_{ik}\delta_{jl}+\delta_{il}\delta_{jk}}{2}
-\textrm{ and }
-\uuuu{K}=\uuuu{I}-\uuuu{J}
-\end{aligned} \tag{B.3}\]</span></span></p>
-<p>Introducing (<a href="#eq-isoC" class="quarto-xref"><span>B.3</span></a>) in (<a href="#eq-Hill" class="quarto-xref"><span>B.2</span></a>) leads to after some algebra <span class="math display">\[
-\uuuu{P}=
-\frac{1}{\lambda+2\,\mu}
-\uuuu{U}
-+\frac{1}{\mu}(\uuuu{V}-\uuuu{U})
-\]</span> where the tensors <span class="math inline">\(\uuuu{U}\)</span> and <span class="math inline">\(\uuuu{V}\)</span>, depending only on the ellipsoidal tensor <span class="math inline">\(\uu{A}\)</span> of (<a href="#eq-ellipsoid" class="quarto-xref"><span>B.1</span></a>), are given by (see <span class="citation" data-cites="barthelemyIJES2020_hilltrans">(<a href="../references.html#ref-barthelemyIJES2020_hilltrans" role="doc-biblioref">Barthélémy, 2020</a>)</span>) <span class="math display">\[\begin{aligned}
+\frac{\uv{\xi}\otimes\uv{\xi}}
+{\norm{\uu{A}\cdot\uv{\xi}}^3}\ud S_{\xi}
+=
+\frac{1}{4\pi}
+\int_{\norm{\uv{\zeta}}=1}
+\frac{%
+(\uu{A}^{-1}\cdot\uv{\zeta})
+\otimes
+(\uu{A}^{-1}\cdot\uv{\zeta})
+}{\norm{\uu{A}^{-1}\cdot\uv{\zeta}}^2}
+\ud S_{\zeta}
+\\
 \uuuu{U} &amp;= \frac{\det{\uu{A}}}{4\pi}
 \int_{\norm{\uv{\xi}}=1}
 \frac{\uv{\xi}\otimes\uv{\xi}\otimes\uv{\xi}\otimes\uv{\xi}}
@@ -461,12 +460,12 @@ I_{ijkl}=\frac{\delta_{ik}\delta_{jl}+\delta_{il}\delta_{jk}}{2}
 (\uu{A}^{-1}\cdot\uv{\zeta})
 }{\norm{\uu{A}^{-1}\cdot\uv{\zeta}}^4}
 \ud S_{\zeta}
-\end{aligned}\]</span> and <span class="math display">\[\begin{aligned}
+\\
 \uuuu{V} &amp;= \frac{\det{\uu{A}}}{4\pi}
 \int_{\norm{\uv{\xi}}=1}
 \frac{\uv{\xi}\sotimes\uu{1}\sotimes\uv{\xi}}
-{\norm{\uu{A}\cdot\uv{\xi}}^3}\ud S_{\xi}\\
-&amp;=
+{\norm{\uu{A}\cdot\uv{\xi}}^3}\ud S_{\xi}
+=
 \frac{1}{4\pi}
 \int_{\norm{\uv{\zeta}}=1}
 \frac{%
@@ -476,20 +475,269 @@ I_{ijkl}=\frac{\delta_{ik}\delta_{jl}+\delta_{il}\delta_{jk}}{2}
 \sotimes
 (\uu{A}^{-1}\cdot\uv{\zeta})
 }{\norm{\uu{A}^{-1}\cdot\uv{\zeta}}^2}
+\ud S_{\zeta}\\
+&amp;=
+\frac{\uu{1}\sboxtimes\uu{I}+\uu{I}\sboxtimes\uu{1}}{2}
+\end{align} \tag{B.2}\]</span></span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof of the change of variable in <a href="#eq-tensIUV" class="quarto-xref"><span>B.2</span></a>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The proof detailed here is an intrinsic alternative (see <span class="citation" data-cites="barthelemyIJSS2016">(<a href="../references.html#ref-barthelemyIJSS2016" role="doc-biblioref">Barthélémy et al., 2016</a>)</span>) to the reasoning in components presented in <span class="citation" data-cites="mura1987">(<a href="../references.html#ref-mura1987" role="doc-biblioref">Mura, 1987</a>)</span>.</p>
+<p>The change of variable in <a href="#eq-tensIUV" class="quarto-xref"><span>B.2</span></a> is a bijective transformation of the unit sphere into itself <span class="math display">\[
+\uv{\zeta}\mapsto\uv{\xi}=\frac{\uu{A}^{-1}⋅\uv{\zeta}}{\norm{\uu{A}^{-1}⋅\uv{\zeta}}}
+\;\Leftrightarrow\;
+\uv{\xi}\mapsto\uv{\zeta}=\frac{\uu{A}⋅\uv{\xi}}{\norm{\uu{A}⋅\uv{\xi}}}
+\]</span></p>
+<p>The delicate point of the proof is the following result on surface elements <span class="math display">\[
 \ud S_{\zeta}
-\end{aligned}\]</span> For an arbitrary ellipsoid defined by (<a href="#eq-ellipsoid" class="quarto-xref"><span>B.1</span></a>), the components of <span class="math inline">\(\uuuu{U}\)</span> and <span class="math inline">\(\uuuu{V}\)</span> write <span class="math display">\[\begin{aligned}
+=\frac{\det{\uu{A}}}{\norm{\uu{A}\cdot\uv{\xi}}^3}\,
+\ud S_{\xi}
+\;\Leftrightarrow\;
+\ud S_{\xi}
+=\frac{\det{\uu{A}^{-1}}}{\norm{\uu{A}^{-1}\cdot\uv{\zeta}}^3}\,
+\ud S_{\zeta}
+\]</span></p>
+<p>It is obvious that <span class="math inline">\(\uv{\xi}\)</span> and <span class="math inline">\(\uv{\zeta}\)</span> play symmetrical role by inverting <span class="math inline">\(\uu{A}\)</span>.</p>
+<p>Let’s start by differentiating the transformation relationship yielding <span class="math display">\[
+\ud \uv{\xi}=\left(\uu{1}-\uv{\xi}\otimes\uv{\xi}\right)\cdot
+\frac{\uu{A}^{-1}}{\norm{\uu{A}^{-1}\cdot\uv{\zeta}}}\cdot\ud\uv{\zeta}
+\]</span> This transformation gradient can be decomposed as the tangent invertible application <span class="math inline">\(\uv{u}\mapsto\frac{\uu{A}^{-1}}{\norm{\uu{A}^{-1}\cdot\uv{\zeta}}}\cdot\uv{u}\)</span> followed by an orthogonal projection over the plane of normal <span class="math inline">\(\uv{\xi}\)</span>.</p>
+<p>The end of the proof takes advantage of the following remarks:</p>
+<ul>
+<li><p>the transformation of a surface vector <span class="math inline">\(\ud\uv{S}\)</span> to <span class="math inline">\(\ud\uv{s}\)</span> by the gradient transformation <span class="math inline">\(\uv{X}\mapsto\ud\uv{x}=\uu{F}⋅\ud\uv{X}\)</span> is <span class="math inline">\(\ud\uv{s}=(\det{\uu{F}})\,\trans{\uu{F}}^{-1}⋅\ud\uv{S}\)</span></p></li>
+<li><p>as <span class="math inline">\(\uv{\xi}\)</span> and <span class="math inline">\(\uv{\zeta}\)</span> belong to unit spheres, <span class="math inline">\(\ud \uv{S}_{\zeta}=\ud S_{\zeta}\,\uv{\zeta}\)</span> and <span class="math inline">\(\ud \uv{S}_{\xi}=\ud S_{\xi}\,\uv{\xi}\)</span></p></li>
+<li><p>the projection of material vectors over the plane of normal <span class="math inline">\(\uv{\xi}\)</span> becomes a projection on the line directed by <span class="math inline">\(\uv{\xi}\)</span> for surface vectors.</p></li>
+</ul>
+<p>It results that <span class="math display">\[
+\ud S_{\xi}=\uv{\xi}\cdot\left(\left(\frac{\det{\uu{A}^{-1}}}{\norm{\uu{A}^{-1}\cdot\uv{\zeta}}^3}\right)\,
+\left(\norm{\uu{A}^{-1}\cdot\uv{\zeta}}\trans{\uu{A}}\right)\right)\cdot\uv{\zeta}
+\ud S_{\zeta}
+=
+\frac{\det{\uu{A}^{-1}}}{\norm{\uu{A}^{-1}\cdot\uv{\zeta}}^2}\,
+\uv{\zeta}\cdot\uu{A}\cdot\uv{\xi}
+\ud S_{\zeta}
+\]</span> which ends the proof by observing that <span class="math inline">\(\uv{\zeta}\cdot\uu{A}\cdot\uv{\xi}=\frac{\norm{\uv{\zeta}}^2}{\norm{\uu{A}^{-1}\cdot\uv{\zeta}}}\)</span>.</p>
+</div>
+</div>
+</div>
+<p>The expression of the components of these tensors in the frame of the eigenvectors of <span class="math inline">\(\uu{A}\)</span> (<a href="#eq-ellipsoid" class="quarto-xref"><span>B.1</span></a>) can be obtained by identification with expressions derived from the Newtonian potential (<span class="citation" data-cites="kellogg1929">(<a href="../references.html#ref-kellogg1929" role="doc-biblioref">Kellogg, 1929</a>)</span>, <span class="citation" data-cites="eshelby1957">(<a href="../references.html#ref-eshelby1957" role="doc-biblioref">Eshelby, 1957</a>)</span>). First <span class="math inline">\(\uu{I}\)</span> writes <span id="eq-decI"><span class="math display">\[
+\uu{I}=I_1\,\uv{e}_1\otimes\uv{e}_1 + I_2\,\uv{e}_2\otimes\uv{e}_2 + I_3\,\uv{e}_3\otimes\uv{e}_3 = \sum_{i=1}^3 I_i\,\uv{e}_i\otimes\uv{e}_i
+\tag{B.3}\]</span></span></p>
+<p>with <span class="math inline">\(I_i\)</span> given in <a href="#tbl-Ii" class="quarto-xref">Tab.&nbsp;<span>B.1</span></a> (see <span class="citation" data-cites="barthelemyIJES2020_hilltrans">(<a href="../references.html#ref-barthelemyIJES2020_hilltrans" role="doc-biblioref">Barthélémy, 2020</a>)</span>).</p>
+<div id="tbl-Ii" class="striped hover bordered danger sm quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<div aria-describedby="tbl-Ii-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table-striped table-hover table-bordered table-danger table-sm small table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>ellipsoid</th>
+<th>prolate spheroid</th>
+<th>oblate spheroid</th>
+<th>sphere</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><span class="math inline">\(a&gt;b&gt;c\)</span></td>
+<td><span class="math inline">\(a&gt;b=c\)</span></td>
+<td><span class="math inline">\(a=b&gt;c\)</span></td>
+<td><span class="math inline">\(a=b=c\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(I_1 =\)</span></td>
+<td><span class="math inline">\(\frac{a\,b\,c}{(a^2-b^2)\sqrt{a^2-c^2}}\left({\cal F}-{\cal E}\right)\)</span></td>
+<td><span class="math inline">\(1-2\,I_3\)</span></td>
+<td><span class="math inline">\(c\,\frac{a^2\,\arccos{(c/a)}-c\sqrt{a^2-c^2}}{2\left(a^2-c^2\right)^{3/2}}\)</span></td>
+<td><span class="math inline">\(\frac{1}{3}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(I_2 =\)</span></td>
+<td><span class="math inline">\(1-I_1-I_3\)</span></td>
+<td><span class="math inline">\(I_3\)</span></td>
+<td><span class="math inline">\(I_1\)</span></td>
+<td><span class="math inline">\(\frac{1}{3}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(I_3 =\)</span></td>
+<td><span class="math inline">\(\frac{a\,b\,c}{(b^2-c^2)\sqrt{a^2-c^2}}\left(\frac{b\sqrt{a^2-c^2}}{a\,c}-{\cal E}\right)\)</span></td>
+<td><span class="math inline">\(a\,\frac{a\sqrt{a^2-c^2}-c^2\,\arcosh{(a/c)}}{2\left(a^2-c^2\right)^{3/2}}\)</span></td>
+<td><span class="math inline">\(1-2\,I_1\)</span></td>
+<td><span class="math inline">\(\frac{1}{3}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-Ii-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tab.&nbsp;B.1: Components <span class="math inline">\(I_i\)</span>
+</figcaption>
+</figure>
+</div>
+<p>where <span class="math inline">\({\cal F}={\cal F}(\theta,\kappa)\)</span> and <span class="math inline">\({\cal E}={\cal E}(\theta,\kappa)\)</span> are respectively the elliptic integrals of the first and second kinds (see <span class="citation" data-cites="abramowitz1972">(<a href="../references.html#ref-abramowitz1972" role="doc-biblioref">Abramowitz and Stegun, 1972</a>)</span>) of amplitude and parameter<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> <span class="math display">\[
+\theta=\arcsin{\sqrt{1-\frac{c^2}{a^2}}}
+\quad;\quad
+\kappa=\sqrt{\frac{a^2-b^2}{a^2-c^2}}
+\]</span></p>
+<div id="tbl-Iij" class="striped hover bordered danger quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<div aria-describedby="tbl-Iij-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table-striped table-hover table-bordered table-danger table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>ellipsoid</th>
+<th>prolate spheroid</th>
+<th>oblate spheroid</th>
+<th>sphere</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><span class="math inline">\(a&gt;b&gt;c\)</span></td>
+<td><span class="math inline">\(a&gt;b=c\)</span></td>
+<td><span class="math inline">\(a=b&gt;c\)</span></td>
+<td><span class="math inline">\(a=b=c\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(I_{11} =\)</span></td>
+<td><span class="math inline">\(\frac{1}{3}\left(\frac{1}{a^2}-I_{31}-I_{12} \right)\)</span></td>
+<td><span class="math inline">\(\frac{1}{3}\left(\frac{1}{a^2}-2\,I_{31} \right)\)</span></td>
+<td><span class="math inline">\(\frac{1}{4}\left(\frac{1}{a^2}-I_{31} \right)\)</span></td>
+<td><span class="math inline">\(\frac{1}{5\,a^2}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(I_{22} =\)</span></td>
+<td><span class="math inline">\(\frac{1}{3}\left(\frac{1}{b^2}-I_{12}-I_{23} \right)\)</span></td>
+<td><span class="math inline">\(\frac{1}{4}\left(\frac{1}{c^2}-I_{31} \right)\)</span></td>
+<td><span class="math inline">\(\frac{1}{4}\left(\frac{1}{a^2}-I_{31} \right)\)</span></td>
+<td><span class="math inline">\(\frac{1}{5\,a^2}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(I_{33} =\)</span></td>
+<td><span class="math inline">\(\frac{1}{3}\left(\frac{1}{c^2}-I_{23}-I_{31} \right)\)</span></td>
+<td><span class="math inline">\(\frac{1}{4}\left(\frac{1}{c^2}-I_{31} \right)\)</span></td>
+<td><span class="math inline">\(\frac{1}{3}\left(\frac{1}{c^2}-2\,I_{31} \right)\)</span></td>
+<td><span class="math inline">\(\frac{1}{5\,a^2}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(I_{23} = I_{32} =\)</span></td>
+<td><span class="math inline">\(\frac{I_3-I_2}{b^2-c^2}\)</span></td>
+<td><span class="math inline">\(\frac{1}{4}\left(\frac{1}{c^2}-I_{31} \right)\)</span></td>
+<td><span class="math inline">\(\frac{I_3-I_2}{b^2-c^2}\)</span></td>
+<td><span class="math inline">\(\frac{1}{5\,a^2}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(I_{31} = I_{13} =\)</span></td>
+<td><span class="math inline">\(\frac{I_3-I_1}{a^2-c^2}\)</span></td>
+<td><span class="math inline">\(\frac{I_3-I_1}{a^2-c^2}\)</span></td>
+<td><span class="math inline">\(\frac{I_3-I_1}{a^2-c^2}\)</span></td>
+<td><span class="math inline">\(\frac{1}{5\,a^2}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(I_{12} = I_{21} =\)</span></td>
+<td><span class="math inline">\(\frac{I_2-I_1}{a^2-b^2}\)</span></td>
+<td><span class="math inline">\(\frac{I_2-I_1}{a^2-b^2}\)</span></td>
+<td><span class="math inline">\(\frac{1}{4}\left(\frac{1}{a^2}-I_{31} \right)\)</span></td>
+<td><span class="math inline">\(\frac{1}{5\,a^2}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-Iij-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tab.&nbsp;B.2: Components <span class="math inline">\(I_{ij}\)</span>
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note that, for writing convenience, <span class="math inline">\(I_i\)</span> of <a href="#tbl-Ii" class="quarto-xref">Tab.&nbsp;<span>B.1</span></a> and <span class="math inline">\(I_{ij}\)</span> of <a href="#tbl-Iij" class="quarto-xref">Tab.&nbsp;<span>B.2</span></a> are here adapted from those provided in <span class="citation" data-cites="kellogg1929">(<a href="../references.html#ref-kellogg1929" role="doc-biblioref">Kellogg, 1929</a>)</span> and <span class="citation" data-cites="eshelby1957">(<a href="../references.html#ref-eshelby1957" role="doc-biblioref">Eshelby, 1957</a>)</span>: they differ by a factor of <span class="math inline">\(4\pi/3\)</span> for <span class="math inline">\(I_{ij}\)</span> with <span class="math inline">\(i\neq j\)</span> and by <span class="math inline">\(4\pi\)</span> for the others.</p>
+</div>
+</div>
+</section>
+<section id="hill-polarization-tensor-in-elasticity" class="level2">
+<h2 class="anchored" data-anchor-id="hill-polarization-tensor-in-elasticity">Hill polarization tensor in elasticity</h2>
+<section id="general-expression" class="level3">
+<h3 class="anchored" data-anchor-id="general-expression">General expression</h3>
+<p>A general expression of the elastic polarization tensor is derived in <span class="citation" data-cites="willis1977">(<a href="../references.html#ref-willis1977" role="doc-biblioref">Willis, 1977</a>)</span> (see also <span class="citation" data-cites="mura1987">(<a href="../references.html#ref-mura1987" role="doc-biblioref">Mura, 1987</a>)</span>) <span id="eq-Hill"><span class="math display">\[\begin{align}
+\uuuu{P}(\uu{A},\uuuu{C})&amp;=\frac{1}{4\pi}
+\int_{\norm{\uv{\zeta}}=1}
+(\uu{A}^{-1}\cdot\uv{\zeta})\sotimes
+\Big((\uu{A}^{-1}\cdot\uv{\zeta})\cdot\uuuu{C}
+\cdot(\uu{A}^{-1}\cdot\uv{\zeta})\Big)^{-1}
+\sotimes(\uu{A}^{-1}\cdot\uv{\zeta})
+\ud S_\zeta\\
+&amp;=
+\frac{\det{\uu{A}}}{4\pi}
+\int_{\norm{\uv{\xi}}=1}
+\frac{\uv{\xi}\sotimes
+(\uv{\xi}\cdot\uuuu{C}
+\cdot\uv{\xi})^{-1}
+\sotimes\uv{\xi}}{\norm{\uu{A}\cdot\uv{\xi}}^3}
+\ud S_{\xi}
+\end{align} \tag{B.4}\]</span></span></p>
+<p>When <span class="math inline">\(\uuuu{C}\)</span> is arbitrarily anisotropic, it is necessary to resort to numerical cubature to estimate <span class="math inline">\(\uuuu{P}\)</span> as proposed in <span class="citation" data-cites="ghahremani1977">(<a href="../references.html#ref-ghahremani1977" role="doc-biblioref">Ghahremani, 1977</a>)</span>, <span class="citation" data-cites="gavazzi1990">(<a href="../references.html#ref-gavazzi1990" role="doc-biblioref">Gavazzi and Lagoudas, 1990</a>)</span> or <span class="citation" data-cites="masson2008">(<a href="../references.html#ref-masson2008" role="doc-biblioref">Masson, 2008</a>)</span>. However in some cases of anisotropy, analytical solutions are available (<span class="citation" data-cites="withers1989">(<a href="../references.html#ref-withers1989" role="doc-biblioref">Withers, 1989</a>)</span>, <span class="citation" data-cites="barthelemyIJES2020_hilltrans">(<a href="../references.html#ref-barthelemyIJES2020_hilltrans" role="doc-biblioref">Barthélémy, 2020</a>)</span>). The case of isotropic matrix is particularly developed in the next section.</p>
+</section>
+<section id="isotropic-matrix" class="level3">
+<h3 class="anchored" data-anchor-id="isotropic-matrix">Isotropic matrix</h3>
+<p>In this section, the matrix is assumed isotropic so that its stiffness tensor writes by means of a bulk <span class="math inline">\(k\)</span> and shear <span class="math inline">\(\mu\)</span> or Lamé <span class="math inline">\(\lambda\)</span> and <span class="math inline">\(\mu\)</span> moduli or even Young modulus <span class="math inline">\(E\)</span> and Poisson ratio <span class="math inline">\(\nu\)</span> with <span class="math inline">\(k=\frac{E}{3(1-2\nu)}\)</span> and <span class="math inline">\(\mu=\frac{E}{2(1+\nu)}\)</span>. <span id="eq-isoC"><span class="math display">\[\begin{align}
+\uuuu{C} =&amp; {} 3k\uuuu{J}+2\mu\uuuu{K} =  3\lambda\uuuu{I}+2\mu\uuuu{K}\\
+&amp; \quad\textrm{with}\quad J_{ijkl}=\frac{\delta_{ij}\delta_{kl}}{3},
+I_{ijkl}=\frac{\delta_{ik}\delta_{jl}+\delta_{il}\delta_{jk}}{2}
+\textrm{ and }
+\uuuu{K}=\uuuu{I}-\uuuu{J}
+\end{align} \tag{B.5}\]</span></span></p>
+<p>Introducing (<a href="#eq-isoC" class="quarto-xref"><span>B.5</span></a>) in (<a href="#eq-Hill" class="quarto-xref"><span>B.4</span></a>) leads to after some algebra <span class="math display">\[
+\uuuu{P}=
+\frac{1}{\lambda+2\,\mu}
+\uuuu{U}
++\frac{1}{\mu}(\uuuu{V}-\uuuu{U})
+\]</span> where the tensors <span class="math inline">\(\uuuu{U}\)</span> and <span class="math inline">\(\uuuu{V}\)</span>, depending only on the ellipsoidal tensor <span class="math inline">\(\uu{A}\)</span> of (<a href="#eq-ellipsoid" class="quarto-xref"><span>B.1</span></a>), are given by (see <span class="citation" data-cites="barthelemyIJES2020_hilltrans">(<a href="../references.html#ref-barthelemyIJES2020_hilltrans" role="doc-biblioref">Barthélémy, 2020</a>)</span>)</p>
+<p>For an arbitrary ellipsoid defined by (<a href="#eq-ellipsoid" class="quarto-xref"><span>B.1</span></a>), the components of <span class="math inline">\(\uuuu{U}\)</span> and <span class="math inline">\(\uuuu{V}\)</span> write <span class="math display">\[\begin{align}
 U_{iiii}&amp;=\frac{3(I_i-\rho_i^2I_{ii})}{2}
 \quad\forall\, i\in\{1,2,3\}\\
 U_{iijj}=U_{ijij}=U_{ijji}&amp;=\frac{I_j-\rho_i^2I_{ij}}{2}
 =\frac{I_i-\rho_j^2I_{ij}}{2}
 \quad\forall\, i\neq j\in\{1,2,3\}
-\end{aligned}\]</span> and <span class="math display">\[\begin{aligned}
+\end{align}\]</span> and <span class="math display">\[\begin{align}
 V_{iiii}&amp;=I_i\quad\forall\, i\in\{1,2,3\}\\
 V_{ijij}=V_{ijji}&amp;=\frac{I_i+I_j}{4}
 \quad\forall\, i\neq j\in\{1,2,3\}
-\end{aligned}\]</span> where the coefficients <span class="math inline">\(I_i\)</span> and <span class="math inline">\(I_{ij}\)</span> are given by (note that <span class="math inline">\(I_i\)</span> and <span class="math inline">\(I_{ij}\)</span> are adapted from those provided in <span class="citation" data-cites="kellogg1929">(<a href="../references.html#ref-kellogg1929" role="doc-biblioref">Kellogg, 1929</a>)</span> and <span class="citation" data-cites="eshelby1957">(<a href="../references.html#ref-eshelby1957" role="doc-biblioref">Eshelby, 1957</a>)</span>: they differ by a factor of <span class="math inline">\(4\pi/3\)</span> for <span class="math inline">\(I_{ij}\)</span> with <span class="math inline">\(i\neq j\)</span> and by <span class="math inline">\(4\pi\)</span> for the others)</p>
+\end{align}\]</span> where the coefficients <span class="math inline">\(I_i\)</span> and <span class="math inline">\(I_{ij}\)</span> are given by (note that <span class="math inline">\(I_i\)</span> and <span class="math inline">\(I_{ij}\)</span> are adapted from those provided in <span class="citation" data-cites="kellogg1929">(<a href="../references.html#ref-kellogg1929" role="doc-biblioref">Kellogg, 1929</a>)</span> and <span class="citation" data-cites="eshelby1957">(<a href="../references.html#ref-eshelby1957" role="doc-biblioref">Eshelby, 1957</a>)</span>: they differ by a factor of <span class="math inline">\(4\pi/3\)</span> for <span class="math inline">\(I_{ij}\)</span> with <span class="math inline">\(i\neq j\)</span> and by <span class="math inline">\(4\pi\)</span> for the others)</p>
 <ul>
-<li>if <span class="math inline">\(a &gt; b &gt; c\)</span> <span class="math display">\[\begin{aligned}
+<li>if <span class="math inline">\(a &gt; b &gt; c\)</span> <span class="math display">\[\begin{align}
   I_1&amp;=\frac{a\,b\,c}{(a^2-b^2)\sqrt{a^2-c^2}}\,
   \left({\cal F}-{\cal E}\right)\\
   I_3&amp;=\frac{a\,b\,c}{(b^2-c^2)\sqrt{a^2-c^2}}\,
@@ -501,13 +749,13 @@ V_{ijij}=V_{ijji}&amp;=\frac{I_i+I_j}{4}
   \frac{1}{\rho_i^2}-
   \sum_{j\neq i}I_{ij} \right)
   \quad\forall\, i\in\{1,2,3\}
-  \end{aligned}\]</span><br>
+  \end{align}\]</span><br>
 where <span class="math inline">\({\cal F}={\cal F}(\theta,\kappa)\)</span> and <span class="math inline">\({\cal E}={\cal E}(\theta,\kappa)\)</span> are respectively the elliptic integrals of the first and second kinds (see <span class="citation" data-cites="abramowitz1972">(<a href="../references.html#ref-abramowitz1972" role="doc-biblioref">Abramowitz and Stegun, 1972</a>)</span>) of amplitude and parameter <span class="math display">\[
   \theta=\arcsin{\sqrt{1-\frac{c^2}{a^2}}}
   \quad;\quad
   \kappa=\sqrt{\frac{a^2-b^2}{a^2-c^2}}
   \]</span></li>
-<li>if <span class="math inline">\(a &gt; b = c\)</span> (prolate spheroid) <span class="math display">\[\begin{aligned}
+<li>if <span class="math inline">\(a &gt; b = c\)</span> (prolate spheroid) <span class="math display">\[\begin{align}
   I_2=I_3&amp;=a\,
   \frac{a\sqrt{a^2-c^2}-c^2\,\arcosh{(a/c)}}
   {2\left(a^2-c^2\right)^{3/2}}\\
@@ -519,8 +767,8 @@ where <span class="math inline">\({\cal F}={\cal F}(\theta,\kappa)\)</span> and 
   \quad\forall\, i,j\in\{2,3\}\\
   I_{11}&amp;=\frac{1}{3}
   \left(\frac{1}{a^2}-2\,I_{31} \right)
-  \end{aligned}\]</span></li>
-<li>if <span class="math inline">\(a = b &gt; c\)</span> (oblate spheroid) <span class="math display">\[\begin{aligned}
+  \end{align}\]</span></li>
+<li>if <span class="math inline">\(a = b &gt; c\)</span> (oblate spheroid) <span class="math display">\[\begin{align}
   I_1=I_2&amp;=c\,
   \frac{a^2\,\arccos{(c/a)}-c\sqrt{a^2-c^2}}
   {2\left(a^2-c^2\right)^{3/2}}\\
@@ -532,11 +780,11 @@ where <span class="math inline">\({\cal F}={\cal F}(\theta,\kappa)\)</span> and 
   \quad\forall\, i,j\in\{1,2\}\\
   I_{33}&amp;=\frac{1}{3}
   \left(\frac{1}{c^2}-2\,I_{31} \right)
-  \end{aligned}\]</span></li>
-<li>if <span class="math inline">\(a = b = c\)</span> (sphere) <span class="math display">\[\begin{aligned}
+  \end{align}\]</span></li>
+<li>if <span class="math inline">\(a = b = c\)</span> (sphere) <span class="math display">\[\begin{align}
   I_1=I_2=I_3&amp;=\frac{1}{3}\\
   I_{ij}&amp;=\frac{1}{5\,a^2}\quad\forall\, i,j\in\{1,2,3\}
-  \end{aligned}\]</span></li>
+  \end{align}\]</span></li>
 </ul>
 <p>In this last case of spherical inclusion (<span class="math inline">\(\uu{A}=\uu{1}\)</span>), <span class="math inline">\(\uuuu{U}\)</span> and <span class="math inline">\(\uuuu{V}\)</span> are simply decomposed as <span class="math display">\[
 \uuuu{U}=\frac{1}{3}\uuuu{J}+\frac{2}{15}\uuuu{K}
@@ -551,6 +799,9 @@ Abramowitz, M., Stegun, I.A., 1972. Handbook of <span>Mathematical Functions</sp
 </div>
 <div id="ref-barthelemyIJES2020_hilltrans" class="csl-entry" role="listitem">
 Barthélémy, J.-F., 2020. Simplified approach to the derivation of the relationship between <span>Hill</span> polarization tensors of transformed problems and applications. International Journal of Engineering Science 154, 103326. <a href="https://doi.org/10.1016/j.ijengsci.2020.103326">https://doi.org/10.1016/j.ijengsci.2020.103326</a>
+</div>
+<div id="ref-barthelemyIJSS2016" class="csl-entry" role="listitem">
+Barthélémy, J.-F., Giraud, A., Lavergne, F., Sanahuja, J., 2016. The <span>Eshelby</span> inclusion problem in ageing linear viscoelasticity. Int. J. Solids Struct. 97–98, 530–542. <a href="https://doi.org/10.1016/j.ijsolstr.2016.06.035">https://doi.org/10.1016/j.ijsolstr.2016.06.035</a>
 </div>
 <div id="ref-eshelby1957" class="csl-entry" role="listitem">
 Eshelby, J.D., 1957. The determination of the elastic field of an ellipsoidal inclusion, and related problems. Proceedings of the Royal Society of London. Series A. Mathematical and Physical Sciences 241, 376–396. <a href="https://doi.org/10.1098/rspa.1957.0133">https://doi.org/10.1098/rspa.1957.0133</a>
@@ -577,6 +828,13 @@ Willis, J.R., 1977. Bounds and self-consistent estimates for the overall propert
 Withers, P.J., 1989. The determination of the elastic field of an ellipsoidal inclusion in a transversely isotropic medium, and its relevance to composite materials. Philosophical Magazine A 59, 759–781. <a href="https://doi.org/10.1080/01418618908209819">https://doi.org/10.1080/01418618908209819</a>
 </div>
 </div>
+</section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p><span class="math inline">\({\cal F}(\theta,\kappa)=\int_{\varphi=0}^\theta \frac{\ud\varphi}{\sqrt{1-\kappa^2\,\sin^2\varphi}}\)</span> and <span class="math inline">\({\cal E}(\theta,\kappa)=\int_{\varphi=0}^\theta \sqrt{1-\kappa^2\,\sin^2\varphi}\,\ud\varphi\)</span><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -1014,4 +1272,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/99_appendices/hill_elas.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/99_appendices/hill_tensors.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

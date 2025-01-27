@@ -75,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-524c77680309a51d71956d08d82e3b1d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-347421651eda86bd14cf96a71aabf182.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
@@ -104,6 +104,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-DF66M2GWRG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DF66M2GWRG');
+</script>      
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -293,8 +302,8 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../99_appendices/hill_elas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Hill polarization tensor in elasticity</span></span></a>
+  <a href="../99_appendices/hill_tensors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Hill polarization tensors</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -310,11 +319,11 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    </div>
+    <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="kelvin_mandel.py"><i class="bi bi-file-code"></i>Python script</a></li><li><a href="kelvin_mandel.ipynb"><i class="bi bi-file-code"></i>Jupyter notebook</a></li></ul></div></div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 $$
 
 \newcommand{\C}{{\mathbb{{C}}}}
@@ -397,7 +406,7 @@ $$
 
 
 
-<div class="quarto-title-meta column-page-right">
+<div class="quarto-title-meta column-body">
 
     
   
@@ -422,27 +431,8 @@ $$
 <p>Before introducing the specific objects of <code>echoes</code> devoted to tensor calculations in isotropic or anisotropic contexts, this tutorial aims at providing the syntax allowing to represent second-order or fourth-order tensors under the form of matrices in the Kelvin-Mandel notation as detailed in <a href="../99_appendices/tensor_algebra.html#sec-KM" class="quarto-xref"><span>Section A.2</span></a>.</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<iconify-icon role="img" inline="" icon="flowbite:download-outline" aria-label="Icon download-outline from flowbite Iconify.design set." title="Icon download-outline from flowbite Iconify.design set."></iconify-icon> Download
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ul>
-<li><p><a href="kelvin_mandel.py">Python script</a></p></li>
-<li><p><a href="kelvin_mandel.ipynb">Jupyter notebook</a></p></li>
-</ul>
-</div>
-</div>
-</div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -451,9 +441,9 @@ $$
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="5e6c7419" class="cell" data-execution_count="1">
+<div id="d4deb28a" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math, random</span>
@@ -465,22 +455,22 @@ $$
 </div>
 </div>
 <p>A symmetric <span class="math inline">\(3×3\)</span> second-order matrix can be transformed in a vector of <span class="math inline">\(\R^6\)</span> by the function <code>KM</code> consistently with <a href="../99_appendices/tensor_algebra.html#eq-KM2" class="quarto-xref"><span>A.14</span></a>. The inverse is done by <code>invKM</code>.</p>
-<div id="c256663a" class="cell" data-execution_count="2">
+<div id="9a44fca3" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>α <span class="op">=</span> np.random.rand(<span class="dv">3</span>, <span class="dv">3</span>) <span class="op">;</span> ε <span class="op">=</span> (α<span class="op">+</span>α.T)<span class="op">/</span><span class="dv">2</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"ε =</span><span class="ch">\n</span><span class="st">"</span>,ε)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"KM(ε) =</span><span class="ch">\n</span><span class="st">"</span>,KM(ε))</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> np.allclose(invKM(KM(ε)), ε), <span class="st">"error"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>ε =
- [[0.90574852 0.5101637  0.34317283]
- [0.5101637  0.49722925 0.5821801 ]
- [0.34317283 0.5821801  0.05330175]]
+ [[0.80478697 0.38150439 0.22602227]
+ [0.38150439 0.15347493 0.36037014]
+ [0.22602227 0.36037014 0.23974066]]
 KM(ε) =
- [0.90574852 0.49722925 0.05330175 0.82332699 0.48531967 0.72148043]</code></pre>
+ [0.80478697 0.15347493 0.23974066 0.50964034 0.31964377 0.53952868]</code></pre>
 </div>
 </div>
 <p>Given a <span class="math inline">\(3×3×3×3\)</span> array <code>c</code> (of type <code>numpy.ndarray</code>) satisfying major and minor symmetries (see <a href="../99_appendices/tensor_algebra.html#sec-KM" class="quarto-xref"><span>Section A.2</span></a>), the corresponding <span class="math inline">\(6×6\)</span> matrix <code>C</code> obtained by Kelvin-Mandel transform is calculated by <code>C = KM(c)</code>. Conversely, if <code>C</code> is a positive definite matrix, <code>c</code> is calculated by <code>c = invKM(C)</code>.</p>
-<div id="4179bb28" class="cell" data-execution_count="3">
+<div id="d31bfbf8" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.random.rand(<span class="dv">6</span>,<span class="dv">6</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> A.T.dot(A) <span class="op">+</span> np.eye(<span class="dv">6</span>) <span class="co"># generation of an arbitrary positive definite matrix</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> invKM(C)</span>
@@ -489,50 +479,50 @@ KM(ε) =
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> np.allclose(KM(c), C), <span class="st">"error: KM(c) should be equal to C"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>C =
- [[1.54444728 0.95343879 0.93818895 0.68400435 0.80896849 0.70365313]
- [0.95343879 4.23086656 2.51452906 1.65020662 1.45882039 2.4819481 ]
- [0.93818895 2.51452906 3.59509372 1.63956838 1.24456147 2.44007178]
- [0.68400435 1.65020662 1.63956838 2.62371405 0.74342609 1.47989791]
- [0.80896849 1.45882039 1.24456147 0.74342609 2.48384566 1.07765741]
- [0.70365313 2.4819481  2.44007178 1.47989791 1.07765741 3.74690372]]
+ [[2.91082851 1.56008277 1.07729482 1.93368618 1.75381607 0.91951154]
+ [1.56008277 2.95809043 0.82663159 1.99137006 1.66111312 0.68737255]
+ [1.07729482 0.82663159 2.37599799 1.5948221  0.78585414 0.98207198]
+ [1.93368618 1.99137006 1.5948221  3.70491862 1.72841985 1.15701896]
+ [1.75381607 1.66111312 0.78585414 1.72841985 2.94292149 0.60758901]
+ [0.91951154 0.68737255 0.98207198 1.15701896 0.60758901 1.84014156]]
 c =
- [[[[1.54444728 0.4975579  0.57202711]
-   [0.4975579  0.95343879 0.48366411]
-   [0.57202711 0.48366411 0.93818895]]
+ [[[[2.91082851 0.65019284 1.24013524]
+   [0.65019284 1.56008277 1.36732261]
+   [1.24013524 1.36732261 1.07729482]]
 
-  [[0.4975579  1.87345186 0.5388287 ]
-   [1.87345186 1.75500233 0.73994896]
-   [0.5388287  0.73994896 1.7253913 ]]
+  [[0.65019284 0.92007078 0.30379451]
+   [0.92007078 0.48604579 0.57850948]
+   [0.30379451 0.57850948 0.69442975]]
 
-  [[0.57202711 0.5388287  1.24192283]
-   [0.5388287  1.03154179 0.37171305]
-   [1.24192283 0.37171305 0.88003786]]]
-
-
- [[[0.4975579  1.87345186 0.5388287 ]
-   [1.87345186 1.75500233 0.73994896]
-   [0.5388287  0.73994896 1.7253913 ]]
-
-  [[0.95343879 1.75500233 1.03154179]
-   [1.75500233 4.23086656 1.16687229]
-   [1.03154179 1.16687229 2.51452906]]
-
-  [[0.48366411 0.73994896 0.37171305]
-   [0.73994896 1.16687229 1.31185702]
-   [0.37171305 1.31185702 1.15934992]]]
+  [[1.24013524 0.30379451 1.47146074]
+   [0.30379451 1.17458435 0.86420993]
+   [1.47146074 0.86420993 0.55568279]]]
 
 
- [[[0.57202711 0.5388287  1.24192283]
-   [0.5388287  1.03154179 0.37171305]
-   [1.24192283 0.37171305 0.88003786]]
+ [[[0.65019284 0.92007078 0.30379451]
+   [0.92007078 0.48604579 0.57850948]
+   [0.30379451 0.57850948 0.69442975]]
 
-  [[0.48366411 0.73994896 0.37171305]
-   [0.73994896 1.16687229 1.31185702]
-   [0.37171305 1.31185702 1.15934992]]
+  [[1.56008277 0.48604579 1.17458435]
+   [0.48604579 2.95809043 1.40811128]
+   [1.17458435 1.40811128 0.82663159]]
 
-  [[0.93818895 1.7253913  0.88003786]
-   [1.7253913  2.51452906 1.15934992]
-   [0.88003786 1.15934992 3.59509372]]]]</code></pre>
+  [[1.36732261 0.57850948 0.86420993]
+   [0.57850948 1.40811128 1.85245931]
+   [0.86420993 1.85245931 1.12770952]]]
+
+
+ [[[1.24013524 0.30379451 1.47146074]
+   [0.30379451 1.17458435 0.86420993]
+   [1.47146074 0.86420993 0.55568279]]
+
+  [[1.36732261 0.57850948 0.86420993]
+   [0.57850948 1.40811128 1.85245931]
+   [0.86420993 1.85245931 1.12770952]]
+
+  [[1.07729482 0.69442975 0.55568279]
+   [0.69442975 0.82663159 1.12770952]
+   [0.55568279 1.12770952 2.37599799]]]]</code></pre>
 </div>
 </div>
 <p><span class="math inline">\(\,\)</span></p>
@@ -957,7 +947,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation column-page-right">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="../intro.html" class="pagination-link" aria-label="Introduction">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction</span>

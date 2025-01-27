@@ -4,9 +4,9 @@
 \PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
 %
 \documentclass[
-  a4paper,
-  numbers=noendperiod,
-  DIV=12]{scrreprt}
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrreprt}
 
 \usepackage{amsmath,amssymb}
 \usepackage{iftex}
@@ -22,9 +22,6 @@
 \usepackage{lmodern}
 \ifPDFTeX\else  
     % xetex/luatex font selection
-    \setmainfont[]{TeX Gyre Pagella}
-    \setsansfont[]{TeX Gyre Heros}
-    \setmonofont[]{JuliaMono}
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -76,39 +73,39 @@
 \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
 % Add ',fontsize=\small' for more characters per line
 \usepackage{framed}
-\definecolor{shadecolor}{RGB}{248,248,248}
+\definecolor{shadecolor}{RGB}{241,243,245}
 \newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\BuiltInTok}[1]{#1}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
 \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
-\newcommand{\ExtensionTok}[1]{#1}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\ImportTok}[1]{#1}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\NormalTok}[1]{#1}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
 
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
@@ -170,51 +167,6 @@
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
-\usepackage{fontspec}
-\usepackage{polyglossia}
-% \setmonofont{JuliaMono}[Scale=MatchLowercase]
-% \setmainfont{TeX Gyre Termes X}
-% \setsansfont{TeX Gyre Heros}
-% \setmonofont{TeX Gyre Cursor}
-% \setmathfont{TeX Gyre Termes Math}
-\usepackage{latexsym,exscale,stmaryrd,amsmath,amssymb,bm}
-\usepackage{unicode-math}
-\newcommand{\C}{{\mathbb{{C}}}}
-\newcommand{\R}{{\mathbb{{R}}}}
-\newcommand{\Q}{{\mathbb{{Q}}}}
-\newcommand{\Z}{{\mathbb{{Z}}}}
-\newcommand{\N}{{\mathbb{{N}}}}
-
-\newcommand{\uu}[1]{{\symbf{{#1}}}}
-\newcommand{\uuuu}[1]{{\symbb{{#1}}}}
-\newcommand{\uv}[1]{{\underline{{#1}}}}
-\newcommand{\ve}[1]{{\uv{{e}}_{{#1}}}}
-\newcommand{\x}{{\uv{{x}}}}
-\newcommand{\n}{{\uv{{n}}}}
-\newcommand{\eps}{{\uu{{\varepsilon}}}}
-\newcommand{\E}{{\uu{{E}}}}
-\newcommand{\sig}{{\uu{{\sigma}}}}
-\newcommand{\Sig}{{\uu{{\Sigma}}}}
-\newcommand{\cod}{{\uv{{\symscr{b}}}}}
-\newcommand{\trans}[1]{{{}^{t}{#1}}}
-\newcommand{\sotimes}{{\stackrel{s}{\otimes}}}
-\newcommand{\sboxtimes}{\stackrel{s}{\boxtimes}}
-\newcommand{\norm}[1]{{\lVert{{#1}}\rVert}}
-\newcommand{\ud}{{\,\mathrm{d}}}
-\newcommand{\mat}{\mathsf}
-\DeclareMathOperator{\arcosh}{arcosh}
-\DeclareMathOperator{\divz}{div}
-\DeclareMathOperator{\divu}{\uv{div}}
-\DeclareMathOperator{\hess}{hess}
-\DeclareMathOperator{\gradu}{\uv{grad}}
-\DeclareMathOperator{\graduu}{\uu{grad}}
-\DeclareMathOperator{\Mat}{Mat}
-\DeclareMathOperator{\tr}{tr}
-\DeclareMathOperator{\ISO}{ISO}
-
-\newcommand{\jump}[1]{[\hspace*{-.15em}[\hspace*{.1em}{#1}%
-     \hspace*{.1em}]\hspace*{-.15em}]}
-     
 \KOMAoption{captions}{tablesignature}
 \makeatletter
 \@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
@@ -301,7 +253,7 @@
 \makeatother
 \subtitle{Extended Calculator of HOmogEnization Schemes}
 \author{Jean-François Barthélémy}
-\date{2025-01-10}
+\date{2025-01-24}
 
 \begin{document}
 \maketitle
@@ -471,7 +423,7 @@ The objectives of the library can be summarized as follows:
   process.
 \end{itemize}
 
-\begin{tcolorbox}[enhanced jigsaw, title={Features}, left=2mm, titlerule=0mm, colback=white, breakable, colframe=quarto-callout-note-color-frame, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, opacitybacktitle=0.6, arc=.35mm, colbacktitle=quarto-callout-note-color!10!white, leftrule=.75mm, opacityback=0, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, bottomrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colback=white, colframe=quarto-callout-note-color-frame, rightrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title={Features}, toprule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, leftrule=.75mm, breakable, coltitle=black]
 
 \begin{itemize}
 \item
@@ -533,7 +485,7 @@ have previously been added.
 
 \chapter{Kelvin-Mandel notation}\label{sec-kelvin_mandel}
 
-\begin{tcolorbox}[enhanced jigsaw, title={Objectives}, left=2mm, titlerule=0mm, colback=white, breakable, colframe=quarto-callout-important-color-frame, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, opacitybacktitle=0.6, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white, leftrule=.75mm, opacityback=0, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, bottomrule=.15mm, colbacktitle=quarto-callout-important-color!10!white, colback=white, colframe=quarto-callout-important-color-frame, rightrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title={Objectives}, toprule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, leftrule=.75mm, breakable, coltitle=black]
 
 Before introducing the specific objects of \texttt{echoes} devoted to
 tensor calculations in isotropic or anisotropic contexts, this tutorial
@@ -543,7 +495,7 @@ notation as detailed in Section~\ref{sec-KM}.
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, title={Download}, left=2mm, titlerule=0mm, colback=white, breakable, colframe=quarto-callout-note-color-frame, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, opacitybacktitle=0.6, arc=.35mm, colbacktitle=quarto-callout-note-color!10!white, leftrule=.75mm, opacityback=0, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, bottomrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colback=white, colframe=quarto-callout-note-color-frame, rightrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title={Download}, toprule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, leftrule=.75mm, breakable, coltitle=black]
 
 \begin{itemize}
 \item
@@ -554,7 +506,7 @@ notation as detailed in Section~\ref{sec-KM}.
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, title={Imports}, left=2mm, titlerule=0mm, colback=white, breakable, colframe=quarto-callout-tip-color-frame, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, opacitybacktitle=0.6, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, leftrule=.75mm, opacityback=0, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, bottomrule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, colback=white, colframe=quarto-callout-tip-color-frame, rightrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title={Imports}, toprule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, leftrule=.75mm, breakable, coltitle=black]
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -661,7 +613,7 @@ c =
 
 \chapter{Rotation matrices}\label{sec-rot_tensors}
 
-\begin{tcolorbox}[enhanced jigsaw, title={Objectives}, left=2mm, titlerule=0mm, colback=white, breakable, colframe=quarto-callout-important-color-frame, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, opacitybacktitle=0.6, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white, leftrule=.75mm, opacityback=0, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, bottomrule=.15mm, colbacktitle=quarto-callout-important-color!10!white, colback=white, colframe=quarto-callout-important-color-frame, rightrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title={Objectives}, toprule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, leftrule=.75mm, breakable, coltitle=black]
 
 This tutorial presents the construction of rotation matrices in \(\R^3\)
 in the convention proposed in Section~\ref{sec-rottens} for Euler
@@ -669,7 +621,7 @@ angles.
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, title={Download}, left=2mm, titlerule=0mm, colback=white, breakable, colframe=quarto-callout-note-color-frame, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, opacitybacktitle=0.6, arc=.35mm, colbacktitle=quarto-callout-note-color!10!white, leftrule=.75mm, opacityback=0, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, bottomrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colback=white, colframe=quarto-callout-note-color-frame, rightrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title={Download}, toprule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, leftrule=.75mm, breakable, coltitle=black]
 
 \begin{itemize}
 \item
@@ -680,7 +632,7 @@ angles.
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, title={Imports}, left=2mm, titlerule=0mm, colback=white, breakable, colframe=quarto-callout-tip-color-frame, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, opacitybacktitle=0.6, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, leftrule=.75mm, opacityback=0, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, bottomrule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, colback=white, colframe=quarto-callout-tip-color-frame, rightrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title={Imports}, toprule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, leftrule=.75mm, breakable, coltitle=black]
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -732,7 +684,7 @@ The vectors of the spherical basis correspond to the column of the
 rotation matrix for \(\psi=0\). They can individually be obtained by the
 function \texttt{es(i,\ θ,\ ϕ)}
 
-\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}, left=2mm, titlerule=0mm, colback=white, breakable, colframe=quarto-callout-warning-color-frame, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, opacitybacktitle=0.6, arc=.35mm, colbacktitle=quarto-callout-warning-color!10!white, leftrule=.75mm, opacityback=0, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, bottomrule=.15mm, colbacktitle=quarto-callout-warning-color!10!white, colback=white, colframe=quarto-callout-warning-color-frame, rightrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}, toprule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, leftrule=.75mm, breakable, coltitle=black]
 
 Python numbering starts at 0 so \texttt{i} takes the values 0, 1 and 2.
 
@@ -811,7 +763,7 @@ R⊠ˢR =
 
 \chapter{Special tensors}\label{sec-special_tensors}
 
-\begin{tcolorbox}[enhanced jigsaw, title={Objectives}, left=2mm, titlerule=0mm, colback=white, breakable, colframe=quarto-callout-important-color-frame, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, opacitybacktitle=0.6, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white, leftrule=.75mm, opacityback=0, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, bottomrule=.15mm, colbacktitle=quarto-callout-important-color!10!white, colback=white, colframe=quarto-callout-important-color-frame, rightrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title={Objectives}, toprule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, leftrule=.75mm, breakable, coltitle=black]
 
 This tutorial presents the matrix representation of isotropic tensors of
 second and fourth orders as well as Walpole tensors useful for
@@ -821,7 +773,7 @@ products and contractions.
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, title={Download}, left=2mm, titlerule=0mm, colback=white, breakable, colframe=quarto-callout-note-color-frame, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, opacitybacktitle=0.6, arc=.35mm, colbacktitle=quarto-callout-note-color!10!white, leftrule=.75mm, opacityback=0, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, bottomrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colback=white, colframe=quarto-callout-note-color-frame, rightrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title={Download}, toprule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, leftrule=.75mm, breakable, coltitle=black]
 
 \begin{itemize}
 \item
@@ -832,7 +784,7 @@ products and contractions.
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, title={Imports}, left=2mm, titlerule=0mm, colback=white, breakable, colframe=quarto-callout-tip-color-frame, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, opacitybacktitle=0.6, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, leftrule=.75mm, opacityback=0, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, bottomrule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, colback=white, colframe=quarto-callout-tip-color-frame, rightrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title={Imports}, toprule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, leftrule=.75mm, breakable, coltitle=black]
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -930,7 +882,7 @@ oriented along an axis \(\n\) is constructed by \texttt{W(i,n=e₃)}
 third axis). The symmetrized version is provided by \texttt{WS(i,n=e₃)}
 (\(i \in \{0,..,4\}\)).
 
-\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}, left=2mm, titlerule=0mm, colback=white, breakable, colframe=quarto-callout-warning-color-frame, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, opacitybacktitle=0.6, arc=.35mm, colbacktitle=quarto-callout-warning-color!10!white, leftrule=.75mm, opacityback=0, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, bottomrule=.15mm, colbacktitle=quarto-callout-warning-color!10!white, colback=white, colframe=quarto-callout-warning-color-frame, rightrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}, toprule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, leftrule=.75mm, breakable, coltitle=black]
 
 Note again the shift in indices between the Python convention starting
 at 0 and the tensors presented in Section~\ref{sec-TI}.
@@ -1032,7 +984,7 @@ at 0 and the tensors presented in Section~\ref{sec-TI}.
 \chapter{\texorpdfstring{The \texttt{tensor}
 object}{The tensor object}}\label{sec-tensor}
 
-\begin{tcolorbox}[enhanced jigsaw, title={Objectives}, left=2mm, titlerule=0mm, colback=white, breakable, colframe=quarto-callout-important-color-frame, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, opacitybacktitle=0.6, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white, leftrule=.75mm, opacityback=0, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, bottomrule=.15mm, colbacktitle=quarto-callout-important-color!10!white, colback=white, colframe=quarto-callout-important-color-frame, rightrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title={Objectives}, toprule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, leftrule=.75mm, breakable, coltitle=black]
 
 This tutorial presents the object \texttt{tensor} which is the main
 structure of \texttt{echoes} allowing to represent symmetric
@@ -1041,7 +993,7 @@ and containing information about anisotropy.
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, title={Download}, left=2mm, titlerule=0mm, colback=white, breakable, colframe=quarto-callout-note-color-frame, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, opacitybacktitle=0.6, arc=.35mm, colbacktitle=quarto-callout-note-color!10!white, leftrule=.75mm, opacityback=0, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, bottomrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colback=white, colframe=quarto-callout-note-color-frame, rightrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title={Download}, toprule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, leftrule=.75mm, breakable, coltitle=black]
 
 \begin{itemize}
 \item
@@ -1052,7 +1004,7 @@ and containing information about anisotropy.
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, title={Imports}, left=2mm, titlerule=0mm, colback=white, breakable, colframe=quarto-callout-tip-color-frame, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, opacitybacktitle=0.6, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, leftrule=.75mm, opacityback=0, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, bottomrule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, colback=white, colframe=quarto-callout-tip-color-frame, rightrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title={Imports}, toprule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, leftrule=.75mm, breakable, coltitle=black]
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1091,7 +1043,7 @@ members
   fourth-order tensor{]}}
 \end{itemize}
 
-\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}, left=2mm, titlerule=0mm, colback=white, breakable, colframe=quarto-callout-warning-color-frame, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, opacitybacktitle=0.6, arc=.35mm, colbacktitle=quarto-callout-warning-color!10!white, leftrule=.75mm, opacityback=0, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, bottomrule=.15mm, colbacktitle=quarto-callout-warning-color!10!white, colback=white, colframe=quarto-callout-warning-color-frame, rightrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}, toprule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, leftrule=.75mm, breakable, coltitle=black]
 
 It is important to note that the \texttt{tensor} object is designed only
 to contain or retrieve information about a symmetric second-order or
@@ -1138,7 +1090,7 @@ constructors
   \texttt{T\ =\ tensor({[}T₁,\ T₂,\ T₃{]},\ angles={[}0,\ 0,\ 0{]})}
 \end{itemize}
 
-\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}, left=2mm, titlerule=0mm, colback=white, breakable, colframe=quarto-callout-warning-color-frame, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, opacitybacktitle=0.6, arc=.35mm, colbacktitle=quarto-callout-warning-color!10!white, leftrule=.75mm, opacityback=0, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, bottomrule=.15mm, colbacktitle=quarto-callout-warning-color!10!white, colback=white, colframe=quarto-callout-warning-color-frame, rightrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}, toprule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, leftrule=.75mm, breakable, coltitle=black]
 
 \begin{itemize}
 \tightlist
@@ -1668,7 +1620,7 @@ after line of the upper triangular part of the Kelvin-Mandel matrix
 \right)
 \]
 
-\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}, left=2mm, titlerule=0mm, colback=white, breakable, colframe=quarto-callout-warning-color-frame, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, opacitybacktitle=0.6, arc=.35mm, colbacktitle=quarto-callout-warning-color!10!white, leftrule=.75mm, opacityback=0, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, bottomrule=.15mm, colbacktitle=quarto-callout-warning-color!10!white, colback=white, colframe=quarto-callout-warning-color-frame, rightrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}, toprule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, leftrule=.75mm, breakable, coltitle=black]
 
 It is important to recall here that the parameters \(T_{IJ}\) with
 \(1\leq I,J\leq 6\) do not all coincide with the components
@@ -1897,7 +1849,7 @@ Order 4 TI tensor | Param(size=5)=[ 10.2696 1.81638 0.89854 1.70466 1.73988 ] | 
   1.07127 1.49908 1.42041 1.70366 1.38017 3.13058 ]
 \end{verbatim}
 
-\begin{tcolorbox}[enhanced jigsaw, title={Exercise}, left=2mm, titlerule=0mm, colback=white, breakable, colframe=quarto-callout-caution-color-frame, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, opacitybacktitle=0.6, arc=.35mm, colbacktitle=quarto-callout-caution-color!10!white, leftrule=.75mm, opacityback=0, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, bottomrule=.15mm, colbacktitle=quarto-callout-caution-color!10!white, colback=white, colframe=quarto-callout-caution-color-frame, rightrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title={Exercise}, toprule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, leftrule=.75mm, breakable, coltitle=black]
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1972,17 +1924,15 @@ Order 4 ORTHO tensor | Param(size=9)=[ 2.06277 -0.00326333 -0.375452 1.57933 1.6
 
 \chapter{Eshelby and Hill polarization tensors}\label{sec-eshelby_hill}
 
-\begin{tcolorbox}[enhanced jigsaw, title={Objectives}, left=2mm, titlerule=0mm, colback=white, breakable, colframe=quarto-callout-important-color-frame, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, opacitybacktitle=0.6, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white, leftrule=.75mm, opacityback=0, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, bottomrule=.15mm, colbacktitle=quarto-callout-important-color!10!white, colback=white, colframe=quarto-callout-important-color-frame, rightrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title={Objectives}, toprule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, leftrule=.75mm, breakable, coltitle=black]
 
-Before introducing the specific objects of \texttt{echoes} devoted to
-tensor calculations in isotropic or anisotropic contexts, this tutorial
-aims at providing the syntax allowing to represent second-order or
-fourth-order tensors under the form of matrices in the Kelvin-Mandel
-notation as detailed in Section~\ref{sec-KM}.
+This tutorial provides the instructions to build Eshelby and Hill
+polarization tensors related to an ellipsoidal shape embedded in an
+infinite elastic matrix of arbitrary anisotropy.
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, title={Download}, left=2mm, titlerule=0mm, colback=white, breakable, colframe=quarto-callout-note-color-frame, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, opacitybacktitle=0.6, arc=.35mm, colbacktitle=quarto-callout-note-color!10!white, leftrule=.75mm, opacityback=0, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, bottomrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colback=white, colframe=quarto-callout-note-color-frame, rightrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title={Download}, toprule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, leftrule=.75mm, breakable, coltitle=black]
 
 \begin{itemize}
 \item
@@ -1993,7 +1943,7 @@ notation as detailed in Section~\ref{sec-KM}.
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, title={Imports}, left=2mm, titlerule=0mm, colback=white, breakable, colframe=quarto-callout-tip-color-frame, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, opacitybacktitle=0.6, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, leftrule=.75mm, opacityback=0, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, bottomrule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, colback=white, colframe=quarto-callout-tip-color-frame, rightrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title={Imports}, toprule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, leftrule=.75mm, breakable, coltitle=black]
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2017,20 +1967,20 @@ linear elastic material of uniform stiffness tensor \(\uuuu{C}\). An
 ellipsoid centered at the origin of the domain is defined by the
 equation
 
-\[
+\begin{equation}\phantomsection\label{eq-defell}{
    \uv{x}\in\mathcal{E}_{\uu{A}}
 \quad\Leftrightarrow\quad   
 \uv{x}\cdot(\trans{\uu{A}}\cdot\uu{A})^{-1}\cdot\uv{x}\leq 1
-\] where \(\uu{A}\) is an invertible second-order tensor so that
-\(\trans{\uu{A}}\cdot\uu{A}\) is a positive definite symmetric tensor
-associated to 3 radii (eigenvalues \(a\geq b \geq c\) possibly written
-\(\rho_1 \geq \rho_2 \geq \rho_3\) for convenience) and 3 angles
+}\end{equation} where \(\uu{A}\) is an invertible second-order tensor so
+that \(\trans{\uu{A}}\cdot\uu{A}\) is a positive definite symmetric
+tensor associated to 3 radii (eigenvalues \(a\geq b \geq c\) possibly
+written \(\rho_1 \geq \rho_2 \geq \rho_3\) for convenience) and 3 angles
 (orientation of the frame of eigenvectors
 \(\uv{e}_1, \uv{e}_2, \uv{e}_3\))
 
-\[
+\begin{equation}\phantomsection\label{eq-defA}{
 \trans{\uu{A}}\cdot\uu{A}=a^2 \uv{e}_1\otimes\uv{e}_1 + b^2 \uv{e}_2\otimes\uv{e}_2 + c^2 \uv{e}_3\otimes\uv{e}_3 = \sum_{i=1}^3 \rho_i \uv{e}_i\otimes\uv{e}_i
-\]
+}\end{equation}
 
 A polarization field is introduced as a second-order symmetric tensor
 field \(\uu{\tau}\) such that the constitutive law of the medium is
@@ -2061,10 +2011,9 @@ In addition the displacement tends towards \(\uv{0}\) at infinity.
 
 \end{figure}%
 
-The important result derived in Eshelby
-(\citeproc{ref-eshelby1957}{1957}) is that the strain tensor field
-solution to this problem is uniform within the ellipsoidal domain (not
-outside!) and writes
+The important result derived in (\citeproc{ref-eshelby1957}{Eshelby,
+1957}) is that the strain tensor field solution to this problem is
+uniform within the ellipsoidal domain (not outside!) and writes
 
 \begin{equation}\phantomsection\label{eq-defHill}{
    \forall \x \in \mathcal{E}_{\uu{A}},\quad \eps(\x)=-\uuuu{P}:\uu{\tau}\quad\textrm{(uniform)}
@@ -2089,15 +2038,27 @@ rewrites
     \end{array}
     \right.
 }\end{equation} and the Eshelby tensor \(\uuuu{S}\) is introduced by
-rewriting \ref{eq-defHill} under the form \[
+rewriting \ref{eq-defHill} under the form
+\begin{equation}\phantomsection\label{eq-defEshelby}{
    \forall \x \in \mathcal{E}_{\uu{A}},\quad \eps(\x)=\uuuu{S}:\eps^*\quad\textrm{where}\quad\uuuu{S}=\uuuu{P}:\uuuu{C}
-\]
+}\end{equation}
 
 See in Appendix~\ref{sec-hill_elas} explicit expressions to calculate
 the Hill polarization tensor.
 
+A straightforward consequence of the uniformity of the strain state
+wihin the ellipsoid is the uniformity of the stress state. A dual point
+of view of the expression (\ref{eq-defHill}) consists in relating the
+uniform stress within the ellipsoid to the eigenstrain introduced in
+(\ref{eq-law2}). Using (\ref{eq-defEshelby}) in (\ref{eq-law2}) allows
+to exhibit the dual counterpart of (\ref{eq-defHill}) involving the
+so-called second Hill polarization tensor \(\uuuu{Q}\)
+\begin{equation}\phantomsection\label{eq-defsecondHill}{
+   \forall \x \in \mathcal{E}_{\uu{A}},\quad \sig(\x)=-\uuuu{Q}:\eps^*\quad\textrm{with}\quad\uuuu{Q}=\uuuu{C}-\uuuu{C}:\uuuu{P}:\uuuu{C}
+}\end{equation}
+
 \section{\texorpdfstring{Definition of the \texttt{ellipsoidal}
-shape}{Definition of the ellipsoidal shape}}\label{definition-of-the-ellipsoidal-shape}
+shape}{Definition of the ellipsoidal shape}}\label{sec-ellipsoidal}
 
 An \texttt{ellipsoidal} shape intended for use in the construction of
 \(\uuuu{P}\) can be built by means of the following constructor
@@ -2107,12 +2068,38 @@ An \texttt{ellipsoidal} shape intended for use in the construction of
 where \(a, b, c\) are the radii and \(\theta, \phi, \psi\) the Euler
 angles already presented in Fig.~\ref{fig-eulerangles}
 
-\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}, left=2mm, titlerule=0mm, colback=white, breakable, colframe=quarto-callout-warning-color-frame, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, opacitybacktitle=0.6, arc=.35mm, colbacktitle=quarto-callout-warning-color!10!white, leftrule=.75mm, opacityback=0, toprule=.15mm]
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{π }\OperatorTok{=}\NormalTok{ math.pi}
+\NormalTok{a, b, c }\OperatorTok{=} \FloatTok{10.}\NormalTok{, }\FloatTok{5.}\NormalTok{, }\FloatTok{2.}
+\NormalTok{θ, ϕ, ψ }\OperatorTok{=}\NormalTok{ π}\OperatorTok{/}\DecValTok{3}\NormalTok{, π}\OperatorTok{/}\DecValTok{4}\NormalTok{, π}\OperatorTok{/}\DecValTok{5}
+\BuiltInTok{print}\NormalTok{(ellipsoidal(a, b, c, θ, ϕ, ψ))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Ellipsoidal shape:  Radii=[10 5 2]; Angles=[1.0472 0.785398 0.628319]
+\end{verbatim}
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, bottomrule=.15mm, colbacktitle=quarto-callout-warning-color!10!white, colback=white, colframe=quarto-callout-warning-color-frame, rightrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}, toprule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, leftrule=.75mm, breakable, coltitle=black]
 
 If the radii are not entered in decreasing order, the constructor
 reorders them and recomputes the angles accordingly.
 
 \end{tcolorbox}
+
+See below how the constructor reorders the radii and recomputes the
+angles accordingly
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(ellipsoidal(c, b, a, θ, ϕ, ψ))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Ellipsoidal shape:  Radii=[10 5 2]; Angles=[0.794517 4.89503 5.48883]
+\end{verbatim}
 
 When two radii are equal the ellipsoidal shape becomes a spheroidal one
 which can also be directly defined by
@@ -2120,7 +2107,8 @@ which can also be directly defined by
 \texttt{shape\ =\ spheroidal(ω,\ θ=0.,\ ϕ=0.)\ \#\ default\ values\ 0\ for\ the\ angles}
 
 where \(\omega\) is the aspect ratio (\(\omega \leq 1\) for an oblate
-shape and \(\omega \geq 1\) for a prolate shape).
+shape and \(\omega \geq 1\) for a prolate shape) (see
+Fig.~\ref{fig-spheroidal}).
 
 \begin{figure}
 
@@ -2128,7 +2116,7 @@ shape and \(\omega \geq 1\) for a prolate shape).
 
 \centering{
 
-\pandocbounded{\includegraphics[keepaspectratio]{2_eshelby/../img/incl_ellipse.html}}
+\pandocbounded{\includegraphics[keepaspectratio]{2_eshelby/../img/oblate.pdf}}
 
 }
 
@@ -2140,7 +2128,7 @@ shape and \(\omega \geq 1\) for a prolate shape).
 
 \centering{
 
-\pandocbounded{\includegraphics[keepaspectratio]{2_eshelby/../img/incl_ellipse.html}}
+\pandocbounded{\includegraphics[keepaspectratio]{2_eshelby/../img/prolate.pdf}}
 
 }
 
@@ -2152,11 +2140,22 @@ shape and \(\omega \geq 1\) for a prolate shape).
 
 \end{figure}%
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ω }\OperatorTok{=} \FloatTok{0.1}
+\BuiltInTok{print}\NormalTok{(spheroidal(ω, θ, ϕ))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Ellipsoidal shape:  Radii=[1 1 0.1]; Angles=[1.0472 0.785398 0]
+\end{verbatim}
+
 Finally if the three radii are equal, the shape becomes spherical
 
 \texttt{shape\ =\ spherical}
 
-\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}, left=2mm, titlerule=0mm, colback=white, breakable, colframe=quarto-callout-warning-color-frame, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, opacitybacktitle=0.6, arc=.35mm, colbacktitle=quarto-callout-warning-color!10!white, leftrule=.75mm, opacityback=0, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, bottomrule=.15mm, colbacktitle=quarto-callout-warning-color!10!white, colback=white, colframe=quarto-callout-warning-color-frame, rightrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}, toprule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, leftrule=.75mm, breakable, coltitle=black]
 
 These objects are supposed to describe an inclusion in the Eshelby
 problem, thus they are defined up to a multiplicative constant. This
@@ -2169,26 +2168,608 @@ will only depend on two ratios.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{π }\OperatorTok{=}\NormalTok{ math.pi}
-\NormalTok{a, b, c }\OperatorTok{=} \FloatTok{10.}\NormalTok{, }\FloatTok{5.}\NormalTok{, }\FloatTok{2.}
-\NormalTok{θ, ϕ, ψ }\OperatorTok{=}\NormalTok{ π}\OperatorTok{/}\DecValTok{3}\NormalTok{, π}\OperatorTok{/}\DecValTok{4}\NormalTok{, π}\OperatorTok{/}\DecValTok{5}
-\BuiltInTok{print}\NormalTok{(ellipsoidal(a, b, c, θ, ϕ, ψ))}
-\BuiltInTok{print}\NormalTok{(ellipsoidal(c, b, a, θ, ϕ, ψ)) }\CommentTok{\# the constructor reorders the radii and recomputes the angles accordingly}
-\NormalTok{ω }\OperatorTok{=} \FloatTok{0.1}
-\BuiltInTok{print}\NormalTok{(spheroidal(ω, θ, ϕ))}
 \BuiltInTok{print}\NormalTok{(spherical)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-Ellipsoidal shape:  Radii=[10 5 2]; Angles=[1.0472 0.785398 0.628319]
-
-Ellipsoidal shape:  Radii=[10 5 2]; Angles=[0.794517 4.89503 5.48883]
-
-Ellipsoidal shape:  Radii=[1 1 0.1]; Angles=[1.0472 0.785398 0]
-
 Ellipsoidal shape:  Radii=[1 1 1]; Angles=[0 0 0]
 \end{verbatim}
+
+\section{Calculation of Hill and Eshelby tensors for an isotropic
+matrix}\label{calculation-of-hill-and-eshelby-tensors-for-an-isotropic-matrix}
+
+The Hill, second Hill and Eshelby tensors are simply calculated by
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{P\ =\ hill(shape,\ C)}
+\item
+  \texttt{Q\ =\ hill\_dual(shape,\ C)}
+\item
+  \texttt{S\ =\ eshelby(shape,\ C)}
+\end{itemize}
+
+where \texttt{shape} is an ellipsoidal shape as previously defined and
+\texttt{C} is an isotropic tensor.
+
+Note that an isotropic tensor \texttt{C} simply allows to resort to
+analytical expressions as seen in Appendix~\ref{sec-hill_elas}. The
+anisotropic cases are also available with numerical algorithms as will
+be seen below.
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, bottomrule=.15mm, colbacktitle=quarto-callout-warning-color!10!white, colback=white, colframe=quarto-callout-warning-color-frame, rightrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}, toprule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, leftrule=.75mm, breakable, coltitle=black]
+
+The functions \texttt{hill} and \texttt{eshelby} return \(6×6\) matrices
+i.e.~of type \texttt{numpy.ndarray} (not \texttt{tensor}). It is however
+possible to build a \texttt{tensor} object from the matrix for the Hill
+tensor \(\uuuu{P}\) since the latter is always positive definite. This
+is not in general the case for the Eshelby tensor \(\uuuu{S}\).
+
+\end{tcolorbox}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a, b, c }\OperatorTok{=} \FloatTok{10.}\NormalTok{, }\FloatTok{5.}\NormalTok{, }\FloatTok{2.}
+\NormalTok{θ, ϕ, ψ }\OperatorTok{=}\NormalTok{ π}\OperatorTok{/}\DecValTok{3}\NormalTok{, π}\OperatorTok{/}\DecValTok{4}\NormalTok{, π}\OperatorTok{/}\DecValTok{5}
+\NormalTok{k, µ }\OperatorTok{=} \FloatTok{72.}\NormalTok{, }\FloatTok{32.} 
+\NormalTok{shape }\OperatorTok{=}\NormalTok{ ellipsoidal(a, b, c, θ, ϕ, ψ)}
+\NormalTok{C }\OperatorTok{=}\NormalTok{ stiff\_kmu(k, µ)}
+\NormalTok{P }\OperatorTok{=}\NormalTok{ hill(shape, C)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"P =}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, P)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+P =
+ [[ 0.00692827 -0.00193834 -0.0015172  -0.00149755  0.00105145  0.00132946]
+ [-0.00193834  0.0065809  -0.00179461  0.00180799 -0.00117706  0.00179171]
+ [-0.0015172  -0.00179461  0.00571206  0.00216042  0.00151431 -0.00104477]
+ [-0.00149755  0.00180799  0.00216042  0.0058138   0.00115308  0.00009474]
+ [ 0.00105145 -0.00117706  0.00151431  0.00115308  0.00748803  0.00101249]
+ [ 0.00132946  0.00179171 -0.00104477  0.00009474  0.00101249  0.00744786]]
+\end{verbatim}
+
+A \texttt{tensor} object can be constructed
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\StringTok{"tensor P =}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, tensor(P, optiangles}\OperatorTok{=}\VariableTok{True}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+tensor P =
+ Order 4 ORTHO tensor | Param(size=9)=[ 0.00844038 -0.000810579 -0.00188706 0.0021519 -0.000509166 0.00454226 0.00215879 0.00517997 0.00507943 ] | Angles(size=3)=[ 1.03673 2.70464 0.950972 ]
+[ 0.00692827 -0.00193834 -0.0015172 -0.00149755 0.00105145 0.00132946 
+  -0.00193834 0.0065809 -0.00179461 0.00180799 -0.00117706 0.00179171 
+  -0.0015172 -0.00179461 0.00571206 0.00216042 0.00151431 -0.00104477 
+  -0.00149755 0.00180799 0.00216042 0.0058138 0.00115308 9.47382e-05 
+  0.00105145 -0.00117706 0.00151431 0.00115308 0.00748803 0.00101249 
+  0.00132946 0.00179171 -0.00104477 9.47382e-05 0.00101249 0.00744786 ]
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{S }\OperatorTok{=}\NormalTok{ eshelby(shape, C)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"S =}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, S)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+S =
+ [[ 0.61936138  0.05189785  0.07885111 -0.09584313  0.06729291  0.08508541]
+ [ 0.02024195  0.56547341  0.02944088  0.11571165 -0.0753318   0.11466945]
+ [ 0.02451205  0.00675772  0.48718459  0.13826715  0.09691609 -0.06686496]
+ [ 0.02934762  0.2409024   0.2634579   0.37208322  0.07379682  0.00606325]
+ [ 0.13765403 -0.00497068  0.16727721  0.07379682  0.47923418  0.06479939]
+ [ 0.19028991  0.21987395  0.03833954  0.00606325  0.06479939  0.47666322]]
+\end{verbatim}
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, bottomrule=.15mm, colbacktitle=quarto-callout-caution-color!10!white, colback=white, colframe=quarto-callout-caution-color-frame, rightrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title={Exercise}, toprule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, leftrule=.75mm, breakable, coltitle=black]
+
+For a spherical shape we have
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{k, µ }\OperatorTok{=} \FloatTok{72.}\NormalTok{, }\FloatTok{32.} \OperatorTok{;}\NormalTok{ C }\OperatorTok{=}\NormalTok{ stiff\_kmu(k, µ)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"P =}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, hill(spherical,C))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+P =
+ [[ 0.00591085 -0.00150194 -0.00150194  0.          0.          0.        ]
+ [-0.00150194  0.00591085 -0.00150194  0.          0.          0.        ]
+ [-0.00150194 -0.00150194  0.00591085  0.          0.          0.        ]
+ [ 0.          0.          0.          0.00741279  0.          0.        ]
+ [ 0.          0.          0.          0.          0.00741279  0.        ]
+ [ 0.          0.          0.          0.          0.          0.00741279]]
+\end{verbatim}
+
+Check the following formula for the Hill tensor related to a sphere in
+an isotropic matrix
+
+\[
+\uuuu{P}(\uu{1},3\,k\,\uuuu{J}+2\,\mu\,\uuuu{K})=\frac{1}{3\,k+4\,\mu}\,\left(\uuuu{J}+\frac{3\,(k+2\,\mu)}{5\,\mu}\uuuu{K}\right)
+\]
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{P }\OperatorTok{=} \DecValTok{1}\OperatorTok{/}\NormalTok{(}\DecValTok{3}\OperatorTok{*}\NormalTok{k}\OperatorTok{+}\DecValTok{4}\OperatorTok{*}\NormalTok{µ)}\OperatorTok{*}\NormalTok{(J4}\OperatorTok{+}\DecValTok{3}\OperatorTok{*}\NormalTok{(k}\OperatorTok{+}\DecValTok{2}\OperatorTok{*}\NormalTok{µ)}\OperatorTok{/}\NormalTok{(}\DecValTok{5}\OperatorTok{*}\NormalTok{μ)}\OperatorTok{*}\NormalTok{K4)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"P =}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, P)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+P =
+ [[ 0.00591085 -0.00150194 -0.00150194  0.          0.          0.        ]
+ [-0.00150194  0.00591085 -0.00150194  0.          0.          0.        ]
+ [-0.00150194 -0.00150194  0.00591085  0.          0.          0.        ]
+ [ 0.          0.          0.          0.00741279  0.          0.        ]
+ [ 0.          0.          0.          0.          0.00741279  0.        ]
+ [ 0.          0.          0.          0.          0.          0.00741279]]
+\end{verbatim}
+
+\end{tcolorbox}
+
+\section{Calculation of Hill and Eshelby tensors for an arbitrary
+anisotropic
+matrix}\label{calculation-of-hill-and-eshelby-tensors-for-an-arbitrary-anisotropic-matrix}
+
+The Hill, second Hill and Eshelby tensors are numerically calculated by
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{P\ =\ hill(shape,\ C,\ algo=NUMINT,\ epsroots=1.e-4,\ epsabs=1.e-4,\ epsrel=1.e-4,\ maxnb=100000)}
+\item
+  \texttt{Q\ =\ hill\_dual(shape,\ C,\ algo=NUMINT,\ epsroots=1.e-4,\ epsabs=1.e-4,\ epsrel=1.e-4,\ maxnb=100000)}
+\item
+  \texttt{S\ =\ eshelby(shape,\ C,\ algo=NUMINT,\ epsroots=1.e-4,\ epsabs=1.e-4,\ epsrel=1.e-4,\ maxnb=100000)}
+\end{itemize}
+
+where the keyword argument \texttt{algo} can be either \texttt{NUMINT}
+or \texttt{RESIDUES} (default: \texttt{NUMINT}).
+
+\begin{itemize}
+\item
+  \texttt{NUMINT} based on the cubature DECUHR algorithm provided in
+  (\citeproc{ref-espelid1994}{Espelid and Genz, 1994}) applied on the
+  integral formulation \ref{eq-Hill} over the unit sphere
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{epsabs} is the tolerance of absolute error (default: 1.e-4)
+  \item
+    \texttt{epsrel} is the tolerance of relative error (default: 1.e-4)
+  \item
+    \texttt{maxnb} is the maximum number of subdivisions (default:
+    100000)
+  \end{itemize}
+
+  For more information about these parameters see
+  (\citeproc{ref-espelid1994}{Espelid and Genz, 1994}).
+\item
+  \texttt{RESIDUES} based on the residue Cauchy theorem to transform the
+  2D cubature over the unit sphere \ref{eq-Hill} into a 1D quadrature as
+  demonstrated in (\citeproc{ref-masson2008}{Masson, 2008})
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{epsroots} is the tolerance for the criterion of multiple
+    poles, i.e.~if the distance between two poles of the integrand
+    function is under this value they are considered as a unique
+    multiple pole (default: 1.e-4)
+  \item
+    \texttt{epsabs} is the tolerance of absolute error for the 1D
+    quadrature (default: 1.e-4)
+  \item
+    \texttt{epsrel} is the tolerance of relative error for the 1D
+    quadrature (default: 1.e-4)
+  \item
+    \texttt{maxnb} is the maximum number of subdivisions for the 1D
+    quadrature (default: 100000)
+  \end{itemize}
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, bottomrule=.15mm, colbacktitle=quarto-callout-warning-color!10!white, colback=white, colframe=quarto-callout-warning-color-frame, rightrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}, toprule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, leftrule=.75mm, breakable, coltitle=black]
+
+The \texttt{RESIDUES} algorithm is much faster than the \texttt{NUMINT}
+one in case of full anisotropy. Nevertheless the latter proves to be
+more robust in the neighborhood of symmetry axes where the presence of
+close poles may induce numerical errors in the application of the Cauchy
+residue theorem. This is why \texttt{NUMINT} is chosen by default.
+
+\end{tcolorbox}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{param }\OperatorTok{=}\NormalTok{ [ }\FloatTok{2.66011}\NormalTok{, }\FloatTok{1.26432}\NormalTok{, }\FloatTok{0.662772}\NormalTok{, }\FloatTok{1.9402}\NormalTok{, }\FloatTok{1.54905}\NormalTok{, }\FloatTok{1.10384}\NormalTok{, }\FloatTok{3.6072}\NormalTok{, }\FloatTok{1.78964}\NormalTok{, }\FloatTok{2.0247}\NormalTok{, }\FloatTok{1.2701}\NormalTok{, }\FloatTok{1.1089}\NormalTok{, }\FloatTok{2.743}\NormalTok{, }\FloatTok{1.3367}\NormalTok{, }\FloatTok{1.2962}\NormalTok{, }\FloatTok{0.897632}\NormalTok{, }\FloatTok{4.42684}\NormalTok{, }\FloatTok{2.05632}\NormalTok{, }\FloatTok{1.52686}\NormalTok{, }\FloatTok{3.54431}\NormalTok{, }\FloatTok{1.3445}\NormalTok{, }\FloatTok{1.99356}\NormalTok{ ]}
+\NormalTok{C }\OperatorTok{=}\NormalTok{ tensor(param)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"Hill tensor using NUMINT algorithm}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, hill(shape, C, algo}\OperatorTok{=}\NormalTok{NUMINT),}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Hill tensor using NUMINT algorithm
+ [[ 0.30105452 -0.0556282  -0.05649445 -0.07988352 -0.02044577  0.0289701 ]
+ [-0.0556282   0.23418979 -0.11124322  0.00818408 -0.07054317  0.05255232]
+ [-0.05649445 -0.11124322  0.23332006  0.05738592  0.01557356 -0.08615589]
+ [-0.07988352  0.00818408  0.05738592  0.14624976 -0.01872016 -0.06494597]
+ [-0.02044577 -0.07054317  0.01557356 -0.01872016  0.22562638 -0.0435889 ]
+ [ 0.0289701   0.05255232 -0.08615589 -0.06494597 -0.0435889   0.28756664]] 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\StringTok{"Hill tensor using RESIDUES algorithm}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, hill(shape, C, algo}\OperatorTok{=}\NormalTok{RESIDUES))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Hill tensor using RESIDUES algorithm
+ [[ 0.30105452 -0.05562819 -0.05649446 -0.07988353 -0.02044576  0.02897007]
+ [-0.05562819  0.23418974 -0.11124317  0.00818407 -0.07054315  0.05255245]
+ [-0.05649446 -0.11124317  0.23332002  0.05738593  0.01557351 -0.08615598]
+ [-0.07988353  0.00818407  0.05738593  0.14624981 -0.01872023 -0.06494593]
+ [-0.02044576 -0.07054315  0.01557351 -0.01872023  0.22562642 -0.04358896]
+ [ 0.02897007  0.05255245 -0.08615598 -0.06494593 -0.04358896  0.28756671]]
+\end{verbatim}
+
+See below how a too large \texttt{epsroots} parameter can degrade the
+precision of the result
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{param }\OperatorTok{=}\NormalTok{ [}\FloatTok{3.}\NormalTok{,}\FloatTok{4.}\NormalTok{,math.sqrt(}\DecValTok{2}\NormalTok{),}\FloatTok{2.}\NormalTok{,}\FloatTok{1.}\NormalTok{]}
+\NormalTok{np.random.seed(}\DecValTok{1948}\NormalTok{)}
+\NormalTok{α }\OperatorTok{=} \FloatTok{1.e{-}2}\OperatorTok{*}\NormalTok{np.random.rand(}\DecValTok{6}\NormalTok{, }\DecValTok{6}\NormalTok{)}
+\NormalTok{C }\OperatorTok{=}\NormalTok{ tensor(param)}\OperatorTok{+}\NormalTok{tensor((α}\OperatorTok{+}\NormalTok{α.T)}\OperatorTok{/}\DecValTok{2}\NormalTok{) }\OperatorTok{;} \BuiltInTok{print}\NormalTok{(}\StringTok{"C =}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{,C)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"P(NUMINT) =}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, hill(shape, C, algo}\OperatorTok{=}\NormalTok{NUMINT),}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+C =
+ Order 4 ANISO tensor | Param(size=21)=[ 3.00492 1.00447 1.00929 0.00592152 0.00348355 0.00354977 3.00439 1.00731 0.00550071 0.00399279 0.00592477 3.00679 0.0017438 0.00423288 0.002886 1.00473 0.00184015 0.00245616 1.00486 0.00267492 2.00665 ] | Angles(size=0)=[ ]
+[ 3.00492 1.00447 1.00929 0.00592152 0.00348355 0.00354977 
+  1.00447 3.00439 1.00731 0.00550071 0.00399279 0.00592477 
+  1.00929 1.00731 3.00679 0.0017438 0.00423288 0.002886 
+  0.00592152 0.00550071 0.0017438 1.00473 0.00184015 0.00245616 
+  0.00348355 0.00399279 0.00423288 0.00184015 1.00486 0.00267492 
+  0.00354977 0.00592477 0.002886 0.00245616 0.00267492 2.00665 ]
+
+P(NUMINT) =
+ [[ 0.25110194 -0.0701023  -0.04611559 -0.05426724  0.04210944  0.04955294]
+ [-0.0701023   0.23651855 -0.05243438  0.07635292 -0.04221947  0.06126985]
+ [-0.04611559 -0.05243438  0.22418927  0.1025223   0.07193575 -0.03146366]
+ [-0.05426724  0.07635292  0.1025223   0.28119845  0.06974296  0.00574154]
+ [ 0.04210944 -0.04221947  0.07193575  0.06974296  0.37772587  0.04657625]
+ [ 0.04955294  0.06126985 -0.03146366  0.00574154  0.04657625  0.26695831]] 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{for}\NormalTok{ ϵ }\KeywordTok{in}\NormalTok{ [}\FloatTok{1.e{-}4}\NormalTok{, }\FloatTok{1.e{-}2}\NormalTok{, }\FloatTok{1.e{-}1}\NormalTok{]:}
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"ϵ=}\SpecialCharTok{\{ϵ\}}\CharTok{\textbackslash{}n}\SpecialStringTok{"}\NormalTok{, }\StringTok{"  P =}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, hill(shape, C, algo}\OperatorTok{=}\NormalTok{RESIDUES, epsroots}\OperatorTok{=}\NormalTok{ϵ),}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ϵ=0.0001
+   P =
+ [[ 0.25110194 -0.07010231 -0.04611559 -0.05426725  0.04210945  0.04955293]
+ [-0.07010231  0.23651856 -0.05243438  0.07635292 -0.04221948  0.06126986]
+ [-0.04611559 -0.05243438  0.22418926  0.1025223   0.07193575 -0.03146365]
+ [-0.05426725  0.07635292  0.1025223   0.28119845  0.06974297  0.00574153]
+ [ 0.04210945 -0.04221948  0.07193575  0.06974297  0.37772589  0.04657624]
+ [ 0.04955293  0.06126986 -0.03146365  0.00574153  0.04657624  0.2669583 ]] 
+
+ϵ=0.01
+   P =
+ [[ 0.25113345 -0.07011982 -0.04612298 -0.05432501  0.04189836  0.04958181]
+ [-0.07011982  0.23657363 -0.05244598  0.07641503 -0.04218998  0.06107365]
+ [-0.04612298 -0.05244598  0.2242458   0.10257051  0.07213861 -0.03135339]
+ [-0.05432501  0.07641503  0.10257051  0.28130893  0.06990898  0.00568173]
+ [ 0.04189836 -0.04218998  0.07213861  0.06990898  0.3777045   0.04653537]
+ [ 0.04958181  0.06107365 -0.03135339  0.00568173  0.04653537  0.26696033]] 
+
+ϵ=0.1
+   P =
+ [[ 0.25001229 -0.04308215 -0.06353735 -0.03174632 -0.02682333  0.03934497]
+ [-0.04308215  0.21054579 -0.05318301  0.02847946  0.0009406   0.00133671]
+ [-0.06353735 -0.05318301  0.25282017  0.13460029  0.09818096  0.01570746]
+ [-0.03174632  0.02847946  0.13460029  0.25282083  0.15048798  0.04100369]
+ [-0.02682333  0.0009406   0.09818096  0.15048798  0.30945146  0.06215133]
+ [ 0.03934497  0.00133671  0.01570746  0.04100369  0.06215133  0.35337768]] 
+\end{verbatim}
+
+\(\,\)
+
+\chapter{Crack compliance}\label{sec-crack_compliance}
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, bottomrule=.15mm, colbacktitle=quarto-callout-important-color!10!white, colback=white, colframe=quarto-callout-important-color-frame, rightrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title={Objectives}, toprule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, leftrule=.75mm, breakable, coltitle=black]
+
+This tutorial shows how to calculate the crack compliance of an
+elliptical crack embedded in an infinite elastic matrix of arbitrary
+anisotropy.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, bottomrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colback=white, colframe=quarto-callout-note-color-frame, rightrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title={Download}, toprule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, leftrule=.75mm, breakable, coltitle=black]
+
+\begin{itemize}
+\item
+  \href{crack_compliance.py}{Python script}
+\item
+  \href{crack_compliance.ipynb}{Jupyter notebook}
+\end{itemize}
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, bottomrule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, colback=white, colframe=quarto-callout-tip-color-frame, rightrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title={Imports}, toprule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, leftrule=.75mm, breakable, coltitle=black]
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ numpy }\ImportTok{as}\NormalTok{ np}
+\ImportTok{from}\NormalTok{ echoes }\ImportTok{import} \OperatorTok{*}
+\ImportTok{import}\NormalTok{ math, random}
+\ImportTok{import}\NormalTok{ matplotlib.pyplot }\ImportTok{as}\NormalTok{ plt}
+
+\NormalTok{np.set\_printoptions(precision}\OperatorTok{=}\DecValTok{8}\NormalTok{, suppress}\OperatorTok{=}\VariableTok{True}\NormalTok{)}
+\CommentTok{\# to display only 8 significant digits of array components}
+\end{Highlighting}
+\end{Shaded}
+
+\end{tcolorbox}
+
+\section{Definition of the crack
+compliance}\label{definition-of-the-crack-compliance}
+
+Geometrically an elliptical crack can be defined as the limit domain of
+an ellipsoid for which the smallest aspect ratio tends towards 0.
+Keeping the definition of the ellipsoid by means of the tensor
+\(\uu{A}\) in (\ref{eq-defell})-(\ref{eq-defA}), the latter tensor
+becomes here \[
+\uu{A}=
+\uv{\ell}\otimes\uv{\ell}+
+\eta\,\uv{m}\otimes\uv{m}+
+\omega\,\uv{n}\otimes\uv{n}
+\quad\textrm{with}\quad
+\eta=\frac{b}{a}
+\quad\textrm{and}\quad
+\omega=\frac{c}{a}
+\]
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{2_eshelby/../img/crack.pdf}
+
+}
+
+\caption{\label{fig-crack}Ellipsoidal crack}
+
+\end{figure}%
+
+In the case of cracks, it is useful to recall the second Hill
+polarization tensor defined as (see (\ref{eq-defsecondHill})) \[
+\uuuu{Q}=\uuuu{C}-\uuuu{C}:\uuuu{P}:\uuuu{C}
+\] and in particular the so-called crack compliance
+(\citeproc{ref-kachanov1992}{Kachanov, 1992}),
+(\citeproc{ref-kachanov1993}{Kachanov, 1993}),
+(\citeproc{ref-sevostianov2002}{Sevostianov and Kachanov, 2002}),
+(\citeproc{ref-barthelemyIJES2021}{Barthélémy et al., 2021}) \[
+\uuuu{H}=\lim_{\omega\to 0}\omega\,\uuuu{Q}^{-1}
+\] in which it is recalled that \(\uuuu{P}\) and thus \(\uuuu{Q}\)
+depend on \(\omega\) such that the components
+\(\left(\uuuu{Q}^{-1}\right)_{nijk}\) (with \(n\) corresponding to the
+crack normal) behave as \(1/\omega\) when \(\omega\) tends towards
+\(0\). It is also shown in previously cited references that \(\uuuu{H}\)
+actually derives from a symmetric second-order tensor \(\uu{B}\) as
+\begin{equation}\phantomsection\label{eq-H}{
+\uuuu{H}=
+\lim_{\omega\to 0} \omega\,\uuuu{Q}^{-1}
+=\frac{3}{4}\,\uv{n}\sotimes\uu{B}\sotimes\uv{n}
+}\end{equation} For more details about this limit, the reader can also
+refer to (\citeproc{ref-laws1977}{Laws, 1977}),
+(\citeproc{ref-laws1985}{Laws, 1985}),
+(\citeproc{ref-nemat-nasser1999}{Nemat-Nasser and Hori, 1999}),
+(\citeproc{ref-barthelemyIJSS2009}{Barthélémy, 2009}),
+(\citeproc{ref-kachanov2018}{Kachanov and Sevostianov, 2018}),
+(\citeproc{ref-barthelemyIJES2021}{Barthélémy et al., 2021}).
+
+For an arbitrarly anisotropic matrix, an algorithm allowing to estimate
+the limit (\ref{eq-H}) is proposed in
+(\citeproc{ref-barthelemyIJSS2009}{Barthélémy, 2009}) whereas in the
+isotropic case \(\uu{B}\) writes \[
+\uu{B}=
+B_{nn}\,\uv{n}\otimes\uv{n}
++
+B_{mm}\,\uv{m}\otimes\uv{m}
++
+B_{\ell\ell}\,\uv{\ell}\otimes\uv{\ell}
+\] with \[\begin{aligned}
+B_{nn}&=\frac{8\,\eta\,(1-\nu^2)}{3\,E}\,
+\frac{1}{\mathcal{E}_\eta}\label{eq:Bnn}\\
+B_{mm}&=\frac{8\,\eta\,(1-\nu^2)}{3\,E}\,
+\frac{1-\eta^2}{\left(1-(1-\nu)\,\eta^2\right)
+\,\mathcal{E}_\eta-\nu\,\eta^2\,\mathcal{K}_\eta}\\
+B_{\ell\ell}&=\frac{8\,\eta\,(1-\nu^2)}{3\,E}\,
+\frac{1-\eta^2}{(1-\nu-\eta^2)\,\mathcal{E}_\eta+\nu\,\eta^2\,\mathcal{K}_\eta}
+\end{aligned}\] where \(\mathcal{K}_\eta=\mathcal{K}(\sqrt{1-\eta^2})\)
+and \(\mathcal{E}_\eta=\mathcal{E}(\sqrt{1-\eta^2})\) are the complete
+elliptic integrals of respectively the first and second kind (see
+(\citeproc{ref-abramowitz1972}{Abramowitz and Stegun, 1972})). If the
+crack is circular, the components of \(\uu{B}\) become \[
+B_{nn}=\frac{16\,(1-\nu^2)}{3\,\pi\,E}
+\quad\textrm{;}\quad
+B_{mm}=B_{\ell\ell}=\frac{B_{nn}}{1-\nu/2}
+\]
+
+\section{Numerical implementation}\label{numerical-implementation}
+
+The syntax allowing to calculate the compliance \(\uuuu{H}\) of an
+elliptical crack embedded in an infinite matrix of elastic stiffness
+\(\uuuu{C}\) is very close to that corresponding to \texttt{hill} and
+\texttt{eshelby} in Chapter~\ref{sec-eshelby_hill}, in other words
+
+\texttt{H\ =\ crack\_compliance(shape,\ C,\ algo=NUMINT,\ epsroots=1.e-4,\ epsabs=1.e-4,\ epsrel=1.e-4,\ maxnb=100000)}
+
+where the keyword argument \texttt{algo} can be either \texttt{NUMINT}
+or \texttt{RESIDUES} (default: \texttt{NUMINT}). See
+(\citeproc{ref-barthelemyIJSS2009}{Barthélémy, 2009}) for more details.
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, bottomrule=.15mm, colbacktitle=quarto-callout-warning-color!10!white, colback=white, colframe=quarto-callout-warning-color-frame, rightrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Warning}, toprule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, leftrule=.75mm, breakable, coltitle=black]
+
+As recalled above the elliptical crack is described as a flat ellipsoid.
+However the calculation of the crack compliance \(\uuuu{H}\)
+(\ref{eq-H}) relies on an \texttt{ellipsoidal} argument (see
+Section~\ref{sec-ellipsoidal}) in which even the smallest aspect ratio
+should be strictly positive for numerical reasons. It is then necessary
+to provide an aspect ratio \(\omega\) for the crack even if the crack
+compliance is actually calculated as a limit (not depending on
+\(\omega\))
+
+\end{tcolorbox}
+
+\textbf{Isotropic example}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{C }\OperatorTok{=}\NormalTok{ stiff\_Enu(}\FloatTok{1.}\NormalTok{,}\FloatTok{0.2}\NormalTok{) }\OperatorTok{;} \BuiltInTok{print}\NormalTok{(}\StringTok{"C =}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, C)}
+\NormalTok{ω }\OperatorTok{=} \FloatTok{1.e{-}4}
+\NormalTok{H }\OperatorTok{=}\NormalTok{ crack\_compliance(spheroidal(ω), C) }\OperatorTok{;} \BuiltInTok{print}\NormalTok{(}\StringTok{"H =}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, H)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+C =
+ Order 4 ISO tensor | Param(size=2)=[ 1.66667 0.833333 ] | Angles(size=0)=[ ]
+[ 1.11111 0.277778 0.277778 0 0 0 
+  0.277778 1.11111 0.277778 0 0 0 
+  0.277778 0.277778 1.11111 0 0 0 
+  0 0 0 0.833333 0 0 
+  0 0 0 0 0.833333 0 
+  0 0 0 0 0 0.833333 ]
+
+H =
+ [[0.         0.         0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.        ]
+ [0.         0.         1.22230996 0.         0.         0.        ]
+ [0.         0.         0.         0.67906109 0.         0.        ]
+ [0.         0.         0.         0.         0.67906109 0.        ]
+ [0.         0.         0.         0.         0.         0.        ]]
+\end{verbatim}
+
+\textbf{Anisotropic example}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{M }\OperatorTok{=}\NormalTok{ np.array([ [}\FloatTok{2.66011}\NormalTok{, }\FloatTok{1.26432}\NormalTok{, }\FloatTok{0.662772}\NormalTok{, }\FloatTok{1.9402}\NormalTok{, }\FloatTok{1.54905}\NormalTok{, }\FloatTok{1.10384}\NormalTok{],}
+\NormalTok{               [}\FloatTok{1.26432}\NormalTok{, }\FloatTok{3.6072}\NormalTok{, }\FloatTok{1.78964}\NormalTok{, }\FloatTok{2.0247}\NormalTok{, }\FloatTok{1.2701}\NormalTok{, }\FloatTok{1.1089}\NormalTok{], }
+\NormalTok{               [}\FloatTok{0.662772}\NormalTok{, }\FloatTok{1.78964}\NormalTok{, }\FloatTok{2.743}\NormalTok{, }\FloatTok{1.3367}\NormalTok{, }\FloatTok{1.2962}\NormalTok{, }\FloatTok{0.897632}\NormalTok{], }
+\NormalTok{               [}\FloatTok{1.9402}\NormalTok{, }\FloatTok{2.0247}\NormalTok{ ,}\FloatTok{1.3367}\NormalTok{, }\FloatTok{4.42684}\NormalTok{, }\FloatTok{2.05632}\NormalTok{, }\FloatTok{1.52686}\NormalTok{], }
+\NormalTok{               [}\FloatTok{1.54905}\NormalTok{, }\FloatTok{1.2701}\NormalTok{, }\FloatTok{1.2962}\NormalTok{, }\FloatTok{2.05632}\NormalTok{, }\FloatTok{3.54431}\NormalTok{, }\FloatTok{1.3445}\NormalTok{], }
+\NormalTok{               [}\FloatTok{1.10384}\NormalTok{, }\FloatTok{1.1089}\NormalTok{, }\FloatTok{0.897632}\NormalTok{, }\FloatTok{1.52686}\NormalTok{, }\FloatTok{1.3445}\NormalTok{, }\FloatTok{1.99356}\NormalTok{] ])}
+\NormalTok{C }\OperatorTok{=}\NormalTok{ tensor(M) }\OperatorTok{;} \BuiltInTok{print}\NormalTok{(C)}
+\NormalTok{ω }\OperatorTok{=} \FloatTok{1.e{-}4}
+\NormalTok{H }\OperatorTok{=}\NormalTok{ crack\_compliance(spheroidal(ω), C, algo}\OperatorTok{=}\NormalTok{NUMINT) }\OperatorTok{;} \BuiltInTok{print}\NormalTok{(}\StringTok{"H =}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, H)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Order 4 ANISO tensor | Param(size=21)=[ 2.66011 1.26432 0.662772 1.9402 1.54905 1.10384 3.6072 1.78964 2.0247 1.2701 1.1089 2.743 1.3367 1.2962 0.897632 4.42684 2.05632 1.52686 3.54431 1.3445 1.99356 ] | Angles(size=0)=[ ]
+[ 2.66011 1.26432 0.662772 1.9402 1.54905 1.10384 
+  1.26432 3.6072 1.78964 2.0247 1.2701 1.1089 
+  0.662772 1.78964 2.743 1.3367 1.2962 0.897632 
+  1.9402 2.0247 1.3367 4.42684 2.05632 1.52686 
+  1.54905 1.2701 1.2962 2.05632 3.54431 1.3445 
+  1.10384 1.1089 0.897632 1.52686 1.3445 1.99356 ]
+
+H =
+ [[ 0.          0.          0.          0.          0.          0.        ]
+ [ 0.          0.          0.          0.          0.          0.        ]
+ [ 0.          0.          0.57167315 -0.08924584 -0.10580477  0.        ]
+ [ 0.          0.         -0.08924584  0.2711102  -0.06996412  0.        ]
+ [ 0.          0.         -0.10580477 -0.06996412  0.34412187  0.        ]
+ [ 0.          0.          0.          0.          0.          0.        ]]
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{H }\OperatorTok{=}\NormalTok{ crack\_compliance(spheroidal(ω), C, algo}\OperatorTok{=}\NormalTok{RESIDUES) }\OperatorTok{;} \BuiltInTok{print}\NormalTok{(}\StringTok{"H =}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, H)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+H =
+ [[ 0.          0.          0.          0.          0.          0.        ]
+ [ 0.          0.          0.          0.          0.          0.        ]
+ [ 0.          0.          0.57167315 -0.08924584 -0.10580477  0.        ]
+ [ 0.          0.         -0.08924584  0.2711102  -0.06996412  0.        ]
+ [ 0.          0.         -0.10580477 -0.06996412  0.34412187  0.        ]
+ [ 0.          0.          0.          0.          0.          0.        ]]
+\end{verbatim}
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, bottomrule=.15mm, colbacktitle=quarto-callout-caution-color!10!white, colback=white, colframe=quarto-callout-caution-color-frame, rightrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title={Exercise}, toprule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, leftrule=.75mm, breakable, coltitle=black]
+
+This exercise aims at checking the aspect ratio for which the
+approximation
+\(\omega\,\uuuu{Q}^{-1}\approx \lim_{\omega\to 0}\omega\,\uuuu{Q}^{-1}\)
+remains acceptable. For this purpose it is proposed to build the graph
+of relative distance between these two tensors as function of the aspect
+ratio \(\omega\) for different reference stiffness tensors \(\uuuu{C}\).
+
+\emph{Hints: with \texttt{hill\_dual} use preferably
+\texttt{algo=NUMINT} and decrease the values of \texttt{epsrel} and
+\texttt{espabs} to avoid roundoff error prior to inversion of
+\(\uuuu{Q}\)}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{plt.figure(figsize}\OperatorTok{=}\NormalTok{(}\DecValTok{8}\NormalTok{,}\DecValTok{3}\NormalTok{))}
+
+\ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(}\DecValTok{4}\NormalTok{):}
+\NormalTok{    A }\OperatorTok{=}\NormalTok{ np.random.rand(}\DecValTok{6}\NormalTok{,}\DecValTok{6}\NormalTok{)}
+\NormalTok{    C }\OperatorTok{=}\NormalTok{ tensor(A.T.dot(A) }\OperatorTok{+}\NormalTok{ np.eye(}\DecValTok{6}\NormalTok{)) }\CommentTok{\# generation of an arbitrary positive definite matrix}
+\NormalTok{    ω }\OperatorTok{=} \FloatTok{1.e{-}4}
+\NormalTok{    H }\OperatorTok{=}\NormalTok{ crack\_compliance(spheroidal(ω), C)}
+
+\NormalTok{    tω }\OperatorTok{=}\NormalTok{ np.logspace(}\OperatorTok{{-}}\DecValTok{5}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{20}\NormalTok{)}
+\NormalTok{    tabδ }\OperatorTok{=}\NormalTok{ []}
+    \ControlFlowTok{for}\NormalTok{ ω }\KeywordTok{in}\NormalTok{ tω:}
+\NormalTok{        Q }\OperatorTok{=}\NormalTok{ hill\_dual(spheroidal(ω), C, algo}\OperatorTok{=}\NormalTok{NUMINT, epsrel}\OperatorTok{=}\FloatTok{1.e{-}12}\NormalTok{, epsabs}\OperatorTok{=}\FloatTok{1.e{-}12}\NormalTok{)}
+\NormalTok{        Hω }\OperatorTok{=}\NormalTok{ ω}\OperatorTok{*}\NormalTok{np.linalg.inv(Q)}
+\NormalTok{        δH }\OperatorTok{=}\NormalTok{ np.linalg.norm(Hω}\OperatorTok{{-}}\NormalTok{H)}\OperatorTok{/}\NormalTok{np.linalg.norm(H)}
+\NormalTok{        tabδ.append(δH)}
+\NormalTok{    plt.loglog(tω,tabδ,}\StringTok{\textquotesingle{}+{-}\textquotesingle{}}\NormalTok{)}
+\NormalTok{plt.xlabel(}\VerbatimStringTok{r"$\textbackslash{}omega$"}\NormalTok{)}
+\NormalTok{plt.ylabel(}\VerbatimStringTok{r"$\textbackslash{}frac\{||\textbackslash{}mathbb}\SpecialCharTok{\{H\}}\VerbatimStringTok{{-}\textbackslash{}omega\textbackslash{},\textbackslash{}mathbb}\SpecialCharTok{\{Q\}}\VerbatimStringTok{\^{}\{{-}1\}||\}\{||\textbackslash{}mathbb}\SpecialCharTok{\{H\}}\VerbatimStringTok{||\}$"}\NormalTok{)}
+\NormalTok{plt.grid(}\VariableTok{True}\NormalTok{,which}\OperatorTok{=}\StringTok{\textquotesingle{}both\textquotesingle{}}\NormalTok{)}
+\NormalTok{plt.show()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[H]
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{2_eshelby/crack_compliance_files/figure-pdf/fig-errorh-output-1.pdf}}
+
+}
+
+\caption{\label{fig-errorh}Influence of the aspect ratio on the crack
+compliance contribution tensor}
+
+\end{figure}%
+
+\end{tcolorbox}
 
 \(\,\)
 
@@ -2248,6 +2829,12 @@ ellipsoidal inclusion, and related problems. Proceedings of the Royal
 Society of London. Series A. Mathematical and Physical Sciences 241,
 376--396. \url{https://doi.org/10.1098/rspa.1957.0133}
 
+\bibitem[\citeproctext]{ref-espelid1994}
+Espelid, T.O., Genz, A., 1994. {DECUHR}: An algorithm for automatic
+integration of singular functions over a hyperrectangular region.
+Numerical Algorithms 8, 201--220.
+\url{https://doi.org/10.1007/BF02142691}
+
 \bibitem[\citeproctext]{ref-gavazzi1990}
 Gavazzi, A.C., Lagoudas, D.C., 1990. On the numerical evaluation of
 {Eshelby}'s tensor and its application to elastoplastic fibrous
@@ -2260,6 +2847,16 @@ in ellipsoidal inclusions in an anisotropic elastic material. Mechanics
 Research Communications 4, 89--91.
 \url{https://doi.org/10.1016/0093-6413(77)90018-0}
 
+\bibitem[\citeproctext]{ref-kachanov1993}
+Kachanov, M., 1993. Elastic {Solids} with {Many Cracks} and {Related
+Problems}. Advances in Applied Mechanics 30, 259--445.
+\url{https://doi.org/10.1016/S0065-2156(08)70176-5}
+
+\bibitem[\citeproctext]{ref-kachanov1992}
+Kachanov, M., 1992. Effective {Elastic Properties} of {Cracked Solids}:
+{Critical Review} of {Some Basic Concepts}. Applied Mechanics Reviews
+45, 304--335. \url{https://doi.org/10.1115/1.3119761}
+
 \bibitem[\citeproctext]{ref-kachanov2018}
 Kachanov, M., Sevostianov, I., 2018. Micromechanics of {Materials}, with
 {Applications}, Solid {Mechanics} and {Its Applications}. Springer
@@ -2268,6 +2865,14 @@ International Publishing, Cham.
 
 \bibitem[\citeproctext]{ref-kellogg1929}
 Kellogg, O.D., 1929. Potential theory. Berlin : Springer-Verlag.
+
+\bibitem[\citeproctext]{ref-laws1985}
+Laws, N., 1985. A short note on penny-shaped cracks in transversely
+isotropic materials. Mech. Mater. 4, 209--212.
+
+\bibitem[\citeproctext]{ref-laws1977}
+Laws, N., 1977. A note on interaction energies associated with cracks in
+anisotropic solids. Philos. Magazine 36, 367--372.
 
 \bibitem[\citeproctext]{ref-masson2008}
 Masson, R., 2008. New explicit expressions of the {Hill} polarization
@@ -2289,6 +2894,16 @@ Distances} for {Elasticity Tensors}. Journal of Elasticity 138,
 Mura, T., 1987. Micromechanics of {Defects} in {Solids}, {Second
 Edition}. Kluwer Academic.
 \url{https://doi.org/10.1002/zamm.19890690204}
+
+\bibitem[\citeproctext]{ref-nemat-nasser1999}
+Nemat-Nasser, S., Hori, M., 1999. Micromechanics: {Overall Properties}
+of {Heterogeneous Materials} 2nd {Edition}, North Holland. ed. North
+Holland, Amsterdam, The Netherlands.
+
+\bibitem[\citeproctext]{ref-sevostianov2002}
+Sevostianov, I., Kachanov, M., 2002. On elastic compliances of
+irregularly shaped cracks. International Journal of Fracture 114,
+245--257. \url{https://doi.org/10.1023/A:1015534127172}
 
 \bibitem[\citeproctext]{ref-torquato2002}
 Torquato, S., 2002. Random {Heterogeneous Materials}, Interdisciplinary
@@ -2525,7 +3140,7 @@ double contraction between symmetric second-order tensors is no other
 than the classical scalar product of the corresponding vectors of
 \(\R^6\) written according to the convention (\ref{eq-KM2}).
 
-\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, left=2mm, titlerule=0mm, colback=white, breakable, colframe=quarto-callout-note-color-frame, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, opacitybacktitle=0.6, arc=.35mm, colbacktitle=quarto-callout-note-color!10!white, leftrule=.75mm, opacityback=0, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, bottomrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colback=white, colframe=quarto-callout-note-color-frame, rightrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, toprule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, leftrule=.75mm, breakable, coltitle=black]
 
 Note the effect of \(\sqrt{2}\) on the off-diagonal components. Unlike
 \href{https://en.wikipedia.org/wiki/Voigt_notation}{Voigt convention},
@@ -2601,7 +3216,7 @@ of (\ref{eq-KM4bis}) exactly corresponds to the colored block in
 \section{Rotation of tensors}\label{sec-rottens}
 
 Recalling that the set of second-order tensors is isomorphic to the set
-of endomorphism in an euclidean space, it is natural to define a
+of endomorphisms in an euclidean space, it is natural to define a
 rotation tensor as an element of the special orthogonal group,
 i.e.~tensors \(\uu{R}\) such that \(\trans{\uu{R}}\cdot\uu{R}=\uu{1}\)
 and \(\det{\uu{R}}=1\). In \(\R^3\) equipped with an orthonormal frame
@@ -2857,7 +3472,7 @@ following tensors
 &(b)
 \end{aligned}}\end{equation}
 
-\chapter{Hill polarization tensor in elasticity}\label{sec-hill_elas}
+\chapter{Hill polarization tensors}\label{sec-hill_elas}
 
 This section recalls some results about the calculation of the Hill
 polarization tensors related to a matrix of stiffness \(\mathbb{C}\) and
@@ -2875,7 +3490,75 @@ associated to 3 radii (eigenvalues \(a\geq b \geq c\) possibly written
 \trans{\uu{A}}\cdot\uu{A}=a^2 \uv{e}_1\otimes\uv{e}_1 + b^2 \uv{e}_2\otimes\uv{e}_2 + c^2 \uv{e}_3\otimes\uv{e}_3 = \sum_{i=1}^3 \rho_i \uv{e}_i\otimes\uv{e}_i
 }\end{equation}
 
-\section{General expression}\label{general-expression}
+\section{\texorpdfstring{\(a>b>c\)
+(ellipsoid)}{a\textgreater b\textgreater c (ellipsoid)}}
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
+  >{\centering\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+\(I_i\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Value}
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+\(I_i\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Value}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\tabularnewline
+\caption{\(I_i\) for ellipsoid with arbitrary
+radii}\label{tbl-Ii}\tabularnewline
+\endlastfoot
+\(I_1\) &
+\(\frac{a\,b\,c}{(a^2-b^2)\sqrt{a^2-c^2}}\,\left({\cal F}-{\cal E}\right)\) \\
+\(I_2\) & \(1-I_1-I_3\) \\
+\(I_3\) &
+\(\frac{a\,b\,c}{(b^2-c^2)\sqrt{a^2-c^2}}\,\left(\frac{b\sqrt{a^2-c^2}}{a\,c}-{\cal E}\right)\) \\
+\end{longtable}
+
+\section{\texorpdfstring{\(a>b=c\)
+(prolate)}{a\textgreater b=c (prolate)}}
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
+  >{\centering\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+\(I_i\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Value}
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+\(I_i\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Value}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\tabularnewline
+\caption{\(I_i\) for prolate spheroid}\label{tbl-Iipro}\tabularnewline
+\endlastfoot
+\(I_1\) & \(1-2\,I_3\) \\
+\(I_2\) & \(I_3\) \\
+\(I_3\) &
+\(a\,\frac{a\sqrt{a^2-c^2}-c^2\,\arcosh{(a/c)}}{2\left(a^2-c^2\right)^{3/2}}\) \\
+\end{longtable}
+
+\section{Elasticity}\label{elasticity}
+
+\subsection{General expression}\label{general-expression}
 
 A general expression of the elastic polarization tensor is derived in
 (\citeproc{ref-willis1977}{Willis, 1977}) (see also
@@ -2908,7 +3591,7 @@ anisotropy, analytical solutions are available
 (\citeproc{ref-barthelemyIJES2020_hilltrans}{Barthélémy, 2020})). The
 case of isotropic matrix is particularly developed in the next section.
 
-\section{Isotropic matrix}\label{isotropic-matrix}
+\subsection{Isotropic matrix}\label{isotropic-matrix}
 
 In this section, the matrix is assumed isotropic so that its stiffness
 tensor writes by means of a bulk \(k\) and shear \(\mu\) or Lamé
@@ -3052,161 +3735,6 @@ In this last case of spherical inclusion (\(\uu{A}=\uu{1}\)),
 \uuuu{V}=\frac{1}{3}\uuuu{I}
 \]
 
-\section{Case of cracks}\label{case-of-cracks}
-
-The case of cracks corresponds to ellipsoids for which the smallest
-radius is very small compared to the two others, in other words the
-characteristic tensor \(\uu{A}\) (\ref{eq-ellipsoid}) can be written
-here \[
-\uu{A}=
-\uv{\ell}\otimes\uv{\ell}+
-\eta\,\uv{m}\otimes\uv{m}+
-\omega\,\uv{n}\otimes\uv{n}
-\quad\textrm{with}\quad
-\eta=\frac{b}{a}
-\quad\textrm{and}\quad
-\omega=\frac{c}{a}
-\]
-
-\begin{figure}
-
-\centering{
-
-\includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{99_appendices/../img/crack.pdf}
-
-}
-
-\caption{\label{fig-crack}Ellipsoidal crack}
-
-\end{figure}%
-
-In the case of cracks, it is useful to introduce the second Hill
-polarization tensor defined as \[
-\uuuu{Q}=\uuuu{C}-\uuuu{C}:\uuuu{P}:\uuuu{C}
-\] and in particular \(\lim_{\omega\to 0}\omega\,\uuuu{Q}^{-1}\) in
-which it is recalled that \(\uuuu{P}\) and thus \(\uuuu{Q}\) depend on
-\(\omega\) such that the components
-\(\left(\uuuu{Q}^{-1}\right)_{nijk}\) (with \(n\) corresponding to the
-crack normal) behave as \(1/\omega\) when \(\omega\) tends towards
-\(0\). The analytical expressions of this limit are fully detailed in
-(\citeproc{ref-barthelemyIJES2021}{Barthélémy et al., 2021}) which
-recalls in particular that \(\uuuu{L}\) actually derives from a
-symmetric second-order tensor \(\uu{B}\) as
-\begin{equation}\phantomsection\label{eq-L}{
-\uuuu{L}=
-\lim_{\omega\to 0} \omega\,\uuuu{Q}^{-1}
-=\frac{3}{4}\,\uv{n}\sotimes\uu{B}\sotimes\uv{n}
-}\end{equation}
-
-For an arbitrarly anisotropic matrix, an algorithm allowing to estimate
-the limit (\ref{eq-L}) is proposed in
-(\citeproc{ref-barthelemyIJSS2009}{Barthélémy, 2009}) whereas in the
-isotropic case \(\uu{B}\) writes \[
-\uu{B}=
-B_{nn}\,\uv{n}\otimes\uv{n}
-+
-B_{mm}\,\uv{m}\otimes\uv{m}
-+
-B_{\ell\ell}\,\uv{\ell}\otimes\uv{\ell}
-\] with \[\begin{aligned}
-B_{nn}&=\frac{8\,\eta\,(1-\nu^2)}{3\,E}\,
-\frac{1}{\mathcal{E}_\eta}\label{eq:Bnn}\\
-B_{mm}&=\frac{8\,\eta\,(1-\nu^2)}{3\,E}\,
-\frac{1-\eta^2}{\left(1-(1-\nu)\,\eta^2\right)
-\,\mathcal{E}_\eta-\nu\,\eta^2\,\mathcal{K}_\eta}\\
-B_{\ell\ell}&=\frac{8\,\eta\,(1-\nu^2)}{3\,E}\,
-\frac{1-\eta^2}{(1-\nu-\eta^2)\,\mathcal{E}_\eta+\nu\,\eta^2\,\mathcal{K}_\eta}
-\end{aligned}\] where \(\mathcal{K}_\eta=\mathcal{K}(\sqrt{1-\eta^2})\)
-and \(\mathcal{E}_\eta=\mathcal{E}(\sqrt{1-\eta^2})\) are the complete
-elliptic integrals of respectively the first and second kind (see
-(\citeproc{ref-abramowitz1972}{Abramowitz and Stegun, 1972})). If the
-crack is circular, the components of \(\uu{B}\) become \[
-B_{nn}=\frac{16\,(1-\nu^2)}{3\,\pi\,E}
-\quad\textrm{;}\quad
-B_{mm}=B_{\ell\ell}=\frac{B_{nn}}{1-\nu/2}
-\]
-
-\section{Application of Hill
-calculation}\label{application-of-hill-calculation}
-
-\subsection{Definition of the matrix
-tensor}\label{definition-of-the-matrix-tensor}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{C }\OperatorTok{=}\NormalTok{ stiff\_Enu(}\FloatTok{1.}\NormalTok{,}\FloatTok{0.2}\NormalTok{) }\OperatorTok{;} \BuiltInTok{print}\NormalTok{(C)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-Order 4 ISO tensor | Param(size=2)=[ 1.66667 0.833333 ] | Angles(size=0)=[ ]
-[ 1.11111 0.277778 0.277778 0 0 0 
-  0.277778 1.11111 0.277778 0 0 0 
-  0.277778 0.277778 1.11111 0 0 0 
-  0 0 0 0.833333 0 0 
-  0 0 0 0 0.833333 0 
-  0 0 0 0 0 0.833333 ]
-\end{verbatim}
-
-\subsection{\texorpdfstring{Calculation of the crack compliance
-\(\uuuu{L}=\lim_{\omega\to 0}\omega\,\uuuu{Q}^{-1}\)}{Calculation of the crack compliance \textbackslash uuuu\{L\}=\textbackslash lim\_\{\textbackslash omega\textbackslash to 0\}\textbackslash omega\textbackslash,\textbackslash uuuu\{Q\}\^{}\{-1\}}}\label{calculation-of-the-crack-compliance-uuuullim_omegato-0omegauuuuq-1}
-
-Note that in \emph{Echoes} it is necessary to provide an aspect ratio
-\(\omega\) for the crack even if the crack compliance is actually
-calculated as a limit (not depending on \(\omega\))
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{ω }\OperatorTok{=} \FloatTok{1.e{-}4}
-\NormalTok{L }\OperatorTok{=}\NormalTok{ crack\_compliance(spheroidal(ω), C) }\OperatorTok{;} \BuiltInTok{print}\NormalTok{(L)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[[0.         0.         0.         0.         0.         0.        ]
- [0.         0.         0.         0.         0.         0.        ]
- [0.         0.         1.22230996 0.         0.         0.        ]
- [0.         0.         0.         0.67906109 0.         0.        ]
- [0.         0.         0.         0.         0.67906109 0.        ]
- [0.         0.         0.         0.         0.         0.        ]]
-\end{verbatim}
-
-\subsection{\texorpdfstring{Checking the aspect ratio for which
-\(\omega\,\uuuu{Q}^{-1}\approx \lim_{\omega\to 0}\omega\,\uuuu{Q}^{-1}\)
-is
-acceptable}{Checking the aspect ratio for which \textbackslash omega\textbackslash,\textbackslash uuuu\{Q\}\^{}\{-1\}\textbackslash approx \textbackslash lim\_\{\textbackslash omega\textbackslash to 0\}\textbackslash omega\textbackslash,\textbackslash uuuu\{Q\}\^{}\{-1\} is acceptable}}\label{checking-the-aspect-ratio-for-which-omegauuuuq-1approx-lim_omegato-0omegauuuuq-1-is-acceptable}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{tω }\OperatorTok{=}\NormalTok{ np.logspace(}\OperatorTok{{-}}\DecValTok{5}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{20}\NormalTok{)}
-\NormalTok{tabδ }\OperatorTok{=}\NormalTok{ []}
-\ControlFlowTok{for}\NormalTok{ ω }\KeywordTok{in}\NormalTok{ tω:}
-\NormalTok{    Q }\OperatorTok{=}\NormalTok{ hill\_dual(spheroidal(ω), C)}
-\NormalTok{    Lω }\OperatorTok{=}\NormalTok{ ω}\OperatorTok{*}\NormalTok{np.linalg.inv(Q)}
-\NormalTok{    δL }\OperatorTok{=}\NormalTok{ np.linalg.norm(Lω}\OperatorTok{{-}}\NormalTok{L)}\OperatorTok{/}\NormalTok{np.linalg.norm(L)}
-\NormalTok{    tabδ.append(δL)}
-\NormalTok{plt.figure(figsize}\OperatorTok{=}\NormalTok{(}\DecValTok{8}\NormalTok{,}\DecValTok{3}\NormalTok{))}
-\NormalTok{plt.loglog(tω,tabδ,}\StringTok{\textquotesingle{}+{-}\textquotesingle{}}\NormalTok{)}
-\NormalTok{plt.xlabel(}\VerbatimStringTok{r"$\textbackslash{}omega$"}\NormalTok{)}
-\NormalTok{plt.ylabel(}\VerbatimStringTok{r"$\textbackslash{}frac\{||\textbackslash{}mathbb}\SpecialCharTok{\{L\}}\VerbatimStringTok{{-}\textbackslash{}omega\textbackslash{},\textbackslash{}mathbb}\SpecialCharTok{\{Q\}}\VerbatimStringTok{\^{}\{{-}1\}||\}\{||\textbackslash{}mathbb}\SpecialCharTok{\{L\}}\VerbatimStringTok{||\}$"}\NormalTok{)}
-\NormalTok{plt.grid(}\VariableTok{True}\NormalTok{,which}\OperatorTok{=}\StringTok{\textquotesingle{}both\textquotesingle{}}\NormalTok{)}
-\NormalTok{plt.show()}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}[H]
-
-\centering{
-
-\pandocbounded{\includegraphics[keepaspectratio]{99_appendices/hill_elas_files/figure-pdf/fig-error-output-1.pdf}}
-
-}
-
-\caption{\label{fig-error}Influence of the aspect ratio on the
-contribution tensor}
-
-\end{figure}%
-
 \chapter{Basic problem of elasticity
 homogenization}\label{sec-basics_elas}
 
@@ -3277,7 +3805,7 @@ usually considered:
   }\end{equation}
 \end{itemize}
 
-\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Hill lemma}, left=2mm, titlerule=0mm, colback=white, breakable, colframe=quarto-callout-note-color-frame, bottomtitle=1mm, toptitle=1mm, rightrule=.15mm, bottomrule=.15mm, coltitle=black, opacitybacktitle=0.6, arc=.35mm, colbacktitle=quarto-callout-note-color!10!white, leftrule=.75mm, opacityback=0, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, bottomrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colback=white, colframe=quarto-callout-note-color-frame, rightrule=.15mm, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Hill lemma}, toprule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, leftrule=.75mm, breakable, coltitle=black]
 
 Note that whatever the choice of boundary conditions between
 (\ref{eq-homstrainBC}) and (\ref{eq-homstressBC}), the consistency

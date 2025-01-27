@@ -75,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-524c77680309a51d71956d08d82e3b1d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-347421651eda86bd14cf96a71aabf182.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
@@ -104,6 +104,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-DF66M2GWRG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DF66M2GWRG');
+</script>      
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -293,8 +302,8 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../99_appendices/hill_elas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Hill polarization tensor in elasticity</span></span></a>
+  <a href="../99_appendices/hill_tensors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Hill polarization tensors</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -310,11 +319,11 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    </div>
+    <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="rot_matrices.py"><i class="bi bi-file-code"></i>Python script</a></li><li><a href="rot_matrices.ipynb"><i class="bi bi-file-code"></i>Jupyter notebook</a></li></ul></div></div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 $$
 
 \newcommand{\C}{{\mathbb{{C}}}}
@@ -397,7 +406,7 @@ $$
 
 
 
-<div class="quarto-title-meta column-page-right">
+<div class="quarto-title-meta column-body">
 
     
   
@@ -422,27 +431,8 @@ $$
 <p>This tutorial presents the construction of rotation matrices in <span class="math inline">\(\R^3\)</span> in the convention proposed in <a href="../99_appendices/tensor_algebra.html#sec-rottens" class="quarto-xref"><span>Section A.3</span></a> for Euler angles.</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<iconify-icon role="img" inline="" icon="flowbite:download-outline" aria-label="Icon download-outline from flowbite Iconify.design set." title="Icon download-outline from flowbite Iconify.design set."></iconify-icon> Download
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ul>
-<li><p><a href="rot_matrices.py">Python script</a></p></li>
-<li><p><a href="rot_matrices.ipynb">Jupyter notebook</a></p></li>
-</ul>
-</div>
-</div>
-</div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -451,9 +441,9 @@ $$
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="4ebe7369" class="cell" data-execution_count="1">
+<div id="053a77d7" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math, random</span>
@@ -476,7 +466,7 @@ $$
    \right)
 \]</span></p>
 <p>can be built with <code>rot3(θ, ϕ, ψ)</code></p>
-<div id="fa1552a2" class="cell" data-execution_count="2">
+<div id="8a734acc" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>π <span class="op">=</span> math.pi</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>θ, ϕ, ψ <span class="op">=</span> π<span class="op">/</span><span class="dv">3</span>, π<span class="op">/</span><span class="dv">4</span>, π<span class="op">/</span><span class="dv">5</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> rot3(θ, ϕ, ψ)</span>
@@ -503,7 +493,7 @@ Warning
 <p>Besides vectors of the spherical basis are ordered as <span class="math inline">\(\ve{\theta}\)</span>, <span class="math inline">\(\ve{\phi}\)</span>, <span class="math inline">\(\ve{r}\)</span>.</p>
 </div>
 </div>
-<div id="c3cccb5d" class="cell" data-execution_count="3">
+<div id="eab055bb" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>θ, ϕ <span class="op">=</span> π<span class="op">/</span><span class="dv">8</span>, π<span class="op">/</span><span class="dv">5</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> rot3(θ, ϕ)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"R =</span><span class="ch">\n</span><span class="st">"</span>,R)</span>
@@ -532,7 +522,7 @@ R_{3 1}^{2} &amp; R_{3 2}^{2} &amp; R_{3 3}^{2} &amp; \sqrt{2}  R_{3 2}  R_{3 3}
 \right)
 \]</span></p>
 <p>It can be directly obtained by <code>rot6(θ, ϕ, ψ)</code>.</p>
-<div id="5bb4c4e3" class="cell" data-execution_count="4">
+<div id="aa5be968" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>θ, ϕ, ψ <span class="op">=</span> π<span class="op">/</span><span class="dv">3</span>, π<span class="op">/</span><span class="dv">4</span>, π<span class="op">/</span><span class="dv">5</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> rot3(θ, ϕ, ψ)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>sboxtimes<span class="op">=</span><span class="kw">lambda</span> a,b:<span class="fl">0.5</span><span class="op">*</span>(np.einsum(<span class="st">'ik,jl'</span>,a,b)<span class="op">+</span>np.einsum(<span class="st">'il,jk'</span>,a,b))</span>
@@ -979,7 +969,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation column-page-right">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="../1_tensor_calculus/kelvin_mandel.html" class="pagination-link" aria-label="Kelvin-Mandel notation">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Kelvin-Mandel notation</span></span>

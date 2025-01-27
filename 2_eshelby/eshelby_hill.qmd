@@ -1,3 +1,15 @@
+---
+format:
+  html:
+    code-links:
+      - text: Python script
+        icon: file-code
+        href: eshelby_hill.py
+      - text: Jupyter notebook
+        icon: file-code
+        href: eshelby_hill.ipynb
+---
+
 # Eshelby and Hill polarization tensors {#sec-eshelby_hill}
 
 ::: {.callout-important icon=false} 
@@ -5,16 +17,6 @@
 ## {{< iconify pajamas issue-type-objective >}} Objectives
 
 This tutorial provides the instructions to build Eshelby and Hill polarization tensors related to an ellipsoidal shape embedded in an infinite elastic matrix of arbitrary anisotropy.
-
-:::
-
-::: {.callout-note icon=false collapse=true} 
-
-## {{< iconify flowbite download-outline >}} Download
-
-- [Python script](eshelby_hill.py)
-
-- [Jupyter notebook](eshelby_hill.ipynb)
 
 :::
 

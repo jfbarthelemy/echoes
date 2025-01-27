@@ -35,7 +35,7 @@ book:
     - references.qmd
   appendices:
     - 99_appendices/tensor_algebra.qmd
-    - 99_appendices/hill_elas.qmd
+    - 99_appendices/hill_tensors.qmd
     - 99_appendices/basics_elas.qmd
 
 number-depth: 1
@@ -71,6 +71,17 @@ format:
     echo: true
     html-math-method: mathjax
     fontsize: 100%
+    include-in-header:
+      - text: |
+          <!-- Google tag (gtag.js) -->
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-DF66M2GWRG"></script>
+          <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-DF66M2GWRG');
+          </script>      
     include-before-body: _config/_macros_html.md
     default-image-extension: html
   # pdf:
