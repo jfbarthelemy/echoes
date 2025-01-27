@@ -12,7 +12,7 @@ $$
 $$
 where $\uu{A}$ is an invertible second-order tensor so that $\trans{\uu{A}}\cdot\uu{A}$ is a positive definite symmetric tensor associated to 3 radii (eigenvalues $a\geq b \geq c$ possibly written $\rho_1 \geq \rho_2 \geq \rho_3$ for convenience) and 3 angles (orientation of the frame of orthonormal eigenvectors $\uv{e}^{\uu{A}}_1, \uv{e}^{\uu{A}}_2, \uv{e}^{\uu{A}}_3$)
 $$
-\trans{\uu{A}}\cdot\uu{A}=a^2 \uv{e}^{\uu{A}}_1\otimes\uv{e}^{\uu{A}}_1 + b^2 \uv{e}^{\uu{A}}_2\otimes\uv{e}^{\uu{A}}_2 + c^2 \uv{e}^{\uu{A}}_3\otimes\uv{e}^{\uu{A}}_3 = \sum_{i=1}^3 \rho_i \uv{e}^{\uu{A}}_i\otimes\uv{e}^{\uu{A}}_i
+\trans{\uu{A}}\cdot\uu{A}=a^2 \uv{e}^{\uu{A}}_1\otimes\uv{e}^{\uu{A}}_1 + b^2 \uv{e}^{\uu{A}}_2\otimes\uv{e}^{\uu{A}}_2 + c^2 \uv{e}^{\uu{A}}_3\otimes\uv{e}^{\uu{A}}_3 = \sum_{i=1}^3 \rho_i^2 \uv{e}^{\uu{A}}_i\otimes\uv{e}^{\uu{A}}_i
 $${#eq-ellipsoid}
 
 ## Useful integrals
