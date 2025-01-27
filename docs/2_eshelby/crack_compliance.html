@@ -95,7 +95,7 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-524c77680309a51d71956d08d82e3b1d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-347421651eda86bd14cf96a71aabf182.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
@@ -124,6 +124,15 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-DF66M2GWRG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DF66M2GWRG');
+</script>      
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -313,8 +322,8 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../99_appendices/hill_elas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Hill polarization tensor in elasticity</span></span></a>
+  <a href="../99_appendices/hill_tensors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Hill polarization tensors</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -338,7 +347,7 @@ window.Quarto = {
   <li><a href="#definition-of-the-crack-compliance" id="toc-definition-of-the-crack-compliance" class="nav-link active" data-scroll-target="#definition-of-the-crack-compliance">Definition of the crack compliance</a></li>
   <li><a href="#numerical-implementation" id="toc-numerical-implementation" class="nav-link" data-scroll-target="#numerical-implementation">Numerical implementation</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/2_eshelby/crack_compliance.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/2_eshelby/crack_compliance.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div><div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="crack_compliance.py"><i class="bi bi-file-code"></i>Python script</a></li><li><a href="crack_compliance.ipynb"><i class="bi bi-file-code"></i>Jupyter notebook</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
@@ -449,27 +458,8 @@ $$
 <p>This tutorial shows how to calculate the crack compliance of an elliptical crack embedded in an infinite elastic matrix of arbitrary anisotropy.</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<iconify-icon role="img" inline="" icon="flowbite:download-outline" aria-label="Icon download-outline from flowbite Iconify.design set." title="Icon download-outline from flowbite Iconify.design set."></iconify-icon> Download
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ul>
-<li><p><a href="crack_compliance.py">Python script</a></p></li>
-<li><p><a href="crack_compliance.ipynb">Jupyter notebook</a></p></li>
-</ul>
-</div>
-</div>
-</div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -478,9 +468,9 @@ $$
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="0215b307" class="cell" data-execution_count="1">
+<div id="5396d3d3" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math, random</span>
@@ -530,7 +520,7 @@ B_{nn}\,\uv{n}\otimes\uv{n}
 B_{mm}\,\uv{m}\otimes\uv{m}
 +
 B_{\ell\ell}\,\uv{\ell}\otimes\uv{\ell}
-\]</span> with <span class="math display">\[\begin{aligned}
+\]</span> with <span class="math display">\[\begin{align}
 B_{nn}&amp;=\frac{8\,\eta\,(1-\nu^2)}{3\,E}\,
 \frac{1}{\mathcal{E}_\eta}\label{eq:Bnn}\\
 B_{mm}&amp;=\frac{8\,\eta\,(1-\nu^2)}{3\,E}\,
@@ -538,7 +528,7 @@ B_{mm}&amp;=\frac{8\,\eta\,(1-\nu^2)}{3\,E}\,
 \,\mathcal{E}_\eta-\nu\,\eta^2\,\mathcal{K}_\eta}\\
 B_{\ell\ell}&amp;=\frac{8\,\eta\,(1-\nu^2)}{3\,E}\,
 \frac{1-\eta^2}{(1-\nu-\eta^2)\,\mathcal{E}_\eta+\nu\,\eta^2\,\mathcal{K}_\eta}
-\end{aligned}\]</span> where <span class="math inline">\(\mathcal{K}_\eta=\mathcal{K}(\sqrt{1-\eta^2})\)</span> and <span class="math inline">\(\mathcal{E}_\eta=\mathcal{E}(\sqrt{1-\eta^2})\)</span> are the complete elliptic integrals of respectively the first and second kind (see <span class="citation" data-cites="abramowitz1972">(<a href="../references.html#ref-abramowitz1972" role="doc-biblioref">Abramowitz and Stegun, 1972</a>)</span>). If the crack is circular, the components of <span class="math inline">\(\uu{B}\)</span> become <span class="math display">\[
+\end{align}\]</span> where <span class="math inline">\(\mathcal{K}_\eta=\mathcal{K}(\sqrt{1-\eta^2})\)</span> and <span class="math inline">\(\mathcal{E}_\eta=\mathcal{E}(\sqrt{1-\eta^2})\)</span> are the complete elliptic integrals of respectively the first and second kind (see <span class="citation" data-cites="abramowitz1972">(<a href="../references.html#ref-abramowitz1972" role="doc-biblioref">Abramowitz and Stegun, 1972</a>)</span>). If the crack is circular, the components of <span class="math inline">\(\uu{B}\)</span> become <span class="math display">\[
 B_{nn}=\frac{16\,(1-\nu^2)}{3\,\pi\,E}
 \quad\textrm{;}\quad
 B_{mm}=B_{\ell\ell}=\frac{B_{nn}}{1-\nu/2}
@@ -563,7 +553,7 @@ Warning
 </div>
 </div>
 <p><strong>Isotropic example</strong></p>
-<div id="0f40ff69" class="cell" data-execution_count="2">
+<div id="daaa1ddd" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> stiff_Enu(<span class="fl">1.</span>,<span class="fl">0.2</span>) <span class="op">;</span> <span class="bu">print</span>(<span class="st">"C =</span><span class="ch">\n</span><span class="st">"</span>, C)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>ω <span class="op">=</span> <span class="fl">1.e-4</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>H <span class="op">=</span> crack_compliance(spheroidal(ω), C) <span class="op">;</span> <span class="bu">print</span>(<span class="st">"H =</span><span class="ch">\n</span><span class="st">"</span>, H)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -587,7 +577,7 @@ H =
 </div>
 </div>
 <p><strong>Anisotropic example</strong></p>
-<div id="6e90e978" class="cell" data-execution_count="3">
+<div id="36df8672" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>M <span class="op">=</span> np.array([ [<span class="fl">2.66011</span>, <span class="fl">1.26432</span>, <span class="fl">0.662772</span>, <span class="fl">1.9402</span>, <span class="fl">1.54905</span>, <span class="fl">1.10384</span>],</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">1.26432</span>, <span class="fl">3.6072</span>, <span class="fl">1.78964</span>, <span class="fl">2.0247</span>, <span class="fl">1.2701</span>, <span class="fl">1.1089</span>], </span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">0.662772</span>, <span class="fl">1.78964</span>, <span class="fl">2.743</span>, <span class="fl">1.3367</span>, <span class="fl">1.2962</span>, <span class="fl">0.897632</span>], </span>
@@ -615,7 +605,7 @@ H =
  [ 0.          0.          0.          0.          0.          0.        ]]</code></pre>
 </div>
 </div>
-<div id="fafd89fb" class="cell" data-execution_count="4">
+<div id="2c0c82e7" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>H <span class="op">=</span> crack_compliance(spheroidal(ω), C, algo<span class="op">=</span>RESIDUES) <span class="op">;</span> <span class="bu">print</span>(<span class="st">"H =</span><span class="ch">\n</span><span class="st">"</span>, H)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>H =
@@ -667,7 +657,7 @@ H =
 <div id="fig-errorh" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-errorh-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="crack_compliance_files/figure-html/fig-errorh-output-1.png" width="687" height="288" class="figure-img">
+<img src="crack_compliance_files/figure-html/fig-errorh-output-1.png" width="687" height="283" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-errorh-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Fig.&nbsp;6.2: Influence of the aspect ratio on the crack compliance contribution tensor

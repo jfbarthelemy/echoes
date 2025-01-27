@@ -1,0 +1,307 @@
+<font size="6">
+{{< iconify noto building-construction >}} [**Page under construction**]{.orangebox} {{< iconify noto building-construction >}}
+</font>
+
+# Hill polarization tensors {#sec-hill_elas}
+
+The Hill polarization tensors defined in this section are related to an ellipsoid embedded in the whole space $\R^3$. An ellipsoid $\mathcal{E}_{\uu{A}}$ can be defined by an equation such as
+$$
+\uv{x}\in\mathcal{E}_{\uu{A}}
+\quad\Leftrightarrow\quad
+\uv{x}\cdot(\trans{\uu{A}}\cdot\uu{A})^{-1}\cdot\uv{x}\leq 1
+$$
+where $\uu{A}$ is an invertible second-order tensor so that $\trans{\uu{A}}\cdot\uu{A}$ is a positive definite symmetric tensor associated to 3 radii (eigenvalues $a\geq b \geq c$ possibly written $\rho_1 \geq \rho_2 \geq \rho_3$ for convenience) and 3 angles (orientation of the frame of orthonormal eigenvectors $\uv{e}_1, \uv{e}_2, \uv{e}_3$)
+$$
+\trans{\uu{A}}\cdot\uu{A}=a^2 \uv{e}_1\otimes\uv{e}_1 + b^2 \uv{e}_2\otimes\uv{e}_2 + c^2 \uv{e}_3\otimes\uv{e}_3 = \sum_{i=1}^3 \rho_i \uv{e}_i\otimes\uv{e}_i
+$${#eq-ellipsoid}
+
+## Useful integrals
+
+Some integrals useful for further calculations and intimately connected to the Newtonian potential are introduced as
+
+$$\begin{align}
+\uu{I} &= \frac{\det{\uu{A}}}{4\pi}
+\int_{\norm{\uv{\xi}}=1}
+\frac{\uv{\xi}\otimes\uv{\xi}}
+{\norm{\uu{A}\cdot\uv{\xi}}^3}\ud S_{\xi}
+=
+\frac{1}{4\pi}
+\int_{\norm{\uv{\zeta}}=1}
+\frac{%
+(\uu{A}^{-1}\cdot\uv{\zeta})
+\otimes
+(\uu{A}^{-1}\cdot\uv{\zeta})
+}{\norm{\uu{A}^{-1}\cdot\uv{\zeta}}^2}
+\ud S_{\zeta}
+\\
+\uuuu{U} &= \frac{\det{\uu{A}}}{4\pi}
+\int_{\norm{\uv{\xi}}=1}
+\frac{\uv{\xi}\otimes\uv{\xi}\otimes\uv{\xi}\otimes\uv{\xi}}
+{\norm{\uu{A}\cdot\uv{\xi}}^3}\ud S_{\xi}\\
+&=
+\frac{1}{4\pi}
+\int_{\norm{\uv{\zeta}}=1}
+\frac{%
+(\uu{A}^{-1}\cdot\uv{\zeta})
+\otimes
+(\uu{A}^{-1}\cdot\uv{\zeta})
+\otimes
+(\uu{A}^{-1}\cdot\uv{\zeta})
+\otimes
+(\uu{A}^{-1}\cdot\uv{\zeta})
+}{\norm{\uu{A}^{-1}\cdot\uv{\zeta}}^4}
+\ud S_{\zeta}
+\\
+\uuuu{V} &= \frac{\det{\uu{A}}}{4\pi}
+\int_{\norm{\uv{\xi}}=1}
+\frac{\uv{\xi}\sotimes\uu{1}\sotimes\uv{\xi}}
+{\norm{\uu{A}\cdot\uv{\xi}}^3}\ud S_{\xi}
+=
+\frac{1}{4\pi}
+\int_{\norm{\uv{\zeta}}=1}
+\frac{%
+(\uu{A}^{-1}\cdot\uv{\zeta})
+\sotimes
+\uu{1}
+\sotimes
+(\uu{A}^{-1}\cdot\uv{\zeta})
+}{\norm{\uu{A}^{-1}\cdot\uv{\zeta}}^2}
+\ud S_{\zeta}\\
+&=
+\frac{\uu{1}\sboxtimes\uu{I}+\uu{I}\sboxtimes\uu{1}}{2}
+\end{align}$${#eq-tensIUV}
+
+::: {.callout-note collapse=true} 
+
+## Proof of the change of variable in @eq-tensIUV
+
+The proof detailed here is an intrinsic alternative (see [@barthelemyIJSS2016]) to the reasoning in components presented in [@mura1987].
+
+The change of variable in @eq-tensIUV is a bijective transformation of the unit sphere into itself
+$$
+\uv{\zeta}\mapsto\uv{\xi}=\frac{\uu{A}^{-1}⋅\uv{\zeta}}{\norm{\uu{A}^{-1}⋅\uv{\zeta}}}
+\;\Leftrightarrow\;
+\uv{\xi}\mapsto\uv{\zeta}=\frac{\uu{A}⋅\uv{\xi}}{\norm{\uu{A}⋅\uv{\xi}}}
+$$
+
+The delicate point of the proof is the following result on surface elements
+$$
+\ud S_{\zeta}
+=\frac{\det{\uu{A}}}{\norm{\uu{A}\cdot\uv{\xi}}^3}\,
+\ud S_{\xi}
+\;\Leftrightarrow\;
+\ud S_{\xi}
+=\frac{\det{\uu{A}^{-1}}}{\norm{\uu{A}^{-1}\cdot\uv{\zeta}}^3}\,
+\ud S_{\zeta}
+$$
+
+It is obvious that $\uv{\xi}$ and $\uv{\zeta}$ play symmetrical role by inverting $\uu{A}$.
+
+Let's start by differentiating the transformation relationship yielding
+$$
+\ud \uv{\xi}=\left(\uu{1}-\uv{\xi}\otimes\uv{\xi}\right)\cdot
+\frac{\uu{A}^{-1}}{\norm{\uu{A}^{-1}\cdot\uv{\zeta}}}\cdot\ud\uv{\zeta}
+$$
+This transformation gradient can be decomposed as the tangent invertible application $\uv{u}\mapsto\frac{\uu{A}^{-1}}{\norm{\uu{A}^{-1}\cdot\uv{\zeta}}}\cdot\uv{u}$ followed by an orthogonal projection over the plane of normal $\uv{\xi}$.
+
+The end of the proof takes advantage of the following remarks:
+
+- the transformation of a surface vector $\ud\uv{S}$ to $\ud\uv{s}$ by the gradient transformation $\uv{X}\mapsto\ud\uv{x}=\uu{F}⋅\ud\uv{X}$ is $\ud\uv{s}=(\det{\uu{F}})\,\trans{\uu{F}}^{-1}⋅\ud\uv{S}$
+
+- as $\uv{\xi}$ and $\uv{\zeta}$ belong to unit spheres, $\ud \uv{S}_{\zeta}=\ud S_{\zeta}\,\uv{\zeta}$ and $\ud \uv{S}_{\xi}=\ud S_{\xi}\,\uv{\xi}$
+
+- the projection of material vectors over the plane of normal $\uv{\xi}$ becomes a projection on the line directed by $\uv{\xi}$ for surface vectors.
+
+It results that
+$$
+\ud S_{\xi}=\uv{\xi}\cdot\left(\left(\frac{\det{\uu{A}^{-1}}}{\norm{\uu{A}^{-1}\cdot\uv{\zeta}}^3}\right)\,
+\left(\norm{\uu{A}^{-1}\cdot\uv{\zeta}}\trans{\uu{A}}\right)\right)\cdot\uv{\zeta}
+\ud S_{\zeta}
+=
+\frac{\det{\uu{A}^{-1}}}{\norm{\uu{A}^{-1}\cdot\uv{\zeta}}^2}\,
+\uv{\zeta}\cdot\uu{A}\cdot\uv{\xi}
+\ud S_{\zeta}
+$$
+which ends the proof by observing that $\uv{\zeta}\cdot\uu{A}\cdot\uv{\xi}=\frac{\norm{\uv{\zeta}}^2}{\norm{\uu{A}^{-1}\cdot\uv{\zeta}}}$.
+
+:::
+
+The expression of the components of these tensors in the frame of the eigenvectors of $\uu{A}$ (@eq-ellipsoid) can be obtained by identification with expressions derived from the Newtonian potential ([@kellogg1929], [@eshelby1957]). First $\uu{I}$ writes
+$$
+\uu{I}=I_1\,\uv{e}_1\otimes\uv{e}_1 + I_2\,\uv{e}_2\otimes\uv{e}_2 + I_3\,\uv{e}_3\otimes\uv{e}_3 = \sum_{i=1}^3 I_i\,\uv{e}_i\otimes\uv{e}_i
+$${#eq-decI}
+
+with $I_i$ given in @tbl-Ii (see [@barthelemyIJES2020_hilltrans]).
+
+|      | ellipsoid | prolate spheroid | oblate spheroid | sphere |
+|------|------|------|------|------|
+|      | $a>b>c$ | $a>b=c$ | $a=b>c$ | $a=b=c$ |
+| $I_1 =$ |  $\frac{a\,b\,c}{(a^2-b^2)\sqrt{a^2-c^2}}\left({\cal F}-{\cal E}\right)$    |   $1-2\,I_3$   |  $c\,\frac{a^2\,\arccos{(c/a)}-c\sqrt{a^2-c^2}}{2\left(a^2-c^2\right)^{3/2}}$    |   $\frac{1}{3}$   |
+| $I_2 =$ |  $1-I_1-I_3$    |   $I_3$   |  $I_1$    |   $\frac{1}{3}$   |
+| $I_3 =$ |  $\frac{a\,b\,c}{(b^2-c^2)\sqrt{a^2-c^2}}\left(\frac{b\sqrt{a^2-c^2}}{a\,c}-{\cal E}\right)$    |   $a\,\frac{a\sqrt{a^2-c^2}-c^2\,\arcosh{(a/c)}}{2\left(a^2-c^2\right)^{3/2}}$   |   $1-2\,I_1$   |   $\frac{1}{3}$   |
+
+: Components $I_i$ {#tbl-Ii .striped .hover .bordered .danger .sm}
+
+where ${\cal F}={\cal F}(\theta,\kappa)$ and ${\cal E}={\cal E}(\theta,\kappa)$ are respectively the elliptic integrals of the first and second kinds (see [@abramowitz1972]) of amplitude and parameter^[${\cal F}(\theta,\kappa)=\int_{\varphi=0}^\theta \frac{\ud\varphi}{\sqrt{1-\kappa^2\,\sin^2\varphi}}$ and ${\cal E}(\theta,\kappa)=\int_{\varphi=0}^\theta \sqrt{1-\kappa^2\,\sin^2\varphi}\,\ud\varphi$]
+$$
+\theta=\arcsin{\sqrt{1-\frac{c^2}{a^2}}}
+\quad;\quad
+\kappa=\sqrt{\frac{a^2-b^2}{a^2-c^2}}
+$$
+
+
+|      | ellipsoid | prolate spheroid | oblate spheroid | sphere |
+|------|------|------|------|------|
+|      | $a>b>c$ | $a>b=c$ | $a=b>c$ | $a=b=c$ |
+| $I_{11} =$ | $\frac{1}{3}\left(\frac{1}{a^2}-I_{31}-I_{12} \right)$ | $\frac{1}{3}\left(\frac{1}{a^2}-2\,I_{31} \right)$ | $\frac{1}{4}\left(\frac{1}{a^2}-I_{31} \right)$ | $\frac{1}{5\,a^2}$ |
+| $I_{22} =$ | $\frac{1}{3}\left(\frac{1}{b^2}-I_{12}-I_{23} \right)$  | $\frac{1}{4}\left(\frac{1}{c^2}-I_{31} \right)$ | $\frac{1}{4}\left(\frac{1}{a^2}-I_{31} \right)$ | $\frac{1}{5\,a^2}$ |
+| $I_{33} =$ | $\frac{1}{3}\left(\frac{1}{c^2}-I_{23}-I_{31} \right)$  | $\frac{1}{4}\left(\frac{1}{c^2}-I_{31} \right)$ | $\frac{1}{3}\left(\frac{1}{c^2}-2\,I_{31} \right)$ | $\frac{1}{5\,a^2}$ |
+| $I_{23} = I_{32} =$ | $\frac{I_3-I_2}{b^2-c^2}$ | $\frac{1}{4}\left(\frac{1}{c^2}-I_{31} \right)$ | $\frac{I_3-I_2}{b^2-c^2}$ | $\frac{1}{5\,a^2}$ |
+| $I_{31} = I_{13} =$ | $\frac{I_3-I_1}{a^2-c^2}$ | $\frac{I_3-I_1}{a^2-c^2}$ | $\frac{I_3-I_1}{a^2-c^2}$ | $\frac{1}{5\,a^2}$ |
+| $I_{12} = I_{21} =$ | $\frac{I_2-I_1}{a^2-b^2}$ | $\frac{I_2-I_1}{a^2-b^2}$ | $\frac{1}{4}\left(\frac{1}{a^2}-I_{31} \right)$ | $\frac{1}{5\,a^2}$ |
+
+
+: Components $I_{ij}$ {#tbl-Iij .striped .hover .bordered .danger}
+
+::: {.callout-warning} 
+
+## Warning
+
+Note that, for writing convenience, $I_i$ of @tbl-Ii and $I_{ij}$ of @tbl-Iij are here adapted from those provided in [@kellogg1929] and [@eshelby1957]: they differ by a factor of $4\pi/3$ for $I_{ij}$ with $i\neq j$ and by $4\pi$ for the others.
+
+:::
+
+## Hill polarization tensor in elasticity
+
+### General expression
+
+A general expression of the elastic polarization tensor is derived in [@willis1977] (see also [@mura1987])
+$$\begin{align}
+\uuuu{P}(\uu{A},\uuuu{C})&=\frac{1}{4\pi}
+\int_{\norm{\uv{\zeta}}=1}
+(\uu{A}^{-1}\cdot\uv{\zeta})\sotimes
+\Big((\uu{A}^{-1}\cdot\uv{\zeta})\cdot\uuuu{C}
+\cdot(\uu{A}^{-1}\cdot\uv{\zeta})\Big)^{-1}
+\sotimes(\uu{A}^{-1}\cdot\uv{\zeta})
+\ud S_\zeta\\
+&=
+\frac{\det{\uu{A}}}{4\pi}
+\int_{\norm{\uv{\xi}}=1}
+\frac{\uv{\xi}\sotimes
+(\uv{\xi}\cdot\uuuu{C}
+\cdot\uv{\xi})^{-1}
+\sotimes\uv{\xi}}{\norm{\uu{A}\cdot\uv{\xi}}^3}
+\ud S_{\xi}
+\end{align}$${#eq-Hill}
+
+When $\uuuu{C}$ is arbitrarily anisotropic, it is necessary to resort to numerical cubature to estimate $\uuuu{P}$ as proposed in [@ghahremani1977], [@gavazzi1990] or [@masson2008]. However in some cases of anisotropy, analytical solutions are available ([@withers1989], [@barthelemyIJES2020_hilltrans]). The case of isotropic matrix is particularly developed in the next section.
+
+### Isotropic matrix
+
+In this section, the matrix is assumed isotropic so that its stiffness tensor writes by means of a bulk $k$ and shear $\mu$ or Lamé $\lambda$ and $\mu$ moduli or even Young modulus $E$ and Poisson ratio $\nu$ with $k=\frac{E}{3(1-2\nu)}$ and $\mu=\frac{E}{2(1+\nu)}$.
+$$\begin{align}
+\uuuu{C} =& {} 3k\uuuu{J}+2\mu\uuuu{K} =  3\lambda\uuuu{I}+2\mu\uuuu{K}\\
+ & \quad\textrm{with}\quad J_{ijkl}=\frac{\delta_{ij}\delta_{kl}}{3},
+I_{ijkl}=\frac{\delta_{ik}\delta_{jl}+\delta_{il}\delta_{jk}}{2}
+\textrm{ and }
+\uuuu{K}=\uuuu{I}-\uuuu{J}
+\end{align}$${#eq-isoC}
+
+Introducing (@eq-isoC) in (@eq-Hill) leads to after some algebra
+$$
+\uuuu{P}=
+\frac{1}{\lambda+2\,\mu}
+\uuuu{U}
++\frac{1}{\mu}(\uuuu{V}-\uuuu{U})
+$$
+where the tensors $\uuuu{U}$ and $\uuuu{V}$, depending only on the ellipsoidal
+tensor $\uu{A}$ of (@eq-ellipsoid), are given by (see [@barthelemyIJES2020_hilltrans])
+
+
+
+
+For an arbitrary ellipsoid defined by (@eq-ellipsoid), the components of $\uuuu{U}$ and $\uuuu{V}$ write
+$$\begin{align}
+U_{iiii}&=\frac{3(I_i-\rho_i^2I_{ii})}{2} 
+\quad\forall\, i\in\{1,2,3\}\\
+U_{iijj}=U_{ijij}=U_{ijji}&=\frac{I_j-\rho_i^2I_{ij}}{2} 
+=\frac{I_i-\rho_j^2I_{ij}}{2}
+\quad\forall\, i\neq j\in\{1,2,3\}
+\end{align}$$
+and
+$$\begin{align}
+V_{iiii}&=I_i\quad\forall\, i\in\{1,2,3\}\\
+V_{ijij}=V_{ijji}&=\frac{I_i+I_j}{4}
+\quad\forall\, i\neq j\in\{1,2,3\}
+\end{align}$$
+where the coefficients $I_i$ and $I_{ij}$ are given by
+(note that $I_i$ and $I_{ij}$ are adapted from those provided in
+[@kellogg1929]
+and [@eshelby1957]:
+they differ by a factor of $4\pi/3$
+for $I_{ij}$ with $i\neq j$ and by $4\pi$ for the others)
+
+- if $a > b > c$
+    $$\begin{align}
+    I_1&=\frac{a\,b\,c}{(a^2-b^2)\sqrt{a^2-c^2}}\,
+    \left({\cal F}-{\cal E}\right)\\
+    I_3&=\frac{a\,b\,c}{(b^2-c^2)\sqrt{a^2-c^2}}\,
+    \left(\frac{b\sqrt{a^2-c^2}}{a\,c}-
+    {\cal E}\right)\\
+    I_2&=1-I_1-I_3\\
+    I_{ij}&=\frac{I_j-I_i}{\rho_i^2-\rho_j^2}\quad\forall\, i\neq j\in\{1,2,3\}\\
+    I_{ii}&=\frac{1}{3}\left(
+    \frac{1}{\rho_i^2}-
+    \sum_{j\neq i}I_{ij} \right) 
+    \quad\forall\, i\in\{1,2,3\}
+    \end{align}$$  
+    where ${\cal F}={\cal F}(\theta,\kappa)$ and
+    ${\cal E}={\cal E}(\theta,\kappa)$
+    are respectively the elliptic integrals of the first and second
+    kinds (see [@abramowitz1972]) of amplitude and parameter
+    $$
+    \theta=\arcsin{\sqrt{1-\frac{c^2}{a^2}}}
+    \quad;\quad
+    \kappa=\sqrt{\frac{a^2-b^2}{a^2-c^2}}
+    $$
+- if $a > b = c$ (prolate spheroid)
+    $$\begin{align}
+    I_2=I_3&=a\,
+    \frac{a\sqrt{a^2-c^2}-c^2\,\arcosh{(a/c)}}
+    {2\left(a^2-c^2\right)^{3/2}}\\
+    I_1&=1-2\,I_3\\
+    I_{1i}=I_{i1}&=\frac{I_i-I_1}{a^2-\rho_i^2}\quad
+    \forall\, i\in\{2,3\}\\
+    I_{ij}&=\frac{1}{4}
+    \left(\frac{1}{c^2}-I_{31} \right) 
+    \quad\forall\, i,j\in\{2,3\}\\
+    I_{11}&=\frac{1}{3}
+    \left(\frac{1}{a^2}-2\,I_{31} \right)
+    \end{align}$$
+- if $a = b > c$ (oblate spheroid)
+    $$\begin{align}
+    I_1=I_2&=c\,
+    \frac{a^2\,\arccos{(c/a)}-c\sqrt{a^2-c^2}}
+    {2\left(a^2-c^2\right)^{3/2}}\\
+    I_3&=1-2\,I_1\\
+    I_{3i}=I_{i3}&=\frac{I_3-I_i}{\rho_i^2-c^2}\quad
+    \forall\, i\in\{1,2\}\\
+    I_{ij}&=\frac{1}{4}
+    \left(\frac{1}{a^2}-I_{31} \right) 
+    \quad\forall\, i,j\in\{1,2\}\\
+    I_{33}&=\frac{1}{3}
+    \left(\frac{1}{c^2}-2\,I_{31} \right)
+    \end{align}$$
+- if $a = b = c$ (sphere)
+    $$\begin{align}
+    I_1=I_2=I_3&=\frac{1}{3}\\
+    I_{ij}&=\frac{1}{5\,a^2}\quad\forall\, i,j\in\{1,2,3\}
+    \end{align}$$
+
+In this last case of spherical inclusion ($\uu{A}=\uu{1}$), $\uuuu{U}$ and $\uuuu{V}$ are simply decomposed as
+$$
+\uuuu{U}=\frac{1}{3}\uuuu{J}+\frac{2}{15}\uuuu{K}
+\quad\textrm{ and }\quad
+\uuuu{V}=\frac{1}{3}\uuuu{I}
+$$
+

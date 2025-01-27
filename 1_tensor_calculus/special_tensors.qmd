@@ -1,3 +1,15 @@
+---
+format:
+  html:
+    code-links:
+      - text: Python script
+        icon: file-code
+        href: special_tensors.py
+      - text: Jupyter notebook
+        icon: file-code
+        href: special_tensors.ipynb
+---
+
 # Special tensors {#sec-special_tensors}
 
 ::: {.callout-important icon=false} 
@@ -5,16 +17,6 @@
 ## {{< iconify pajamas issue-type-objective >}} Objectives
 
 This tutorial presents the matrix representation of isotropic tensors of second and fourth orders as well as Walpole tensors useful for transverse isotropy. It strongly relies on conventions of tensor algebra introduced in @sec-tensor_algebra especially in terms of products and contractions.
-
-:::
-
-::: {.callout-note icon=false collapse=true} 
-
-## {{< iconify flowbite download-outline >}} Download
-
-- [Python script](special_tensors.py)
-
-- [Jupyter notebook](special_tensors.ipynb)
 
 :::
 

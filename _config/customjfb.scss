@@ -117,3 +117,97 @@ body {
   background-image: $body-bg-image;
 }
 
+/*-- scss:mixins --*/
+
+@mixin bodyBackground() {
+  @include radial-gradient(rgb(240, 228, 221), rgb(255, 255, 255));
+}
+
+// h1.title {
+//   font: Monaco;
+//   color: blue;
+//   font-size: 2em;
+// }
+
+.red { color: red; }
+.blue { color: blue; }
+.green { color: green; }
+
+// Cerema colors
+.pistache_C { color: #B0CC4E; }
+.pistache2_C { color: #96AB5B; }
+.jaune_C { color: #FDEB7D; }
+.jaune2_C { color: #F7D05C; }
+.orange_C { color: #F49D54; }
+.orange2_C { color: #EF7757; }
+.bleu_C { color: #7E97CE; }
+.bleu2_C { color: #5A71B4; }
+.vert_C { color: #60B467; }
+.vert2_C { color: #448D60; }
+.pistache_light_C { color: #EBF1D4; }
+.jaune_light_C { color: #FEFAE0; }
+.orange_light_C { color: #FBE6D6; }
+.bleu_light_C { color: #DEE5F1; }
+.vert_light_C { color: #D8ECDA; }
+
+.bluebox {
+  background: lightblue;
+  box-shadow: 0 0 1px blue;
+  color: blue;
+}
+
+.redbox {
+  background: lightpink;
+  box-shadow: 0 0 1px red;
+  color: red;
+}
+
+.greenbox {
+  background: lightgreen;
+  box-shadow: 0 0 1px green;
+  color: green;
+}
+
+.pistachebox {
+  background: #EBF1D4;
+  box-shadow: 0 0 1px #96AB5B;
+  color: #96AB5B;
+}
+
+.jaunebox {
+  background: #FEFAE0;
+  box-shadow: 0 0 1px #F7D05C;
+  color: #F7D05C;
+}
+
+.orangebox {
+  background: #FBE6D6;
+  box-shadow: 0 0 1px #EF7757;
+  color: #EF7757;
+}
+
+.bleubox {
+  background: #DEE5F1;
+  box-shadow: 0 0 1px #5A71B4;
+  color: #5A71B4;
+}
+
+.vertbox {
+  background: #D8ECDA;
+  box-shadow: 0 0 1px #448D60;
+  color: #448D60;
+}
+
+.eqbox {
+  background: lightgreen;
+  border: 2px solid blue;
+  padding: 10px;
+  color: black;
+}
+
+.largeeqbox {
+  background: lightgreen;
+  border: 2px solid blue;
+  padding: 20px 10px 20px 10px;
+  color: black;
+}

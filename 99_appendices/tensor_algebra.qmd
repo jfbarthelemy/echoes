@@ -3,10 +3,10 @@
 ## Conventions of tensor algebra {#sec-tensoralgebra_convention}
 
 This appendix presents some conventions regarding tensor algebra in the usual three-dimensional euclidean space $E=\R^3$. In the sequel, tensor components are associated to an orthonormal frame $(\ve{i})_{i=1,2,3}$ so that introducing the notion of tensor variance is useless here. The following presentation relies on the prior knowledge of the definition of tensors as multilinear operators and the classical isomorphism between the euclidean space and its dual through the scalar product
-$$\begin{aligned}
+$$\begin{align}
 \phi\,\colon E & \longrightarrow  E^* \\
        \uv{v} & \longmapsto \uv{v}\cdot\bullet
-\end{aligned}$${#eq-scalarprod}
+\end{align}$${#eq-scalarprod}
 which allows to identify vectors and linear forms.
 
 Consider two tensors $\mathcal{T}$ and $\mathcal{T}'$ of respective orders $p$ and $q$. The tensor product $\mathcal{T}\otimes\mathcal{T}'$ is the $(p+q)$ order tensor decomposed as
@@ -65,22 +65,22 @@ $$
 $${#eq-dot4}
 
 Another useful operator introduced in [@brisard2014a]^[see [https://sbrisard.github.io/posts/20140226-decomposition_of_transverse_isotropic_fourth-rank_tensors.html](https://sbrisard.github.io/posts/20140226-decomposition_of_transverse_isotropic_fourth-rank_tensors.html)] is the modified tensor product denoted by $\boxtimes$. The fourth-order tensor $\uu{a}\boxtimes\uu{b}$ (where $\uu{a}$ and $\uu{b}$ are two second-order tensors) is defined by its operation over any second-order tensor $\uu{p}$ and by its components
-$$\begin{aligned}
+$$\begin{align}
 & (\uu{a}\boxtimes\uu{b}):\uu{p}=\uu{a}\cdot\uu{p}\cdot\trans{\uu{b}}
 =a_{ik}\,p_{kl}\,b_{jl}\,\ve{i}\otimes\ve{j}
 \\
 & \left(\uu{a}\boxtimes\uu{b}\right)_{ijkl}=a_{ik}\,b_{jl}
-\end{aligned}$${#eq-boxtimes}
+\end{align}$${#eq-boxtimes}
 
 A symmetrized version of $\boxtimes$ denoted by $\sboxtimes$ can also be
 introduced. It operates as
-$$\begin{aligned}
+$$\begin{align}
 & (\uu{a}\sboxtimes\uu{b}):\uu{p}=
 (\uu{a}\boxtimes\uu{b}):\left(\frac{\uu{p}+\trans{\uu{p}}}{2}\right)
 =\uu{a}\cdot\left(\frac{\uu{p}+\trans{\uu{p}}}{2}\right)\cdot\trans{\uu{b}}
 \\
 & (\uu{a}\sboxtimes\uu{b})_{ijkl}=\frac{a_{ik}\,b_{jl}+a_{il}\,b_{jk}}{2}
-\end{aligned}$${#eq-sboxtimes}
+\end{align}$${#eq-sboxtimes}
 
 It follows from these definitions that the fourth-order identity, as an operator
 over second-order tensors, writes $\uuuu{1}=\uu{1}\boxtimes\uu{1}$ where
@@ -92,7 +92,7 @@ symmetries, is classically used to play the role of fourth-order identity
 operating over symmetric second-order tensors.
 
 Some remarkable relationships result from the previous definitions
-$$\begin{aligned}
+$$\begin{align}
 &(\uu{a}\boxtimes\uu{b}):(\uv{u}\otimes\uv{v})=
 (\uu{a}\cdot\uv{u})\otimes(\uu{b}\cdot\uv{v})
 &(a) \\
@@ -119,7 +119,7 @@ $$\begin{aligned}
 \;\textrm{ but }\;
 (\uu{a}\sboxtimes\uu{b})^{-1}\neq\uu{a}^{-1}\sboxtimes\uu{b}^{-1}
 &(h)
-\end{aligned}$${#eq-propboxtimes}
+\end{align}$${#eq-propboxtimes}
 
 ## Kelvin-Mandel notation {#sec-KM}
 
@@ -242,7 +242,7 @@ of (@eq-KM4bis) exactly corresponds to the colored block in (@eq-KM4).
 
 ## Rotation of tensors {#sec-rottens}
 
-Recalling that the set of second-order tensors is isomorphic to the set of endomorphism in an euclidean space, it is natural to define a rotation tensor as an element of the special orthogonal group, i.e. tensors $\uu{R}$ such that $\trans{\uu{R}}\cdot\uu{R}=\uu{1}$ and $\det{\uu{R}}=1$.
+Recalling that the set of second-order tensors is isomorphic to the set of endomorphisms in an euclidean space, it is natural to define a rotation tensor as an element of the special orthogonal group, i.e. tensors $\uu{R}$ such that $\trans{\uu{R}}\cdot\uu{R}=\uu{1}$ and $\det{\uu{R}}=1$.
 In $\R^3$ equipped with an orthonormal frame $(\ve{i})_{i=1,2,3}$, these tensors can be defined by three Euler angles
 $(θ,ϕ,ψ)∈[0,π]×[0,2π]×[0,2π]$ (see @fig-eulerangles) such that^[with the simplifying writing convention $c_\theta=\cos\theta$, $s_\theta=\sin\theta$, $c_\phi=\cos\phi$, $s_\phi=\sin\phi$, $c_\psi=\cos\psi$, $s_\psi=\sin\psi$]
 $$
@@ -413,7 +413,7 @@ fourth-order transversely isotropic relatively to a an axis oriented by the unit
 vector $\n$ is composed of the six following tensors
 built from $\uu{1}_n=\n\otimes\n$
 and $\uu{1}_T=\uu{1}-\uu{1}_n$
-$$\begin{aligned}
+$$\begin{align}
 & \uuuu{W}_1=\uu{1}_n\otimes\uu{1}_n
 \quad\textrm{ ; }\quad
 \uuuu{W}_2=\frac{\uu{1}_T\otimes\uu{1}_T}{2}
@@ -426,7 +426,7 @@ $$\begin{aligned}
 &\textrm{ ; }&
 \uuuu{W}_6=\uu{1}_T\sboxtimes\uu{1}_n+\uu{1}_n\sboxtimes\uu{1}_T
 &(b)
-\end{aligned}$${#eq-WalpoleBasis}
+\end{align}$${#eq-WalpoleBasis}
 
 Any transversely isotropic fourth-order tensor can be decomposed as
 $$
@@ -454,18 +454,18 @@ $${#eq-syntWalpole}
 Such a synthetic notation allows simple calculations
 of products and inverses which consist in classical matrix or scalar products
 and inverses
-$$\begin{aligned}
+$$\begin{align}
 & \uuuu{L} : \uuuu{M} \equiv \left( L M , {\ell}_{5} m_5 , {\ell}_{6} m_6
 \right)
 &(a) \\
 & {\uuuu{L}}^{-1} \equiv \left( {L}^{-1} , \frac{1}{{\ell}_{5}} , \frac{1}{{\ell}_{6}}
 \right)
 &(b)
-\end{aligned}$${#eq-calWalpole}
+\end{align}$${#eq-calWalpole}
 
 A symmetrized version of the Walpole also exists; it is composed of the following tensors
 
-$$\begin{aligned}
+$$\begin{align}
 & \uuuu{W}^s_1=\uu{1}_n\otimes\uu{1}_n
 \quad\textrm{ ; }\quad
 \uuuu{W}^s_2=\frac{\uu{1}_T\otimes\uu{1}_T}{2}
@@ -476,4 +476,4 @@ $$\begin{aligned}
 &\textrm{ ; }&
 \uuuu{W}^s_5=\uu{1}_T\sboxtimes\uu{1}_n+\uu{1}_n\sboxtimes\uu{1}_T
 &(b)
-\end{aligned}$${#eq-symWalpoleBasis}
+\end{align}$${#eq-symWalpoleBasis}
