@@ -1,7 +1,7 @@
-<font size="6">
+<!-- <font size="6">
 {{< iconify noto building-construction >}} [**Page under construction**]{.orangebox} {{< iconify noto building-construction >}}
 </font>
-
+ -->
 # Hill polarization tensors {#sec-hill_elas}
 
 The Hill polarization tensors defined in this section are related to an ellipsoid embedded in the whole space $\R^3$. An ellipsoid $\mathcal{E}_{\uu{A}}$ can be defined by an equation such as
@@ -10,9 +10,9 @@ $$
 \quad\Leftrightarrow\quad
 \uv{x}\cdot(\trans{\uu{A}}\cdot\uu{A})^{-1}\cdot\uv{x}\leq 1
 $$
-where $\uu{A}$ is an invertible second-order tensor so that $\trans{\uu{A}}\cdot\uu{A}$ is a positive definite symmetric tensor associated to 3 radii (eigenvalues $a\geq b \geq c$ possibly written $\rho_1 \geq \rho_2 \geq \rho_3$ for convenience) and 3 angles (orientation of the frame of orthonormal eigenvectors $\uv{e}_1, \uv{e}_2, \uv{e}_3$)
+where $\uu{A}$ is an invertible second-order tensor so that $\trans{\uu{A}}\cdot\uu{A}$ is a positive definite symmetric tensor associated to 3 radii (eigenvalues $a\geq b \geq c$ possibly written $\rho_1 \geq \rho_2 \geq \rho_3$ for convenience) and 3 angles (orientation of the frame of orthonormal eigenvectors $\uv{e}^{\uu{A}}_1, \uv{e}^{\uu{A}}_2, \uv{e}^{\uu{A}}_3$)
 $$
-\trans{\uu{A}}\cdot\uu{A}=a^2 \uv{e}_1\otimes\uv{e}_1 + b^2 \uv{e}_2\otimes\uv{e}_2 + c^2 \uv{e}_3\otimes\uv{e}_3 = \sum_{i=1}^3 \rho_i \uv{e}_i\otimes\uv{e}_i
+\trans{\uu{A}}\cdot\uu{A}=a^2 \uv{e}^{\uu{A}}_1\otimes\uv{e}^{\uu{A}}_1 + b^2 \uv{e}^{\uu{A}}_2\otimes\uv{e}^{\uu{A}}_2 + c^2 \uv{e}^{\uu{A}}_3\otimes\uv{e}^{\uu{A}}_3 = \sum_{i=1}^3 \rho_i \uv{e}^{\uu{A}}_i\otimes\uv{e}^{\uu{A}}_i
 $${#eq-ellipsoid}
 
 ## Useful integrals
@@ -20,7 +20,7 @@ $${#eq-ellipsoid}
 Some integrals useful for further calculations and intimately connected to the Newtonian potential are introduced as
 
 $$\begin{align}
-\uu{I} &= \frac{\det{\uu{A}}}{4\pi}
+\uu{I}^{\uu{A}} &= \frac{\det{\uu{A}}}{4\pi}
 \int_{\norm{\uv{\xi}}=1}
 \frac{\uv{\xi}\otimes\uv{\xi}}
 {\norm{\uu{A}\cdot\uv{\xi}}^3}\ud S_{\xi}
@@ -34,7 +34,7 @@ $$\begin{align}
 }{\norm{\uu{A}^{-1}\cdot\uv{\zeta}}^2}
 \ud S_{\zeta}
 \\
-\uuuu{U} &= \frac{\det{\uu{A}}}{4\pi}
+\uuuu{U}^{\uu{A}} &= \frac{\det{\uu{A}}}{4\pi}
 \int_{\norm{\uv{\xi}}=1}
 \frac{\uv{\xi}\otimes\uv{\xi}\otimes\uv{\xi}\otimes\uv{\xi}}
 {\norm{\uu{A}\cdot\uv{\xi}}^3}\ud S_{\xi}\\
@@ -52,7 +52,7 @@ $$\begin{align}
 }{\norm{\uu{A}^{-1}\cdot\uv{\zeta}}^4}
 \ud S_{\zeta}
 \\
-\uuuu{V} &= \frac{\det{\uu{A}}}{4\pi}
+\uuuu{V}^{\uu{A}} &= \frac{\det{\uu{A}}}{4\pi}
 \int_{\norm{\uv{\xi}}=1}
 \frac{\uv{\xi}\sotimes\uu{1}\sotimes\uv{\xi}}
 {\norm{\uu{A}\cdot\uv{\xi}}^3}\ud S_{\xi}
@@ -68,12 +68,12 @@ $$\begin{align}
 }{\norm{\uu{A}^{-1}\cdot\uv{\zeta}}^2}
 \ud S_{\zeta}\\
 &=
-\frac{\uu{1}\sboxtimes\uu{I}+\uu{I}\sboxtimes\uu{1}}{2}
+\frac{\uu{1}\sboxtimes\uu{I}^{\uu{A}}+\uu{I}^{\uu{A}}\sboxtimes\uu{1}}{2}
 \end{align}$${#eq-tensIUV}
 
 ::: {.callout-note collapse=true} 
 
-## Proof of the change of variable in @eq-tensIUV
+## Proof of the change of variable in @eq-tensIUV (click for details)
 
 The proof detailed here is an intrinsic alternative (see [@barthelemyIJSS2016]) to the reasoning in components presented in [@mura1987].
 
@@ -122,16 +122,16 @@ $$
 \uv{\zeta}\cdot\uu{A}\cdot\uv{\xi}
 \ud S_{\zeta}
 $$
-which ends the proof by observing that $\uv{\zeta}\cdot\uu{A}\cdot\uv{\xi}=\frac{\norm{\uv{\zeta}}^2}{\norm{\uu{A}^{-1}\cdot\uv{\zeta}}}$.
+which ends the proof by observing that $\uv{\zeta}\cdot\uu{A}\cdot\uv{\xi}=\frac{\norm{\uv{\zeta}}^2}{\norm{\uu{A}^{-1}\cdot\uv{\zeta}}}=\frac{1}{\norm{\uu{A}^{-1}\cdot\uv{\zeta}}}$.
 
 :::
 
-The expression of the components of these tensors in the frame of the eigenvectors of $\uu{A}$ (@eq-ellipsoid) can be obtained by identification with expressions derived from the Newtonian potential ([@kellogg1929], [@eshelby1957]). First $\uu{I}$ writes
+By symmetry, it is obvious that $\uu{A}$ (@eq-ellipsoid) and $\uu{I}^{\uu{A}}$ are simultaneously diagonalizable i.e. they share the same eigenvectors:
 $$
-\uu{I}=I_1\,\uv{e}_1\otimes\uv{e}_1 + I_2\,\uv{e}_2\otimes\uv{e}_2 + I_3\,\uv{e}_3\otimes\uv{e}_3 = \sum_{i=1}^3 I_i\,\uv{e}_i\otimes\uv{e}_i
+\uu{I}^{\uu{A}}=I_1\,\uv{e}^{\uu{A}}_1\otimes\uv{e}^{\uu{A}}_1 + I_2\,\uv{e}^{\uu{A}}_2\otimes\uv{e}^{\uu{A}}_2 + I_3\,\uv{e}^{\uu{A}}_3\otimes\uv{e}^{\uu{A}}_3 = \sum_{i=1}^3 I_i\,\uv{e}^{\uu{A}}_i\otimes\uv{e}^{\uu{A}}_i
 $${#eq-decI}
 
-with $I_i$ given in @tbl-Ii (see [@barthelemyIJES2020_hilltrans]).
+The components $I_i$ can be obtained by identification with expressions derived from the Newtonian potential ([@kellogg1929], [@eshelby1957]). They are gathered in @tbl-Ii or recalled a little later in a generic form ([@barthelemyIJSS2016], [@barthelemyIJES2020_hilltrans]).
 
 |      | ellipsoid | prolate spheroid | oblate spheroid | sphere |
 |------|------|------|------|------|
@@ -149,6 +149,7 @@ $$
 \kappa=\sqrt{\frac{a^2-b^2}{a^2-c^2}}
 $$
 
+Before detailing the components of $\uuuu{U}^{\uu{A}}$ and $\uuuu{V}^{\uu{A}}$ it is convenient to introduce the coefficients $I_{ij}$ in @tbl-Iij adapted from the approach proposed in [@eshelby1957].
 
 |      | ellipsoid | prolate spheroid | oblate spheroid | sphere |
 |------|------|------|------|------|
@@ -170,6 +171,96 @@ $$
 Note that, for writing convenience, $I_i$ of @tbl-Ii and $I_{ij}$ of @tbl-Iij are here adapted from those provided in [@kellogg1929] and [@eshelby1957]: they differ by a factor of $4\pi/3$ for $I_{ij}$ with $i\neq j$ and by $4\pi$ for the others.
 
 :::
+
+Components $I_i$ and $I_{ij}$ are alternatively given in a generic form in the following section to be expanded.
+
+::: {.callout-note collapse=true}
+
+## Generic expressions of $I_i$ and $I_{ij}$ (click for details)
+
+::: {.panel-tabset}
+
+## $a > b > c$
+
+$$\begin{align}
+I_1&=\frac{a\,b\,c}{(a^2-b^2)\sqrt{a^2-c^2}}\,
+\left({\cal F}-{\cal E}\right)\\
+I_3&=\frac{a\,b\,c}{(b^2-c^2)\sqrt{a^2-c^2}}\,
+\left(\frac{b\sqrt{a^2-c^2}}{a\,c}-
+{\cal E}\right)\\
+I_2&=1-I_1-I_3\\
+I_{ij}&=\frac{I_j-I_i}{\rho_i^2-\rho_j^2}\quad\forall\, i\neq j\in\{1,2,3\}\\
+I_{ii}&=\frac{1}{3}\left(
+\frac{1}{\rho_i^2}-
+\sum_{j\neq i}I_{ij} \right) 
+\quad\forall\, i\in\{1,2,3\}
+\end{align}$$
+
+## $a > b = c$ (prolate spheroid)
+
+$$\begin{align}
+I_2=I_3&=a\,
+\frac{a\sqrt{a^2-c^2}-c^2\,\arcosh{(a/c)}}
+{2\left(a^2-c^2\right)^{3/2}}\\
+I_1&=1-2\,I_3\\
+I_{1i}=I_{i1}&=\frac{I_i-I_1}{a^2-\rho_i^2}\quad
+\forall\, i\in\{2,3\}\\
+I_{ij}&=\frac{1}{4}
+\left(\frac{1}{c^2}-I_{31} \right) 
+\quad\forall\, i,j\in\{2,3\}\\
+I_{11}&=\frac{1}{3}
+\left(\frac{1}{a^2}-2\,I_{31} \right)
+\end{align}$$
+
+## $a = b > c$ (oblate spheroid)
+
+$$\begin{align}
+I_1=I_2&=c\,
+\frac{a^2\,\arccos{(c/a)}-c\sqrt{a^2-c^2}}
+{2\left(a^2-c^2\right)^{3/2}}\\
+I_3&=1-2\,I_1\\
+I_{3i}=I_{i3}&=\frac{I_3-I_i}{\rho_i^2-c^2}\quad
+\forall\, i\in\{1,2\}\\
+I_{ij}&=\frac{1}{4}
+\left(\frac{1}{a^2}-I_{31} \right) 
+\quad\forall\, i,j\in\{1,2\}\\
+I_{33}&=\frac{1}{3}
+\left(\frac{1}{c^2}-2\,I_{31} \right)
+\end{align}$$
+
+## $a = b = c$ (sphere)
+$$\begin{align}
+I_1=I_2=I_3&=\frac{1}{3}\\
+I_{ij}&=\frac{1}{5\,a^2}\quad\forall\, i,j\in\{1,2,3\}
+\end{align}$$
+
+:::
+
+:::
+
+For an arbitrary ellipsoid defined by (@eq-ellipsoid), the non-zero components of $\uuuu{U}^{\uu{A}}$ and $\uuuu{V}^{\uu{A}}$ write ([@barthelemyIJSS2016], [@barthelemyIJES2020_hilltrans])
+$$\begin{align}
+U_{iiii}&=\frac{3(I_i-\rho_i^2I_{ii})}{2} 
+\quad\forall\, i\in\{1,2,3\}\\
+U_{iijj}=U_{ijij}=U_{ijji}&=\frac{I_j-\rho_i^2I_{ij}}{2} 
+=\frac{I_i-\rho_j^2I_{ij}}{2}
+\quad\forall\, i\neq j\in\{1,2,3\}
+\end{align}$$
+and
+$$\begin{align}
+V_{iiii}&=I_i\quad\forall\, i\in\{1,2,3\}\\
+V_{ijij}=V_{ijji}&=\frac{I_i+I_j}{4}
+\quad\forall\, i\neq j\in\{1,2,3\}
+\end{align}$$
+
+In the case of a spherical inclusion ($\uu{A}=\uu{1}$), note that $\uuuu{U}^{\uu{A}}$ and $\uuuu{V}^{\uu{A}}$ are simply decomposed as
+$$
+\uuuu{U}^{\uu{A}}=\frac{1}{3}\uuuu{J}+\frac{2}{15}\uuuu{K}
+\quad\textrm{ and }\quad
+\uuuu{V}^{\uu{A}}=\frac{1}{3}\uuuu{I}
+$$
+where $\uuuu{I}$, $\uuuu{J}$ and $\uuuu{K}$ are defined in @sec-ISO.
+
 
 ## Hill polarization tensor in elasticity
 
@@ -193,8 +284,9 @@ $$\begin{align}
 \sotimes\uv{\xi}}{\norm{\uu{A}\cdot\uv{\xi}}^3}
 \ud S_{\xi}
 \end{align}$${#eq-Hill}
+where $\uuuu{C}$ is the stiffness tensor of the reference medium.
 
-When $\uuuu{C}$ is arbitrarily anisotropic, it is necessary to resort to numerical cubature to estimate $\uuuu{P}$ as proposed in [@ghahremani1977], [@gavazzi1990] or [@masson2008]. However in some cases of anisotropy, analytical solutions are available ([@withers1989], [@barthelemyIJES2020_hilltrans]). The case of isotropic matrix is particularly developed in the next section.
+When $\uuuu{C}$ is arbitrarily anisotropic, it is necessary to resort to numerical cubature to estimate $\uuuu{P}$ as proposed in [@ghahremani1977], [@gavazzi1990] or [@masson2008]. However in some cases of anisotropy, analytical solutions are available ([@withers1989], [@suvorov2002]). Note that the transformation technique ([@pouya2000], [@pouya2006]) allows to extend the set of available anisotropy leading to analytical Hill tensor [@barthelemyIJES2020_hilltrans]. The case of isotropic matrix is particularly developed in the next section.
 
 ### Isotropic matrix
 
@@ -211,97 +303,87 @@ Introducing (@eq-isoC) in (@eq-Hill) leads to after some algebra
 $$
 \uuuu{P}=
 \frac{1}{\lambda+2\,\mu}
-\uuuu{U}
-+\frac{1}{\mu}(\uuuu{V}-\uuuu{U})
+\uuuu{U}^{\uu{A}}
++\frac{1}{\mu}(\uuuu{V}^{\uu{A}}-\uuuu{U}^{\uu{A}})
 $$
-where the tensors $\uuuu{U}$ and $\uuuu{V}$, depending only on the ellipsoidal
+where the tensors $\uuuu{U}^{\uu{A}}$ and $\uuuu{V}^{\uu{A}}$, depending only on the ellipsoidal
 tensor $\uu{A}$ of (@eq-ellipsoid), are given by (see [@barthelemyIJES2020_hilltrans])
 
+## Hill polarization tensor in conductivity
 
+### General expression
 
-
-For an arbitrary ellipsoid defined by (@eq-ellipsoid), the components of $\uuuu{U}$ and $\uuuu{V}$ write
+The conductivity polarization tensor related to a conductivity tensor $\uu{K}$ and an ellipsoid defined by $\uu{A}$ is also expressed in [@willis1977] under the form
 $$\begin{align}
-U_{iiii}&=\frac{3(I_i-\rho_i^2I_{ii})}{2} 
-\quad\forall\, i\in\{1,2,3\}\\
-U_{iijj}=U_{ijij}=U_{ijji}&=\frac{I_j-\rho_i^2I_{ij}}{2} 
-=\frac{I_i-\rho_j^2I_{ij}}{2}
-\quad\forall\, i\neq j\in\{1,2,3\}
-\end{align}$$
-and
+\uu{P}(\uu{A},\uu{K})&=\frac{1}{4\pi}
+\int_{\norm{\uv{\zeta}}=1}
+\frac{(\uu{A}^{-1}\cdot\uv{\zeta})\sotimes(\uu{A}^{-1}\cdot\uv{\zeta})}
+{(\uu{A}^{-1}\cdot\uv{\zeta})\cdot\uu{K}
+\cdot(\uu{A}^{-1}\cdot\uv{\zeta})}
+\ud S_\zeta\\
+&=
+\frac{\det{\uu{A}}}{4\pi}
+\int_{\norm{\uv{\xi}}=1}
+\frac{\uv{\xi}\otimes\uv{\xi}}{(\uv{\xi}\cdot\uu{K}\cdot\uv{\xi})\,\norm{\uu{A}\cdot\uv{\xi}}^3}
+\ud S_{\xi}
+\end{align}$${#eq-Hillcond}
+
+### Isotropic matrix
+
+The case of an isotropic matrix $\uu{K}=K\,\uu{1}$ is straightforward:
+$$
+\uu{P}(\uu{A},K\,\uu{1})=
+\frac{1}{K}\,
+\left(
+\frac{\det{\uu{A}}}{4\pi}
+\int_{\norm{\uv{\xi}}=1}
+\frac{\uv{\xi}\otimes\uv{\xi}}{\norm{\uu{A}\cdot\uv{\xi}}^3}
+\ud S_{\xi}\right)
+=
+\frac{\uu{I}^{\uu{A}}}{K}
+$${#eq-Hillcondiso}
+with $\uu{I}^{\uu{A}}$ defined in (@eq-tensIUV) and derived in (@eq-decI) and @tbl-Ii.
+
+### Arbitrarily anisotropic matrix
+
+The complete solution of the second-order Hill polarization tensor in a matrix of arbitrary has been derived in [@barthelemyTIPM2009] from a reasoning based on Green solution. However a more direct solution, based on the idea of transformation, has been detailed in [@giraudMOM2019] and is recalled here. It first relies on the idea of square-root of the conductivity tensor. As a positive definite symmetric second-order tensor $\uu{K}$, it can be diagonalized in an orthonormal frame $\left(\uu{e}^K_i\right)_{i=1,2,3}$ with strictly positive eigenvalues $\left(K_i\right)_{i=1,2,3}$ such that
+$$
+\uu{K}=K_1 \uv{e}^{\uu{K}}_1\otimes\uv{e}^{\uu{K}}_1 + K_2 \uv{e}^{\uu{K}}_2\otimes\uv{e}^{\uu{K}}_2 + K_3 \uv{e}^{\uu{K}}_3\otimes\uv{e}^{\uu{K}}_3
+$${#eq-decK}
+Its square-root is then defined by
+$$
+\uu{K}^{½}=\sqrt{K_1} \uv{e}^{\uu{K}}_1\otimes\uv{e}^{\uu{K}}_1 + \sqrt{K_2} \uv{e}^{\uu{K}}_2\otimes\uv{e}^{\uu{K}}_2 + \sqrt{K_3} \uv{e}^{\uu{K}}_3\otimes\uv{e}^{\uu{K}}_3
+$${#eq-sqrtK}
+of inverse
+$$
+\uu{K}^{-½}=\left(\uu{K}^{½}\right)^{-1}=\frac{1}{\sqrt{K_1}} \uv{e}^{\uu{K}}_1\otimes\uv{e}^{\uu{K}}_1 + \frac{1}{\sqrt{K_2}} \uv{e}^{\uu{K}}_2\otimes\uv{e}^{\uu{K}}_2 + \frac{1}{\sqrt{K_3}} \uv{e}^{\uu{K}}_3\otimes\uv{e}^{\uu{K}}_3
+$${#eq-invsqrtK}
+
+It follows that (@eq-Hillcond) rewrites
 $$\begin{align}
-V_{iiii}&=I_i\quad\forall\, i\in\{1,2,3\}\\
-V_{ijij}=V_{ijji}&=\frac{I_i+I_j}{4}
-\quad\forall\, i\neq j\in\{1,2,3\}
-\end{align}$$
-where the coefficients $I_i$ and $I_{ij}$ are given by
-(note that $I_i$ and $I_{ij}$ are adapted from those provided in
-[@kellogg1929]
-and [@eshelby1957]:
-they differ by a factor of $4\pi/3$
-for $I_{ij}$ with $i\neq j$ and by $4\pi$ for the others)
-
-- if $a > b > c$
-    $$\begin{align}
-    I_1&=\frac{a\,b\,c}{(a^2-b^2)\sqrt{a^2-c^2}}\,
-    \left({\cal F}-{\cal E}\right)\\
-    I_3&=\frac{a\,b\,c}{(b^2-c^2)\sqrt{a^2-c^2}}\,
-    \left(\frac{b\sqrt{a^2-c^2}}{a\,c}-
-    {\cal E}\right)\\
-    I_2&=1-I_1-I_3\\
-    I_{ij}&=\frac{I_j-I_i}{\rho_i^2-\rho_j^2}\quad\forall\, i\neq j\in\{1,2,3\}\\
-    I_{ii}&=\frac{1}{3}\left(
-    \frac{1}{\rho_i^2}-
-    \sum_{j\neq i}I_{ij} \right) 
-    \quad\forall\, i\in\{1,2,3\}
-    \end{align}$$  
-    where ${\cal F}={\cal F}(\theta,\kappa)$ and
-    ${\cal E}={\cal E}(\theta,\kappa)$
-    are respectively the elliptic integrals of the first and second
-    kinds (see [@abramowitz1972]) of amplitude and parameter
-    $$
-    \theta=\arcsin{\sqrt{1-\frac{c^2}{a^2}}}
-    \quad;\quad
-    \kappa=\sqrt{\frac{a^2-b^2}{a^2-c^2}}
-    $$
-- if $a > b = c$ (prolate spheroid)
-    $$\begin{align}
-    I_2=I_3&=a\,
-    \frac{a\sqrt{a^2-c^2}-c^2\,\arcosh{(a/c)}}
-    {2\left(a^2-c^2\right)^{3/2}}\\
-    I_1&=1-2\,I_3\\
-    I_{1i}=I_{i1}&=\frac{I_i-I_1}{a^2-\rho_i^2}\quad
-    \forall\, i\in\{2,3\}\\
-    I_{ij}&=\frac{1}{4}
-    \left(\frac{1}{c^2}-I_{31} \right) 
-    \quad\forall\, i,j\in\{2,3\}\\
-    I_{11}&=\frac{1}{3}
-    \left(\frac{1}{a^2}-2\,I_{31} \right)
-    \end{align}$$
-- if $a = b > c$ (oblate spheroid)
-    $$\begin{align}
-    I_1=I_2&=c\,
-    \frac{a^2\,\arccos{(c/a)}-c\sqrt{a^2-c^2}}
-    {2\left(a^2-c^2\right)^{3/2}}\\
-    I_3&=1-2\,I_1\\
-    I_{3i}=I_{i3}&=\frac{I_3-I_i}{\rho_i^2-c^2}\quad
-    \forall\, i\in\{1,2\}\\
-    I_{ij}&=\frac{1}{4}
-    \left(\frac{1}{a^2}-I_{31} \right) 
-    \quad\forall\, i,j\in\{1,2\}\\
-    I_{33}&=\frac{1}{3}
-    \left(\frac{1}{c^2}-2\,I_{31} \right)
-    \end{align}$$
-- if $a = b = c$ (sphere)
-    $$\begin{align}
-    I_1=I_2=I_3&=\frac{1}{3}\\
-    I_{ij}&=\frac{1}{5\,a^2}\quad\forall\, i,j\in\{1,2,3\}
-    \end{align}$$
-
-In this last case of spherical inclusion ($\uu{A}=\uu{1}$), $\uuuu{U}$ and $\uuuu{V}$ are simply decomposed as
-$$
-\uuuu{U}=\frac{1}{3}\uuuu{J}+\frac{2}{15}\uuuu{K}
-\quad\textrm{ and }\quad
-\uuuu{V}=\frac{1}{3}\uuuu{I}
-$$
-
+\uu{P}(\uu{A},\uu{K})&=\frac{1}{4\pi}
+\int_{\norm{\uv{\zeta}}=1}
+\frac{(\uu{A}^{-1}\cdot\uv{\zeta})\sotimes(\uu{A}^{-1}\cdot\uv{\zeta})}
+{(\uu{A}^{-1}\cdot\uv{\zeta})\cdot\uu{K}
+\cdot(\uu{A}^{-1}\cdot\uv{\zeta})}
+\ud S_\zeta\\
+&=
+\frac{1}{4\pi}
+\int_{\norm{\uv{\zeta}}=1}
+\frac{(\uu{A}^{-1}\cdot\uv{\zeta})\sotimes(\uu{A}^{-1}\cdot\uv{\zeta})}
+{(\uu{K}^{½}\cdot\uu{A}^{-1}\cdot\uv{\zeta})\cdot\uu{1}
+\cdot(\uu{K}^{½}\cdot\uu{A}^{-1}\cdot\uv{\zeta})}
+\ud S_\zeta\\
+&=
+\uu{K}^{-½}\cdot\left(\frac{1}{4\pi}
+\int_{\norm{\uv{\zeta}}=1}
+\frac{(\uu{K}^{½}\cdot\uu{A}^{-1}\cdot\uv{\zeta})\sotimes(\uu{K}^{½}\cdot\uu{A}^{-1}\cdot\uv{\zeta})}
+{(\uu{K}^{½}\cdot\uu{A}^{-1}\cdot\uv{\zeta})\cdot\uu{1}
+\cdot(\uu{K}^{½}\cdot\uu{A}^{-1}\cdot\uv{\zeta})}
+\ud S_\zeta\right)\cdot\uu{K}^{-½}\\
+&=
+\uu{K}^{-½}\cdot\uu{P}(\uu{A}\cdot\uu{K}^{-½},\uu{1})\cdot\uu{K}^{-½}\\
+&=
+\uu{K}^{-½}\cdot\uu{I}^{\uu{A}\cdot\uu{K}^{-½}}\cdot\uu{K}^{-½}
+\end{align}$${#eq-Hillcondaniso}
+where $\uu{I}^{\uu{A}\cdot\uu{K}^{-½}}$ is deduced from $\uu{I}^{\uu{A}}$ defined in (@eq-tensIUV) and derived in (@eq-decI) and @tbl-Ii in which the characteristic tensor of the ellipsoid $\uu{A}$ is replaced by $\uu{A}\cdot\uu{K}^{-½}$ defining a fictitious ellipsoid. Even if $\uu{A}\cdot\uu{K}^{-½}$ is not necessarily symmetric, it is pointed out that the new fictitious radii and eigenvectors are defined by adaptation of (@eq-ellipsoid) leading here to the diagonalization of $\uu{K}^{-½}\cdot\trans{\uu{A}}\cdot\uu{A}\cdot\uu{K}^{-½}$. 

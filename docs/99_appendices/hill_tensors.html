@@ -316,6 +316,12 @@ window.Quarto = {
   <li><a href="#general-expression" id="toc-general-expression" class="nav-link" data-scroll-target="#general-expression">General expression</a></li>
   <li><a href="#isotropic-matrix" id="toc-isotropic-matrix" class="nav-link" data-scroll-target="#isotropic-matrix">Isotropic matrix</a></li>
   </ul></li>
+  <li><a href="#hill-polarization-tensor-in-conductivity" id="toc-hill-polarization-tensor-in-conductivity" class="nav-link" data-scroll-target="#hill-polarization-tensor-in-conductivity">Hill polarization tensor in conductivity</a>
+  <ul class="collapse">
+  <li><a href="#general-expression-1" id="toc-general-expression-1" class="nav-link" data-scroll-target="#general-expression-1">General expression</a></li>
+  <li><a href="#isotropic-matrix-1" id="toc-isotropic-matrix-1" class="nav-link" data-scroll-target="#isotropic-matrix-1">Isotropic matrix</a></li>
+  <li><a href="#arbitrarily-anisotropic-matrix" id="toc-arbitrarily-anisotropic-matrix" class="nav-link" data-scroll-target="#arbitrarily-anisotropic-matrix">Arbitrarily anisotropic matrix</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/99_appendices/hill_tensors.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
@@ -415,21 +421,33 @@ $$
 </header>
 
 
-<p><font size="6"></font></p><font size="6">
-<p><iconify-icon role="img" inline="" icon="noto:building-construction" aria-label="Icon building-construction from noto Iconify.design set." title="Icon building-construction from noto Iconify.design set."></iconify-icon> <span class="orangebox"><strong>Page under construction</strong></span> <iconify-icon role="img" inline="" icon="noto:building-construction" aria-label="Icon building-construction from noto Iconify.design set." title="Icon building-construction from noto Iconify.design set."></iconify-icon></p>
-</font><p><font size="6"></font></p>
+<!-- <font size="6">
+
+
+
+
+ [**Page under construction**]{.orangebox} 
+
+
+
+
+
+
+
+</font>
+ -->
 <p>The Hill polarization tensors defined in this section are related to an ellipsoid embedded in the whole space <span class="math inline">\(\R^3\)</span>. An ellipsoid <span class="math inline">\(\mathcal{E}_{\uu{A}}\)</span> can be defined by an equation such as <span class="math display">\[
 \uv{x}\in\mathcal{E}_{\uu{A}}
 \quad\Leftrightarrow\quad
 \uv{x}\cdot(\trans{\uu{A}}\cdot\uu{A})^{-1}\cdot\uv{x}\leq 1
-\]</span> where <span class="math inline">\(\uu{A}\)</span> is an invertible second-order tensor so that <span class="math inline">\(\trans{\uu{A}}\cdot\uu{A}\)</span> is a positive definite symmetric tensor associated to 3 radii (eigenvalues <span class="math inline">\(a\geq b \geq c\)</span> possibly written <span class="math inline">\(\rho_1 \geq \rho_2 \geq \rho_3\)</span> for convenience) and 3 angles (orientation of the frame of orthonormal eigenvectors <span class="math inline">\(\uv{e}_1, \uv{e}_2, \uv{e}_3\)</span>) <span id="eq-ellipsoid"><span class="math display">\[
-\trans{\uu{A}}\cdot\uu{A}=a^2 \uv{e}_1\otimes\uv{e}_1 + b^2 \uv{e}_2\otimes\uv{e}_2 + c^2 \uv{e}_3\otimes\uv{e}_3 = \sum_{i=1}^3 \rho_i \uv{e}_i\otimes\uv{e}_i
+\]</span> where <span class="math inline">\(\uu{A}\)</span> is an invertible second-order tensor so that <span class="math inline">\(\trans{\uu{A}}\cdot\uu{A}\)</span> is a positive definite symmetric tensor associated to 3 radii (eigenvalues <span class="math inline">\(a\geq b \geq c\)</span> possibly written <span class="math inline">\(\rho_1 \geq \rho_2 \geq \rho_3\)</span> for convenience) and 3 angles (orientation of the frame of orthonormal eigenvectors <span class="math inline">\(\uv{e}^{\uu{A}}_1, \uv{e}^{\uu{A}}_2, \uv{e}^{\uu{A}}_3\)</span>) <span id="eq-ellipsoid"><span class="math display">\[
+\trans{\uu{A}}\cdot\uu{A}=a^2 \uv{e}^{\uu{A}}_1\otimes\uv{e}^{\uu{A}}_1 + b^2 \uv{e}^{\uu{A}}_2\otimes\uv{e}^{\uu{A}}_2 + c^2 \uv{e}^{\uu{A}}_3\otimes\uv{e}^{\uu{A}}_3 = \sum_{i=1}^3 \rho_i \uv{e}^{\uu{A}}_i\otimes\uv{e}^{\uu{A}}_i
 \tag{B.1}\]</span></span></p>
 <section id="useful-integrals" class="level2">
 <h2 class="anchored" data-anchor-id="useful-integrals">Useful integrals</h2>
 <p>Some integrals useful for further calculations and intimately connected to the Newtonian potential are introduced as</p>
 <p><span id="eq-tensIUV"><span class="math display">\[\begin{align}
-\uu{I} &amp;= \frac{\det{\uu{A}}}{4\pi}
+\uu{I}^{\uu{A}} &amp;= \frac{\det{\uu{A}}}{4\pi}
 \int_{\norm{\uv{\xi}}=1}
 \frac{\uv{\xi}\otimes\uv{\xi}}
 {\norm{\uu{A}\cdot\uv{\xi}}^3}\ud S_{\xi}
@@ -443,7 +461,7 @@ $$
 }{\norm{\uu{A}^{-1}\cdot\uv{\zeta}}^2}
 \ud S_{\zeta}
 \\
-\uuuu{U} &amp;= \frac{\det{\uu{A}}}{4\pi}
+\uuuu{U}^{\uu{A}} &amp;= \frac{\det{\uu{A}}}{4\pi}
 \int_{\norm{\uv{\xi}}=1}
 \frac{\uv{\xi}\otimes\uv{\xi}\otimes\uv{\xi}\otimes\uv{\xi}}
 {\norm{\uu{A}\cdot\uv{\xi}}^3}\ud S_{\xi}\\
@@ -461,7 +479,7 @@ $$
 }{\norm{\uu{A}^{-1}\cdot\uv{\zeta}}^4}
 \ud S_{\zeta}
 \\
-\uuuu{V} &amp;= \frac{\det{\uu{A}}}{4\pi}
+\uuuu{V}^{\uu{A}} &amp;= \frac{\det{\uu{A}}}{4\pi}
 \int_{\norm{\uv{\xi}}=1}
 \frac{\uv{\xi}\sotimes\uu{1}\sotimes\uv{\xi}}
 {\norm{\uu{A}\cdot\uv{\xi}}^3}\ud S_{\xi}
@@ -477,7 +495,7 @@ $$
 }{\norm{\uu{A}^{-1}\cdot\uv{\zeta}}^2}
 \ud S_{\zeta}\\
 &amp;=
-\frac{\uu{1}\sboxtimes\uu{I}+\uu{I}\sboxtimes\uu{1}}{2}
+\frac{\uu{1}\sboxtimes\uu{I}^{\uu{A}}+\uu{I}^{\uu{A}}\sboxtimes\uu{1}}{2}
 \end{align} \tag{B.2}\]</span></span></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -485,7 +503,7 @@ $$
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Proof of the change of variable in <a href="#eq-tensIUV" class="quarto-xref"><span>B.2</span></a>
+Proof of the change of variable in <a href="#eq-tensIUV" class="quarto-xref"><span>B.2</span></a> (click for details)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -525,14 +543,14 @@ Proof of the change of variable in <a href="#eq-tensIUV" class="quarto-xref"><sp
 \frac{\det{\uu{A}^{-1}}}{\norm{\uu{A}^{-1}\cdot\uv{\zeta}}^2}\,
 \uv{\zeta}\cdot\uu{A}\cdot\uv{\xi}
 \ud S_{\zeta}
-\]</span> which ends the proof by observing that <span class="math inline">\(\uv{\zeta}\cdot\uu{A}\cdot\uv{\xi}=\frac{\norm{\uv{\zeta}}^2}{\norm{\uu{A}^{-1}\cdot\uv{\zeta}}}\)</span>.</p>
+\]</span> which ends the proof by observing that <span class="math inline">\(\uv{\zeta}\cdot\uu{A}\cdot\uv{\xi}=\frac{\norm{\uv{\zeta}}^2}{\norm{\uu{A}^{-1}\cdot\uv{\zeta}}}=\frac{1}{\norm{\uu{A}^{-1}\cdot\uv{\zeta}}}\)</span>.</p>
 </div>
 </div>
 </div>
-<p>The expression of the components of these tensors in the frame of the eigenvectors of <span class="math inline">\(\uu{A}\)</span> (<a href="#eq-ellipsoid" class="quarto-xref"><span>B.1</span></a>) can be obtained by identification with expressions derived from the Newtonian potential (<span class="citation" data-cites="kellogg1929">(<a href="../references.html#ref-kellogg1929" role="doc-biblioref">Kellogg, 1929</a>)</span>, <span class="citation" data-cites="eshelby1957">(<a href="../references.html#ref-eshelby1957" role="doc-biblioref">Eshelby, 1957</a>)</span>). First <span class="math inline">\(\uu{I}\)</span> writes <span id="eq-decI"><span class="math display">\[
-\uu{I}=I_1\,\uv{e}_1\otimes\uv{e}_1 + I_2\,\uv{e}_2\otimes\uv{e}_2 + I_3\,\uv{e}_3\otimes\uv{e}_3 = \sum_{i=1}^3 I_i\,\uv{e}_i\otimes\uv{e}_i
+<p>By symmetry, it is obvious that <span class="math inline">\(\uu{A}\)</span> (<a href="#eq-ellipsoid" class="quarto-xref"><span>B.1</span></a>) and <span class="math inline">\(\uu{I}^{\uu{A}}\)</span> are simultaneously diagonalizable i.e.&nbsp;they share the same eigenvectors: <span id="eq-decI"><span class="math display">\[
+\uu{I}^{\uu{A}}=I_1\,\uv{e}^{\uu{A}}_1\otimes\uv{e}^{\uu{A}}_1 + I_2\,\uv{e}^{\uu{A}}_2\otimes\uv{e}^{\uu{A}}_2 + I_3\,\uv{e}^{\uu{A}}_3\otimes\uv{e}^{\uu{A}}_3 = \sum_{i=1}^3 I_i\,\uv{e}^{\uu{A}}_i\otimes\uv{e}^{\uu{A}}_i
 \tag{B.3}\]</span></span></p>
-<p>with <span class="math inline">\(I_i\)</span> given in <a href="#tbl-Ii" class="quarto-xref">Tab.&nbsp;<span>B.1</span></a> (see <span class="citation" data-cites="barthelemyIJES2020_hilltrans">(<a href="../references.html#ref-barthelemyIJES2020_hilltrans" role="doc-biblioref">Barthélémy, 2020</a>)</span>).</p>
+<p>The components <span class="math inline">\(I_i\)</span> can be obtained by identification with expressions derived from the Newtonian potential (<span class="citation" data-cites="kellogg1929">(<a href="../references.html#ref-kellogg1929" role="doc-biblioref">Kellogg, 1929</a>)</span>, <span class="citation" data-cites="eshelby1957">(<a href="../references.html#ref-eshelby1957" role="doc-biblioref">Eshelby, 1957</a>)</span>). They are gathered in <a href="#tbl-Ii" class="quarto-xref">Tab.&nbsp;<span>B.1</span></a> or recalled a little later in a generic form (<span class="citation" data-cites="barthelemyIJSS2016">(<a href="../references.html#ref-barthelemyIJSS2016" role="doc-biblioref">Barthélémy et al., 2016</a>)</span>, <span class="citation" data-cites="barthelemyIJES2020_hilltrans">(<a href="../references.html#ref-barthelemyIJES2020_hilltrans" role="doc-biblioref">Barthélémy, 2020</a>)</span>).</p>
 <div id="tbl-Ii" class="striped hover bordered danger sm quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <div aria-describedby="tbl-Ii-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -595,6 +613,7 @@ Tab.&nbsp;B.1: Components <span class="math inline">\(I_i\)</span>
 \quad;\quad
 \kappa=\sqrt{\frac{a^2-b^2}{a^2-c^2}}
 \]</span></p>
+<p>Before detailing the components of <span class="math inline">\(\uuuu{U}^{\uu{A}}\)</span> and <span class="math inline">\(\uuuu{V}^{\uu{A}}\)</span> it is convenient to introduce the coefficients <span class="math inline">\(I_{ij}\)</span> in <a href="#tbl-Iij" class="quarto-xref">Tab.&nbsp;<span>B.2</span></a> adapted from the approach proposed in <span class="citation" data-cites="eshelby1957">(<a href="../references.html#ref-eshelby1957" role="doc-biblioref">Eshelby, 1957</a>)</span>.</p>
 <div id="tbl-Iij" class="striped hover bordered danger quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <div aria-describedby="tbl-Iij-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -686,6 +705,94 @@ Warning
 <p>Note that, for writing convenience, <span class="math inline">\(I_i\)</span> of <a href="#tbl-Ii" class="quarto-xref">Tab.&nbsp;<span>B.1</span></a> and <span class="math inline">\(I_{ij}\)</span> of <a href="#tbl-Iij" class="quarto-xref">Tab.&nbsp;<span>B.2</span></a> are here adapted from those provided in <span class="citation" data-cites="kellogg1929">(<a href="../references.html#ref-kellogg1929" role="doc-biblioref">Kellogg, 1929</a>)</span> and <span class="citation" data-cites="eshelby1957">(<a href="../references.html#ref-eshelby1957" role="doc-biblioref">Eshelby, 1957</a>)</span>: they differ by a factor of <span class="math inline">\(4\pi/3\)</span> for <span class="math inline">\(I_{ij}\)</span> with <span class="math inline">\(i\neq j\)</span> and by <span class="math inline">\(4\pi\)</span> for the others.</p>
 </div>
 </div>
+<p>Components <span class="math inline">\(I_i\)</span> and <span class="math inline">\(I_{ij}\)</span> are alternatively given in a generic form in the following section to be expanded.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Generic expressions of <span class="math inline">\(I_i\)</span> and <span class="math inline">\(I_{ij}\)</span> (click for details)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page"><span class="math inline">\(a &gt; b &gt; c\)</span></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false"><span class="math inline">\(a &gt; b = c\)</span> (prolate spheroid)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false"><span class="math inline">\(a = b &gt; c\)</span> (oblate spheroid)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false"><span class="math inline">\(a = b = c\)</span> (sphere)</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p><span class="math display">\[\begin{align}
+I_1&amp;=\frac{a\,b\,c}{(a^2-b^2)\sqrt{a^2-c^2}}\,
+\left({\cal F}-{\cal E}\right)\\
+I_3&amp;=\frac{a\,b\,c}{(b^2-c^2)\sqrt{a^2-c^2}}\,
+\left(\frac{b\sqrt{a^2-c^2}}{a\,c}-
+{\cal E}\right)\\
+I_2&amp;=1-I_1-I_3\\
+I_{ij}&amp;=\frac{I_j-I_i}{\rho_i^2-\rho_j^2}\quad\forall\, i\neq j\in\{1,2,3\}\\
+I_{ii}&amp;=\frac{1}{3}\left(
+\frac{1}{\rho_i^2}-
+\sum_{j\neq i}I_{ij} \right)
+\quad\forall\, i\in\{1,2,3\}
+\end{align}\]</span></p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p><span class="math display">\[\begin{align}
+I_2=I_3&amp;=a\,
+\frac{a\sqrt{a^2-c^2}-c^2\,\arcosh{(a/c)}}
+{2\left(a^2-c^2\right)^{3/2}}\\
+I_1&amp;=1-2\,I_3\\
+I_{1i}=I_{i1}&amp;=\frac{I_i-I_1}{a^2-\rho_i^2}\quad
+\forall\, i\in\{2,3\}\\
+I_{ij}&amp;=\frac{1}{4}
+\left(\frac{1}{c^2}-I_{31} \right)
+\quad\forall\, i,j\in\{2,3\}\\
+I_{11}&amp;=\frac{1}{3}
+\left(\frac{1}{a^2}-2\,I_{31} \right)
+\end{align}\]</span></p>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p><span class="math display">\[\begin{align}
+I_1=I_2&amp;=c\,
+\frac{a^2\,\arccos{(c/a)}-c\sqrt{a^2-c^2}}
+{2\left(a^2-c^2\right)^{3/2}}\\
+I_3&amp;=1-2\,I_1\\
+I_{3i}=I_{i3}&amp;=\frac{I_3-I_i}{\rho_i^2-c^2}\quad
+\forall\, i\in\{1,2\}\\
+I_{ij}&amp;=\frac{1}{4}
+\left(\frac{1}{a^2}-I_{31} \right)
+\quad\forall\, i,j\in\{1,2\}\\
+I_{33}&amp;=\frac{1}{3}
+\left(\frac{1}{c^2}-2\,I_{31} \right)
+\end{align}\]</span></p>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<p><span class="math display">\[\begin{align}
+I_1=I_2=I_3&amp;=\frac{1}{3}\\
+I_{ij}&amp;=\frac{1}{5\,a^2}\quad\forall\, i,j\in\{1,2,3\}
+\end{align}\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>For an arbitrary ellipsoid defined by (<a href="#eq-ellipsoid" class="quarto-xref"><span>B.1</span></a>), the non-zero components of <span class="math inline">\(\uuuu{U}^{\uu{A}}\)</span> and <span class="math inline">\(\uuuu{V}^{\uu{A}}\)</span> write (<span class="citation" data-cites="barthelemyIJSS2016">(<a href="../references.html#ref-barthelemyIJSS2016" role="doc-biblioref">Barthélémy et al., 2016</a>)</span>, <span class="citation" data-cites="barthelemyIJES2020_hilltrans">(<a href="../references.html#ref-barthelemyIJES2020_hilltrans" role="doc-biblioref">Barthélémy, 2020</a>)</span>) <span class="math display">\[\begin{align}
+U_{iiii}&amp;=\frac{3(I_i-\rho_i^2I_{ii})}{2}
+\quad\forall\, i\in\{1,2,3\}\\
+U_{iijj}=U_{ijij}=U_{ijji}&amp;=\frac{I_j-\rho_i^2I_{ij}}{2}
+=\frac{I_i-\rho_j^2I_{ij}}{2}
+\quad\forall\, i\neq j\in\{1,2,3\}
+\end{align}\]</span> and <span class="math display">\[\begin{align}
+V_{iiii}&amp;=I_i\quad\forall\, i\in\{1,2,3\}\\
+V_{ijij}=V_{ijji}&amp;=\frac{I_i+I_j}{4}
+\quad\forall\, i\neq j\in\{1,2,3\}
+\end{align}\]</span></p>
+<p>In the case of a spherical inclusion (<span class="math inline">\(\uu{A}=\uu{1}\)</span>), note that <span class="math inline">\(\uuuu{U}^{\uu{A}}\)</span> and <span class="math inline">\(\uuuu{V}^{\uu{A}}\)</span> are simply decomposed as <span class="math display">\[
+\uuuu{U}^{\uu{A}}=\frac{1}{3}\uuuu{J}+\frac{2}{15}\uuuu{K}
+\quad\textrm{ and }\quad
+\uuuu{V}^{\uu{A}}=\frac{1}{3}\uuuu{I}
+\]</span> where <span class="math inline">\(\uuuu{I}\)</span>, <span class="math inline">\(\uuuu{J}\)</span> and <span class="math inline">\(\uuuu{K}\)</span> are defined in <a href="tensor_algebra.html#sec-ISO" class="quarto-xref"><span>Section A.4</span></a>.</p>
 </section>
 <section id="hill-polarization-tensor-in-elasticity" class="level2">
 <h2 class="anchored" data-anchor-id="hill-polarization-tensor-in-elasticity">Hill polarization tensor in elasticity</h2>
@@ -707,8 +814,8 @@ Warning
 \cdot\uv{\xi})^{-1}
 \sotimes\uv{\xi}}{\norm{\uu{A}\cdot\uv{\xi}}^3}
 \ud S_{\xi}
-\end{align} \tag{B.4}\]</span></span></p>
-<p>When <span class="math inline">\(\uuuu{C}\)</span> is arbitrarily anisotropic, it is necessary to resort to numerical cubature to estimate <span class="math inline">\(\uuuu{P}\)</span> as proposed in <span class="citation" data-cites="ghahremani1977">(<a href="../references.html#ref-ghahremani1977" role="doc-biblioref">Ghahremani, 1977</a>)</span>, <span class="citation" data-cites="gavazzi1990">(<a href="../references.html#ref-gavazzi1990" role="doc-biblioref">Gavazzi and Lagoudas, 1990</a>)</span> or <span class="citation" data-cites="masson2008">(<a href="../references.html#ref-masson2008" role="doc-biblioref">Masson, 2008</a>)</span>. However in some cases of anisotropy, analytical solutions are available (<span class="citation" data-cites="withers1989">(<a href="../references.html#ref-withers1989" role="doc-biblioref">Withers, 1989</a>)</span>, <span class="citation" data-cites="barthelemyIJES2020_hilltrans">(<a href="../references.html#ref-barthelemyIJES2020_hilltrans" role="doc-biblioref">Barthélémy, 2020</a>)</span>). The case of isotropic matrix is particularly developed in the next section.</p>
+\end{align} \tag{B.4}\]</span></span> where <span class="math inline">\(\uuuu{C}\)</span> is the stiffness tensor of the reference medium.</p>
+<p>When <span class="math inline">\(\uuuu{C}\)</span> is arbitrarily anisotropic, it is necessary to resort to numerical cubature to estimate <span class="math inline">\(\uuuu{P}\)</span> as proposed in <span class="citation" data-cites="ghahremani1977">(<a href="../references.html#ref-ghahremani1977" role="doc-biblioref">Ghahremani, 1977</a>)</span>, <span class="citation" data-cites="gavazzi1990">(<a href="../references.html#ref-gavazzi1990" role="doc-biblioref">Gavazzi and Lagoudas, 1990</a>)</span> or <span class="citation" data-cites="masson2008">(<a href="../references.html#ref-masson2008" role="doc-biblioref">Masson, 2008</a>)</span>. However in some cases of anisotropy, analytical solutions are available (<span class="citation" data-cites="withers1989">(<a href="../references.html#ref-withers1989" role="doc-biblioref">Withers, 1989</a>)</span>, <span class="citation" data-cites="suvorov2002">(<a href="../references.html#ref-suvorov2002" role="doc-biblioref">Suvorov and Dvorak, 2002</a>)</span>). Note that the transformation technique (<span class="citation" data-cites="pouya2000">(<a href="../references.html#ref-pouya2000" role="doc-biblioref">Pouya, 2000</a>)</span>, <span class="citation" data-cites="pouya2006">(<a href="../references.html#ref-pouya2006" role="doc-biblioref">Pouya and Zaoui, 2006</a>)</span>) allows to extend the set of available anisotropy leading to analytical Hill tensor <span class="citation" data-cites="barthelemyIJES2020_hilltrans">(<a href="../references.html#ref-barthelemyIJES2020_hilltrans" role="doc-biblioref">Barthélémy, 2020</a>)</span>. The case of isotropic matrix is particularly developed in the next section.</p>
 </section>
 <section id="isotropic-matrix" class="level3">
 <h3 class="anchored" data-anchor-id="isotropic-matrix">Isotropic matrix</h3>
@@ -722,75 +829,78 @@ I_{ijkl}=\frac{\delta_{ik}\delta_{jl}+\delta_{il}\delta_{jk}}{2}
 <p>Introducing (<a href="#eq-isoC" class="quarto-xref"><span>B.5</span></a>) in (<a href="#eq-Hill" class="quarto-xref"><span>B.4</span></a>) leads to after some algebra <span class="math display">\[
 \uuuu{P}=
 \frac{1}{\lambda+2\,\mu}
-\uuuu{U}
-+\frac{1}{\mu}(\uuuu{V}-\uuuu{U})
-\]</span> where the tensors <span class="math inline">\(\uuuu{U}\)</span> and <span class="math inline">\(\uuuu{V}\)</span>, depending only on the ellipsoidal tensor <span class="math inline">\(\uu{A}\)</span> of (<a href="#eq-ellipsoid" class="quarto-xref"><span>B.1</span></a>), are given by (see <span class="citation" data-cites="barthelemyIJES2020_hilltrans">(<a href="../references.html#ref-barthelemyIJES2020_hilltrans" role="doc-biblioref">Barthélémy, 2020</a>)</span>)</p>
-<p>For an arbitrary ellipsoid defined by (<a href="#eq-ellipsoid" class="quarto-xref"><span>B.1</span></a>), the components of <span class="math inline">\(\uuuu{U}\)</span> and <span class="math inline">\(\uuuu{V}\)</span> write <span class="math display">\[\begin{align}
-U_{iiii}&amp;=\frac{3(I_i-\rho_i^2I_{ii})}{2}
-\quad\forall\, i\in\{1,2,3\}\\
-U_{iijj}=U_{ijij}=U_{ijji}&amp;=\frac{I_j-\rho_i^2I_{ij}}{2}
-=\frac{I_i-\rho_j^2I_{ij}}{2}
-\quad\forall\, i\neq j\in\{1,2,3\}
-\end{align}\]</span> and <span class="math display">\[\begin{align}
-V_{iiii}&amp;=I_i\quad\forall\, i\in\{1,2,3\}\\
-V_{ijij}=V_{ijji}&amp;=\frac{I_i+I_j}{4}
-\quad\forall\, i\neq j\in\{1,2,3\}
-\end{align}\]</span> where the coefficients <span class="math inline">\(I_i\)</span> and <span class="math inline">\(I_{ij}\)</span> are given by (note that <span class="math inline">\(I_i\)</span> and <span class="math inline">\(I_{ij}\)</span> are adapted from those provided in <span class="citation" data-cites="kellogg1929">(<a href="../references.html#ref-kellogg1929" role="doc-biblioref">Kellogg, 1929</a>)</span> and <span class="citation" data-cites="eshelby1957">(<a href="../references.html#ref-eshelby1957" role="doc-biblioref">Eshelby, 1957</a>)</span>: they differ by a factor of <span class="math inline">\(4\pi/3\)</span> for <span class="math inline">\(I_{ij}\)</span> with <span class="math inline">\(i\neq j\)</span> and by <span class="math inline">\(4\pi\)</span> for the others)</p>
-<ul>
-<li>if <span class="math inline">\(a &gt; b &gt; c\)</span> <span class="math display">\[\begin{align}
-  I_1&amp;=\frac{a\,b\,c}{(a^2-b^2)\sqrt{a^2-c^2}}\,
-  \left({\cal F}-{\cal E}\right)\\
-  I_3&amp;=\frac{a\,b\,c}{(b^2-c^2)\sqrt{a^2-c^2}}\,
-  \left(\frac{b\sqrt{a^2-c^2}}{a\,c}-
-  {\cal E}\right)\\
-  I_2&amp;=1-I_1-I_3\\
-  I_{ij}&amp;=\frac{I_j-I_i}{\rho_i^2-\rho_j^2}\quad\forall\, i\neq j\in\{1,2,3\}\\
-  I_{ii}&amp;=\frac{1}{3}\left(
-  \frac{1}{\rho_i^2}-
-  \sum_{j\neq i}I_{ij} \right)
-  \quad\forall\, i\in\{1,2,3\}
-  \end{align}\]</span><br>
-where <span class="math inline">\({\cal F}={\cal F}(\theta,\kappa)\)</span> and <span class="math inline">\({\cal E}={\cal E}(\theta,\kappa)\)</span> are respectively the elliptic integrals of the first and second kinds (see <span class="citation" data-cites="abramowitz1972">(<a href="../references.html#ref-abramowitz1972" role="doc-biblioref">Abramowitz and Stegun, 1972</a>)</span>) of amplitude and parameter <span class="math display">\[
-  \theta=\arcsin{\sqrt{1-\frac{c^2}{a^2}}}
-  \quad;\quad
-  \kappa=\sqrt{\frac{a^2-b^2}{a^2-c^2}}
-  \]</span></li>
-<li>if <span class="math inline">\(a &gt; b = c\)</span> (prolate spheroid) <span class="math display">\[\begin{align}
-  I_2=I_3&amp;=a\,
-  \frac{a\sqrt{a^2-c^2}-c^2\,\arcosh{(a/c)}}
-  {2\left(a^2-c^2\right)^{3/2}}\\
-  I_1&amp;=1-2\,I_3\\
-  I_{1i}=I_{i1}&amp;=\frac{I_i-I_1}{a^2-\rho_i^2}\quad
-  \forall\, i\in\{2,3\}\\
-  I_{ij}&amp;=\frac{1}{4}
-  \left(\frac{1}{c^2}-I_{31} \right)
-  \quad\forall\, i,j\in\{2,3\}\\
-  I_{11}&amp;=\frac{1}{3}
-  \left(\frac{1}{a^2}-2\,I_{31} \right)
-  \end{align}\]</span></li>
-<li>if <span class="math inline">\(a = b &gt; c\)</span> (oblate spheroid) <span class="math display">\[\begin{align}
-  I_1=I_2&amp;=c\,
-  \frac{a^2\,\arccos{(c/a)}-c\sqrt{a^2-c^2}}
-  {2\left(a^2-c^2\right)^{3/2}}\\
-  I_3&amp;=1-2\,I_1\\
-  I_{3i}=I_{i3}&amp;=\frac{I_3-I_i}{\rho_i^2-c^2}\quad
-  \forall\, i\in\{1,2\}\\
-  I_{ij}&amp;=\frac{1}{4}
-  \left(\frac{1}{a^2}-I_{31} \right)
-  \quad\forall\, i,j\in\{1,2\}\\
-  I_{33}&amp;=\frac{1}{3}
-  \left(\frac{1}{c^2}-2\,I_{31} \right)
-  \end{align}\]</span></li>
-<li>if <span class="math inline">\(a = b = c\)</span> (sphere) <span class="math display">\[\begin{align}
-  I_1=I_2=I_3&amp;=\frac{1}{3}\\
-  I_{ij}&amp;=\frac{1}{5\,a^2}\quad\forall\, i,j\in\{1,2,3\}
-  \end{align}\]</span></li>
-</ul>
-<p>In this last case of spherical inclusion (<span class="math inline">\(\uu{A}=\uu{1}\)</span>), <span class="math inline">\(\uuuu{U}\)</span> and <span class="math inline">\(\uuuu{V}\)</span> are simply decomposed as <span class="math display">\[
-\uuuu{U}=\frac{1}{3}\uuuu{J}+\frac{2}{15}\uuuu{K}
-\quad\textrm{ and }\quad
-\uuuu{V}=\frac{1}{3}\uuuu{I}
-\]</span></p>
+\uuuu{U}^{\uu{A}}
++\frac{1}{\mu}(\uuuu{V}^{\uu{A}}-\uuuu{U}^{\uu{A}})
+\]</span> where the tensors <span class="math inline">\(\uuuu{U}^{\uu{A}}\)</span> and <span class="math inline">\(\uuuu{V}^{\uu{A}}\)</span>, depending only on the ellipsoidal tensor <span class="math inline">\(\uu{A}\)</span> of (<a href="#eq-ellipsoid" class="quarto-xref"><span>B.1</span></a>), are given by (see <span class="citation" data-cites="barthelemyIJES2020_hilltrans">(<a href="../references.html#ref-barthelemyIJES2020_hilltrans" role="doc-biblioref">Barthélémy, 2020</a>)</span>)</p>
+</section>
+</section>
+<section id="hill-polarization-tensor-in-conductivity" class="level2">
+<h2 class="anchored" data-anchor-id="hill-polarization-tensor-in-conductivity">Hill polarization tensor in conductivity</h2>
+<section id="general-expression-1" class="level3">
+<h3 class="anchored" data-anchor-id="general-expression-1">General expression</h3>
+<p>The conductivity polarization tensor related to a conductivity tensor <span class="math inline">\(\uu{K}\)</span> and an ellipsoid defined by <span class="math inline">\(\uu{A}\)</span> is also expressed in <span class="citation" data-cites="willis1977">(<a href="../references.html#ref-willis1977" role="doc-biblioref">Willis, 1977</a>)</span> under the form <span id="eq-Hillcond"><span class="math display">\[\begin{align}
+\uu{P}(\uu{A},\uu{K})&amp;=\frac{1}{4\pi}
+\int_{\norm{\uv{\zeta}}=1}
+\frac{(\uu{A}^{-1}\cdot\uv{\zeta})\sotimes(\uu{A}^{-1}\cdot\uv{\zeta})}
+{(\uu{A}^{-1}\cdot\uv{\zeta})\cdot\uu{K}
+\cdot(\uu{A}^{-1}\cdot\uv{\zeta})}
+\ud S_\zeta\\
+&amp;=
+\frac{\det{\uu{A}}}{4\pi}
+\int_{\norm{\uv{\xi}}=1}
+\frac{\uv{\xi}\otimes\uv{\xi}}{(\uv{\xi}\cdot\uu{K}\cdot\uv{\xi})\,\norm{\uu{A}\cdot\uv{\xi}}^3}
+\ud S_{\xi}
+\end{align} \tag{B.6}\]</span></span></p>
+</section>
+<section id="isotropic-matrix-1" class="level3">
+<h3 class="anchored" data-anchor-id="isotropic-matrix-1">Isotropic matrix</h3>
+<p>The case of an isotropic matrix <span class="math inline">\(\uu{K}=K\,\uu{1}\)</span> is straightforward: <span id="eq-Hillcondiso"><span class="math display">\[
+\uu{P}(\uu{A},K\,\uu{1})=
+\frac{1}{K}\,
+\left(
+\frac{\det{\uu{A}}}{4\pi}
+\int_{\norm{\uv{\xi}}=1}
+\frac{\uv{\xi}\otimes\uv{\xi}}{\norm{\uu{A}\cdot\uv{\xi}}^3}
+\ud S_{\xi}\right)
+=
+\frac{\uu{I}^{\uu{A}}}{K}
+\tag{B.7}\]</span></span> with <span class="math inline">\(\uu{I}^{\uu{A}}\)</span> defined in (<a href="#eq-tensIUV" class="quarto-xref"><span>B.2</span></a>) and derived in (<a href="#eq-decI" class="quarto-xref"><span>B.3</span></a>) and <a href="#tbl-Ii" class="quarto-xref">Tab.&nbsp;<span>B.1</span></a>.</p>
+</section>
+<section id="arbitrarily-anisotropic-matrix" class="level3">
+<h3 class="anchored" data-anchor-id="arbitrarily-anisotropic-matrix">Arbitrarily anisotropic matrix</h3>
+<p>The complete solution of the second-order Hill polarization tensor in a matrix of arbitrary has been derived in <span class="citation" data-cites="barthelemyTIPM2009">(<a href="../references.html#ref-barthelemyTIPM2009" role="doc-biblioref">Barthélémy, 2009</a>)</span> from a reasoning based on Green solution. However a more direct solution, based on the idea of transformation, has been detailed in <span class="citation" data-cites="giraudMOM2019">(<a href="../references.html#ref-giraudMOM2019" role="doc-biblioref">Giraud et al., 2019</a>)</span> and is recalled here. It first relies on the idea of square-root of the conductivity tensor. As a positive definite symmetric second-order tensor <span class="math inline">\(\uu{K}\)</span>, it can be diagonalized in an orthonormal frame <span class="math inline">\(\left(\uu{e}^K_i\right)_{i=1,2,3}\)</span> with strictly positive eigenvalues <span class="math inline">\(\left(K_i\right)_{i=1,2,3}\)</span> such that <span id="eq-decK"><span class="math display">\[
+\uu{K}=K_1 \uv{e}^{\uu{K}}_1\otimes\uv{e}^{\uu{K}}_1 + K_2 \uv{e}^{\uu{K}}_2\otimes\uv{e}^{\uu{K}}_2 + K_3 \uv{e}^{\uu{K}}_3\otimes\uv{e}^{\uu{K}}_3
+\tag{B.8}\]</span></span> Its square-root is then defined by <span id="eq-sqrtK"><span class="math display">\[
+\uu{K}^{½}=\sqrt{K_1} \uv{e}^{\uu{K}}_1\otimes\uv{e}^{\uu{K}}_1 + \sqrt{K_2} \uv{e}^{\uu{K}}_2\otimes\uv{e}^{\uu{K}}_2 + \sqrt{K_3} \uv{e}^{\uu{K}}_3\otimes\uv{e}^{\uu{K}}_3
+\tag{B.9}\]</span></span> of inverse <span id="eq-invsqrtK"><span class="math display">\[
+\uu{K}^{-½}=\left(\uu{K}^{½}\right)^{-1}=\frac{1}{\sqrt{K_1}} \uv{e}^{\uu{K}}_1\otimes\uv{e}^{\uu{K}}_1 + \frac{1}{\sqrt{K_2}} \uv{e}^{\uu{K}}_2\otimes\uv{e}^{\uu{K}}_2 + \frac{1}{\sqrt{K_3}} \uv{e}^{\uu{K}}_3\otimes\uv{e}^{\uu{K}}_3
+\tag{B.10}\]</span></span></p>
+<p>It follows that (<a href="#eq-Hillcond" class="quarto-xref"><span>B.6</span></a>) rewrites <span id="eq-Hillcondaniso"><span class="math display">\[\begin{align}
+\uu{P}(\uu{A},\uu{K})&amp;=\frac{1}{4\pi}
+\int_{\norm{\uv{\zeta}}=1}
+\frac{(\uu{A}^{-1}\cdot\uv{\zeta})\sotimes(\uu{A}^{-1}\cdot\uv{\zeta})}
+{(\uu{A}^{-1}\cdot\uv{\zeta})\cdot\uu{K}
+\cdot(\uu{A}^{-1}\cdot\uv{\zeta})}
+\ud S_\zeta\\
+&amp;=
+\frac{1}{4\pi}
+\int_{\norm{\uv{\zeta}}=1}
+\frac{(\uu{A}^{-1}\cdot\uv{\zeta})\sotimes(\uu{A}^{-1}\cdot\uv{\zeta})}
+{(\uu{K}^{½}\cdot\uu{A}^{-1}\cdot\uv{\zeta})\cdot\uu{1}
+\cdot(\uu{K}^{½}\cdot\uu{A}^{-1}\cdot\uv{\zeta})}
+\ud S_\zeta\\
+&amp;=
+\uu{K}^{-½}\cdot\left(\frac{1}{4\pi}
+\int_{\norm{\uv{\zeta}}=1}
+\frac{(\uu{K}^{½}\cdot\uu{A}^{-1}\cdot\uv{\zeta})\sotimes(\uu{K}^{½}\cdot\uu{A}^{-1}\cdot\uv{\zeta})}
+{(\uu{K}^{½}\cdot\uu{A}^{-1}\cdot\uv{\zeta})\cdot\uu{1}
+\cdot(\uu{K}^{½}\cdot\uu{A}^{-1}\cdot\uv{\zeta})}
+\ud S_\zeta\right)\cdot\uu{K}^{-½}\\
+&amp;=
+\uu{K}^{-½}\cdot\uu{P}(\uu{A}\cdot\uu{K}^{-½},\uu{1})\cdot\uu{K}^{-½}\\
+&amp;=
+\uu{K}^{-½}\cdot\uu{I}^{\uu{A}\cdot\uu{K}^{-½}}\cdot\uu{K}^{-½}
+\end{align} \tag{B.11}\]</span></span> where <span class="math inline">\(\uu{I}^{\uu{A}\cdot\uu{K}^{-½}}\)</span> is deduced from <span class="math inline">\(\uu{I}^{\uu{A}}\)</span> defined in (<a href="#eq-tensIUV" class="quarto-xref"><span>B.2</span></a>) and derived in (<a href="#eq-decI" class="quarto-xref"><span>B.3</span></a>) and <a href="#tbl-Ii" class="quarto-xref">Tab.&nbsp;<span>B.1</span></a> in which the characteristic tensor of the ellipsoid <span class="math inline">\(\uu{A}\)</span> is replaced by <span class="math inline">\(\uu{A}\cdot\uu{K}^{-½}\)</span> defining a fictitious ellipsoid. Even if <span class="math inline">\(\uu{A}\cdot\uu{K}^{-½}\)</span> is not necessarily symmetric, it is pointed out that the new fictitious radii and eigenvectors are defined by adaptation of (<a href="#eq-ellipsoid" class="quarto-xref"><span>B.1</span></a>) leading here to the diagonalization of <span class="math inline">\(\uu{K}^{-½}\cdot\trans{\uu{A}}\cdot\uu{A}\cdot\uu{K}^{-½}\)</span>.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
@@ -799,6 +909,9 @@ Abramowitz, M., Stegun, I.A., 1972. Handbook of <span>Mathematical Functions</sp
 </div>
 <div id="ref-barthelemyIJES2020_hilltrans" class="csl-entry" role="listitem">
 Barthélémy, J.-F., 2020. Simplified approach to the derivation of the relationship between <span>Hill</span> polarization tensors of transformed problems and applications. International Journal of Engineering Science 154, 103326. <a href="https://doi.org/10.1016/j.ijengsci.2020.103326">https://doi.org/10.1016/j.ijengsci.2020.103326</a>
+</div>
+<div id="ref-barthelemyTIPM2009" class="csl-entry" role="listitem">
+Barthélémy, J.-F., 2009. Effective <span>Permeability</span> of <span>Media</span> with a <span>Dense Network</span> of <span>Long</span> and <span>Micro Fractures</span>. Transport in Porous Media 76, 153–178. <a href="https://doi.org/10.1007/s11242-008-9241-9">https://doi.org/10.1007/s11242-008-9241-9</a>
 </div>
 <div id="ref-barthelemyIJSS2016" class="csl-entry" role="listitem">
 Barthélémy, J.-F., Giraud, A., Lavergne, F., Sanahuja, J., 2016. The <span>Eshelby</span> inclusion problem in ageing linear viscoelasticity. Int. J. Solids Struct. 97–98, 530–542. <a href="https://doi.org/10.1016/j.ijsolstr.2016.06.035">https://doi.org/10.1016/j.ijsolstr.2016.06.035</a>
@@ -812,6 +925,9 @@ Gavazzi, A.C., Lagoudas, D.C., 1990. On the numerical evaluation of <span>Eshelb
 <div id="ref-ghahremani1977" class="csl-entry" role="listitem">
 Ghahremani, F., 1977. Numerical evaluation of the stresses and strains in ellipsoidal inclusions in an anisotropic elastic material. Mechanics Research Communications 4, 89–91. <a href="https://doi.org/10.1016/0093-6413(77)90018-0">https://doi.org/10.1016/0093-6413(77)90018-0</a>
 </div>
+<div id="ref-giraudMOM2019" class="csl-entry" role="listitem">
+Giraud, A., Sevostianov, I., Kushch, V.I., Cosenza, P., Prêt, D., Barthélémy, J.-F., Trofimov, A., 2019. Effective electrical conductivity of transversely isotropic rocks with arbitrarily oriented ellipsoidal inclusions. Mechanics of Materials 133, 174–192. <a href="https://doi.org/10.1016/j.mechmat.2019.03.011">https://doi.org/10.1016/j.mechmat.2019.03.011</a>
+</div>
 <div id="ref-kellogg1929" class="csl-entry" role="listitem">
 Kellogg, O.D., 1929. Potential theory. Berlin : Springer-Verlag.
 </div>
@@ -820,6 +936,15 @@ Masson, R., 2008. New explicit expressions of the <span>Hill</span> polarization
 </div>
 <div id="ref-mura1987" class="csl-entry" role="listitem">
 Mura, T., 1987. Micromechanics of <span>Defects</span> in <span>Solids</span>, <span>Second Edition</span>. Kluwer Academic. <a href="https://doi.org/10.1002/zamm.19890690204">https://doi.org/10.1002/zamm.19890690204</a>
+</div>
+<div id="ref-pouya2000" class="csl-entry" role="listitem">
+Pouya, A., 2000. Une transformation du problème d’élasticité linéaire en vue d’application au problème de l’inclusion et aux fonctions de <span>Green</span>. C. R. Acad. Sci., Série IIb 328, 437–443.
+</div>
+<div id="ref-pouya2006" class="csl-entry" role="listitem">
+Pouya, A., Zaoui, A., 2006. A transformation of elastic boundary value problems with application to anisotropic behavior. Int. J. Solids Struct. 43, 4937–4956. <a href="https://doi.org/10.1016/j.ijsolstr.2005.06.046">https://doi.org/10.1016/j.ijsolstr.2005.06.046</a>
+</div>
+<div id="ref-suvorov2002" class="csl-entry" role="listitem">
+Suvorov, A.P., Dvorak, G.J., 2002. Rate form of the <span>Eshelby</span> and <span>Hill</span> tensors. International Journal of Solids and Structures 39, 5659–5678. <a href="https://doi.org/10.1016/S0020-7683(02)00369-4">https://doi.org/10.1016/S0020-7683(02)00369-4</a>
 </div>
 <div id="ref-willis1977" class="csl-entry" role="listitem">
 Willis, J.R., 1977. Bounds and self-consistent estimates for the overall properties of anisotropic composites. Journal of the Mechanics and Physics of Solids 25, 185–202. <a href="https://doi.org/10.1016/0022-5096(77)90022-9">https://doi.org/10.1016/0022-5096(77)90022-9</a>

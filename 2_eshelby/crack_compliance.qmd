@@ -124,7 +124,7 @@ where the keyword argument `algo` can be either `NUMINT` or `RESIDUES` (default:
 
 ## Warning
 
-As recalled above the elliptical crack is described as a flat ellipsoid. However the calculation of the crack compliance $\uuuu{H}$ (@eq-H) relies on an `ellipsoidal` argument (see @sec-ellipsoidal) in which even the smallest aspect ratio should be strictly positive for numerical reasons. It is then necessary to provide an aspect ratio $\omega$ for the crack even if the crack compliance is actually calculated as a limit (not depending on $\omega$)
+As recalled above the elliptical crack is described as a flat ellipsoid. However the calculation of the crack compliance $\uuuu{H}$ (@eq-H) relies on an `ellipsoidal` argument (see @sec-ellipsoidal) in which even the smallest aspect ratio should be strictly positive for numerical reasons. It is then necessary to provide an aspect ratio $\omega$ for the crack even if the crack compliance is actually calculated as a limit (not depending on $\omega$).
 
 :::
 
