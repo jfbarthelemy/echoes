@@ -70,7 +70,7 @@ format:
     code-tools: false
     echo: true
     html-math-method: mathjax
-    fontsize: 100%
+    fontsize: 90%
     include-in-header:
       - text: |
           <!-- Google tag (gtag.js) -->

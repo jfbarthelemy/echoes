@@ -13,6 +13,18 @@
 #     path: C:\Python\share\jupyter\kernels\python3
 # ---
 
+# ---
+# format:
+#   html:
+#     code-links:
+#       - text: Python script
+#         icon: file-code
+#         href: crack_compliance.py
+#       - text: Jupyter notebook
+#         icon: file-code
+#         href: crack_compliance.ipynb
+# ---
+#
 # # Crack compliance {#sec-crack_compliance}
 #
 # ::: {.callout-important icon=false} 
@@ -20,16 +32,6 @@
 # ## {{< iconify pajamas issue-type-objective >}} Objectives
 #
 # This tutorial shows how to calculate the crack compliance of an elliptical crack embedded in an infinite elastic matrix of arbitrary anisotropy.
-#
-# :::
-#
-# ::: {.callout-note icon=false collapse=true} 
-#
-# ## {{< iconify flowbite download-outline >}} Download
-#
-# - [Python script](crack_compliance.py)
-#
-# - [Jupyter notebook](crack_compliance.ipynb)
 #
 # :::
 #
@@ -106,7 +108,7 @@ np.set_printoptions(precision=8, suppress=True)
 # B_{\ell\ell}\,\uv{\ell}\otimes\uv{\ell}
 # $$
 # with
-# $$\begin{aligned}
+# $$\begin{align}
 # B_{nn}&=\frac{8\,\eta\,(1-\nu^2)}{3\,E}\,
 # \frac{1}{\mathcal{E}_\eta}\label{eq:Bnn}\\
 # B_{mm}&=\frac{8\,\eta\,(1-\nu^2)}{3\,E}\,
@@ -114,7 +116,7 @@ np.set_printoptions(precision=8, suppress=True)
 # \,\mathcal{E}_\eta-\nu\,\eta^2\,\mathcal{K}_\eta}\\
 # B_{\ell\ell}&=\frac{8\,\eta\,(1-\nu^2)}{3\,E}\,
 # \frac{1-\eta^2}{(1-\nu-\eta^2)\,\mathcal{E}_\eta+\nu\,\eta^2\,\mathcal{K}_\eta}
-# \end{aligned}$$
+# \end{align}$$
 # where $\mathcal{K}_\eta=\mathcal{K}(\sqrt{1-\eta^2})$ and $\mathcal{E}_\eta=\mathcal{E}(\sqrt{1-\eta^2})$
 # are the complete elliptic integrals of respectively the first and second kind (see [@abramowitz1972]).
 # If the crack is circular, the components of $\uu{B}$ become
@@ -137,7 +139,7 @@ np.set_printoptions(precision=8, suppress=True)
 #
 # ## Warning
 #
-# As recalled above the elliptical crack is described as a flat ellipsoid. However the calculation of the crack compliance $\uuuu{H}$ (@eq-H) relies on an `ellipsoidal` argument (see @sec-ellipsoidal) in which even the smallest aspect ratio should be strictly positive for numerical reasons. It is then necessary to provide an aspect ratio $\omega$ for the crack even if the crack compliance is actually calculated as a limit (not depending on $\omega$)
+# As recalled above the elliptical crack is described as a flat ellipsoid. However the calculation of the crack compliance $\uuuu{H}$ (@eq-H) relies on an `ellipsoidal` argument (see @sec-ellipsoidal) in which even the smallest aspect ratio should be strictly positive for numerical reasons. It is then necessary to provide an aspect ratio $\omega$ for the crack even if the crack compliance is actually calculated as a limit (not depending on $\omega$).
 #
 # :::
 #

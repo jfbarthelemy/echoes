@@ -13,6 +13,18 @@
 #     path: C:\Python\share\jupyter\kernels\python3
 # ---
 
+# ---
+# format:
+#   html:
+#     code-links:
+#       - text: Python script
+#         icon: file-code
+#         href: kelvin_mandel.py
+#       - text: Jupyter notebook
+#         icon: file-code
+#         href: kelvin_mandel.ipynb
+# ---
+#
 # # Kelvin-Mandel notation {#sec-kelvin_mandel}
 #
 # ::: {.callout-important icon=false} 
@@ -20,16 +32,6 @@
 # ## {{< iconify pajamas issue-type-objective >}} Objectives
 #
 # Before introducing the specific objects of `echoes` devoted to tensor calculations in isotropic or anisotropic contexts, this tutorial aims at providing the syntax allowing to represent second-order or fourth-order tensors under the form of matrices in the Kelvin-Mandel notation as detailed in @sec-KM.
-#
-# :::
-#
-# ::: {.callout-note icon=false collapse=true} 
-#
-# ## {{< iconify flowbite download-outline >}} Download
-#
-# - [Python script](kelvin_mandel.py)
-#
-# - [Jupyter notebook](kelvin_mandel.ipynb)
 #
 # :::
 #

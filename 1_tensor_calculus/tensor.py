@@ -13,6 +13,18 @@
 #     path: C:\Python\share\jupyter\kernels\python3
 # ---
 
+# ---
+# format:
+#   html:
+#     code-links:
+#       - text: Python script
+#         icon: file-code
+#         href: tensor.py
+#       - text: Jupyter notebook
+#         icon: file-code
+#         href: tensor.ipynb
+# ---
+#
 # # The `tensor` object {#sec-tensor}
 #
 # ::: {.callout-important icon=false} 
@@ -20,16 +32,6 @@
 # ## {{< iconify pajamas issue-type-objective >}} Objectives
 #
 # This tutorial presents the object `tensor` which is the main structure of `echoes` allowing to represent symmetric second-order or fourth-order tensors both in matrix and synthetic forms and containing information about anisotropy.
-#
-# :::
-#
-# ::: {.callout-note icon=false collapse=true} 
-#
-# ## {{< iconify flowbite download-outline >}} Download
-#
-# - [Python script](tensor.py)
-#
-# - [Jupyter notebook](tensor.ipynb)
 #
 # :::
 #

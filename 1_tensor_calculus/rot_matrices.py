@@ -13,6 +13,18 @@
 #     path: C:\Python\share\jupyter\kernels\python3
 # ---
 
+# ---
+# format:
+#   html:
+#     code-links:
+#       - text: Python script
+#         icon: file-code
+#         href: rot_matrices.py
+#       - text: Jupyter notebook
+#         icon: file-code
+#         href: rot_matrices.ipynb
+# ---
+#
 # # Rotation matrices {#sec-rot_tensors}
 #
 # ::: {.callout-important icon=false} 
@@ -20,16 +32,6 @@
 # ## {{< iconify pajamas issue-type-objective >}} Objectives
 #
 # This tutorial presents the construction of rotation matrices in $\R^3$ in the convention proposed in @sec-rottens for Euler angles.
-#
-# :::
-#
-# ::: {.callout-note icon=false collapse=true} 
-#
-# ## {{< iconify flowbite download-outline >}} Download
-#
-# - [Python script](rot_matrices.py)
-#
-# - [Jupyter notebook](rot_matrices.ipynb)
 #
 # :::
 #
