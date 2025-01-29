@@ -131,7 +131,7 @@ $$
 \uu{I}^{\uu{A}}=I^{\uu{A}}_1\,\uv{e}^{\uu{A}}_1\otimes\uv{e}^{\uu{A}}_1 + I^{\uu{A}}_2\,\uv{e}^{\uu{A}}_2\otimes\uv{e}^{\uu{A}}_2 + I^{\uu{A}}_3\,\uv{e}^{\uu{A}}_3\otimes\uv{e}^{\uu{A}}_3 = \sum_{i=1}^3 I^{\uu{A}}_i\,\uv{e}^{\uu{A}}_i\otimes\uv{e}^{\uu{A}}_i
 $${#eq-decI}
 
-The components $I^{\uu{A}}_i$ can be obtained by identification with expressions derived from the Newtonian potential ([@kellogg1929], [@eshelby1957]). They are gathered in @tbl-Ii or recalled a little later in a generic form ([@barthelemyIJSS2016], [@barthelemyIJES2020_hilltrans]).
+The components $I^{\uu{A}}_i$ can be obtained by identification with expressions derived from the Newtonian potential ([@kellogg1929], [@eshelby1957], [@parnell2016]). They are gathered in @tbl-Ii or recalled a little later in a generic form ([@barthelemyIJSS2016], [@barthelemyIJES2020_hilltrans]).
 
 |      | ellipsoid | prolate spheroid | oblate spheroid | sphere |
 |------|------|------|------|------|
@@ -203,7 +203,7 @@ I^{\uu{A}}_2=I^{\uu{A}}_3&=a\,
 \frac{a\sqrt{a^2-c^2}-c^2\,\arcosh{(a/c)}}
 {2\left(a^2-c^2\right)^{3/2}}\\
 I^{\uu{A}}_1&=1-2\,I^{\uu{A}}_3\\
-I^{\uu{A}}_{1i}=I^{\uu{A}}_{i1}&=\frac{I^{\uu{A}}_i-I^{\uu{A}}_1}{a^2-\rho_i^2}\quad
+I^{\uu{A}}_{1i}=I^{\uu{A}}_{i1}&=\frac{I^{\uu{A}}_i-I^{\uu{A}}_1}{a^2-c^2}\quad
 \forall\, i\in\{2,3\}\\
 I^{\uu{A}}_{ij}&=\frac{1}{4}
 \left(\frac{1}{c^2}-I^{\uu{A}}_{31} \right) 
@@ -219,7 +219,7 @@ I^{\uu{A}}_1=I^{\uu{A}}_2&=c\,
 \frac{a^2\,\arccos{(c/a)}-c\sqrt{a^2-c^2}}
 {2\left(a^2-c^2\right)^{3/2}}\\
 I^{\uu{A}}_3&=1-2\,I^{\uu{A}}_1\\
-I^{\uu{A}}_{3i}=I^{\uu{A}}_{i3}&=\frac{I^{\uu{A}}_3-I^{\uu{A}}_i}{\rho_i^2-c^2}\quad
+I^{\uu{A}}_{3i}=I^{\uu{A}}_{i3}&=\frac{I^{\uu{A}}_3-I^{\uu{A}}_i}{a^2-c^2}\quad
 \forall\, i\in\{1,2\}\\
 I^{\uu{A}}_{ij}&=\frac{1}{4}
 \left(\frac{1}{a^2}-I^{\uu{A}}_{31} \right) 
@@ -236,9 +236,61 @@ I^{\uu{A}}_{ij}&=\frac{1}{5\,a^2}\quad\forall\, i,j\in\{1,2,3\}
 
 :::
 
+Note that the following identities are always satisfied [@eshelby1957]:
+
+$$\begin{align}
+\sum_{i}I^{\uu{A}}_{i} &=1\\
+3\,I^{\uu{A}}_{ii}+\sum_{j\neq i}I^{\uu{A}}_{ij} &=\frac{1}{\rho_i^2}\\
+3\,\rho_i^2\,I^{\uu{A}}_{ii}+\sum_{j\neq i}\rho_j^2\,I^{\uu{A}}_{ij} &=3\,I^{\uu{A}}_{i}
+\end{align}$$
+
+
 :::
 
-For an arbitrary ellipsoid defined by (@eq-ellipsoid), the non-zero components of $\uuuu{U}^{\uu{A}}$ and $\uuuu{V}^{\uu{A}}$ write ([@barthelemyIJSS2016], [@barthelemyIJES2020_hilltrans])
+Again, for symmetry reasons, $\uuuu{U}^{\uu{A}}$ and $\uuuu{V}^{\uu{A}}$ are expected orthotropic of axes $\left(\ve{i}^{\uu{A}}\right)_{i=1,2,3}$. They are indeed written in Kelvin-Mandel form in the frame $\left(\ve{i}^{\uu{A}}\right)_{i=1,2,3}$ ([@barthelemyIJSS2016], [@barthelemyIJES2020_hilltrans])
+
+$$
+\Mat_{KM}\left(\uuuu{U}^{\uu{A}}, \ve{i}^{\uu{A}}\right)=
+\left(
+\begin{array}{cccccc}
+\frac{3(I^{\uu{A}}_1-a^2I^{\uu{A}}_{11})}{2} & \frac{I^{\uu{A}}_2-a^2I^{\uu{A}}_{12}}{2} & \frac{I^{\uu{A}}_1-c^2I^{\uu{A}}_{31}}{2} & 0 & 0 & 0 \\
+\frac{I^{\uu{A}}_2-a^2I^{\uu{A}}_{12}}{2} & \frac{3(I^{\uu{A}}_2-b^2I^{\uu{A}}_{22})}{2} & \frac{I^{\uu{A}}_3-b^2I^{\uu{A}}_{23}}{2} & 0 & 0 & 0 \\
+\frac{I^{\uu{A}}_1-c^2I^{\uu{A}}_{31}}{2} & \frac{I^{\uu{A}}_3-b^2I^{\uu{A}}_{23}}{2} & \frac{3(I^{\uu{A}}_3-c^2I^{\uu{A}}_{33})}{2} & 0 & 0 & 0 \\
+0 & 0 & 0 & I^{\uu{A}}_3-b^2I^{\uu{A}}_{23} & 0 & 0 \\
+0 & 0 & 0 & 0 & I^{\uu{A}}_1-c^2I^{\uu{A}}_{31} & 0 \\
+0 & 0 & 0 & 0 & 0 & I^{\uu{A}}_2-a^2I^{\uu{A}}_{12} \\
+\end{array}
+\right)
+$$
+
+$$
+\Mat_{KM}\left(\uuuu{V}^{\uu{A}}, \ve{i}^{\uu{A}}\right)=
+\left(
+\begin{array}{cccccc}
+I^{\uu{A}}_1 & 0 & 0 & 0 & 0 & 0 \\
+0 & I^{\uu{A}}_2 & 0 & 0 & 0 & 0 \\
+0 & 0 & I^{\uu{A}}_3 & 0 & 0 & 0 \\
+0 & 0 & 0 & \frac{I^{\uu{A}}_2+I^{\uu{A}}_3}{2} & 0 & 0 \\
+0 & 0 & 0 & 0 & \frac{I^{\uu{A}}_3+I^{\uu{A}}_1}{2} & 0 \\
+0 & 0 & 0 & 0 & 0 & \frac{I^{\uu{A}}_1+I^{\uu{A}}_2}{2} \\
+\end{array}
+\right)
+$$
+
+In the case of a spherical inclusion ($\uu{A}=\uu{1}$), note that $\uuuu{U}^{\uu{A}}$ and $\uuuu{V}^{\uu{A}}$ are simply decomposed as
+$$
+\uuuu{U}^{\uu{A}}=\frac{1}{3}\uuuu{J}+\frac{2}{15}\uuuu{K}
+\quad\textrm{ and }\quad
+\uuuu{V}^{\uu{A}}=\frac{1}{3}\uuuu{I}
+$$
+where $\uuuu{I}$, $\uuuu{J}$ and $\uuuu{K}$ are defined in @sec-ISO.
+
+Alternatively generic expressions of the components are given herebelow.
+
+::: {.callout-note collapse=true}
+
+## Generic expressions of the non-zero components of $\uuuu{U}^{\uu{A}}$ and $\uuuu{V}^{\uu{A}}$ (click for details)
+
 $$\begin{align}
 U^{\uu{A}}_{iiii}&=\frac{3(I^{\uu{A}}_i-\rho_i^2I^{\uu{A}}_{ii})}{2} 
 \quad\forall\, i\in\{1,2,3\}\\
@@ -253,13 +305,7 @@ V^{\uu{A}}_{ijij}=V^{\uu{A}}_{ijji}&=\frac{I^{\uu{A}}_i+I^{\uu{A}}_j}{4}
 \quad\forall\, i\neq j\in\{1,2,3\}
 \end{align}$${#eq-Vijkl}
 
-In the case of a spherical inclusion ($\uu{A}=\uu{1}$), note that $\uuuu{U}^{\uu{A}}$ and $\uuuu{V}^{\uu{A}}$ are simply decomposed as
-$$
-\uuuu{U}^{\uu{A}}=\frac{1}{3}\uuuu{J}+\frac{2}{15}\uuuu{K}
-\quad\textrm{ and }\quad
-\uuuu{V}^{\uu{A}}=\frac{1}{3}\uuuu{I}
-$$
-where $\uuuu{I}$, $\uuuu{J}$ and $\uuuu{K}$ are defined in @sec-ISO.
+:::
 
 
 ## Hill polarization tensor in elasticity

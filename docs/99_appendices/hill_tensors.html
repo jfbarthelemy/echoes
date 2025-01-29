@@ -61,7 +61,7 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-347421651eda86bd14cf96a71aabf182.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-516021c1561ef1d5dbcd01f276f011ae.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
@@ -550,7 +550,7 @@ Proof of the change of variable in <a href="#eq-tensIUV" class="quarto-xref"><sp
 <p>By symmetry, it is obvious that <span class="math inline">\(\uu{A}\)</span> (<a href="#eq-ellipsoid" class="quarto-xref"><span>B.1</span></a>) and <span class="math inline">\(\uu{I}^{\uu{A}}\)</span> are simultaneously diagonalizable i.e.&nbsp;they share the same eigenvectors: <span id="eq-decI"><span class="math display">\[
 \uu{I}^{\uu{A}}=I^{\uu{A}}_1\,\uv{e}^{\uu{A}}_1\otimes\uv{e}^{\uu{A}}_1 + I^{\uu{A}}_2\,\uv{e}^{\uu{A}}_2\otimes\uv{e}^{\uu{A}}_2 + I^{\uu{A}}_3\,\uv{e}^{\uu{A}}_3\otimes\uv{e}^{\uu{A}}_3 = \sum_{i=1}^3 I^{\uu{A}}_i\,\uv{e}^{\uu{A}}_i\otimes\uv{e}^{\uu{A}}_i
 \tag{B.3}\]</span></span></p>
-<p>The components <span class="math inline">\(I^{\uu{A}}_i\)</span> can be obtained by identification with expressions derived from the Newtonian potential (<span class="citation" data-cites="kellogg1929">(<a href="../references.html#ref-kellogg1929" role="doc-biblioref">Kellogg, 1929</a>)</span>, <span class="citation" data-cites="eshelby1957">(<a href="../references.html#ref-eshelby1957" role="doc-biblioref">Eshelby, 1957</a>)</span>). They are gathered in <a href="#tbl-Ii" class="quarto-xref">Tab.&nbsp;<span>B.1</span></a> or recalled a little later in a generic form (<span class="citation" data-cites="barthelemyIJSS2016">(<a href="../references.html#ref-barthelemyIJSS2016" role="doc-biblioref">Barthélémy et al., 2016</a>)</span>, <span class="citation" data-cites="barthelemyIJES2020_hilltrans">(<a href="../references.html#ref-barthelemyIJES2020_hilltrans" role="doc-biblioref">Barthélémy, 2020</a>)</span>).</p>
+<p>The components <span class="math inline">\(I^{\uu{A}}_i\)</span> can be obtained by identification with expressions derived from the Newtonian potential (<span class="citation" data-cites="kellogg1929">(<a href="../references.html#ref-kellogg1929" role="doc-biblioref">Kellogg, 1929</a>)</span>, <span class="citation" data-cites="eshelby1957">(<a href="../references.html#ref-eshelby1957" role="doc-biblioref">Eshelby, 1957</a>)</span>, <span class="citation" data-cites="parnell2016">(<a href="../references.html#ref-parnell2016" role="doc-biblioref">Parnell, 2016</a>)</span>). They are gathered in <a href="#tbl-Ii" class="quarto-xref">Tab.&nbsp;<span>B.1</span></a> or recalled a little later in a generic form (<span class="citation" data-cites="barthelemyIJSS2016">(<a href="../references.html#ref-barthelemyIJSS2016" role="doc-biblioref">Barthélémy et al., 2016</a>)</span>, <span class="citation" data-cites="barthelemyIJES2020_hilltrans">(<a href="../references.html#ref-barthelemyIJES2020_hilltrans" role="doc-biblioref">Barthélémy, 2020</a>)</span>).</p>
 <div id="tbl-Ii" class="striped hover bordered danger sm quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <div aria-describedby="tbl-Ii-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -742,7 +742,7 @@ I^{\uu{A}}_2=I^{\uu{A}}_3&amp;=a\,
 \frac{a\sqrt{a^2-c^2}-c^2\,\arcosh{(a/c)}}
 {2\left(a^2-c^2\right)^{3/2}}\\
 I^{\uu{A}}_1&amp;=1-2\,I^{\uu{A}}_3\\
-I^{\uu{A}}_{1i}=I^{\uu{A}}_{i1}&amp;=\frac{I^{\uu{A}}_i-I^{\uu{A}}_1}{a^2-\rho_i^2}\quad
+I^{\uu{A}}_{1i}=I^{\uu{A}}_{i1}&amp;=\frac{I^{\uu{A}}_i-I^{\uu{A}}_1}{a^2-c^2}\quad
 \forall\, i\in\{2,3\}\\
 I^{\uu{A}}_{ij}&amp;=\frac{1}{4}
 \left(\frac{1}{c^2}-I^{\uu{A}}_{31} \right)
@@ -757,7 +757,7 @@ I^{\uu{A}}_1=I^{\uu{A}}_2&amp;=c\,
 \frac{a^2\,\arccos{(c/a)}-c\sqrt{a^2-c^2}}
 {2\left(a^2-c^2\right)^{3/2}}\\
 I^{\uu{A}}_3&amp;=1-2\,I^{\uu{A}}_1\\
-I^{\uu{A}}_{3i}=I^{\uu{A}}_{i3}&amp;=\frac{I^{\uu{A}}_3-I^{\uu{A}}_i}{\rho_i^2-c^2}\quad
+I^{\uu{A}}_{3i}=I^{\uu{A}}_{i3}&amp;=\frac{I^{\uu{A}}_3-I^{\uu{A}}_i}{a^2-c^2}\quad
 \forall\, i\in\{1,2\}\\
 I^{\uu{A}}_{ij}&amp;=\frac{1}{4}
 \left(\frac{1}{a^2}-I^{\uu{A}}_{31} \right)
@@ -774,10 +774,61 @@ I^{\uu{A}}_{ij}&amp;=\frac{1}{5\,a^2}\quad\forall\, i,j\in\{1,2,3\}
 </div>
 </div>
 </div>
+<p>Note that the following identities are always satisfied <span class="citation" data-cites="eshelby1957">(<a href="../references.html#ref-eshelby1957" role="doc-biblioref">Eshelby, 1957</a>)</span>:</p>
+<p><span class="math display">\[\begin{align}
+\sum_{i}I^{\uu{A}}_{i} &amp;=1\\
+3\,I^{\uu{A}}_{ii}+\sum_{j\neq i}I^{\uu{A}}_{ij} &amp;=\frac{1}{\rho_i^2}\\
+3\,\rho_i^2\,I^{\uu{A}}_{ii}+\sum_{j\neq i}\rho_j^2\,I^{\uu{A}}_{ij} &amp;=3\,I^{\uu{A}}_{i}
+\end{align}\]</span></p>
 </div>
 </div>
 </div>
-<p>For an arbitrary ellipsoid defined by (<a href="#eq-ellipsoid" class="quarto-xref"><span>B.1</span></a>), the non-zero components of <span class="math inline">\(\uuuu{U}^{\uu{A}}\)</span> and <span class="math inline">\(\uuuu{V}^{\uu{A}}\)</span> write (<span class="citation" data-cites="barthelemyIJSS2016">(<a href="../references.html#ref-barthelemyIJSS2016" role="doc-biblioref">Barthélémy et al., 2016</a>)</span>, <span class="citation" data-cites="barthelemyIJES2020_hilltrans">(<a href="../references.html#ref-barthelemyIJES2020_hilltrans" role="doc-biblioref">Barthélémy, 2020</a>)</span>) <span id="eq-Uijkl"><span class="math display">\[\begin{align}
+<p>Again, for symmetry reasons, <span class="math inline">\(\uuuu{U}^{\uu{A}}\)</span> and <span class="math inline">\(\uuuu{V}^{\uu{A}}\)</span> are expected orthotropic of axes <span class="math inline">\(\left(\ve{i}^{\uu{A}}\right)_{i=1,2,3}\)</span>. They are indeed written in Kelvin-Mandel form in the frame <span class="math inline">\(\left(\ve{i}^{\uu{A}}\right)_{i=1,2,3}\)</span> (<span class="citation" data-cites="barthelemyIJSS2016">(<a href="../references.html#ref-barthelemyIJSS2016" role="doc-biblioref">Barthélémy et al., 2016</a>)</span>, <span class="citation" data-cites="barthelemyIJES2020_hilltrans">(<a href="../references.html#ref-barthelemyIJES2020_hilltrans" role="doc-biblioref">Barthélémy, 2020</a>)</span>)</p>
+<p><span class="math display">\[
+\Mat_{KM}\left(\uuuu{U}^{\uu{A}}, \ve{i}^{\uu{A}}\right)=
+\left(
+\begin{array}{cccccc}
+\frac{3(I^{\uu{A}}_1-a^2I^{\uu{A}}_{11})}{2} &amp; \frac{I^{\uu{A}}_2-a^2I^{\uu{A}}_{12}}{2} &amp; \frac{I^{\uu{A}}_1-c^2I^{\uu{A}}_{31}}{2} &amp; 0 &amp; 0 &amp; 0 \\
+\frac{I^{\uu{A}}_2-a^2I^{\uu{A}}_{12}}{2} &amp; \frac{3(I^{\uu{A}}_2-b^2I^{\uu{A}}_{22})}{2} &amp; \frac{I^{\uu{A}}_3-b^2I^{\uu{A}}_{23}}{2} &amp; 0 &amp; 0 &amp; 0 \\
+\frac{I^{\uu{A}}_1-c^2I^{\uu{A}}_{31}}{2} &amp; \frac{I^{\uu{A}}_3-b^2I^{\uu{A}}_{23}}{2} &amp; \frac{3(I^{\uu{A}}_3-c^2I^{\uu{A}}_{33})}{2} &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; I^{\uu{A}}_3-b^2I^{\uu{A}}_{23} &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; I^{\uu{A}}_1-c^2I^{\uu{A}}_{31} &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; I^{\uu{A}}_2-a^2I^{\uu{A}}_{12} \\
+\end{array}
+\right)
+\]</span></p>
+<p><span class="math display">\[
+\Mat_{KM}\left(\uuuu{V}^{\uu{A}}, \ve{i}^{\uu{A}}\right)=
+\left(
+\begin{array}{cccccc}
+I^{\uu{A}}_1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; I^{\uu{A}}_2 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; I^{\uu{A}}_3 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; \frac{I^{\uu{A}}_2+I^{\uu{A}}_3}{2} &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; \frac{I^{\uu{A}}_3+I^{\uu{A}}_1}{2} &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \frac{I^{\uu{A}}_1+I^{\uu{A}}_2}{2} \\
+\end{array}
+\right)
+\]</span></p>
+<p>In the case of a spherical inclusion (<span class="math inline">\(\uu{A}=\uu{1}\)</span>), note that <span class="math inline">\(\uuuu{U}^{\uu{A}}\)</span> and <span class="math inline">\(\uuuu{V}^{\uu{A}}\)</span> are simply decomposed as <span class="math display">\[
+\uuuu{U}^{\uu{A}}=\frac{1}{3}\uuuu{J}+\frac{2}{15}\uuuu{K}
+\quad\textrm{ and }\quad
+\uuuu{V}^{\uu{A}}=\frac{1}{3}\uuuu{I}
+\]</span> where <span class="math inline">\(\uuuu{I}\)</span>, <span class="math inline">\(\uuuu{J}\)</span> and <span class="math inline">\(\uuuu{K}\)</span> are defined in <a href="tensor_algebra.html#sec-ISO" class="quarto-xref"><span>Section A.4</span></a>.</p>
+<p>Alternatively generic expressions of the components are given herebelow.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Generic expressions of the non-zero components of <span class="math inline">\(\uuuu{U}^{\uu{A}}\)</span> and <span class="math inline">\(\uuuu{V}^{\uu{A}}\)</span> (click for details)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span id="eq-Uijkl"><span class="math display">\[\begin{align}
 U^{\uu{A}}_{iiii}&amp;=\frac{3(I^{\uu{A}}_i-\rho_i^2I^{\uu{A}}_{ii})}{2}
 \quad\forall\, i\in\{1,2,3\}\\
 U^{\uu{A}}_{iijj}=U^{\uu{A}}_{ijij}=U^{\uu{A}}_{ijji}&amp;=\frac{I^{\uu{A}}_j-\rho_i^2I^{\uu{A}}_{ij}}{2}
@@ -788,11 +839,9 @@ V^{\uu{A}}_{iiii}&amp;=I^{\uu{A}}_i\quad\forall\, i\in\{1,2,3\}\\
 V^{\uu{A}}_{ijij}=V^{\uu{A}}_{ijji}&amp;=\frac{I^{\uu{A}}_i+I^{\uu{A}}_j}{4}
 \quad\forall\, i\neq j\in\{1,2,3\}
 \end{align} \tag{B.5}\]</span></span></p>
-<p>In the case of a spherical inclusion (<span class="math inline">\(\uu{A}=\uu{1}\)</span>), note that <span class="math inline">\(\uuuu{U}^{\uu{A}}\)</span> and <span class="math inline">\(\uuuu{V}^{\uu{A}}\)</span> are simply decomposed as <span class="math display">\[
-\uuuu{U}^{\uu{A}}=\frac{1}{3}\uuuu{J}+\frac{2}{15}\uuuu{K}
-\quad\textrm{ and }\quad
-\uuuu{V}^{\uu{A}}=\frac{1}{3}\uuuu{I}
-\]</span> where <span class="math inline">\(\uuuu{I}\)</span>, <span class="math inline">\(\uuuu{J}\)</span> and <span class="math inline">\(\uuuu{K}\)</span> are defined in <a href="tensor_algebra.html#sec-ISO" class="quarto-xref"><span>Section A.4</span></a>.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="hill-polarization-tensor-in-elasticity" class="level2">
 <h2 class="anchored" data-anchor-id="hill-polarization-tensor-in-elasticity">Hill polarization tensor in elasticity</h2>
@@ -932,6 +981,9 @@ Masson, R., 2008. New explicit expressions of the <span>Hill</span> polarization
 </div>
 <div id="ref-mura1987" class="csl-entry" role="listitem">
 Mura, T., 1987. Micromechanics of <span>Defects</span> in <span>Solids</span>, <span>Second Edition</span>. Kluwer Academic. <a href="https://doi.org/10.1002/zamm.19890690204">https://doi.org/10.1002/zamm.19890690204</a>
+</div>
+<div id="ref-parnell2016" class="csl-entry" role="listitem">
+Parnell, W.J., 2016. The <span>Eshelby</span>, <span>Hill</span>, <span>Moment</span> and <span>Concentration Tensors</span> for <span>Ellipsoidal Inhomogeneities</span> in the <span>Newtonian Potential Problem</span> and <span>Linear Elastostatics</span>. Journal of Elasticity 125, 231–294. <a href="https://doi.org/10.1007/s10659-016-9573-6">https://doi.org/10.1007/s10659-016-9573-6</a>
 </div>
 <div id="ref-pouya2000" class="csl-entry" role="listitem">
 Pouya, A., 2000. Une transformation du problème d’élasticité linéaire en vue d’application au problème de l’inclusion et aux fonctions de <span>Green</span>. C. R. Acad. Sci., Série IIb 328, 437–443.
