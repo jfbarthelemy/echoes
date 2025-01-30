@@ -65,11 +65,10 @@ np.set_printoptions(precision=8, suppress=True)
 # \quad\Leftrightarrow\quad   
 # \uv{x}\cdot(\trans{\uu{A}}\cdot\uu{A})^{-1}\cdot\uv{x}\leq 1
 # $${#eq-defell}
-# where $\uu{A}$ is an invertible second-order tensor so that $\trans{\uu{A}}\cdot\uu{A}$ is a positive definite symmetric tensor associated to 3 radii (eigenvalues $a\geq b \geq c$ possibly written $\rho_1 \geq \rho_2 \geq \rho_3$ for convenience) and 3 angles (orientation of the frame of eigenvectors $\uv{e}_1, \uv{e}_2, \uv{e}_3$)
-#
+# where $\uu{A}$ is an invertible second-order tensor so that $\trans{\uu{A}}\cdot\uu{A}$ is a positive definite symmetric tensor associated to 3 radii (eigenvalues $a\geq b \geq c$ possibly written $\rho_1 \geq \rho_2 \geq \rho_3$ for convenience) and 3 angles (orientation of the frame of orthonormal eigenvectors $\uv{e}^{\uu{A}}_1, \uv{e}^{\uu{A}}_2, \uv{e}^{\uu{A}}_3$)
 # $$
-# \trans{\uu{A}}\cdot\uu{A}=a^2 \uv{e}_1\otimes\uv{e}_1 + b^2 \uv{e}_2\otimes\uv{e}_2 + c^2 \uv{e}_3\otimes\uv{e}_3 = \sum_{i=1}^3 \rho_i \uv{e}_i\otimes\uv{e}_i
-# $${#eq-defA}
+# \trans{\uu{A}}\cdot\uu{A}=a^2 \uv{e}^{\uu{A}}_1\otimes\uv{e}^{\uu{A}}_1 + b^2 \uv{e}^{\uu{A}}_2\otimes\uv{e}^{\uu{A}}_2 + c^2 \uv{e}^{\uu{A}}_3\otimes\uv{e}^{\uu{A}}_3 = \sum_{i=1}^3 \rho_i^2 \uv{e}^{\uu{A}}_i\otimes\uv{e}^{\uu{A}}_i
+# $$
 #
 # A polarization field is introduced as a second-order symmetric tensor field $\uu{\tau}$ such that the constitutive law of the medium is given by
 #
@@ -98,7 +97,7 @@ np.set_printoptions(precision=8, suppress=True)
 # $$
 #    \forall \x \in \mathcal{E}_{\uu{A}},\quad \eps(\x)=-\uuuu{P}:\uu{\tau}\quad\textrm{(uniform)}
 # $${#eq-defHill}
-# where $\uuuu{P}$, called the Hill polarization tensor, depends on the shape and orientation of the ellipsoid (i.e. $\uu{A}$ up to a multiplicative constant) and on the matrix behavior (i.e. $\uuuu{C}$), in other words $\uuuu{P}=\uuuu{P}(\uu{A},\uuuu{C})$.
+# where $\uuuu{P}$, called the Hill polarization tensor, depends on the shape and orientation of the ellipsoid (i.e. $\uu{A}$ up to a multiplicative constant) and on the matrix behavior (i.e. $\uuuu{C}$), in other words $\uuuu{P}=\uuuu{P}(\uu{A},\uuuu{C})$. See in @sec-hill_elas explicit expressions to calculate the Hill polarization tensor.
 #
 # The polarization problem can be alternatively posed thanks to an eigenstrain tensor $\eps^*$, uniform in the ellipsoid, such that $\eps^*=-\uuuu{C}^{-1}:\uu{\tau}$. It follows that @eq-law rewrites
 #
@@ -116,8 +115,6 @@ np.set_printoptions(precision=8, suppress=True)
 # $$
 #    \forall \x \in \mathcal{E}_{\uu{A}},\quad \eps(\x)=\uuuu{S}:\eps^*\quad\textrm{where}\quad\uuuu{S}=\uuuu{P}:\uuuu{C}
 # $${#eq-defEshelby}
-#
-# See in @sec-hill_elas explicit expressions to calculate the Hill polarization tensor.
 #
 # A straightforward consequence of the uniformity of the strain state wihin the ellipsoid is the uniformity of the stress state. A dual point of view of the expression (@eq-defHill) consists in relating the uniform stress within the ellipsoid to the eigenstrain introduced in (@eq-law2). Using (@eq-defEshelby) in (@eq-law2) allows to exhibit the dual counterpart of (@eq-defHill) involving the so-called second Hill polarization tensor $\uuuu{Q}$
 # $$

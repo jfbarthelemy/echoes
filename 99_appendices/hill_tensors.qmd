@@ -250,7 +250,7 @@ $$\begin{align}
 Again, for symmetry reasons, $\uuuu{U}^{\uu{A}}$ and $\uuuu{V}^{\uu{A}}$ are expected orthotropic of axes $\left(\ve{i}^{\uu{A}}\right)_{i=1,2,3}$. They are indeed written in Kelvin-Mandel form in the frame $\left(\ve{i}^{\uu{A}}\right)_{i=1,2,3}$ ([@barthelemyIJSS2016], [@barthelemyIJES2020_hilltrans])
 
 $$
-\Mat_{KM}\left(\uuuu{U}^{\uu{A}}, \ve{i}^{\uu{A}}\right)=
+\Mat\left(\uuuu{U}^{\uu{A}}, \ve{i}^{\uu{A}}\right)=
 \left(
 \begin{array}{cccccc}
 \frac{3(I^{\uu{A}}_1-a^2I^{\uu{A}}_{11})}{2} & \frac{I^{\uu{A}}_2-a^2I^{\uu{A}}_{12}}{2} & \frac{I^{\uu{A}}_1-c^2I^{\uu{A}}_{31}}{2} & 0 & 0 & 0 \\
@@ -264,7 +264,7 @@ $$
 $$
 
 $$
-\Mat_{KM}\left(\uuuu{V}^{\uu{A}}, \ve{i}^{\uu{A}}\right)=
+\Mat\left(\uuuu{V}^{\uu{A}}, \ve{i}^{\uu{A}}\right)=
 \left(
 \begin{array}{cccccc}
 I^{\uu{A}}_1 & 0 & 0 & 0 & 0 & 0 \\
