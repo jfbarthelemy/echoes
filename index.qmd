@@ -75,9 +75,9 @@ Jean-François Barthélémy is a researcher at [Cerema](https://www.cerema.fr/en
 
 {{< ai clarivate >}} [Web Of Science](https://www.webofscience.com/wos/author/record/449919)
 
-{{< ai orcid >}} [ORCID](https://orcid.org/0000-0002-1968-8939)
+{{< ai orcid color="#A7CF36" >}} [ORCID](https://orcid.org/0000-0002-1968-8939)
 
-{{< iconify mdi linkedin >}} [LinkedIn](https://www.linkedin.com/in/jean-fran%C3%A7ois-barth%C3%A9l%C3%A9my-75b3122/)
+{{< iconify devicon linkedin >}} [LinkedIn](https://www.linkedin.com/in/jean-fran%C3%A7ois-barth%C3%A9l%C3%A9my-75b3122/)
 
 📩 [Email](mailto:jf.barthelemy@cerema.fr)
 
