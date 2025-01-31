@@ -92,7 +92,7 @@ print("R =\n",R)
 for i in range(3): print(f"es({i}, θ, ϕ) = ", es(i, θ, ϕ), f" → e̱{['θ','ϕ','r'][i]}")
 ```
 
-As shown in @sec-rottens the rotation matrix applying on fourth-order tensors in Kelvin-Mandel notation can be deduced from the $3×3$ rotation matrix from @eq-rot6
+As shown in @sec-rottens the rotation matrix applying on fourth-order tensors in Kelvin-Mandel notation can be deduced from the $3×3$ rotation matrix from (@eq-rot6)
 $$
 \scriptsize
    \left(

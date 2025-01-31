@@ -10,7 +10,7 @@ book:
   subtitle: "Extended Calculator of HOmogEnization Schemes"
   author: "Jean-François Barthélémy"
   cover-image: img/cover.html
-  favicon: img/cover.html
+  favicon: img/cover.png
   site-url: https://jfbarthelemy.github.io/echoes/
   repo-url: https://github.com/jfbarthelemy/echoes/
   repo-branch: main
