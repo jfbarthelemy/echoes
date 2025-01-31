@@ -61,7 +61,7 @@ All this work is licensed under the [Creative Commons Attribution-ShareAlike 4.0
 
 ## About the author
 
-Jean-François Barthélémy is a researcher at [Cerema](https://www.cerema.fr/en) in the research team [UMR MCD](https://www.cerema.fr/fr/presse/dossier cerema-universite-gustave-eiffel-creent-unite-mixte).
+Jean-François Barthélémy is a researcher at [Cerema](https://www.cerema.fr/en) in the research team [UMR MCD](https://mcd.univ-gustave-eiffel.fr/).
 
 ::: {layout="[10,10,10,10]"}
 
@@ -69,7 +69,7 @@ Jean-François Barthélémy is a researcher at [Cerema](https://www.cerema.fr/en
 
 {{< ai researchgate >}} [ResearchGate](https://www.researchgate.net/profile/Jean-Francois_Barthelemy)
 
-{{< ai google-scholar >}} [Google scholar](https://scholar.google.com/citations?user=RVjtCiAAAAAJ&hl=en)
+{{< ai google-scholar >}} [Google Scholar](https://scholar.google.com/citations?user=RVjtCiAAAAAJ&hl=en)
 
 {{< ai hal >}} [HAL](https://hal.archives-ouvertes.fr/search/index/?q=%2A&authIdHal_s=jfbarthelemy)
 
