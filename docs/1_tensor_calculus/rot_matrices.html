@@ -66,7 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../">
 <link href="../1_tensor_calculus/special_tensors.html" rel="next">
 <link href="../1_tensor_calculus/kelvin_mandel.html" rel="prev">
-<link href="../img/cover.html" rel="icon" type="text/html">
+<link href="../img/cover.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -443,7 +443,7 @@ $$
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="053a77d7" class="cell" data-execution_count="1">
+<div id="756c4156" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math, random</span>
@@ -466,7 +466,7 @@ $$
    \right)
 \]</span></p>
 <p>can be built with <code>rot3(θ, ϕ, ψ)</code></p>
-<div id="8a734acc" class="cell" data-execution_count="2">
+<div id="aa0a669a" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>π <span class="op">=</span> math.pi</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>θ, ϕ, ψ <span class="op">=</span> π<span class="op">/</span><span class="dv">3</span>, π<span class="op">/</span><span class="dv">4</span>, π<span class="op">/</span><span class="dv">5</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> rot3(θ, ϕ, ψ)</span>
@@ -493,7 +493,7 @@ Warning
 <p>Besides vectors of the spherical basis are ordered as <span class="math inline">\(\ve{\theta}\)</span>, <span class="math inline">\(\ve{\phi}\)</span>, <span class="math inline">\(\ve{r}\)</span>.</p>
 </div>
 </div>
-<div id="eab055bb" class="cell" data-execution_count="3">
+<div id="68672191" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>θ, ϕ <span class="op">=</span> π<span class="op">/</span><span class="dv">8</span>, π<span class="op">/</span><span class="dv">5</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> rot3(θ, ϕ)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"R =</span><span class="ch">\n</span><span class="st">"</span>,R)</span>
@@ -508,7 +508,7 @@ es(1, θ, ϕ) =  [-0.58778525  0.80901699  0.        ]  → e̱ϕ
 es(2, θ, ϕ) =  [0.3095974  0.22493568 0.92387953]  → e̱r</code></pre>
 </div>
 </div>
-<p>As shown in <a href="../99_appendices/tensor_algebra.html#sec-rottens" class="quarto-xref"><span>Section A.3</span></a> the rotation matrix applying on fourth-order tensors in Kelvin-Mandel notation can be deduced from the <span class="math inline">\(3×3\)</span> rotation matrix from <a href="../99_appendices/tensor_algebra.html#eq-rot6" class="quarto-xref"><span>A.24</span></a> <span class="math display">\[
+<p>As shown in <a href="../99_appendices/tensor_algebra.html#sec-rottens" class="quarto-xref"><span>Section A.3</span></a> the rotation matrix applying on fourth-order tensors in Kelvin-Mandel notation can be deduced from the <span class="math inline">\(3×3\)</span> rotation matrix from (<a href="../99_appendices/tensor_algebra.html#eq-rot6" class="quarto-xref"><span>A.24</span></a>) <span class="math display">\[
 \scriptsize
    \left(
 \begin{array}{cccccc}
@@ -522,7 +522,7 @@ R_{3 1}^{2} &amp; R_{3 2}^{2} &amp; R_{3 3}^{2} &amp; \sqrt{2}  R_{3 2}  R_{3 3}
 \right)
 \]</span></p>
 <p>It can be directly obtained by <code>rot6(θ, ϕ, ψ)</code>.</p>
-<div id="aa5be968" class="cell" data-execution_count="4">
+<div id="92d55b31" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>θ, ϕ, ψ <span class="op">=</span> π<span class="op">/</span><span class="dv">3</span>, π<span class="op">/</span><span class="dv">4</span>, π<span class="op">/</span><span class="dv">5</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> rot3(θ, ϕ, ψ)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>sboxtimes<span class="op">=</span><span class="kw">lambda</span> a,b:<span class="fl">0.5</span><span class="op">*</span>(np.einsum(<span class="st">'ik,jl'</span>,a,b)<span class="op">+</span>np.einsum(<span class="st">'il,jk'</span>,a,b))</span>

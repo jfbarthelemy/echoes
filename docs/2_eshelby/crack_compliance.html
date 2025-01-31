@@ -86,7 +86,7 @@ div.csl-indent {
 <meta name="quarto:offset" content="../">
 <link href="../references.html" rel="next">
 <link href="../2_eshelby/eshelby_hill.html" rel="prev">
-<link href="../img/cover.html" rel="icon" type="text/html">
+<link href="../img/cover.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -470,7 +470,7 @@ $$
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="2c840a97" class="cell" data-execution_count="1">
+<div id="35f41623" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math, random</span>
@@ -484,7 +484,7 @@ $$
 </div>
 <section id="definition-of-the-crack-compliance" class="level2">
 <h2 class="anchored" data-anchor-id="definition-of-the-crack-compliance">Definition of the crack compliance</h2>
-<p>Geometrically an elliptical crack can be defined as the limit domain of an ellipsoid for which the smallest aspect ratio tends towards 0. Keeping the definition of the ellipsoid by means of the tensor <span class="math inline">\(\uu{A}\)</span> in (<a href="eshelby_hill.html#eq-defell" class="quarto-xref"><span>5.1</span></a>)-(<span class="quarto-unresolved-ref">?eq-defA</span>), the latter tensor becomes here <span class="math display">\[
+<p>Geometrically an elliptical crack can be defined as the limit domain of an ellipsoid for which the smallest aspect ratio tends towards 0. Keeping the definition of the ellipsoid by means of the tensor <span class="math inline">\(\uu{A}\)</span> in (<a href="eshelby_hill.html#eq-defell" class="quarto-xref"><span>5.1</span></a>), the latter tensor becomes here <span class="math display">\[
 \uu{A}=
 \uv{\ell}\otimes\uv{\ell}+
 \eta\,\uv{m}\otimes\uv{m}+
@@ -549,11 +549,11 @@ Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>As recalled above the elliptical crack is described as a flat ellipsoid. However the calculation of the crack compliance <span class="math inline">\(\uuuu{H}\)</span> (<a href="#eq-H" class="quarto-xref"><span>6.1</span></a>) relies on an <code>ellipsoidal</code> argument (see <a href="eshelby_hill.html#sec-ellipsoidal" class="quarto-xref"><span>Section 5.2</span></a>) in which even the smallest aspect ratio should be strictly positive for numerical reasons. It is then necessary to provide an aspect ratio <span class="math inline">\(\omega\)</span> for the crack even if the crack compliance is actually calculated as a limit (not depending on <span class="math inline">\(\omega\)</span>)</p>
+<p>As recalled above the elliptical crack is described as a flat ellipsoid. However the calculation of the crack compliance <span class="math inline">\(\uuuu{H}\)</span> (<a href="#eq-H" class="quarto-xref"><span>6.1</span></a>) relies on an <code>ellipsoidal</code> argument (see <a href="eshelby_hill.html#sec-ellipsoidal" class="quarto-xref"><span>Section 5.2</span></a>) in which even the smallest aspect ratio should be strictly positive for numerical reasons. It is then necessary to provide an aspect ratio <span class="math inline">\(\omega\)</span> for the crack even if the crack compliance is actually calculated as a limit (not depending on <span class="math inline">\(\omega\)</span>).</p>
 </div>
 </div>
 <p><strong>Isotropic example</strong></p>
-<div id="3efc9a47" class="cell" data-execution_count="2">
+<div id="ac4d3735" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> stiff_Enu(<span class="fl">1.</span>,<span class="fl">0.2</span>) <span class="op">;</span> <span class="bu">print</span>(<span class="st">"C =</span><span class="ch">\n</span><span class="st">"</span>, C)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>ω <span class="op">=</span> <span class="fl">1.e-4</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>H <span class="op">=</span> crack_compliance(spheroidal(ω), C) <span class="op">;</span> <span class="bu">print</span>(<span class="st">"H =</span><span class="ch">\n</span><span class="st">"</span>, H)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -577,7 +577,7 @@ H =
 </div>
 </div>
 <p><strong>Anisotropic example</strong></p>
-<div id="a580c911" class="cell" data-execution_count="3">
+<div id="8597c33c" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>M <span class="op">=</span> np.array([ [<span class="fl">2.66011</span>, <span class="fl">1.26432</span>, <span class="fl">0.662772</span>, <span class="fl">1.9402</span>, <span class="fl">1.54905</span>, <span class="fl">1.10384</span>],</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">1.26432</span>, <span class="fl">3.6072</span>, <span class="fl">1.78964</span>, <span class="fl">2.0247</span>, <span class="fl">1.2701</span>, <span class="fl">1.1089</span>], </span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">0.662772</span>, <span class="fl">1.78964</span>, <span class="fl">2.743</span>, <span class="fl">1.3367</span>, <span class="fl">1.2962</span>, <span class="fl">0.897632</span>], </span>
@@ -605,7 +605,7 @@ H =
  [ 0.          0.          0.          0.          0.          0.        ]]</code></pre>
 </div>
 </div>
-<div id="22f06f1f" class="cell" data-execution_count="4">
+<div id="7397baab" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>H <span class="op">=</span> crack_compliance(spheroidal(ω), C, algo<span class="op">=</span>RESIDUES) <span class="op">;</span> <span class="bu">print</span>(<span class="st">"H =</span><span class="ch">\n</span><span class="st">"</span>, H)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>H =
@@ -657,7 +657,7 @@ H =
 <div id="fig-errorh" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-errorh-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="crack_compliance_files/figure-html/fig-errorh-output-1.png" width="687" height="288" class="figure-img">
+<img src="crack_compliance_files/figure-html/fig-errorh-output-1.png" width="687" height="283" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-errorh-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Fig.&nbsp;6.2: Influence of the aspect ratio on the crack compliance contribution tensor

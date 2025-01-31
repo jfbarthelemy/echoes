@@ -73,11 +73,11 @@ $$\begin{align}
 
 ::: {.callout-note collapse=true} 
 
-## Proof of the change of variable in @eq-tensIUV (click for details)
+## Proof of the change of variable in (@eq-tensIUV) (click for details)
 
 The proof detailed here is an intrinsic alternative (see [@barthelemyIJSS2016]) to the reasoning in components presented in [@mura1987].
 
-The change of variable in @eq-tensIUV is a bijective transformation of the unit sphere into itself
+The change of variable in (@eq-tensIUV) is a bijective transformation of the unit sphere into itself
 $$
 \uv{\zeta}\mapsto\uv{\xi}=\frac{\uu{A}^{-1}⋅\uv{\zeta}}{\norm{\uu{A}^{-1}⋅\uv{\zeta}}}
 \;\Leftrightarrow\;

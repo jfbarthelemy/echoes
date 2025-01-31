@@ -44,7 +44,7 @@ np.set_printoptions(precision=8, suppress=True)
 
 ## Definition of the crack compliance
 
-Geometrically an elliptical crack can be defined as the limit domain of an ellipsoid for which the smallest aspect ratio tends towards 0. Keeping the definition of the ellipsoid by means of the tensor $\uu{A}$ in (@eq-defell)-(@eq-defA), the latter tensor becomes here
+Geometrically an elliptical crack can be defined as the limit domain of an ellipsoid for which the smallest aspect ratio tends towards 0. Keeping the definition of the ellipsoid by means of the tensor $\uu{A}$ in (@eq-defell), the latter tensor becomes here
 $$
 \uu{A}=
 \uv{\ell}\otimes\uv{\ell}+

@@ -1,13 +1,13 @@
-settings.outformat = "html";
-settings.render = -1;
+// settings.outformat = "html";
+// settings.render = -1;
 
-// settings.outformat ="svg";
+settings.outformat ="svg";
 // settings.render = 0;
-// // Hint: render svg format and then convert to png by "magick -density 300 file.svg file.png"
+// Hint: render svg format and then convert to png by "magick -density 300 file.svg file.png"
 
-settings.outformat = "pdf";
-settings.render = 8;
-settings.prc = true;
+// settings.outformat = "pdf";
+// settings.render = 8;
+// settings.prc = true;
 
 import graph3;
 import palette;

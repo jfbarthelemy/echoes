@@ -63,19 +63,25 @@ All this work is licensed under the [Creative Commons Attribution-ShareAlike 4.0
 
 Jean-François Barthélémy is a researcher at [Cerema](https://www.cerema.fr/en) in the research team [UMR MCD](https://www.cerema.fr/fr/presse/dossier cerema-universite-gustave-eiffel-creent-unite-mixte).
 
-- {{< iconify fa6-brands github >}} [GitHub](https://github.com/jfbarthelemy)
+::: {layout="[10,10,10,10]"}
 
-- {{< iconify academicons researchgate >}} [ResearchGate](https://www.researchgate.net/profile/Jean-Francois_Barthelemy)
+{{< iconify fa6-brands github >}} [GitHub](https://github.com/jfbarthelemy)
 
-- {{< iconify academicons google-scholar >}} [Google scholar](https://scholar.google.com/citations?user=RVjtCiAAAAAJ&hl=en)
+{{< ai researchgate >}} [ResearchGate](https://www.researchgate.net/profile/Jean-Francois_Barthelemy)
 
-- 📚 [HAL](https://hal.archives-ouvertes.fr/search/index/?q=%2A&authIdHal_s=jfbarthelemy)
+{{< ai google-scholar >}} [Google scholar](https://scholar.google.com/citations?user=RVjtCiAAAAAJ&hl=en)
 
-- 🌍 [Web Of Science](https://www.webofscience.com/wos/author/record/449919)
+{{< ai hal >}} [HAL](https://hal.archives-ouvertes.fr/search/index/?q=%2A&authIdHal_s=jfbarthelemy)
 
-- {{< iconify simple-icons orcid >}} [ORCID](https://orcid.org/0000-0002-1968-8939)
+{{< ai clarivate >}} [Web Of Science](https://www.webofscience.com/wos/author/record/449919)
 
-- 📩 [Email](mailto:jf.barthelemy@cerema.fr)
+{{< ai orcid >}} [ORCID](https://orcid.org/0000-0002-1968-8939)
+
+{{< iconify mdi linkedin >}} [LinkedIn](https://www.linkedin.com/in/jean-fran%C3%A7ois-barth%C3%A9l%C3%A9my-75b3122/)
+
+📩 [Email](mailto:jf.barthelemy@cerema.fr)
+
+:::
 
 ----------------
 Powered by [Quarto](https://quarto.org/).
