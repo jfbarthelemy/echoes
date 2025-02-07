@@ -87,4 +87,3 @@ Jean-François Barthélémy is a researcher at [Cerema](https://www.cerema.fr/en
 Powered by [Quarto](https://quarto.org/).
 
 $\,$
-
