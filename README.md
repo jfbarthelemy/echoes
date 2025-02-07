@@ -1,5 +1,7 @@
 # echoes
 
+<iframe src="img/cover.html" width="201" height="141" frameborder="0"></iframe>
+
 Manual of `echoes` (**E**xtended **C**alculator of **HO**mog**E**nization **S**chemes) library available [here](https://jfbarthelemy.github.io/echoes).
 
 The library `echoes` allows to implement various mean-field homogenization schemes of random media involving different types of heterogeneities in the framework of elasticity, conductivity, viscoelasticity as well as nonlinear homogenization.
