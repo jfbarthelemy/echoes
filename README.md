@@ -1,6 +1,8 @@
 # echoes
 
-![](img/cover.png){width=20%}
+<p align="center">
+<img src="./img/cover.png" alt="Description" width="500">
+</p>
 
 Manual of `echoes` (**E**xtended **C**alculator of **HO**mog**E**nization **S**chemes) library available [here](https://jfbarthelemy.github.io/echoes).
 
