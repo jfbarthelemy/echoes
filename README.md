@@ -1,6 +1,6 @@
 # echoes
 
-<iframe src="img/cover.html" width="201" height="141" frameborder="0"></iframe>
+![](img/cover.html)
 
 Manual of `echoes` (**E**xtended **C**alculator of **HO**mog**E**nization **S**chemes) library available [here](https://jfbarthelemy.github.io/echoes).
 
