@@ -21,7 +21,7 @@ This book gathers tutorials presenting the main features of the library:
 
 The core of `echoes` has been developed in C++ and wrapped by a Python interface. Hence its use requires first the installation of a Python environment including `pip` executable (for instance [Anaconda](https://www.anaconda.com/products/distribution)).
 
-Wheel packages can be downloaded for various versions of Python under Windows or Linux by choosing the appropriate file for your configuration under the link [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10559657.svg)](https://doi.org/10.5281/zenodo.10559657)
+Wheel packages can be downloaded for various versions of Python under Windows or Linux by choosing the appropriate file for your configuration under the link [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14959866.svg)](https://doi.org/10.5281/zenodo.14959866)
 
 Once in possession of the relevant `.whl` file, the package can be installed in a console (Anaconda console or any console allowing to run `pip`) by
 
