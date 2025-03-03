@@ -35,7 +35,7 @@ pip install -U echoes-XYZ.whl
 If you use `echoes`, please cite it as
 
 ```
-Barthélémy, Jean-François, 2022. Echoes: Extended Calculator of HOmogEnization Schemes. https://doi.org/10.5281/ZENODO.10559657
+Barthélémy, Jean-François, 2022. Echoes: Extended Calculator of HOmogEnization Schemes. https://doi.org/10.5281/ZENODO.14959866
 ```
 
 or in `bibtex` style
@@ -46,8 +46,8 @@ or in `bibtex` style
   shorttitle = {Echoes},
   author = {Barthélémy, Jean-François},
   date = {2022-11-22},
-  doi = {10.5281/ZENODO.10559657},
-  url = {https://zenodo.org/record/10559657},
+  doi = {10.5281/ZENODO.14959866},
+  url = {https://zenodo.org/record/14959866},
   organization = {Zenodo},
   version = {v1.0.0},
 }
