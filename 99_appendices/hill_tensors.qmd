@@ -389,7 +389,7 @@ with $\uu{I}^{\uu{A}}$ defined in (@eq-tensIUV) and derived in (@eq-decI) and @t
 
 ### Arbitrarily anisotropic matrix
 
-The complete solution of the second-order Hill polarization tensor in a matrix of arbitrary has been derived in [@barthelemyTIPM2009] from a reasoning based on Green solution. However a more direct solution, based on the idea of transformation, has been detailed in [@giraudMOM2019] and is recalled here. It first relies on the idea of square-root of the conductivity tensor. As a positive definite symmetric second-order tensor $\uu{K}$, it can be diagonalized in an orthonormal frame $\left(\uu{e}^K_i\right)_{i=1,2,3}$ with strictly positive eigenvalues $\left(K_i\right)_{i=1,2,3}$ such that
+The complete solution of the second-order Hill polarization tensor in a matrix of arbitrary has been derived in [@barthelemyTIPM2009] from a reasoning based on Green solution. However a more direct solution, based on the idea of transformation, has been detailed in [@giraudMOM2019] and is recalled here. It first relies on the idea of square-root of the conductivity tensor. As a positive definite symmetric second-order tensor, $\uu{K}$ can be diagonalized in an orthonormal frame $\left(\uu{e}^K_i\right)_{i=1,2,3}$ with strictly positive eigenvalues $\left(K_i\right)_{i=1,2,3}$ such that
 $$
 \uu{K}=K_1 \uv{e}^{\uu{K}}_1\otimes\uv{e}^{\uu{K}}_1 + K_2 \uv{e}^{\uu{K}}_2\otimes\uv{e}^{\uu{K}}_2 + K_3 \uv{e}^{\uu{K}}_3\otimes\uv{e}^{\uu{K}}_3
 $${#eq-decK}
