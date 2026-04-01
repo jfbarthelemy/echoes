@@ -16,6 +16,9 @@ book:
   repo-actions: [edit]
   sharing: [twitter, facebook, linkedin]
   date: last-modified
+  license: "CC BY-SA 4.0"
+  page-footer:
+    center: "Licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)"
   sidebar:
     collapse-level: 2
   chapters:

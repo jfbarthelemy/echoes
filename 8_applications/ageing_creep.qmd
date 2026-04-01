@@ -124,7 +124,7 @@ F   = lambda N: np.array([(i + 0.5) * finf / N for i in range(N)])   # midpoint 
 tT  = lambda N, alpha: tf(F(N), alpha)                    # setting times for N layers
 ```
 
-## RVE construction {#sec-rve-construction}
+## RVE construction {#sec-ageing-rve-construction}
 
 ### 'whole pores' model {#sec-whole-pores}
 

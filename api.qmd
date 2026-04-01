@@ -12,7 +12,7 @@ All symbols are available after `from echoes import *`.
 Tensor representations follow the **Kelvin-Mandel** convention: 2nd-order symmetric
 tensors are 6-vectors (diagonal components first, then $\sqrt2$ times off-diagonal);
 4th-order tensors are 6×6 matrices.
-See @sec-kelvin_mandel for details.
+See the *Kelvin-Mandel notation* chapter for details.
 
 ---
 
