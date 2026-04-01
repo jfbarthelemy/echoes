@@ -10,27 +10,99 @@
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/1_tensor_calculus/kelvin_mandel.html</loc>
-    <lastmod>2025-01-30T11:53:11.612Z</lastmod>
+    <lastmod>2026-03-30T17:42:55.500Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/1_tensor_calculus/rot_matrices.html</loc>
-    <lastmod>2025-01-30T11:53:20.452Z</lastmod>
+    <lastmod>2026-03-30T17:42:55.501Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/1_tensor_calculus/special_tensors.html</loc>
-    <lastmod>2025-01-24T10:30:22.876Z</lastmod>
+    <lastmod>2026-03-30T17:42:55.501Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/1_tensor_calculus/tensor.html</loc>
-    <lastmod>2025-01-24T10:30:53.465Z</lastmod>
+    <lastmod>2026-03-30T17:42:55.502Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/2_eshelby/eshelby_hill.html</loc>
-    <lastmod>2025-01-30T11:53:54.408Z</lastmod>
+    <lastmod>2026-03-31T09:45:33.966Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/2_eshelby/crack_compliance.html</loc>
-    <lastmod>2025-01-30T12:17:42.848Z</lastmod>
+    <lastmod>2026-03-31T14:15:20.413Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jfbarthelemy.github.io/echoes/3_concentration/concentration_tensors.html</loc>
+    <lastmod>2026-03-31T16:39:44.862Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jfbarthelemy.github.io/echoes/3_concentration/nlayer_sphere.html</loc>
+    <lastmod>2026-03-31T16:54:04.846Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jfbarthelemy.github.io/echoes/3_concentration/crack.html</loc>
+    <lastmod>2026-03-31T17:00:51.934Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jfbarthelemy.github.io/echoes/3_concentration/user_inclusion.html</loc>
+    <lastmod>2026-03-31T08:57:32.514Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jfbarthelemy.github.io/echoes/4_schemes/rve.html</loc>
+    <lastmod>2026-03-31T16:41:20.516Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jfbarthelemy.github.io/echoes/4_schemes/schemes.html</loc>
+    <lastmod>2026-04-01T19:09:20.364Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jfbarthelemy.github.io/echoes/5_cracked_porous/porous_media.html</loc>
+    <lastmod>2026-03-30T17:42:55.507Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jfbarthelemy.github.io/echoes/5_cracked_porous/cracked_media.html</loc>
+    <lastmod>2026-03-31T18:01:20.951Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jfbarthelemy.github.io/echoes/4_schemes/exercises_schemes.html</loc>
+    <lastmod>2026-03-31T08:47:11.100Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jfbarthelemy.github.io/echoes/6_viscoelasticity/complex_moduli.html</loc>
+    <lastmod>2026-03-30T17:42:55.507Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jfbarthelemy.github.io/echoes/6_viscoelasticity/viscoelasticity_time.html</loc>
+    <lastmod>2026-04-01T15:10:34.023Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jfbarthelemy.github.io/echoes/7_nonlinear/derivatives.html</loc>
+    <lastmod>2026-03-31T19:43:07.736Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jfbarthelemy.github.io/echoes/7_nonlinear/nonlinear.html</loc>
+    <lastmod>2026-03-31T19:59:24.095Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jfbarthelemy.github.io/echoes/8_applications/transport.html</loc>
+    <lastmod>2026-04-01T15:51:47.224Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jfbarthelemy.github.io/echoes/8_applications/concrete.html</loc>
+    <lastmod>2026-04-01T19:13:36.045Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jfbarthelemy.github.io/echoes/8_applications/cement_paste_diffusion.html</loc>
+    <lastmod>2026-04-01T17:17:56.886Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jfbarthelemy.github.io/echoes/8_applications/concrete_strength.html</loc>
+    <lastmod>2026-03-30T13:23:30.187Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jfbarthelemy.github.io/echoes/8_applications/ageing_creep.html</loc>
+    <lastmod>2026-03-31T13:21:50.053Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/references.html</loc>
@@ -38,14 +110,26 @@
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/99_appendices/tensor_algebra.html</loc>
-    <lastmod>2025-01-24T19:01:05.453Z</lastmod>
+    <lastmod>2026-03-30T18:02:20.884Z</lastmod>
   </url>
   <url>
     <loc>https://jfbarthelemy.github.io/echoes/99_appendices/hill_tensors.html</loc>
     <lastmod>2025-02-19T17:11:13.872Z</lastmod>
   </url>
   <url>
+    <loc>https://jfbarthelemy.github.io/echoes/99_appendices/viscoelastic_hill_kernel.html</loc>
+    <lastmod>2026-04-01T09:34:16.810Z</lastmod>
+  </url>
+  <url>
     <loc>https://jfbarthelemy.github.io/echoes/99_appendices/basics_elas.html</loc>
     <lastmod>2025-01-24T19:01:05.453Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jfbarthelemy.github.io/echoes/99_appendices/viscoelastic_laws.html</loc>
+    <lastmod>2026-03-20T23:33:07.446Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jfbarthelemy.github.io/echoes/99_appendices/scheme_derivations.html</loc>
+    <lastmod>2026-03-25T11:37:40.207Z</lastmod>
   </url>
 </urlset>

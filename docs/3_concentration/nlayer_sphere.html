@@ -1,0 +1,1622 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>8&nbsp; N-layer spheres – Echoes</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../3_concentration/crack.html" rel="next">
+<link href="../3_concentration/concentration_tensors.html" rel="prev">
+<link href="../img/cover.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-f418161beb48e0141c760e455f12af2c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-584a7622b650eec4e090a46c7997c677.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-61217e0517548216d2a663b12d1791d1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-584a7622b650eec4e090a46c7997c677.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>
+(function () {
+  /* ── echoes API identifiers to highlight ─────────────────────────────── */
+  var ECHOES_API = [
+    /* homogenization */
+    'homogenize', 'homogenize_visco', 'homogenize_derivative',
+    /* microstructure */
+    'rve', 'rvec', 'ellipsoid', 'ellipsoidc',
+    'crack', 'crackc', 'sphere_nlayers', 'sphere_nlayersc',
+    'inclusion_map', 'inclusion_mapc',
+    'user_inclusion', 'user_inclusionc',
+    /* tensor constructors */
+    'tensor', 'tensc', 'inv', 'eigen',
+    'stiff_kmu', 'stiff_Enu', 'stiff_lambdamu', 'stiff_TI', 'comp_TI',
+    'stiff_interf',
+    'stiff_to_symWalpole', 'stiff_from_symWalpole',
+    'comp_to_symWalpole', 'comp_from_symWalpole',
+    /* tensor operations */
+    'isotropify', 'transverse_isotropify', 'symmetrize', 'paramsym',
+    'E_from_kmu', 'nu_from_kmu', 'k_from_Enu', 'mu_from_Enu',
+    'Enu_from_kmu', 'kmu_from_Enu',
+    /* rotation */
+    'es', 'rot3', 'rot6', 'angles', 'change_basis', 'self_change_basis',
+    'change_basis_inv', 'self_change_basis_inv',
+    /* geometry */
+    'spheroidal', 'spherical',
+    /* eshelby / hill */
+    'eshelby', 'hill', 'hill_dual', 'crack_compliance',
+    'newton_potential', 'basis_iso_hill',
+    'hill_derivative', 'visco_hill', 'visco_hill_dual',
+    'visco_crack_compliance',
+    /* viscoelasticity */
+    'visco_law', 'visco_paramsym', 'visco_tensor',
+    'visco_isotropify', 'visco_transverse_isotropify', 'visco_symmetrize',
+    'Kelvin', 'Maxwell', 't4Maxwell',
+    /* polynomials */
+    'build_poly', 'residue', 'find_roots_positive_imag', 'add_root',
+    /* scheme enum values */
+    'VOIGT', 'REUSS', 'DIL', 'DILD', 'MAX', 'MT', 'SC', 'ASC', 'PCW', 'DIFF',
+    /* algorithm enum values */
+    'DEFAULT', 'NUMINT', 'NUMINT2D', 'NUMINT3D',
+    'RESIDUES', 'RESIDUES2D', 'RESIDUES3D',
+    /* symmetry enum values */
+    'ISO', 'TI', 'ORTHO', 'ANISO', 'UNDEFSYM',
+    /* special tensor constants */
+    'tZ4', 'tZ2', 'tI4', 'tI2', 'tJ4', 'tK4', 'tZ4c', 'tZ2c',
+    /* interface types */
+    'NODISC', 'PRIMALDISC', 'DUALDISC',
+    /* misc */
+    'invert_array', 'mult_array', 'KM', 'invKM', 'perm6', 'inv_perm6',
+    'set_prop', 'set_param_eshelby',
+  ];
+
+  /* token classes to skip (Pandoc: comment, string, char, alert, error) */
+  var SKIP = ['co', 'st', 'ch', 'al', 'er'];
+
+  function insideSkipped(node) {
+    var p = node.parentNode;
+    while (p) {
+      if (p.tagName === 'CODE') break;
+      if (p.tagName === 'SPAN') {
+        for (var i = 0; i < SKIP.length; i++)
+          if (p.classList.contains(SKIP[i])) return true;
+      }
+      p = p.parentNode;
+    }
+    return false;
+  }
+
+  var pat = new RegExp('\\b(' + ECHOES_API.join('|') + ')\\b', 'g');
+
+  function processBlock(block) {
+    /* collect text nodes first to avoid live-DOM issues */
+    var walker = document.createTreeWalker(block, NodeFilter.SHOW_TEXT, null, false);
+    var nodes = [];
+    var n;
+    while ((n = walker.nextNode())) nodes.push(n);
+
+    nodes.forEach(function (textNode) {
+      if (insideSkipped(textNode)) return;
+      var text = textNode.textContent;
+      pat.lastIndex = 0;
+      if (!pat.test(text)) return;
+      pat.lastIndex = 0;
+
+      var frag = document.createDocumentFragment();
+      var last = 0, m;
+      while ((m = pat.exec(text)) !== null) {
+        if (m.index > last)
+          frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var sp = document.createElement('span');
+        sp.className = 'echoes-api';
+        sp.textContent = m[0];
+        frag.appendChild(sp);
+        last = m.index + m[0].length;
+      }
+      if (last < text.length)
+        frag.appendChild(document.createTextNode(text.slice(last)));
+      textNode.parentNode.replaceChild(frag, textNode);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('div.sourceCode pre code').forEach(processBlock);
+  });
+})();
+</script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-DF66M2GWRG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DF66M2GWRG');
+</script>      
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../3_concentration/concentration_tensors.html">𝗖𝗼𝗻𝗰𝗲𝗻𝘁𝗿𝗮𝘁𝗶𝗼𝗻 𝗽𝗿𝗼𝗯𝗹𝗲𝗺𝘀</a></li><li class="breadcrumb-item"><a href="../3_concentration/nlayer_sphere.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">N-layer spheres</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../img\cover.html" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../img\cover.html" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Echoes</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/jfbarthelemy/echoes/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">𝗘𝗹𝗲𝗺𝗲𝗻𝘁𝘀 𝗼𝗳 𝘁𝗲𝗻𝘀𝗼𝗿 𝗰𝗮𝗹𝗰𝘂𝗹𝘂𝘀</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../1_tensor_calculus/kelvin_mandel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Kelvin-Mandel notation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../1_tensor_calculus/rot_matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Rotation matrices</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../1_tensor_calculus/special_tensors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Special tensors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../1_tensor_calculus/tensor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The <code>tensor</code> object</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">𝗘𝘀𝗵𝗲𝗹𝗯𝘆 𝗶𝗻𝗰𝗹𝘂𝘀𝗶𝗼𝗻 𝗽𝗿𝗼𝗯𝗹𝗲𝗺</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../2_eshelby/eshelby_hill.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Eshelby and Hill polarization tensors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../2_eshelby/crack_compliance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Crack compliance tensors</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">𝗖𝗼𝗻𝗰𝗲𝗻𝘁𝗿𝗮𝘁𝗶𝗼𝗻 𝗽𝗿𝗼𝗯𝗹𝗲𝗺𝘀</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../3_concentration/concentration_tensors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Ellipsoids</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../3_concentration/nlayer_sphere.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">N-layer spheres</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../3_concentration/crack.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Cracks</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../3_concentration/user_inclusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">User-defined inclusions</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">𝗥𝗩𝗘 𝗮𝗻𝗱 𝗵𝗼𝗺𝗼𝗴𝗲𝗻𝗶𝘇𝗮𝘁𝗶𝗼𝗻 𝘀𝗰𝗵𝗲𝗺𝗲𝘀</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../4_schemes/rve.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Representative Volume Element</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../4_schemes/schemes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Homogenization schemes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../5_cracked_porous/porous_media.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Homogenization of porous media</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../5_cracked_porous/cracked_media.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Homogenization of cracked media</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../4_schemes/exercises_schemes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Exercises on homogenization schemes</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">𝗖𝗼𝗺𝗽𝗹𝗲𝘅 𝗺𝗼𝗱𝘂𝗹𝗶 𝗮𝗻𝗱 𝘃𝗶𝘀𝗰𝗼𝗲𝗹𝗮𝘀𝘁𝗶𝗰𝗶𝘁𝘆</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../6_viscoelasticity/complex_moduli.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Complex-valued homogenization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../6_viscoelasticity/viscoelasticity_time.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Time-domain viscoelastic homogenization</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">𝗗𝗲𝗿𝗶𝘃𝗮𝘁𝗶𝘃𝗲𝘀 𝗮𝗻𝗱 𝗻𝗼𝗻𝗹𝗶𝗻𝗲𝗮𝗿 𝗲𝘅𝘁𝗲𝗻𝘀𝗶𝗼𝗻𝘀</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../7_nonlinear/derivatives.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Derivatives of effective properties</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../7_nonlinear/nonlinear.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Nonlinear homogenization and failure criteria</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">𝗔𝗽𝗽𝗹𝗶𝗰𝗮𝘁𝗶𝗼𝗻𝘀</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../8_applications/transport.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Transport properties</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../8_applications/concrete.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Multiscale elasticity of a hydrating cement paste</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../8_applications/cement_paste_diffusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Cement paste: chloride diffusivity and elasticity</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../8_applications/concrete_strength.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Quasi-brittle strength of cement paste and mortar</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../8_applications/ageing_creep.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Ageing creep of solidifying cementitious materials</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../99_appendices/tensor_algebra.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Tensor algebra</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../99_appendices/hill_tensors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Hill polarization tensors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../99_appendices/viscoelastic_hill_kernel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">ALV Hill (polarization) tensor kernel</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../99_appendices/basics_elas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Basic problem of elasticity homogenization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../99_appendices/viscoelastic_laws.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Viscoelastic constitutive laws</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../99_appendices/scheme_derivations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Homogenization scheme derivations</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#generalized-eshelby-problem" id="toc-generalized-eshelby-problem" class="nav-link active" data-scroll-target="#generalized-eshelby-problem">Generalized Eshelby problem</a></li>
+  <li><a href="#sec-sphere_nlayers" id="toc-sec-sphere_nlayers" class="nav-link" data-scroll-target="#sec-sphere_nlayers">Construction of a <code>sphere_nlayers</code></a>
+  <ul class="collapse">
+  <li><a href="#geometry" id="toc-geometry" class="nav-link" data-scroll-target="#geometry">Geometry</a></li>
+  <li><a href="#properties" id="toc-properties" class="nav-link" data-scroll-target="#properties">Properties</a></li>
+  <li><a href="#interface-properties" id="toc-interface-properties" class="nav-link" data-scroll-target="#interface-properties">Interface properties</a></li>
+  <li><a href="#modifying-attributes" id="toc-modifying-attributes" class="nav-link" data-scroll-target="#modifying-attributes">Modifying attributes</a></li>
+  </ul></li>
+  <li><a href="#sec-concentration-nlayers" id="toc-sec-concentration-nlayers" class="nav-link" data-scroll-target="#sec-concentration-nlayers">Concentration tensors for the n-layer sphere</a></li>
+  <li><a href="#sec-layer-averages" id="toc-sec-layer-averages" class="nav-link" data-scroll-target="#sec-layer-averages">Layer-by-layer averages</a></li>
+  <li><a href="#sec-local-fields" id="toc-sec-local-fields" class="nav-link" data-scroll-target="#sec-local-fields">Pointwise localization fields</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/3_concentration/nlayer_sphere.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div><div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="nlayer_sphere.py"><i class="bi bi-file-code"></i>Python script</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+$$
+
+\newcommand{\C}{{\mathbb{{C}}}}
+
+\newcommand{\R}{{\mathbb{{R}}}}
+
+\newcommand{\Q}{{\mathbb{{Q}}}}
+
+\newcommand{\Z}{{\mathbb{{Z}}}}
+
+\newcommand{\N}{{\mathbb{{N}}}}
+
+
+
+\newcommand{\uu}[1]{{\boldsymbol{{#1}}}}
+
+\newcommand{\uuuu}[1]{{\symbb{{#1}}}}
+
+\newcommand{\uv}[1]{{\underline{{#1}}}}
+
+\newcommand{\ve}[1]{{\uv{{e}}_{{#1}}}}
+
+\newcommand{\x}{{\uv{{x}}}}
+
+\newcommand{\n}{{\uv{{n}}}}
+
+\newcommand{\eps}{{\uu{{\varepsilon}}}}
+
+\newcommand{\E}{{\uu{{E}}}}
+
+\newcommand{\sig}{{\uu{{\sigma}}}}
+
+\newcommand{\Sig}{{\uu{{\Sigma}}}}
+
+\newcommand{\cod}{{\uv{{\symscr{b}}}}}
+
+\newcommand{\trans}[1]{{{}^{t}{#1}}}
+
+\newcommand{\sotimes}{{\stackrel{s}{\otimes}}}
+
+\newcommand{\sboxtimes}{\stackrel{s}{\boxtimes}}
+
+\newcommand{\norm}[1]{{\lVert{{#1}}\rVert}}
+
+\newcommand{\ud}{{\,\mathrm{d}}}
+
+\newcommand{\mat}{\mathsf}
+
+\DeclareMathOperator{\arcosh}{arcosh}
+
+\DeclareMathOperator{\divz}{div}
+
+\DeclareMathOperator{\divu}{\uv{div}}
+
+\DeclareMathOperator{\hess}{hess}
+
+\DeclareMathOperator{\gradu}{\uv{grad}}
+
+\DeclareMathOperator{\graduu}{\uu{grad}}
+
+\DeclareMathOperator{\Mat}{Mat}
+
+\DeclareMathOperator{\tr}{tr}
+
+\DeclareMathOperator{\ISO}{ISO}
+
+
+
+\newcommand{\volt}[1]{{#1}^{-1\circ}}
+
+\newcommand{\dcirc}{\overset{\circ}{:}}
+
+
+
+\newcommand{\jump}[1]{\mathopen{[\![}\,#1\,\mathclose{]\!]}}
+
+$$
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../3_concentration/concentration_tensors.html">𝗖𝗼𝗻𝗰𝗲𝗻𝘁𝗿𝗮𝘁𝗶𝗼𝗻 𝗽𝗿𝗼𝗯𝗹𝗲𝗺𝘀</a></li><li class="breadcrumb-item"><a href="../3_concentration/nlayer_sphere.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">N-layer spheres</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-nlayer_sphere" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">N-layer spheres</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-body">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span><iconify-icon role="img" inline="" icon="pajamas:issue-type-objective" aria-label="Icon issue-type-objective from pajamas Iconify.design set." title="Icon issue-type-objective from pajamas Iconify.design set."></iconify-icon> Objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This tutorial introduces the generalized Eshelby problem for the n-layer sphere with concentric homogeneous layers and possibly imperfect interfaces. It shows how to build such a particle in <em>Echoes</em> and how to compute its concentration tensors.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span><iconify-icon role="img" inline="" icon="ix:import" aria-label="Icon import from ix Iconify.design set." title="Icon import from ix Iconify.design set."></iconify-icon> Imports
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div id="5db0ecf4" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>np.set_printoptions(precision<span class="op">=</span><span class="dv">8</span>, suppress<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># to display only 8 significant digits of array components</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+<section id="generalized-eshelby-problem" class="level2">
+<h2 class="anchored" data-anchor-id="generalized-eshelby-problem">Generalized Eshelby problem</h2>
+<p>The Eshelby problem of the ellipsoidal inhomogeneity presented in <a href="concentration_tensors.html" class="quarto-xref"><span>Chapter 7</span></a> proves very useful as an elementary tool in the framework of estimation schemes or bounds where phases can be characterized by ellipsoids either considering the shapes of the heterogeneities themselves or from their spatial distribution. The major reason for the ellipsoidal shape stems from Eshelby’s result of uniformity of the strain and stress solutions.</p>
+<p>To enrich the scope of possible representations of particles in a composite material, it is appealing to replace the ellipsoidal inhomogeneity by a particle of another shape or a particle showing internal heterogeneities, still considering an infinite homogeneous matrix and remote uniform strain or stress. This is called the <strong>generalized Eshelby problem</strong>. Unfortunately the uniformity of the strain and stress field within the particle doesn’t hold anymore if the shape is not ellipsoidal or in presence of internal heterogeneities.</p>
+<p>However there are some particular cases of generalized Eshelby problems deserving special attention since analytical solutions of strain and stress fields can be derived. This is for example the case of the <strong>n-layer sphere</strong> with concentric homogeneous layers in the framework of isotropic linear elastic materials.</p>
+<div id="fig-nlayer-sphere" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-nlayer-sphere-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../img/eshelbygenpb.png" class="img-fluid figure-img" style="width:30.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nlayer-sphere-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Fig.&nbsp;8.1: n-layer sphere
+</figcaption>
+</figure>
+</div>
+<p>The solution to this problem has been given in <span class="citation" data-cites="love1944">(<a href="../references.html#ref-love1944" role="doc-biblioref">Love, 1944</a>)</span> and <span class="citation" data-cites="herve1993">(<a href="../references.html#ref-herve1993" role="doc-biblioref">Hervé and Zaoui, 1993</a>)</span> and extended to the case of imperfect interfaces between layers in <span class="citation" data-cites="herve-luanco2014">(<a href="../references.html#ref-herve-luanco2014" role="doc-biblioref">Hervé-Luanco, 2014</a>)</span>.</p>
+</section>
+<section id="sec-sphere_nlayers" class="level2">
+<h2 class="anchored" data-anchor-id="sec-sphere_nlayers">Construction of a <code>sphere_nlayers</code></h2>
+<p>A n-layer sphere particle is defined in <em>Echoes</em> by</p>
+<pre><code>spn = sphere_nlayers(radii=[R1, R2, ...],
+                     prop={"C": [C1, C2, ...], ...},
+                     interf_prop={"C": [[kn1, kt1, PRIMALDISC],
+                                        [kn2, kt2, DUALDISC], ...], ...}
+                    )</code></pre>
+<p>or alternatively</p>
+<pre><code>spn = sphere_nlayers(radius=R,
+                     layer_fractions=[f1, f2, ...],
+                     prop={"C": [C1, C2, ...], ...},
+                     interf_prop={"C": [[kn1, kt1, PRIMALDISC],
+                                        [kn2, kt2, DUALDISC], ...], ...}
+                    )</code></pre>
+<section id="geometry" class="level3">
+<h3 class="anchored" data-anchor-id="geometry">Geometry</h3>
+<p>The geometry is defined either by the list of successive increasing <code>radii</code> or by the external <code>radius</code> and volume <code>layer_fractions</code> of each layer. If the sum of the list provided in <code>layer_fractions</code> is not equal to 1, the fractions are renormalized (so <code>layer_fractions</code> can somehow be seen as a list of barycentric weights).</p>
+</section>
+<section id="properties" class="level3">
+<h3 class="anchored" data-anchor-id="properties">Properties</h3>
+<p>The <code>prop</code> argument is a dictionary indexed by strings denoting the property (e.g.&nbsp;<code>"C"</code>) with values which are <strong>lists</strong> of tensors, one per layer.</p>
+</section>
+<section id="interface-properties" class="level3">
+<h3 class="anchored" data-anchor-id="interface-properties">Interface properties</h3>
+<p>The optional <code>interf_prop</code> keyword-argument defines the properties of the successive interfaces (from the core to the external radius). This argument is also a dictionary indexed by the same strings as those of <code>prop</code> and with values defined by a list of interface descriptors. Each descriptor is a list of parameters:</p>
+<ul>
+<li><p><code>[kn, kt, PRIMALDISC]</code> for an interface of linear spring type with a displacement discontinuity <span class="math inline">\(\jump{\uv{u}}\)</span> linearly related to the traction <span class="math inline">\(\uv{T}=\sig\cdot\n\)</span> acting on the interface: <span class="math display">\[\uv{T}=\left(k_n \,\n\otimes\n + k_t \,(\uu{1}-\n\otimes\n)\right)\cdot\jump{\uv{u}}\]</span> A <code>PRIMALDISC</code> interface can be viewed as a very compliant interphase of infinitesimal thickness.</p></li>
+<li><p><code>[κ, µ, DUALDISC]</code> for an interface of Gurtin-Murdoch type, allowing stress discontinuity balanced by a localized surface stress linearly related to the local surface strains. A <code>DUALDISC</code> interface can be viewed as a very stiff interphase of infinitesimal thickness.</p></li>
+<li><p><code>[NODISC]</code> for an ideal interface with displacement and traction continuities.</p></li>
+</ul>
+<p>Interface types can be mixed from one interface to the other. In absence of <code>interf_prop</code>, all interfaces are assumed to be ideal as in <span class="citation" data-cites="herve1993">(<a href="../references.html#ref-herve1993" role="doc-biblioref">Hervé and Zaoui, 1993</a>)</span>.</p>
+</section>
+<section id="modifying-attributes" class="level3">
+<h3 class="anchored" data-anchor-id="modifying-attributes">Modifying attributes</h3>
+<p>It is possible to change the values of the attributes of a <code>sphere_nlayers</code> after construction:</p>
+<pre><code>spn.set_radius(R)
+spn.set_layer_fractions([f1, f2, ...])
+spn.set_radii([R1, R2, ...])
+spn.set_prop("C", layer_number, C)
+spn.set_interf_prop("C", layer_number, [kn, kt, PRIMALDISC])</code></pre>
+<p>where <code>layer_number</code> is an integer starting from <code>0</code> for the internal layer (consistently with Python numbering).</p>
+</section>
+</section>
+<section id="sec-concentration-nlayers" class="level2">
+<h2 class="anchored" data-anchor-id="sec-concentration-nlayers">Concentration tensors for the n-layer sphere</h2>
+<p>Although the solution is not uniform, it is possible to calculate the average strains and stresses per layer and <em>a fortiori</em> over the whole n-layer sphere.</p>
+<p><span id="eq-av-concentration"><span class="math display">\[
+\begin{aligned}
+    \langle\eps\rangle_{\mathcal{S}}=\uuuu{A}^E:\E&amp;&amp;\\
+    \langle\eps\rangle_{\mathcal{S}}=\uuuu{A}^\Sigma:\Sig&amp;\quad\textrm{ with }\quad \uuuu{A}^\Sigma=\uuuu{A}^E:\uuuu{C}^{-1}&amp;\\
+    \langle\sig\rangle_{\mathcal{S}}=\uuuu{B}^E:\E&amp;\quad\textrm{ with }\quad \uuuu{B}^E=\uuuu{C}^\mathcal{I}:\uuuu{A}^E&amp;\\
+    \langle\sig\rangle_{\mathcal{S}}=\uuuu{B}^\Sigma:\Sig&amp;\quad\textrm{ with }\quad \uuuu{B}^\Sigma=\uuuu{C}^\mathcal{I}:\uuuu{A}^E:\uuuu{C}^{-1}&amp;
+\end{aligned}
+\tag{8.1}\]</span></span></p>
+<p>The calculation of concentration tensors is carried out by the same procedure as for the ellipsoidal inhomogeneity (see <a href="concentration_tensors.html" class="quarto-xref"><span>Chapter 7</span></a>), i.e.&nbsp;using <code>set_ref</code> to define the reference medium and then the attributes <code>eE</code>, <code>eS</code>, <code>sE</code> and <code>sS</code>.</p>
+<div id="351f3db5" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>spn <span class="op">=</span> sphere_nlayers(radii<span class="op">=</span>[<span class="fl">1.</span>, <span class="fl">2.</span>],</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                     prop<span class="op">=</span>{<span class="st">"C"</span>: [stiff_kmu(<span class="fl">2.</span>, <span class="fl">1.</span>), stiff_Enu(<span class="fl">5.</span>, <span class="fl">0.2</span>)]},</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                     interf_prop<span class="op">=</span>{<span class="st">"C"</span>: [[NODISC], [<span class="fl">10.</span>, <span class="fl">5.</span>, PRIMALDISC]]}</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                    )</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> stiff_kmu(<span class="fl">3.</span>, <span class="fl">2.</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>spn.set_ref(<span class="st">"C"</span>, C)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"AE=</span><span class="ch">\n</span><span class="st">"</span>, spn.eE, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"AS=</span><span class="ch">\n</span><span class="st">"</span>, spn.eS, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"BE=</span><span class="ch">\n</span><span class="st">"</span>, spn.sE, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"BS=</span><span class="ch">\n</span><span class="st">"</span>, spn.sS, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>AE=
+ [[1.18350067 0.02801943 0.02801943 0.         0.         0.        ]
+ [0.02801943 1.18350067 0.02801943 0.         0.         0.        ]
+ [0.02801943 0.02801943 1.18350067 0.         0.         0.        ]
+ [0.         0.         0.         1.15548124 0.         0.        ]
+ [0.         0.         0.         0.         1.15548124 0.        ]
+ [0.         0.         0.         0.         0.         1.15548124]] 
+
+AS=
+ [[ 0.23848908 -0.05038123 -0.05038123  0.          0.          0.        ]
+ [-0.05038123  0.23848908 -0.05038123  0.          0.          0.        ]
+ [-0.05038123 -0.05038123  0.23848908  0.          0.          0.        ]
+ [ 0.          0.          0.          0.28887031  0.          0.        ]
+ [ 0.          0.          0.          0.          0.28887031  0.        ]
+ [ 0.          0.          0.          0.          0.          0.28887031]] 
+
+BE=
+ [[4.60340609 1.24013879 1.24013879 0.         0.         0.        ]
+ [1.24013879 4.60340609 1.24013879 0.         0.         0.        ]
+ [1.24013879 1.24013879 4.60340609 0.         0.         0.        ]
+ [0.         0.         0.         3.3632673  0.         0.        ]
+ [0.         0.         0.         0.         3.3632673  0.        ]
+ [0.         0.         0.         0.         0.         3.3632673 ]] 
+
+BS=
+ [[ 0.8229032  -0.01791362 -0.01791362  0.          0.          0.        ]
+ [-0.01791362  0.8229032  -0.01791362  0.          0.          0.        ]
+ [-0.01791362 -0.01791362  0.8229032   0.          0.          0.        ]
+ [ 0.          0.          0.          0.84081683  0.          0.        ]
+ [ 0.          0.          0.          0.          0.84081683  0.        ]
+ [ 0.          0.          0.          0.          0.          0.84081683]] 
+</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span><iconify-icon role="img" inline="" icon="healthicons:exercise-outline" aria-label="Icon exercise-outline from healthicons Iconify.design set." title="Icon exercise-outline from healthicons Iconify.design set."></iconify-icon> Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Build two <code>ISO</code> tensors: <code>Ci</code> with <code>E=1.</code> and <code>nu=0.2</code> and <code>C</code> with <code>k=3.</code> and <code>mu=2.</code></li>
+<li>Build a <code>spherical</code> <code>ellipsoid</code> named <code>ell</code> with property <code>"C"</code> equal to <code>Ci</code></li>
+<li>Build a <code>sphere_nlayers</code> named <code>spn</code> of only one layer with property <code>"C"</code> equal to <code>Ci</code> and ideal interface</li>
+<li>Set the reference medium to <code>C</code> for both types of particles</li>
+</ol>
+<div id="20cbd033" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Solution</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Ci <span class="op">=</span> stiff_Enu(<span class="fl">1.</span>, <span class="fl">0.2</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> stiff_kmu(<span class="fl">3.</span>, <span class="fl">2.</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>ell <span class="op">=</span> ellipsoid(shape<span class="op">=</span>spherical, prop<span class="op">=</span>{<span class="st">"C"</span>: Ci})</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>spn <span class="op">=</span> sphere_nlayers(radii<span class="op">=</span>[<span class="dv">1</span>], prop<span class="op">=</span>{<span class="st">"C"</span>: [Ci]})</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>ell.set_ref(<span class="st">"C"</span>, C)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>spn.set_ref(<span class="st">"C"</span>, C)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div id="71827edf" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> np.allclose(ell.eE, spn.eE), <span class="st">"error: ell.eE and spn.eE should be equal"</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> np.allclose(ell.eS, spn.eS), <span class="st">"error: ell.eS and spn.eS should be equal"</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> np.allclose(ell.sE, spn.sE), <span class="st">"error: ell.sE and spn.sE should be equal"</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> np.allclose(ell.sS, spn.sS), <span class="st">"error: ell.sS and spn.sS should be equal"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol start="5" type="1">
+<li><p>Add a <code>PRIMALDISC</code> interface property with <code>kn=5.</code> and <code>kt=3.</code> to <code>spn</code> and check the difference of concentration tensors with <code>ell</code>.</p>
+<p><em>Hint: don’t forget to reset the reference medium after changing <code>spn</code></em></p></li>
+</ol>
+<div id="8140226c" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Solution</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>spn.set_interf_prop(<span class="st">"C"</span>, <span class="dv">0</span>, [<span class="fl">5.</span>, <span class="fl">3.</span>, PRIMALDISC])</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>spn.set_ref(<span class="st">"C"</span>, C)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"ell.eE =</span><span class="ch">\n</span><span class="st">"</span>, ell.eE)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"spn.eE =</span><span class="ch">\n</span><span class="st">"</span>, spn.eE)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>ell.eE =
+ [[1.68121495 0.03870287 0.03870287 0.         0.         0.        ]
+ [0.03870287 1.68121495 0.03870287 0.         0.         0.        ]
+ [0.03870287 0.03870287 1.68121495 0.         0.         0.        ]
+ [0.         0.         0.         1.64251208 0.         0.        ]
+ [0.         0.         0.         0.         1.64251208 0.        ]
+ [0.         0.         0.         0.         0.         1.64251208]]
+spn.eE =
+ [[1.74337152 0.04723316 0.04723316 0.         0.         0.        ]
+ [0.04723316 1.74337152 0.04723316 0.         0.         0.        ]
+ [0.04723316 0.04723316 1.74337152 0.         0.         0.        ]
+ [0.         0.         0.         1.69613836 0.         0.        ]
+ [0.         0.         0.         0.         1.69613836 0.        ]
+ [0.         0.         0.         0.         0.         1.69613836]]</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-layer-averages" class="level2">
+<h2 class="anchored" data-anchor-id="sec-layer-averages">Layer-by-layer averages</h2>
+<p>Beyond the whole-particle average defined in <a href="#sec-concentration-nlayers" class="quarto-xref"><span>Section 8.3</span></a>, <em>Echoes</em> provides methods to query the concentration tensor <strong>per layer</strong> or over a <strong>cumulative sub-sphere</strong>. These are useful when the particle has an internal structure (core-shell, interphase…) and one needs to monitor the state in each region.</p>
+<table class="table">
+<colgroup>
+<col style="width: 38%">
+<col style="width: 61%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>spn.layer_eE(i)</code></td>
+<td><span class="math inline">\(\uuuu{A}^E\)</span> averaged over layer <code>i</code> (external interface included, internal excluded by default)</td>
+</tr>
+<tr class="even">
+<td><code>spn.layer_eE(i, external=False, internal=True)</code></td>
+<td>Same with custom interface treatment</td>
+</tr>
+<tr class="odd">
+<td><code>spn.sphere_eE(i)</code></td>
+<td><span class="math inline">\(\uuuu{A}^E\)</span> averaged over sub-sphere from core up to layer <code>i</code> (external interface included)</td>
+</tr>
+<tr class="even">
+<td><code>spn.sphere_eE(i, external=False)</code></td>
+<td>Same, excluding the external interface</td>
+</tr>
+<tr class="odd">
+<td><code>spn.layer_sE(i)</code>, <code>spn.sphere_sE(i)</code></td>
+<td>Same methods for stress concentration <span class="math inline">\(\uuuu{B}^E\)</span></td>
+</tr>
+<tr class="even">
+<td><code>spn.layer_fraction(i)</code></td>
+<td>Volume fraction of layer <code>i</code> relative to the whole particle</td>
+</tr>
+<tr class="odd">
+<td><code>spn.radius(i)</code></td>
+<td>External radius of layer <code>i</code></td>
+</tr>
+</tbody>
+</table>
+<p>Layers are numbered from <code>0</code> (innermost core). The consistency relation</p>
+<p><span id="eq-Ae-sum"><span class="math display">\[
+\uuuu{A}^E = \sum_r f_r^{lay}\,\uuuu{A}^E_r
+\tag{8.2}\]</span></span></p>
+<p>can be used as a verification. The example below uses a coated sphere (stiff core + soft interphase) embedded in a matrix:</p>
+<div id="394a471c" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>np.set_printoptions(precision<span class="op">=</span><span class="dv">5</span>, suppress<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 2-layer sphere: stiff core (E=100, nu=0.49) + soft interphase (E=10, nu=0.2)</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>Co   <span class="op">=</span> stiff_Enu(<span class="fl">30.</span>,  <span class="fl">0.3</span>)   <span class="co"># reference medium (matrix)</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>Ci   <span class="op">=</span> stiff_Enu(<span class="fl">100.</span>, <span class="fl">0.49</span>)  <span class="co"># core</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>Citz <span class="op">=</span> stiff_Enu(<span class="fl">10.</span>,  <span class="fl">0.2</span>)   <span class="co"># interphase</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> <span class="fl">1.</span><span class="op">;</span> ep <span class="op">=</span> <span class="fl">0.2</span>              <span class="co"># core radius, interphase thickness</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>spn2 <span class="op">=</span> sphere_nlayers(radii<span class="op">=</span>[R, R <span class="op">+</span> ep], prop<span class="op">=</span>{<span class="st">"C"</span>: [Ci, Citz]})</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>spn2.set_ref(<span class="st">"C"</span>, Co)</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Per-layer geometry</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Layer </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">:  radius = </span><span class="sc">{</span>spn2<span class="sc">.</span>radius(i)<span class="sc">:.3f}</span><span class="ss">,  fraction = </span><span class="sc">{</span>spn2<span class="sc">.</span>layer_fraction(i)<span class="sc">:.5f}</span><span class="ss">"</span>)</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Global and per-layer averages</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Global eE:</span><span class="ch">\n</span><span class="st">"</span>, spn2.eE)</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Core (layer 0) eE:</span><span class="ch">\n</span><span class="st">"</span>, spn2.layer_eE(<span class="dv">0</span>))</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Interphase (layer 1) eE:</span><span class="ch">\n</span><span class="st">"</span>, spn2.layer_eE(<span class="dv">1</span>))</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Sub-sphere up to core only (cumulative average over the core)</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Sub-sphere (core only) eE:</span><span class="ch">\n</span><span class="st">"</span>, spn2.sphere_eE(<span class="dv">0</span>))</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Consistency check: weighted sum of per-layer averages == global average</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>check <span class="op">=</span> <span class="bu">sum</span>(spn2.layer_fraction(i) <span class="op">*</span> spn2.layer_eE(i) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>))</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Max error (weighted sum vs global):"</span>, np.<span class="bu">max</span>(np.<span class="bu">abs</span>(check <span class="op">-</span> spn2.eE)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Layer 0:  radius = 1.000,  fraction = 0.57870
+Layer 1:  radius = 1.200,  fraction = 0.42130
+
+Global eE:
+ [[1.04527 0.03882 0.03882 0.      0.      0.     ]
+ [0.03882 1.04527 0.03882 0.      0.      0.     ]
+ [0.03882 0.03882 1.04527 0.      0.      0.     ]
+ [0.      0.      0.      1.00645 0.      0.     ]
+ [0.      0.      0.      0.      1.00645 0.     ]
+ [0.      0.      0.      0.      0.      1.00645]]
+
+Core (layer 0) eE:
+ [[ 0.29054 -0.13649 -0.13649  0.       0.       0.     ]
+ [-0.13649  0.29054 -0.13649  0.       0.       0.     ]
+ [-0.13649 -0.13649  0.29054  0.       0.       0.     ]
+ [ 0.       0.       0.       0.42703  0.       0.     ]
+ [ 0.       0.       0.       0.       0.42703  0.     ]
+ [ 0.       0.       0.       0.       0.       0.42703]]
+
+Interphase (layer 1) eE:
+ [[2.08199 0.27964 0.27964 0.      0.      0.     ]
+ [0.27964 2.08199 0.27964 0.      0.      0.     ]
+ [0.27964 0.27964 2.08199 0.      0.      0.     ]
+ [0.      0.      0.      1.80235 0.      0.     ]
+ [0.      0.      0.      0.      1.80235 0.     ]
+ [0.      0.      0.      0.      0.      1.80235]]
+
+Sub-sphere (core only) eE:
+ [[ 0.29054 -0.13649 -0.13649  0.       0.       0.     ]
+ [-0.13649  0.29054 -0.13649  0.       0.       0.     ]
+ [-0.13649 -0.13649  0.29054  0.       0.       0.     ]
+ [ 0.       0.       0.       0.42703  0.       0.     ]
+ [ 0.       0.       0.       0.       0.42703  0.     ]
+ [ 0.       0.       0.       0.       0.       0.42703]]
+
+Max error (weighted sum vs global): 2.220446049250313e-16</code></pre>
+</div>
+</div>
+</section>
+<section id="sec-local-fields" class="level2">
+<h2 class="anchored" data-anchor-id="sec-local-fields">Pointwise localization fields</h2>
+<p>The n-layer sphere also provides <strong>pointwise localization tensors</strong> that give the local strain or stress at any point <span class="math inline">\((r, \theta)\)</span> as a linear function of the remote loading. For example the local stress under remote stress reads</p>
+<p><span class="math display">\[
+\sig(r, \theta) = \uuuu{b}^S(r, \theta) : \Sig
+\]</span></p>
+<p>In Kelvin-Mandel representation, <span class="math inline">\(\mat{b}^S(r, \theta)\)</span> is a <span class="math inline">\(6\times6\)</span> matrix. The four variants following the notation of <a href="concentration_tensors.html" class="quarto-xref"><span>Chapter 7</span></a> are:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Local field</th>
+<th>Remote load</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>spn.loc_eE(r, theta)</code></td>
+<td><span class="math inline">\(\eps(r,\theta)\)</span></td>
+<td><span class="math inline">\(\E\)</span></td>
+</tr>
+<tr class="even">
+<td><code>spn.loc_eS(r, theta)</code></td>
+<td><span class="math inline">\(\eps(r,\theta)\)</span></td>
+<td><span class="math inline">\(\Sig\)</span></td>
+</tr>
+<tr class="odd">
+<td><code>spn.loc_sE(r, theta)</code></td>
+<td><span class="math inline">\(\sig(r,\theta)\)</span></td>
+<td><span class="math inline">\(\E\)</span></td>
+</tr>
+<tr class="even">
+<td><code>spn.loc_sS(r, theta)</code></td>
+<td><span class="math inline">\(\sig(r,\theta)\)</span></td>
+<td><span class="math inline">\(\Sig\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The argument <code>theta</code> is the <strong>polar angle</strong> measured from the <span class="math inline">\(\ve{e}_3\)</span> axis. Due to spherical symmetry the azimuthal angle plays no role. The local stress tensor is recovered by <code>invKM()</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>sigma_local <span class="op">=</span> invKM(spn.loc_sS(r, theta).dot(S_KM))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The example below plots stress profiles through the same 2-layer sphere (stiff core + soft interphase) under remote uniaxial compression <span class="math inline">\(\Sig = -\Sig_0\,\ve{3}\otimes\ve{3}\)</span>:</p>
+<div id="49753047" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Remote uniaxial stress along e_3: Sigma_33 = -1 (KM component index 2)</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>S <span class="op">=</span> np.array([<span class="fl">0.</span>, <span class="fl">0.</span>, <span class="op">-</span><span class="fl">1.</span>, <span class="fl">0.</span>, <span class="fl">0.</span>, <span class="fl">0.</span>])</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>r_vals <span class="op">=</span> np.linspace(<span class="fl">0.</span>, <span class="dv">4</span> <span class="op">*</span> R, <span class="dv">300</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="fl">3.5</span>))</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co"># -- Left plot: diagonal stress components along equatorial direction (theta = pi/2)</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>s11 <span class="op">=</span> []<span class="op">;</span> s22 <span class="op">=</span> []<span class="op">;</span> s33 <span class="op">=</span> []</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> r <span class="kw">in</span> r_vals:</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    sigma <span class="op">=</span> invKM(spn2.loc_sS(r, np.pi <span class="op">/</span> <span class="dv">2</span>).dot(S))</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    s11.append(sigma[<span class="dv">0</span>, <span class="dv">0</span>])</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    s22.append(sigma[<span class="dv">1</span>, <span class="dv">1</span>])</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>    s33.append(sigma[<span class="dv">2</span>, <span class="dv">2</span>])</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].plot(r_vals, s11, <span class="st">'r-'</span>, label<span class="op">=</span><span class="vs">r'</span><span class="dv">$\s</span><span class="vs">igma_</span><span class="op">{11}</span><span class="dv">$</span><span class="vs">'</span>)</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].plot(r_vals, s22, <span class="st">'b-'</span>, label<span class="op">=</span><span class="vs">r'</span><span class="dv">$\s</span><span class="vs">igma_</span><span class="op">{22}</span><span class="dv">$</span><span class="vs">'</span>)</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].plot(r_vals, s33, <span class="st">'g-'</span>, label<span class="op">=</span><span class="vs">r'</span><span class="dv">$\s</span><span class="vs">igma_</span><span class="op">{33}</span><span class="dv">$</span><span class="vs">'</span>)</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].axvline(x<span class="op">=</span>R,      color<span class="op">=</span><span class="st">'k'</span>,    linestyle<span class="op">=</span><span class="st">'--'</span>, lw<span class="op">=</span><span class="dv">1</span>, label<span class="op">=</span><span class="st">'Core boundary'</span>)</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].axvline(x<span class="op">=</span>R <span class="op">+</span> ep, color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, lw<span class="op">=</span><span class="dv">1</span>, label<span class="op">=</span><span class="st">'Interphase boundary'</span>)</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_xlabel(<span class="vs">r'</span><span class="dv">$</span><span class="vs">r</span><span class="dv">$</span><span class="vs">'</span>)</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_ylabel(<span class="vs">r'</span><span class="dv">$\s</span><span class="vs">igma_{ii} / </span><span class="dv">\S</span><span class="vs">igma_0</span><span class="dv">$</span><span class="vs">'</span>)</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_title(<span class="vs">r'Stress components at </span><span class="dv">$</span><span class="ch">\t</span><span class="vs">heta=</span><span class="er">\</span><span class="vs">pi/2</span><span class="dv">$</span><span class="vs">'</span>)</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].legend(fontsize<span class="op">=</span><span class="dv">8</span>)<span class="op">;</span> axes[<span class="dv">0</span>].grid(<span class="va">True</span>)</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a><span class="co"># -- Right plot: maximum principal stress for several polar angles</span></span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> theta, lbl <span class="kw">in</span> <span class="bu">zip</span>([<span class="fl">0.</span>, np.pi <span class="op">/</span> <span class="fl">6.</span>, np.pi <span class="op">/</span> <span class="fl">3.</span>, np.pi <span class="op">/</span> <span class="fl">2.</span>],</span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>                      [<span class="st">'0'</span>, <span class="vs">r'</span><span class="er">\</span><span class="vs">pi/6'</span>, <span class="vs">r'</span><span class="er">\</span><span class="vs">pi/3'</span>, <span class="vs">r'</span><span class="er">\</span><span class="vs">pi/2'</span>]):</span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>    smax <span class="op">=</span> [<span class="bu">float</span>(np.<span class="bu">max</span>(np.linalg.eigvals(invKM(spn2.loc_sS(r, theta).dot(S))).real))</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> r <span class="kw">in</span> r_vals]</span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>].plot(r_vals, smax, label<span class="op">=</span><span class="vs">rf'</span><span class="dv">$</span><span class="ch">\t</span><span class="vs">heta = </span><span class="sc">{</span>lbl<span class="sc">}</span><span class="dv">$</span><span class="vs">'</span>)</span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].axvline(x<span class="op">=</span>R,      color<span class="op">=</span><span class="st">'k'</span>,    linestyle<span class="op">=</span><span class="st">'--'</span>, lw<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].axvline(x<span class="op">=</span>R <span class="op">+</span> ep, color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, lw<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_xlabel(<span class="vs">r'</span><span class="dv">$</span><span class="vs">r</span><span class="dv">$</span><span class="vs">'</span>)</span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_ylabel(<span class="vs">r'</span><span class="dv">$\s</span><span class="vs">igma_{</span><span class="dv">\m</span><span class="vs">ax} / </span><span class="dv">\S</span><span class="vs">igma_0</span><span class="dv">$</span><span class="vs">'</span>)</span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_title(<span class="st">'Maximum principal stress'</span>)</span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].legend(fontsize<span class="op">=</span><span class="dv">8</span>)<span class="op">;</span> axes[<span class="dv">1</span>].grid(<span class="va">True</span>)</span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="nlayer_sphere_files/figure-html/cell-8-output-1.png" width="852" height="323" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="math inline">\(\,\)</span></p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-herve1993" class="csl-entry" role="listitem">
+Hervé, E., Zaoui, A., 1993. N-layered inclusion-based micromechanical modelling. Int. J. Engng. Sci. 31, 1–10. <a href="https://doi.org/10.1016/0020-7225(93)90059-4">https://doi.org/10.1016/0020-7225(93)90059-4</a>
+</div>
+<div id="ref-herve-luanco2014" class="csl-entry" role="listitem">
+Hervé-Luanco, E., 2014. Elastic behavior of composites containing multi-layer coated particles with imperfect interface bonding conditions and application to size effects and mismatch in these composites. International Journal of Solids and Structures 51, 2865–2877. <a href="https://doi.org/10.1016/j.ijsolstr.2014.04.008">https://doi.org/10.1016/j.ijsolstr.2014.04.008</a>
+</div>
+<div id="ref-love1944" class="csl-entry" role="listitem">
+Love, A.E.H., 1944. <a href="https://archive.org/details/atreatiseonmath01lovegoog">Treatise on mathematical theory of elasticity. 4th edition</a>. A Treatise on the Mathematical Theory of Elasticity 643.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/jfbarthelemy\.github\.io\/echoes\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation column-body">
+  <div class="nav-page nav-page-previous">
+      <a href="../3_concentration/concentration_tensors.html" class="pagination-link" aria-label="Ellipsoids">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Ellipsoids</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../3_concentration/crack.html" class="pagination-link" aria-label="Cracks">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Cracks</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/3_concentration/nlayer_sphere.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

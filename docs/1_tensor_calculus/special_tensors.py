@@ -20,9 +20,6 @@
 #       - text: Python script
 #         icon: file-code
 #         href: special_tensors.py
-#       - text: Jupyter notebook
-#         icon: file-code
-#         href: special_tensors.ipynb
 # ---
 #
 # # Special tensors {#sec-special_tensors}

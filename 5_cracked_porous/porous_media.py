@@ -1,0 +1,195 @@
+# ---
+# jupyter:
+#   jupytext:
+#     text_representation:
+#       extension: .py
+#       format_name: light
+#       format_version: '1.5'
+#       jupytext_version: 1.16.1
+#   kernelspec:
+#     display_name: Python 3 (ipykernel)
+#     language: python
+#     name: python3
+#     path: C:\Python\share\jupyter\kernels\python3
+# ---
+
+# ---
+# format:
+#   html:
+#     code-links:
+#       - text: Python script
+#         icon: file-code
+#         href: porous_media.py
+# ---
+#
+# # Homogenization of porous media {#sec-porous-media}
+#
+# ::: {.callout-important icon=false}
+#
+# ## {{< iconify pajamas issue-type-objective >}} Objectives
+#
+# This tutorial demonstrates the application of homogenization schemes to porous media. It covers the effect of pore shape, the comparison of all available schemes, percolation thresholds, and the extension to transport properties (permeability).
+#
+# :::
+#
+# ::: {.callout-tip icon=false collapse=true}
+#
+# ## {{< iconify ix import >}} Imports
+
+# +
+#| error: false
+#| warning: false
+#| code-fold: false
+#| code-summary: Code for library imports
+#| include: true
+
+import numpy as np
+from echoes import *
+import math
+import matplotlib.pyplot as plt
+
+np.set_printoptions(precision=8, suppress=True)
+# -
+
+# :::
+#
+# ## Porous medium modeling
+#
+# A porous medium is modeled as a composite in which the voids are treated as inclusions with zero (or near-zero) stiffness:
+
+# +
+#| error: false
+#| warning: false
+#| code-fold: false
+#| include: true
+
+ks, mus = 72., 32.
+kp, mup = 1.e-6, 1.e-6
+
+myrve = rve(matrix="SOLID")
+myrve["SOLID"] = ellipsoid(shape=spheroidal(1.), symmetrize=[ISO],
+                           prop={"C": stiff_kmu(ks, mus)})
+myrve["PORE"] = ellipsoid(shape=spheroidal(1.), symmetrize=[ISO],
+                          prop={"C": stiff_kmu(kp, mup)})
+
+
+# -
+
+# ## Scheme comparison on porous media {#sec-porous-comparison}
+#
+# The following example computes the effective bulk and shear moduli versus porosity for all available schemes.
+
+# +
+#| error: false
+#| warning: false
+#| code-fold: false
+#| include: true
+
+def Chom_porous(myrve, phi, sch):
+    myrve["PORE"].fraction = phi
+    myrve["SOLID"].fraction = 1. - phi
+    try:
+        C = homogenize(prop="C", rve=myrve, scheme=sch,
+                       verbose=False, epsrel=1.e-6, maxnb=300,
+                       select_best=True)
+        return max(C.k, 0.), max(C.mu, 0.)
+    except:
+        return 0., 0.
+
+lphi = np.linspace(0., 1., 51)
+
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(9, 4))
+for sch in [VOIGT, REUSS, DIL, MT, SC, DIFF, PCW, MAX]:
+    lk, lmu = [], []
+    for phi in lphi:
+        k, mu = Chom_porous(myrve, phi, sch)
+        lk.append(k)
+        lmu.append(mu)
+    ax1.plot(lphi, lk, label=str(sch))
+    ax2.plot(lphi, lmu, label=str(sch))
+
+ax1.set_xlabel(r"$\varphi$"); ax1.set_ylabel(r"$k^{hom}$")
+ax1.grid(True); ax1.legend()
+ax2.set_xlabel(r"$\varphi$"); ax2.set_ylabel(r"$\mu^{hom}$")
+ax2.grid(True); ax2.legend()
+plt.tight_layout()
+plt.show()
+# -
+
+# ## Effect of pore shape
+#
+# The aspect ratio of pores significantly affects the effective properties. Oblate pores ($\omega < 1$) lead to softer behavior than spherical pores ($\omega = 1$), while prolate pores ($\omega > 1$) produce an intermediate effect.
+
+# +
+#| error: false
+#| warning: false
+#| code-fold: false
+#| include: true
+
+lphi = np.linspace(0., 0.5, 51)
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(9, 4))
+
+for omega, style in [(0.1, '--'), (1., '-'), (10., ':')]:
+    myrve["PORE"].shape = spheroidal(omega)
+    myrve["SOLID"].shape = spheroidal(1.)
+    lk, lmu = [], []
+    for phi in lphi:
+        k, mu = Chom_porous(myrve, phi, SC)
+        lk.append(k)
+        lmu.append(mu)
+    ax1.plot(lphi, lk, style, label=f"SC, ω={omega}")
+    ax2.plot(lphi, lmu, style, label=f"SC, ω={omega}")
+
+ax1.set_xlabel(r"$\varphi$"); ax1.set_ylabel(r"$k^{hom}$")
+ax1.grid(True); ax1.legend()
+ax2.set_xlabel(r"$\varphi$"); ax2.set_ylabel(r"$\mu^{hom}$")
+ax2.grid(True); ax2.legend()
+plt.tight_layout()
+plt.show()
+# -
+
+# ## Percolation threshold
+#
+# In the self-consistent scheme, the effective moduli vanish at a critical porosity (percolation threshold) that depends on the pore aspect ratio. For spherical pores ($\omega=1$), the percolation threshold is $\phi_c=0.5$. For oblate pores ($\omega \to 0$), the threshold tends to 1, while for prolate pores ($\omega \to \infty$), it tends to 0.
+#
+# ## Permeability of porous media {#sec-permeability}
+#
+# Transport properties (permeability, conductivity, diffusivity) are described by 2nd-order tensors and can be homogenized with the same framework using `prop="K"`:
+
+# +
+#| error: false
+#| warning: false
+#| code-fold: false
+#| include: true
+
+Ks = 0.1 * tId2    # solid conductivity
+Kp = tId2           # pore conductivity
+
+myrve_K = rve(matrix="SOLID")
+myrve_K["SOLID"] = ellipsoid(shape=spheroidal(1.), symmetrize=[ISO],
+                             prop={"K": Ks})
+myrve_K["PORE"] = ellipsoid(shape=spheroidal(0.1), symmetrize=[ISO],
+                            prop={"K": Kp})
+
+lphi = np.linspace(0., 1., 51)
+fig, ax = plt.subplots(figsize=(6, 5))
+for sch in [MT, SC, MAX, PCW]:
+    lK = []
+    for phi in lphi:
+        myrve_K["PORE"].fraction = phi
+        myrve_K["SOLID"].fraction = 1. - phi
+        try:
+            K = homogenize(prop="K", rve=myrve_K, scheme=sch,
+                           verbose=False, maxnb=300, epsrel=1.e-10,
+                           select_best=True)
+            lK.append(max(np.trace(K.array) / 3., 0.))
+        except:
+            lK.append(0.)
+    ax.plot(lphi, lK, label=str(sch))
+
+ax.set_xlabel(r"$\varphi$"); ax.set_ylabel(r"$K^{hom}$")
+ax.grid(True); ax.legend()
+plt.show()
+# -
+
+# $\,$

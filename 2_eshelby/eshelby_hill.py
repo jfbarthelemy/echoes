@@ -20,9 +20,6 @@
 #       - text: Python script
 #         icon: file-code
 #         href: eshelby_hill.py
-#       - text: Jupyter notebook
-#         icon: file-code
-#         href: eshelby_hill.ipynb
 # ---
 #
 # # Eshelby and Hill polarization tensors {#sec-eshelby_hill}
@@ -31,7 +28,7 @@
 #
 # ## {{< iconify pajamas issue-type-objective >}} Objectives
 #
-# This tutorial provides the instructions to build Eshelby and Hill polarization tensors related to an ellipsoidal shape embedded in an infinite elastic matrix of arbitrary anisotropy.
+# This tutorial provides the instructions to build Eshelby and Hill polarization tensors related to an ellipsoidal shape embedded in an infinite matrix of arbitrary anisotropy, both in **elasticity** (4th-order tensors) and in **transport** problems such as conductivity or diffusion (2nd-order tensors).
 #
 # :::
 #
@@ -369,6 +366,126 @@ print("P(NUMINT) =\n", hill(shape, C, algo=NUMINT),"\n")
 
 for ϵ in [1.e-4, 1.e-2, 1.e-1]:
     print(f"ϵ={ϵ}\n", "  P =\n", hill(shape, C, algo=RESIDUES, epsroots=ϵ),"\n")
+# -
+
+# ## 2nd-order Hill and Eshelby tensors for transport properties {#sec-hill2}
+#
+# The Eshelby framework extends verbatim to **transport problems** (heat conduction, mass diffusion, electric conduction…). The whole space is now filled with a uniform **conductivity tensor** $\uu{K}$ (a positive-definite 2nd-order symmetric tensor). Denoting $\uu{j}=-\uu{q}$ the flux vector (so that $\uu{j}=\uu{K}\cdot\text{grad}\,T$ in the absence of polarization), a uniform polarization $\uu{\tau}$ is prescribed inside the ellipsoid:
+#
+# $$
+# \uu{j}(\x) = \uu{K}\cdot\text{grad}\,T(\x) + \uu{\tau}(\x)
+# \quad\textrm{with}\quad
+# \text{grad}\,T(\x) \xrightarrow{\norm{\x}\to\infty} \uv{0}
+# $$
+#
+# The key result is that the temperature gradient inside the ellipsoid is **uniform**:
+#
+# $$
+# \forall\x\in\mathcal{E}_{\uu{A}},\quad
+# \text{grad}\,T(\x) = -\uu{P}(\uu{A},\uu{K})\cdot\uu{\tau}
+# $${#eq-eshelby-cond}
+#
+# where $\uu{P}(\uu{A},\uu{K})$ is now a **2nd-order symmetric tensor** (3×3 matrix). The conductivity Eshelby tensor is accordingly $\uu{S} = \uu{P}\cdot\uu{K}$. Explicit formulae are given in @sec-hill_elas; the key results recalled here are:
+#
+# - **Isotropic matrix** $\uu{K}=K\,\uu{1}$:
+#
+# $$
+# \uu{P}(\uu{A}, K\,\uu{1}) = \frac{\uu{I}^{\uu{A}}}{K}
+# $${#eq-P2-iso}
+#
+# where $\uu{I}^{\uu{A}}$ is the Newton potential tensor defined in @eq-tensIUV.
+#
+# - **Sphere** ($\uu{A}=\uu{1}$) in an isotropic matrix, $\uu{I}^{\uu{1}}=\frac{1}{3}\,\uu{1}$:
+#
+# $$
+# \uu{P}(\uu{1}, K\,\uu{1}) = \frac{1}{3\,K}\,\uu{1}, \qquad
+# \uu{S}(\uu{1}, K\,\uu{1}) = \frac{1}{3}\,\uu{1}
+# $${#eq-P2-sphere}
+#
+# Note that the 2nd-order Eshelby tensor for a sphere is independent of $K$, just as its 4th-order elastic counterpart is independent of the inclusion stiffness.
+#
+# ### API
+#
+# The library selects the 2nd- or 4th-order algorithm automatically from the order of the `ref` tensor passed to `hill` or `eshelby`. The calls are therefore **identical** to the elastic case:
+#
+# ```
+# P = hill(shape, K)
+# S = eshelby(shape, K)
+# ```
+#
+# where `K` is a 2nd-order tensor (e.g. `k * tId2` for an isotropic medium of conductivity $k$, or `tensor([k1, k2, k3], angles=[θ, φ, ψ])` for an orthotropic one). Both functions return a 3×3 `numpy.ndarray`.
+#
+# ### Isotropic matrix
+
+# +
+#| error: false
+#| warning: false
+#| code-fold: false
+#| include: true
+
+K_val = 2.5
+K_iso = K_val * tId2     # isotropic conductivity  K = 2.5
+
+print("P (sphere, isotropic) =\n", hill(spherical, K_iso), "\n")
+print("S (sphere, isotropic) =\n", eshelby(spherical, K_iso), "\n")
+
+# Spheroidal inclusions in the same matrix
+for ω in [0.1, 0.5, 1., 2.]:
+    P2 = hill(spheroidal(ω), K_iso)
+    print(f"P (spheroid ω={ω}, isotropic) =\n", P2)
+# -
+
+# ::: {.callout-caution icon=false}
+#
+# ## {{< iconify healthicons exercise-outline >}} Exercise
+#
+# For a spherical inclusion in an isotropic conductivity matrix $\uu{K}=K\,\uu{1}$, check the analytical formula @eq-P2-sphere:
+#
+# $$\uu{P}(\uu{1},K\,\uu{1}) = \frac{1}{3K}\,\uu{1}$$
+
+# +
+#| error: false
+#| warning: false
+#| code-fold: true
+#| code-summary: Solution
+#| include: true
+
+K_val = 2.5
+K_iso = K_val * tId2
+P2 = hill(spherical, K_iso)
+P2_formula = 1./(3*K_val) * np.eye(3)
+print("Echoes:  \n", P2)
+print("Formula: \n", P2_formula)
+print("Max error:", np.max(np.abs(P2 - P2_formula)))
+# -
+
+# :::
+#
+# ### Anisotropic matrix
+#
+# Unlike the 4th-order elastic case, the 2nd-order Hill tensor is **always computed analytically** for any matrix symmetry. The key is the transformation formula @eq-Hillcondaniso from @sec-hill_elas:
+#
+# $$
+# \uu{P}(\uu{A},\uu{K}) = \uu{K}^{-\frac{1}{2}}\cdot\uu{I}^{\uu{A}\cdot\uu{K}^{-\frac{1}{2}}}\cdot\uu{K}^{-\frac{1}{2}}
+# $$
+#
+# which reduces the problem to the computation of the Newton potential tensor $\uu{I}^{\tilde{\uu{A}}}$ of a fictitious isotropic-equivalent ellipsoid $\tilde{\uu{A}}=\uu{A}\cdot\uu{K}^{-\frac{1}{2}}$, for which closed-form expressions are available. No numerical integration is therefore needed.
+
+# +
+#| error: false
+#| warning: false
+#| code-fold: false
+#| include: true
+
+# Orthotropic conductivity tensor with principal values and orientation angles
+K_aniso = tensor([3.2, 0.5, 1./(3.2*0.5)], angles=[π/3, π/4, π/5])
+print("K (orthotropic) =\n", K_aniso, "\n")
+
+shape2 = ellipsoidal(10., 5., 2., π/3, π/4, π/5)
+
+P2 = hill(shape2, K_aniso)
+print("P2 (anisotropic K) =\n", P2)
+print("\nS2 (anisotropic K) =\n", eshelby(shape2, K_aniso))
 # -
 
 # $\,$

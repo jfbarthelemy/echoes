@@ -20,9 +20,6 @@
 #       - text: Python script
 #         icon: file-code
 #         href: rot_matrices.py
-#       - text: Jupyter notebook
-#         icon: file-code
-#         href: rot_matrices.ipynb
 # ---
 #
 # # Rotation matrices {#sec-rot_tensors}

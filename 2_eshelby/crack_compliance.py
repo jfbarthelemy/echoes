@@ -20,18 +20,19 @@
 #       - text: Python script
 #         icon: file-code
 #         href: crack_compliance.py
-#       - text: Jupyter notebook
-#         icon: file-code
-#         href: crack_compliance.ipynb
 # ---
 #
-# # Crack compliance {#sec-crack_compliance}
+# # Crack compliance tensors {#sec-crack_compliance}
 #
-# ::: {.callout-important icon=false} 
+# ::: {.callout-important icon=false}
 #
 # ## {{< iconify pajamas issue-type-objective >}} Objectives
 #
-# This tutorial shows how to calculate the crack compliance of an elliptical crack embedded in an infinite elastic matrix of arbitrary anisotropy.
+# This tutorial shows how to calculate:
+#
+# - the **elastic crack compliance tensor** $\uuuu{H}$ of an elliptical crack in a matrix of arbitrary anisotropy;
+# - the **linear spring interface model** that accounts for partial bonding through normal ($k_n$) and tangential ($k_t$) spring stiffnesses;
+# - the **conductivity (2nd-order) crack compliance tensor** $\uu{h}$, the transport analog of $\uuuu{H}$.
 #
 # :::
 #
@@ -186,7 +187,30 @@ H = crack_compliance(spheroidal(ω), C, algo=NUMINT) ; print("H =\n", H)
 H = crack_compliance(spheroidal(ω), C, algo=RESIDUES) ; print("H =\n", H)
 # -
 
-# ::: {.callout-caution icon=false} 
+# **Transversely isotropic matrix**
+#
+# A transversely isotropic (TI) matrix is fully defined by 5 independent elastic constants. *Echoes* handles the crack compliance analytically in this case too.
+
+# +
+#| error: false
+#| warning: false
+#| code-fold: false
+#| code-summary: Code
+#| include: true
+
+# TI stiffness: tensor([c1, c2, c3, c4, c5]) with axis of symmetry = e3
+# Parameters from Hönig parametrization (E1=2.3, h=2.5, nu2=0.2, nu1=0.2, gamma=2.)
+import math as _m
+h, E1, nu2, nu1, gamma = 2.5, 2.3, 0.2, 0.2, 2.0
+d = 1 - nu1 - 2*h*nu2**2
+C_TI = tensor([h*E1*(1-nu1)/d, E1/d, _m.sqrt(2.)*h*nu2*E1/d, E1/(1+nu1), gamma*E1/(1+nu1)])
+print("C (TI) =\n", C_TI, "\n")
+
+H_TI = crack_compliance(spheroidal(1.e-4), C_TI)
+print("H (TI matrix) =\n", H_TI)
+# -
+
+# ::: {.callout-caution icon=false}
 #
 # ## {{< iconify healthicons exercise-outline >}} Exercise
 #
@@ -227,4 +251,94 @@ plt.show()
 
 # :::
 #
+# ## Linear spring interface model {#sec-spring-model}
+#
+# In the fully open crack model considered so far, the two crack faces are traction-free. A more general model allows the faces to interact through a **linear spring interface**: the traction $\uv{T}=\uu{\sig}\cdot\uv{n}$ on the crack face is linearly related to the displacement jump $\jump{\uv{u}}$:
+#
+# $$
+# \uv{T} = \left(k_n\,\uv{n}\otimes\uv{n} + k_t\,(\uu{1}-\uv{n}\otimes\uv{n})\right)\cdot\jump{\uv{u}}
+# $${#eq-spring-law}
+#
+# where $k_n \geq 0$ is the normal spring stiffness and $k_t \geq 0$ the tangential one. The open crack ($k_n=k_t=0$) and the perfectly bonded interface ($k_n,k_t\to\infty$) are limiting cases.
+#
+# ### Implementation
+#
+# The spring stiffnesses are passed to the `crack` constructor via `interf_prop` (details in @sec-cracked-media):
+#
+# ```python
+# ver["CRACK"] = crack(shape=spheroidal(ω), density=d,
+#                      interf_prop={"C": [kn, kt]})
+# ```
+#
+# The order of parameters is `[kn, kt]` (normal first, tangential second). Passing `prop={"C": tZ4}` with no `interf_prop` is equivalent to the open crack ($k_n=k_t=0$).
+#
+# ## Conductivity crack resistivity {#sec-crack-conduc}
+#
+# The proper transport analog of the elastic crack compliance tensor is the **crack resistivity tensor** $\uu{H}$ [@barthelemyTIPM2009]. By analogy with the elastic case, it is defined from the 2nd-order second Hill tensor $\uu{Q}=\uu{K}-\uu{K}\cdot\uu{P}\cdot\uu{K}$ as:
+#
+# $$
+# \uu{H} = \lim_{\omega\to 0}\,\omega\,\uu{Q}^{-1}
+# $${#eq-H-cond}
+#
+# The result is a positive semi-definite 3×3 tensor (rank-1 for an isotropic matrix, since only the normal component of the flux can jump across a crack).
+#
+# ::: {.callout-warning}
+#
+# ## Terminology in *Echoes*
+#
+# Although the physically correct term for the transport analog is **crack resistivity**, the function `crack_compliance` is used for both elasticity and transport in *Echoes* by analogy: passing a 2nd-order tensor `K` as the second argument automatically returns the 3×3 crack resistivity tensor $\uu{H}$.
+#
+# :::
+#
+# ### API
+#
+# `crack_compliance(shape, K)` with a **2nd-order tensor** `K` returns a 3×3 `numpy.ndarray`. As for the elastic case, $\uu{H}$ does not depend on the aspect ratio $\omega$ when $\omega\to 0$, so only a small value needs to be provided.
+#
+# For a spring-interface crack in conductivity, `interf_prop={"K": [Ka, Kb, Kc]}` sets the conductance along the three local axes of the crack (the two tangential axes first, then the normal):
+#
+# ```python
+# ver["CRACK"] = crack(shape=spheroidal(ω), density=d,
+#                      interf_prop={"K": [Kt1, Kt2, Kn]})
+# ```
+#
+# For a spheroidal crack with rotational symmetry, $K_{t1}=K_{t2}=K_t$ so the call reduces to `[Kt, Kt, Kn]`.
+#
+# ### Isotropic matrix
+
+# +
+#| error: false
+#| warning: false
+#| code-fold: false
+#| include: true
+
+K_val = 2.5
+K_iso = K_val * tId2
+
+H_cond = crack_compliance(spheroidal(1.e-4), K_iso)
+print("H (crack resistivity, isotropic) =\n", H_cond)
+
+# Analytical formula: H_n = 2/(πK)  (n = e3, index 2)
+H_n_formula = 2.0 / (math.pi * K_val)
+print(f"\nFormula H[2,2] = 2/(πK) = {H_n_formula:.8f}")
+print(f"Echoes  H[2,2]          = {H_cond[2,2]:.8f}")
+print(f"Error:                    {abs(H_cond[2,2] - H_n_formula):.2e}")
+# -
+
+# ### Anisotropic matrix
+#
+# Just as for the 2nd-order Hill tensor (see @sec-hill2), the crack resistivity is computed analytically for any matrix anisotropy.
+
+# +
+#| error: false
+#| warning: false
+#| code-fold: false
+#| include: true
+
+# Orthotropic conductivity
+K_aniso = tensor([3.2, 0.5, 1./(3.2*0.5)], angles=[math.pi/3, math.pi/4, math.pi/5])
+
+H_aniso = crack_compliance(spheroidal(1.e-4), K_aniso)
+print("H (crack resistivity, orthotropic) =\n", H_aniso)
+# -
+
 # $\,$

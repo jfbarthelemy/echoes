@@ -32,6 +32,8 @@ $$
 \DeclareMathOperator{\tr}{tr}
 \DeclareMathOperator{\ISO}{ISO}
 
-\newcommand{\jump}[1]{[\hspace*{-.15em}[\hspace*{.1em}{#1}%
-     \hspace*{.1em}]\hspace*{-.15em}]}
+\newcommand{\volt}[1]{{#1}^{-1\circ}}
+\newcommand{\dcirc}{\overset{\circ}{:}}
+
+\newcommand{\jump}[1]{\mathopen{[\![}\,#1\,\mathclose{]\!]}}
 $$

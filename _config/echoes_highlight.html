@@ -1,0 +1,107 @@
+<script>
+(function () {
+  /* ── echoes API identifiers to highlight ─────────────────────────────── */
+  var ECHOES_API = [
+    /* homogenization */
+    'homogenize', 'homogenize_visco', 'homogenize_derivative',
+    /* microstructure */
+    'rve', 'rvec', 'ellipsoid', 'ellipsoidc',
+    'crack', 'crackc', 'sphere_nlayers', 'sphere_nlayersc',
+    'inclusion_map', 'inclusion_mapc',
+    'user_inclusion', 'user_inclusionc',
+    /* tensor constructors */
+    'tensor', 'tensc', 'inv', 'eigen',
+    'stiff_kmu', 'stiff_Enu', 'stiff_lambdamu', 'stiff_TI', 'comp_TI',
+    'stiff_interf',
+    'stiff_to_symWalpole', 'stiff_from_symWalpole',
+    'comp_to_symWalpole', 'comp_from_symWalpole',
+    /* tensor operations */
+    'isotropify', 'transverse_isotropify', 'symmetrize', 'paramsym',
+    'E_from_kmu', 'nu_from_kmu', 'k_from_Enu', 'mu_from_Enu',
+    'Enu_from_kmu', 'kmu_from_Enu',
+    /* rotation */
+    'es', 'rot3', 'rot6', 'angles', 'change_basis', 'self_change_basis',
+    'change_basis_inv', 'self_change_basis_inv',
+    /* geometry */
+    'spheroidal', 'spherical',
+    /* eshelby / hill */
+    'eshelby', 'hill', 'hill_dual', 'crack_compliance',
+    'newton_potential', 'basis_iso_hill',
+    'hill_derivative', 'visco_hill', 'visco_hill_dual',
+    'visco_crack_compliance',
+    /* viscoelasticity */
+    'visco_law', 'visco_paramsym', 'visco_tensor',
+    'visco_isotropify', 'visco_transverse_isotropify', 'visco_symmetrize',
+    'Kelvin', 'Maxwell', 't4Maxwell',
+    /* polynomials */
+    'build_poly', 'residue', 'find_roots_positive_imag', 'add_root',
+    /* scheme enum values */
+    'VOIGT', 'REUSS', 'DIL', 'DILD', 'MAX', 'MT', 'SC', 'ASC', 'PCW', 'DIFF',
+    /* algorithm enum values */
+    'DEFAULT', 'NUMINT', 'NUMINT2D', 'NUMINT3D',
+    'RESIDUES', 'RESIDUES2D', 'RESIDUES3D',
+    /* symmetry enum values */
+    'ISO', 'TI', 'ORTHO', 'ANISO', 'UNDEFSYM',
+    /* special tensor constants */
+    'tZ4', 'tZ2', 'tI4', 'tI2', 'tJ4', 'tK4', 'tZ4c', 'tZ2c',
+    /* interface types */
+    'NODISC', 'PRIMALDISC', 'DUALDISC',
+    /* misc */
+    'invert_array', 'mult_array', 'KM', 'invKM', 'perm6', 'inv_perm6',
+    'set_prop', 'set_param_eshelby',
+  ];
+
+  /* token classes to skip (Pandoc: comment, string, char, alert, error) */
+  var SKIP = ['co', 'st', 'ch', 'al', 'er'];
+
+  function insideSkipped(node) {
+    var p = node.parentNode;
+    while (p) {
+      if (p.tagName === 'CODE') break;
+      if (p.tagName === 'SPAN') {
+        for (var i = 0; i < SKIP.length; i++)
+          if (p.classList.contains(SKIP[i])) return true;
+      }
+      p = p.parentNode;
+    }
+    return false;
+  }
+
+  var pat = new RegExp('\\b(' + ECHOES_API.join('|') + ')\\b', 'g');
+
+  function processBlock(block) {
+    /* collect text nodes first to avoid live-DOM issues */
+    var walker = document.createTreeWalker(block, NodeFilter.SHOW_TEXT, null, false);
+    var nodes = [];
+    var n;
+    while ((n = walker.nextNode())) nodes.push(n);
+
+    nodes.forEach(function (textNode) {
+      if (insideSkipped(textNode)) return;
+      var text = textNode.textContent;
+      pat.lastIndex = 0;
+      if (!pat.test(text)) return;
+      pat.lastIndex = 0;
+
+      var frag = document.createDocumentFragment();
+      var last = 0, m;
+      while ((m = pat.exec(text)) !== null) {
+        if (m.index > last)
+          frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var sp = document.createElement('span');
+        sp.className = 'echoes-api';
+        sp.textContent = m[0];
+        frag.appendChild(sp);
+        last = m.index + m[0].length;
+      }
+      if (last < text.length)
+        frag.appendChild(document.createTextNode(text.slice(last)));
+      textNode.parentNode.replaceChild(frag, textNode);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('div.sourceCode pre code').forEach(processBlock);
+  });
+})();
+</script>

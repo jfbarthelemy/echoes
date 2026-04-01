@@ -47,7 +47,7 @@ $$
 \ve{i_1}\otimes\ldots\otimes\ve{i_{p+q-2}}
 $${#eq-simpledot}
 
-As regards the double dot product, the classical convention consists in consuming the indices going up from the extremities, which means that a first contraction acts as in the simple dot product then a second contraction is performed between the penultimate index of $\mathcal{T}$ and the second one of $\mathcal{T}'$. However and alternate convention adopted here is proposed in [@brisard2014a]^[see [https://sbrisard.github.io/posts/20140219-on_the_double_dot_product.html](https://sbrisard.github.io/posts/20140219-on_the_double_dot_product.html)], which somehow consists in considering that the double contraction operates over the two last indices of $\mathcal{T}$ as a pair and the two first indices of $\mathcal{T}'$ as the corresponding pair. In other words, this operation is such that if $\uu{a}$ and $\uu{b}$ are two second-order tensors and $\uuuu{T}$ is a fourth-order tensor
+As regards the double dot product, the classical convention consists in consuming the indices going up from the extremities, which means that a first contraction acts as in the simple dot product then a second contraction is performed between the penultimate index of $\mathcal{T}$ and the second one of $\mathcal{T}'$. However an alternate convention adopted here consists in considering that the double contraction operates over the two last indices of $\mathcal{T}$ as a pair and the two first indices of $\mathcal{T}'$ as the corresponding pair. In other words, this operation is such that if $\uu{a}$ and $\uu{b}$ are two second-order tensors and $\uuuu{T}$ is a fourth-order tensor
 $$
 \uu{a}:\uu{b}=a_{ij}b_{ij}
 \quad\textrm{and}\quad
@@ -64,7 +64,7 @@ $$
 \uuuu{T}:\uuuu{T}'=T_{ijkl} T'_{ijkl}
 $${#eq-dot4}
 
-Another useful operator introduced in [@brisard2014a]^[see [https://sbrisard.github.io/posts/20140226-decomposition_of_transverse_isotropic_fourth-rank_tensors.html](https://sbrisard.github.io/posts/20140226-decomposition_of_transverse_isotropic_fourth-rank_tensors.html)] is the modified tensor product denoted by $\boxtimes$. The fourth-order tensor $\uu{a}\boxtimes\uu{b}$ (where $\uu{a}$ and $\uu{b}$ are two second-order tensors) is defined by its operation over any second-order tensor $\uu{p}$ and by its components
+Another useful operator is the modified tensor product denoted by $\boxtimes$. The fourth-order tensor $\uu{a}\boxtimes\uu{b}$ (where $\uu{a}$ and $\uu{b}$ are two second-order tensors) is defined by its operation over any second-order tensor $\uu{p}$ and by its components
 $$\begin{align}
 & (\uu{a}\boxtimes\uu{b}):\uu{p}=\uu{a}\cdot\uu{p}\cdot\trans{\uu{b}}
 =a_{ik}\,p_{kl}\,b_{jl}\,\ve{i}\otimes\ve{j}
@@ -408,7 +408,7 @@ Note however that this isotropisation relying on euclidean distance to the set o
 
 ## Fourth-order transversely isotropic tensors and Walpole basis {#sec-TI}
 
-The Walpole basis ([@walpole1984], [@brisard2014a]^[see [https://sbrisard.github.io/posts/20140226-decomposition_of_transverse_isotropic_fourth-rank_tensors.html](https://sbrisard.github.io/posts/20140226-decomposition_of_transverse_isotropic_fourth-rank_tensors.html)]) allowing to write any
+The Walpole basis ([@walpole1984]) allowing to write any
 fourth-order transversely isotropic relatively to a an axis oriented by the unit
 vector $\n$ is composed of the six following tensors
 built from $\uu{1}_n=\n\otimes\n$
@@ -430,9 +430,9 @@ $$\begin{align}
 
 Any transversely isotropic fourth-order tensor can be decomposed as
 $$
-{\uuuu{L}} = {\ell}_{1}\,{\uuuu{E}}_{1} + {\ell}_{2}\,{\uuuu{E}}_{2} +
-{\ell}_{3}\,{\uuuu{E}}_{3}+ {\ell}_{4}\,{\uuuu{E}}_{4}+ {\ell}_{5}\,{\uuuu{E}}_{5}+
-{\ell}_{6}\,{\uuuu{E}}_{6}
+{\uuuu{L}} = {\ell}_{1}\,{\uuuu{W}}_{1} + {\ell}_{2}\,{\uuuu{W}}_{2} +
+{\ell}_{3}\,{\uuuu{W}}_{3}+ {\ell}_{4}\,{\uuuu{W}}_{4}+ {\ell}_{5}\,{\uuuu{W}}_{5}+
+{\ell}_{6}\,{\uuuu{W}}_{6}
 $${#eq-decWalpole}
 
 The six parameters can be conveniently gathered in a triplet

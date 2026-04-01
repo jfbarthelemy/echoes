@@ -1,0 +1,127 @@
+# Viscoelastic constitutive laws {#sec-viscoelastic-laws}
+
+This appendix summarizes the main viscoelastic constitutive models used in micromechanical homogenization with *Echoes*.
+
+## Linear viscoelasticity framework
+
+A linear viscoelastic material is characterized by a relaxation function $\uuuu{C}(t)$ or a creep function $\uuuu{J}(t)$ such that the stress and strain histories are related by a Stieltjes convolution
+
+$$
+\sig(t) = \int_0^t \uuuu{C}(t-\tau) : \dot{\eps}(\tau) \, \ud\tau
+\qquad\text{or equivalently}\qquad
+\eps(t) = \int_0^t \uuuu{J}(t-\tau) : \dot{\sig}(\tau) \, \ud\tau
+$${#eq-stieltjes}
+
+For non-ageing materials, $\uuuu{C}$ and $\uuuu{J}$ depend only on the elapsed time $t-\tau$.
+
+## Correspondence principle {#sec-correspondence}
+
+The **Laplace-Carson transform** of a function $f(t)$ is defined as
+
+$$
+f^*(p) = p \int_0^\infty f(t)\, e^{-pt} \, \ud t
+$${#eq-laplace-carson}
+
+Under this transform, the convolution (@eq-stieltjes) becomes an algebraic product
+
+$$
+\sig^*(p) = \uuuu{C}^*(p) : \eps^*(p)
+$$
+
+This correspondence principle allows the direct reuse of elastic homogenization schemes in the Laplace-Carson domain: the effective relaxation function $\uuuu{C}^{*,hom}(p)$ is obtained by replacing elastic moduli by their Laplace-Carson transforms in the homogenization formula.
+
+For **ageing materials**, the correspondence principle does not apply directly since the relaxation function $\uuuu{C}(t,t')$ depends on both the current time $t$ and the loading time $t'$. In this case, a direct time-stepping approach must be used.
+
+## Rheological models
+
+### Maxwell model
+
+A Maxwell element consists of a spring (modulus $\mu$) in series with a dashpot (viscosity $\eta$). In the Laplace-Carson domain, the complex shear modulus is
+
+$$
+\mu^*(p) = \frac{\mu \, p \, \tau}{1 + p \, \tau}
+\qquad\text{with}\quad \tau = \frac{\eta}{\mu}
+$${#eq-maxwell}
+
+where $\tau$ is the relaxation time.
+
+### Kelvin-Voigt model
+
+A Kelvin-Voigt element consists of a spring in parallel with a dashpot:
+
+$$
+\mu^*(p) = \mu + \eta \, p = \mu\left(1 + p\,\tau\right)
+$${#eq-kelvin-voigt}
+
+### Generalized Maxwell (Prony series) {#sec-prony}
+
+A generalized Maxwell model is a parallel combination of $N$ Maxwell elements plus an optional equilibrium spring $\mu_\infty$:
+
+$$
+\mu(t) = \mu_\infty + \sum_{i=1}^{N} \mu_i \, e^{-t/\tau_i}
+$${#eq-prony}
+
+In the Laplace-Carson domain:
+
+$$
+\mu^*(p) = \mu_\infty + \sum_{i=1}^{N} \frac{\mu_i \, p \, \tau_i}{1 + p \, \tau_i}
+$${#eq-prony-lc}
+
+This representation is the most common for numerical computations. The relaxation modulus at $t=0$ is $\mu_0 = \mu_\infty + \sum_i \mu_i$ and the long-term modulus is $\mu_\infty$ (zero for a fluid).
+
+### Generalized Kelvin-Voigt
+
+Dually, a generalized Kelvin-Voigt model is a series combination of $N$ Kelvin-Voigt elements plus an instantaneous compliance $J_0$:
+
+$$
+J(t) = J_0 + \sum_{i=1}^{N} J_i \left(1 - e^{-t/\tau_i^r}\right)
+$${#eq-gen-kv}
+
+where $\tau_i^r$ are the retardation times. This form is convenient for describing creep.
+
+## 2S2P1D model {#sec-2S2P1D}
+
+The **2 Springs, 2 Parabolic elements, 1 Dashpot** (2S2P1D) model is widely used for bituminous materials. Its complex modulus is defined as
+
+$$
+E^*(p) = E_0 + \frac{E_\infty - E_0}{1 + \delta\,(p\,\tau)^{-k} + (p\,\tau)^{-h} + (p\,\beta\,\tau)^{-1}}
+$${#eq-2S2P1D}
+
+where:
+
+- $E_0$ and $E_\infty$ are the static and glassy moduli
+- $\delta$, $k$, $h$ ($0 < k < h < 1$) are shape parameters of the parabolic elements
+- $\tau$ is a characteristic time (related to the shift factor $a_T$ for thermorheologically simple materials)
+- $\beta$ is the Newtonian viscosity parameter
+
+In the frequency domain ($p = i\omega$), this model produces realistic Cole-Cole and Black diagrams for bituminous binders and mastics (see @sec-complex-moduli).
+
+## Ageing viscoelastic materials {#sec-ageing}
+
+For ageing materials such as hydrating cement paste, the relaxation function depends on both the current time $t$ and the loading time $t'$:
+
+$$
+\sig(t) = \int_0^t \uuuu{C}(t,\tau) : \dot{\eps}(\tau) \, \ud\tau
+$$
+
+The effective behavior cannot be obtained by the correspondence principle. Instead, a **time-stepping** approach discretizes the time interval and solves the homogenization problem at each time step, updating the internal variables (e.g., Maxwell chain stiffnesses that depend on the hydration degree).
+
+In *Echoes*, ageing viscoelastic materials are handled through the `visco_prop` and `visco_law` objects that encode the time-dependent evolution of the moduli, and `homogenize_visco` performs the incremental homogenization (see @sec-viscoelasticity-time).
+
+## Laplace inversion algorithms {#sec-laplace-inversion}
+
+Recovering the time-domain relaxation or creep function from the Laplace-Carson solution requires a numerical inversion. Common algorithms include:
+
+- **Gaver-Stehfest** algorithm: uses real-valued evaluations of the Laplace-Carson transform at $M$ points. The time-domain function is approximated by
+
+$$
+f(t) \approx \frac{\ln 2}{t} \sum_{k=1}^{M} V_k \, \hat{f}\!\left(\frac{k\ln 2}{t}\right)
+$${#eq-stehfest}
+
+where $V_k$ are combinatorial weights and $\hat{f}$ is the Laplace transform. This method is fast and easy to implement but can be inaccurate for oscillatory functions.
+
+- **De Hoog** algorithm: uses complex-valued evaluations along a contour in the complex plane, providing better accuracy for oscillatory or multi-scale responses at the cost of complex arithmetic.
+
+- **Collocation on Prony series**: the Laplace-Carson transform is evaluated at $N$ chosen values of $p_i = 1/\tau_i$ and the resulting system is inverted to identify the Prony series coefficients $(\mu_i, \tau_i)$ in (@eq-prony). This yields an explicit time-domain representation that can be efficiently used for incremental computations.
+
+$\,$

@@ -1,9 +1,8 @@
 project:
   type: book
   output-dir: docs
-  resources: 
-    - "*.py"
-    - "*.ipynb"
+  resources:
+    - "**/*.py"
 
 book:
   title: "Echoes"
@@ -29,14 +28,45 @@ book:
         - 1_tensor_calculus/special_tensors.qmd
         - 1_tensor_calculus/tensor.qmd
     - part: "𝗘𝘀𝗵𝗲𝗹𝗯𝘆 𝗶𝗻𝗰𝗹𝘂𝘀𝗶𝗼𝗻 𝗽𝗿𝗼𝗯𝗹𝗲𝗺"
-      chapters: 
+      chapters:
         - 2_eshelby/eshelby_hill.qmd
         - 2_eshelby/crack_compliance.qmd
+    - part: "𝗖𝗼𝗻𝗰𝗲𝗻𝘁𝗿𝗮𝘁𝗶𝗼𝗻 𝗽𝗿𝗼𝗯𝗹𝗲𝗺𝘀"
+      chapters:
+        - 3_concentration/concentration_tensors.qmd
+        - 3_concentration/nlayer_sphere.qmd
+        - 3_concentration/crack.qmd
+        - 3_concentration/user_inclusion.qmd
+    - part: "𝗥𝗩𝗘 𝗮𝗻𝗱 𝗵𝗼𝗺𝗼𝗴𝗲𝗻𝗶𝘇𝗮𝘁𝗶𝗼𝗻 𝘀𝗰𝗵𝗲𝗺𝗲𝘀"
+      chapters:
+        - 4_schemes/rve.qmd
+        - 4_schemes/schemes.qmd
+        - 5_cracked_porous/porous_media.qmd
+        - 5_cracked_porous/cracked_media.qmd
+        - 4_schemes/exercises_schemes.qmd
+    - part: "𝗖𝗼𝗺𝗽𝗹𝗲𝘅 𝗺𝗼𝗱𝘂𝗹𝗶 𝗮𝗻𝗱 𝘃𝗶𝘀𝗰𝗼𝗲𝗹𝗮𝘀𝘁𝗶𝗰𝗶𝘁𝘆"
+      chapters:
+        - 6_viscoelasticity/complex_moduli.qmd
+        - 6_viscoelasticity/viscoelasticity_time.qmd
+    - part: "𝗗𝗲𝗿𝗶𝘃𝗮𝘁𝗶𝘃𝗲𝘀 𝗮𝗻𝗱 𝗻𝗼𝗻𝗹𝗶𝗻𝗲𝗮𝗿 𝗲𝘅𝘁𝗲𝗻𝘀𝗶𝗼𝗻𝘀"
+      chapters:
+        - 7_nonlinear/derivatives.qmd
+        - 7_nonlinear/nonlinear.qmd
+    - part: "𝗔𝗽𝗽𝗹𝗶𝗰𝗮𝘁𝗶𝗼𝗻𝘀"
+      chapters:
+        - 8_applications/transport.qmd
+        - 8_applications/concrete.qmd
+        - 8_applications/cement_paste_diffusion.qmd
+        - 8_applications/concrete_strength.qmd
+        - 8_applications/ageing_creep.qmd
     - references.qmd
   appendices:
     - 99_appendices/tensor_algebra.qmd
     - 99_appendices/hill_tensors.qmd
+    - 99_appendices/viscoelastic_hill_kernel.qmd
     - 99_appendices/basics_elas.qmd
+    - 99_appendices/viscoelastic_laws.qmd
+    - 99_appendices/scheme_derivations.qmd
 
 number-depth: 1
 
@@ -72,6 +102,7 @@ format:
     html-math-method: mathjax
     fontsize: 90%
     include-in-header:
+      - _config/echoes_highlight.html
       - text: |
           <!-- Google tag (gtag.js) -->
           <script async src="https://www.googletagmanager.com/gtag/js?id=G-DF66M2GWRG"></script>

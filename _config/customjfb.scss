@@ -211,3 +211,35 @@ body {
   padding: 20px 10px 20px 10px;
   color: black;
 }
+
+/* ── Responsive figures ────────────────────────────────────────────────── */
+
+/* Force matplotlib output images to never overflow the content column.
+   Bootstrap's img-fluid should already do this, but some wrappers block it. */
+.cell-output-display,
+.cell-output-display figure,
+.cell-output-display .figure {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.cell-output-display img {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block;
+}
+
+/* ── Code block syntax highlighting overrides ──────────────────────────── */
+
+/* Built-in Python functions (range, str, max, len…) — default arrow theme
+   uses #007020 (medium green) which is invisible on the $pistache_light_C
+   (#EBF1D4) code background.  Override with a dark navy blue. */
+div.sourceCode span.bu {
+  color: #1565c0;
+}
+
+/* echoes API identifiers injected by _config/echoes_highlight.html */
+div.sourceCode span.echoes-api {
+  color: #6a1b9a;
+  font-weight: 600;
+}

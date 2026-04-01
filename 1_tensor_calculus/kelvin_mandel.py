@@ -20,9 +20,6 @@
 #       - text: Python script
 #         icon: file-code
 #         href: kelvin_mandel.py
-#       - text: Jupyter notebook
-#         icon: file-code
-#         href: kelvin_mandel.ipynb
 # ---
 #
 # # Kelvin-Mandel notation {#sec-kelvin_mandel}

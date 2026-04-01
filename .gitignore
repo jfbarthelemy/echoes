@@ -1,3 +1,8 @@
 /.quarto/
 _freeze
 
+
+**/*.quarto_ipynb
+
+CLAUDE.md
+.claude
