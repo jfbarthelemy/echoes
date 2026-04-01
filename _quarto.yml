@@ -60,6 +60,7 @@ book:
         - 8_applications/concrete_strength.qmd
         - 8_applications/ageing_creep.qmd
     - references.qmd
+    - api.qmd
   appendices:
     - 99_appendices/tensor_algebra.qmd
     - 99_appendices/hill_tensors.qmd

@@ -1,0 +1,1035 @@
+---
+format:
+  html:
+    toc-depth: 3
+---
+
+# API Reference {#sec-api}
+
+Complete reference for the `echoes` Python module, listed in alphabetical order.
+All symbols are available after `from echoes import *`.
+
+Tensor representations follow the **Kelvin-Mandel** convention: 2nd-order symmetric
+tensors are 6-vectors (diagonal components first, then $\sqrt2$ times off-diagonal);
+4th-order tensors are 6×6 matrices.
+See @sec-kelvin_mandel for details.
+
+---
+
+## Constants and enumerations {#sec-api-constants}
+
+### Eshelby algorithm selectors
+
+| Name | Description |
+|------|-------------|
+| `DEFAULT` | Automatic algorithm selection (recommended) |
+| `RESIDUES` | Residue method (any symmetry, 3D) |
+| `RESIDUES2D` | Residue method, 2D |
+| `RESIDUES3D` | Residue method, explicit 3D |
+| `NUMINT` | Numerical integration (anisotropic media) |
+| `NUMINT2D` | Numerical integration, 2D |
+| `NUMINT3D` | Numerical integration, 3D |
+
+### Homogenization scheme selectors
+
+| Name | Description |
+|------|-------------|
+| `ASC` | Asymmetric self-consistent |
+| `DIFF` | Differential scheme |
+| `DIL` | Dilute strain scheme |
+| `DILD` | Dilute stress (compliance) scheme |
+| `MAX` | Maxwell scheme |
+| `MT` | Mori-Tanaka scheme |
+| `PCW` | Ponte Castañeda-Willis scheme |
+| `REUSS` | Reuss lower bound |
+| `SC` | Self-consistent scheme |
+| `VOIGT` | Voigt upper bound |
+
+### Interface type selectors
+
+| Name | Description |
+|------|-------------|
+| `NODISC` | Perfect bonding (no discontinuity) |
+| `PRIMALDISC` | Primal discontinuity (displacement jump proportional to traction) |
+| `DUALDISC` | Dual discontinuity (traction jump proportional to displacement) |
+
+### Material symmetry selectors
+
+| Name | Description |
+|------|-------------|
+| `ANISO` | General anisotropy (21 independent parameters) |
+| `ISO` | Isotropy (2 parameters: $k$, $\mu$) |
+| `ORTHO` | Orthotropy (9 parameters) |
+| `TI` | Transverse isotropy (5 parameters) |
+| `UNDEFSYM` | Symmetry not yet determined (automatic detection) |
+
+### Viscoelastic law type selectors
+
+| Name | Description |
+|------|-------------|
+| `CREEP` | Creep function $J(t,t')$ |
+| `RELAXATION` | Relaxation function $R(t,t')$ (default) |
+
+### Special 4th-order tensors
+
+All are **6×6 NumPy arrays** in Kelvin-Mandel notation (no prefix `t`) or
+**`tensor_param`** objects (prefix `t`).
+
+| Name | Type | Description |
+|------|------|-------------|
+| `Id4` | ndarray (6×6) | 4th-order symmetric identity $\uuuu{I}$ |
+| `tId4` | `tensor_param` | $\uuuu{I}$ as `tensor_param` |
+| `J4` | ndarray (6×6) | Volumetric projector $\uuuu{J}=\frac{1}{3}\uu{1}\otimes\uu{1}$ |
+| `tJ4` | `tensor_param` | $\uuuu{J}$ as `tensor_param` |
+| `K4` | ndarray (6×6) | Deviatoric projector $\uuuu{K}=\uuuu{I}-\uuuu{J}$ |
+| `tK4` | `tensor_param` | $\uuuu{K}$ as `tensor_param` |
+| `tZ4` | `tensor_param` | Zero 4th-order tensor $\uuuu{0}$ |
+
+### Special 2nd-order tensors
+
+| Name | Type | Description |
+|------|------|-------------|
+| `Id2` | ndarray (6,) | 2nd-order identity $\uu{1}$ (KM vector) |
+| `tId2` | `tensor_param` | $\uu{1}$ as `tensor_param` |
+| `tZ2` | `tensor_param` | Zero 2nd-order tensor $\uu{0}$ |
+
+### Shape constant
+
+| Name | Description |
+|------|-------------|
+| `spherical` | Pre-built `ellipsoidal` object for a unit sphere ($a=b=c=1$, no rotation) |
+
+---
+
+## Functions {#sec-api-functions}
+
+---
+
+#### `angles(obj)` {#api-angles}
+
+*Rotations — returns `list[float]`*
+
+Extract Euler angles $(\theta,\phi,\psi)$ (in radians) from a unit vector or a
+rotation matrix.
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `obj` | ndarray (3,) or (3×3) | Unit vector or rotation matrix |
+
+---
+
+#### `basis_iso_hill(n)` {#api-basis-iso-hill}
+
+*Eshelby — returns `tuple(ndarray, ndarray)`*
+
+Return the two 6×6 tensors $(\mathbf{T}_1, \mathbf{T}_2)$ spanning the isotropic
+Hill polarization tensor associated with the direction $\uv{n}$, used in the Newton
+potential decomposition.
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `n` | ndarray (3,) | Unit direction vector |
+
+---
+
+#### `change_basis(tensor, R)` {#api-change-basis}
+
+*Rotations — returns same type as input*
+
+Return a new tensor obtained by changing basis with rotation matrix `R`:
+$\uuuu{T}' = \mathbf{R} \star \uuuu{T}$ (full rotation).
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `tensor` | `tensor_param` | Tensor to transform |
+| `R` | ndarray (3×3) | Rotation matrix |
+
+See also: `change_basis_inv`, `self_change_basis`.
+
+---
+
+#### `change_basis_inv(tensor, R)` {#api-change-basis-inv}
+
+*Rotations — returns same type as input*
+
+Inverse basis change: $\uuuu{T}' = \mathbf{R}^T \star \uuuu{T}$.
+
+---
+
+#### `comp_TI(E1, E3, nu12, nu31, mu31, theta=0., phi=0.)` {#api-comp-ti}
+
+*Tensor builders — returns `tensor_param`*
+
+Build a transversely isotropic **compliance** tensor from engineering constants.
+The symmetry axis is $\uv{e}_3$ rotated by $(\theta,\phi)$.
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `E1` | float | — | In-plane Young's modulus |
+| `E3` | float | — | Out-of-plane Young's modulus |
+| `nu12` | float | — | In-plane Poisson's ratio |
+| `nu31` | float | — | Out-of-plane Poisson's ratio |
+| `mu31` | float | — | Out-of-plane shear modulus |
+| `theta` | float | `0.` | Polar angle of symmetry axis (rad) |
+| `phi` | float | `0.` | Azimuthal angle of symmetry axis (rad) |
+
+---
+
+#### `crack_compliance(shape, ref, sym=UNDEFSYM, algo=DEFAULT, ...)` {#api-crack-compliance}
+
+*Eshelby — returns ndarray (6×6)*
+
+Compute the **crack compliance tensor** $\uuuu{H}$ for a flat crack of shape
+`shape` embedded in reference medium `ref`:
+
+$$\uuuu{H} = \lim_{\omega\to 0}\,\uuuu{P}(\omega,\uuuu{C}^{ref})$$
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `shape` | `ellipsoidal` | — | Crack shape (should be flat) |
+| `ref` | `tensor_param` | — | Reference medium stiffness |
+| `sym` | symmetry | `UNDEFSYM` | Output symmetry |
+| `algo` | `ESHELBY_ALGO` | `DEFAULT` | Numerical algorithm |
+| `epsabs` | float | `1e-8` | Absolute tolerance |
+| `epsrel` | float | `1e-6` | Relative tolerance |
+| `maxnb` | int | `1000` | Max integration points |
+| `epsroots` | float | `1e-6` | Root-finding tolerance |
+| `verbose` | bool | `False` | Print progress |
+
+---
+
+#### `E_from_kmu(k, mu)` {#api-e-from-kmu}
+
+*Isotropic conversions — returns `float`*
+
+Young's modulus from bulk modulus $k$ and shear modulus $\mu$:
+$E = 9k\mu/(3k+\mu)$.
+
+---
+
+#### `Enu_from_kmu(k, mu)` {#api-enu-from-kmu}
+
+*Isotropic conversions — returns `tuple(float, float)`*
+
+Return $(E,\nu)$ from $(k,\mu)$.
+
+---
+
+#### `eshelby(shape, ref, sym=UNDEFSYM, algo=DEFAULT, ...)` {#api-eshelby}
+
+*Eshelby — returns ndarray (6×6)*
+
+Compute the **Eshelby tensor** $\uuuu{S}(\uuuu{C}^{ref},\omega)$ for an ellipsoidal
+inclusion of shape `shape` in reference medium `ref`. The Eshelby tensor relates
+the eigenstrain $\uu{\varepsilon}^*$ to the total strain inside the inclusion:
+$\uu{\varepsilon} = \uuuu{S}:\uu{\varepsilon}^*$.
+
+Same parameter list as `crack_compliance`.
+
+See also: `hill`.
+
+---
+
+#### `hill(shape, ref, sym=UNDEFSYM, algo=DEFAULT, ...)` {#api-hill}
+
+*Eshelby — returns ndarray (6×6)*
+
+Compute the **Hill polarization tensor**
+$\uuuu{P}(\uuuu{C}^{ref},\omega) = \uuuu{S}(\uuuu{C}^{ref},\omega):\uuuu{C}^{ref,-1}$.
+Same parameter list as `eshelby`.
+
+---
+
+#### `hill_derivative(shape, ref, index, sym=UNDEFSYM, angles=[], algo=DEFAULT, ...)` {#api-hill-derivative}
+
+*Eshelby — returns ndarray (6×6)*
+
+Derivative of the Hill tensor with respect to the `index`-th parameter of `ref`
+(in the `sym` symmetry basis with angles `angles`).
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `shape` | `ellipsoidal` | — | Inclusion shape |
+| `ref` | `tensor_param` | — | Reference medium |
+| `index` | int | — | Parameter index (0-based) |
+| `sym` | symmetry | `UNDEFSYM` | Symmetry class of `ref` |
+| `angles` | list | `[]` | Rotation angles for `sym` |
+| ... | | | Same solver options as `hill` |
+
+---
+
+#### `hill_dual(shape, ref, sym=UNDEFSYM, algo=DEFAULT, ...)` {#api-hill-dual}
+
+*Eshelby — returns ndarray (6×6)*
+
+Dual Hill tensor $\uuuu{Q} = \uuuu{C}^{ref} - \uuuu{C}^{ref}:\uuuu{P}:\uuuu{C}^{ref}$.
+Same parameters as `hill`.
+
+---
+
+#### `hill_taylor_0(shape, ref, ...)` / `hill_taylor_1(shape, ref, ...)` {#api-hill-taylor}
+
+*Eshelby — returns ndarray (6×6)*
+
+Zero-th and first-order Taylor expansion of the Hill tensor around the isotropic
+part of `ref`. Used for weakly anisotropic media.
+Same parameter list as `hill`.
+
+---
+
+#### `homogenize(prop, rve, scheme, verbose=False, epsrel=1e-6, maxnb=100, weight=0., select_best=False, concentration=False, fractions={})` {#api-homogenize}
+
+*Homogenization — returns `tensor_param`*
+
+Compute the effective property tensor of the RVE `rve` using scheme `scheme`.
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `prop` | str | — | Property name: `"C"` (stiffness), `"D"` (diffusivity), `"K"` (conductivity), … |
+| `rve` | `rve` | — | Representative volume element |
+| `scheme` | scheme selector | — | `VOIGT`, `REUSS`, `DIL`, `DILD`, `MT`, `SC`, `ASC`, `MAX`, `PCW`, `DIFF` |
+| `verbose` | bool | `False` | Print iteration details (SC/ASC) |
+| `epsrel` | float | `1e-6` | Relative convergence tolerance (SC/ASC) |
+| `maxnb` | int | `100` | Maximum iterations (SC/ASC) |
+| `weight` | float | `0.` | Damping weight for SC fixed-point iteration |
+| `select_best` | bool | `False` | Keep best iterate across multiple starting points |
+| `concentration` | bool | `False` | Store strain concentration tensors on each inclusion (fills `.eE`, `.eS`, `.sE`, `.sS`) |
+| `fractions` | dict | `{}` | Override volume fractions: `{"PHASE": f, ...}` |
+
+Returns a `tensor_param` whose `.k`, `.mu`, `.E`, `.nu` give isotropic moduli.
+
+---
+
+#### `homogenize_derivative(prop, rve, scheme, phase, index=-1, interf_index=-1, layer=0, sym=UNDEFSYM, angles=[], verbose=False)` {#api-homogenize-derivative}
+
+*Homogenization — returns `tensor_param`*
+
+Derivative of the homogenized property tensor with respect to the `index`-th
+parameter of phase `phase` (or a list of phases).
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `prop` | str | — | Property name |
+| `rve` | `rve` | — | RVE |
+| `scheme` | scheme selector | — | Homogenization scheme |
+| `phase` | str or list | — | Phase name(s) |
+| `index` | int | `-1` | Parameter index in symmetry basis (`-1` = all) |
+| `interf_index` | int | `-1` | Interface parameter index |
+| `layer` | int | `0` | Layer index (for `sphere_nlayers`) |
+| `sym` | symmetry | `UNDEFSYM` | Symmetry of phase property |
+| `angles` | list | `[]` | Rotation angles for `sym` |
+
+---
+
+#### `homogenize_visco(prop, rve, scheme, time_series, unitsize=6, verbose=False, epsrel=1e-6, maxnb=100, weight=0., select_best=False, fractions={})` {#api-homogenize-visco}
+
+*Homogenization (viscoelastic) — returns ndarray (N×N)*
+
+Compute the viscoelastic effective property matrix over a time series.
+Returns a $(N \times N)$ matrix where $N$ = `unitsize` × len(`time_series`).
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `prop` | str | — | Property name |
+| `rve` | `rve` | — | RVE with `visco_prop` set on each phase |
+| `scheme` | scheme selector | — | Homogenization scheme |
+| `time_series` | ndarray | — | Array of time points |
+| `unitsize` | int | `6` | Tensor size (6 for 3D, 3 for 2D) |
+| `verbose` | bool | `False` | Print progress |
+| … | | | Same options as `homogenize` |
+
+---
+
+#### `Id2Dn(n)` / `tId2Dn(n)` {#api-id2dn}
+
+*Special tensors*
+
+2D identity tensor in the plane normal to $\uv{n}$:
+$\uu{I}_\perp = \uu{I} - \uv{n}\otimes\uv{n}$.
+Returns a 6×6 ndarray (`Id2Dn`) or `tensor_param` (`tId2Dn`).
+
+---
+
+#### `In(n)` / `tIn(n)` {#api-In}
+
+*Special tensors*
+
+4th-order tensor $\uuuu{I}_{\uv{n}} = \uuuu{I} - \uv{n}\uv{n}\uv{n}\uv{n}$ (identity
+minus the normal dyadic projector). Returns a 6×6 ndarray (`In`) or `tensor_param`
+(`tIn`).
+
+---
+
+#### `inv(t)` {#api-inv}
+
+*Tensor algebra — returns `tensor_param`*
+
+Return the inverse tensor $\uuuu{T}^{-1}$ of `t`.
+
+---
+
+#### `invKM(v)` {#api-invKM}
+
+*Tensor conversion — returns ndarray*
+
+Inverse Kelvin-Mandel conversion:
+
+- 6-vector → symmetric 3×3 matrix
+- 6×6 matrix → 3×3×3×3 array (4th-order tensor)
+
+---
+
+#### `isotropify(t)` {#api-isotropify}
+
+*Tensor symmetry — returns ndarray (6×6)*
+
+Extract the **isotropic part** of tensor `t` (4th-order ndarray or `tensor_param`):
+
+$$\uuuu{T}^{ISO} = \frac{\tr(\uuuu{J}:\uuuu{T})}{3}\,\uuuu{J} +
+\frac{\tr(\uuuu{K}:\uuuu{T})}{5}\,\uuuu{K}$$
+
+---
+
+#### `J2Dn(n)` / `tJ2Dn(n)` {#api-j2dn}
+
+*Special tensors*
+
+Volumetric projector in the 2D plane normal to $\uv{n}$:
+$\uuuu{J}_\perp = \frac{1}{2}(\uu{I}-\uv{n}\uv{n})\otimes(\uu{I}-\uv{n}\uv{n})$.
+
+---
+
+#### `K2Dn(n)` / `tK2Dn(n)` {#api-k2dn}
+
+*Special tensors*
+
+Deviatoric projector in the 2D plane normal to $\uv{n}$:
+$\uuuu{K}_\perp = \uuuu{I}_\perp - \uuuu{J}_\perp$.
+
+---
+
+#### `KM(obj)` {#api-KM}
+
+*Tensor conversion — returns ndarray*
+
+Kelvin-Mandel conversion:
+
+- symmetric 3×3 matrix → 6-vector
+- 3×3×3×3 array → 6×6 matrix
+
+---
+
+#### `k_from_Enu(E, nu)` {#api-k-from-Enu}
+
+*Isotropic conversions — returns `float`*
+
+Bulk modulus from Young's modulus $E$ and Poisson's ratio $\nu$:
+$k = E / [3(1-2\nu)]$.
+
+---
+
+#### `kmu_from_Enu(E, nu)` {#api-kmu-from-Enu}
+
+*Isotropic conversions — returns `tuple(float, float)`*
+
+Return $(k,\mu)$ from $(E,\nu)$.
+
+---
+
+#### `mu_from_Enu(E, nu)` {#api-mu-from-Enu}
+
+*Isotropic conversions — returns `float`*
+
+Shear modulus from $(E,\nu)$: $\mu = E / [2(1+\nu)]$.
+
+---
+
+#### `newton_potential(n)` {#api-newton-potential}
+
+*Eshelby — returns `tuple(ndarray, ndarray)`*
+
+Compute the Newton potential invariants $(I_{\alpha}, I_{\alpha\beta})$ for the
+direction vector `n`. Used internally for analytical Eshelby tensors.
+
+---
+
+#### `nn(n)` / `tnn(n)` {#api-nn}
+
+*Special tensors*
+
+Symmetric dyadic product $\uv{n}\otimes_s\uv{n}$ as a 6-vector (`nn`) or
+`tensor_param` (`tnn`).
+
+---
+
+#### `nu_from_kmu(k, mu)` {#api-nu-from-kmu}
+
+*Isotropic conversions — returns `float`*
+
+Poisson's ratio from $(k,\mu)$: $\nu = (3k-2\mu)/[2(3k+\mu)]$.
+
+---
+
+#### `rot3(theta=0., phi=0., psi=0.)` {#api-rot3}
+
+*Rotations — returns ndarray (3×3)*
+
+Build a 3×3 rotation matrix from Euler angles $(\theta,\phi,\psi)$ (in radians).
+Overloaded: also accepts a list `[theta, phi, psi]`.
+
+---
+
+#### `rot6(theta=0., phi=0., psi=0.)` {#api-rot6}
+
+*Rotations — returns ndarray (6×6)*
+
+Kelvin-Mandel 6×6 rotation matrix corresponding to $(\theta,\phi,\psi)$.
+
+---
+
+#### `self_change_basis(tensor, R)` / `self_change_basis_inv(tensor, R)` {#api-self-change-basis}
+
+*Rotations — in-place, returns `None`*
+
+In-place versions of `change_basis` / `change_basis_inv`.
+
+---
+
+#### `spheroidal(omega, theta=0., phi=0., limit_aspect_ratio=1e-3)` {#api-spheroidal}
+
+*Shapes — returns `ellipsoidal`*
+
+Build a **spheroidal** shape descriptor with aspect ratio $\omega = c/a$:
+
+- $\omega < 1$: oblate spheroid
+- $\omega = 1$: sphere (same as `spherical`)
+- $\omega > 1$: prolate spheroid
+
+The symmetry axis is $\uv{e}_3$ rotated by $(\theta,\phi)$.
+`limit_aspect_ratio` clips $\omega$ to avoid degenerate shapes.
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `omega` | float | — | Aspect ratio $c/a$ |
+| `theta` | float | `0.` | Polar angle of symmetry axis (rad) |
+| `phi` | float | `0.` | Azimuthal angle (rad) |
+| `limit_aspect_ratio` | float | `1e-3` | Minimum/maximum clipping of $\omega$ |
+
+---
+
+#### `stiff_Enu(E, nu)` {#api-stiff-Enu}
+
+*Tensor builders — returns `tensor_param`*
+
+Build an isotropic stiffness tensor from Young's modulus $E$ and Poisson's ratio $\nu$.
+
+---
+
+#### `stiff_interf(k2D=0., mu2D=0., kn=inf, kt=inf, theta=0., phi=0.)` {#api-stiff-interf}
+
+*Tensor builders — returns `tensor_param`*
+
+Build a 2nd-order **interface stiffness tensor** (units: stiffness/length).
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `k2D` | float | `0.` | 2D bulk modulus (tangential) |
+| `mu2D` | float | `0.` | 2D shear modulus (tangential) |
+| `kn` | float | `inf` | Normal stiffness ($\infty$ = perfectly bonded) |
+| `kt` | float | `inf` | Tangential stiffness |
+| `theta`, `phi` | float | `0.` | Interface normal orientation |
+
+---
+
+#### `stiff_kmu(k, mu)` {#api-stiff-kmu}
+
+*Tensor builders — returns `tensor_param`*
+
+Build an isotropic stiffness tensor from bulk modulus $k$ and shear modulus $\mu$.
+
+---
+
+#### `stiff_lambdamu(lam, mu)` {#api-stiff-lambdamu}
+
+*Tensor builders — returns `tensor_param`*
+
+Build an isotropic stiffness tensor from Lamé parameters $(\lambda, \mu)$.
+
+---
+
+#### `stiff_TI(C1111, C1122, C1133, C3333, C2323, theta=0., phi=0.)` {#api-stiff-TI}
+
+*Tensor builders — returns `tensor_param`*
+
+Build a transversely isotropic stiffness tensor from Voigt components
+$(C_{1111}, C_{1122}, C_{1133}, C_{3333}, C_{2323})$.
+The symmetry axis is $\uv{e}_3$ rotated by $(\theta,\phi)$.
+
+---
+
+#### `symmetrize(t, sym, theta=0., phi=0.)` {#api-symmetrize}
+
+*Tensor symmetry — returns `tensor_param`*
+
+Project tensor `t` onto the closest material symmetry class `sym`
+(axis defined by $(\theta,\phi)$).
+
+---
+
+#### `tensor(array_or_params, sym=UNDEFSYM, angles=[], optiangles=False, epsrel=1e-3)` {#api-tensor}
+
+*Tensor builders — returns `tensor_param`*
+
+Build a `tensor_param` from:
+
+- a 6×6 ndarray (4th-order) or 3×3 ndarray (2nd-order),
+- a list or 1D array of independent parameters,
+- 1 to 12 scalar values (for 2nd or 4th-order isotropic/TI/etc. representations).
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `array_or_params` | ndarray, list, or floats | — | Tensor data |
+| `sym` | symmetry | `UNDEFSYM` | Material symmetry class |
+| `angles` | list | `[]` | Euler angles for `sym` |
+| `optiangles` | bool | `False` | Optimize angles to best fit symmetry |
+| `epsrel` | float | `1e-3` | Relative tolerance for symmetry detection |
+
+---
+
+#### `tensor_imag(t)` / `tensor_real(t)` {#api-tensor-real-imag}
+
+*Tensor algebra — returns `tensor_param`*
+
+Extract real or imaginary part of a complex `tensor_param`.
+
+---
+
+#### `transverse_isotropify(t, theta=0., phi=0.)` {#api-transverse-isotropify}
+
+*Tensor symmetry — returns ndarray (6×6)*
+
+Extract the **transversely isotropic part** of tensor `t` with axis $(\theta,\phi)$.
+
+---
+
+#### `visco_isotropify(V, unitsize=6)` {#api-visco-isotropify}
+
+*Viscoelasticity — returns ndarray*
+
+Extract the isotropic part of a viscoelastic block matrix `V`
+(size $N\times N$ with $N=$ `unitsize` × number of time steps).
+
+---
+
+#### `visco_law(function, visco_law_type=RELAXATION, valid_time=0.)` {#api-visco-law}
+
+*Viscoelasticity — returns `generic_visco_law`*
+
+Wrap a Python callable `function(t, t')` into a viscoelastic law object.
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `function` | callable | — | Function $R(t,t')$ or $J(t,t')$ of two floats |
+| `visco_law_type` | `RELAXATION` or `CREEP` | `RELAXATION` | Law type |
+| `valid_time` | float | `0.` | Earliest time $t'$ for which the law is valid |
+
+---
+
+#### `visco_paramsym(V, sym, theta=0., phi=0., psi=0., unitsize=6)` {#api-visco-paramsym}
+
+*Viscoelasticity — returns `list`*
+
+Extract independent parameters of viscoelastic block matrix `V` for symmetry `sym`.
+Also accepts `angles` list instead of `(theta, phi, psi)`.
+
+---
+
+#### `visco_tensor(params, angles=[])` {#api-visco-tensor}
+
+*Viscoelasticity — returns ndarray*
+
+Reconstruct a viscoelastic block matrix from parameters `params` and angles.
+
+---
+
+#### `visco_transverse_isotropify(V, theta=0., phi=0., unitsize=6)` {#api-visco-transverse-isotropify}
+
+*Viscoelasticity — returns ndarray*
+
+Extract the TI part of viscoelastic block matrix `V` for axis $(\theta,\phi)$.
+
+---
+
+#### `W(index)` / `W(index, n)` / `tW(index)` / `tW(index, n)` {#api-W}
+
+*Special tensors*
+
+4th-order **Walpole basis** tensor $\uuuu{E}_{\tt index}$ (isotropic or with normal
+$\uv{n}$ for TI). Returns 6×6 ndarray (`W`) or `tensor_param` (`tW`).
+Index runs from 1 to 6 (isotropic) or 1 to 8 (TI).
+
+---
+
+#### `WS(index)` / `WS(index, n)` / `tWS(index)` / `tWS(index, n)` {#api-WS}
+
+*Special tensors*
+
+**Symmetric Walpole basis** tensor. Same as `W`/`tW` but using the symmetrised
+basis suited for stiffness/compliance representations.
+
+---
+
+## Classes {#sec-api-classes}
+
+---
+
+### `crack` {#api-crack}
+
+*Cracked inclusion.*
+
+**Constructor:**
+
+```python
+crack(shape, density=0., symmetrize=[], prop={},
+      interf_prop={}, visco_prop={}, interf_visco_prop={})
+```
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `shape` | `ellipsoidal` | — | Crack shape (typically flat: `spheroidal(ω→0)`) |
+| `density` | float | `0.` | Crack density $\rho$ |
+| `symmetrize` | list | `[]` | Symmetry constraints, e.g. `[ISO]` |
+| `prop` | dict | `{}` | Phase properties, e.g. `{"C": C}` for crack faces |
+| `interf_prop` | dict | `{}` | Interface properties, e.g. `{"C": [kn, kt, PRIMALDISC]}` |
+
+**Key attributes** (same as `ellipsoid`): `density`, `fraction`, `shape`, `eE`, `eS`, `sE`, `sS`.
+
+**Key methods:**
+
+| Method | Description |
+|--------|-------------|
+| `interf_prop(name)` | Return interface property list for property `name` |
+| `set_interf_prop(name, props)` | Set interface property: `[value1, ..., INTERFACE_TYPE]` |
+| `orientation_matrix()` | Return the 3×3 orientation matrix of the crack |
+| `prop(name)` | Return phase property `tensor_param` |
+| `set_prop(name, t)` | Set phase property |
+
+---
+
+### `ellipsoid` {#api-ellipsoid}
+
+*Ellipsoidal inclusion / matrix phase.*
+
+**Constructor:**
+
+```python
+ellipsoid(shape, fraction=0., symmetrize=[], prop={}, visco_prop={})
+```
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `shape` | `ellipsoidal` | — | Inclusion geometry (use `spherical` or `spheroidal(ω)`) |
+| `fraction` | float | `0.` | Volume fraction $f_r$ |
+| `symmetrize` | list | `[]` | Apply symmetry to computed tensors, e.g. `[ISO]` |
+| `prop` | dict | `{}` | Phase properties, e.g. `{"C": C, "D": D}` |
+| `visco_prop` | dict | `{}` | Viscoelastic properties, e.g. `{"C": (func, RELAXATION)}` |
+
+**Key properties:**
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `shape` | `ellipsoidal` | Get/set inclusion geometry |
+| `fraction` | float | Get/set volume fraction |
+| `factor` | float | Effective concentration factor $f_r / f_\text{total}$ |
+| `eE` | ndarray | Dilute strain-strain concentration tensor $\uuuu{A}_r^{dil}$ (after `homogenize(..., concentration=True)`) |
+| `eS` | ndarray | Dilute strain-stress concentration tensor |
+| `sE` | ndarray | Dilute stress-strain concentration tensor |
+| `sS` | ndarray | Dilute stress-stress concentration tensor |
+| `ref` | `tensor_param` | Reference medium (set by the scheme) |
+
+**Key methods:**
+
+| Method | Description |
+|--------|-------------|
+| `prop(name)` | Return property `tensor_param` for property name |
+| `set_prop(name, t)` | Set property by name and `tensor_param` |
+| `set_param_eshelby(algo, epsabs, epsrel, maxnb, epsroots)` | Override Eshelby solver parameters for this inclusion |
+
+---
+
+### `ellipsoidal` {#api-ellipsoidal}
+
+*Shape descriptor for ellipsoidal inclusions.*
+
+**Constructor:**
+
+```python
+ellipsoidal(a, b, c, theta=0., phi=0., psi=0., limit_aspect_ratio=1e-3)
+# or from list:
+ellipsoidal([a, b, c, theta, phi, psi], limit_aspect_ratio=1e-3)
+```
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `a`, `b`, `c` | float | — | Semi-axes lengths |
+| `theta`, `phi`, `psi` | float | `0.` | Euler angles (rad) |
+| `limit_aspect_ratio` | float | `1e-3` | Clip aspect ratios to avoid degeneracy |
+
+**Key properties:**
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `param` | ndarray (6,) | Shape parameters $[a,b,c,\theta,\phi,\psi]$ |
+| `type` | enum | `SPHERE`, `ELLIPSOID`, `FLAT_ELLIPSOID`, `CYLINDER`, `FLAT_CYLINDER` |
+| `array` | ndarray (3×3) | Shape tensor $\uu{A}$ |
+| `rotation` | ndarray (3×3) | Rotation matrix |
+
+---
+
+### `generic_visco_law` {#api-generic-visco-law}
+
+*Base class for viscoelastic law objects.*
+
+Returned by `visco_law()`. Subclasses: `visco_law_mat`, `visco_law_scal`,
+`Kelvin`, `Maxwell`, `t4Maxwell`.
+
+**Key methods:**
+
+| Method | Description |
+|--------|-------------|
+| `mat(time_series, recompute=True)` | Build viscoelastic block matrix for the given time series |
+| `relaxation_mat(time_series, recompute=True)` | Same, forcing relaxation representation |
+| `creep_mat(time_series, recompute=True)` | Same, forcing creep representation |
+
+**Property:** `visco_law_type` — get/set `RELAXATION` or `CREEP`.
+
+---
+
+### `Kelvin` {#api-Kelvin}
+
+*Scalar Kelvin chain viscoelastic law.*
+
+**Constructor:**
+
+```python
+Kelvin(J0, J=[], eta=[])
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `J0` | float | Instantaneous compliance |
+| `J` | list of float | Spring compliances $J_i$ |
+| `eta` | list of float | Dashpot viscosities $\eta_i$ |
+
+Creep function: $J(t,t') = J_0 + \sum_i J_i\left(1 - e^{-(t-t')/\tau_i}\right)$,
+$\tau_i = \eta_i J_i$.
+
+---
+
+### `Maxwell` {#api-Maxwell}
+
+*Scalar Maxwell chain viscoelastic law.*
+
+**Constructor:**
+
+```python
+Maxwell(Einf, E=[], eta=[])
+```
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `Einf` | float | Long-term (equilibrium) stiffness |
+| `E` | list of float | Spring stiffnesses $E_i$ |
+| `eta` | list of float | Dashpot viscosities $\eta_i$ |
+
+Relaxation function: $R(t,t') = E_\infty + \sum_i E_i\,e^{-(t-t')/\tau_i}$,
+$\tau_i = \eta_i/E_i$.
+
+---
+
+### `rve` {#api-rve}
+
+*Representative volume element (RVE).*
+
+**Constructor:**
+
+```python
+rve(matrix="NONE", shape=spherical, prop={}, visco_prop={})
+```
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `matrix` | str | `"NONE"` | Name of the matrix phase (must match a key added with `rve["KEY"] = ...`) |
+| `shape` | `ellipsoidal` | `spherical` | Shape of the outer domain (for MAX/PCW schemes) |
+| `prop` | dict | `{}` | Matrix-level properties (used as reference for `set_ref`) |
+| `visco_prop` | dict | `{}` | Matrix-level viscoelastic properties |
+
+The RVE behaves as a **dictionary** of inclusions:
+
+```python
+ver = rve(matrix="MATRIX")
+ver["MATRIX"]   = ellipsoid(shape=spherical, fraction=0.7, prop={"C": C0})
+ver["PARTICLE"] = ellipsoid(shape=spheroidal(2.), fraction=0.3, prop={"C": C1})
+```
+
+**Key methods:**
+
+| Method | Description |
+|--------|-------------|
+| `set_matrix(name)` | Set the matrix phase name |
+| `prop(name)` | Return matrix property `tensor_param` |
+| `set_prop(name, t)` | Set matrix property |
+| `init_property(name)` | Initialize named property to the matrix value |
+| `set_param_eshelby(...)` | Set Eshelby solver parameters for all inclusions |
+| `keys()`, `values()`, `items()` | Dict-like iteration over phases |
+
+**Property:** `shape` — get/set the outer domain shape.
+
+---
+
+### `sphere_nlayers` {#api-sphere-nlayers}
+
+*Multi-layer spherical inclusion (Hervé-Zaoui model).*
+
+**Constructors (three overloads):**
+
+```python
+# (1) Specify number of layers and uniform outer radius
+sphere_nlayers(nb_layers, radius=1., fraction=0., prop={}, interf_prop={})
+
+# (2) Specify radii of each layer interface
+sphere_nlayers(radii, fraction=0., prop={}, interf_prop={})
+
+# (3) Specify outer radius + relative layer fractions
+sphere_nlayers(radius, layer_fractions, fraction=0., prop={}, interf_prop={})
+```
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `nb_layers` | int | — | Number of concentric layers |
+| `radius` | float | `1.` | Outer radius of the composite sphere |
+| `radii` | list of float | — | Radii of each layer interface (length = `nb_layers`) |
+| `layer_fractions` | list of float | — | Volume fraction of each layer (sum = 1 before scaling by `fraction`) |
+| `fraction` | float | `0.` | Total volume fraction of the composite sphere |
+| `prop` | dict | `{}` | Per-layer properties: `{"C": [C0, C1, ...]}` (list indexed by layer) |
+| `interf_prop` | dict | `{}` | Per-interface properties: `{"C": [[val, TYPE], ...]}` |
+| `visco_prop` | dict | `{}` | Per-layer viscoelastic properties |
+
+**Key methods:**
+
+| Method | Description |
+|--------|-------------|
+| `set_prop(name, layer, t)` | Set property `name` of layer `layer` to `tensor_param` `t` |
+| `prop(name, layer)` | Get property `tensor_param` for layer `layer` |
+| `set_interf_prop(name, layer, props)` | Set interface property: list `[value, ..., INTERFACE_TYPE]` |
+| `interf_prop(name, layer)` | Get interface property list |
+| `set_interf_type(name, layer, itype)` | Set interface type for layer `layer` |
+| `radius(layer=-1)` | Get outer radius (or radius at `layer` interface) |
+| `layer_fraction(layer=-1)` | Get volume fraction of layer |
+| `nb_layers` | Property — number of layers |
+
+---
+
+### `t4Maxwell` {#api-t4Maxwell}
+
+*4th-order tensorial Maxwell chain (bulk + shear chains).*
+
+**Constructor:**
+
+```python
+t4Maxwell(kinf=1., k=[], etak=[], muinf=1., mu=[], etamu=[],
+          t0=-inf, C0=tZ4)
+```
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `kinf` | float | `1.` | Long-term bulk modulus |
+| `k` | list | `[]` | Bulk chain spring moduli |
+| `etak` | list | `[]` | Bulk chain viscosities |
+| `muinf` | float | `1.` | Long-term shear modulus |
+| `mu` | list | `[]` | Shear chain spring moduli |
+| `etamu` | list | `[]` | Shear chain viscosities |
+| `t0` | float | `-inf` | Casting/loading time |
+| `C0` | `tensor_param` | `tZ4` | Initial stiffness at $t=t_0$ |
+
+---
+
+### `tens` (alias: `tensor_param`) {#api-tens}
+
+*Parameterized tensor (2nd or 4th-order).*
+
+Created by `stiff_kmu`, `stiff_Enu`, `tensor`, etc. Also returned by `homogenize`.
+
+**Key properties:**
+
+| Property | Type | Condition | Description |
+|----------|------|-----------|-------------|
+| `sym` | symmetry enum | — | Detected material symmetry |
+| `param` (or `p`) | ndarray | — | Independent parameter array |
+| `angles` | ndarray (3,) | — | Euler angles defining the symmetry axis |
+| `array` (or `a`) | ndarray | — | Full 6×6 (4th) or 6-vector (2nd) in KM notation |
+| `k` | float | ISO | Bulk modulus |
+| `mu` | float | ISO | Shear modulus |
+| `kmu` | tuple | ISO | $(k, \mu)$ |
+| `E` | float | ISO | Young's modulus |
+| `nu` | float | ISO | Poisson's ratio |
+| `Enu` | tuple | ISO | $(E, \nu)$ |
+| `lamelambda` | float | ISO | Lamé $\lambda$ |
+| `kn` | float | interface | Normal stiffness |
+| `kt` | float | interface | Tangential stiffness |
+| `k2D` | float | interface | 2D bulk modulus |
+| `mu2D` | float | interface | 2D shear modulus |
+
+**Key methods:**
+
+| Method | Description |
+|--------|-------------|
+| `copy()` | Return a deep copy |
+| `inv()` | Invert in-place |
+| `paramsym(sym, angles=[])` | Get parameter array for symmetry `sym` at `angles` |
+| `paramsymopt(sym, angles=[])` | Same, with optimized angles |
+| `compute_symmetry(epsrel=1e-3)` | Detect and set best-fit material symmetry |
+| `derivative(index, inverse=False, sym=UNDEFSYM, ...)` | Derivative w.r.t. parameter `index` |
+
+**Arithmetic operators:** `+`, `-`, `*` (by scalar), `+=`, `-=`, `*=`.
+
+---
+
+### `user_inclusion` {#api-user-inclusion}
+
+*User-defined inclusion with custom concentration tensors.*
+
+**Constructor:**
+
+```python
+user_inclusion(fraction=0., symmetrize=[])
+```
+
+Subclass and override `build_all()` to return a dict with keys
+`"eE"`, `"eS"`, `"sE"`, `"sS"` (each a 6×6 ndarray):
+
+```python
+class MyInclusion(user_inclusion):
+    def build_all(self):
+        # self.ref holds the current reference medium (tensor_param)
+        # self.prop("C") holds the inclusion stiffness
+        ...
+        return {"eE": eE, "eS": eS, "sE": sE, "sS": sS}
+```
+
+See @sec-user_inclusion for a complete example.
+
+---
+
+### `visco_law_mat` / `visco_law_scal` {#api-visco-law-mat}
+
+*Function-backed viscoelastic laws.*
+
+```python
+visco_law_mat(function, visco_law_type=RELAXATION)  # function(t,t') → 6×6 ndarray
+visco_law_scal(function, visco_law_type=RELAXATION)  # function(t,t') → float
+```
+
+`__call__(t, t')` evaluates the law at time `t` loaded at `t'`.
+
+$\,$
