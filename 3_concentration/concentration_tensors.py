@@ -22,7 +22,7 @@
 #         href: concentration_tensors.py
 # ---
 #
-# # Concentration tensors {#sec-concentration_tensors}
+# # Ellipsoids {#sec-concentration_tensors}
 #
 # ::: {.callout-important icon=false}
 #

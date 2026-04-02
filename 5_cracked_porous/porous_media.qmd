@@ -65,7 +65,7 @@ The following example computes the effective bulk and shear moduli versus porosi
 ```{python}
 #| error: false
 #| warning: false
-#| code-fold: false
+#| code-summary: "Figure — scheme comparison on porous media"
 #| include: true
 
 def Chom_porous(myrve, phi, sch):
@@ -106,7 +106,7 @@ The aspect ratio of pores significantly affects the effective properties. Oblate
 ```{python}
 #| error: false
 #| warning: false
-#| code-fold: false
+#| code-summary: "Figure — effect of pore shape"
 #| include: true
 
 lphi = np.linspace(0., 0.5, 51)
@@ -142,7 +142,7 @@ Transport properties (permeability, conductivity, diffusivity) are described by 
 ```{python}
 #| error: false
 #| warning: false
-#| code-fold: false
+#| code-summary: "Figure — permeability of a porous medium"
 #| include: true
 
 Ks = 0.1 * tId2    # solid conductivity

@@ -93,7 +93,7 @@ np.set_printoptions(precision=5, suppress=True)
 # of crystalline hydrates (portlandite) in each.
 
 # +
-#| code-fold: false
+#| code-summary: "Volume fractions — Powers and Tennis-Jennings hydration models"
 #| include: true
 
 # Powers' hydration model constants
@@ -155,7 +155,7 @@ def flcp(wc, alpha):
 # All diffusivities are normalized by the bulk-water value $D_\text{bulk}=1$.
 
 # +
-#| code-fold: false
+#| code-summary: "Function engineering_model() — two-scale homogenization (SC + MT)"
 #| include: true
 
 # Material properties — engineering model
@@ -205,7 +205,7 @@ def engineering_model(wc, alpha=-1.):
 
 
 # +
-#| code-fold: false
+#| code-summary: "Figure — effective modulus and diffusivity (engineering model)"
 #| include: true
 
 wc_list = [0.30, 0.40, 0.50, 0.60]
@@ -257,7 +257,7 @@ plt.show()
 # pre-computed once.
 
 # +
-#| code-fold: false
+#| code-summary: "Function homogenize_csh() — C-S-H gel at nanoscale (SC)"
 #| include: true
 
 # Level 0: C-S-H gel microstructure
@@ -311,7 +311,7 @@ print(f"LD-CSH: E = {C_LD.E:.2f} GPa,  D/D_bulk = {np.trace(D_LD.array)/3.:.4e}"
 # of the outer domain) are folded into the outer layer by a second SC step.
 
 # +
-#| code-fold: false
+#| code-summary: "Functions inner/outer_layer_props() — hydrate layers"
 #| include: true
 
 omega_LD = 0.14    # oblate LD-CSH foam (calibrated to setting data)
@@ -383,7 +383,7 @@ def outer_layer_props(wc, alpha):
 # the layer radii.
 
 # +
-#| code-fold: false
+#| code-summary: "Function detailed_model() — three-scale detailed model"
 #| include: true
 
 def detailed_model(wc, alpha=-1.):
@@ -421,7 +421,7 @@ def detailed_model(wc, alpha=-1.):
 
 
 # +
-#| code-fold: false
+#| code-summary: "Figure — effective modulus and diffusivity (detailed model)"
 #| include: true
 
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(9, 4))
@@ -467,7 +467,7 @@ plt.show()
 #   through the poorly-diffusive gel pores.
 
 # +
-#| code-fold: false
+#| code-summary: "Figure — engineering vs detailed model comparison"
 #| include: true
 
 wc = 0.4

@@ -124,7 +124,7 @@ print("\ndChom/d(2mu_solid):\n", dC_dmu)
 # +
 #| error: false
 #| warning: false
-#| code-fold: false
+#| code-summary: "Finite-difference validation"
 #| include: true
 
 mu_s = 32.
@@ -155,7 +155,7 @@ print("\nMax difference:", np.max(np.abs(dC_fd - 2 * dC_dmu.array)))
 # +
 #| error: false
 #| warning: false
-#| code-fold: false
+#| code-summary: "Second-order strain moments — Kreher formula"
 #| include: true
 
 # Restore the RVE from the previous example

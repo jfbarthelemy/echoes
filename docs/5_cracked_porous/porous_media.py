@@ -82,7 +82,7 @@ myrve["PORE"] = ellipsoid(shape=spheroidal(1.), symmetrize=[ISO],
 # +
 #| error: false
 #| warning: false
-#| code-fold: false
+#| code-summary: "Figure — scheme comparison on porous media"
 #| include: true
 
 def Chom_porous(myrve, phi, sch):
@@ -123,7 +123,7 @@ plt.show()
 # +
 #| error: false
 #| warning: false
-#| code-fold: false
+#| code-summary: "Figure — effect of pore shape"
 #| include: true
 
 lphi = np.linspace(0., 0.5, 51)
@@ -159,7 +159,7 @@ plt.show()
 # +
 #| error: false
 #| warning: false
-#| code-fold: false
+#| code-summary: "Figure — permeability of a porous medium"
 #| include: true
 
 Ks = 0.1 * tId2    # solid conductivity

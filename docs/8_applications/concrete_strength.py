@@ -234,9 +234,9 @@ def disc_theta(ntheta):
 # The following function assembles all three scales (elastic + strength) in a single call.
 
 # +
-#| code-fold: false
+#| code-summary: "Function mortar_strength() — three-scale homogenization + failure criterion"
 
-def homo(wc, alpha=-1., sc=0., omega=10000., ntheta=20):
+def mortar_strength(wc, alpha=-1., sc=0., omega=10000., ntheta=20):
     """Three-scale homogenization of mortar: elastic stiffness + normalized strength.
 
     Parameters
@@ -382,7 +382,7 @@ def homo(wc, alpha=-1., sc=0., omega=10000., ntheta=20):
 # The following code computes the evolution of the effective stiffness moduli ($k$, $\mu$) and the normalized compressive strength $f_c/\sigma^{ult}_{hyd}$ as a function of the hydration degree $\alpha$ for several water-to-cement ratios $w/c$, for pure cement paste ($s/c=0$).
 
 # +
-#| code-fold: false
+#| code-summary: "Figure — compressive strength vs hydration degree"
 
 wc_list = [0.157, 0.25, 0.35, 0.50, 0.65, 0.80]
 
@@ -396,7 +396,7 @@ ax_fc = fig.add_subplot(gs[1, 1:3])
 for wc in wc_list:
     lalpha, lk, lmu, lfc = [], [], [], []
     for alpha in np.linspace(min(wc / 0.42, 1.), 0., 20):
-        res = homo(wc, alpha, sc=0.)
+        res = mortar_strength(wc, alpha, sc=0.)
         if res[0]:
             lalpha.append(alpha)
             lk.append(res[1].k)
@@ -423,7 +423,7 @@ fig2, ax2 = plt.subplots(figsize=(6, 4))
 for wc in [0.35, 0.50, 0.65]:
     lsc, lfc = [], []
     for sc in np.linspace(0., 5., 20):
-        res = homo(wc, sc=sc)
+        res = mortar_strength(wc, sc=sc)
         if res[0] and res[2] > 0.:
             lsc.append(sc)
             lfc.append(res[2])

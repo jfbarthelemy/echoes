@@ -51,7 +51,7 @@ For randomly oriented penny-shaped cracks in an isotropic matrix, the `symmetriz
 #| fig-cap: "Effective moduli of a randomly cracked isotropic medium"
 #| error: false
 #| warning: false
-#| code-fold: false
+#| code-summary: "Figure — effective moduli of a randomly cracked isotropic medium"
 #| include: true
 
 import matplotlib.pyplot as plt
@@ -107,7 +107,7 @@ The example below uses `ellipsoidal(1., ω, 1./ω)` — a crack thin in $\uv{e}_
 #| fig-cap: "TI crack distribution (normals in (e1,e2) plane): normalized stiffness and conductivity vs. crack density"
 #| error: false
 #| warning: false
-#| code-fold: false
+#| code-summary: "Figure — TI crack distribution: stiffness and conductivity"
 #| include: true
 
 ω = 1.e-4 ; ko = 1.e-10 ; Kt = 1. ; Kn = 1.e10
@@ -165,7 +165,7 @@ The open crack ($k_n=k_t=0$) is a limiting case. When the crack faces are partia
 ```{python}
 #| error: false
 #| warning: false
-#| code-fold: false
+#| code-summary: "Spring interface model — open / bonded limits"
 #| include: true
 
 Cs = stiff_Enu(1., 0.2)
@@ -197,7 +197,7 @@ Cracks significantly affect both the **mechanical** and **transport** properties
 #| fig-cap: "Randomly cracked medium: normalized effective Young's modulus and conductivity vs. crack density"
 #| error: false
 #| warning: false
-#| code-fold: false
+#| code-summary: "Figure — cracked medium: coupled Young's modulus and conductivity"
 #| include: true
 
 ω = 1.e-3 ; ko = 1. ; kt_K = 1.e9   # high conductance (fluid-filled crack)
@@ -263,7 +263,7 @@ Several crack families with different orientations and properties can be assembl
 ```{python}
 #| error: false
 #| warning: false
-#| code-fold: false
+#| code-summary: "Multiple crack families — stiffness and permeability"
 #| include: true
 
 π = math.pi

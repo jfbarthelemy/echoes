@@ -114,29 +114,33 @@ set_printoptions(precision=6, suppress=True)
 #
 # ### Block matrix representation of Volterra integrals
 #
-# Over a discrete time series $t_0 < t_1 < \cdots < t_n$, the Volterra integral is approximated by a finite sum. Define the **block relaxation matrix** of phase $r$ as the lower-triangular block matrix:
-#
+# Over a discrete time series $t_0 < t_1 < \cdots < t_n$, define the **block column vectors** of stresses and strains at the discrete times:
 # $$
-# \mathbf{R}^r = \bigl([\mathbf{R}^r]_{ij}\bigr)_{0\le j\le i\le n},
-# \qquad [\mathbf{R}^r]_{ij} = \uuuu{C}^r(t_i,t_j) \in \mathbb{R}^{6\times 6}
+# \boldsymbol{\Sigma} = \bigl(\boldsymbol{\sigma}(t_0),\;\boldsymbol{\sigma}(t_1),\;\ldots,\;\boldsymbol{\sigma}(t_n)\bigr)^T \in \mathbb{R}^{6(n+1)},
+# \quad
+# \boldsymbol{E} = \bigl(\boldsymbol{\varepsilon}(t_0),\;\boldsymbol{\varepsilon}(t_1),\;\ldots,\;\boldsymbol{\varepsilon}(t_n)\bigr)^T \in \mathbb{R}^{6(n+1)}.
 # $$
 #
-# The discrete constitutive law $\boldsymbol{\Sigma} = \mathbf{R}^r\,\boldsymbol{E}$ (block matrix–vector product) is an approximation of the Volterra integral @eq-volterra-relax, where $\boldsymbol{\Sigma}$ and $\boldsymbol{E}$ are block vectors of stresses and strains at the discrete times.
+# The Volterra integral @eq-volterra-relax is approximated by the **discrete constitutive law**:
+# $$
+# \boldsymbol{\Sigma} = \mathbf{R}^r\,\boldsymbol{E}
+# $$
+# where $\mathbf{R}^r$ is the **block relaxation matrix** of phase $r$: a lower-triangular $6(n+1)\times6(n+1)$ matrix with $6\times6$ blocks $[\mathbf{R}^r]_{ij}$ ($0\le j\le i\le n$). The specific form of the blocks depends on the chosen quadrature rule; the trapezoidal scheme of [@sanahuja2013] is detailed in the next section.
 #
 # ### Trapezoidal discretization [@sanahuja2013]
 #
-# Starting from @eq-volterra-relax with zero initial conditions before $t_0$, integrate by parts and apply the trapezoidal rule on each interval $[t_j, t_{j+1}]$. The result is $\sigma(t_i) = \sum_{k=0}^{i} M_{ik}\,\varepsilon(t_k)$ with:
+# Starting from @eq-volterra-relax with zero initial conditions before $t_0$, integrate by parts and apply the trapezoidal rule on each interval $[t_j, t_{j+1}]$. The blocks of the block relaxation matrix $\mathbf{R}^r$ are:
 #
 # $$
-# M_{ik} = \begin{cases}
-# R(t_0,\,t_0) & i=k=0 \\[4pt]
-# \dfrac{1}{2}\bigl[R(t_i,t_{i-1}) + R(t_i,t_i)\bigr] & i=k>0 \\[4pt]
-# \dfrac{1}{2}\bigl[R(t_i,t_0) - R(t_i,t_1)\bigr] & i>0,\;k=0 \\[4pt]
-# \dfrac{1}{2}\bigl[R(t_i,t_{k-1}) - R(t_i,t_{k+1})\bigr] & i>k>0
+# [\mathbf{R}^r]_{ik} = \begin{cases}
+# \uuuu{C}^r(t_0,\,t_0) & i=k=0 \\[4pt]
+# \dfrac{1}{2}\bigl[\uuuu{C}^r(t_i,t_{i-1}) + \uuuu{C}^r(t_i,t_i)\bigr] & i=k>0 \\[4pt]
+# \dfrac{1}{2}\bigl[\uuuu{C}^r(t_i,t_0) - \uuuu{C}^r(t_i,t_1)\bigr] & i>0,\;k=0 \\[4pt]
+# \dfrac{1}{2}\bigl[\uuuu{C}^r(t_i,t_{k-1}) - \uuuu{C}^r(t_i,t_{k+1})\bigr] & i>k>0
 # \end{cases}
 # $$ {#eq-visco-mat}
 #
-# The lower-triangular structure reflects **causality**: $\sigma(t_i)$ depends only on $\varepsilon(t_k)$ for $k \le i$.
+# Note that $[\mathbf{R}^r]_{ik}$ is a weighted combination of values of the relaxation kernel $\uuuu{C}^r$ at neighbouring time points — **not** simply $\uuuu{C}^r(t_i, t_k)$. The lower-triangular structure ($[\mathbf{R}^r]_{ik} = 0$ for $k>i$) reflects **causality**: $\boldsymbol{\sigma}(t_i)$ depends only on $\boldsymbol{\varepsilon}(t_k)$ for $k \le i$.
 #
 # ### Python implementation
 
@@ -160,7 +164,7 @@ def visco_mat(f, t):
 
 # -
 
-# For illustration, consider a Maxwell relaxation $R(t,t') = e^{-(t-t')/\tau}$ with $\tau=20$:
+# For illustration, consider a scalar Maxwell relaxation kernel $C(t,t') = e^{-(t-t')/\tau}$ with $\tau=20$:
 
 # +
 #| code-fold: false
@@ -209,7 +213,7 @@ for i in range(4):
 #
 # ### Symmetry decomposition: `visco_paramsym` and `visco_tensor` {#sec-visco-sym}
 #
-# For an isotropic material, the relaxation tensor decomposes as $\uuuu{C}(t,t') = 3k(t,t')\,\uuuu{J} + 2\mu(t,t')\,\uuuu{K}$. At the discrete level the 6$(n+1)$$\times$6$(n+1)$ block matrix inherits this structure: its information is entirely captured by independent scalar $(n+1)\times(n+1)$ **parameter blocks**, one per independent modulus of the material symmetry class.
+# For an isotropic material, the relaxation tensor decomposes as $\uuuu{C}(t,t') = 3k(t,t')\,\uuuu{J} + 2\mu(t,t')\,\uuuu{K}$. At the discrete level the $6(n+1)\times 6(n+1)$ block matrix inherits this structure: its information is entirely captured by independent scalar $(n+1)\times(n+1)$ **parameter blocks**, one per independent modulus of the material symmetry class.
 #
 # **`visco_paramsym`** extracts these blocks from a block matrix:
 #
@@ -272,14 +276,13 @@ print("Max reconstruction error:", abs(M_relax - M_check).max())
 # \boldsymbol{\varepsilon}_{|\mathcal{E}}(t) = -\uuuu{P}_\mathcal{E}(t,\bullet) \dcirc \uu{p}(\bullet)
 # $$
 #
-# The formula for $\uuuu{P}_\mathcal{E}(t,t')$ and its derivation are given in @sec-hill_alv (@eq-alv-hill-kernel). The fundamental result is the **block property** (@eq-block-hill-prop): over a discrete time grid,
+# The formula for $\uuuu{P}_\mathcal{E}(t,t')$ and its derivation are given in @sec-hill_alv (@eq-alv-hill-kernel). The fundamental result is the **block property** (@eq-block-hill-prop): the block Hill matrix is obtained by applying the elastic Hill tensor formula directly to the block relaxation matrix $\mathbf{R}^0$:
 #
 # $$
-# \bigl[\mathbf{P}_\mathcal{E}(\mathbf{R}^0)\bigr]_{ij}
-# = \mathbb{P}_\mathcal{E}\!\bigl([\mathbf{R}^0]_{ij}\bigr)
+# \mathbf{P}_\mathcal{E}(\mathbf{R}^0) = \mathbb{P}_\mathcal{E}(\mathbf{R}^0)
 # $$ {#eq-block-hill}
 #
-# Block $(i,j)$ of the block Hill matrix equals the **elastic Hill tensor** evaluated at the $(i,j)$ block of the reference relaxation matrix. This reduces ALV homogenization to a collection of elastic Hill tensor evaluations.
+# That is, the same formula as for the elastic Hill tensor (see @sec-hill_elas), with $\mathbb{C}$ replaced by $\mathbf{R}^0$ and all matrix operations interpreted block-wise. This makes ALV homogenization directly compatible with elastic Hill tensor routines applied to the block relaxation matrix.
 #
 # ### Isotropic matrix case
 #
@@ -301,20 +304,20 @@ print("Max reconstruction error:", abs(M_relax - M_check).max())
 #
 # ### Strain concentration and contribution tensors
 #
-# For an inclusion $\mathcal{E}$ with stiffness kernel $\uuuu{C}^\mathcal{E}$ in a reference medium with kernel $\uuuu{C}^0$, the **strain concentration tensor** (dilute Eshelby solution) satisfies:
+# For an inclusion $\mathcal{E}$ with stiffness kernel $\uuuu{C}^\mathcal{E}$ in a reference medium with kernel $\uuuu{C}^0$, the **dilute strain concentration tensor** (ALV counterpart of $\uuuu{A}^{dil}$ in @sec-concentration_tensors) satisfies:
 #
 # $$
-# \boldsymbol{\varepsilon}_{|\mathcal{E}} = \uuuu{a}^\mathcal{E} \dcirc \uu{E},
+# \boldsymbol{\varepsilon}_{|\mathcal{E}} = \uuuu{A}^{dil} \dcirc \uu{E},
 # \qquad
-# \uuuu{a}^\mathcal{E} = \volt{\!\bigl(H\,\uuuu{I} + \uuuu{P}_\mathcal{E} \dcirc (\uuuu{C}^\mathcal{E} - \uuuu{C}^0)\bigr)}
+# \uuuu{A}^{dil} = \volt{\!\bigl(H\,\uuuu{I} + \uuuu{P}_\mathcal{E} \dcirc (\uuuu{C}^\mathcal{E} - \uuuu{C}^0)\bigr)}
 # $$ {#eq-alv-concentration}
 #
-# In block matrix form: $\mathbf{A}^\mathcal{E} = \bigl[\mathbf{I} + \mathbf{P}_\mathcal{E}(\mathbf{R}^0)\cdot(\mathbf{R}^\mathcal{E} - \mathbf{R}^0)\bigr]^{-1}$.
+# In block matrix form: $\mathbf{A}^{dil} = \bigl[\mathbf{I} + \mathbf{P}_\mathcal{E}(\mathbf{R}^0)\cdot(\mathbf{R}^\mathcal{E} - \mathbf{R}^0)\bigr]^{-1}$.
 #
-# The **strain contribution tensor** (relating the far-field disturbance to the macroscopic strain) is:
+# The **strain contribution tensor** (ALV counterpart of $\delta\uuuu{C}:\uuuu{A}^{dil}$ in @sec-schemes) is:
 #
 # $$
-# \uuuu{N}^\mathcal{E} = (\uuuu{C}^\mathcal{E} - \uuuu{C}^0) \dcirc \uuuu{a}^\mathcal{E}
+# \uuuu{N}^{dil} = (\uuuu{C}^\mathcal{E} - \uuuu{C}^0) \dcirc \uuuu{A}^{dil}
 # = \volt{\!\bigl(\uuuu{P}_\mathcal{E} + \volt{(\uuuu{C}^\mathcal{E} - \uuuu{C}^0)}\bigr)}
 # $$ {#eq-alv-contribution}
 #
@@ -380,10 +383,10 @@ print("Max reconstruction error:", abs(M_relax - M_check).max())
 # For a matrix composite with matrix stiffness kernel $\uuuu{C}^0$ and inclusion sets $r$ (volume fractions $\varphi_r$, stiffness kernels $\uuuu{C}^r$), the general formula for the effective stiffness kernel is:
 #
 # $$
-# \uuuu{C}^{hom} = \uuuu{C}^0 + \sum_r \varphi_r\,(\uuuu{C}^r - \uuuu{C}^0) \dcirc \langle\uuuu{a}^r\rangle
+# \uuuu{C}^{hom} = \uuuu{C}^0 + \sum_r \varphi_r\,(\uuuu{C}^r - \uuuu{C}^0) \dcirc \langle\uuuu{A}^r\rangle
 # $$
 #
-# Different schemes correspond to different choices of how $\langle\uuuu{a}^r\rangle$ is estimated.
+# Different schemes correspond to different choices of how $\langle\uuuu{A}^r\rangle$ is estimated.
 #
 # ### Maxwell scheme
 #
@@ -412,7 +415,7 @@ print("Max reconstruction error:", abs(M_relax - M_check).max())
 # $$
 # \uuuu{C}^{MT} = \uuuu{C}^0 +
 # \sum_r \varphi_r\,\uuuu{N}^r \dcirc
-# \volt{\!\left((1-\textstyle\sum_s\varphi_s)\,H\,\uuuu{I} + \sum_s \varphi_s\,\uuuu{a}^s\right)}
+# \volt{\!\left((1-\textstyle\sum_s\varphi_s)\,H\,\uuuu{I} + \sum_s \varphi_s\,\uuuu{A}^{dil,s}\right)}
 # $$ {#eq-mtb-alv}
 #
 # When all inclusions have the same shape (single set), the MT scheme reduces to the standard **Mori-Tanaka** scheme with matrix as reference:

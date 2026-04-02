@@ -111,7 +111,7 @@ np.set_printoptions(precision=5, suppress=True)
 # $$
 
 # +
-#| code-fold: false
+#| code-summary: "Volume fractions — Powers + Tennis-Jennings model"
 #| include: true
 
 rho_a = 3.13 ; kappa_h = 2.13 ; kappa_w = 1.31
@@ -173,7 +173,7 @@ print(f"Inner: E = {C_inner.E:.2f} GPa,  k = {C_inner.k:.2f} GPa,  "
 # when $\varphi_o$ reaches the SC percolation threshold (controlled by $\omega_o^s$):
 
 # +
-#| code-fold: false
+#| code-summary: "Figure — Young's modulus of inner and outer C-S-H (SC)"
 #| include: true
 
 ver_out = rve()
@@ -220,7 +220,7 @@ plt.tight_layout(); plt.show()
 # $$
 
 # +
-#| code-fold: false
+#| code-summary: "Function C_paste() — paste-scale homogenization (MT)"
 #| include: true
 
 def C_paste(wc, alpha=-1.):
@@ -247,7 +247,7 @@ def C_paste(wc, alpha=-1.):
 
 
 # +
-#| code-fold: false
+#| code-summary: "Figure — drained Young's modulus of cement paste"
 #| include: true
 
 wc_list = [0.25, 0.35, 0.45, 0.55]
@@ -292,7 +292,7 @@ plt.tight_layout(); plt.show()
 # paste with the undrained inner/outer as inputs):
 
 # +
-#| code-fold: false
+#| code-summary: "Function C_paste_undrained() — drained and undrained moduli"
 #| include: true
 
 ks_sol, mus_sol = C_sol.kmu   # solid C-S-H
@@ -337,7 +337,7 @@ def C_paste_undrained(wc, alpha=-1.):
 
 
 # +
-#| code-fold: false
+#| code-summary: "Figure — drained vs undrained moduli"
 #| include: true
 
 fig, axes = plt.subplots(1, 2, figsize=(9, 4))

@@ -736,8 +736,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../8_applications/bituminous_mixture.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Viscoelastic properties of a bituminous mixture</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../8_applications/ageing_creep.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Ageing creep of solidifying cementitious materials</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Ageing creep of solidifying cementitious materials</span></span></a>
   </div>
 </li>
       </ul>
@@ -751,7 +757,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../api.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">API Reference</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">API Reference</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -955,7 +961,7 @@ $$
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="d96b6e57" class="cell" data-execution_count="1">
+<div id="485e7955" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -996,7 +1002,9 @@ f_o^p = f_p - f_i^p
 \]</span> <span class="math display">\[
 f_i = f_i^s+f_i^p,\quad \varphi_o = \frac{f_o^p}{f_o^p+f_o^s}
 \]</span></p>
-<div id="7df55209" class="cell" data-execution_count="2">
+<div id="98071c3c" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Volume fractions — Powers + Tennis-Jennings model</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>rho_a <span class="op">=</span> <span class="fl">3.13</span> <span class="op">;</span> kappa_h <span class="op">=</span> <span class="fl">2.13</span> <span class="op">;</span> kappa_w <span class="op">=</span> <span class="fl">1.31</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>phi_i <span class="op">=</span> <span class="fl">0.30</span>   <span class="co"># inner (HD) fixed porosity</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1019,6 +1027,7 @@ f_i = f_i^s+f_i^p,\quad \varphi_o = \frac{f_o^p}{f_o^p+f_o^s}
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    fi  <span class="op">=</span> fis <span class="op">+</span> fip</span>
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    phi_o <span class="op">=</span> fop <span class="op">/</span> (fop <span class="op">+</span> fos) <span class="cf">if</span> (fop <span class="op">+</span> fos) <span class="op">&gt;</span> <span class="fl">1.e-12</span> <span class="cf">else</span> <span class="fl">0.</span></span>
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> fis, fos, fip, fop, fi, phi_o</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 </section>
 <section id="sec-sc-inner-outer" class="level2">
@@ -1026,7 +1035,7 @@ f_i = f_i^s+f_i^p,\quad \varphi_o = \frac{f_o^p}{f_o^p+f_o^s}
 <section id="inner-hydrates-fixed-sc" class="level3">
 <h3 class="anchored" data-anchor-id="inner-hydrates-fixed-sc">Inner hydrates (fixed, SC)</h3>
 <p>The inner porosity <span class="math inline">\(\varphi_i=0.30\)</span> is independent of <span class="math inline">\(w/c\)</span> and <span class="math inline">\(\alpha\)</span>; <span class="math inline">\(C_\text{inner}\)</span> is computed once:</p>
-<div id="68c00d99" class="cell" data-execution_count="3">
+<div id="50c3b1b7" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>omega_i <span class="op">=</span> <span class="fl">0.12</span>    <span class="co"># aspect ratio of HD solid bricks</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>omega_o <span class="op">=</span> <span class="fl">0.033</span>   <span class="co"># aspect ratio of LD solid platelets</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>C_sol   <span class="op">=</span> stiff_Enu(<span class="fl">71.6</span>, <span class="fl">0.27</span>)   <span class="co"># solid C-S-H (bricks and platelets)</span></span>
@@ -1049,7 +1058,9 @@ f_i = f_i^s+f_i^p,\quad \varphi_o = \frac{f_o^p}{f_o^p+f_o^s}
 <section id="outer-hydrates-evolving-varphi_o-sc" class="level3">
 <h3 class="anchored" data-anchor-id="outer-hydrates-evolving-varphi_o-sc">Outer hydrates (evolving <span class="math inline">\(\varphi_o\)</span>, SC)</h3>
 <p>The outer porosity <span class="math inline">\(\varphi_o(w/c,\alpha)\)</span> varies with hydration. Setting occurs when <span class="math inline">\(\varphi_o\)</span> reaches the SC percolation threshold (controlled by <span class="math inline">\(\omega_o^s\)</span>):</p>
-<div id="33a60df9" class="cell" data-execution_count="4">
+<div id="3a6da9fa" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Figure — Young’s modulus of inner and outer C-S-H (SC)</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ver_out <span class="op">=</span> rve()</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ver_out[<span class="st">"SOLID"</span>] <span class="op">=</span> ellipsoid(shape<span class="op">=</span>spheroidal(omega_o), symmetrize<span class="op">=</span>[ISO],</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                              prop<span class="op">=</span>{<span class="st">"C"</span>: C_sol})</span>
@@ -1079,6 +1090,7 @@ f_i = f_i^s+f_i^p,\quad \varphi_o = \frac{f_o^p}{f_o^p+f_o^s}
 <span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"SC estimates of inner and outer C-S-H"</span>)</span>
 <span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>)<span class="op">;</span> ax.legend()</span>
 <span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()<span class="op">;</span> plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1095,7 +1107,9 @@ f_i = f_i^s+f_i^p,\quad \varphi_o = \frac{f_o^p}{f_o^p+f_o^s}
 <p><span class="math display">\[
 \frac{R_a}{R_\text{ref}} = \left(\frac{f_a}{f_a+f_i}\right)^{1/3}
 \]</span></p>
-<div id="92673a09" class="cell" data-execution_count="5">
+<div id="0e3a3736" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Function C_paste() — paste-scale homogenization (MT)</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> C_paste(wc, alpha<span class="op">=-</span><span class="fl">1.</span>):</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> alpha <span class="op">&lt;</span> <span class="fl">0.</span>: alpha <span class="op">=</span> amax(wc)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> alpha <span class="op">&lt;</span> <span class="fl">1.e-6</span>: <span class="cf">return</span> <span class="va">None</span></span>
@@ -1117,8 +1131,11 @@ f_i = f_i^s+f_i^p,\quad \varphi_o = \frac{f_o^p}{f_o^p+f_o^s}
 <span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>                                  fraction<span class="op">=</span>f_inc,</span>
 <span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>                                  prop<span class="op">=</span>{<span class="st">"C"</span>: [C_anhyd, C_inner]})</span>
 <span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> homogenize(prop<span class="op">=</span><span class="st">"C"</span>, rve<span class="op">=</span>ver, scheme<span class="op">=</span>MT, verbose<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
-<div id="6c8c8482" class="cell" data-execution_count="6">
+<div id="b8a7ef9d" class="cell" data-execution_count="6">
+<details class="code-fold">
+<summary>Figure — drained Young’s modulus of cement paste</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>wc_list <span class="op">=</span> [<span class="fl">0.25</span>, <span class="fl">0.35</span>, <span class="fl">0.45</span>, <span class="fl">0.55</span>]</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="fl">4.5</span>))</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1135,6 +1152,7 @@ f_i = f_i^s+f_i^p,\quad \varphi_o = \frac{f_o^p}{f_o^p+f_o^s}
 <span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="fl">0.</span>, <span class="fl">1.</span>)<span class="op">;</span> ax.set_ylim(bottom<span class="op">=</span><span class="fl">0.</span>)</span>
 <span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>)<span class="op">;</span> ax.legend()</span>
 <span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()<span class="op">;</span> plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1160,7 +1178,9 @@ k^u = k^{hom} + M b^2, \qquad
 \mu^u = \mu^{hom}
 \]</span></p>
 <p>Applied scale by scale (inner, then outer with <span class="math inline">\(k_s = k_\text{solid CSH}\)</span>; paste with the undrained inner/outer as inputs):</p>
-<div id="91fac502" class="cell" data-execution_count="7">
+<div id="1d179955" class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>Function C_paste_undrained() — drained and undrained moduli</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ks_sol, mus_sol <span class="op">=</span> C_sol.kmu   <span class="co"># solid C-S-H</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> undrained_kmu(k_hom, mu_hom, k_s, phi):</span>
@@ -1200,8 +1220,11 @@ k^u = k^{hom} + M b^2, \qquad
 <span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>                                  fraction<span class="op">=</span>f_inc,</span>
 <span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>                                  prop<span class="op">=</span>{<span class="st">"C"</span>: [C_anhyd, C_inner_u]})</span>
 <span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> homogenize(prop<span class="op">=</span><span class="st">"C"</span>, rve<span class="op">=</span>ver, scheme<span class="op">=</span>MT, verbose<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
-<div id="a5550388" class="cell" data-execution_count="8">
+<div id="ba14097c" class="cell" data-execution_count="8">
+<details class="code-fold">
+<summary>Figure — drained vs undrained moduli</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">4</span>))</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> wc <span class="kw">in</span> wc_list:</span>
@@ -1221,6 +1244,7 @@ k^u = k^{hom} + M b^2, \qquad
 <span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    ax.grid(<span class="va">True</span>)<span class="op">;</span> ax.legend()</span>
 <span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()<span class="op">;</span> plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">

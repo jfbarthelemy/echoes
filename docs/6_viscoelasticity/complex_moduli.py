@@ -133,7 +133,7 @@ print(C.kmu)
 # +
 #| error: false
 #| warning: false
-#| code-fold: false
+#| code-summary: "Figure — complex modulus of mastic: frequency diagrams (2S2P1D + MT)"
 #| include: true
 
 class Mod2S2P1D(dict):

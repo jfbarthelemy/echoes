@@ -66,7 +66,7 @@ np.set_printoptions(precision=8, suppress=True)
 #| fig-cap: "Effective moduli of a randomly cracked isotropic medium"
 #| error: false
 #| warning: false
-#| code-fold: false
+#| code-summary: "Figure — effective moduli of a randomly cracked isotropic medium"
 #| include: true
 
 import matplotlib.pyplot as plt
@@ -122,7 +122,7 @@ plt.show()
 #| fig-cap: "TI crack distribution (normals in (e1,e2) plane): normalized stiffness and conductivity vs. crack density"
 #| error: false
 #| warning: false
-#| code-fold: false
+#| code-summary: "Figure — TI crack distribution: stiffness and conductivity"
 #| include: true
 
 ω = 1.e-4 ; ko = 1.e-10 ; Kt = 1. ; Kn = 1.e10
@@ -180,7 +180,7 @@ plt.show()
 # +
 #| error: false
 #| warning: false
-#| code-fold: false
+#| code-summary: "Spring interface model — open / bonded limits"
 #| include: true
 
 Cs = stiff_Enu(1., 0.2)
@@ -212,7 +212,7 @@ print(f"E (perfect bonding)  = {C_bonded.E:.6f}")
 #| fig-cap: "Randomly cracked medium: normalized effective Young's modulus and conductivity vs. crack density"
 #| error: false
 #| warning: false
-#| code-fold: false
+#| code-summary: "Figure — cracked medium: coupled Young's modulus and conductivity"
 #| include: true
 
 ω = 1.e-3 ; ko = 1. ; kt_K = 1.e9   # high conductance (fluid-filled crack)
@@ -278,7 +278,7 @@ plt.show()
 # +
 #| error: false
 #| warning: false
-#| code-fold: false
+#| code-summary: "Multiple crack families — stiffness and permeability"
 #| include: true
 
 π = math.pi

@@ -716,8 +716,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../8_applications/bituminous_mixture.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Viscoelastic properties of a bituminous mixture</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../8_applications/ageing_creep.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Ageing creep of solidifying cementitious materials</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Ageing creep of solidifying cementitious materials</span></span></a>
   </div>
 </li>
       </ul>
@@ -731,7 +737,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../api.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">API Reference</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">API Reference</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -931,7 +937,7 @@ $$
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="a9025fef" class="cell" data-execution_count="1">
+<div id="f3dd885a" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
@@ -945,6 +951,8 @@ $$
 <h2 class="anchored" data-anchor-id="isotropic-randomly-cracked-medium">Isotropic randomly cracked medium</h2>
 <p>For randomly oriented penny-shaped cracks in an isotropic matrix, the <code>symmetrize=[ISO]</code> option projects the concentration tensor onto the isotropic symmetry class. This yields scalar effective bulk and shear moduli.</p>
 <div id="cell-fig-cracked-iso" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Figure — effective moduli of a randomly cracked isotropic medium</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>ω <span class="op">=</span> <span class="fl">1.e-3</span></span>
@@ -985,6 +993,7 @@ $$
 <span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    ax.legend(loc<span class="op">=</span><span class="st">"best"</span>, fontsize<span class="op">=</span><span class="dv">8</span>)</span>
 <span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display">
 <div id="fig-cracked-iso" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1004,6 +1013,8 @@ Fig.&nbsp;14.1: Effective moduli of a randomly cracked isotropic medium
 <p>When crack normals are not fully random but distributed with TI symmetry around an axis, <code>symmetrize=[TI, θ, φ]</code> is used instead of <code>[ISO]</code>. A representative case is that of cracks whose normals lie uniformly in a plane — obtained by taking a single crack orientation and averaging over rotations around the perpendicular axis.</p>
 <p>The example below uses <code>ellipsoidal(1., ω, 1./ω)</code> — a crack thin in <span class="math inline">\(\uv{e}_2\)</span> (normal <span class="math inline">\(= \uv{e}_2\)</span>) and elongated in <span class="math inline">\(\uv{e}_3\)</span>. <code>symmetrize=[TI, 0., 0.]</code> then averages over rotations around <span class="math inline">\(\uv{e}_3\)</span>, sweeping crack normals through the <span class="math inline">\((\uv{e}_1,\uv{e}_2)\)</span> plane. The resulting effective medium is TI with axis <span class="math inline">\(\uv{e}_3\)</span>: the in-plane stiffness <span class="math inline">\(C_{1111}\)</span> is strongly degraded while the longitudinal conductivity <span class="math inline">\(K_{11}\)</span> is enhanced by the high normal conductance <span class="math inline">\(K_n \gg 1\)</span> of the cracks.</p>
 <div id="cell-fig-cracked-ti" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Figure — TI crack distribution: stiffness and conductivity</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ω <span class="op">=</span> <span class="fl">1.e-4</span> <span class="op">;</span> ko <span class="op">=</span> <span class="fl">1.e-10</span> <span class="op">;</span> Kt <span class="op">=</span> <span class="fl">1.</span> <span class="op">;</span> Kn <span class="op">=</span> <span class="fl">1.e10</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>Cs <span class="op">=</span> stiff_Enu(<span class="fl">1.</span>, <span class="fl">0.2</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>C11s <span class="op">=</span> Cs.array[<span class="dv">0</span>, <span class="dv">0</span>]</span>
@@ -1050,6 +1061,7 @@ Fig.&nbsp;14.1: Effective moduli of a randomly cracked isotropic medium
 <span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].grid(<span class="va">True</span>)<span class="op">;</span> axes[<span class="dv">1</span>].legend(fontsize<span class="op">=</span><span class="dv">8</span>)</span>
 <span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display">
 <div id="fig-cracked-ti" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1067,7 +1079,9 @@ Fig.&nbsp;14.2: TI crack distribution (normals in (e1,e2) plane): normalized sti
 <section id="spring-interface-model" class="level2">
 <h2 class="anchored" data-anchor-id="spring-interface-model">Spring interface model</h2>
 <p>The open crack (<span class="math inline">\(k_n=k_t=0\)</span>) is a limiting case. When the crack faces are partially bonded, the linear spring model from <a href="../2_eshelby/crack_compliance.html#sec-spring-model" class="quarto-xref"><span>Section 6.3</span></a> is activated via <code>interf_prop</code>. For elasticity the parameter order is <code>[kn, kt]</code>:</p>
-<div id="a4c41d32" class="cell" data-execution_count="4">
+<div id="f0a79379" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Spring interface model — open / bonded limits</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Cs <span class="op">=</span> stiff_Enu(<span class="fl">1.</span>, <span class="fl">0.2</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>myrve_spr <span class="op">=</span> rve(matrix<span class="op">=</span><span class="st">"SOLID"</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>myrve_spr[<span class="st">"SOLID"</span>] <span class="op">=</span> ellipsoid(shape<span class="op">=</span>spherical, fraction<span class="op">=</span><span class="fl">1.</span>, prop<span class="op">=</span>{<span class="st">"C"</span>: Cs})</span>
@@ -1086,6 +1100,7 @@ Fig.&nbsp;14.2: TI crack distribution (normals in (e1,e2) plane): normalized sti
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"E (open crack)       = </span><span class="sc">{</span>C_open<span class="sc">.</span>E<span class="sc">:.6f}</span><span class="ss">"</span>)</span>
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"E (spring kn=kt=5)   = </span><span class="sc">{</span>C_spring<span class="sc">.</span>E<span class="sc">:.6f}</span><span class="ss">"</span>)</span>
 <span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"E (perfect bonding)  = </span><span class="sc">{</span>C_bonded<span class="sc">.</span>E<span class="sc">:.6f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>E (matrix solid)     = 1.000000
 E (open crack)       = 0.651284
@@ -1098,6 +1113,8 @@ E (perfect bonding)  = 1.000588</code></pre>
 <h2 class="anchored" data-anchor-id="randomly-cracked-medium-coupled-elasticity-and-conductivity">Randomly cracked medium: coupled elasticity and conductivity</h2>
 <p>Cracks significantly affect both the <strong>mechanical</strong> and <strong>transport</strong> properties of the medium. The <code>crack</code> object accepts both <code>prop={"C": ..., "K": ...}</code> (material properties of the crack medium) and <code>interf_prop={"C": [kn, kt], "K": [Ka, Kb, Kc]}</code> (interface stiffnesses). For elasticity <code>[kn, kt]</code> means normal then tangential stiffness. For conductivity <code>[Ka, Kb, Kc]</code> are the conductances along the three local crack axes (the two tangential axes first, then the normal): for a spheroidal crack, <code>[Kt, Kt, Kn]</code>. For a <strong>void crack</strong> with high conductivity across the crack plane, typical settings are <code>prop={"C": tZ4, "K": tensor(Kt, Kt, Kn)}</code> where <code>Kn</code> is large.</p>
 <div id="cell-fig-cracked-coupled" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Figure — cracked medium: coupled Young’s modulus and conductivity</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ω <span class="op">=</span> <span class="fl">1.e-3</span> <span class="op">;</span> ko <span class="op">=</span> <span class="fl">1.</span> <span class="op">;</span> kt_K <span class="op">=</span> <span class="fl">1.e9</span>   <span class="co"># high conductance (fluid-filled crack)</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>Cs <span class="op">=</span> stiff_Enu(<span class="fl">1.</span>, <span class="fl">0.25</span>)</span>
@@ -1152,6 +1169,7 @@ E (perfect bonding)  = 1.000588</code></pre>
 <span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].grid(<span class="va">True</span>)<span class="op">;</span> axes[<span class="dv">1</span>].legend(fontsize<span class="op">=</span><span class="dv">8</span>)</span>
 <span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display">
 <div id="fig-cracked-coupled" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1169,7 +1187,9 @@ Fig.&nbsp;14.3: Randomly cracked medium: normalized effective Young’s modulus 
 <section id="multiple-crack-families" class="level2">
 <h2 class="anchored" data-anchor-id="multiple-crack-families">Multiple crack families</h2>
 <p>Several crack families with different orientations and properties can be assembled in one RVE. The example below considers two families of cracks with different orientations and finite conductivity, computing the effective stiffness and permeability simultaneously:</p>
-<div id="615f377e" class="cell" data-execution_count="6">
+<div id="332bab09" class="cell" data-execution_count="6">
+<details class="code-fold">
+<summary>Multiple crack families — stiffness and permeability</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>π <span class="op">=</span> math.pi</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>ko <span class="op">=</span> <span class="fl">1.e-10</span> <span class="op">;</span> kinf <span class="op">=</span> <span class="fl">1.e10</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1188,6 +1208,7 @@ Fig.&nbsp;14.3: Randomly cracked medium: normalized effective Young’s modulus 
 <span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>K_eff <span class="op">=</span> homogenize(prop<span class="op">=</span><span class="st">"K"</span>, rve<span class="op">=</span>myrve2, scheme<span class="op">=</span>SC,</span>
 <span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>                   verbose<span class="op">=</span><span class="va">False</span>, epsrel<span class="op">=</span><span class="fl">1.e-6</span>, maxnb<span class="op">=</span><span class="dv">200</span>)</span>
 <span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Effective permeability:</span><span class="ch">\n</span><span class="st">"</span>, K_eff)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Effective stiffness:
  Order 4 ORTHO tensor | Param(size=9)=[ 1.30624 0.168788 0.0440703 2.27612 0.0401982 0.277515 0.348474 0.269905 0.773451 ] | Angles(size=3)=[ 0.812673 0.451506 0.59908 ]

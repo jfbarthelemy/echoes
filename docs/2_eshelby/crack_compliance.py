@@ -274,7 +274,7 @@ plt.show()
 #
 # ## Conductivity crack resistivity {#sec-crack-conduc}
 #
-# The proper transport analog of the elastic crack compliance tensor is the **crack resistivity tensor** $\uu{H}$ [@barthelemyTIPM2009]. By analogy with the elastic case, it is defined from the 2nd-order second Hill tensor $\uu{Q}=\uu{K}-\uu{K}\cdot\uu{P}\cdot\uu{K}$ as:
+# The proper transport analog of the elastic crack compliance tensor is the **crack resistivity tensor** $\uu{H}$ [@kachanov2018]. By analogy with the elastic case, it is defined from the 2nd-order second Hill tensor $\uu{Q}=\uu{K}-\uu{K}\cdot\uu{P}\cdot\uu{K}$ as:
 #
 # $$
 # \uu{H} = \lim_{\omega\to 0}\,\omega\,\uu{Q}^{-1}

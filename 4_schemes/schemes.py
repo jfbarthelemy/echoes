@@ -465,7 +465,7 @@ print(f"Differential: k={CDIFF.k:.3f}, mu={CDIFF.mu:.3f}")
 # +
 #| error: false
 #| warning: false
-#| code-fold: false
+#| code-summary: "Figure — scheme comparison: effective moduli vs porosity"
 #| include: true
 #| label: fig-comparison
 #| fig-cap: "Effective bulk and shear moduli vs. porosity for all schemes (solid: $k=72$, $\\mu=32$; spherical pores)."
@@ -530,7 +530,7 @@ plt.show()
 # +
 #| error: false
 #| warning: false
-#| code-fold: false
+#| code-summary: "Validation: user_inclusion vs standard inclusion in a scheme"
 #| include: true
 
 Cp_u = stiff_kmu(1.e-6, 1.e-6)   # near-zero stiffness for pores

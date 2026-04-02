@@ -70,7 +70,7 @@ np.set_printoptions(precision=8, suppress=True)
 # +
 #| error: false
 #| warning: false
-#| code-fold: false
+#| code-summary: "Figure — effective diffusivity vs porosity (SC, pore shapes)"
 #| include: true
 
 Ds = 0.1 * tId2   # solid diffusivity
@@ -145,7 +145,7 @@ def Dhom_itz(f, d_itz):
 
 
 # +
-#| code-fold: false
+#| code-summary: "Figure — effect of the Interfacial Transition Zone (layer model)"
 
 lf     = np.linspace(0.001, 0.999, 50)
 d_list = [100., 80., 60., 50., 40., 20., 0.001]
@@ -208,7 +208,7 @@ def Dhom_dd(f, alpha):
 # The following plots compare the two approaches for the same values of $D_{itz}/D_{cp} = \alpha/(D_{cp}\,e_{ITZ})$ — the dimensionless normalised transmissivity:
 
 # +
-#| code-fold: false
+#| code-summary: "Figure — layer model vs DUALDISC interface comparison"
 
 fig, axes = plt.subplots(1, 2, figsize=(9, 4))
 

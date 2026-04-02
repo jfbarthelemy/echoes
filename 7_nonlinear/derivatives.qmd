@@ -109,7 +109,7 @@ The analytical derivative can be validated against a finite-difference approxima
 ```{python}
 #| error: false
 #| warning: false
-#| code-fold: false
+#| code-summary: "Finite-difference validation"
 #| include: true
 
 mu_s = 32.
@@ -140,7 +140,7 @@ Using (@eq-kreher-iso), the mean deviatoric strain variance in the solid phase c
 ```{python}
 #| error: false
 #| warning: false
-#| code-fold: false
+#| code-summary: "Second-order strain moments — Kreher formula"
 #| include: true
 
 # Restore the RVE from the previous example

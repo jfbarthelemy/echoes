@@ -22,7 +22,7 @@
 #         href: nlayer_sphere.py
 # ---
 #
-# # The n-layer sphere {#sec-nlayer_sphere}
+# # N-layer spheres {#sec-nlayer_sphere}
 #
 # ::: {.callout-important icon=false}
 #
@@ -241,7 +241,7 @@ print("spn.eE =\n", spn.eE)
 # +
 #| error: false
 #| warning: false
-#| code-fold: false
+#| code-summary: "Per-layer concentration tensors — consistency check"
 #| include: true
 
 np.set_printoptions(precision=5, suppress=True)
@@ -295,12 +295,12 @@ print("\nMax error (weighted sum vs global):", np.max(np.abs(check - spn2.eE)))
 # sigma_local = invKM(spn.loc_sS(r, theta).dot(S_KM))
 # ```
 #
-# The example below plots stress profiles through the same 2-layer sphere (stiff core + soft interphase) under remote uniaxial compression $\Sig = -\Sig_0\,\ve{e}_3\otimes\ve{e}_3$:
+# The example below plots stress profiles through the same 2-layer sphere (stiff core + soft interphase) under remote uniaxial compression $\Sig = -\Sig_0\,\ve{3}\otimes\ve{3}$:
 
 # +
 #| error: false
 #| warning: false
-#| code-fold: false
+#| code-summary: "Figure — stress profiles in the multi-layer sphere"
 #| include: true
 
 import matplotlib.pyplot as plt

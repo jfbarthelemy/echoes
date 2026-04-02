@@ -78,7 +78,7 @@ and an **outer layer** (LD-C-S-H, $\phi_{LD}=0.37$), with a fraction $\eta=20\%$
 of crystalline hydrates (portlandite) in each.
 
 ```{python}
-#| code-fold: false
+#| code-summary: "Volume fractions — Powers and Tennis-Jennings hydration models"
 #| include: true
 
 # Powers' hydration model constants
@@ -138,7 +138,7 @@ The same phase properties serve both the mechanical and the diffusion problems.
 All diffusivities are normalized by the bulk-water value $D_\text{bulk}=1$.
 
 ```{python}
-#| code-fold: false
+#| code-summary: "Function engineering_model() — two-scale homogenization (SC + MT)"
 #| include: true
 
 # Material properties — engineering model
@@ -188,7 +188,7 @@ def engineering_model(wc, alpha=-1.):
 ```
 
 ```{python}
-#| code-fold: false
+#| code-summary: "Figure — effective modulus and diffusivity (engineering model)"
 #| include: true
 
 wc_list = [0.30, 0.40, 0.50, 0.60]
@@ -240,7 +240,7 @@ The gel properties are fixed (independent of $w/c$ and $\alpha$) and
 pre-computed once.
 
 ```{python}
-#| code-fold: false
+#| code-summary: "Function homogenize_csh() — C-S-H gel at nanoscale (SC)"
 #| include: true
 
 # Level 0: C-S-H gel microstructure
@@ -294,7 +294,7 @@ threshold of the outer layer. Micro-crystals (fraction $\eta f_{ohp}/(f_{scp}+f_
 of the outer domain) are folded into the outer layer by a second SC step.
 
 ```{python}
-#| code-fold: false
+#| code-summary: "Functions inner/outer_layer_props() — hydrate layers"
 #| include: true
 
 omega_LD = 0.14    # oblate LD-CSH foam (calibrated to setting data)
@@ -364,7 +364,7 @@ layer volume fractions (relative to the whole paste) and automatically computes
 the layer radii.
 
 ```{python}
-#| code-fold: false
+#| code-summary: "Function detailed_model() — three-scale detailed model"
 #| include: true
 
 def detailed_model(wc, alpha=-1.):
@@ -402,7 +402,7 @@ def detailed_model(wc, alpha=-1.):
 ```
 
 ```{python}
-#| code-fold: false
+#| code-summary: "Figure — effective modulus and diffusivity (detailed model)"
 #| include: true
 
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(9, 4))
@@ -448,7 +448,7 @@ For a given $w/c$, both models predict:
   through the poorly-diffusive gel pores.
 
 ```{python}
-#| code-fold: false
+#| code-summary: "Figure — engineering vs detailed model comparison"
 #| include: true
 
 wc = 0.4

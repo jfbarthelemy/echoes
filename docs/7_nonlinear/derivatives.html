@@ -736,8 +736,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../8_applications/bituminous_mixture.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Viscoelastic properties of a bituminous mixture</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../8_applications/ageing_creep.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Ageing creep of solidifying cementitious materials</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Ageing creep of solidifying cementitious materials</span></span></a>
   </div>
 </li>
       </ul>
@@ -751,7 +757,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../api.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">API Reference</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">API Reference</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -945,7 +951,7 @@ $$
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="e3a20fd6" class="cell" data-execution_count="1">
+<div id="72eaefde" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
@@ -986,7 +992,7 @@ f_r\,\langle\varepsilon_{ij}\,\varepsilon_{kl}\rangle_{\Omega_r} = \frac{1}{2}\,
 </section>
 <section id="example-sensitivity-to-matrix-shear-modulus" class="level2">
 <h2 class="anchored" data-anchor-id="example-sensitivity-to-matrix-shear-modulus">Example: sensitivity to matrix shear modulus</h2>
-<div id="7d89e772" class="cell" data-execution_count="2">
+<div id="160afead" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>myrve <span class="op">=</span> rve(matrix<span class="op">=</span><span class="st">"SOLID"</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>myrve[<span class="st">"SOLID"</span>] <span class="op">=</span> ellipsoid(shape<span class="op">=</span>spheroidal(<span class="fl">1.</span>), symmetrize<span class="op">=</span>[ISO],</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                           prop<span class="op">=</span>{<span class="st">"C"</span>: stiff_kmu(<span class="fl">72.</span>, <span class="fl">32.</span>)}, fraction<span class="op">=</span><span class="fl">0.8</span>)</span>
@@ -1027,7 +1033,9 @@ dChom/d(2mu_solid):
 <section id="validation-by-finite-differences" class="level2">
 <h2 class="anchored" data-anchor-id="validation-by-finite-differences">Validation by finite differences</h2>
 <p>The analytical derivative can be validated against a finite-difference approximation:</p>
-<div id="6411271e" class="cell" data-execution_count="3">
+<div id="3569f505" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Finite-difference validation</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>mu_s <span class="op">=</span> <span class="fl">32.</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>eps <span class="op">=</span> <span class="fl">1.e-5</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1047,6 +1055,7 @@ dChom/d(2mu_solid):
 <span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare with analytical (index=1 gives d/d(2mu), so multiply by 2)</span></span>
 <span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Analytical dChom/d(2mu) * 2:</span><span class="ch">\n</span><span class="st">"</span>, <span class="dv">2</span> <span class="op">*</span> dC_dmu.array)</span>
 <span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Max difference:"</span>, np.<span class="bu">max</span>(np.<span class="bu">abs</span>(dC_fd <span class="op">-</span> <span class="dv">2</span> <span class="op">*</span> dC_dmu.array)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Finite difference dChom/dmu:
  [[ 1.21695657 -0.06650552 -0.06650552  0.          0.          0.        ]
@@ -1071,7 +1080,9 @@ Max difference: 1.182833109236725e-09</code></pre>
 <section id="second-order-strain-moments-in-practice" class="level2">
 <h2 class="anchored" data-anchor-id="second-order-strain-moments-in-practice">Second-order strain moments in practice</h2>
 <p>Using (<a href="#eq-kreher-iso" class="quarto-xref"><span>18.1</span></a>), the mean deviatoric strain variance in the solid phase can be computed from the derivative with respect to <span class="math inline">\(\mu_s\)</span>. For a macroscopic strain <span class="math inline">\(\uu{E} = E\,\uv{e}_1 \otimes \uv{e}_1\)</span> (uniaxial):</p>
-<div id="298d6998" class="cell" data-execution_count="4">
+<div id="d84cd499" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Second-order strain moments — Kreher formula</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Restore the RVE from the previous example</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>myrve[<span class="st">"SOLID"</span>].set_prop(<span class="st">"C"</span>, stiff_kmu(<span class="fl">72.</span>, <span class="fl">32.</span>))</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> homogenize(prop<span class="op">=</span><span class="st">"C"</span>, rve<span class="op">=</span>myrve, scheme<span class="op">=</span>MT, verbose<span class="op">=</span><span class="va">False</span>)</span>
@@ -1091,6 +1102,7 @@ Max difference: 1.182833109236725e-09</code></pre>
 <span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"f_s = </span><span class="sc">{</span>f_s<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
 <span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"&lt;eps_d^2&gt;_solid (uniaxial E_11=1) = </span><span class="sc">{</span>eps_d2_solid<span class="sc">:.6f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>f_s = 0.80
 &lt;eps_d^2&gt;_solid (uniaxial E_11=1) = 0.760598</code></pre>

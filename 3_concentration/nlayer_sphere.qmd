@@ -227,7 +227,7 @@ can be used as a verification. The example below uses a coated sphere (stiff cor
 ```{python}
 #| error: false
 #| warning: false
-#| code-fold: false
+#| code-summary: "Per-layer concentration tensors — consistency check"
 #| include: true
 
 np.set_printoptions(precision=5, suppress=True)
@@ -286,7 +286,7 @@ The example below plots stress profiles through the same 2-layer sphere (stiff c
 ```{python}
 #| error: false
 #| warning: false
-#| code-fold: false
+#| code-summary: "Figure — stress profiles in the multi-layer sphere"
 #| include: true
 
 import matplotlib.pyplot as plt

@@ -736,8 +736,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../8_applications/bituminous_mixture.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Viscoelastic properties of a bituminous mixture</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../8_applications/ageing_creep.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Ageing creep of solidifying cementitious materials</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Ageing creep of solidifying cementitious materials</span></span></a>
   </div>
 </li>
       </ul>
@@ -751,7 +757,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../api.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">API Reference</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">API Reference</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -949,7 +955,7 @@ $$
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="679efcd0" class="cell" data-execution_count="1">
+<div id="cb318a5d" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
@@ -987,7 +993,9 @@ B = \left(\frac{\mu_s}{\mu^{hom}}\right)^2\frac{\partial \mu^{hom}}{\partial \mu
 </section>
 <section id="failure-criterion-for-porous-media" class="level2">
 <h2 class="anchored" data-anchor-id="failure-criterion-for-porous-media">Failure criterion for porous media</h2>
-<div id="b9ea4f87" class="cell" data-execution_count="2">
+<div id="2631eb42" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Figure — macroscopic failure ellipse (effective modulus derivatives)</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ellipse_radii(ks, mus, f, sch):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Compute semi-axes of the macroscopic failure ellipse."""</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    myrve <span class="op">=</span> rve(matrix<span class="op">=</span><span class="st">"SOLID"</span>)</span>
@@ -1025,6 +1033,7 @@ B = \left(\frac{\mu_s}{\mu^{hom}}\right)^2\frac{\partial \mu^{hom}}{\partial \mu
 <span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>)<span class="op">;</span> ax.legend(loc<span class="op">=</span><span class="st">'best'</span>)</span>
 <span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1051,7 +1060,9 @@ B = \left(\frac{\mu_s}{\mu^{hom}}\right)^2\frac{\partial \mu^{hom}}{\partial \mu
 \bar{\varepsilon}_r^2 = \frac{1}{f_r}\left(\frac{1}{2}\frac{\partial k^{hom}}{\partial \mu_r}\,E_v^2 + \frac{\partial \mu^{hom}}{\partial \mu_r}\,E_d^2\right)
 \tag{19.5}\]</span></span></p>
 <p>with <span class="math inline">\(E_v = \mathrm{tr}(\uu{E})\)</span> the volumetric macro-strain and <span class="math inline">\(E_d^2 = \uu{E}':\uu{E}'\)</span> the deviatoric macro-strain squared. The nonlinear problem is solved by a fixed-point iteration: the matrix is discretized into <span class="math inline">\(n\)</span> concentric layers (via <code>sphere_nlayers</code>), each carrying a different secant modulus, and the self-consistent scheme is applied until convergence.</p>
-<div id="27e6868d" class="cell" data-execution_count="3">
+<div id="dacde767" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Figure — elastoplastic response via modified secant method</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> build_rve_ep(n, ks, mus, sigma0, f, tabed):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    eps0 <span class="op">=</span> sigma0 <span class="op">/</span> (<span class="fl">2.</span> <span class="op">*</span> mus)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    myrve <span class="op">=</span> rve(matrix<span class="op">=</span><span class="st">"SOLID"</span>, prop<span class="op">=</span>{<span class="st">"C"</span>: tId4})</span>
@@ -1109,6 +1120,7 @@ B = \left(\frac{\mu_s}{\mu^{hom}}\right)^2\frac{\partial \mu^{hom}}{\partial \mu
 <span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)<span class="op">;</span> plt.legend()</span>
 <span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">

@@ -141,7 +141,7 @@ tT  = lambda N, alpha: tf(F(N), alpha)                    # setting times for N 
 
 # -
 
-# ## RVE construction {#sec-rve-construction}
+# ## RVE construction {#sec-ageing-rve-construction}
 #
 # ### 'whole pores' model {#sec-whole-pores}
 #
@@ -184,7 +184,7 @@ tT  = lambda N, alpha: tf(F(N), alpha)                    # setting times for N 
 # The frozen approach is a computationally identical but physically approximate model that neglects the history before $t_0$.
 
 # +
-#| code-fold: false
+#| code-summary: "Function build_rve() — solidification-layers RVE construction"
 
 def build_rve(N, alpha, t0, model='whole pores', fixed=False):
     """Build the RVE for the solidifying composite.
@@ -296,7 +296,7 @@ def Jhom(T, N, alpha, model='whole pores'):
 # The outer loop sweeps over five **loading ages** $t_0$ (expressed in units of the matrix shear characteristic time $\gamma_0$). For each $t_0$, the observation window is $[t_0,\, 10/3]$ on a log-spaced grid. Both the `'layers'` and `'whole pores'` models are computed side by side to verify their equivalence.
 
 # +
-#| code-fold: false
+#| code-summary: "Figure — effective creep compliance"
 
 N = 100;  alpha = 4.
 

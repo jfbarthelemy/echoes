@@ -61,6 +61,7 @@ book:
         - 8_applications/concrete.qmd
         - 8_applications/cement_paste_diffusion.qmd
         - 8_applications/concrete_strength.qmd
+        - 8_applications/bituminous_mixture.qmd
         - 8_applications/ageing_creep.qmd
     - references.qmd
     - api.qmd

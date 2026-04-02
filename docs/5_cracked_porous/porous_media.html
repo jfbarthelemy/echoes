@@ -716,8 +716,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../8_applications/bituminous_mixture.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Viscoelastic properties of a bituminous mixture</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../8_applications/ageing_creep.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Ageing creep of solidifying cementitious materials</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Ageing creep of solidifying cementitious materials</span></span></a>
   </div>
 </li>
       </ul>
@@ -731,7 +737,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../api.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">API Reference</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">API Reference</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -925,7 +931,7 @@ $$
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="13cfd29a" class="cell" data-execution_count="1">
+<div id="386f0525" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
@@ -939,7 +945,7 @@ $$
 <section id="porous-medium-modeling" class="level2">
 <h2 class="anchored" data-anchor-id="porous-medium-modeling">Porous medium modeling</h2>
 <p>A porous medium is modeled as a composite in which the voids are treated as inclusions with zero (or near-zero) stiffness:</p>
-<div id="a2e3359e" class="cell" data-execution_count="2">
+<div id="9cc1b3a2" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ks, mus <span class="op">=</span> <span class="fl">72.</span>, <span class="fl">32.</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>kp, mup <span class="op">=</span> <span class="fl">1.e-6</span>, <span class="fl">1.e-6</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -953,7 +959,9 @@ $$
 <section id="sec-porous-comparison" class="level2">
 <h2 class="anchored" data-anchor-id="sec-porous-comparison">Scheme comparison on porous media</h2>
 <p>The following example computes the effective bulk and shear moduli versus porosity for all available schemes.</p>
-<div id="46d3f7bd" class="cell" data-execution_count="3">
+<div id="0c406676" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Figure — scheme comparison on porous media</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Chom_porous(myrve, phi, sch):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    myrve[<span class="st">"PORE"</span>].fraction <span class="op">=</span> phi</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    myrve[<span class="st">"SOLID"</span>].fraction <span class="op">=</span> <span class="fl">1.</span> <span class="op">-</span> phi</span>
@@ -983,6 +991,7 @@ $$
 <span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>ax2.grid(<span class="va">True</span>)<span class="op">;</span> ax2.legend()</span>
 <span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -995,7 +1004,9 @@ $$
 <section id="effect-of-pore-shape" class="level2">
 <h2 class="anchored" data-anchor-id="effect-of-pore-shape">Effect of pore shape</h2>
 <p>The aspect ratio of pores significantly affects the effective properties. Oblate pores (<span class="math inline">\(\omega &lt; 1\)</span>) lead to softer behavior than spherical pores (<span class="math inline">\(\omega = 1\)</span>), while prolate pores (<span class="math inline">\(\omega &gt; 1\)</span>) produce an intermediate effect.</p>
-<div id="a67a294d" class="cell" data-execution_count="4">
+<div id="be1d4e39" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Figure — effect of pore shape</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>lphi <span class="op">=</span> np.linspace(<span class="fl">0.</span>, <span class="fl">0.5</span>, <span class="dv">51</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">4</span>))</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1016,6 +1027,7 @@ $$
 <span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>ax2.grid(<span class="va">True</span>)<span class="op">;</span> ax2.legend()</span>
 <span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1032,7 +1044,9 @@ $$
 <section id="sec-permeability" class="level2">
 <h2 class="anchored" data-anchor-id="sec-permeability">Permeability of porous media</h2>
 <p>Transport properties (permeability, conductivity, diffusivity) are described by 2nd-order tensors and can be homogenized with the same framework using <code>prop="K"</code>:</p>
-<div id="18f97585" class="cell" data-execution_count="5">
+<div id="62e6a860" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Figure — permeability of a porous medium</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Ks <span class="op">=</span> <span class="fl">0.1</span> <span class="op">*</span> tId2    <span class="co"># solid conductivity</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>Kp <span class="op">=</span> tId2           <span class="co"># pore conductivity</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1061,6 +1075,7 @@ $$
 <span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="vs">r"</span><span class="dv">$</span><span class="ch">\v</span><span class="vs">arphi</span><span class="dv">$</span><span class="vs">"</span>)<span class="op">;</span> ax.set_ylabel(<span class="vs">r"</span><span class="dv">$</span><span class="vs">K</span><span class="dv">^</span><span class="vs">{hom}</span><span class="dv">$</span><span class="vs">"</span>)</span>
 <span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>)<span class="op">;</span> ax.legend()</span>
 <span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">

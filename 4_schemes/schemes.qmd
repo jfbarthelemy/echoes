@@ -450,7 +450,7 @@ To illustrate the differences between all schemes, we plot the bulk modulus $k^{
 ```{python}
 #| error: false
 #| warning: false
-#| code-fold: false
+#| code-summary: "Figure — scheme comparison: effective moduli vs porosity"
 #| include: true
 #| label: fig-comparison
 #| fig-cap: "Effective bulk and shear moduli vs. porosity for all schemes (solid: $k=72$, $\\mu=32$; spherical pores)."
@@ -515,7 +515,7 @@ A `user_inclusion` (see @sec-user_inclusion) is used **exactly like any other in
 ```{python}
 #| error: false
 #| warning: false
-#| code-fold: false
+#| code-summary: "Validation: user_inclusion vs standard inclusion in a scheme"
 #| include: true
 
 Cp_u = stiff_kmu(1.e-6, 1.e-6)   # near-zero stiffness for pores

@@ -91,7 +91,7 @@ np.set_printoptions(precision=8, suppress=True)
 # +
 #| error: false
 #| warning: false
-#| code-fold: false
+#| code-summary: "Figure — macroscopic failure ellipse (effective modulus derivatives)"
 #| include: true
 
 def ellipse_radii(ks, mus, f, sch):
@@ -160,7 +160,7 @@ plt.show()
 # +
 #| error: false
 #| warning: false
-#| code-fold: false
+#| code-summary: "Figure — elastoplastic response via modified secant method"
 #| include: true
 
 def build_rve_ep(n, ks, mus, sigma0, f, tabed):
