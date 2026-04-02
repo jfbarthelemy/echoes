@@ -63,6 +63,12 @@ All this work is licensed under the [Creative Commons Attribution-ShareAlike 4.0
 
 Jean-François Barthélémy is a researcher at [Cerema](https://www.cerema.fr/en) in the research team [UMR MCD](https://mcd.univ-gustave-eiffel.fr/).
 
+::: {layout="[3,2]" layout-valign="center"}
+[![](img/Logo%20RF%20Cerema%20horizontal.jpg){height=16px fig-alt="Cerema"}](https://www.cerema.fr/en)
+
+[![](img/UMR%20MCD-couleur-300dpi.png){height=20px fig-alt="UMR MCD"}](https://mcd.univ-gustave-eiffel.fr/)
+:::
+
 ::: {layout="[10,10,10,10]"}
 
 {{< iconify fa6-brands github >}} [GitHub](https://github.com/jfbarthelemy)

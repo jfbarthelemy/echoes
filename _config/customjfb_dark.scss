@@ -1,0 +1,141 @@
+/*-- scss:defaults --*/
+
+// Écraser le fond imposé par _brand.yml (bleu_light_C) et customjfb.scss
+$body-bg:            #222222;
+$body-color:         #dee2e6;
+
+// Cerema palette (repris du thème clair)
+$pistache_C:         #B0CC4E !default;
+$pistache2_C:        #96AB5B !default;
+$jaune_C:            #FDEB7D !default;
+$jaune2_C:           #F7D05C !default;
+$orange_C:           #F49D54 !default;
+$orange2_C:          #EF7757 !default;
+$bleu_C:             #7E97CE !default;
+$bleu2_C:            #5A71B4 !default;
+$vert_C:             #60B467 !default;
+$vert2_C:            #448D60 !default;
+
+// Julia colors
+$julia_blue:         #4063D8 !default;
+$julia_green:        #389826 !default;
+$julia_purple:       #9558B2 !default;
+$julia_red:          #CB3C33 !default;
+
+// Liens plus clairs sur fond sombre
+$link-color:         #f08080 !default;
+$link-color-hover:   lighten(#f08080, 15%) !default;
+
+/*-- scss:rules --*/
+
+// ── Fond général ───────────────────────────────────────────────────────────
+// Double sécurité : force le fond sombre même si _brand.yml ou le thème
+// clair l'auraient défini autrement via une propriété CSS ou une image.
+body {
+  background-color: #222222 !important;
+  background-image: none !important;
+  color: #dee2e6 !important;
+}
+
+.quarto-title-block, .sidebar, .sidebar-navigation,
+.nav-page, .quarto-sidebar {
+  background-color: #2a2a2a !important;
+}
+
+// ── Blocs de code ──────────────────────────────────────────────────────────
+// Fond vert foncé (évoque la teinte pistache du thème clair) + bordure verte
+div.sourceCode {
+  background-color: #1e2d18 !important;
+  border-left: 3px solid #5aad70 !important;
+}
+
+// Code inline (backticks dans le texte) : fond sombre + texte lisible
+:not(.sourceCode) > code,
+p code, li code, td code, th code,
+h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
+  background-color: #2a3a1a !important;
+  color: #c5d99a !important;
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+
+// Fonctions built-in Python (span.bu) : bleu clair sur fond sombre
+div.sourceCode span.bu {
+  color: #64b5f6;
+}
+
+// Identifiants API Echoes
+div.sourceCode span.echoes-api {
+  color: #ce93d8;
+  font-weight: 600;
+}
+
+// ── Boîtes colorées ────────────────────────────────────────────────────────
+
+.bluebox {
+  background: #1a2a3a;
+  box-shadow: 0 0 1px #90caf9;
+  color: #90caf9;
+}
+
+.redbox {
+  background: #3a1a1a;
+  box-shadow: 0 0 1px #ef9a9a;
+  color: #ef9a9a;
+}
+
+.greenbox {
+  background: #1a3a1a;
+  box-shadow: 0 0 1px #a5d6a7;
+  color: #a5d6a7;
+}
+
+.pistachebox {
+  background: #2a3a1a;
+  box-shadow: 0 0 1px $pistache2_C;
+  color: #c5d99a;
+}
+
+.jaunebox {
+  background: #3a3a1a;
+  box-shadow: 0 0 1px $jaune2_C;
+  color: #fce083;
+}
+
+.orangebox {
+  background: #3a2a1a;
+  box-shadow: 0 0 1px $orange2_C;
+  color: #f8a580;
+}
+
+.bleubox {
+  background: #1a2a3a;
+  box-shadow: 0 0 1px $bleu_C;
+  color: #a8c0e8;
+}
+
+.vertbox {
+  background: #1a3a2a;
+  box-shadow: 0 0 1px $vert2_C;
+  color: #80c49a;
+}
+
+.eqbox {
+  background: #1a3a1a;
+  border: 2px solid #64b5f6;
+  padding: 10px;
+  color: #e0e0e0;
+}
+
+.largeeqbox {
+  background: #1a3a1a;
+  border: 2px solid #64b5f6;
+  padding: 20px 10px;
+  color: #e0e0e0;
+}
+
+// ── Couleurs utilitaires ───────────────────────────────────────────────────
+
+.red   { color: #ef9a9a; }
+.blue  { color: #90caf9; }
+.green { color: #a5d6a7; }

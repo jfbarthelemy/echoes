@@ -91,8 +91,12 @@ format:
   html:
     # theme: journal
     theme:
-      - brand
-      - _config/customjfb.scss
+      light:
+        - brand
+        - _config/customjfb.scss
+      dark:
+        - darkly
+        - _config/customjfb_dark.scss
     # css: _config/styles.css
     toc: true
     page-layout: full
