@@ -821,7 +821,7 @@ $$
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="1a5bed87" class="cell" data-execution_count="1">
+<div id="0148f6bc" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
@@ -876,29 +876,31 @@ $$
 <h2 class="anchored" data-anchor-id="sec-visco-discretization">Numerical discretization</h2>
 <section id="block-matrix-representation-of-volterra-integrals" class="level3">
 <h3 class="anchored" data-anchor-id="block-matrix-representation-of-volterra-integrals">Block matrix representation of Volterra integrals</h3>
-<p>Over a discrete time series <span class="math inline">\(t_0 &lt; t_1 &lt; \cdots &lt; t_n\)</span>, the Volterra integral is approximated by a finite sum. Define the <strong>block relaxation matrix</strong> of phase <span class="math inline">\(r\)</span> as the lower-triangular block matrix:</p>
-<p><span class="math display">\[
-\mathbf{R}^r = \bigl([\mathbf{R}^r]_{ij}\bigr)_{0\le j\le i\le n},
-\qquad [\mathbf{R}^r]_{ij} = \uuuu{C}^r(t_i,t_j) \in \mathbb{R}^{6\times 6}
+<p>Over a discrete time series <span class="math inline">\(t_0 &lt; t_1 &lt; \cdots &lt; t_n\)</span>, define the <strong>block column vectors</strong> of stresses and strains at the discrete times: <span class="math display">\[
+\boldsymbol{\Sigma} = \bigl(\boldsymbol{\sigma}(t_0),\;\boldsymbol{\sigma}(t_1),\;\ldots,\;\boldsymbol{\sigma}(t_n)\bigr)^T \in \mathbb{R}^{6(n+1)},
+\quad
+\boldsymbol{E} = \bigl(\boldsymbol{\varepsilon}(t_0),\;\boldsymbol{\varepsilon}(t_1),\;\ldots,\;\boldsymbol{\varepsilon}(t_n)\bigr)^T \in \mathbb{R}^{6(n+1)}.
 \]</span></p>
-<p>The discrete constitutive law <span class="math inline">\(\boldsymbol{\Sigma} = \mathbf{R}^r\,\boldsymbol{E}\)</span> (block matrix–vector product) is an approximation of the Volterra integral <a href="#eq-volterra-relax" class="quarto-xref"><span>17.2</span></a>, where <span class="math inline">\(\boldsymbol{\Sigma}\)</span> and <span class="math inline">\(\boldsymbol{E}\)</span> are block vectors of stresses and strains at the discrete times.</p>
+<p>The Volterra integral <a href="#eq-volterra-relax" class="quarto-xref"><span>17.2</span></a> is approximated by the <strong>discrete constitutive law</strong>: <span class="math display">\[
+\boldsymbol{\Sigma} = \mathbf{R}^r\,\boldsymbol{E}
+\]</span> where <span class="math inline">\(\mathbf{R}^r\)</span> is the <strong>block relaxation matrix</strong> of phase <span class="math inline">\(r\)</span>: a lower-triangular <span class="math inline">\(6(n+1)\times6(n+1)\)</span> matrix with <span class="math inline">\(6\times6\)</span> blocks <span class="math inline">\([\mathbf{R}^r]_{ij}\)</span> (<span class="math inline">\(0\le j\le i\le n\)</span>). The specific form of the blocks depends on the chosen quadrature rule; the trapezoidal scheme of <span class="citation" data-cites="sanahuja2013">(<a href="../references.html#ref-sanahuja2013" role="doc-biblioref">Sanahuja, 2013</a>)</span> is detailed in the next section.</p>
 </section>
 <section id="trapezoidal-discretization-sanahuja2013" class="level3">
 <h3 class="anchored" data-anchor-id="trapezoidal-discretization-sanahuja2013">Trapezoidal discretization <span class="citation" data-cites="sanahuja2013">(<a href="../references.html#ref-sanahuja2013" role="doc-biblioref">Sanahuja, 2013</a>)</span></h3>
-<p>Starting from <a href="#eq-volterra-relax" class="quarto-xref"><span>17.2</span></a> with zero initial conditions before <span class="math inline">\(t_0\)</span>, integrate by parts and apply the trapezoidal rule on each interval <span class="math inline">\([t_j, t_{j+1}]\)</span>. The result is <span class="math inline">\(\sigma(t_i) = \sum_{k=0}^{i} M_{ik}\,\varepsilon(t_k)\)</span> with:</p>
+<p>Starting from <a href="#eq-volterra-relax" class="quarto-xref"><span>17.2</span></a> with zero initial conditions before <span class="math inline">\(t_0\)</span>, integrate by parts and apply the trapezoidal rule on each interval <span class="math inline">\([t_j, t_{j+1}]\)</span>. The blocks of the block relaxation matrix <span class="math inline">\(\mathbf{R}^r\)</span> are:</p>
 <p><span id="eq-visco-mat"><span class="math display">\[
-M_{ik} = \begin{cases}
-R(t_0,\,t_0) &amp; i=k=0 \\[4pt]
-\dfrac{1}{2}\bigl[R(t_i,t_{i-1}) + R(t_i,t_i)\bigr] &amp; i=k&gt;0 \\[4pt]
-\dfrac{1}{2}\bigl[R(t_i,t_0) - R(t_i,t_1)\bigr] &amp; i&gt;0,\;k=0 \\[4pt]
-\dfrac{1}{2}\bigl[R(t_i,t_{k-1}) - R(t_i,t_{k+1})\bigr] &amp; i&gt;k&gt;0
+[\mathbf{R}^r]_{ik} = \begin{cases}
+\uuuu{C}^r(t_0,\,t_0) &amp; i=k=0 \\[4pt]
+\dfrac{1}{2}\bigl[\uuuu{C}^r(t_i,t_{i-1}) + \uuuu{C}^r(t_i,t_i)\bigr] &amp; i=k&gt;0 \\[4pt]
+\dfrac{1}{2}\bigl[\uuuu{C}^r(t_i,t_0) - \uuuu{C}^r(t_i,t_1)\bigr] &amp; i&gt;0,\;k=0 \\[4pt]
+\dfrac{1}{2}\bigl[\uuuu{C}^r(t_i,t_{k-1}) - \uuuu{C}^r(t_i,t_{k+1})\bigr] &amp; i&gt;k&gt;0
 \end{cases}
 \tag{17.4}\]</span></span></p>
-<p>The lower-triangular structure reflects <strong>causality</strong>: <span class="math inline">\(\sigma(t_i)\)</span> depends only on <span class="math inline">\(\varepsilon(t_k)\)</span> for <span class="math inline">\(k \le i\)</span>.</p>
+<p>Note that <span class="math inline">\([\mathbf{R}^r]_{ik}\)</span> is a weighted combination of values of the relaxation kernel <span class="math inline">\(\uuuu{C}^r\)</span> at neighbouring time points — <strong>not</strong> simply <span class="math inline">\(\uuuu{C}^r(t_i, t_k)\)</span>. The lower-triangular structure (<span class="math inline">\([\mathbf{R}^r]_{ik} = 0\)</span> for <span class="math inline">\(k&gt;i\)</span>) reflects <strong>causality</strong>: <span class="math inline">\(\boldsymbol{\sigma}(t_i)\)</span> depends only on <span class="math inline">\(\boldsymbol{\varepsilon}(t_k)\)</span> for <span class="math inline">\(k \le i\)</span>.</p>
 </section>
 <section id="python-implementation" class="level3">
 <h3 class="anchored" data-anchor-id="python-implementation">Python implementation</h3>
-<div id="b09572a8" class="cell" data-execution_count="2">
+<div id="6a40fe73" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> visco_mat(f, t):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Lower-triangular discretization matrix for scalar kernel f(t, t').</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Implements Eq. (visco-mat) with zero initial conditions."""</span></span>
@@ -913,8 +915,8 @@ R(t_0,\,t_0) &amp; i=k=0 \\[4pt]
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>            M[i, j] <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> (f(t[i], t[j<span class="op">-</span><span class="dv">1</span>]) <span class="op">-</span> f(t[i], t[j<span class="op">+</span><span class="dv">1</span>]))</span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>For illustration, consider a Maxwell relaxation <span class="math inline">\(R(t,t') = e^{-(t-t')/\tau}\)</span> with <span class="math inline">\(\tau=20\)</span>:</p>
-<div id="b984e837" class="cell" data-execution_count="3">
+<p>For illustration, consider a scalar Maxwell relaxation kernel <span class="math inline">\(C(t,t') = e^{-(t-t')/\tau}\)</span> with <span class="math inline">\(\tau=20\)</span>:</p>
+<div id="c03d72e7" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tau_m <span class="op">=</span> <span class="fl">20.</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>R_maxwell <span class="op">=</span> <span class="kw">lambda</span> t, tp: exp(<span class="op">-</span>(t <span class="op">-</span> tp) <span class="op">/</span> tau_m)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>t_small <span class="op">=</span> array([<span class="fl">0.</span>, <span class="fl">5.</span>, <span class="fl">15.</span>, <span class="fl">40.</span>, <span class="fl">80.</span>])</span>
@@ -943,7 +945,7 @@ Creep matrix M⁻¹:
 <section id="the-visco_law-object-in-echoes" class="level3">
 <h3 class="anchored" data-anchor-id="the-visco_law-object-in-echoes">The <code>visco_law</code> object in <em>Echoes</em></h3>
 <p>The 6×6 block version of <a href="#eq-visco-mat" class="quarto-xref"><span>17.4</span></a> — where each scalar entry becomes a <span class="math inline">\(6\times 6\)</span> tensor block — is built by <code>visco_law(func, MODE)</code>:</p>
-<div id="e7a7211f" class="cell" data-execution_count="4">
+<div id="1f24362b" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Cs <span class="op">=</span> stiff_Enu(<span class="fl">1.</span>, <span class="fl">0.2</span>)<span class="op">;</span>  ks, mus <span class="op">=</span> Cs.kmu</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>fk  <span class="op">=</span> <span class="kw">lambda</span> t: <span class="fl">0.5</span> <span class="op">*</span> exp(<span class="op">-</span>t <span class="op">/</span> <span class="fl">20.</span>) <span class="op">+</span> <span class="fl">0.5</span>   <span class="co"># ageing factor</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>fmu <span class="op">=</span> <span class="kw">lambda</span> t: <span class="fl">0.5</span> <span class="op">*</span> exp(<span class="op">-</span>t <span class="op">/</span> <span class="fl">20.</span>) <span class="op">+</span> <span class="fl">0.5</span></span>
@@ -954,7 +956,7 @@ Creep matrix M⁻¹:
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>vl <span class="op">=</span> visco_law(Js, CREEP)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The call <code>vl.mat(t)</code> returns the block creep matrix of size <span class="math inline">\(6(n+1)\times 6(n+1)\)</span>; <code>vl.relaxation_mat(t)</code> returns the corresponding block relaxation matrix (Volterra inverse, computed numerically). Let us display the <span class="math inline">\((1,1)\)</span>-component of each block for a 4-step series:</p>
-<div id="452732f2" class="cell" data-execution_count="5">
+<div id="42eae7aa" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>t3 <span class="op">=</span> array([<span class="fl">0.</span>, <span class="fl">5.</span>, <span class="fl">15.</span>, <span class="fl">40.</span>])</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>M_block <span class="op">=</span> vl.mat(t3)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Creep block matrix — (11)-component of each 6×6 block:"</span>)</span>
@@ -973,7 +975,7 @@ Creep matrix M⁻¹:
 </section>
 <section id="sec-visco-sym" class="level3">
 <h3 class="anchored" data-anchor-id="sec-visco-sym">Symmetry decomposition: <code>visco_paramsym</code> and <code>visco_tensor</code></h3>
-<p>For an isotropic material, the relaxation tensor decomposes as <span class="math inline">\(\uuuu{C}(t,t') = 3k(t,t')\,\uuuu{J} + 2\mu(t,t')\,\uuuu{K}\)</span>. At the discrete level the 6<span class="math inline">\((n+1)\)</span>$<span class="math inline">\(6\)</span>(n+1)$ block matrix inherits this structure: its information is entirely captured by independent scalar <span class="math inline">\((n+1)\times(n+1)\)</span> <strong>parameter blocks</strong>, one per independent modulus of the material symmetry class.</p>
+<p>For an isotropic material, the relaxation tensor decomposes as <span class="math inline">\(\uuuu{C}(t,t') = 3k(t,t')\,\uuuu{J} + 2\mu(t,t')\,\uuuu{K}\)</span>. At the discrete level the <span class="math inline">\(6(n+1)\times 6(n+1)\)</span> block matrix inherits this structure: its information is entirely captured by independent scalar <span class="math inline">\((n+1)\times(n+1)\)</span> <strong>parameter blocks</strong>, one per independent modulus of the material symmetry class.</p>
 <p><strong><code>visco_paramsym</code></strong> extracts these blocks from a block matrix:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> visco_paramsym(array, sym, theta<span class="op">=</span><span class="fl">0.</span>, phi<span class="op">=</span><span class="fl">0.</span>, psi<span class="op">=</span><span class="fl">0.</span>, unitsize<span class="op">=</span><span class="dv">6</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># array        : block relaxation/creep matrix, size 6(n+1)×6(n+1)</span></span>
@@ -991,7 +993,7 @@ Creep matrix M⁻¹:
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># angles : rotation angles matching those used in visco_paramsym</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># returns: block matrix of size 6(n+1)×6(n+1)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Continuing the previous example (<code>vl</code>, <code>t3</code>):</p>
-<div id="f27376b2" class="cell" data-execution_count="6">
+<div id="1aeaa24f" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>M_relax <span class="op">=</span> vl.relaxation_mat(t3)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>Vk, Vmu <span class="op">=</span> visco_paramsym(M_relax, ISO)   <span class="co"># bulk and shear (n+1)×(n+1) blocks</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1014,7 +1016,7 @@ Shear relaxation block Vmu  [mu(ti, tj)]:
 </div>
 </div>
 <p>The <span class="math inline">\((i,j)\)</span> entry of <code>Vk</code> (resp. <code>Vmu</code>) is the bulk (resp. shear) relaxation modulus <span class="math inline">\(k(t_i,t_j)\)</span> (resp. <span class="math inline">\(\mu(t_i,t_j)\)</span>). The lower-triangular structure reflects causality. Reconstruction with <code>visco_tensor</code> is exact:</p>
-<div id="bcfb028b" class="cell" data-execution_count="7">
+<div id="5ced54d8" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>M_check <span class="op">=</span> visco_tensor([Vk, Vmu], [])</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Max reconstruction error:"</span>, <span class="bu">abs</span>(M_relax <span class="op">-</span> M_check).<span class="bu">max</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -1035,12 +1037,11 @@ Shear relaxation block Vmu  [mu(ti, tj)]:
 <p><span class="math display">\[
 \boldsymbol{\varepsilon}_{|\mathcal{E}}(t) = -\uuuu{P}_\mathcal{E}(t,\bullet) \dcirc \uu{p}(\bullet)
 \]</span></p>
-<p>The formula for <span class="math inline">\(\uuuu{P}_\mathcal{E}(t,t')\)</span> and its derivation are given in <a href="../99_appendices/viscoelastic_hill_kernel.html" class="quarto-xref"><span>Appendix C</span></a> (<a href="../99_appendices/viscoelastic_hill_kernel.html#eq-alv-hill-kernel" class="quarto-xref"><span>C.1</span></a>). The fundamental result is the <strong>block property</strong> (<a href="../99_appendices/viscoelastic_hill_kernel.html#eq-block-hill-prop" class="quarto-xref"><span>C.2</span></a>): over a discrete time grid,</p>
+<p>The formula for <span class="math inline">\(\uuuu{P}_\mathcal{E}(t,t')\)</span> and its derivation are given in <a href="../99_appendices/viscoelastic_hill_kernel.html" class="quarto-xref"><span>Appendix C</span></a> (<a href="../99_appendices/viscoelastic_hill_kernel.html#eq-alv-hill-kernel" class="quarto-xref"><span>C.1</span></a>). The fundamental result is the <strong>block property</strong> (<a href="../99_appendices/viscoelastic_hill_kernel.html#eq-block-hill-prop" class="quarto-xref"><span>C.2</span></a>): the block Hill matrix is obtained by applying the elastic Hill tensor formula directly to the block relaxation matrix <span class="math inline">\(\mathbf{R}^0\)</span>:</p>
 <p><span id="eq-block-hill"><span class="math display">\[
-\bigl[\mathbf{P}_\mathcal{E}(\mathbf{R}^0)\bigr]_{ij}
-= \mathbb{P}_\mathcal{E}\!\bigl([\mathbf{R}^0]_{ij}\bigr)
+\mathbf{P}_\mathcal{E}(\mathbf{R}^0) = \mathbb{P}_\mathcal{E}(\mathbf{R}^0)
 \tag{17.5}\]</span></span></p>
-<p>Block <span class="math inline">\((i,j)\)</span> of the block Hill matrix equals the <strong>elastic Hill tensor</strong> evaluated at the <span class="math inline">\((i,j)\)</span> block of the reference relaxation matrix. This reduces ALV homogenization to a collection of elastic Hill tensor evaluations.</p>
+<p>That is, the same formula as for the elastic Hill tensor (see <a href="../99_appendices/hill_tensors.html" class="quarto-xref"><span>Appendix B</span></a>), with <span class="math inline">\(\mathbb{C}\)</span> replaced by <span class="math inline">\(\mathbf{R}^0\)</span> and all matrix operations interpreted block-wise. This makes ALV homogenization directly compatible with elastic Hill tensor routines applied to the block relaxation matrix.</p>
 </section>
 <section id="isotropic-matrix-case" class="level3">
 <h3 class="anchored" data-anchor-id="isotropic-matrix-case">Isotropic matrix case</h3>
@@ -1058,16 +1059,16 @@ Shear relaxation block Vmu  [mu(ti, tj)]:
 </section>
 <section id="strain-concentration-and-contribution-tensors" class="level3">
 <h3 class="anchored" data-anchor-id="strain-concentration-and-contribution-tensors">Strain concentration and contribution tensors</h3>
-<p>For an inclusion <span class="math inline">\(\mathcal{E}\)</span> with stiffness kernel <span class="math inline">\(\uuuu{C}^\mathcal{E}\)</span> in a reference medium with kernel <span class="math inline">\(\uuuu{C}^0\)</span>, the <strong>strain concentration tensor</strong> (dilute Eshelby solution) satisfies:</p>
+<p>For an inclusion <span class="math inline">\(\mathcal{E}\)</span> with stiffness kernel <span class="math inline">\(\uuuu{C}^\mathcal{E}\)</span> in a reference medium with kernel <span class="math inline">\(\uuuu{C}^0\)</span>, the <strong>dilute strain concentration tensor</strong> (ALV counterpart of <span class="math inline">\(\uuuu{A}^{dil}\)</span> in <a href="../3_concentration/concentration_tensors.html" class="quarto-xref"><span>Chapter 7</span></a>) satisfies:</p>
 <p><span id="eq-alv-concentration"><span class="math display">\[
-\boldsymbol{\varepsilon}_{|\mathcal{E}} = \uuuu{a}^\mathcal{E} \dcirc \uu{E},
+\boldsymbol{\varepsilon}_{|\mathcal{E}} = \uuuu{A}^{dil} \dcirc \uu{E},
 \qquad
-\uuuu{a}^\mathcal{E} = \volt{\!\bigl(H\,\uuuu{I} + \uuuu{P}_\mathcal{E} \dcirc (\uuuu{C}^\mathcal{E} - \uuuu{C}^0)\bigr)}
+\uuuu{A}^{dil} = \volt{\!\bigl(H\,\uuuu{I} + \uuuu{P}_\mathcal{E} \dcirc (\uuuu{C}^\mathcal{E} - \uuuu{C}^0)\bigr)}
 \tag{17.7}\]</span></span></p>
-<p>In block matrix form: <span class="math inline">\(\mathbf{A}^\mathcal{E} = \bigl[\mathbf{I} + \mathbf{P}_\mathcal{E}(\mathbf{R}^0)\cdot(\mathbf{R}^\mathcal{E} - \mathbf{R}^0)\bigr]^{-1}\)</span>.</p>
-<p>The <strong>strain contribution tensor</strong> (relating the far-field disturbance to the macroscopic strain) is:</p>
+<p>In block matrix form: <span class="math inline">\(\mathbf{A}^{dil} = \bigl[\mathbf{I} + \mathbf{P}_\mathcal{E}(\mathbf{R}^0)\cdot(\mathbf{R}^\mathcal{E} - \mathbf{R}^0)\bigr]^{-1}\)</span>.</p>
+<p>The <strong>strain contribution tensor</strong> (ALV counterpart of <span class="math inline">\(\delta\uuuu{C}:\uuuu{A}^{dil}\)</span> in <a href="../4_schemes/schemes.html" class="quarto-xref"><span>Chapter 12</span></a>) is:</p>
 <p><span id="eq-alv-contribution"><span class="math display">\[
-\uuuu{N}^\mathcal{E} = (\uuuu{C}^\mathcal{E} - \uuuu{C}^0) \dcirc \uuuu{a}^\mathcal{E}
+\uuuu{N}^{dil} = (\uuuu{C}^\mathcal{E} - \uuuu{C}^0) \dcirc \uuuu{A}^{dil}
 = \volt{\!\bigl(\uuuu{P}_\mathcal{E} + \volt{(\uuuu{C}^\mathcal{E} - \uuuu{C}^0)}\bigr)}
 \tag{17.8}\]</span></span></p>
 <p>These Volterra-kernel expressions are the exact analogues of the elastic concentration and contribution tensors with matrix inverses replaced by Volterra inverses.</p>
@@ -1113,9 +1114,9 @@ Shear relaxation block Vmu  [mu(ti, tj)]:
 <h2 class="anchored" data-anchor-id="sec-visco-schemes">Homogenization schemes</h2>
 <p>For a matrix composite with matrix stiffness kernel <span class="math inline">\(\uuuu{C}^0\)</span> and inclusion sets <span class="math inline">\(r\)</span> (volume fractions <span class="math inline">\(\varphi_r\)</span>, stiffness kernels <span class="math inline">\(\uuuu{C}^r\)</span>), the general formula for the effective stiffness kernel is:</p>
 <p><span class="math display">\[
-\uuuu{C}^{hom} = \uuuu{C}^0 + \sum_r \varphi_r\,(\uuuu{C}^r - \uuuu{C}^0) \dcirc \langle\uuuu{a}^r\rangle
+\uuuu{C}^{hom} = \uuuu{C}^0 + \sum_r \varphi_r\,(\uuuu{C}^r - \uuuu{C}^0) \dcirc \langle\uuuu{A}^r\rangle
 \]</span></p>
-<p>Different schemes correspond to different choices of how <span class="math inline">\(\langle\uuuu{a}^r\rangle\)</span> is estimated.</p>
+<p>Different schemes correspond to different choices of how <span class="math inline">\(\langle\uuuu{A}^r\rangle\)</span> is estimated.</p>
 <section id="maxwell-scheme" class="level3">
 <h3 class="anchored" data-anchor-id="maxwell-scheme">Maxwell scheme</h3>
 <p>The <strong>Maxwell</strong> (or Ponte Castañeda-Willis) scheme equates the far-field disturbance of all inclusions to that of an equivalent homogeneous particle of shape <span class="math inline">\(\Omega\)</span> (distribution shape):</p>
@@ -1138,7 +1139,7 @@ Shear relaxation block Vmu  [mu(ti, tj)]:
 <p><span id="eq-mtb-alv"><span class="math display">\[
 \uuuu{C}^{MT} = \uuuu{C}^0 +
 \sum_r \varphi_r\,\uuuu{N}^r \dcirc
-\volt{\!\left((1-\textstyle\sum_s\varphi_s)\,H\,\uuuu{I} + \sum_s \varphi_s\,\uuuu{a}^s\right)}
+\volt{\!\left((1-\textstyle\sum_s\varphi_s)\,H\,\uuuu{I} + \sum_s \varphi_s\,\uuuu{A}^{dil,s}\right)}
 \tag{17.11}\]</span></span></p>
 <p>When all inclusions have the same shape (single set), the MT scheme reduces to the standard <strong>Mori-Tanaka</strong> scheme with matrix as reference:</p>
 <p><span id="eq-MT-block"><span class="math display">\[
@@ -1178,7 +1179,7 @@ I_\alpha(\beta,t)
 \tilde{\mu}(p) = \mu^0\!\left(1 + \frac{\lambda}{p^{1+\alpha} + \beta}\right)
 \tag{17.16}\]</span></span></p>
 <p>Parameters <span class="citation" data-cites="barthelemyIJSS2016">(<a href="../references.html#ref-barthelemyIJSS2016" role="doc-biblioref">Barthélémy et al., 2016</a>)</span>: <span class="math inline">\(k^0=5.97\)</span> GPa, <span class="math inline">\(\mu^0=1.7\)</span> GPa, <span class="math inline">\(\alpha=-0.46\)</span>, <span class="math inline">\(\beta=0.98\)</span> h<span class="math inline">\(^{-(1+\alpha)}\)</span>, <span class="math inline">\(\lambda=-0.495\)</span> h<span class="math inline">\(^{-(1+\alpha)}\)</span>. Rigid inclusions: <span class="math inline">\(C_i=10^6\,\mathbb{C}(k^0,\mu^0)\)</span>; spherical pores: <span class="math inline">\(C_i=10^{-10}\,\mathbb{C}(k^0,\mu^0)\)</span>.</p>
-<div id="8bf5d579" class="cell" data-execution_count="8">
+<div id="4cba2ad6" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>k0, mu0 <span class="op">=</span> <span class="fl">5.97</span>, <span class="fl">1.7</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>alpha0, beta0, lambda0 <span class="op">=</span> <span class="op">-</span><span class="fl">0.46</span>, <span class="fl">0.98</span>, <span class="op">-</span><span class="fl">0.495</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1208,7 +1209,7 @@ I_\alpha(\beta,t)
 <span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>    _, Vmu <span class="op">=</span> visco_paramsym(V, ISO)</span>
 <span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Vmu   <span class="co"># relaxation matrix</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="02527dc5" class="cell" data-execution_count="9">
+<div id="9437305b" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Closed-form Mittag-Leffler solutions (rigid spheres and pores)</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Lmu_sph_rig_ML_DIL(t, f):</span>
@@ -1288,7 +1289,7 @@ I_\alpha(\beta,t)
 <span id="cb20-75"><a href="#cb20-75" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> mu0MX<span class="op">*</span>(<span class="dv">1</span> <span class="op">+</span> d3mu<span class="op">*</span>I_Rabotnov(t,alpha0,eta3) <span class="op">+</span> d4mu<span class="op">*</span>I_Rabotnov(t,alpha0,eta4))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div id="a5dc2029" class="cell" data-execution_count="10">
+<div id="7c87bac5" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>n_val <span class="op">=</span> <span class="dv">200</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> array([<span class="fl">0.</span>] <span class="op">+</span> logspace(<span class="op">-</span><span class="fl">8.</span>, log10(<span class="fl">100.</span>), n_val).tolist())</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>fracs <span class="op">=</span> [<span class="fl">0.05</span>, <span class="fl">0.1</span>, <span class="fl">0.2</span>]<span class="op">;</span>  clrs <span class="op">=</span> [<span class="st">'b'</span>, <span class="st">'k'</span>, <span class="st">'r'</span>]</span>
@@ -1404,7 +1405,7 @@ Fig.&nbsp;17.1: RVE: matrix (grey) with oblate spheroidal inclusions (<span clas
 </figcaption>
 </figure>
 </div>
-<div id="ef5564fd" class="cell" data-execution_count="11">
+<div id="fe622553" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Js_Kelvin2(nu, E, s1, s2, tau1, tau2, tau_a):</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Ageing creep compliance: @eq-granger-law."""</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> f(t, tp):</span>
@@ -1436,7 +1437,7 @@ Fig.&nbsp;17.1: RVE: matrix (grey) with oblate spheroidal inclusions (<span clas
 <span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>n_app <span class="op">=</span> <span class="dv">200</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Effect of scheme and volume fraction (<span class="math inline">\(\omega=0.1\)</span>, <span class="math inline">\(\varphi\in\{0.05,0.1,0.2\}\)</span>, <span class="math inline">\(t_0\in\{0,20,40\}\)</span>):</p>
-<div id="432b61d2" class="cell" data-execution_count="12">
+<div id="542a8335" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">4</span>))</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>omega <span class="op">=</span> <span class="fl">0.1</span></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> t0 <span class="kw">in</span> [<span class="fl">0.</span>, <span class="fl">20.</span>, <span class="fl">40.</span>]:</span>
@@ -1474,7 +1475,7 @@ Fig.&nbsp;17.1: RVE: matrix (grey) with oblate spheroidal inclusions (<span clas
 </div>
 <p>Blue/black/red: <span class="math inline">\(\varphi=0.05/0.1/0.2\)</span>; solid: MAX, dashed: DIL, dotted: MT. Green/magenta: single-phase matrix/inclusion. Multiple same-colour curves correspond to <span class="math inline">\(t_0\in\{0,20,40\}\)</span>: earlier loading ages produce more creep (younger, less stiff matrix).</p>
 <p>Effect of scheme and aspect ratio (<span class="math inline">\(\varphi=0.2\)</span>, <span class="math inline">\(\omega\in\{0.1,1\}\)</span>, <span class="math inline">\(t_0\in\{0,20,40\}\)</span>):</p>
-<div id="d3f7dddd" class="cell" data-execution_count="13">
+<div id="87348ef2" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">4</span>))</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="fl">0.2</span></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> t0 <span class="kw">in</span> [<span class="fl">0.</span>, <span class="fl">20.</span>, <span class="fl">40.</span>]:</span>

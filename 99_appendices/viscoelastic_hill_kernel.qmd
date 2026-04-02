@@ -27,26 +27,18 @@ This formula is the exact analogue of the elastic Hill tensor (see @sec-hill_ela
 
 ## Block property {#sec-block-hill-property}
 
-The following theorem is the key computational result enabling ALV homogenization [@barthelemyIJSS2016, Theorem 1]. Over a discrete time series $t_0 < t_1 < \cdots < t_n$, define the **block relaxation matrix** of the reference medium as the lower-triangular block matrix
+The following theorem is the key computational result enabling ALV homogenization [@barthelemyIJSS2016, Theorem 1]. Over a discrete time series $t_0 < t_1 < \cdots < t_n$, let $\mathbf{R}^0$ denote the **block relaxation matrix** of the reference medium: a lower-triangular $6(n+1)\times6(n+1)$ matrix with $6\times6$ blocks, built from the trapezoidal discretization of the Volterra integral (see @sec-visco-discretization in @sec-viscoelasticity-time). The **block Hill matrix** satisfies:
 
 $$
-\mathbf{R}^0 = \bigl([\mathbf{R}^0]_{ij}\bigr)_{0\le j\le i\le n},
-\qquad [\mathbf{R}^0]_{ij} = \uuuu{C}^0(t_i,t_j) \in \mathbb{R}^{6\times 6}.
-$$
-
-The corresponding block Hill matrix $\mathbf{P}_\mathcal{E}(\mathbf{R}^0)$, of block-size $(n+1)\times(n+1)$, satisfies:
-
-$$
-\bigl[\mathbf{P}_\mathcal{E}(\mathbf{R}^0)\bigr]_{ij}
-= \mathbb{P}_\mathcal{E}\!\bigl([\mathbf{R}^0]_{ij}\bigr)
+\mathbf{P}_\mathcal{E}(\mathbf{R}^0) = \mathbb{P}_\mathcal{E}(\mathbf{R}^0)
 $$ {#eq-block-hill-prop}
 
-In words: **block $(i,j)$ of the block Hill matrix equals the elastic Hill tensor evaluated at block $(i,j)$ of the reference relaxation matrix.**
+In words: **the block Hill matrix is obtained by applying the elastic Hill tensor formula to the block relaxation matrix $\mathbf{R}^0$**, with $\mathbb{C}$ replaced by $\mathbf{R}^0$ in the integral formula of @sec-hill_elas and all matrix operations interpreted block-wise.
 
-**Proof sketch.** The key observation is that the Volterra inverse of a lower-triangular block matrix is itself lower-triangular, and its $(i,j)$ block depends only on the blocks $[\mathbf{R}^0]_{pq}$ with $p\le i$, $q\le j$. In particular, $[\volt{(\uv{\xi}\cdot\mathbf{R}^0\cdot\uv{\xi})}]_{ij} = [(\uv{\xi}\cdot\mathbf{R}^0\cdot\uv{\xi})^{-1}]_{ij}$ (lower-triangular matrix inverse, block-by-block). Substituting into the block version of @eq-alv-hill-kernel and applying the linearity of the integral over $\uv{\xi}$, each block $(i,j)$ of the block Hill matrix reduces to the elastic Hill tensor at $[\mathbf{R}^0]_{ij}$. Full details are in [@barthelemyIJSS2016, Section 3.2].
+**Proof sketch.** For a causal lower-triangular block matrix $\mathbf{K}$, the Volterra inverse coincides with the algebraic (block matrix) inverse: $\volt{\mathbf{K}} = \mathbf{K}^{-1}$. Applied to the acoustic block matrix $\mathbf{K}_{\uv{\xi}} = \uv{\xi}\cdot\mathbf{R}^0\cdot\uv{\xi}$, the Volterra inverse $\volt{(\uv{\xi}\cdot\uuuu{C}^0\cdot\uv{\xi})}$ appearing in @eq-alv-hill-kernel is replaced by the ordinary matrix inverse $(\uv{\xi}\cdot\mathbf{R}^0\cdot\uv{\xi})^{-1}$. Integrating over $\uv{\xi}$ then yields exactly the elastic Hill formula (see @sec-hill_elas) applied to $\mathbf{R}^0$. Full details are in [@barthelemyIJSS2016, Section 3.2].
 
 ::: {.callout-important}
-**Computational implication.** Evaluating the block Hill matrix $\mathbf{P}_\mathcal{E}(\mathbf{R}^0)$ of block-dimension $(n+1)\times(n+1)$ requires only $(n+1)(n+2)/2$ standard elastic Hill tensor evaluations — one per lower-triangular block $(i,j)$ with $0\le j\le i\le n$. This makes ALV homogenization computationally equivalent to solving $(n+1)(n+2)/2$ independent elastic problems.
+**Computational implication.** The block Hill matrix $\mathbf{P}_\mathcal{E}(\mathbf{R}^0)$ is computed by a **single application** of the elastic Hill tensor formula to the $6(n+1)\times6(n+1)$ block matrix $\mathbf{R}^0$. ALV homogenization is thus directly compatible with elastic Hill tensor routines, with the $6\times6$ stiffness simply replaced by the full block relaxation matrix.
 :::
 
 ## Isotropic ALV matrix
