@@ -97,4 +97,6 @@ Jean-François Barthélémy is a researcher at [Cerema](https://www.cerema.fr/en
 ----------------
 Powered by [Quarto](https://quarto.org/).
 
+The scientific content of this documentation — models, algorithms, and numerical examples — was developed by the author of the library or the authors of mentioned papers over the course of their research. The editorial work (chapter structure, code formatting, and notebook generation pipeline) was assisted by [Claude Code](https://claude.ai/code) (Anthropic).
+
 $\,$
