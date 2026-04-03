@@ -931,7 +931,7 @@ $$
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="125bd1ba" class="cell" data-execution_count="1">
+<div id="dabd049e" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
@@ -945,7 +945,7 @@ $$
 <section id="porous-medium-modeling" class="level2">
 <h2 class="anchored" data-anchor-id="porous-medium-modeling">Porous medium modeling</h2>
 <p>A porous medium is modeled as a composite in which the voids are treated as inclusions with zero (or near-zero) stiffness:</p>
-<div id="6777ba6f" class="cell" data-execution_count="2">
+<div id="4372c850" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ks, mus <span class="op">=</span> <span class="fl">72.</span>, <span class="fl">32.</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>kp, mup <span class="op">=</span> <span class="fl">1.e-6</span>, <span class="fl">1.e-6</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -959,7 +959,7 @@ $$
 <section id="sec-porous-comparison" class="level2">
 <h2 class="anchored" data-anchor-id="sec-porous-comparison">Scheme comparison on porous media</h2>
 <p>The following example computes the effective bulk and shear moduli versus porosity for all available schemes.</p>
-<div id="85b7c603" class="cell" data-execution_count="3">
+<div id="beb22d7e" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Figure — scheme comparison on porous media</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Chom_porous(myrve, phi, sch):</span>
@@ -1003,8 +1003,8 @@ $$
 </section>
 <section id="effect-of-pore-shape" class="level2">
 <h2 class="anchored" data-anchor-id="effect-of-pore-shape">Effect of pore shape</h2>
-<p>The aspect ratio of pores significantly affects the effective properties. Oblate pores (<span class="math inline">\(\omega &lt; 1\)</span>) lead to softer behavior than spherical pores (<span class="math inline">\(\omega = 1\)</span>), while prolate pores (<span class="math inline">\(\omega &gt; 1\)</span>) produce an intermediate effect.</p>
-<div id="79ccdc85" class="cell" data-execution_count="4">
+<p>The aspect ratio of pores significantly affects the effective properties. Both oblate (<span class="math inline">\(\omega &lt; 1\)</span>) and prolate (<span class="math inline">\(\omega &gt; 1\)</span>) pores lead to softer behavior than spherical pores (<span class="math inline">\(\omega = 1\)</span>), i.e.&nbsp;the effective moduli decrease more rapidly with porosity.</p>
+<div id="0c5e6538" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Figure — effect of pore shape</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>lphi <span class="op">=</span> np.linspace(<span class="fl">0.</span>, <span class="fl">0.5</span>, <span class="dv">51</span>)</span>
@@ -1039,12 +1039,12 @@ $$
 </section>
 <section id="percolation-threshold" class="level2">
 <h2 class="anchored" data-anchor-id="percolation-threshold">Percolation threshold</h2>
-<p>In the self-consistent scheme, the effective moduli vanish at a critical porosity (percolation threshold) that depends on the pore aspect ratio. For spherical pores (<span class="math inline">\(\omega=1\)</span>), the percolation threshold is <span class="math inline">\(\phi_c=0.5\)</span>. For oblate pores (<span class="math inline">\(\omega \to 0\)</span>), the threshold tends to 1, while for prolate pores (<span class="math inline">\(\omega \to \infty\)</span>), it tends to 0.</p>
+<p>In the self-consistent scheme, the effective moduli vanish at a critical porosity (percolation threshold) that depends on the pore aspect ratio. For spherical pores (<span class="math inline">\(\omega=1\)</span>), the percolation threshold is <span class="math inline">\(\phi_c=0.5\)</span>. Both flattening (<span class="math inline">\(\omega &lt; 1\)</span>) and elongating (<span class="math inline">\(\omega &gt; 1\)</span>) the pores lower the percolation threshold below <span class="math inline">\(0.5\)</span>: non-spherical pores create more connectivity at a given volume fraction, so the medium loses its stiffness earlier.</p>
 </section>
 <section id="sec-permeability" class="level2">
 <h2 class="anchored" data-anchor-id="sec-permeability">Permeability of porous media</h2>
 <p>Transport properties (permeability, conductivity, diffusivity) are described by 2nd-order tensors and can be homogenized with the same framework using <code>prop="K"</code>:</p>
-<div id="49784b9d" class="cell" data-execution_count="5">
+<div id="8d56071d" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Figure — permeability of a porous medium</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Ks <span class="op">=</span> <span class="fl">0.1</span> <span class="op">*</span> tId2    <span class="co"># solid conductivity</span></span>
@@ -1056,9 +1056,9 @@ $$
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>myrve_K[<span class="st">"PORE"</span>] <span class="op">=</span> ellipsoid(shape<span class="op">=</span>spheroidal(<span class="fl">0.1</span>), symmetrize<span class="op">=</span>[ISO],</span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>                            prop<span class="op">=</span>{<span class="st">"K"</span>: Kp})</span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>lphi <span class="op">=</span> np.linspace(<span class="fl">0.</span>, <span class="fl">1.</span>, <span class="dv">51</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>lphi <span class="op">=</span> np.linspace(<span class="fl">0.</span>, <span class="fl">0.7</span>, <span class="dv">51</span>)</span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">5</span>))</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sch <span class="kw">in</span> [MT, SC, MAX, PCW]:</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sch <span class="kw">in</span> [MT, SC, MAX]:</span>
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    lK <span class="op">=</span> []</span>
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> phi <span class="kw">in</span> lphi:</span>
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        myrve_K[<span class="st">"PORE"</span>].fraction <span class="op">=</span> phi</span>
@@ -1073,13 +1073,14 @@ $$
 <span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    ax.plot(lphi, lK, label<span class="op">=</span><span class="bu">str</span>(sch))</span>
 <span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="vs">r"</span><span class="dv">$</span><span class="ch">\v</span><span class="vs">arphi</span><span class="dv">$</span><span class="vs">"</span>)<span class="op">;</span> ax.set_ylabel(<span class="vs">r"</span><span class="dv">$</span><span class="vs">K</span><span class="dv">^</span><span class="vs">{hom}</span><span class="dv">$</span><span class="vs">"</span>)</span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>)<span class="op">;</span> ax.legend()</span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="fl">0.</span>, <span class="fl">1.</span>)</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>)<span class="op">;</span> ax.legend()</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="porous_media_files/figure-html/cell-6-output-1.png" width="513" height="429" class="figure-img"></p>
+<p><img src="porous_media_files/figure-html/cell-6-output-1.png" width="517" height="434" class="figure-img"></p>
 </figure>
 </div>
 </div>
