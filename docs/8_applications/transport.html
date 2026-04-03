@@ -825,7 +825,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#permeability-of-cracked-media" id="toc-permeability-of-cracked-media" class="nav-link" data-scroll-target="#permeability-of-cracked-media">Permeability of cracked media</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/8_applications/transport.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div><div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="transport.py"><i class="bi bi-file-code"></i>Python script</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/8_applications/transport.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div><div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="transport.py"><i class="bi bi-file-code"></i>Python script</a></li><li><a href="transport.ipynb"><i class="bi bi-journal-code"></i>Jupyter notebook</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
@@ -953,7 +953,7 @@ $$
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="5ebc432f" class="cell" data-execution_count="1">
+<div id="78948be7" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
@@ -973,7 +973,7 @@ $$
 <section id="diffusivity-of-porous-media" class="level2">
 <h2 class="anchored" data-anchor-id="diffusivity-of-porous-media">Diffusivity of porous media</h2>
 <p>The effective diffusivity of a porous material with elongated pores can be modeled as a function of porosity and pore aspect ratio.</p>
-<div id="e799a1a2" class="cell" data-execution_count="2">
+<div id="cb08346e" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Figure — effective diffusivity vs porosity (SC, pore shapes)</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Ds <span class="op">=</span> <span class="fl">0.1</span> <span class="op">*</span> tId2   <span class="co"># solid diffusivity</span></span>
@@ -1035,7 +1035,7 @@ $$
 </div>
 </div>
 <p>Because the <code>sphere_nlayers</code> inclusion covers aggregate + ITZ shell, its effective volume fraction is larger than the bare aggregate fraction <span class="math inline">\(f\)</span>: <span class="math display">\[f_{inc} = f\!\left(1 + \frac{e_{ITZ}}{R_{agg}}\right)^3\]</span></p>
-<div id="c27f6d63" class="cell" data-execution_count="3">
+<div id="50ae96b7" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Ragg <span class="op">=</span> <span class="fl">5.e3</span>   <span class="co"># aggregate radius (µm)</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>eITZ <span class="op">=</span> <span class="fl">50.</span>    <span class="co"># ITZ thickness (µm)</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1058,7 +1058,7 @@ $$
 <span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.trace(homogenize(prop<span class="op">=</span><span class="st">"D"</span>, rve<span class="op">=</span>ver_itz,</span>
 <span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>                               scheme<span class="op">=</span>MT, verbose<span class="op">=</span><span class="va">False</span>).array) <span class="op">/</span> <span class="fl">3.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="f7b02ed5" class="cell" data-execution_count="4">
+<div id="8324357c" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Figure — effect of the Interfacial Transition Zone (layer model)</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>lf     <span class="op">=</span> np.linspace(<span class="fl">0.001</span>, <span class="fl">0.999</span>, <span class="dv">50</span>)</span>
@@ -1099,7 +1099,7 @@ $$
 <p>A thin spherical shell of radius <span class="math inline">\(R\)</span>, thickness <span class="math inline">\(e \ll R\)</span> and diffusivity <span class="math inline">\(D_s\)</span> can be replaced in the limit <span class="math inline">\(e \to 0\)</span> by a <strong>zero-thickness interface</strong> whose sole parameter is the <strong>transmissivity</strong>: <span class="math display">\[\alpha = D_s \cdot e \qquad [\text{length}^2/\text{time} \times \text{length} = \text{length}^3/\text{time}]\]</span></p>
 <p>The <code>DUALDISC</code> interface type implements this dual-discontinuity condition: the normal flux is continuous across the interface, and the concentration jump is proportional to <span class="math inline">\(1/\alpha\)</span>. This avoids the explicit thin-layer and the associated volume-fraction correction <span class="math inline">\(f\,(1+e_{ITZ}/R_{agg})^3\)</span>.</p>
 <p>In this model the inclusion is simply the bare aggregate (1 layer, <code>radii=[Ragg]</code>); the ITZ is fully encoded in <code>interf_prop</code>:</p>
-<div id="efc0e852" class="cell" data-execution_count="5">
+<div id="8f98dbb5" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># DUALDISC interface: transmissivity alpha = D_ITZ * e_ITZ  (Dcp = 1)</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>ver_dd <span class="op">=</span> rve(prop<span class="op">=</span>{<span class="st">"D"</span>: tId2}, matrix<span class="op">=</span><span class="st">"CEMENT"</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>ver_dd[<span class="st">"CEMENT"</span>] <span class="op">=</span> ellipsoid(shape<span class="op">=</span>spherical, prop<span class="op">=</span>{<span class="st">"D"</span>: tId2})</span>
@@ -1118,7 +1118,7 @@ $$
 <span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.trace(homogenize(prop<span class="op">=</span><span class="st">"D"</span>, rve<span class="op">=</span>ver_dd, scheme<span class="op">=</span>MT, verbose<span class="op">=</span><span class="va">False</span>).array) <span class="op">/</span> <span class="fl">3.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The following plots compare the two approaches for the same values of <span class="math inline">\(D_{itz}/D_{cp} = \alpha/(D_{cp}\,e_{ITZ})\)</span> — the dimensionless normalised transmissivity:</p>
-<div id="483aa3fa" class="cell" data-execution_count="6">
+<div id="29160dca" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Figure — layer model vs DUALDISC interface comparison</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">4</span>))</span>

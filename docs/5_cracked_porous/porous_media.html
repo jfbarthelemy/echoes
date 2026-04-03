@@ -803,7 +803,7 @@ window.Quarto = {
   <li><a href="#percolation-threshold" id="toc-percolation-threshold" class="nav-link" data-scroll-target="#percolation-threshold">Percolation threshold</a></li>
   <li><a href="#sec-permeability" id="toc-sec-permeability" class="nav-link" data-scroll-target="#sec-permeability">Permeability of porous media</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/5_cracked_porous/porous_media.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div><div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="porous_media.py"><i class="bi bi-file-code"></i>Python script</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/5_cracked_porous/porous_media.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div><div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="porous_media.py"><i class="bi bi-file-code"></i>Python script</a></li><li><a href="porous_media.ipynb"><i class="bi bi-journal-code"></i>Jupyter notebook</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
@@ -931,7 +931,7 @@ $$
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="386f0525" class="cell" data-execution_count="1">
+<div id="125bd1ba" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
@@ -945,7 +945,7 @@ $$
 <section id="porous-medium-modeling" class="level2">
 <h2 class="anchored" data-anchor-id="porous-medium-modeling">Porous medium modeling</h2>
 <p>A porous medium is modeled as a composite in which the voids are treated as inclusions with zero (or near-zero) stiffness:</p>
-<div id="9cc1b3a2" class="cell" data-execution_count="2">
+<div id="6777ba6f" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ks, mus <span class="op">=</span> <span class="fl">72.</span>, <span class="fl">32.</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>kp, mup <span class="op">=</span> <span class="fl">1.e-6</span>, <span class="fl">1.e-6</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -959,7 +959,7 @@ $$
 <section id="sec-porous-comparison" class="level2">
 <h2 class="anchored" data-anchor-id="sec-porous-comparison">Scheme comparison on porous media</h2>
 <p>The following example computes the effective bulk and shear moduli versus porosity for all available schemes.</p>
-<div id="0c406676" class="cell" data-execution_count="3">
+<div id="85b7c603" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Figure — scheme comparison on porous media</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Chom_porous(myrve, phi, sch):</span>
@@ -1004,7 +1004,7 @@ $$
 <section id="effect-of-pore-shape" class="level2">
 <h2 class="anchored" data-anchor-id="effect-of-pore-shape">Effect of pore shape</h2>
 <p>The aspect ratio of pores significantly affects the effective properties. Oblate pores (<span class="math inline">\(\omega &lt; 1\)</span>) lead to softer behavior than spherical pores (<span class="math inline">\(\omega = 1\)</span>), while prolate pores (<span class="math inline">\(\omega &gt; 1\)</span>) produce an intermediate effect.</p>
-<div id="be1d4e39" class="cell" data-execution_count="4">
+<div id="79ccdc85" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Figure — effect of pore shape</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>lphi <span class="op">=</span> np.linspace(<span class="fl">0.</span>, <span class="fl">0.5</span>, <span class="dv">51</span>)</span>
@@ -1044,7 +1044,7 @@ $$
 <section id="sec-permeability" class="level2">
 <h2 class="anchored" data-anchor-id="sec-permeability">Permeability of porous media</h2>
 <p>Transport properties (permeability, conductivity, diffusivity) are described by 2nd-order tensors and can be homogenized with the same framework using <code>prop="K"</code>:</p>
-<div id="62e6a860" class="cell" data-execution_count="5">
+<div id="49784b9d" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Figure — permeability of a porous medium</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Ks <span class="op">=</span> <span class="fl">0.1</span> <span class="op">*</span> tId2    <span class="co"># solid conductivity</span></span>

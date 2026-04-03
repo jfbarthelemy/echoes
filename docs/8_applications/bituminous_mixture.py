@@ -20,6 +20,9 @@
 #       - text: Python script
 #         icon: file-code
 #         href: bituminous_mixture.py
+#       - text: Jupyter notebook
+#         icon: journal-code
+#         href: bituminous_mixture.ipynb
 # ---
 #
 # # Viscoelastic properties of a bituminous mixture {#sec-bituminous-mixture}

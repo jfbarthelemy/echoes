@@ -20,6 +20,9 @@
 #       - text: Python script
 #         icon: file-code
 #         href: crack.py
+#       - text: Jupyter notebook
+#         icon: journal-code
+#         href: crack.ipynb
 # ---
 #
 # # Cracks {#sec-crack-object}

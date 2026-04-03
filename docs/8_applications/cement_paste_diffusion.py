@@ -20,6 +20,9 @@
 #       - text: Python script
 #         icon: file-code
 #         href: cement_paste_diffusion.py
+#       - text: Jupyter notebook
+#         icon: journal-code
+#         href: cement_paste_diffusion.ipynb
 # ---
 #
 # # Cement paste: chloride diffusivity and elasticity {#sec-cement-paste-diffusion}

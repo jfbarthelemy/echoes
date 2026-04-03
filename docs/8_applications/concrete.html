@@ -827,7 +827,7 @@ window.Quarto = {
   <li><a href="#sec-sanahuja-paste" id="toc-sec-sanahuja-paste" class="nav-link" data-scroll-target="#sec-sanahuja-paste">Scale 1: cement paste (generalized MT)</a></li>
   <li><a href="#sec-sanahuja-undrained" id="toc-sec-sanahuja-undrained" class="nav-link" data-scroll-target="#sec-sanahuja-undrained">Undrained moduli</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/8_applications/concrete.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div><div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="concrete.py"><i class="bi bi-file-code"></i>Python script</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/8_applications/concrete.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div><div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="concrete.py"><i class="bi bi-file-code"></i>Python script</a></li><li><a href="concrete.ipynb"><i class="bi bi-journal-code"></i>Jupyter notebook</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
@@ -961,7 +961,7 @@ $$
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="485e7955" class="cell" data-execution_count="1">
+<div id="5c6fb9f2" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -1002,7 +1002,7 @@ f_o^p = f_p - f_i^p
 \]</span> <span class="math display">\[
 f_i = f_i^s+f_i^p,\quad \varphi_o = \frac{f_o^p}{f_o^p+f_o^s}
 \]</span></p>
-<div id="98071c3c" class="cell" data-execution_count="2">
+<div id="9345b5bb" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Volume fractions — Powers + Tennis-Jennings model</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>rho_a <span class="op">=</span> <span class="fl">3.13</span> <span class="op">;</span> kappa_h <span class="op">=</span> <span class="fl">2.13</span> <span class="op">;</span> kappa_w <span class="op">=</span> <span class="fl">1.31</span></span>
@@ -1035,7 +1035,7 @@ f_i = f_i^s+f_i^p,\quad \varphi_o = \frac{f_o^p}{f_o^p+f_o^s}
 <section id="inner-hydrates-fixed-sc" class="level3">
 <h3 class="anchored" data-anchor-id="inner-hydrates-fixed-sc">Inner hydrates (fixed, SC)</h3>
 <p>The inner porosity <span class="math inline">\(\varphi_i=0.30\)</span> is independent of <span class="math inline">\(w/c\)</span> and <span class="math inline">\(\alpha\)</span>; <span class="math inline">\(C_\text{inner}\)</span> is computed once:</p>
-<div id="50c3b1b7" class="cell" data-execution_count="3">
+<div id="44202840" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>omega_i <span class="op">=</span> <span class="fl">0.12</span>    <span class="co"># aspect ratio of HD solid bricks</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>omega_o <span class="op">=</span> <span class="fl">0.033</span>   <span class="co"># aspect ratio of LD solid platelets</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>C_sol   <span class="op">=</span> stiff_Enu(<span class="fl">71.6</span>, <span class="fl">0.27</span>)   <span class="co"># solid C-S-H (bricks and platelets)</span></span>
@@ -1058,7 +1058,7 @@ f_i = f_i^s+f_i^p,\quad \varphi_o = \frac{f_o^p}{f_o^p+f_o^s}
 <section id="outer-hydrates-evolving-varphi_o-sc" class="level3">
 <h3 class="anchored" data-anchor-id="outer-hydrates-evolving-varphi_o-sc">Outer hydrates (evolving <span class="math inline">\(\varphi_o\)</span>, SC)</h3>
 <p>The outer porosity <span class="math inline">\(\varphi_o(w/c,\alpha)\)</span> varies with hydration. Setting occurs when <span class="math inline">\(\varphi_o\)</span> reaches the SC percolation threshold (controlled by <span class="math inline">\(\omega_o^s\)</span>):</p>
-<div id="3a6da9fa" class="cell" data-execution_count="4">
+<div id="f41a09aa" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Figure — Young’s modulus of inner and outer C-S-H (SC)</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ver_out <span class="op">=</span> rve()</span>
@@ -1107,7 +1107,7 @@ f_i = f_i^s+f_i^p,\quad \varphi_o = \frac{f_o^p}{f_o^p+f_o^s}
 <p><span class="math display">\[
 \frac{R_a}{R_\text{ref}} = \left(\frac{f_a}{f_a+f_i}\right)^{1/3}
 \]</span></p>
-<div id="0e3a3736" class="cell" data-execution_count="5">
+<div id="711fbfeb" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Function C_paste() — paste-scale homogenization (MT)</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> C_paste(wc, alpha<span class="op">=-</span><span class="fl">1.</span>):</span>
@@ -1133,7 +1133,7 @@ f_i = f_i^s+f_i^p,\quad \varphi_o = \frac{f_o^p}{f_o^p+f_o^s}
 <span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> homogenize(prop<span class="op">=</span><span class="st">"C"</span>, rve<span class="op">=</span>ver, scheme<span class="op">=</span>MT, verbose<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div id="b8a7ef9d" class="cell" data-execution_count="6">
+<div id="da415432" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Figure — drained Young’s modulus of cement paste</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>wc_list <span class="op">=</span> [<span class="fl">0.25</span>, <span class="fl">0.35</span>, <span class="fl">0.45</span>, <span class="fl">0.55</span>]</span>
@@ -1178,7 +1178,7 @@ k^u = k^{hom} + M b^2, \qquad
 \mu^u = \mu^{hom}
 \]</span></p>
 <p>Applied scale by scale (inner, then outer with <span class="math inline">\(k_s = k_\text{solid CSH}\)</span>; paste with the undrained inner/outer as inputs):</p>
-<div id="1d179955" class="cell" data-execution_count="7">
+<div id="9d57bb80" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Function C_paste_undrained() — drained and undrained moduli</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ks_sol, mus_sol <span class="op">=</span> C_sol.kmu   <span class="co"># solid C-S-H</span></span>
@@ -1222,7 +1222,7 @@ k^u = k^{hom} + M b^2, \qquad
 <span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> homogenize(prop<span class="op">=</span><span class="st">"C"</span>, rve<span class="op">=</span>ver, scheme<span class="op">=</span>MT, verbose<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div id="ba14097c" class="cell" data-execution_count="8">
+<div id="f8f00a48" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Figure — drained vs undrained moduli</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">4</span>))</span>

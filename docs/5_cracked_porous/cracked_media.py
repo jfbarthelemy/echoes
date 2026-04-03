@@ -20,6 +20,9 @@
 #       - text: Python script
 #         icon: file-code
 #         href: cracked_media.py
+#       - text: Jupyter notebook
+#         icon: journal-code
+#         href: cracked_media.ipynb
 # ---
 #
 # # Homogenization of cracked media {#sec-cracked-media}

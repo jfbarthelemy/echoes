@@ -20,6 +20,9 @@
 #       - text: Python script
 #         icon: file-code
 #         href: user_inclusion.py
+#       - text: Jupyter notebook
+#         icon: journal-code
+#         href: user_inclusion.ipynb
 # ---
 #
 # # User-defined inclusions {#sec-user_inclusion}

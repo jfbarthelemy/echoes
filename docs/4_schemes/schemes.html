@@ -834,7 +834,7 @@ window.Quarto = {
   <li><a href="#sec-schemes-comparison" id="toc-sec-schemes-comparison" class="nav-link" data-scroll-target="#sec-schemes-comparison">Comparative example: porous medium</a></li>
   <li><a href="#sec-user-in-scheme" id="toc-sec-user-in-scheme" class="nav-link" data-scroll-target="#sec-user-in-scheme">Using a <code>user_inclusion</code> in a scheme</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/4_schemes/schemes.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div><div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="schemes.py"><i class="bi bi-file-code"></i>Python script</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/4_schemes/schemes.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div><div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="schemes.py"><i class="bi bi-file-code"></i>Python script</a></li><li><a href="schemes.ipynb"><i class="bi bi-journal-code"></i>Jupyter notebook</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
@@ -962,7 +962,7 @@ $$
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="711597b9" class="cell" data-execution_count="1">
+<div id="aa649324" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
@@ -1107,7 +1107,7 @@ Fig.&nbsp;12.1: Principle: the RVE is approximated by a superposition of single-
 \uu{b} = f_p\,\uu{I} : \uuuu{A}_p
 \]</span></p>
 <p>where <span class="math inline">\(f_p\)</span> is the porosity and <span class="math inline">\(\uuuu{A}_p\)</span> is the pore strain-concentration tensor. In Kelvin-Mandel notation this is <code>ver["PORE"].factor * Id2.dot(Ap)</code>.</p>
-<div id="59ea5c6c" class="cell" data-execution_count="2">
+<div id="8e6a6b58" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>f_por <span class="op">=</span> <span class="fl">0.1</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ver_sp <span class="op">=</span> rve(matrix<span class="op">=</span><span class="st">"SOLID"</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>ver_sp[<span class="st">"SOLID"</span>] <span class="op">=</span> ellipsoid(shape<span class="op">=</span>spherical, fraction<span class="op">=</span><span class="fl">1.</span><span class="op">-</span>f_por,</span>
@@ -1155,7 +1155,7 @@ Scalar check  b = 1 - k_hom/k_s = 0.229947</code></pre>
 \qquad\text{(harmonic mean — lower bound)}
 \tag{12.4}\]</span></span></p>
 <p>They correspond to the assumptions of uniform strain (Voigt) and uniform stress (Reuss) throughout the RVE. These estimates are not accurate for most real composites but serve as bounding references.</p>
-<div id="1d9286dc" class="cell" data-execution_count="3">
+<div id="be1214a3" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Two-phase porous medium: solid + pores</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>Cs <span class="op">=</span> stiff_kmu(<span class="fl">72.</span>, <span class="fl">32.</span>)   <span class="co"># solid phase</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>Cp <span class="op">=</span> stiff_kmu(<span class="fl">1e-6</span>, <span class="fl">1e-6</span>) <span class="co"># pore phase (nearly zero stiffness)</span></span>
@@ -1183,7 +1183,7 @@ Reuss: k=0.000, mu=0.000</code></pre>
 \uuuu{C}^\textrm{DIL} = \uuuu{C}_0 + \sum_{r \neq 0} f_r \,\delta\uuuu{C}_r : \uuuu{A}_r^{dil}(\uuuu{C}_0)
 \tag{12.5}\]</span></span></p>
 <p>where the sum runs over non-matrix phases only. Since mutual interactions are neglected, the result can overestimate stiffness at moderate to high concentrations.</p>
-<div id="2ce3b2f8" class="cell" data-execution_count="4">
+<div id="df6236b5" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>CDIL <span class="op">=</span> homogenize(prop<span class="op">=</span><span class="st">"C"</span>, rve<span class="op">=</span>myrve, scheme<span class="op">=</span>DIL)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Dilute: k=</span><span class="sc">{</span>CDIL<span class="sc">.</span>k<span class="sc">:.3f}</span><span class="ss">, mu=</span><span class="sc">{</span>CDIL<span class="sc">.</span>mu<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -1199,7 +1199,7 @@ Reuss: k=0.000, mu=0.000</code></pre>
 \tag{12.6}\]</span></span></p>
 <p>where <span class="math inline">\(\delta\uuuu{S}_r = \uuuu{S}_r - \uuuu{S}_0\)</span> is the compliance contrast and <span class="math inline">\(\uuuu{B}_r^{dil} = (\uuuu{I} + \uuuu{Q}_0 : \delta\uuuu{S}_r)^{-1}\)</span> uses the dual Hill tensor <span class="math inline">\(\uuuu{Q}_0 = \uuuu{C}_0 - \uuuu{C}_0 : \uuuu{P}_0 : \uuuu{C}_0\)</span>.</p>
 <p>For the same porous medium, the two dilute schemes give different results: <code>DILD</code> is stiffer than <code>DIL</code>.</p>
-<div id="4db13efd" class="cell" data-execution_count="5">
+<div id="28c11a89" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>CDILD <span class="op">=</span> homogenize(prop<span class="op">=</span><span class="st">"C"</span>, rve<span class="op">=</span>myrve, scheme<span class="op">=</span>DILD)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Dilute (stress): k=</span><span class="sc">{</span>CDILD<span class="sc">.</span>k<span class="sc">:.3f}</span><span class="ss">, mu=</span><span class="sc">{</span>CDILD<span class="sc">.</span>mu<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -1230,7 +1230,7 @@ Fig.&nbsp;12.2: Mori-Tanaka: inclusions embedded in the matrix (reference medium
 \uuuu{C}^{MT} = \left(\sum_{r=0}^{N} f_r \,\uuuu{C}_r : \uuuu{A}_r^{dil}\right) : \left(\sum_{r=0}^{N} f_r \,\uuuu{A}_r^{dil}\right)^{-1}
 \tag{12.8}\]</span></span></p>
 <p>The MT scheme is exact in the dilute limit and well-suited for <strong>matrix-inclusion</strong> microstructures where the matrix is connected.</p>
-<div id="4ccd40f0" class="cell" data-execution_count="6">
+<div id="2dfb2c74" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>CMT <span class="op">=</span> homogenize(prop<span class="op">=</span><span class="st">"C"</span>, rve<span class="op">=</span>myrve, scheme<span class="op">=</span>MT)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Mori-Tanaka: k=</span><span class="sc">{</span>CMT<span class="sc">.</span>k<span class="sc">:.3f}</span><span class="ss">, mu=</span><span class="sc">{</span>CMT<span class="sc">.</span>mu<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -1238,7 +1238,7 @@ Fig.&nbsp;12.2: Mori-Tanaka: inclusions embedded in the matrix (reference medium
 </div>
 </div>
 <p>The MT scheme also handles <strong>multi-phase RVEs</strong> with different inclusion shapes, orientations and interface conditions:</p>
-<div id="57a03419" class="cell" data-execution_count="7">
+<div id="848f146e" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Multi-phase example: spheres + spheroids + n-layer sphere</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>myrve3 <span class="op">=</span> rve(matrix<span class="op">=</span><span class="st">"MATRIX"</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>myrve3[<span class="st">"MATRIX"</span>]   <span class="op">=</span> ellipsoid(shape<span class="op">=</span>spherical,</span>
@@ -1289,7 +1289,7 @@ Fig.&nbsp;12.3: Self-consistent: each grain is embedded in the effective medium 
 </figcaption>
 </figure>
 </div>
-<div id="189712db" class="cell" data-execution_count="8">
+<div id="08b89d17" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>CSC <span class="op">=</span> homogenize(prop<span class="op">=</span><span class="st">"C"</span>, rve<span class="op">=</span>myrve, scheme<span class="op">=</span>SC,</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>                 verbose<span class="op">=</span><span class="va">True</span>, maxnb<span class="op">=</span><span class="dv">300</span>, epsrel<span class="op">=</span><span class="fl">1.e-10</span>)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Self-consistent: k=</span><span class="sc">{</span>CSC<span class="sc">.</span>k<span class="sc">:.3f}</span><span class="ss">, mu=</span><span class="sc">{</span>CSC<span class="sc">.</span>mu<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1323,7 +1323,7 @@ Note
 \uuuu{C}^{ASC} = \uuuu{C}_0 + \sum_{r \neq 0} f_r \left(\uuuu{C}_r - \uuuu{C}^{ASC}\right) : \left(\uuuu{I} + \uuuu{P}(\uuuu{C}^{ASC}) : \left(\uuuu{C}_r - \uuuu{C}^{ASC}\right)\right)^{-1}
 \tag{12.11}\]</span></span></p>
 <p>solved iteratively. The ASC scheme interpolates between MT (at low concentrations) and SC behavior, while preserving the matrix/inclusion topology at all concentrations. When inclusions are softer than the matrix, the iteration is performed on compliances instead.</p>
-<div id="e9206e2d" class="cell" data-execution_count="9">
+<div id="c570eb48" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>CASC <span class="op">=</span> homogenize(prop<span class="op">=</span><span class="st">"C"</span>, rve<span class="op">=</span>myrve, scheme<span class="op">=</span>ASC,</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>                  verbose<span class="op">=</span><span class="va">True</span>, maxnb<span class="op">=</span><span class="dv">300</span>, epsrel<span class="op">=</span><span class="fl">1.e-10</span>)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Asymmetric SC: k=</span><span class="sc">{</span>CASC<span class="sc">.</span>k<span class="sc">:.3f}</span><span class="ss">, mu=</span><span class="sc">{</span>CASC<span class="sc">.</span>mu<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1340,7 +1340,7 @@ Note
 \tag{12.12}\]</span></span></p>
 <p>where <span class="math inline">\(\uuuu{P}(\uuuu{C}_0, \Omega^{MAX})\)</span> is the Hill tensor of the <strong>Maxwell domain</strong> (the outer ellipsoid defined by the RVE shape). This scheme is explicit (non-iterative) and naturally satisfies the exact dilute limit.</p>
 <p>In <em>Echoes</em>, the Maxwell domain shape is set by the <strong>RVE’s own shape</strong> (its <code>self()</code> ellipsoid). By default this is a sphere.</p>
-<div id="cf67ee73" class="cell" data-execution_count="10">
+<div id="590ac629" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>CMAX <span class="op">=</span> homogenize(prop<span class="op">=</span><span class="st">"C"</span>, rve<span class="op">=</span>myrve, scheme<span class="op">=</span>MAX)</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Maxwell: k=</span><span class="sc">{</span>CMAX<span class="sc">.</span>k<span class="sc">:.3f}</span><span class="ss">, mu=</span><span class="sc">{</span>CMAX<span class="sc">.</span>mu<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -1374,7 +1374,7 @@ Note
 </ul>
 <p>In particular, when <span class="math inline">\(\Omega^d\)</span> coincides with the individual inclusion shapes, the PCW scheme reduces to <strong>Mori-Tanaka</strong>. This confirms that MT implicitly assumes inclusions are distributed with the same ellipsoidal statistics as their shapes.</p>
 <p>In <em>Echoes</em>, the distribution ellipsoid is the <strong>RVE’s own shape</strong> (same as for MAX).</p>
-<div id="0d9f1f60" class="cell" data-execution_count="11">
+<div id="6eec91b7" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>CPCW <span class="op">=</span> homogenize(prop<span class="op">=</span><span class="st">"C"</span>, rve<span class="op">=</span>myrve, scheme<span class="op">=</span>PCW)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"PCW: k=</span><span class="sc">{</span>CPCW<span class="sc">.</span>k<span class="sc">:.3f}</span><span class="ss">, mu=</span><span class="sc">{</span>CPCW<span class="sc">.</span>mu<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -1390,7 +1390,7 @@ Note
 \tag{12.14}\]</span></span></p>
 <p>with <span class="math inline">\(\uuuu{C}^{hom}(0) = \uuuu{C}_0\)</span>. The <span class="math inline">\(1/(1-f)\)</span> factor accounts for the fact that each increment dilutes into the remaining matrix volume. The ODE is integrated numerically up to the desired total inclusion fraction.</p>
 <p>The differential scheme is particularly useful at <strong>high concentrations</strong> and avoids unphysical percolation artifacts. It predicts zero stiffness for a porous medium only at 100% porosity (like MT).</p>
-<div id="8304b27d" class="cell" data-execution_count="12">
+<div id="95a5e8e3" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>CDIFF <span class="op">=</span> homogenize(prop<span class="op">=</span><span class="st">"C"</span>, rve<span class="op">=</span>myrve, scheme<span class="op">=</span>DIFF)</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Differential: k=</span><span class="sc">{</span>CDIFF<span class="sc">.</span>k<span class="sc">:.3f}</span><span class="ss">, mu=</span><span class="sc">{</span>CDIFF<span class="sc">.</span>mu<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -1483,7 +1483,7 @@ Note
 <section id="sec-user-in-scheme" class="level2">
 <h2 class="anchored" data-anchor-id="sec-user-in-scheme">Using a <code>user_inclusion</code> in a scheme</h2>
 <p>A <code>user_inclusion</code> (see <a href="../3_concentration/user_inclusion.html" class="quarto-xref"><span>Chapter 10</span></a>) is used <strong>exactly like any other inclusion</strong> inside an <code>rve</code>: it is assigned a fraction, stored in the <code>rve</code> dictionary, and passed to <code>homogenize</code>. The homogenization engine calls <code>set_ref</code> (which in turn triggers <code>build_all</code>) automatically before each evaluation of the concentration tensors.</p>
-<div id="715bc1ff" class="cell" data-execution_count="14">
+<div id="3ee209b4" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Validation: user_inclusion vs standard inclusion in a scheme</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>Cp_u <span class="op">=</span> stiff_kmu(<span class="fl">1.e-6</span>, <span class="fl">1.e-6</span>)   <span class="co"># near-zero stiffness for pores</span></span>

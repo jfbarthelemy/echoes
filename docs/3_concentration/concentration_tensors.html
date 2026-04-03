@@ -821,7 +821,7 @@ window.Quarto = {
   <li><a href="#sec-ellipsoid" id="toc-sec-ellipsoid" class="nav-link" data-scroll-target="#sec-ellipsoid">Ellipsoidal inhomogeneity in <em>Echoes</em></a></li>
   <li><a href="#sec-four-concentration" id="toc-sec-four-concentration" class="nav-link" data-scroll-target="#sec-four-concentration">The four concentration tensors</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/3_concentration/concentration_tensors.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div><div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="concentration_tensors.py"><i class="bi bi-file-code"></i>Python script</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/3_concentration/concentration_tensors.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div><div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="concentration_tensors.py"><i class="bi bi-file-code"></i>Python script</a></li><li><a href="concentration_tensors.ipynb"><i class="bi bi-journal-code"></i>Jupyter notebook</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
@@ -949,7 +949,7 @@ $$
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="730458ff" class="cell" data-execution_count="1">
+<div id="195a172d" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
@@ -1035,7 +1035,7 @@ ell.set_ref("C", C)</code></pre>
 </ul>
 </div>
 </div>
-<div id="e5091285" class="cell" data-execution_count="2">
+<div id="1b106cbc" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ell <span class="op">=</span> ellipsoid(shape<span class="op">=</span>spherical, prop<span class="op">=</span>{<span class="st">"C"</span>: stiff_kmu(<span class="fl">5.</span>, <span class="fl">3.</span>)})</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> stiff_kmu(<span class="fl">72.</span>, <span class="fl">32.</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ω <span class="kw">in</span> [<span class="fl">0.1</span>, <span class="fl">1.</span>]:</span>
@@ -1063,7 +1063,7 @@ AE(ω=1.0)=
 </code></pre>
 </div>
 </div>
-<div id="23315919" class="cell" data-execution_count="3">
+<div id="f398b7ae" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ell.shape <span class="op">=</span> spheroidal(<span class="fl">0.1</span>, math.pi<span class="op">/</span><span class="dv">3</span>, math.pi<span class="op">/</span><span class="dv">4</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>ell.set_prop(<span class="st">"C"</span>, stiff_kmu(<span class="fl">3.</span>, <span class="fl">2.</span>))</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>ell.set_ref(<span class="st">"C"</span>, C)</span>
@@ -1102,7 +1102,7 @@ Order 4 ISO tensor | Param(size=2)=[ 9 4 ] | Angles(size=0)=[ ]
 \end{aligned}
 \tag{7.3}\]</span></span></p>
 <p>These concentration tensors are accessible through the attributes <code>eE</code>, <code>eS</code>, <code>sE</code> and <code>sS</code>.</p>
-<div id="0fdb7a92" class="cell" data-execution_count="4">
+<div id="3a63bcec" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>ell <span class="op">=</span> ellipsoid(shape<span class="op">=</span>spherical, prop<span class="op">=</span>{<span class="st">"C"</span>: stiff_kmu(<span class="fl">5.</span>, <span class="fl">3.</span>)})</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> stiff_kmu(<span class="fl">72.</span>, <span class="fl">32.</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ω <span class="kw">in</span> [<span class="fl">0.1</span>, <span class="fl">1.</span>]:</span>

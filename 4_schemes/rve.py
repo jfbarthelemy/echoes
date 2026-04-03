@@ -20,6 +20,9 @@
 #       - text: Python script
 #         icon: file-code
 #         href: rve.py
+#       - text: Jupyter notebook
+#         icon: journal-code
+#         href: rve.ipynb
 # ---
 #
 # # Representative Volume Element {#sec-rve}

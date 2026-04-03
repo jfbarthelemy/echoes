@@ -827,7 +827,7 @@ window.Quarto = {
   <li><a href="#modified-secant-method" id="toc-modified-secant-method" class="nav-link" data-scroll-target="#modified-secant-method">Modified secant method</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/7_nonlinear/nonlinear.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div><div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="nonlinear.py"><i class="bi bi-file-code"></i>Python script</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/7_nonlinear/nonlinear.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div><div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="nonlinear.py"><i class="bi bi-file-code"></i>Python script</a></li><li><a href="nonlinear.ipynb"><i class="bi bi-journal-code"></i>Jupyter notebook</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
@@ -955,7 +955,7 @@ $$
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="cb318a5d" class="cell" data-execution_count="1">
+<div id="a7f77785" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
@@ -993,7 +993,7 @@ B = \left(\frac{\mu_s}{\mu^{hom}}\right)^2\frac{\partial \mu^{hom}}{\partial \mu
 </section>
 <section id="failure-criterion-for-porous-media" class="level2">
 <h2 class="anchored" data-anchor-id="failure-criterion-for-porous-media">Failure criterion for porous media</h2>
-<div id="2631eb42" class="cell" data-execution_count="2">
+<div id="0ac4dfd7" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Figure — macroscopic failure ellipse (effective modulus derivatives)</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ellipse_radii(ks, mus, f, sch):</span>
@@ -1060,7 +1060,7 @@ B = \left(\frac{\mu_s}{\mu^{hom}}\right)^2\frac{\partial \mu^{hom}}{\partial \mu
 \bar{\varepsilon}_r^2 = \frac{1}{f_r}\left(\frac{1}{2}\frac{\partial k^{hom}}{\partial \mu_r}\,E_v^2 + \frac{\partial \mu^{hom}}{\partial \mu_r}\,E_d^2\right)
 \tag{19.5}\]</span></span></p>
 <p>with <span class="math inline">\(E_v = \mathrm{tr}(\uu{E})\)</span> the volumetric macro-strain and <span class="math inline">\(E_d^2 = \uu{E}':\uu{E}'\)</span> the deviatoric macro-strain squared. The nonlinear problem is solved by a fixed-point iteration: the matrix is discretized into <span class="math inline">\(n\)</span> concentric layers (via <code>sphere_nlayers</code>), each carrying a different secant modulus, and the self-consistent scheme is applied until convergence.</p>
-<div id="dacde767" class="cell" data-execution_count="3">
+<div id="99f6cdb5" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Figure — elastoplastic response via modified secant method</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> build_rve_ep(n, ks, mus, sigma0, f, tabed):</span>

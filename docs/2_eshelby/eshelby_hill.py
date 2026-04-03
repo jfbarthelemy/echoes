@@ -20,6 +20,9 @@
 #       - text: Python script
 #         icon: file-code
 #         href: eshelby_hill.py
+#       - text: Jupyter notebook
+#         icon: journal-code
+#         href: eshelby_hill.ipynb
 # ---
 #
 # # Eshelby and Hill polarization tensors {#sec-eshelby_hill}

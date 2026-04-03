@@ -20,6 +20,9 @@
 #       - text: Python script
 #         icon: file-code
 #         href: concrete_strength.py
+#       - text: Jupyter notebook
+#         icon: journal-code
+#         href: concrete_strength.ipynb
 # ---
 #
 # # Quasi-brittle strength of cement paste and mortar {#sec-concrete-strength}

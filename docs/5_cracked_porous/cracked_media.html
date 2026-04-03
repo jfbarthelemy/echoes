@@ -803,7 +803,7 @@ window.Quarto = {
   <li><a href="#randomly-cracked-medium-coupled-elasticity-and-conductivity" id="toc-randomly-cracked-medium-coupled-elasticity-and-conductivity" class="nav-link" data-scroll-target="#randomly-cracked-medium-coupled-elasticity-and-conductivity">Randomly cracked medium: coupled elasticity and conductivity</a></li>
   <li><a href="#multiple-crack-families" id="toc-multiple-crack-families" class="nav-link" data-scroll-target="#multiple-crack-families">Multiple crack families</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/5_cracked_porous/cracked_media.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div><div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="cracked_media.py"><i class="bi bi-file-code"></i>Python script</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/5_cracked_porous/cracked_media.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div><div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="cracked_media.py"><i class="bi bi-file-code"></i>Python script</a></li><li><a href="cracked_media.ipynb"><i class="bi bi-journal-code"></i>Jupyter notebook</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
@@ -937,7 +937,7 @@ $$
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="f3dd885a" class="cell" data-execution_count="1">
+<div id="2bc0ce7a" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
@@ -1079,7 +1079,7 @@ Fig.&nbsp;14.2: TI crack distribution (normals in (e1,e2) plane): normalized sti
 <section id="spring-interface-model" class="level2">
 <h2 class="anchored" data-anchor-id="spring-interface-model">Spring interface model</h2>
 <p>The open crack (<span class="math inline">\(k_n=k_t=0\)</span>) is a limiting case. When the crack faces are partially bonded, the linear spring model from <a href="../2_eshelby/crack_compliance.html#sec-spring-model" class="quarto-xref"><span>Section 6.3</span></a> is activated via <code>interf_prop</code>. For elasticity the parameter order is <code>[kn, kt]</code>:</p>
-<div id="f0a79379" class="cell" data-execution_count="4">
+<div id="39b8d1d2" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Spring interface model — open / bonded limits</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Cs <span class="op">=</span> stiff_Enu(<span class="fl">1.</span>, <span class="fl">0.2</span>)</span>
@@ -1187,7 +1187,7 @@ Fig.&nbsp;14.3: Randomly cracked medium: normalized effective Young’s modulus 
 <section id="multiple-crack-families" class="level2">
 <h2 class="anchored" data-anchor-id="multiple-crack-families">Multiple crack families</h2>
 <p>Several crack families with different orientations and properties can be assembled in one RVE. The example below considers two families of cracks with different orientations and finite conductivity, computing the effective stiffness and permeability simultaneously:</p>
-<div id="332bab09" class="cell" data-execution_count="6">
+<div id="3b16defb" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Multiple crack families — stiffness and permeability</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>π <span class="op">=</span> math.pi</span>
@@ -1211,7 +1211,7 @@ Fig.&nbsp;14.3: Randomly cracked medium: normalized effective Young’s modulus 
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Effective stiffness:
- Order 4 ORTHO tensor | Param(size=9)=[ 1.30624 0.168788 0.0440703 2.27612 0.0401982 0.277515 0.348474 0.269905 0.773451 ] | Angles(size=3)=[ 0.812673 0.451506 0.59908 ]
+ Order 4 ORTHO tensor | Param(size=9)=[ 0.277515 0.0440703 0.0401982 1.30624 0.168788 2.27612 0.773451 0.348474 0.269905 ] | Angles(size=3)=[ 1.14894 2.46122 0.717231 ]
 [ 1.10574 0.187443 0.217777 0.127348 -0.582399 -0.413308 
   0.187443 1.4345 0.099249 -0.0912792 -0.0591347 -0.473671 
   0.217777 0.099249 0.816809 -0.0714946 -0.490448 -0.00777335 

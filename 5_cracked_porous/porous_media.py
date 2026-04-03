@@ -20,6 +20,9 @@
 #       - text: Python script
 #         icon: file-code
 #         href: porous_media.py
+#       - text: Jupyter notebook
+#         icon: journal-code
+#         href: porous_media.ipynb
 # ---
 #
 # # Homogenization of porous media {#sec-porous-media}

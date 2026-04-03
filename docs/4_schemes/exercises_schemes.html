@@ -802,7 +802,7 @@ window.Quarto = {
   <li><a href="#sec-exo-sandstone" id="toc-sec-exo-sandstone" class="nav-link" data-scroll-target="#sec-exo-sandstone">Exercise 3: Parameter identification on sandstone</a></li>
   <li><a href="#sec-exo-user-inclusion" id="toc-sec-exo-user-inclusion" class="nav-link" data-scroll-target="#sec-exo-user-inclusion">Exercise 4: User-defined inclusion for porous media</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/4_schemes/exercises_schemes.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div><div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="exercises_schemes.py"><i class="bi bi-file-code"></i>Python script</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/4_schemes/exercises_schemes.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div><div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="exercises_schemes.py"><i class="bi bi-file-code"></i>Python script</a></li><li><a href="exercises_schemes.ipynb"><i class="bi bi-journal-code"></i>Jupyter notebook</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
@@ -930,7 +930,7 @@ $$
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="ed65fcf2" class="cell" data-execution_count="1">
+<div id="02e8638a" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
@@ -963,7 +963,7 @@ $$
 <li><p>Add the 3-phase model curve to the comparison plot.</p></li>
 <li><p>Change the aspect ratios to examine their impact on the predictions.</p></li>
 </ol>
-<div id="06daae59" class="cell" data-execution_count="2">
+<div id="3f533236" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Solution</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Cs <span class="op">=</span> stiff_kmu(<span class="fl">72.</span>, <span class="fl">32.</span>)</span>
@@ -1053,7 +1053,7 @@ $$
 <p>The solid mineral has the same properties as in Exercise 1 (<span class="math inline">\(k_s=72\)</span> GPa, <span class="math inline">\(\mu_s=32\)</span> GPa).</p>
 <p>The microporous solid is obtained at the lower scale by homogenizing a porous solid (Mori-Tanaka scheme, spheroidal pores with aspect ratio <span class="math inline">\(\omega_p=0.2\)</span>). Its porosity is <span class="math inline">\(\varphi_\text{low} = f_m / (f_s + f_m)\)</span>.</p>
 <p>At the upper scale, use a 3-phase SC model: a single <code>sphere_nlayers</code> inclusion with the macropore as inner core (fraction <span class="math inline">\(f_M\)</span>) and the microporous solid as outer shell (fraction <span class="math inline">\(1-f_M\)</span>).</p>
-<div id="827e9a85" class="cell" data-execution_count="3">
+<div id="9e5aa6f6" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Solution</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fs, fM, fm <span class="op">=</span> <span class="fl">0.7</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span></span>
@@ -1132,7 +1132,7 @@ Fig.&nbsp;15.1: Sandstone: experimental data (left) and model with optimized par
 </figure>
 </div>
 <p>The following experimental data give <span class="math inline">\(k^{hom}\)</span> and <span class="math inline">\(\mu^{hom}\)</span> (GPa) as a function of porosity:</p>
-<div id="3a4f8b9a" class="cell" data-execution_count="4">
+<div id="825d0598" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>data_phi <span class="op">=</span> [<span class="fl">0.1539</span>, <span class="fl">0.1973</span>, <span class="fl">0.0746</span>, <span class="fl">0.0550</span>, <span class="fl">0.0973</span>, <span class="fl">0.1769</span>, <span class="fl">0.2235</span>]</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>data_k   <span class="op">=</span> [<span class="fl">20.925</span>, <span class="fl">16.748</span>, <span class="fl">28.199</span>, <span class="fl">33.084</span>, <span class="fl">27.536</span>, <span class="fl">20.842</span>, <span class="fl">16.443</span>]</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>data_mu  <span class="op">=</span> [<span class="fl">22.248</span>, <span class="fl">17.766</span>, <span class="fl">30.905</span>, <span class="fl">35.782</span>, <span class="fl">30.317</span>, <span class="fl">19.894</span>, <span class="fl">15.675</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1143,7 +1143,7 @@ Fig.&nbsp;15.1: Sandstone: experimental data (left) and model with optimized par
 <li><p>Use <code>nlopt.LN_NELDERMEAD</code> to minimize the sum of squared relative errors on <span class="math inline">\(k\)</span> and <span class="math inline">\(\mu\)</span> over all data points with respect to <span class="math inline">\((\omega, k_n, k_t)\)</span>.</p></li>
 <li><p>Plot the optimized model vs.&nbsp;data.</p></li>
 </ol>
-<div id="e9ffc2ec" class="cell" data-execution_count="5">
+<div id="41e05d74" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Solution</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ks_sand <span class="op">=</span> <span class="fl">37.</span></span>
@@ -1189,7 +1189,7 @@ Fig.&nbsp;15.1: Sandstone: experimental data (left) and model with optimized par
 </div>
 </div>
 </div>
-<div id="a346bd18" class="cell" data-execution_count="6">
+<div id="74a23787" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Solution (optimization)</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> nlopt</span>
@@ -1271,7 +1271,7 @@ Residual J = 0.023753</code></pre>
 <li><p>Check that <code>Chom_usr</code> and <code>Chom</code> (from Exercise 1) agree to machine precision for MT and SC at <span class="math inline">\(\varphi=0.3\)</span>.</p></li>
 <li><p>Plot <span class="math inline">\(k^{hom}(\varphi)\)</span> and <span class="math inline">\(\mu^{hom}(\varphi)\)</span> for schemes <code>MT</code>, <code>SC</code>, <code>DIFF</code>, and <code>MAX</code>, comparing the <code>user_inclusion</code> curves (solid lines) with the <code>ellipsoid</code>-based curves from Exercise 1 (dashed lines), and add the 3-phase model from Exercise 1 for reference.</p></li>
 </ol>
-<div id="e0056112" class="cell" data-execution_count="7">
+<div id="da6b5436" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Solution</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
@@ -1321,7 +1321,7 @@ Residual J = 0.023753</code></pre>
 SC    user: k=22.689245  mu=13.264364  |  ellipsoid: k=22.689235  mu=13.264360  |  err_k=9.9e-06  err_mu=4.5e-06</code></pre>
 </div>
 </div>
-<div id="438c2a8a" class="cell" data-execution_count="8">
+<div id="260b2c81" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Solution (plot)</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>lphi_u <span class="op">=</span> np.linspace(<span class="fl">0.</span>, <span class="fl">1.</span>, <span class="dv">51</span>)</span>

@@ -20,6 +20,9 @@
 #       - text: Python script
 #         icon: file-code
 #         href: viscoelasticity_time.py
+#       - text: Jupyter notebook
+#         icon: journal-code
+#         href: viscoelasticity_time.ipynb
 # ---
 #
 # # Time-domain viscoelastic homogenization {#sec-viscoelasticity-time}

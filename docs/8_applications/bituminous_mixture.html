@@ -828,7 +828,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/8_applications/bituminous_mixture.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div><div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="bituminous_mixture.py"><i class="bi bi-file-code"></i>Python script</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/8_applications/bituminous_mixture.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div><div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="bituminous_mixture.py"><i class="bi bi-file-code"></i>Python script</a></li><li><a href="bituminous_mixture.ipynb"><i class="bi bi-journal-code"></i>Jupyter notebook</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
@@ -987,7 +987,7 @@ $$
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="bdd61291" class="cell" data-execution_count="1">
+<div id="68121f11" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cmath</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1025,7 +1025,7 @@ Fig.&nbsp;24.1: Three-scale RVE of a bituminous mixture <span class="citation" d
 <p><span class="math display">\[
 E^*(p) = E_0 + \frac{E_\infty - E_0}{1 + \delta\,(p\,\tau_E)^{-k} + (p\,\tau_E)^{-h} + (p\,\beta\,\tau_E)^{-1}}
 \]</span></p>
-<div id="a270a7e9" class="cell" data-execution_count="2">
+<div id="2cd2027a" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Mod2S2P1D:</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""2S2P1D viscoelastic model — callable as E_b(p) in the Laplace domain."""</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1042,7 +1042,7 @@ E^*(p) = E_0 + \frac{E_\infty - E_0}{1 + \delta\,(p\,\tau_E)^{-k} + (p\,\tau_E)^
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The parameters below are calibrated from DSR measurements on the binders extracted from each mixture at each ageing state <span class="citation" data-cites="someCBM2022">(<a href="../references.html#ref-someCBM2022" role="doc-biblioref">Somé et al., 2022</a>)</span>:</p>
-<div id="42092dc2" class="cell" data-execution_count="3">
+<div id="9a0087e4" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>2S2P1D parameters — binders and mixes (HMA and WMA)</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── HMA binders ────────────────────────────────────────────────────────────</span></span>
@@ -1073,7 +1073,7 @@ E^*(p) = E_0 + \frac{E_\infty - E_0}{1 + \delta\,(p\,\tau_E)^{-k} + (p\,\tau_E)^
 <section id="composition-and-volume-fractions" class="level2">
 <h2 class="anchored" data-anchor-id="composition-and-volume-fractions">Composition and volume fractions</h2>
 <p>The mix formula (same for HMA and WMA) is:</p>
-<div id="ee28a619" class="cell" data-execution_count="4">
+<div id="33361aa5" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>compo_agg <span class="op">=</span> {<span class="st">"6/10"</span>: <span class="fl">0.2752</span>, <span class="st">"4/6"</span>: <span class="fl">0.1617</span>, <span class="st">"2/4"</span>: <span class="fl">0.1474</span>,</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>             <span class="st">"sand"</span>: <span class="fl">0.32285</span>, <span class="st">"fines"</span>: <span class="fl">0.0872</span>}   <span class="co"># mass fractions in granular skeleton</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>size_agg  <span class="op">=</span> {<span class="st">"6/10"</span>: <span class="fl">8.15</span>, <span class="st">"4/6"</span>: <span class="fl">5.15</span>, <span class="st">"2/4"</span>: <span class="fl">3.0</span>}  <span class="co"># mean diameter (mm)</span></span>
@@ -1113,7 +1113,7 @@ E^*(p) = E_0 + \frac{E_\infty - E_0}{1 + \delta\,(p\,\tau_E)^{-k} + (p\,\tau_E)^
 <li><span class="math inline">\(\chi\)</span>: mixing coefficient between pure mastic stiffness (<span class="math inline">\(\chi=1\)</span>) and a contact-stiffened contribution (<span class="math inline">\(\chi&lt;1\)</span> ↔︎ grain–skeleton connexity at low frequency).</li>
 <li><span class="math inline">\(k_t\)</span>: out-of-plane stiffness of the grain–grain contact layer (MPa/mm).</li>
 </ul>
-<div id="fd1518ae" class="cell" data-execution_count="5">
+<div id="3856c119" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Function Ehom_kcst() — three-scale homogenization</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>mod_agg <span class="op">=</span> <span class="fl">9.5e4</span>  <span class="co"># aggregate elastic modulus (MPa)</span></span>
@@ -1189,7 +1189,7 @@ E^*(p) = E_0 + \frac{E_\infty - E_0}{1 + \delta\,(p\,\tau_E)^{-k} + (p\,\tau_E)^
 J(\alpha,\chi,k_t) = \sum_\omega \left|1 - \frac{E_\mathrm{mod}(i\omega)}{E_\mathrm{2S2P1D}(i\omega)}\right|^2 \longrightarrow \min
 \]</span></p>
 <p>The minimization is performed for the least-aged state; a set of inequality constraints ensures that the fit quality does not degrade for the more-aged states. The COBYLA algorithm from the <code>nlopt</code> library is used.</p>
-<div id="fddcaedd" class="cell" data-execution_count="6">
+<div id="bd1a48a6" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>COBYLA optimisation procedure</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>TMIN, TMAX, NB <span class="op">=</span> <span class="fl">5e-4</span>, <span class="fl">3e2</span>, <span class="dv">20</span></span>
@@ -1255,14 +1255,14 @@ J(\alpha,\chi,k_t) = \sum_\omega \left|1 - \frac{E_\mathrm{mod}(i\omega)}{E_\mat
 </div>
 <section id="hma-calibration" class="level3">
 <h3 class="anchored" data-anchor-id="hma-calibration">HMA calibration</h3>
-<div id="4a1e14b2" class="cell" data-execution_count="7">
+<div id="d7006666" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"HMA — COBYLA calibration"</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>x_HMA <span class="op">=</span> run_optimization(E_B_HMA, E_E_HMA)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="wma-calibration" class="level3">
 <h3 class="anchored" data-anchor-id="wma-calibration">WMA calibration</h3>
-<div id="23120f88" class="cell" data-execution_count="8">
+<div id="cde3b78f" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"WMA — COBYLA calibration"</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>x_WMA <span class="op">=</span> run_optimization(E_B_WMA, E_E_WMA)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -1271,12 +1271,12 @@ J(\alpha,\chi,k_t) = \sum_\omega \left|1 - \frac{E_\mathrm{mod}(i\omega)}{E_\mat
 <section id="results" class="level2">
 <h2 class="anchored" data-anchor-id="results">Results</h2>
 <p>The contact parameters obtained from the COBYLA optimisations above are stored below for use in the plots. These values can be recomputed by evaluating the calibration cells.</p>
-<div id="7526903b" class="cell" data-execution_count="9">
+<div id="4efb4aac" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pre-calibrated contact parameters (COBYLA results, see calibration cells above)</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>x_HMA <span class="op">=</span> [<span class="fl">5.866e-03</span>, <span class="fl">0.9760</span>, <span class="fl">6366.1</span>]   <span class="co"># J = 4.096e-01</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>x_WMA <span class="op">=</span> [<span class="fl">4.165e-02</span>, <span class="fl">0.9791</span>, <span class="fl">3277.7</span>]   <span class="co"># J = 2.393e-01</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="276c6548" class="cell" data-execution_count="10">
+<div id="857f3530" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Figure — HMA and WMA: model vs experiment</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_mix(ax_E, ax_phi, x_opt, E_B, E_E, name_b, name_e, colors):</span>

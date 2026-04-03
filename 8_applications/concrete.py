@@ -20,6 +20,9 @@
 #       - text: Python script
 #         icon: file-code
 #         href: concrete.py
+#       - text: Jupyter notebook
+#         icon: journal-code
+#         href: concrete.ipynb
 # ---
 #
 # # Multiscale elasticity of a hydrating cement paste {#sec-concrete}

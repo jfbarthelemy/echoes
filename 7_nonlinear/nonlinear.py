@@ -20,6 +20,9 @@
 #       - text: Python script
 #         icon: file-code
 #         href: nonlinear.py
+#       - text: Jupyter notebook
+#         icon: journal-code
+#         href: nonlinear.ipynb
 # ---
 #
 # # Nonlinear homogenization and failure criteria {#sec-nonlinear}

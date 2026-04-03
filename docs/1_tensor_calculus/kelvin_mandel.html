@@ -794,7 +794,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="kelvin_mandel.py"><i class="bi bi-file-code"></i>Python script</a></li></ul></div></div>
+    <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="kelvin_mandel.py"><i class="bi bi-file-code"></i>Python script</a></li><li><a href="kelvin_mandel.ipynb"><i class="bi bi-journal-code"></i>Jupyter notebook</a></li></ul></div></div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
@@ -921,7 +921,7 @@ $$
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="33af2ad2" class="cell" data-execution_count="1">
+<div id="432941d2" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math, random</span>
@@ -933,22 +933,22 @@ $$
 </div>
 </div>
 <p>A symmetric <span class="math inline">\(3×3\)</span> second-order matrix can be transformed in a vector of <span class="math inline">\(\R^6\)</span> by the function <code>KM</code> consistently with (<a href="../99_appendices/tensor_algebra.html#eq-KM2" class="quarto-xref"><span>A.14</span></a>). The inverse is done by <code>invKM</code>.</p>
-<div id="2153046d" class="cell" data-execution_count="2">
+<div id="52788e55" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>α <span class="op">=</span> np.random.rand(<span class="dv">3</span>, <span class="dv">3</span>) <span class="op">;</span> ε <span class="op">=</span> (α<span class="op">+</span>α.T)<span class="op">/</span><span class="dv">2</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"ε =</span><span class="ch">\n</span><span class="st">"</span>,ε)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"KM(ε) =</span><span class="ch">\n</span><span class="st">"</span>,KM(ε))</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> np.allclose(invKM(KM(ε)), ε), <span class="st">"error"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>ε =
- [[0.08633066 0.70075649 0.71978215]
- [0.70075649 0.22367472 0.64985038]
- [0.71978215 0.64985038 0.32098827]]
+ [[0.41539816 0.24475427 0.31004742]
+ [0.24475427 0.88262957 0.64538164]
+ [0.31004742 0.64538164 0.39265778]]
 KM(ε) =
- [0.08633066 0.22367472 0.32098827 0.91902722 1.01792567 0.99101934]</code></pre>
+ [0.41539816 0.88262957 0.39265778 0.91270746 0.43847326 0.34613481]</code></pre>
 </div>
 </div>
 <p>Given a <span class="math inline">\(3×3×3×3\)</span> array <code>c</code> (of type <code>numpy.ndarray</code>) satisfying major and minor symmetries (see <a href="../99_appendices/tensor_algebra.html#sec-KM" class="quarto-xref"><span>Section A.2</span></a>), the corresponding <span class="math inline">\(6×6\)</span> matrix <code>C</code> obtained by Kelvin-Mandel transform is calculated by <code>C = KM(c)</code>. Conversely, if <code>C</code> is a positive definite matrix, <code>c</code> is calculated by <code>c = invKM(C)</code>.</p>
-<div id="16fe3be1" class="cell" data-execution_count="3">
+<div id="2360f470" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.random.rand(<span class="dv">6</span>,<span class="dv">6</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> A.T.dot(A) <span class="op">+</span> np.eye(<span class="dv">6</span>) <span class="co"># generation of an arbitrary positive definite matrix</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> invKM(C)</span>
@@ -957,50 +957,50 @@ KM(ε) =
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> np.allclose(KM(c), C), <span class="st">"error: KM(c) should be equal to C"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>C =
- [[1.42753484 0.74551262 0.51466456 0.61333152 0.61590407 0.50761388]
- [0.74551262 3.62272505 1.71426613 1.56089569 1.89208437 1.08461097]
- [0.51466456 1.71426613 2.97862008 1.12689074 2.10303561 0.52175026]
- [0.61333152 1.56089569 1.12689074 2.46922269 1.21633452 1.0962178 ]
- [0.61590407 1.89208437 2.10303561 1.21633452 3.65186614 0.62398335]
- [0.50761388 1.08461097 0.52175026 1.0962178  0.62398335 1.98136094]]
+ [[2.75841815 0.52131754 1.34492228 1.24793628 1.57619594 0.78965469]
+ [0.52131754 2.34301286 1.17037192 1.10315295 1.00060582 1.36327444]
+ [1.34492228 1.17037192 3.34427072 1.55625674 1.56904455 1.78894113]
+ [1.24793628 1.10315295 1.55625674 3.19510076 1.30165731 1.73724546]
+ [1.57619594 1.00060582 1.56904455 1.30165731 3.3078994  1.59308957]
+ [0.78965469 1.36327444 1.78894113 1.73724546 1.59308957 3.21448384]]
 c =
- [[[[1.42753484 0.35893722 0.43550994]
-   [0.35893722 0.74551262 0.43369087]
-   [0.43550994 0.43369087 0.51466456]]
+ [[[[2.75841815 0.55837019 1.11453884]
+   [0.55837019 0.52131754 0.8824242 ]
+   [1.11453884 0.8824242  1.34492228]]
 
-  [[0.35893722 0.99068047 0.31199167]
-   [0.99068047 0.76693577 0.5481089 ]
-   [0.31199167 0.5481089  0.36893315]]
+  [[0.55837019 1.60724192 0.79654479]
+   [1.60724192 0.9639806  0.86862273]
+   [0.79654479 0.86862273 1.2649724 ]]
 
-  [[0.43550994 0.31199167 1.82593307]
-   [0.31199167 1.33790569 0.60816726]
-   [1.82593307 0.60816726 1.48707074]]]
-
-
- [[[0.35893722 0.99068047 0.31199167]
-   [0.99068047 0.76693577 0.5481089 ]
-   [0.31199167 0.5481089  0.36893315]]
-
-  [[0.74551262 0.76693577 1.33790569]
-   [0.76693577 3.62272505 1.10371993]
-   [1.33790569 1.10371993 1.71426613]]
-
-  [[0.43369087 0.5481089  0.60816726]
-   [0.5481089  1.10371993 1.23461134]
-   [0.60816726 1.23461134 0.79683208]]]
+  [[1.11453884 0.79654479 1.6539497 ]
+   [0.79654479 0.70753516 0.65082865]
+   [1.6539497  0.65082865 1.10948204]]]
 
 
- [[[0.43550994 0.31199167 1.82593307]
-   [0.31199167 1.33790569 0.60816726]
-   [1.82593307 0.60816726 1.48707074]]
+ [[[0.55837019 1.60724192 0.79654479]
+   [1.60724192 0.9639806  0.86862273]
+   [0.79654479 0.86862273 1.2649724 ]]
 
-  [[0.43369087 0.5481089  0.60816726]
-   [0.5481089  1.10371993 1.23461134]
-   [0.60816726 1.23461134 0.79683208]]
+  [[0.52131754 0.9639806  0.70753516]
+   [0.9639806  2.34301286 0.78004693]
+   [0.70753516 0.78004693 1.17037192]]
 
-  [[0.51466456 0.36893315 1.48707074]
-   [0.36893315 1.71426613 0.79683208]
-   [1.48707074 0.79683208 2.97862008]]]]</code></pre>
+  [[0.8824242  0.86862273 0.65082865]
+   [0.86862273 0.78004693 1.59755038]
+   [0.65082865 1.59755038 1.1004397 ]]]
+
+
+ [[[1.11453884 0.79654479 1.6539497 ]
+   [0.79654479 0.70753516 0.65082865]
+   [1.6539497  0.65082865 1.10948204]]
+
+  [[0.8824242  0.86862273 0.65082865]
+   [0.86862273 0.78004693 1.59755038]
+   [0.65082865 1.59755038 1.1004397 ]]
+
+  [[1.34492228 1.2649724  1.10948204]
+   [1.2649724  1.17037192 1.1004397 ]
+   [1.10948204 1.1004397  3.34427072]]]]</code></pre>
 </div>
 </div>
 <p><span class="math inline">\(\,\)</span></p>

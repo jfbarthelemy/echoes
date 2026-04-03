@@ -20,6 +20,9 @@
 #       - text: Python script
 #         icon: file-code
 #         href: ageing_creep.py
+#       - text: Jupyter notebook
+#         icon: journal-code
+#         href: ageing_creep.ipynb
 # ---
 #
 # # Ageing creep of solidifying cementitious materials {#sec-ageing-creep}

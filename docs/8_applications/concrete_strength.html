@@ -833,7 +833,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#sec-pichler-results" id="toc-sec-pichler-results" class="nav-link" data-scroll-target="#sec-pichler-results">Results</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/8_applications/concrete_strength.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div><div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="concrete_strength.py"><i class="bi bi-file-code"></i>Python script</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/8_applications/concrete_strength.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div><div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="concrete_strength.py"><i class="bi bi-file-code"></i>Python script</a></li><li><a href="concrete_strength.ipynb"><i class="bi bi-journal-code"></i>Jupyter notebook</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
@@ -966,7 +966,7 @@ $$
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="e3a368a6" class="cell" data-execution_count="1">
+<div id="113f0683" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
@@ -1037,7 +1037,7 @@ f_{air} &amp;= 1 - f_{clin} - f_w - f_{hyd}
 f_{sand} = \frac{(s/c)\,/\,d_{sand}}{1/d_{clin} + w/c + (s/c)\,/\,d_{sand}}
 \tag{23.2}\]</span></span></p>
 <p>The phase densities relative to water are <span class="math inline">\(d_{clin}=3.15\)</span>, <span class="math inline">\(d_{hyd}=2.073\)</span>, <span class="math inline">\(d_{sand}=2.648\)</span>.</p>
-<div id="903c1d3e" class="cell" data-execution_count="2">
+<div id="8ec80d09" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Densities relative to water</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>d_clin <span class="op">=</span> <span class="fl">3.15</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>d_hyd  <span class="op">=</span> <span class="fl">2.073</span></span>
@@ -1094,7 +1094,7 @@ f_{sand} = \frac{(s/c)\,/\,d_{sand}}{1/d_{clin} + w/c + (s/c)\,/\,d_{sand}}
 </tr>
 </tbody>
 </table>
-<div id="3ab39930" class="cell" data-execution_count="3">
+<div id="137d9a3b" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>C_clin <span class="op">=</span> stiff_kmu(<span class="fl">116.7</span>, <span class="fl">53.8</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>C_hyd  <span class="op">=</span> stiff_kmu(<span class="fl">18.7</span>, <span class="fl">11.8</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>C_w    <span class="op">=</span> tZ4                      <span class="co"># zero stiffness</span></span>
@@ -1115,7 +1115,7 @@ f_{hyd}^{(i)} = f_{hyd} \cdot \bigl(\cos\theta_i^- - \cos\theta_i^+\bigr), \quad
 \mathbb{C}^{hom}_{HF} = \mathrm{SC}\!\left(\sum_{i=0}^{n_\theta-1} f_{hyd}^{(i)}\,\mathbb{C}_{hyd}^{(\theta_i)}
                             + f_w\,\mathbb{C}_w + f_{air}\,\mathbb{C}_{air}\right)
 \tag{23.4}\]</span></span></p>
-<div id="e9694d09" class="cell" data-execution_count="4">
+<div id="bebe7e02" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> disc_theta(ntheta):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Discretize [0, pi/2] into ntheta orientation bins.</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns (lower bounds, centers, upper bounds).</span></span>
@@ -1211,7 +1211,7 @@ f^{(\theta)}_{hyd} = f_{hyd}^{(i)} \cdot (1 - f_{clin}) \cdot (1 - f_{sand})
 <section id="sec-homo-fn" class="level3">
 <h3 class="anchored" data-anchor-id="sec-homo-fn">Complete homogenization and strength function</h3>
 <p>The following function assembles all three scales (elastic + strength) in a single call.</p>
-<div id="92773896" class="cell" data-execution_count="5">
+<div id="4a793b01" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Function mortar_strength() — three-scale homogenization + failure criterion</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> mortar_strength(wc, alpha<span class="op">=-</span><span class="fl">1.</span>, sc<span class="op">=</span><span class="fl">0.</span>, omega<span class="op">=</span><span class="fl">10000.</span>, ntheta<span class="op">=</span><span class="dv">20</span>):</span>
@@ -1367,7 +1367,7 @@ Note
 <section id="sec-pichler-results" class="level2">
 <h2 class="anchored" data-anchor-id="sec-pichler-results">Results</h2>
 <p>The following code computes the evolution of the effective stiffness moduli (<span class="math inline">\(k\)</span>, <span class="math inline">\(\mu\)</span>) and the normalized compressive strength <span class="math inline">\(f_c/\sigma^{ult}_{hyd}\)</span> as a function of the hydration degree <span class="math inline">\(\alpha\)</span> for several water-to-cement ratios <span class="math inline">\(w/c\)</span>, for pure cement paste (<span class="math inline">\(s/c=0\)</span>).</p>
-<div id="b47ccc51" class="cell" data-execution_count="6">
+<div id="12b956bc" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Figure — compressive strength vs hydration degree</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>wc_list <span class="op">=</span> [<span class="fl">0.157</span>, <span class="fl">0.25</span>, <span class="fl">0.35</span>, <span class="fl">0.50</span>, <span class="fl">0.65</span>, <span class="fl">0.80</span>]</span>

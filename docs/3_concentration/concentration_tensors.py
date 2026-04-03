@@ -20,6 +20,9 @@
 #       - text: Python script
 #         icon: file-code
 #         href: concentration_tensors.py
+#       - text: Jupyter notebook
+#         icon: journal-code
+#         href: concentration_tensors.ipynb
 # ---
 #
 # # Ellipsoids {#sec-concentration_tensors}

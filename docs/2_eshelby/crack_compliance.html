@@ -830,7 +830,7 @@ window.Quarto = {
   <li><a href="#anisotropic-matrix" id="toc-anisotropic-matrix" class="nav-link" data-scroll-target="#anisotropic-matrix">Anisotropic matrix</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/2_eshelby/crack_compliance.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div><div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="crack_compliance.py"><i class="bi bi-file-code"></i>Python script</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/2_eshelby/crack_compliance.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div><div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="crack_compliance.py"><i class="bi bi-file-code"></i>Python script</a></li><li><a href="crack_compliance.ipynb"><i class="bi bi-journal-code"></i>Jupyter notebook</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
@@ -963,7 +963,7 @@ $$
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="283cb50e" class="cell" data-execution_count="1">
+<div id="334f9b02" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math, random</span>
@@ -1046,7 +1046,7 @@ B_{mm}=B_{\ell\ell}=\frac{B_{nn}}{1-\nu/2}
 </div>
 </div>
 <p><strong>Isotropic example</strong></p>
-<div id="68e497d6" class="cell" data-execution_count="2">
+<div id="24871793" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> stiff_Enu(<span class="fl">1.</span>,<span class="fl">0.2</span>) <span class="op">;</span> <span class="bu">print</span>(<span class="st">"C =</span><span class="ch">\n</span><span class="st">"</span>, C)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>ω <span class="op">=</span> <span class="fl">1.e-4</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>H <span class="op">=</span> crack_compliance(spheroidal(ω), C) <span class="op">;</span> <span class="bu">print</span>(<span class="st">"H =</span><span class="ch">\n</span><span class="st">"</span>, H)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1070,7 +1070,7 @@ H =
 </div>
 </div>
 <p><strong>Anisotropic example</strong></p>
-<div id="624e72ea" class="cell" data-execution_count="3">
+<div id="d079f384" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>M <span class="op">=</span> np.array([ [<span class="fl">2.66011</span>, <span class="fl">1.26432</span>, <span class="fl">0.662772</span>, <span class="fl">1.9402</span>, <span class="fl">1.54905</span>, <span class="fl">1.10384</span>],</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">1.26432</span>, <span class="fl">3.6072</span>, <span class="fl">1.78964</span>, <span class="fl">2.0247</span>, <span class="fl">1.2701</span>, <span class="fl">1.1089</span>], </span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">0.662772</span>, <span class="fl">1.78964</span>, <span class="fl">2.743</span>, <span class="fl">1.3367</span>, <span class="fl">1.2962</span>, <span class="fl">0.897632</span>], </span>
@@ -1098,7 +1098,7 @@ H =
  [ 0.          0.          0.          0.          0.          0.        ]]</code></pre>
 </div>
 </div>
-<div id="f4df7c1d" class="cell" data-execution_count="4">
+<div id="ce9d8bf4" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>H <span class="op">=</span> crack_compliance(spheroidal(ω), C, algo<span class="op">=</span>RESIDUES) <span class="op">;</span> <span class="bu">print</span>(<span class="st">"H =</span><span class="ch">\n</span><span class="st">"</span>, H)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>H =
@@ -1112,7 +1112,7 @@ H =
 </div>
 <p><strong>Transversely isotropic matrix</strong></p>
 <p>A transversely isotropic (TI) matrix is fully defined by 5 independent elastic constants. <em>Echoes</em> handles the crack compliance analytically in this case too.</p>
-<div id="afc54621" class="cell" data-execution_count="5">
+<div id="2972e8d8" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># TI stiffness: tensor([c1, c2, c3, c4, c5]) with axis of symmetry = e3</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters from Hönig parametrization (E1=2.3, h=2.5, nu2=0.2, nu1=0.2, gamma=2.)</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math <span class="im">as</span> _m</span>
@@ -1183,7 +1183,7 @@ H (TI matrix) =
 <div id="fig-errorh" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-errorh-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="crack_compliance_files/figure-html/fig-errorh-output-1.png" width="687" height="283" class="figure-img">
+<img src="crack_compliance_files/figure-html/fig-errorh-output-1.png" width="687" height="288" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-errorh-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Fig.&nbsp;6.2: Influence of the aspect ratio on the crack compliance contribution tensor
@@ -1240,7 +1240,7 @@ Fig.&nbsp;6.2: Influence of the aspect ratio on the crack compliance contributio
 </section>
 <section id="isotropic-matrix" class="level3">
 <h3 class="anchored" data-anchor-id="isotropic-matrix">Isotropic matrix</h3>
-<div id="583614b5" class="cell" data-execution_count="7">
+<div id="071e5180" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>K_val <span class="op">=</span> <span class="fl">2.5</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>K_iso <span class="op">=</span> K_val <span class="op">*</span> tId2</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1267,7 +1267,7 @@ Error:                    0.00e+00</code></pre>
 <section id="anisotropic-matrix" class="level3">
 <h3 class="anchored" data-anchor-id="anisotropic-matrix">Anisotropic matrix</h3>
 <p>Just as for the 2nd-order Hill tensor (see <a href="eshelby_hill.html#sec-hill2" class="quarto-xref"><span>Section 5.5</span></a>), the crack resistivity is computed analytically for any matrix anisotropy.</p>
-<div id="57891415" class="cell" data-execution_count="8">
+<div id="5b24e575" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Orthotropic conductivity</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>K_aniso <span class="op">=</span> tensor([<span class="fl">3.2</span>, <span class="fl">0.5</span>, <span class="fl">1.</span><span class="op">/</span>(<span class="fl">3.2</span><span class="op">*</span><span class="fl">0.5</span>)], angles<span class="op">=</span>[math.pi<span class="op">/</span><span class="dv">3</span>, math.pi<span class="op">/</span><span class="dv">4</span>, math.pi<span class="op">/</span><span class="dv">5</span>])</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>

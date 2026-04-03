@@ -20,6 +20,9 @@
 #       - text: Python script
 #         icon: file-code
 #         href: crack_compliance.py
+#       - text: Jupyter notebook
+#         icon: journal-code
+#         href: crack_compliance.ipynb
 # ---
 #
 # # Crack compliance tensors {#sec-crack_compliance}

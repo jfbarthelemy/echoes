@@ -20,6 +20,9 @@
 #       - text: Python script
 #         icon: file-code
 #         href: transport.py
+#       - text: Jupyter notebook
+#         icon: journal-code
+#         href: transport.ipynb
 # ---
 #
 # # Transport properties {#sec-transport}

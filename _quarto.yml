@@ -3,6 +3,7 @@ project:
   output-dir: docs
   resources:
     - "**/*.py"
+    - "**/*.ipynb"
 
 book:
   title: "Echoes"

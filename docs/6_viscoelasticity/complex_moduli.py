@@ -20,6 +20,9 @@
 #       - text: Python script
 #         icon: file-code
 #         href: complex_moduli.py
+#       - text: Jupyter notebook
+#         icon: journal-code
+#         href: complex_moduli.ipynb
 # ---
 #
 # # Complex-valued homogenization {#sec-complex-moduli}

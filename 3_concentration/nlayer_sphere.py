@@ -20,6 +20,9 @@
 #       - text: Python script
 #         icon: file-code
 #         href: nlayer_sphere.py
+#       - text: Jupyter notebook
+#         icon: journal-code
+#         href: nlayer_sphere.ipynb
 # ---
 #
 # # N-layer spheres {#sec-nlayer_sphere}

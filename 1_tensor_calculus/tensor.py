@@ -20,6 +20,9 @@
 #       - text: Python script
 #         icon: file-code
 #         href: tensor.py
+#       - text: Jupyter notebook
+#         icon: journal-code
+#         href: tensor.ipynb
 # ---
 #
 # # The `tensor` object {#sec-tensor}

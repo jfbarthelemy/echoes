@@ -20,6 +20,9 @@
 #       - text: Python script
 #         icon: file-code
 #         href: exercises_schemes.py
+#       - text: Jupyter notebook
+#         icon: journal-code
+#         href: exercises_schemes.ipynb
 # ---
 #
 # # Exercises on homogenization schemes {#sec-exercises-schemes}

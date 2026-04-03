@@ -823,7 +823,7 @@ window.Quarto = {
   <li><a href="#validation-by-finite-differences" id="toc-validation-by-finite-differences" class="nav-link" data-scroll-target="#validation-by-finite-differences">Validation by finite differences</a></li>
   <li><a href="#second-order-strain-moments-in-practice" id="toc-second-order-strain-moments-in-practice" class="nav-link" data-scroll-target="#second-order-strain-moments-in-practice">Second-order strain moments in practice</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/7_nonlinear/derivatives.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div><div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="derivatives.py"><i class="bi bi-file-code"></i>Python script</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/7_nonlinear/derivatives.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div><div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="derivatives.py"><i class="bi bi-file-code"></i>Python script</a></li><li><a href="derivatives.ipynb"><i class="bi bi-journal-code"></i>Jupyter notebook</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
@@ -951,7 +951,7 @@ $$
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="72eaefde" class="cell" data-execution_count="1">
+<div id="cbd02a34" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
@@ -992,7 +992,7 @@ f_r\,\langle\varepsilon_{ij}\,\varepsilon_{kl}\rangle_{\Omega_r} = \frac{1}{2}\,
 </section>
 <section id="example-sensitivity-to-matrix-shear-modulus" class="level2">
 <h2 class="anchored" data-anchor-id="example-sensitivity-to-matrix-shear-modulus">Example: sensitivity to matrix shear modulus</h2>
-<div id="160afead" class="cell" data-execution_count="2">
+<div id="2737ca10" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>myrve <span class="op">=</span> rve(matrix<span class="op">=</span><span class="st">"SOLID"</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>myrve[<span class="st">"SOLID"</span>] <span class="op">=</span> ellipsoid(shape<span class="op">=</span>spheroidal(<span class="fl">1.</span>), symmetrize<span class="op">=</span>[ISO],</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                           prop<span class="op">=</span>{<span class="st">"C"</span>: stiff_kmu(<span class="fl">72.</span>, <span class="fl">32.</span>)}, fraction<span class="op">=</span><span class="fl">0.8</span>)</span>
@@ -1033,7 +1033,7 @@ dChom/d(2mu_solid):
 <section id="validation-by-finite-differences" class="level2">
 <h2 class="anchored" data-anchor-id="validation-by-finite-differences">Validation by finite differences</h2>
 <p>The analytical derivative can be validated against a finite-difference approximation:</p>
-<div id="3569f505" class="cell" data-execution_count="3">
+<div id="77bfe34e" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Finite-difference validation</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>mu_s <span class="op">=</span> <span class="fl">32.</span></span>
@@ -1080,7 +1080,7 @@ Max difference: 1.182833109236725e-09</code></pre>
 <section id="second-order-strain-moments-in-practice" class="level2">
 <h2 class="anchored" data-anchor-id="second-order-strain-moments-in-practice">Second-order strain moments in practice</h2>
 <p>Using (<a href="#eq-kreher-iso" class="quarto-xref"><span>18.1</span></a>), the mean deviatoric strain variance in the solid phase can be computed from the derivative with respect to <span class="math inline">\(\mu_s\)</span>. For a macroscopic strain <span class="math inline">\(\uu{E} = E\,\uv{e}_1 \otimes \uv{e}_1\)</span> (uniaxial):</p>
-<div id="d84cd499" class="cell" data-execution_count="4">
+<div id="3fe041f3" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Second-order strain moments — Kreher formula</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Restore the RVE from the previous example</span></span>

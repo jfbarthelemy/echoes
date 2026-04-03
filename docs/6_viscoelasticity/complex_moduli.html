@@ -801,7 +801,7 @@ window.Quarto = {
   <li><a href="#complex-echoes-objects" id="toc-complex-echoes-objects" class="nav-link" data-scroll-target="#complex-echoes-objects">Complex <em>Echoes</em> objects</a></li>
   <li><a href="#sec-mastic-complex" id="toc-sec-mastic-complex" class="nav-link" data-scroll-target="#sec-mastic-complex">Application: complex modulus of a mastic</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/6_viscoelasticity/complex_moduli.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div><div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="complex_moduli.py"><i class="bi bi-file-code"></i>Python script</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/6_viscoelasticity/complex_moduli.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div><div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="complex_moduli.py"><i class="bi bi-file-code"></i>Python script</a></li><li><a href="complex_moduli.ipynb"><i class="bi bi-journal-code"></i>Jupyter notebook</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
@@ -929,7 +929,7 @@ $$
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="032673c1" class="cell" data-execution_count="1">
+<div id="de926bc6" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
@@ -944,7 +944,7 @@ $$
 <section id="complex-valued-tensors" class="level2">
 <h2 class="anchored" data-anchor-id="complex-valued-tensors">Complex-valued tensors</h2>
 <p>Tensors in <em>Echoes</em> accept complex scalars:</p>
-<div id="88cf3772" class="cell" data-execution_count="2">
+<div id="245a3295" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> stiff_kmu(<span class="dv">20</span> <span class="op">+</span> <span class="ot">2j</span>, <span class="dv">10</span> <span class="op">+</span> <span class="ot">1j</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(C)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -959,7 +959,7 @@ $$
 </div>
 </div>
 <p>When problems require complex values even though initial moduli are real, multiply by a complex unit:</p>
-<div id="ef44d37e" class="cell" data-execution_count="3">
+<div id="2a1af435" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>un <span class="op">=</span> <span class="dv">1</span> <span class="op">+</span> <span class="ot">0j</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> stiff_kmu(<span class="fl">5.</span>, <span class="fl">3.</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>((un <span class="op">*</span> C).kmu)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -993,7 +993,7 @@ $$
 </tr>
 </tbody>
 </table>
-<div id="a04e2f50" class="cell" data-execution_count="4">
+<div id="3ed46a37" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>un <span class="op">=</span> <span class="dv">1</span> <span class="op">+</span> <span class="ot">0j</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>Cs <span class="op">=</span> un <span class="op">*</span> stiff_kmu(<span class="fl">72.</span>, <span class="fl">32.</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>Cp <span class="op">=</span> un <span class="op">*</span> stiff_kmu(<span class="fl">1.e-6</span>, <span class="fl">1.e-6</span>)</span>
@@ -1035,7 +1035,7 @@ Fig.&nbsp;16.1: 2S2P1D rheological model
 </figure>
 </div>
 <p>The aggregates are elastic with <span class="math inline">\(E=95000\)</span> MPa, <span class="math inline">\(\nu=0.17\)</span>. The volume fraction of fines is 30%.</p>
-<div id="317d1ed5" class="cell" data-execution_count="5">
+<div id="c0c993ea" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Figure — complex modulus of mastic: frequency diagrams (2S2P1D + MT)</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Mod2S2P1D(<span class="bu">dict</span>):</span>

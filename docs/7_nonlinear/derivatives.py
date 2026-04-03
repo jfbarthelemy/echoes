@@ -20,6 +20,9 @@
 #       - text: Python script
 #         icon: file-code
 #         href: derivatives.py
+#       - text: Jupyter notebook
+#         icon: journal-code
+#         href: derivatives.ipynb
 # ---
 #
 # # Derivatives of effective properties {#sec-derivatives}

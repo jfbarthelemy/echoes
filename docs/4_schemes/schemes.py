@@ -20,6 +20,9 @@
 #       - text: Python script
 #         icon: file-code
 #         href: schemes.py
+#       - text: Jupyter notebook
+#         icon: journal-code
+#         href: schemes.ipynb
 # ---
 #
 # # Homogenization schemes {#sec-schemes}
