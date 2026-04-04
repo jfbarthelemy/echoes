@@ -1,6 +1,6 @@
 # ALV Hill (polarization) tensor kernel {#sec-hill_alv}
 
-The elastic Hill (polarization) tensor $\mathbb{P}_\mathcal{E}(\mathbb{C})$ for an ellipsoidal inclusion $\mathcal{E}$ embedded in an elastic medium with stiffness $\mathbb{C}$ is defined in @sec-hill_elas. This appendix establishes its counterpart in **ageing linear viscoelasticity (ALV)**: the Hill tensor *kernel* $\uuuu{P}_\mathcal{E}(t,t')$ and the key block property that makes ALV homogenization tractable.
+The elastic Hill (polarization) tensor $\mathbb{P}_\mathcal{E}(\mathbb{C})$ for an ellipsoidal inclusion $\mathcal{E}$ embedded in an elastic medium with stiffness $\mathbb{C}$ is defined in @sec-hill_elas. This appendix establishes its counterpart in **ageing linear viscoelasticity (ALV)**: the Hill tensor *kernel* $\uuuu{P}_\mathcal{E}(t,t')$, and derives its analytical expression for an isotropic matrix.
 
 ## ALV Hill tensor kernel formula
 
@@ -23,22 +23,6 @@ This formula is the exact analogue of the elastic Hill tensor (see @sec-hill_ela
 
 ::: {.callout-note}
 **Connection to the elastic case.** If $\uuuu{C}(t,t') = \mathbb{C}_E\,H(t-t')$ (elastic kernel, proportional to the Heaviside function), the Volterra inverse reduces to $\volt{\uuuu{C}}(t,t') = \mathbb{C}_E^{-1}\,H(t-t')$, and @eq-alv-hill-kernel recovers $\uuuu{P}_\mathcal{E}(t,t') = \mathbb{P}_\mathcal{E}(\mathbb{C}_E)\,H(t-t')$.
-:::
-
-## Block property {#sec-block-hill-property}
-
-The following theorem is the key computational result enabling ALV homogenization [@barthelemyIJSS2016, Theorem 1]. Over a discrete time series $t_0 < t_1 < \cdots < t_n$, let $\mathbf{R}^0$ denote the **block relaxation matrix** of the reference medium: a lower-triangular $6(n+1)\times6(n+1)$ matrix with $6\times6$ blocks, built from the trapezoidal discretization of the Volterra integral (see @sec-visco-discretization in @sec-viscoelasticity-time). The **block Hill matrix** satisfies:
-
-$$
-\mathbf{P}_\mathcal{E}(\mathbf{R}^0) = \mathbb{P}_\mathcal{E}(\mathbf{R}^0)
-$$ {#eq-block-hill-prop}
-
-In words: **the block Hill matrix is obtained by applying the elastic Hill tensor formula to the block relaxation matrix $\mathbf{R}^0$**, with $\mathbb{C}$ replaced by $\mathbf{R}^0$ in the integral formula of @sec-hill_elas and all matrix operations interpreted block-wise.
-
-**Proof sketch.** For a causal lower-triangular block matrix $\mathbf{K}$, the Volterra inverse coincides with the algebraic (block matrix) inverse: $\volt{\mathbf{K}} = \mathbf{K}^{-1}$. Applied to the acoustic block matrix $\mathbf{K}_{\uv{\xi}} = \uv{\xi}\cdot\mathbf{R}^0\cdot\uv{\xi}$, the Volterra inverse $\volt{(\uv{\xi}\cdot\uuuu{C}^0\cdot\uv{\xi})}$ appearing in @eq-alv-hill-kernel is replaced by the ordinary matrix inverse $(\uv{\xi}\cdot\mathbf{R}^0\cdot\uv{\xi})^{-1}$. Integrating over $\uv{\xi}$ then yields exactly the elastic Hill formula (see @sec-hill_elas) applied to $\mathbf{R}^0$. Full details are in [@barthelemyIJSS2016, Section 3.2].
-
-::: {.callout-important}
-**Computational implication.** The block Hill matrix $\mathbf{P}_\mathcal{E}(\mathbf{R}^0)$ is computed by a **single application** of the elastic Hill tensor formula to the $6(n+1)\times6(n+1)$ block matrix $\mathbf{R}^0$. ALV homogenization is thus directly compatible with elastic Hill tensor routines, with the $6\times6$ stiffness simply replaced by the full block relaxation matrix.
 :::
 
 ## Isotropic ALV matrix
@@ -83,11 +67,7 @@ so that the ALV Hill tensor kernel of a sphere in an isotropic matrix is:
 
 $$
 \uuuu{P}_{sphere}(t,t') =
-\frac{\volt{(k+4\mu/3)}_{(t,t')}}{3}\,\mathbb{J}
-+ \frac{\volt{(k+4\mu/3)}_{(t,t')} + 5\volt{\mu}_{(t,t')}}{15}\,\mathbb{K}
-+ \frac{\volt{\mu}_{(t,t')}}{3}\,\mathbb{J}
-$$
-
-or equivalently, in the isotropic Hill tensor block form, $[\mathbf{P}_{sphere}(\mathbf{R}^0)]_{ij}$ is the elastic Hill tensor for a sphere with bulk modulus $[\mathbf{k}^0]_{ij}$ and shear modulus $[\boldsymbol{\mu}^0]_{ij}$.
+\volt{(3k+4\mu)} \circ \left(H\,\mathbb{J} + \tfrac{3}{5}(k+2\mu) \circ \volt{\mu}\,\mathbb{K}\right)
+$$ {#eq-alv-hill-sphere}
 
 For **spheroids** and general **ellipsoids** in an isotropic matrix, explicit formulas for $\uuuu{U}^{\uu{A}}$ and $\uuuu{V}^{\uu{A}}$ in terms of elliptic integrals are given in @sec-hill_elas and [@barthelemyIJES2019, Appendix A].

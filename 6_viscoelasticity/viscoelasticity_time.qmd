@@ -260,13 +260,7 @@ $$
 \boldsymbol{\varepsilon}_{|\mathcal{E}}(t) = -\uuuu{P}_\mathcal{E}(t,\bullet) \dcirc \uu{p}(\bullet)
 $$
 
-The formula for $\uuuu{P}_\mathcal{E}(t,t')$ and its derivation are given in @sec-hill_alv (@eq-alv-hill-kernel). The fundamental result is the **block property** (@eq-block-hill-prop): the block Hill matrix is obtained by applying the elastic Hill tensor formula directly to the block relaxation matrix $\mathbf{R}^0$:
-
-$$
-\mathbf{P}_\mathcal{E}(\mathbf{R}^0) = \mathbb{P}_\mathcal{E}(\mathbf{R}^0)
-$$ {#eq-block-hill}
-
-That is, the same formula as for the elastic Hill tensor (see @sec-hill_elas), with $\mathbb{C}$ replaced by $\mathbf{R}^0$ and all matrix operations interpreted block-wise. This makes ALV homogenization directly compatible with elastic Hill tensor routines applied to the block relaxation matrix.
+The formula for $\uuuu{P}_\mathcal{E}(t,t')$ and its derivation are given in @sec-hill_alv (@eq-alv-hill-kernel).
 
 ### Isotropic matrix case
 
@@ -278,13 +272,7 @@ $$
 + \volt{\mu^0}_{(t,t')}\,\bigl(\uuuu{V}^{\uu{A}} - \uuuu{U}^{\uu{A}}\bigr)
 $$ {#eq-hill-alv-iso}
 
-where $\uuuu{U}^{\uu{A}}$ and $\uuuu{V}^{\uu{A}}$ are the purely geometric tensors defined in @sec-hill_elas. The block-$(i,j)$ form recovered from @eq-block-hill is:
-
-$$
-[\mathbf{P}_\mathcal{E}]_{ij} = \mathbb{P}_\mathcal{E}\!\left(3k^0_{ij}\,\mathbb{J}+2\mu^0_{ij}\,\mathbb{K}\right)
-$$
-
-For a **sphere**, $\mathbb{P}_{sphere}(\mathbb{C})$ depends on $k$ and $\mu$ only through the combination $k+4\mu/3$ and $\mu$, giving explicit scalar formulas (see @sec-hill_elas). For general spheroids, the formulas involve elliptic integrals of the aspect ratio [@barthelemyIJES2019, Appendix A].
+where $\uuuu{U}^{\uu{A}}$ and $\uuuu{V}^{\uu{A}}$ are the purely geometric tensors defined in @sec-hill_elas. For a **sphere**, the kernel reduces to @eq-alv-hill-sphere. For general spheroids, the formulas for $\uuuu{U}^{\uu{A}}$ and $\uuuu{V}^{\uu{A}}$ involve elliptic integrals of the aspect ratio [@barthelemyIJES2019, Appendix A].
 
 ### Strain concentration and contribution tensors
 

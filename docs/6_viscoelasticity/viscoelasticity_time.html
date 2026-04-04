@@ -991,7 +991,7 @@ $$
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="6bd2cb0b" class="cell" data-execution_count="1">
+<div id="439d2f8f" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
@@ -1070,7 +1070,7 @@ $$
 </section>
 <section id="python-implementation" class="level3">
 <h3 class="anchored" data-anchor-id="python-implementation">Python implementation</h3>
-<div id="4255d575" class="cell" data-execution_count="2">
+<div id="9ff8ada0" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> visco_mat(f, t):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Lower-triangular discretization matrix for scalar kernel f(t, t').</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Implements Eq. (visco-mat) with zero initial conditions."""</span></span>
@@ -1086,7 +1086,7 @@ $$
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>For illustration, consider a scalar Maxwell relaxation kernel <span class="math inline">\(C(t,t') = e^{-(t-t')/\tau}\)</span> with <span class="math inline">\(\tau=20\)</span>:</p>
-<div id="ebdc28f2" class="cell" data-execution_count="3">
+<div id="ad70d267" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tau_m <span class="op">=</span> <span class="fl">20.</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>R_maxwell <span class="op">=</span> <span class="kw">lambda</span> t, tp: exp(<span class="op">-</span>(t <span class="op">-</span> tp) <span class="op">/</span> tau_m)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>t_small <span class="op">=</span> array([<span class="fl">0.</span>, <span class="fl">5.</span>, <span class="fl">15.</span>, <span class="fl">40.</span>, <span class="fl">80.</span>])</span>
@@ -1115,7 +1115,7 @@ Creep matrix M⁻¹:
 <section id="the-visco_law-object-in-echoes" class="level3">
 <h3 class="anchored" data-anchor-id="the-visco_law-object-in-echoes">The <code>visco_law</code> object in <em>Echoes</em></h3>
 <p>The 6×6 block version of <a href="#eq-visco-mat" class="quarto-xref"><span>17.4</span></a> — where each scalar entry becomes a <span class="math inline">\(6\times 6\)</span> tensor block — is built by <code>visco_law(func, MODE)</code>:</p>
-<div id="ade9b5bd" class="cell" data-execution_count="4">
+<div id="3c08f93e" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Cs <span class="op">=</span> stiff_Enu(<span class="fl">1.</span>, <span class="fl">0.2</span>)<span class="op">;</span>  ks, mus <span class="op">=</span> Cs.kmu</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>fk  <span class="op">=</span> <span class="kw">lambda</span> t: <span class="fl">0.5</span> <span class="op">*</span> exp(<span class="op">-</span>t <span class="op">/</span> <span class="fl">20.</span>) <span class="op">+</span> <span class="fl">0.5</span>   <span class="co"># ageing factor</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>fmu <span class="op">=</span> <span class="kw">lambda</span> t: <span class="fl">0.5</span> <span class="op">*</span> exp(<span class="op">-</span>t <span class="op">/</span> <span class="fl">20.</span>) <span class="op">+</span> <span class="fl">0.5</span></span>
@@ -1126,7 +1126,7 @@ Creep matrix M⁻¹:
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>vl <span class="op">=</span> visco_law(Js, CREEP)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The call <code>vl.mat(t)</code> returns the block creep matrix of size <span class="math inline">\(6(n+1)\times 6(n+1)\)</span>; <code>vl.relaxation_mat(t)</code> returns the corresponding block relaxation matrix (Volterra inverse, computed numerically). Let us display the <span class="math inline">\((1,1)\)</span>-component of each block for a 4-step series:</p>
-<div id="5c2d6b10" class="cell" data-execution_count="5">
+<div id="a9e49dce" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>t3 <span class="op">=</span> array([<span class="fl">0.</span>, <span class="fl">5.</span>, <span class="fl">15.</span>, <span class="fl">40.</span>])</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>M_block <span class="op">=</span> vl.mat(t3)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Creep block matrix — (11)-component of each 6×6 block:"</span>)</span>
@@ -1163,7 +1163,7 @@ Creep matrix M⁻¹:
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># angles : rotation angles matching those used in visco_paramsym</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># returns: block matrix of size 6(n+1)×6(n+1)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Continuing the previous example (<code>vl</code>, <code>t3</code>):</p>
-<div id="6092a405" class="cell" data-execution_count="6">
+<div id="bbdf1bfb" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>M_relax <span class="op">=</span> vl.relaxation_mat(t3)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>Vk, Vmu <span class="op">=</span> visco_paramsym(M_relax, ISO)   <span class="co"># bulk and shear (n+1)×(n+1) blocks</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1186,7 +1186,7 @@ Shear relaxation block Vmu  [mu(ti, tj)]:
 </div>
 </div>
 <p>The <span class="math inline">\((i,j)\)</span> entry of <code>Vk</code> (resp. <code>Vmu</code>) is the bulk (resp. shear) relaxation modulus <span class="math inline">\(k(t_i,t_j)\)</span> (resp. <span class="math inline">\(\mu(t_i,t_j)\)</span>). The lower-triangular structure reflects causality. Reconstruction with <code>visco_tensor</code> is exact:</p>
-<div id="850222eb" class="cell" data-execution_count="7">
+<div id="44a1916b" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>M_check <span class="op">=</span> visco_tensor([Vk, Vmu], [])</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Max reconstruction error:"</span>, <span class="bu">abs</span>(M_relax <span class="op">-</span> M_check).<span class="bu">max</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -1207,11 +1207,7 @@ Shear relaxation block Vmu  [mu(ti, tj)]:
 <p><span class="math display">\[
 \boldsymbol{\varepsilon}_{|\mathcal{E}}(t) = -\uuuu{P}_\mathcal{E}(t,\bullet) \dcirc \uu{p}(\bullet)
 \]</span></p>
-<p>The formula for <span class="math inline">\(\uuuu{P}_\mathcal{E}(t,t')\)</span> and its derivation are given in <a href="../99_appendices/viscoelastic_hill_kernel.html" class="quarto-xref"><span>Appendix C</span></a> (<a href="../99_appendices/viscoelastic_hill_kernel.html#eq-alv-hill-kernel" class="quarto-xref"><span>C.1</span></a>). The fundamental result is the <strong>block property</strong> (<a href="../99_appendices/viscoelastic_hill_kernel.html#eq-block-hill-prop" class="quarto-xref"><span>C.2</span></a>): the block Hill matrix is obtained by applying the elastic Hill tensor formula directly to the block relaxation matrix <span class="math inline">\(\mathbf{R}^0\)</span>:</p>
-<p><span id="eq-block-hill"><span class="math display">\[
-\mathbf{P}_\mathcal{E}(\mathbf{R}^0) = \mathbb{P}_\mathcal{E}(\mathbf{R}^0)
-\tag{17.5}\]</span></span></p>
-<p>That is, the same formula as for the elastic Hill tensor (see <a href="../99_appendices/hill_tensors.html" class="quarto-xref"><span>Appendix B</span></a>), with <span class="math inline">\(\mathbb{C}\)</span> replaced by <span class="math inline">\(\mathbf{R}^0\)</span> and all matrix operations interpreted block-wise. This makes ALV homogenization directly compatible with elastic Hill tensor routines applied to the block relaxation matrix.</p>
+<p>The formula for <span class="math inline">\(\uuuu{P}_\mathcal{E}(t,t')\)</span> and its derivation are given in <a href="../99_appendices/viscoelastic_hill_kernel.html" class="quarto-xref"><span>Appendix C</span></a> (<a href="../99_appendices/viscoelastic_hill_kernel.html#eq-alv-hill-kernel" class="quarto-xref"><span>C.1</span></a>).</p>
 </section>
 <section id="isotropic-matrix-case" class="level3">
 <h3 class="anchored" data-anchor-id="isotropic-matrix-case">Isotropic matrix case</h3>
@@ -1220,12 +1216,8 @@ Shear relaxation block Vmu  [mu(ti, tj)]:
 \uuuu{P}_\mathcal{E}(t,t') =
 \volt{\!\left(k^0 + \tfrac{4}{3}\mu^0\right)}_{(t,t')}\,\uuuu{U}^{\uu{A}}
 + \volt{\mu^0}_{(t,t')}\,\bigl(\uuuu{V}^{\uu{A}} - \uuuu{U}^{\uu{A}}\bigr)
-\tag{17.6}\]</span></span></p>
-<p>where <span class="math inline">\(\uuuu{U}^{\uu{A}}\)</span> and <span class="math inline">\(\uuuu{V}^{\uu{A}}\)</span> are the purely geometric tensors defined in <a href="../99_appendices/hill_tensors.html" class="quarto-xref"><span>Appendix B</span></a>. The block-<span class="math inline">\((i,j)\)</span> form recovered from <a href="#eq-block-hill" class="quarto-xref"><span>17.5</span></a> is:</p>
-<p><span class="math display">\[
-[\mathbf{P}_\mathcal{E}]_{ij} = \mathbb{P}_\mathcal{E}\!\left(3k^0_{ij}\,\mathbb{J}+2\mu^0_{ij}\,\mathbb{K}\right)
-\]</span></p>
-<p>For a <strong>sphere</strong>, <span class="math inline">\(\mathbb{P}_{sphere}(\mathbb{C})\)</span> depends on <span class="math inline">\(k\)</span> and <span class="math inline">\(\mu\)</span> only through the combination <span class="math inline">\(k+4\mu/3\)</span> and <span class="math inline">\(\mu\)</span>, giving explicit scalar formulas (see <a href="../99_appendices/hill_tensors.html" class="quarto-xref"><span>Appendix B</span></a>). For general spheroids, the formulas involve elliptic integrals of the aspect ratio <span class="citation" data-cites="barthelemyIJES2019">(<a href="../references.html#ref-barthelemyIJES2019" role="doc-biblioref">Barthélémy et al., 2019</a>, Appendix A)</span>.</p>
+\tag{17.5}\]</span></span></p>
+<p>where <span class="math inline">\(\uuuu{U}^{\uu{A}}\)</span> and <span class="math inline">\(\uuuu{V}^{\uu{A}}\)</span> are the purely geometric tensors defined in <a href="../99_appendices/hill_tensors.html" class="quarto-xref"><span>Appendix B</span></a>. For a <strong>sphere</strong>, the kernel reduces to <a href="../99_appendices/viscoelastic_hill_kernel.html#eq-alv-hill-sphere" class="quarto-xref"><span>C.3</span></a>. For general spheroids, the formulas for <span class="math inline">\(\uuuu{U}^{\uu{A}}\)</span> and <span class="math inline">\(\uuuu{V}^{\uu{A}}\)</span> involve elliptic integrals of the aspect ratio <span class="citation" data-cites="barthelemyIJES2019">(<a href="../references.html#ref-barthelemyIJES2019" role="doc-biblioref">Barthélémy et al., 2019</a>, Appendix A)</span>.</p>
 </section>
 <section id="strain-concentration-and-contribution-tensors" class="level3">
 <h3 class="anchored" data-anchor-id="strain-concentration-and-contribution-tensors">Strain concentration and contribution tensors</h3>
@@ -1234,13 +1226,13 @@ Shear relaxation block Vmu  [mu(ti, tj)]:
 \boldsymbol{\varepsilon}_{|\mathcal{E}} = \uuuu{A}^{dil} \dcirc \uu{E},
 \qquad
 \uuuu{A}^{dil} = \volt{\!\bigl(H\,\uuuu{I} + \uuuu{P}_\mathcal{E} \dcirc (\uuuu{C}^\mathcal{E} - \uuuu{C}^0)\bigr)}
-\tag{17.7}\]</span></span></p>
+\tag{17.6}\]</span></span></p>
 <p>In block matrix form: <span class="math inline">\(\mathbf{A}^{dil} = \bigl[\mathbf{I} + \mathbf{P}_\mathcal{E}(\mathbf{R}^0)\cdot(\mathbf{R}^\mathcal{E} - \mathbf{R}^0)\bigr]^{-1}\)</span>.</p>
 <p>The <strong>strain contribution tensor</strong> (ALV counterpart of <span class="math inline">\(\delta\uuuu{C}:\uuuu{A}^{dil}\)</span> in <a href="../4_schemes/schemes.html" class="quarto-xref"><span>Chapter 12</span></a>) is:</p>
 <p><span id="eq-alv-contribution"><span class="math display">\[
 \uuuu{N}^{dil} = (\uuuu{C}^\mathcal{E} - \uuuu{C}^0) \dcirc \uuuu{A}^{dil}
 = \volt{\!\bigl(\uuuu{P}_\mathcal{E} + \volt{(\uuuu{C}^\mathcal{E} - \uuuu{C}^0)}\bigr)}
-\tag{17.8}\]</span></span></p>
+\tag{17.7}\]</span></span></p>
 <p>These Volterra-kernel expressions are the exact analogues of the elastic concentration and contribution tensors with matrix inverses replaced by Volterra inverses.</p>
 </section>
 </section>
@@ -1292,7 +1284,7 @@ Shear relaxation block Vmu  [mu(ti, tj)]:
 <p>The <strong>Maxwell</strong> (or Ponte Castañeda-Willis) scheme equates the far-field disturbance of all inclusions to that of an equivalent homogeneous particle of shape <span class="math inline">\(\Omega\)</span> (distribution shape):</p>
 <p><span id="eq-maxwell-alv"><span class="math display">\[
 \volt{\uuuu{C}^{MX}} = \volt{\uuuu{C}^0} + \volt{\!\left(\volt{\!\left(\sum_r \varphi_r\,\uuuu{N}^r\right)} - \uuuu{P}_\Omega\right)}
-\tag{17.9}\]</span></span></p>
+\tag{17.8}\]</span></span></p>
 <p>In block matrix form: <span class="math inline">\((\mathbf{R}^{MX})^{-1} = (\mathbf{R}^0)^{-1} + \bigl[(\sum_r\varphi_r\mathbf{N}^r)^{-1} - \mathbf{P}_\Omega\bigr]^{-1}\)</span>. This scheme is equivalent to the elastic PCW scheme and provides a rigorous bound structure <span class="citation" data-cites="barthelemyIJES2019">(<a href="../references.html#ref-barthelemyIJES2019" role="doc-biblioref">Barthélémy et al., 2019</a>)</span>.</p>
 </section>
 <section id="dilute-scheme-dil" class="level3">
@@ -1300,7 +1292,7 @@ Shear relaxation block Vmu  [mu(ti, tj)]:
 <p>The <strong>dilute</strong> (DIL) scheme — also known as the non-interaction approximation (NIA, <span class="citation" data-cites="barthelemyIJES2019">(<a href="../references.html#ref-barthelemyIJES2019" role="doc-biblioref">Barthélémy et al., 2019</a>)</span>) in its creep compliance form — treats each inclusion independently in the matrix:</p>
 <p><span id="eq-dil-alv"><span class="math display">\[
 \uuuu{C}^{DIL} = \uuuu{C}^0 + \sum_r \varphi_r\,\uuuu{N}^r
-\tag{17.10}\]</span></span></p>
+\tag{17.9}\]</span></span></p>
 <p>This is the first-order estimate, valid for small volume fractions.</p>
 </section>
 <section id="mori-tanaka-mt-scheme" class="level3">
@@ -1310,11 +1302,11 @@ Shear relaxation block Vmu  [mu(ti, tj)]:
 \uuuu{C}^{MT} = \uuuu{C}^0 +
 \sum_r \varphi_r\,\uuuu{N}^r \dcirc
 \volt{\!\left((1-\textstyle\sum_s\varphi_s)\,H\,\uuuu{I} + \sum_s \varphi_s\,\uuuu{A}^{dil,s}\right)}
-\tag{17.11}\]</span></span></p>
+\tag{17.10}\]</span></span></p>
 <p>When all inclusions have the same shape (single set), the MT scheme reduces to the standard <strong>Mori-Tanaka</strong> scheme with matrix as reference:</p>
 <p><span id="eq-MT-block"><span class="math display">\[
 \mathbf{R}^{MT} = \Bigl(\sum_r f_r\,\mathbf{R}^r\cdot\mathbf{A}^r_{MT}\Bigr)\cdot\Bigl(\sum_r f_r\,\mathbf{A}^r_{MT}\Bigr)^{-1}
-\tag{17.12}\]</span></span></p>
+\tag{17.11}\]</span></span></p>
 <p>where <span class="math inline">\(\mathbf{A}^r_{MT} = \bigl[\mathbf{I} + \mathbf{P}_{\mathcal{E}^r}(\mathbf{R}^m)\cdot(\mathbf{R}^r - \mathbf{R}^m)\bigr]^{-1}\)</span> and the reference is the matrix block stiffness <span class="math inline">\(\mathbf{R}^m\)</span>.</p>
 </section>
 <section id="self-consistent-scheme-and-differential-scheme" class="level3">
@@ -1329,12 +1321,12 @@ Shear relaxation block Vmu  [mu(ti, tj)]:
 \mu(t) = \mu^0\!\left(1 + \lambda\,I_\alpha(\beta,t)\right),
 \qquad
 I_\alpha(\beta,t) = \frac{1}{\beta}\!\left(1 - E_{1+\alpha}(-\beta\,t^{1+\alpha})\right)
-\tag{17.13}\]</span></span></p>
+\tag{17.12}\]</span></span></p>
 <p>where <span class="math inline">\(E_a\)</span> is the <strong>one-parameter Mittag-Leffler function</strong>, defined by the entire series</p>
 <p><span id="eq-ml-def"><span class="math display">\[
 E_a(z) = \sum_{k=0}^{\infty}\frac{z^k}{\Gamma(ak+1)}, \qquad a&gt;0,
-\tag{17.14}\]</span></span></p>
-<p>which generalizes the exponential (<span class="math inline">\(E_1(z)=e^z\)</span>). The function <span class="math inline">\(I_\alpha(\beta,t)\)</span> in <a href="#eq-rabotnov" class="quarto-xref"><span>17.13</span></a> is the primitive of the <strong>Rabotnov function</strong> <span class="math inline">\(\mathfrak{R}_\alpha\)</span>:</p>
+\tag{17.13}\]</span></span></p>
+<p>which generalizes the exponential (<span class="math inline">\(E_1(z)=e^z\)</span>). The function <span class="math inline">\(I_\alpha(\beta,t)\)</span> in <a href="#eq-rabotnov" class="quarto-xref"><span>17.12</span></a> is the primitive of the <strong>Rabotnov function</strong> <span class="math inline">\(\mathfrak{R}_\alpha\)</span>:</p>
 <p><span id="eq-rabotnov-primitive"><span class="math display">\[
 \mathfrak{R}_\alpha(\beta,t)
   = t^{\alpha}\,E_{1+\alpha,\,1+\alpha}\!\left(-\beta\,t^{1+\alpha}\right),
@@ -1342,14 +1334,14 @@ E_a(z) = \sum_{k=0}^{\infty}\frac{z^k}{\Gamma(ak+1)}, \qquad a&gt;0,
 I_\alpha(\beta,t)
   = \int_0^t \mathfrak{R}_\alpha(\beta,s)\,\ud s
   = \frac{1}{\beta}\!\left(1 - E_{1+\alpha}\!\left(-\beta\,t^{1+\alpha}\right)\right),
-\tag{17.15}\]</span></span></p>
+\tag{17.14}\]</span></span></p>
 <p>where <span class="math inline">\(E_{a,b}(z)=\sum_{k=0}^\infty z^k/\Gamma(ak+b)\)</span> is the two-parameter Mittag-Leffler function. For <span class="math inline">\(\alpha\in(-1,0)\)</span> and <span class="math inline">\(\beta,\lambda&gt;0\)</span> the relaxation modulus <span class="math inline">\(\mu(t)\)</span> decreases monotonically from <span class="math inline">\(\mu^0\)</span> toward the long-time value <span class="math inline">\(\mu^0(1+\lambda/\beta)\)</span>, with the Rabotnov exponent <span class="math inline">\(\alpha\)</span> controlling the rate. The evaluation of <span class="math inline">\(E_a\)</span> relies on the <a href="https://github.com/khinsen/mittag-leffler"><code>mittag-leffler</code></a> package <span class="citation" data-cites="hinsen2025">(<a href="../references.html#ref-hinsen2025" role="doc-biblioref">Hinsen, 2025</a>)</span>.</p>
-<p>The bulk modulus is elastic (<span class="math inline">\(k=k^0\)</span>, constant). The LC transform of <a href="#eq-rabotnov" class="quarto-xref"><span>17.13</span></a> is:</p>
+<p>The bulk modulus is elastic (<span class="math inline">\(k=k^0\)</span>, constant). The LC transform of <a href="#eq-rabotnov" class="quarto-xref"><span>17.12</span></a> is:</p>
 <p><span id="eq-rabotnov-lc"><span class="math display">\[
 \tilde{\mu}(p) = \mu^0\!\left(1 + \frac{\lambda}{p^{1+\alpha} + \beta}\right)
-\tag{17.16}\]</span></span></p>
+\tag{17.15}\]</span></span></p>
 <p>Parameters <span class="citation" data-cites="barthelemyIJSS2016">(<a href="../references.html#ref-barthelemyIJSS2016" role="doc-biblioref">Barthélémy et al., 2016</a>)</span>: <span class="math inline">\(k^0=5.97\)</span> GPa, <span class="math inline">\(\mu^0=1.7\)</span> GPa, <span class="math inline">\(\alpha=-0.46\)</span>, <span class="math inline">\(\beta=0.98\)</span> h<span class="math inline">\(^{-(1+\alpha)}\)</span>, <span class="math inline">\(\lambda=-0.495\)</span> h<span class="math inline">\(^{-(1+\alpha)}\)</span>. Rigid inclusions: <span class="math inline">\(C_i=10^6\,\mathbb{C}(k^0,\mu^0)\)</span>; spherical pores: <span class="math inline">\(C_i=10^{-10}\,\mathbb{C}(k^0,\mu^0)\)</span>.</p>
-<div id="3992722a" class="cell" data-execution_count="8">
+<div id="d4614765" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>k0, mu0 <span class="op">=</span> <span class="fl">5.97</span>, <span class="fl">1.7</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>alpha0, beta0, lambda0 <span class="op">=</span> <span class="op">-</span><span class="fl">0.46</span>, <span class="fl">0.98</span>, <span class="op">-</span><span class="fl">0.495</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1379,7 +1371,7 @@ I_\alpha(\beta,t)
 <span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>    _, Vmu <span class="op">=</span> visco_paramsym(V, ISO)</span>
 <span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Vmu   <span class="co"># relaxation matrix</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="0e53c25e" class="cell" data-execution_count="9">
+<div id="a57cc464" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Closed-form Mittag-Leffler solutions (rigid spheres and pores)</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Lmu_sph_rig_ML_DIL(t, f):</span>
@@ -1459,7 +1451,7 @@ I_\alpha(\beta,t)
 <span id="cb20-75"><a href="#cb20-75" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> mu0MX<span class="op">*</span>(<span class="dv">1</span> <span class="op">+</span> d3mu<span class="op">*</span>I_Rabotnov(t,alpha0,eta3) <span class="op">+</span> d4mu<span class="op">*</span>I_Rabotnov(t,alpha0,eta4))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div id="765ab6f8" class="cell" data-execution_count="10">
+<div id="c8f407bf" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>n_val <span class="op">=</span> <span class="dv">200</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> array([<span class="fl">0.</span>] <span class="op">+</span> logspace(<span class="op">-</span><span class="fl">8.</span>, log10(<span class="fl">100.</span>), n_val).tolist())</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>fracs <span class="op">=</span> [<span class="fl">0.05</span>, <span class="fl">0.1</span>, <span class="fl">0.2</span>]<span class="op">;</span>  clrs <span class="op">=</span> [<span class="st">'b'</span>, <span class="st">'k'</span>, <span class="st">'r'</span>]</span>
@@ -1517,7 +1509,7 @@ I_\alpha(\beta,t)
 \quad
 \mathbb{T}_\nu = (1-2\nu)\,\mathbb{J} + (1+\nu)\,\mathbb{K},
 \quad f_a(t')=e^{-(t'/\tau_a)^2}
-\tag{17.17}\]</span></span></p>
+\tag{17.16}\]</span></span></p>
 <p>The ageing factor <span class="math inline">\(f_a(t')\)</span> decreases with loading age <span class="math inline">\(t'\)</span>, reflecting stiffening of the material over time. Parameters (dimensionless):</p>
 <div id="tbl-granger" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -1575,7 +1567,7 @@ Fig.&nbsp;17.1: RVE: matrix (grey) with oblate spheroidal inclusions (<span clas
 </figcaption>
 </figure>
 </div>
-<div id="5bd435b2" class="cell" data-execution_count="11">
+<div id="680ce931" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Js_Kelvin2(nu, E, s1, s2, tau1, tau2, tau_a):</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Ageing creep compliance: @eq-granger-law."""</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> f(t, tp):</span>
@@ -1607,7 +1599,7 @@ Fig.&nbsp;17.1: RVE: matrix (grey) with oblate spheroidal inclusions (<span clas
 <span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>n_app <span class="op">=</span> <span class="dv">200</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Effect of scheme and volume fraction (<span class="math inline">\(\omega=0.1\)</span>, <span class="math inline">\(\varphi\in\{0.05,0.1,0.2\}\)</span>, <span class="math inline">\(t_0\in\{0,20,40\}\)</span>):</p>
-<div id="f8862017" class="cell" data-execution_count="12">
+<div id="774bee29" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">4</span>))</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>omega <span class="op">=</span> <span class="fl">0.1</span></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> t0 <span class="kw">in</span> [<span class="fl">0.</span>, <span class="fl">20.</span>, <span class="fl">40.</span>]:</span>
@@ -1645,7 +1637,7 @@ Fig.&nbsp;17.1: RVE: matrix (grey) with oblate spheroidal inclusions (<span clas
 </div>
 <p>Blue/black/red: <span class="math inline">\(\varphi=0.05/0.1/0.2\)</span>; solid: MAX, dashed: DIL, dotted: MT. Green/magenta: single-phase matrix/inclusion. Multiple same-colour curves correspond to <span class="math inline">\(t_0\in\{0,20,40\}\)</span>: earlier loading ages produce more creep (younger, less stiff matrix).</p>
 <p>Effect of scheme and aspect ratio (<span class="math inline">\(\varphi=0.2\)</span>, <span class="math inline">\(\omega\in\{0.1,1\}\)</span>, <span class="math inline">\(t_0\in\{0,20,40\}\)</span>):</p>
-<div id="ae723b18" class="cell" data-execution_count="13">
+<div id="3d51fb67" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">4</span>))</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="fl">0.2</span></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> t0 <span class="kw">in</span> [<span class="fl">0.</span>, <span class="fl">20.</span>, <span class="fl">40.</span>]:</span>
