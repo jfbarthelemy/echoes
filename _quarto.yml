@@ -15,7 +15,8 @@ book:
   repo-url: https://github.com/jfbarthelemy/echoes/
   repo-branch: main
   repo-actions: [edit]
-  sharing: [twitter, facebook, linkedin]
+  sharing: [linkedin]
+  google-analytics: "G-DF66M2GWRG"
   date: last-modified
   license: "CC BY-SA 4.0"
   page-footer:
@@ -113,16 +114,6 @@ format:
     fontsize: 90%
     include-in-header:
       - _config/echoes_highlight.html
-      - text: |
-          <!-- Google tag (gtag.js) -->
-          <script async src="https://www.googletagmanager.com/gtag/js?id=G-DF66M2GWRG"></script>
-          <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-DF66M2GWRG');
-          </script>      
     include-before-body: _config/_macros_html.md
     default-image-extension: html
   # pdf:
