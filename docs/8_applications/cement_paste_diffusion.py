@@ -20,9 +20,6 @@
 #       - text: Python script
 #         icon: file-code
 #         href: cement_paste_diffusion.py
-#       - text: Jupyter notebook
-#         icon: journal-code
-#         href: cement_paste_diffusion.ipynb
 # ---
 #
 # # Cement paste: chloride diffusivity and elasticity {#sec-cement-paste-diffusion}
@@ -520,29 +517,31 @@ plt.show()
 #
 # - **Elastic threshold** $\phi_e^{\rm elas}$: the critical pore fraction above which
 #   $\uuuu{C}^{\rm hom}=\uuuu{0}$ (solid skeleton ceases to carry load).
-#   Setting $\uuuu{T}_p(\nu)=\uuuu{C}(\nu):(\uuuu{I}-\uuuu{S}_p(\nu))^{-1}$,
+#   Introducing the dual Hill tensor $\uuuu{Q}_p(\nu)=\mathtt{hill\_dual}(\omega_p,\uuuu{C}(\nu))$,
 #   the SC equation at $\uuuu{C}^{\rm hom}\to\uuuu{0}^+$ reduces to the coupled
 #   system in $(f_s,\nu)$:
 #
 # $$
-# f_s = \frac{\tr(\uuuu{J}:\uuuu{T}_p)}{\tr(\uuuu{J}:\uuuu{P}_s^{-1})+\tr(\uuuu{J}:\uuuu{T}_p)},
+# f_s = \frac{\tr(\uuuu{J}:\uuuu{Q}_p^{-1})}{(1-2\nu)^2\,\tr(\uuuu{J}:\uuuu{P}_s^{-1})+\tr(\uuuu{J}:\uuuu{Q}_p^{-1})},
 # \qquad
-# f_s\,\tr(\uuuu{K}:\uuuu{P}_s^{-1}) = (1-f_s)\,\tr(\uuuu{K}:\uuuu{T}_p)
+# f_s\,(1+\nu)^2\,\tr(\uuuu{K}:\uuuu{P}_s^{-1}) = (1-f_s)\,\tr(\uuuu{K}:\uuuu{Q}_p^{-1})
 # $$
 #
-#   where $\uuuu{P}_s=\uuuu{P}(\omega_s,\uuuu{C}(\nu))$ is the Hill tensor;
-#   $\phi_e^{\rm elas}=1-f_s$.
+#   where $\uuuu{P}_s=\uuuu{P}(\omega_s,\uuuu{C}(\nu))$ is the Hill tensor of the solid
+#   and $\uuuu{Q}_p=\mathtt{hill\_dual}(\omega_p,\uuuu{C}(\nu))$ is the dual Hill tensor
+#   of the pore; $\phi_e^{\rm elas}=1-f_s$.
 #
 # - **Diffusion threshold** $\phi_e^{\rm diff}$: the critical porosity above which
 #   the pore network is connected ($\uu{D}^{\rm hom}>\uu{0}$). It follows
 #   analytically from the second-order SC equation at $\uu{D}^{\rm hom}\to\uu{0}^+$:
 #
 # $$
-# \phi_e^{\rm diff} = \frac{\tr(\uu{I}-\uu{S}_s)^{-1}}{\tr\,\uu{P}_p^{-1}+\tr(\uu{I}-\uu{S}_s)^{-1}}
+# \phi_e^{\rm diff} = \frac{\tr\,\uu{Q}_s^{-1}}{\tr\,\uu{P}_p^{-1}+\tr\,\uu{Q}_s^{-1}}
 # $$
 #
-#   where $\uu{P}_p=\uu{P}(\omega_p,\uu{I})$ and $\uu{S}_s=\uu{S}(\omega_s,\uu{I})$
-#   are the second-order Hill and Eshelby tensors in the diffusion reference medium $\uu{I}$.
+#   where $\uu{P}_p=\uu{P}(\omega_p,\uu{I})$ and $\uu{Q}_s=\mathtt{hill\_dual}(\omega_s,\uu{I})$
+#   are respectively the second-order Hill tensor of the pore and the dual Hill tensor of the
+#   solid in the diffusion reference medium $\uu{I}$.
 
 # +
 #| code-fold: false
@@ -555,34 +554,34 @@ def felas(omega_s, omega_p):
     """Elastic percolation: returns (f_solid, nu) at C_hom → 0+ (SC two-phase)."""
     ells = spheroidal(omega_s, limit_aspect_ratio=1.e-6)
     ellp = spheroidal(omega_p, limit_aspect_ratio=1.e-6)
-    def solf(Ps, CImSp):
-        tP = np.trace(J4.dot(Ps))
-        tS = np.trace(J4.dot(CImSp))
-        return tS / (tP + tS)          # solid fraction at threshold
+    def solf(iPs, iQp, nu):
+        tiP = np.trace(J4.dot(iPs))
+        tiQ = np.trace(J4.dot(iQp))
+        return tiQ / ((1-2*nu)**2 * tiP + tiQ)          # solid fraction at threshold
     def eqnu(nu):
-        C     = stiff_Enu(1., nu)
-        Ps    = isotropify(np.linalg.inv(hill(ells, C)))
-        CImSp = C.array.dot(isotropify(np.linalg.inv(Id4 - eshelby(ellp, C))))
-        f     = solf(Ps, CImSp)
-        tP = np.trace(K4.dot(Ps))
-        tS = np.trace(K4.dot(CImSp))
-        return f * tP - (1. - f) * tS
+        C = stiff_Enu(1., nu)
+        iPs = np.linalg.inv(hill(ells, C))
+        iQp = np.linalg.inv(hill_dual(ellp, C))
+        f = solf(iPs, iQp, nu)
+        tiP = np.trace(K4.dot(iPs))
+        tiQ = np.trace(K4.dot(iQp))
+        return f * (1+nu)**2 * tiP - (1. - f) * tiQ
     nu    = bisect(eqnu, 0., 0.4)
     C     = stiff_Enu(1., nu)
-    Ps    = isotropify(np.linalg.inv(hill(ells, C)))
-    CImSp = C.array.dot(isotropify(np.linalg.inv(Id4 - eshelby(ellp, C))))
-    return solf(Ps, CImSp), nu
+    iPs = np.linalg.inv(hill(ells, C))
+    iQp = np.linalg.inv(hill_dual(ellp, C))
+    return solf(iPs, iQp, nu), nu
 
 def fdiff(omega_s, omega_p):
     """Diffusion percolation: returns solid fraction f_s at D_hom → 0+ (SC two-phase).
     Pore percolation threshold = 1 - fdiff(...)."""
     ells = spheroidal(omega_s, limit_aspect_ratio=1.e-6)
     ellp = spheroidal(omega_p, limit_aspect_ratio=1.e-6)
-    Pp   = isotropify(np.linalg.inv(hill(ellp, tId2)))
-    ImSs = isotropify(np.linalg.inv(tId2.array - eshelby(ells, tId2)))
-    tP = np.trace(Pp)
-    tS = np.trace(ImSs)
-    return tP / (tP + tS)
+    iPp = np.linalg.inv(hill(ellp, tId2))
+    iQs = np.linalg.inv(hill_dual(ells, tId2))
+    tiP = np.trace(iPp)
+    tiQ = np.trace(iQs)
+    return tiP / (tiP + tiQ)
 
 
 # +
