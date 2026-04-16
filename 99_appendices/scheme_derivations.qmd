@@ -165,7 +165,7 @@ where $\uuuu{P}(\uuuu{C}^{ASC}, \uu{A}_r)$ is the Hill polarization tensor of in
 
 Compared to SC, the ASC scheme:
 
-- retains the matrix-inclusion topology (no percolation threshold artifact),
+- retains the matrix-inclusion topology while still predicting percolation thresholds (see @sec-cracked-media),
 - accounts for the stiffness contrast relative to the effective medium rather than the matrix alone,
 - is better suited than MT when inclusion concentrations are moderate and phase contrast is large.
 
