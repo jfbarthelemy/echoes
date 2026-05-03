@@ -1,0 +1,307 @@
+# ---
+# jupyter:
+#   jupytext:
+#     text_representation:
+#       extension: .py
+#       format_name: light
+#       format_version: '1.5'
+#       jupytext_version: 1.16.1
+#   kernelspec:
+#     display_name: Python 3 (ipykernel)
+#     language: python
+#     name: python3
+#     path: C:\Python\share\jupyter\kernels\python3
+# ---
+
+# ---
+# format:
+#   html:
+#     code-links:
+#       - text: Python script
+#         icon: file-code
+#         href: cracked_media.py
+#       - text: Jupyter notebook
+#         icon: journal-code
+#         href: cracked_media.ipynb
+# ---
+#
+# # Homogenization of cracked media {#sec-cracked-media}
+#
+# ::: {.callout-important icon=false}
+#
+# ## {{< iconify pajamas issue-type-objective >}} Objectives
+#
+# This tutorial presents the homogenization of cracked media in *Echoes* (the `crack` object is introduced in @sec-crack-object):
+#
+# - effective elastic properties of a randomly cracked isotropic medium with various schemes;
+# - **transversely isotropic crack distribution** with `symmetrize=[TI, θ, φ]`;
+# - the **linear spring interface model** and its effect on effective stiffness;
+# - **coupled elastic and transport** properties for randomly cracked and multiple crack families.
+#
+# :::
+#
+# ::: {.callout-tip icon=false collapse=true}
+#
+# ## {{< iconify ix import >}} Imports
+
+# +
+#| error: false
+#| warning: false
+#| code-fold: false
+#| code-summary: Code for library imports
+#| include: true
+
+import numpy as np
+from echoes import *
+import math
+
+np.set_printoptions(precision=8, suppress=True)
+# -
+
+# :::
+#
+# ## Isotropic randomly cracked medium
+#
+# For randomly oriented penny-shaped cracks in an isotropic matrix, the `symmetrize=[ISO]` option projects the concentration tensor onto the isotropic symmetry class. This yields scalar effective bulk and shear moduli.
+
+# +
+#| label: fig-cracked-iso
+#| fig-cap: "Effective moduli of a randomly cracked isotropic medium"
+#| error: false
+#| warning: false
+#| code-summary: "Figure — effective moduli of a randomly cracked isotropic medium"
+#| include: true
+
+import matplotlib.pyplot as plt
+
+ω = 1.e-3
+Cs = stiff_Enu(1., 0.2)   # matrix: E=1, ν=0.2
+
+myrve = rve(matrix="SOLID")
+myrve["SOLID"] = ellipsoid(shape=spherical, fraction=1.,
+                            prop={"C": Cs, "K": 1. * tId2})
+myrve["CRACK"] = crack(shape=spheroidal(ω), symmetrize=[ISO],
+                        prop={"C": tZ4, "K": tensor(ω, ω, 1.)})
+
+ld = np.linspace(0., 1.2, 61)
+fig, axes = plt.subplots(1, 2, figsize=(9, 4))
+
+for sch, ls in zip([MT, SC, ASC, MAX, DIFF, PCW],
+                   ['-', '-', '--', '--', '-.', ':']):
+    lk, lmu = [], []
+    for d in ld:
+        myrve["CRACK"].density = d
+        myrve.set_prop("C", Cs)
+        try:
+            C = homogenize(prop="C", rve=myrve, scheme=sch,
+                           verbose=False, epsrel=1.e-6, maxnb=300,
+                           select_best=True)
+            lk.append(max(C.k / Cs.k, 0.))
+            lmu.append(max(C.mu / Cs.mu, 0.))
+        except Exception:
+            lk.append(0.)
+            lmu.append(0.)
+    axes[0].plot(ld, lk, ls, label=str(sch))
+    axes[1].plot(ld, lmu, ls, label=str(sch))
+
+for ax, lbl in zip(axes, [r"$k^{hom}/k^s$", r"$\mu^{hom}/\mu^s$"]):
+    ax.set_xlabel(r"$\varepsilon$")
+    ax.set_ylabel(lbl)
+    ax.set_ylim(0., 1.05)
+    ax.grid(True)
+    ax.legend(loc="best", fontsize=8)
+plt.tight_layout()
+plt.show()
+# -
+
+# ## Transversely isotropic crack distribution {#sec-ti-cracks}
+#
+# When crack normals are not fully random but distributed with TI symmetry around an axis, `symmetrize=[TI, θ, φ]` is used instead of `[ISO]`. A representative case is that of cracks whose normals lie uniformly in a plane — obtained by taking a single crack orientation and averaging over rotations around the perpendicular axis.
+#
+# The example below uses `ellipsoidal(1., ω, 1./ω)` — a crack thin in $\uv{e}_2$ (normal $= \uv{e}_2$) and elongated in $\uv{e}_3$. `symmetrize=[TI, 0., 0.]` then averages over rotations around $\uv{e}_3$, sweeping crack normals through the $(\uv{e}_1,\uv{e}_2)$ plane. The resulting effective medium is TI with axis $\uv{e}_3$: the in-plane stiffness $C_{1111}$ is strongly degraded while the longitudinal conductivity $K_{11}$ is enhanced by the high normal conductance $K_n \gg 1$ of the cracks.
+
+# +
+#| label: fig-cracked-ti
+#| fig-cap: "TI crack distribution (normals in (e1,e2) plane): normalized stiffness and conductivity vs. crack density"
+#| error: false
+#| warning: false
+#| code-summary: "Figure — TI crack distribution: stiffness and conductivity"
+#| include: true
+
+ω = 1.e-4 ; ko = 1.e-10 ; Kt = 1. ; Kn = 1.e10
+Cs = stiff_Enu(1., 0.2)
+C11s = Cs.array[0, 0]
+
+myrve_ti = rve(matrix="SOLID")
+myrve_ti["SOLID"] = ellipsoid(shape=spherical, fraction=1.,
+                               prop={"C": Cs, "K": ko * tId2})
+# Crack: normal along e2 (thin dimension), elongated in e3
+# TI averaging around e3 → normals sweep (e1,e2) plane
+myrve_ti["CRACK"] = crack(shape=ellipsoidal(1., ω, 1./ω, 0., 0., 0.),
+                           symmetrize=[TI, 0., 0.],
+                           prop={"C": tZ4, "K": tensor(Kt, Kn, Kt)})
+
+ld = np.linspace(0., 0.8, 101)
+fig, axes = plt.subplots(1, 2, figsize=(9, 4))
+
+for sch, ls in zip([MT, SC, DIFF], ['-', '-', '--']):
+    lC11, lK11 = [], []
+    for d in ld:
+        myrve_ti["CRACK"].density = d
+        myrve_ti.set_prop("C", Cs)
+        try:
+            C = homogenize(prop="C", rve=myrve_ti, scheme=sch,
+                           verbose=False, epsrel=1.e-6, maxnb=100,
+                           select_best=True)
+            val = C.array[0, 0] / C11s
+            lC11.append(val if val > 0. else np.nan)
+        except Exception:
+            lC11.append(np.nan)
+        myrve_ti.set_prop("K", ko * tId2)
+        try:
+            K = homogenize(prop="K", rve=myrve_ti, scheme=sch,
+                           verbose=False, epsrel=1.e-6, maxnb=100,
+                           select_best=True)
+            lK11.append(K.array[0, 0] / (ω * Kt))
+        except Exception:
+            lK11.append(np.nan)
+    axes[0].plot(ld, lC11, ls, label=str(sch))
+    axes[1].plot(ld, lK11, ls, label=str(sch))
+
+axes[0].set_xlabel(r"$\varepsilon$"); axes[0].set_ylabel(r"$C^{hom}_{1111}/C^s_{1111}$")
+axes[0].set_ylim(0., 1.05); axes[0].grid(True); axes[0].legend(fontsize=8)
+axes[1].set_xlabel(r"$\varepsilon$"); axes[1].set_ylabel(r"$K^{hom}_{11}/(\omega K_t)$")
+axes[1].grid(True); axes[1].legend(fontsize=8)
+plt.tight_layout()
+plt.show()
+# -
+
+# ## Spring interface model
+#
+# The open crack ($k_n=k_t=0$) is a limiting case. When the crack faces are partially bonded, the linear spring model from @sec-spring-model is activated via `interf_prop`. For elasticity the parameter order is `[kn, kt]`:
+
+# +
+#| error: false
+#| warning: false
+#| code-summary: "Spring interface model — open / bonded limits"
+#| include: true
+
+Cs = stiff_Enu(1., 0.2)
+myrve_spr = rve(matrix="SOLID")
+myrve_spr["SOLID"] = ellipsoid(shape=spherical, fraction=1., prop={"C": Cs})
+myrve_spr["CRACK"] = crack(shape=spheroidal(1.e-3), density=0.3,
+                            symmetrize=[ISO], prop={"C": tZ4})
+
+C_open   = homogenize(prop="C", rve=myrve_spr, scheme=MT)
+
+myrve_spr["CRACK"].set_interf_prop("C", [5., 5.])
+C_spring = homogenize(prop="C", rve=myrve_spr, scheme=MT)
+
+myrve_spr["CRACK"].set_interf_prop("C", [1.e12, 1.e12])
+C_bonded = homogenize(prop="C", rve=myrve_spr, scheme=MT)
+
+print(f"E (matrix solid)     = {Cs.E:.6f}")
+print(f"E (open crack)       = {C_open.E:.6f}")
+print(f"E (spring kn=kt=5)   = {C_spring.E:.6f}")
+print(f"E (perfect bonding)  = {C_bonded.E:.6f}")
+# -
+
+# ## Randomly cracked medium: coupled elasticity and conductivity
+#
+# Cracks significantly affect both the **mechanical** and **transport** properties of the medium. The `crack` object accepts both `prop={"C": ..., "K": ...}` (material properties of the crack medium) and `interf_prop={"C": [kn, kt], "K": [Ka, Kb, Kc]}` (interface stiffnesses). For elasticity `[kn, kt]` means normal then tangential stiffness. For conductivity `[Ka, Kb, Kc]` are the conductances along the three local crack axes (the two tangential axes first, then the normal): for a spheroidal crack, `[Kt, Kt, Kn]`. For a **void crack** with high conductivity across the crack plane, typical settings are `prop={"C": tZ4, "K": tensor(Kt, Kt, Kn)}` where `Kn` is large.
+
+# +
+#| label: fig-cracked-coupled
+#| fig-cap: "Randomly cracked medium: normalized effective Young's modulus and conductivity vs. crack density"
+#| error: false
+#| warning: false
+#| code-summary: "Figure — cracked medium: coupled Young's modulus and conductivity"
+#| include: true
+
+ω = 1.e-3 ; ko = 1. ; kt_K = 1.e9   # high conductance (fluid-filled crack)
+
+Cs = stiff_Enu(1., 0.25)
+
+myrve_al = rve(matrix="SOLID")
+myrve_al["SOLID"] = ellipsoid(shape=spherical, fraction=1.,
+                               prop={"C": Cs, "K": ko * tId2})
+myrve_al["CRACK"] = crack(shape=spheroidal(ω), symmetrize=[ISO],
+                           prop={"C": tZ4, "K": tensor(kt_K, kt_K, kt_K)})
+
+ld = np.linspace(0., 1.2, 61)
+fig, axes = plt.subplots(1, 2, figsize=(9, 4))
+
+for sch, ls in zip([MT, SC, ASC, DIFF, PCW],
+                   ['-', '-', '--', '-.', ':']):
+    lE, lK = [], []
+    pcw_zeroed = False
+    for d in ld:
+        myrve_al["CRACK"].density = d
+        myrve_al.set_prop("C", Cs)
+        if sch is PCW and pcw_zeroed:
+            lE.append(np.nan)
+        else:
+            try:
+                C = homogenize(prop="C", rve=myrve_al, scheme=sch,
+                               verbose=False, epsrel=1.e-5, maxnb=200,
+                               select_best=True)
+                val = C.E / Cs.E
+                if val <= 0.:
+                    lE.append(np.nan)
+                    if sch is PCW:
+                        pcw_zeroed = True
+                else:
+                    lE.append(val)
+            except Exception:
+                lE.append(np.nan)
+        myrve_al.set_prop("K", ko * tId2)
+        try:
+            K = homogenize(prop="K", rve=myrve_al, scheme=sch,
+                           verbose=False, epsrel=1.e-5, maxnb=200,
+                           select_best=True)
+            val = K.param[0] / ko
+            lK.append(val if val > 0. else np.nan)
+        except Exception:
+            lK.append(np.nan)
+    axes[0].plot(ld, lE, ls, label=str(sch))
+    axes[1].plot(ld, lK, ls, label=str(sch))
+
+axes[0].set_xlabel(r"$\varepsilon$"); axes[0].set_ylabel(r"$E^{hom}/E^s$")
+axes[0].set_ylim(0., 1.05); axes[0].grid(True); axes[0].legend(fontsize=8)
+axes[1].set_xlabel(r"$\varepsilon$"); axes[1].set_ylabel(r"$K^{hom}/K^s$")
+axes[1].grid(True); axes[1].legend(fontsize=8)
+plt.tight_layout()
+plt.show()
+# -
+
+# ## Multiple crack families
+#
+# Several crack families with different orientations and properties can be assembled in one RVE. The example below considers two families of cracks with different orientations and finite conductivity, computing the effective stiffness and permeability simultaneously:
+
+# +
+#| error: false
+#| warning: false
+#| code-summary: "Multiple crack families — stiffness and permeability"
+#| include: true
+
+π = math.pi
+ko = 1.e-10 ; kinf = 1.e10
+
+myrve2 = rve(matrix="SOLID")
+myrve2["SOLID"] = ellipsoid(shape=spherical, fraction=1,
+    prop={"K": ko * tId2, "C": stiff_kmu(1., 1.)})
+myrve2["CRACK1"] = crack(shape=spheroidal(1.e-3, π/3., π/5.), density=0.4,
+    prop={"C": tZ4}, interf_prop={"K": [2., 2., kinf]})
+myrve2["CRACK2"] = crack(shape=spheroidal(1.e-3, π/6.), density=0.3,
+    prop={"C": tZ4}, interf_prop={"K": [2., 2., kinf]})
+
+C_eff = homogenize(prop="C", rve=myrve2, scheme=SC,
+                   verbose=False, epsrel=1.e-6, maxnb=200)
+print("Effective stiffness:\n", C_eff)
+
+K_eff = homogenize(prop="K", rve=myrve2, scheme=SC,
+                   verbose=False, epsrel=1.e-6, maxnb=200)
+print("\nEffective permeability:\n", K_eff)
+# -
+
+# $\,$

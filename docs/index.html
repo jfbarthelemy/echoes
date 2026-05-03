@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jean-François Barthélémy">
-<meta name="dcterms.date" content="2026-04-16">
+<meta name="dcterms.date" content="2026-04-22">
 
 <title>Echoes</title>
 <style>
@@ -476,8 +476,7 @@ window.Quarto = {
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Echoes</a> 
-        <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/jfbarthelemy/echoes/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+        <div class="sidebar-tools-main">
     <a href="https://www.linkedin.com/sharing/share-offsite/?url=|url|" title="LinkedIn" class="quarto-navigation-tool px-1" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
@@ -803,7 +802,7 @@ window.Quarto = {
   <li><a href="#citation" id="toc-citation" class="nav-link" data-scroll-target="#citation">Citation</a></li>
   <li><a href="#about-the-author" id="toc-about-the-author" class="nav-link" data-scroll-target="#about-the-author">About the author</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
+</nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
@@ -907,7 +906,7 @@ $$
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 16, 2026</p>
+      <p class="date">April 22, 2026</p>
     </div>
   </div>
   
@@ -941,7 +940,7 @@ $$
 <h2 class="anchored" data-anchor-id="download">Download</h2>
 <p>The core of <code>echoes</code> has been developed in C++ and wrapped by a Python interface. Hence its use requires first the installation of a Python environment including <code>pip</code> executable (for instance <a href="https://www.anaconda.com/products/distribution">Anaconda</a>).</p>
 <p>Wheel packages can be downloaded for various versions of Python under Windows or Linux by choosing the appropriate file for your configuration under the link</p>
-<p><a href="https://doi.org/10.5281/zenodo.14959866"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.14959866.svg" class="img-fluid"></a></p>
+<p><a href="https://doi.org/10.5281/zenodo.19679057"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.19679057.svg" class="img-fluid"></a></p>
 <p>Once in possession of the relevant <code>.whl</code> file, the package can be installed in a console (Anaconda console or any console allowing to run <code>pip</code>) by</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pip install <span class="op">-</span>U echoes<span class="op">-</span>XYZ.whl</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># replacing echoes-XYZ.whl by the correct path to the whl file</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -954,8 +953,8 @@ $$
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  shorttitle = {Echoes},</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  author = {Barthélémy, Jean-François},</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  date = {2022-11-22},</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  doi = {10.5281/ZENODO.14959866},</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  url = {https://zenodo.org/record/14959866},</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  doi = {10.5281/ZENODO.19679057},</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  url = {https://zenodo.org/record/19679057},</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  organization = {Zenodo},</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  version = {v1.0.0},</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1101,7 +1100,7 @@ Barthélémy, J.-F., 2022. Echoes: <span>Extended Calculator</span> of <span>HOm
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/jfbarthelemy\.github\.io\/echoes\/");
+        var filterRegex = new RegExp("https:\/\/echoes\.barthelemy\.xyz\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1445,7 +1444,7 @@ Barthélémy, J.-F., 2022. Echoes: <span>Extended Calculator</span> of <span>HOm
     </div>   
     <div class="nav-footer-center">
 <p>Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jfbarthelemy/echoes/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div>
+</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

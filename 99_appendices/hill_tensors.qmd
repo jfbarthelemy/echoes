@@ -133,12 +133,12 @@ $${#eq-decI}
 
 The components $I^{\uu{A}}_i$ can be obtained by identification with expressions derived from the Newtonian potential ([@kellogg1929], [@eshelby1957], [@parnell2016]). They are gathered in @tbl-Ii or recalled a little later in a generic form ([@barthelemyIJSS2016], [@barthelemyIJES2020_hilltrans]).
 
-|      | ellipsoid | prolate spheroid | oblate spheroid | sphere |
-|------|------|------|------|------|
-|      | $a>b>c$ | $a>b=c$ | $a=b>c$ | $a=b=c$ |
-| $I^{\uu{A}}_1 =$ |  $\frac{a\,b\,c}{(a^2-b^2)\sqrt{a^2-c^2}}\left({\cal F}-{\cal E}\right)$    |   $1-2\,I^{\uu{A}}_3$   |  $c\,\frac{a^2\,\arccos{(c/a)}-c\sqrt{a^2-c^2}}{2\left(a^2-c^2\right)^{3/2}}$    |   $\frac{1}{3}$   |
-| $I^{\uu{A}}_2 =$ |  $1-I^{\uu{A}}_1-I^{\uu{A}}_3$    |   $I^{\uu{A}}_3$   |  $I^{\uu{A}}_1$    |   $\frac{1}{3}$   |
-| $I^{\uu{A}}_3 =$ |  $\frac{a\,b\,c}{(b^2-c^2)\sqrt{a^2-c^2}}\left(\frac{b\sqrt{a^2-c^2}}{a\,c}-{\cal E}\right)$    |   $a\,\frac{a\sqrt{a^2-c^2}-c^2\,\arcosh{(a/c)}}{2\left(a^2-c^2\right)^{3/2}}$   |   $1-2\,I^{\uu{A}}_1$   |   $\frac{1}{3}$   |
+|      | ellipsoid | prolate spheroid | oblate spheroid | sphere | cylinder |
+|------|------|------|------|------|------|
+|      | $a>b>c$ | $a>b=c$ | $a=b>c$ | $a=b=c$ | $a\to\infty$, $b\geq c$ |
+| $I^{\uu{A}}_1 =$ |  $\frac{a\,b\,c}{(a^2-b^2)\sqrt{a^2-c^2}}\left({\cal F}-{\cal E}\right)$    |   $1-2\,I^{\uu{A}}_3$   |  $c\,\frac{a^2\,\arccos{(c/a)}-c\sqrt{a^2-c^2}}{2\left(a^2-c^2\right)^{3/2}}$    |   $\frac{1}{3}$   | $0$ |
+| $I^{\uu{A}}_2 =$ |  $1-I^{\uu{A}}_1-I^{\uu{A}}_3$    |   $I^{\uu{A}}_3$   |  $I^{\uu{A}}_1$    |   $\frac{1}{3}$   | $\frac{c}{b+c}$ |
+| $I^{\uu{A}}_3 =$ |  $\frac{a\,b\,c}{(b^2-c^2)\sqrt{a^2-c^2}}\left(\frac{b\sqrt{a^2-c^2}}{a\,c}-{\cal E}\right)$    |   $a\,\frac{a\sqrt{a^2-c^2}-c^2\,\arcosh{(a/c)}}{2\left(a^2-c^2\right)^{3/2}}$   |   $1-2\,I^{\uu{A}}_1$   |   $\frac{1}{3}$   | $\frac{b}{b+c}$ |
 
 : Components $I^{\uu{A}}_i$ {#tbl-Ii .striped .hover .bordered .danger .sm}
 
@@ -151,24 +151,38 @@ $$
 
 Before detailing the components of $\uuuu{U}^{\uu{A}}$ and $\uuuu{V}^{\uu{A}}$ it is convenient to introduce the coefficients $I^{\uu{A}}_{ij}$ in @tbl-Iij adapted from the approach proposed in [@eshelby1957].
 
-|      | ellipsoid | prolate spheroid | oblate spheroid | sphere |
-|------|------|------|------|------|
-|      | $a>b>c$ | $a>b=c$ | $a=b>c$ | $a=b=c$ |
-| $I^{\uu{A}}_{11} =$ | $\frac{1}{3}\left(\frac{1}{a^2}-I^{\uu{A}}_{31}-I^{\uu{A}}_{12} \right)$ | $\frac{1}{3}\left(\frac{1}{a^2}-2\,I^{\uu{A}}_{31} \right)$ | $\frac{1}{4}\left(\frac{1}{a^2}-I^{\uu{A}}_{31} \right)$ | $\frac{1}{5\,a^2}$ |
-| $I^{\uu{A}}_{22} =$ | $\frac{1}{3}\left(\frac{1}{b^2}-I^{\uu{A}}_{12}-I^{\uu{A}}_{23} \right)$  | $\frac{1}{4}\left(\frac{1}{c^2}-I^{\uu{A}}_{31} \right)$ | $\frac{1}{4}\left(\frac{1}{a^2}-I^{\uu{A}}_{31} \right)$ | $\frac{1}{5\,a^2}$ |
-| $I^{\uu{A}}_{33} =$ | $\frac{1}{3}\left(\frac{1}{c^2}-I^{\uu{A}}_{23}-I^{\uu{A}}_{31} \right)$  | $\frac{1}{4}\left(\frac{1}{c^2}-I^{\uu{A}}_{31} \right)$ | $\frac{1}{3}\left(\frac{1}{c^2}-2\,I^{\uu{A}}_{31} \right)$ | $\frac{1}{5\,a^2}$ |
-| $I^{\uu{A}}_{23} = I^{\uu{A}}_{32} =$ | $\frac{I^{\uu{A}}_3-I^{\uu{A}}_2}{b^2-c^2}$ | $\frac{1}{4}\left(\frac{1}{c^2}-I^{\uu{A}}_{31} \right)$ | $\frac{I^{\uu{A}}_3-I^{\uu{A}}_2}{b^2-c^2}$ | $\frac{1}{5\,a^2}$ |
-| $I^{\uu{A}}_{31} = I^{\uu{A}}_{13} =$ | $\frac{I^{\uu{A}}_3-I^{\uu{A}}_1}{a^2-c^2}$ | $\frac{I^{\uu{A}}_3-I^{\uu{A}}_1}{a^2-c^2}$ | $\frac{I^{\uu{A}}_3-I^{\uu{A}}_1}{a^2-c^2}$ | $\frac{1}{5\,a^2}$ |
-| $I^{\uu{A}}_{12} = I^{\uu{A}}_{21} =$ | $\frac{I^{\uu{A}}_2-I^{\uu{A}}_1}{a^2-b^2}$ | $\frac{I^{\uu{A}}_2-I^{\uu{A}}_1}{a^2-b^2}$ | $\frac{1}{4}\left(\frac{1}{a^2}-I^{\uu{A}}_{31} \right)$ | $\frac{1}{5\,a^2}$ |
+|      | ellipsoid | prolate spheroid | oblate spheroid | sphere | cylinder |
+|------|------|------|------|------|------|
+|      | $a>b>c$ | $a>b=c$ | $a=b>c$ | $a=b=c$ | $a\to\infty$, $b\geq c$ |
+| $I^{\uu{A}}_{11} =$ | $\frac{1}{3}\left(\frac{1}{a^2}-I^{\uu{A}}_{31}-I^{\uu{A}}_{12} \right)$ | $\frac{1}{3}\left(\frac{1}{a^2}-2\,I^{\uu{A}}_{31} \right)$ | $\frac{1}{4}\left(\frac{1}{a^2}-I^{\uu{A}}_{31} \right)$ | $\frac{1}{5\,a^2}$ | $0$ |
+| $I^{\uu{A}}_{22} =$ | $\frac{1}{3}\left(\frac{1}{b^2}-I^{\uu{A}}_{12}-I^{\uu{A}}_{23} \right)$  | $\frac{1}{4}\left(\frac{1}{c^2}-I^{\uu{A}}_{31} \right)$ | $\frac{1}{4}\left(\frac{1}{a^2}-I^{\uu{A}}_{31} \right)$ | $\frac{1}{5\,a^2}$ | $\frac{c\,(2\,b+c)}{3\,b^2\,(b+c)^2}$ |
+| $I^{\uu{A}}_{33} =$ | $\frac{1}{3}\left(\frac{1}{c^2}-I^{\uu{A}}_{23}-I^{\uu{A}}_{31} \right)$  | $\frac{1}{4}\left(\frac{1}{c^2}-I^{\uu{A}}_{31} \right)$ | $\frac{1}{3}\left(\frac{1}{c^2}-2\,I^{\uu{A}}_{31} \right)$ | $\frac{1}{5\,a^2}$ | $\frac{b\,(b+2\,c)}{3\,c^2\,(b+c)^2}$ |
+| $I^{\uu{A}}_{23} = I^{\uu{A}}_{32} =$ | $\frac{I^{\uu{A}}_3-I^{\uu{A}}_2}{b^2-c^2}$ | $\frac{1}{4}\left(\frac{1}{c^2}-I^{\uu{A}}_{31} \right)$ | $\frac{I^{\uu{A}}_3-I^{\uu{A}}_2}{b^2-c^2}$ | $\frac{1}{5\,a^2}$ | $\frac{1}{(b+c)^2}$ |
+| $I^{\uu{A}}_{31} = I^{\uu{A}}_{13} =$ | $\frac{I^{\uu{A}}_3-I^{\uu{A}}_1}{a^2-c^2}$ | $\frac{I^{\uu{A}}_3-I^{\uu{A}}_1}{a^2-c^2}$ | $\frac{I^{\uu{A}}_3-I^{\uu{A}}_1}{a^2-c^2}$ | $\frac{1}{5\,a^2}$ | $0$ |
+| $I^{\uu{A}}_{12} = I^{\uu{A}}_{21} =$ | $\frac{I^{\uu{A}}_2-I^{\uu{A}}_1}{a^2-b^2}$ | $\frac{I^{\uu{A}}_2-I^{\uu{A}}_1}{a^2-b^2}$ | $\frac{1}{4}\left(\frac{1}{a^2}-I^{\uu{A}}_{31} \right)$ | $\frac{1}{5\,a^2}$ | $0$ |
 
 
 : Components $I^{\uu{A}}_{ij}$ {#tbl-Iij .striped .hover .bordered .danger}
 
-::: {.callout-warning} 
+::: {.callout-warning}
 
 ## Warning
 
 Note that, for writing convenience, $I^{\uu{A}}_i$ of @tbl-Ii and $I^{\uu{A}}_{ij}$ of @tbl-Iij are here adapted from those provided in [@kellogg1929] and [@eshelby1957]: they differ by a factor of $4\pi/3$ for $I^{\uu{A}}_{ij}$ with $i\neq j$ and by $4\pi$ for the others.
+
+:::
+
+::: {.callout-note collapse=true}
+
+## On the zeros in the cylinder column (click for details)
+
+The cylinder column of @tbl-Iij is obtained as the limit $a\to\infty$ of the triaxial ellipsoid one. Several entries vanish in this limit while carrying *finite products* that remain essential for the consistency identity $3\,\rho_i^2\,I^{\uu{A}}_{ii}+\sum_{j\neq i}\rho_j^2\,I^{\uu{A}}_{ij} = 3\,I^{\uu{A}}_{i}$:
+$$
+a^2\,I^{\uu{A}}_{12} \underset{a\to\infty}{\longrightarrow} I^{\uu{A}}_2 = \frac{c}{b+c}
+\;\text{,}\quad
+a^2\,I^{\uu{A}}_{31} \underset{a\to\infty}{\longrightarrow} I^{\uu{A}}_3 = \frac{b}{b+c}
+$$
+These products only appear through $\rho_j^2\,I^{\uu{A}}_{ij}$ terms (with $\rho_1=a$) in the auxiliary tensors $\uuuu{U}^{\uu{A}}$ of (@eq-Uijkl), where they produce the vanishing first row and column of $\Mat\left(\uuuu{U}^{\text{cyl}}\right)$ given hereafter.
 
 :::
 
@@ -234,6 +248,25 @@ I^{\uu{A}}_1=I^{\uu{A}}_2=I^{\uu{A}}_3&=\frac{1}{3}\\
 I^{\uu{A}}_{ij}&=\frac{1}{5\,a^2}\quad\forall\, i,j\in\{1,2,3\}
 \end{align}$$
 
+## $a\to\infty$, $b\geq c$ (cylinder)
+
+Classical limit of the prolate spheroid obtained by taking $a\to\infty$ with $b\geq c>0$ (see [@mura1987], §11.22). The cylinder axis coincides with $\uv{e}^{\uu{A}}_1$.
+$$\begin{align}
+I^{\uu{A}}_1&=0\\
+I^{\uu{A}}_2&=\frac{c}{b+c}\\
+I^{\uu{A}}_3&=\frac{b}{b+c}\\
+I^{\uu{A}}_{22}&=\frac{c\,(2\,b+c)}{3\,b^2\,(b+c)^2}\\
+I^{\uu{A}}_{33}&=\frac{b\,(b+2\,c)}{3\,c^2\,(b+c)^2}\\
+I^{\uu{A}}_{23}&=\frac{1}{(b+c)^2}\\
+I^{\uu{A}}_{11}=I^{\uu{A}}_{12}=I^{\uu{A}}_{31}&=0
+\quad\text{with}\quad
+a^2\,I^{\uu{A}}_{12} \underset{a\to\infty}{\longrightarrow} I^{\uu{A}}_2
+\;\text{,}\quad
+a^2\,I^{\uu{A}}_{31} \underset{a\to\infty}{\longrightarrow} I^{\uu{A}}_3
+\end{align}$$
+
+The circular cylinder ($b=c$) yields $I^{\uu{A}}_2=I^{\uu{A}}_3=\frac{1}{2}$ and $I^{\uu{A}}_{22}=I^{\uu{A}}_{33}=I^{\uu{A}}_{23}=\frac{1}{4\,c^2}$.
+
 :::
 
 Note that the following identities are always satisfied [@eshelby1957]:
@@ -284,6 +317,37 @@ $$
 \uuuu{V}^{\uu{A}}=\frac{1}{3}\uuuu{I}
 $$
 where $\uuuu{I}$, $\uuuu{J}$ and $\uuuu{K}$ are defined in @sec-ISO.
+
+In the case of an infinite elliptic cylinder ($a\to\infty$, axis $\uv{e}^{\uu{A}}_1$, transverse radii $b\geq c$, see [@mura1987], §11.22), substituting the cylinder column of @tbl-Ii and @tbl-Iij into (@eq-Uijkl) and (@eq-Vijkl) yields
+$$
+\Mat\left(\uuuu{U}^{\text{cyl}}, \ve{i}^{\uu{A}}\right)=
+\left(
+\begin{array}{cccccc}
+0 & 0 & 0 & 0 & 0 & 0 \\
+0 & \frac{c\,(b+2\,c)}{2\,(b+c)^2} & \frac{b\,c}{2\,(b+c)^2} & 0 & 0 & 0 \\
+0 & \frac{b\,c}{2\,(b+c)^2} & \frac{b\,(2\,b+c)}{2\,(b+c)^2} & 0 & 0 & 0 \\
+0 & 0 & 0 & \frac{b\,c}{(b+c)^2} & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 \\
+\end{array}
+\right)
+$${#eq-Ucyl}
+
+$$
+\Mat\left(\uuuu{V}^{\text{cyl}}, \ve{i}^{\uu{A}}\right)=
+\left(
+\begin{array}{cccccc}
+0 & 0 & 0 & 0 & 0 & 0 \\
+0 & \frac{c}{b+c} & 0 & 0 & 0 & 0 \\
+0 & 0 & \frac{b}{b+c} & 0 & 0 & 0 \\
+0 & 0 & 0 & \frac{1}{2} & 0 & 0 \\
+0 & 0 & 0 & 0 & \frac{b}{2\,(b+c)} & 0 \\
+0 & 0 & 0 & 0 & 0 & \frac{c}{2\,(b+c)} \\
+\end{array}
+\right)
+$${#eq-Vcyl}
+
+The vanishing first row and column of $\Mat\left(\uuuu{U}^{\text{cyl}}\right)$ — which propagates to $\Mat\left(\uuuu{P}^{\text{cyl}}\right)$ in the isotropic case (@eq-PisoC) — is the characteristic signature of an infinite cylinder: no polarization is transmitted along its axis. The circular cylinder ($b=c$) further simplifies the non-zero entries of $\Mat\left(\uuuu{U}^{\text{cyl},\circ}\right)$ to $U^{\uu{A}}_{2222}=U^{\uu{A}}_{3333}=\frac{3}{8}$, $U^{\uu{A}}_{2233}=\frac{1}{8}$, $\left[\Mat\left(\uuuu{U}^{\text{cyl},\circ}\right)\right]_{44}=\frac{1}{4}$ and those of $\Mat\left(\uuuu{V}^{\text{cyl},\circ}\right)$ to the diagonal $\left(0,\,\frac{1}{2},\,\frac{1}{2},\,\frac{1}{2},\,\frac{1}{4},\,\frac{1}{4}\right)$.
 
 Alternatively generic expressions of the components are given herebelow.
 
@@ -351,6 +415,8 @@ $${#eq-PisoC}
 where the tensors $\uuuu{U}^{\uu{A}}$ and $\uuuu{V}^{\uu{A}}$, depending only on the ellipsoidal
 tensor $\uu{A}$ of (@eq-ellipsoid), are given by (@eq-Uijkl) and (@eq-Vijkl).
 Note that the writing (@eq-PisoC) puts well in evidence the contributions of the shape and orientation of the ellipsoid on the one hand and the moduli of the reference medium on the other hand.
+
+In particular, for an infinite cylinder substituting (@eq-Ucyl) and (@eq-Vcyl) in (@eq-PisoC) gives the closed-form isotropic Hill tensor with $P^{\text{cyl}}_{1jkl} \equiv 0$: no polarization along the cylinder axis ([@mura1987], §11.22).
 
 ## Hill polarization tensor in conductivity
 

@@ -11,10 +11,10 @@ book:
   author: "Jean-François Barthélémy"
   cover-image: img/cover.html
   favicon: img/cover.png
-  site-url: https://jfbarthelemy.github.io/echoes/
-  repo-url: https://github.com/jfbarthelemy/echoes/
-  repo-branch: main
-  repo-actions: [edit]
+  site-url: https://echoes.barthelemy.xyz/
+  # repo-url: https://github.com/jfbarthelemy/echoes/
+  # repo-branch: main
+  # repo-actions: [edit]
   sharing: [linkedin]
   google-analytics: "G-DF66M2GWRG"
   date: last-modified
