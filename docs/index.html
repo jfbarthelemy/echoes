@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jean-François Barthélémy">
-<meta name="dcterms.date" content="2026-04-22">
+<meta name="dcterms.date" content="2026-07-01">
 
 <title>Echoes</title>
 <style>
@@ -98,17 +98,19 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-584a7622b650eec4e090a46c7997c677.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark-96b5c1025c9de5fd02de225511b0f0bf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="site_libs/bootstrap/bootstrap-584a7622b650eec4e090a46c7997c677.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/academicons-1.9.4/all.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/academicons-1.9.4/size.css" rel="stylesheet">
+<script src="site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -843,7 +845,9 @@ $$
 
 \newcommand{\cod}{{\uv{{\symscr{b}}}}}
 
-\newcommand{\trans}[1]{{{}^{t}{#1}}}
+% \newcommand{\trans}[1]{{{}^{t}{#1}}}
+
+\newcommand{\trans}[1]{{{#1}{}^\intercal}}
 
 \newcommand{\sotimes}{{\stackrel{s}{\otimes}}}
 
@@ -906,7 +910,7 @@ $$
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 22, 2026</p>
+      <p class="date">July 1, 2026</p>
     </div>
   </div>
   
@@ -954,15 +958,15 @@ $$
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  author = {Barthélémy, Jean-François},</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  date = {2022-11-22},</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  doi = {10.5281/ZENODO.19679057},</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  url = {https://zenodo.org/record/19679057},</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  url = {https://echoes.barthelemy.xyz},</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  organization = {Zenodo},</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  version = {v1.0.0},</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>All this work is licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> <img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" class="img-fluid" alt="license">.</p>
+<p>This documentation is licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> <img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" class="img-fluid" alt="license">.</p>
 </section>
 <section id="about-the-author" class="level2">
 <h2 class="anchored" data-anchor-id="about-the-author">About the author</h2>
-<p>Jean-François Barthélémy is a researcher at <a href="https://www.cerema.fr/en">Cerema</a> in the research team <a href="https://mcd.univ-gustave-eiffel.fr/">UMR MCD</a>.</p>
+<p><a href="https://jfbarthelemy.github.io/">Jean-François Barthélémy</a> is a researcher at <a href="https://www.cerema.fr/en">Cerema</a> in the research team <a href="https://mcd.univ-gustave-eiffel.fr/">UMR MCD</a>.</p>
 <div class="quarto-layout-panel" data-layout="[3,2]">
 <div class="quarto-layout-row quarto-layout-valign-center">
 <div class="quarto-layout-cell" style="flex-basis: 60.0%;justify-content: center;">
@@ -976,10 +980,10 @@ $$
 <div class="quarto-layout-panel" data-layout="[10,10,10,10]">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
-<p><iconify-icon role="img" inline="" icon="fa6-brands:github" aria-label="Icon github from fa6-brands Iconify.design set." title="Icon github from fa6-brands Iconify.design set."></iconify-icon> <a href="https://github.com/jfbarthelemy">GitHub</a></p>
+<p><i class="fa-solid fa-house" aria-label="house"></i> <a href="https://jfbarthelemy.github.io/">Homepage</a></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
-<p><i class="ai  ai-researchgate" aria-label="researchgate"></i> <a href="https://www.researchgate.net/profile/Jean-Francois_Barthelemy">ResearchGate</a></p>
+<p><i class="ai  ai-orcid" style="color:#A7CF36" aria-label="orcid"></i> <a href="https://orcid.org/0000-0002-1968-8939">ORCID</a></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
 <p><i class="ai  ai-google-scholar" aria-label="google-scholar"></i> <a href="https://scholar.google.com/citations?user=RVjtCiAAAAAJ&amp;hl=en">Google Scholar</a></p>
@@ -990,10 +994,13 @@ $$
 </div>
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<p><i class="ai  ai-researchgate" aria-label="researchgate"></i> <a href="https://www.researchgate.net/profile/Jean-Francois_Barthelemy">ResearchGate</a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
 <p><i class="ai  ai-clarivate" aria-label="clarivate"></i> <a href="https://www.webofscience.com/wos/author/record/449919">Web Of Science</a></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
-<p><i class="ai  ai-orcid" style="color:#A7CF36" aria-label="orcid"></i> <a href="https://orcid.org/0000-0002-1968-8939">ORCID</a></p>
+<p><iconify-icon role="img" inline="" icon="simple-icons:github" aria-label="Icon github from simple-icons Iconify.design set." title="Icon github from simple-icons Iconify.design set."></iconify-icon> <a href="https://github.com/jfbarthelemy">GitHub</a></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
 <p><iconify-icon role="img" inline="" icon="devicon:linkedin" aria-label="Icon linkedin from devicon Iconify.design set." title="Icon linkedin from devicon Iconify.design set."></iconify-icon> <a href="https://www.linkedin.com/in/jean-fran%C3%A7ois-barth%C3%A9l%C3%A9my-75b3122/">LinkedIn</a></p>
@@ -1008,7 +1015,7 @@ $$
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-echoes" class="csl-entry" role="listitem">
-Barthélémy, J.-F., 2022. Echoes: <span>Extended Calculator</span> of <span>HOmogEnization Schemes</span>. <a href="https://doi.org/10.5281/ZENODO.14959866">https://doi.org/10.5281/ZENODO.14959866</a>
+Barthélémy, J.-F., 2022. Echoes: <span>Extended Calculator</span> of <span>HOmogEnization Schemes</span>. <a href="https://doi.org/10.5281/zenodo.19679057">https://doi.org/10.5281/zenodo.19679057</a>
 </div>
 </div>
 </section>

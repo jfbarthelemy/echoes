@@ -50,18 +50,18 @@ If you use `echoes`, please cite it as [@echoes] or in `bibtex` style
   author = {Barthélémy, Jean-François},
   date = {2022-11-22},
   doi = {10.5281/ZENODO.19679057},
-  url = {https://zenodo.org/record/19679057},
+  url = {https://echoes.barthelemy.xyz},
   organization = {Zenodo},
   version = {v1.0.0},
 }
 ```
 
-All this work is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/) ![license](https://i.creativecommons.org/l/by-sa/4.0/88x31.png).
+This documentation is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/) ![license](https://i.creativecommons.org/l/by-sa/4.0/88x31.png).
 
 
 ## About the author
 
-Jean-François Barthélémy is a researcher at [Cerema](https://www.cerema.fr/en) in the research team [UMR MCD](https://mcd.univ-gustave-eiffel.fr/).
+[Jean-François Barthélémy](https://jfbarthelemy.github.io/) is a researcher at [Cerema](https://www.cerema.fr/en) in the research team [UMR MCD](https://mcd.univ-gustave-eiffel.fr/).
 
 ::: {layout="[3,2]" layout-valign="center"}
 [![](img/Logo%20RF%20Cerema%20horizontal.jpg){height=16px fig-alt="Cerema"}](https://www.cerema.fr/en)
@@ -71,17 +71,19 @@ Jean-François Barthélémy is a researcher at [Cerema](https://www.cerema.fr/en
 
 ::: {layout="[10,10,10,10]"}
 
-{{< iconify fa6-brands github >}} [GitHub](https://github.com/jfbarthelemy)
+{{< fa house >}} [Homepage](https://jfbarthelemy.github.io/)
 
-{{< ai researchgate >}} [ResearchGate](https://www.researchgate.net/profile/Jean-Francois_Barthelemy)
+{{< ai orcid color="#A7CF36" >}} [ORCID](https://orcid.org/0000-0002-1968-8939)
 
 {{< ai google-scholar >}} [Google Scholar](https://scholar.google.com/citations?user=RVjtCiAAAAAJ&hl=en)
 
 {{< ai hal >}} [HAL](https://hal.archives-ouvertes.fr/search/index/?q=%2A&authIdHal_s=jfbarthelemy)
 
+{{< ai researchgate >}} [ResearchGate](https://www.researchgate.net/profile/Jean-Francois_Barthelemy)
+
 {{< ai clarivate >}} [Web Of Science](https://www.webofscience.com/wos/author/record/449919)
 
-{{< ai orcid color="#A7CF36" >}} [ORCID](https://orcid.org/0000-0002-1968-8939)
+{{< iconify simple-icons github >}} [GitHub](https://github.com/jfbarthelemy)
 
 {{< iconify devicon linkedin >}} [LinkedIn](https://www.linkedin.com/in/jean-fran%C3%A7ois-barth%C3%A9l%C3%A9my-75b3122/)
 
