@@ -296,7 +296,7 @@ def Jhom(T, N, alpha, model='whole pores'):
 
 # -
 
-# The outer loop sweeps over five **loading ages** $t_0$ (expressed in units of the matrix shear characteristic time $\gamma_0$). For each $t_0$, the observation window is $[t_0,\, 10/3]$ on a log-spaced grid. Both the `'layers'` and `'whole pores'` models are computed side by side to verify their equivalence.
+# The outer loop sweeps over five **loading ages** $t_0$ (expressed in units of the matrix shear characteristic time $\gamma_0$). For each $t_0$, the observation window is $[t_0,\, 10/3]$ on a log-spaced grid. Both the `'layers'` and `'whole pores'` models are computed side by side to compare the two morphologies.
 
 # +
 #| code-summary: "Figure — effective creep compliance"
@@ -334,7 +334,7 @@ plt.show()
 
 # The results highlight three observations:
 #
-# 1. **Model equivalence**: the `'layers'` and `'whole pores'` models yield identical compliance curves — confirming that packing all shells into a single `sphere_nlayers` is not an approximation but an exact reformulation, at a fraction of the computational cost.
+# 1. **Model comparison**: the `'layers'` and `'whole pores'` models are two *different* microstructural morphologies — concentric shells solidifying around a single pore versus $N$ independent solidifying inclusions dispersed in the matrix — and they do **not** yield identical compliance curves. At $t_0=2/3$, for instance, $E_0\,J^{eff}_E$ ranges from $\approx 1.6$ to $\approx 10.6$ for `'layers'` against $\approx 2.0$ to $\approx 16.7$ for `'whole pores'`; the gap narrows but persists across all five loading ages plotted. Packing the shells into a single `sphere_nlayers` (the approach of [@sanahuja2013a]) is a physically motivated and far more efficient choice — one Eshelby problem instead of $N+1$ — but it is a genuine modeling decision, not an exact reformulation of the dispersed-inclusion RVE.
 #
 # 2. **Ageing**: for early loading ages ($t_0$ small), the creep compliance is much larger because many layers have not yet solidified. As $t_0$ increases, the effective creep decreases toward the fully-set elastic limit.
 #

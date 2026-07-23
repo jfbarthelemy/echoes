@@ -697,11 +697,11 @@ fig_d.show()
 # The diagrams confirm the calibration rationale: with oblate solid
 # ($\omega_s \ll 1$) and prolate pores ($\omega_p \gg 1$), the elastic and
 # diffusion percolation thresholds are well separated — the solid skeleton
-# percolates at high porosity (early hydration, low $\alpha$) while the pore
-# network remains connected until very low porosity (late hydration). The
-# engineering model calibration point ($\omega_s = 0.013$, $\omega_p = 6$,
-# marked by $\star$) sits in a region where $\phi_e^{\rm elas} \approx 15\,\%$
-# and $\phi_e^{\rm diff} \approx 50\,\%$, consistent with reported setting degrees
+# percolates at very high porosity (early hydration, low $\alpha$) while the pore
+# network only disconnects at a markedly lower — though still majority — porosity
+# (higher $\alpha$). The engineering model calibration point ($\omega_s = 0.013$,
+# $\omega_p = 6$, marked by $\star$) sits in a region where $\phi_e^{\rm elas}
+# \approx 92.6\,\%$ and $\phi_e^{\rm diff} \approx 65.5\,\%$, consistent with reported setting degrees
 # and with the experimentally observed diffusivity drop at intermediate to high
 # hydration [@achourCBM2020].
 #
