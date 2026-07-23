@@ -1,0 +1,1744 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>6&nbsp; Crack compliance tensors – Echoes</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../3_concentration/concentration_tensors.html" rel="next">
+<link href="../2_eshelby/eshelby_hill.html" rel="prev">
+<link href="../img/cover.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-584a7622b650eec4e090a46c7997c677.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-96b5c1025c9de5fd02de225511b0f0bf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-584a7622b650eec4e090a46c7997c677.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-DF66M2GWRG"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-DF66M2GWRG', { 'anonymize_ip': true});
+</script>
+<script>
+(function () {
+  /* ── echoes API identifiers to highlight ─────────────────────────────── */
+  var ECHOES_API = [
+    /* homogenization */
+    'homogenize', 'homogenize_visco', 'homogenize_derivative',
+    /* microstructure */
+    'rve', 'rvec', 'ellipsoid', 'ellipsoidc',
+    'crack', 'crackc', 'sphere_nlayers', 'sphere_nlayersc',
+    'inclusion_map', 'inclusion_mapc',
+    'user_inclusion', 'user_inclusionc',
+    /* tensor constructors */
+    'tensor', 'tensc', 'inv', 'eigen',
+    'stiff_kmu', 'stiff_Enu', 'stiff_lambdamu', 'stiff_TI', 'comp_TI',
+    'stiff_interf',
+    'stiff_to_symWalpole', 'stiff_from_symWalpole',
+    'comp_to_symWalpole', 'comp_from_symWalpole',
+    /* tensor operations */
+    'isotropify', 'transverse_isotropify', 'symmetrize', 'paramsym',
+    'E_from_kmu', 'nu_from_kmu', 'k_from_Enu', 'mu_from_Enu',
+    'Enu_from_kmu', 'kmu_from_Enu',
+    /* rotation */
+    'es', 'rot3', 'rot6', 'angles', 'change_basis', 'self_change_basis',
+    'change_basis_inv', 'self_change_basis_inv',
+    /* geometry */
+    'spheroidal', 'spherical',
+    /* eshelby / hill */
+    'eshelby', 'hill', 'hill_dual', 'crack_compliance',
+    'newton_potential', 'basis_iso_hill',
+    'hill_derivative', 'visco_hill', 'visco_hill_dual',
+    'visco_crack_compliance',
+    /* viscoelasticity */
+    'visco_law', 'visco_paramsym', 'visco_tensor',
+    'visco_isotropify', 'visco_transverse_isotropify', 'visco_symmetrize',
+    'Kelvin', 'Maxwell', 't4Maxwell',
+    /* polynomials */
+    'build_poly', 'residue', 'find_roots_positive_imag', 'add_root',
+    /* scheme enum values */
+    'VOIGT', 'REUSS', 'DIL', 'DILD', 'MAX', 'MT', 'SC', 'ASC', 'PCW', 'DIFF',
+    /* algorithm enum values */
+    'DEFAULT', 'NUMINT', 'NUMINT2D', 'NUMINT3D',
+    'RESIDUES', 'RESIDUES2D', 'RESIDUES3D',
+    /* symmetry enum values */
+    'ISO', 'TI', 'ORTHO', 'ANISO', 'UNDEFSYM',
+    /* special tensor constants */
+    'tZ4', 'tZ2', 'tI4', 'tI2', 'tJ4', 'tK4', 'tZ4c', 'tZ2c',
+    /* interface types */
+    'NODISC', 'PRIMALDISC', 'DUALDISC',
+    /* misc */
+    'invert_array', 'mult_array', 'KM', 'invKM', 'perm6', 'inv_perm6',
+    'set_prop', 'set_param_eshelby',
+  ];
+
+  /* token classes to skip (Pandoc: comment, string, char, alert, error) */
+  var SKIP = ['co', 'st', 'ch', 'al', 'er'];
+
+  function insideSkipped(node) {
+    var p = node.parentNode;
+    while (p) {
+      if (p.tagName === 'CODE') break;
+      if (p.tagName === 'SPAN') {
+        for (var i = 0; i < SKIP.length; i++)
+          if (p.classList.contains(SKIP[i])) return true;
+      }
+      p = p.parentNode;
+    }
+    return false;
+  }
+
+  var pat = new RegExp('\\b(' + ECHOES_API.join('|') + ')\\b', 'g');
+
+  function processBlock(block) {
+    /* collect text nodes first to avoid live-DOM issues */
+    var walker = document.createTreeWalker(block, NodeFilter.SHOW_TEXT, null, false);
+    var nodes = [];
+    var n;
+    while ((n = walker.nextNode())) nodes.push(n);
+
+    nodes.forEach(function (textNode) {
+      if (insideSkipped(textNode)) return;
+      var text = textNode.textContent;
+      pat.lastIndex = 0;
+      if (!pat.test(text)) return;
+      pat.lastIndex = 0;
+
+      var frag = document.createDocumentFragment();
+      var last = 0, m;
+      while ((m = pat.exec(text)) !== null) {
+        if (m.index > last)
+          frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var sp = document.createElement('span');
+        sp.className = 'echoes-api';
+        sp.textContent = m[0];
+        frag.appendChild(sp);
+        last = m.index + m[0].length;
+      }
+      if (last < text.length)
+        frag.appendChild(document.createTextNode(text.slice(last)));
+      textNode.parentNode.replaceChild(frag, textNode);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('div.sourceCode pre code').forEach(processBlock);
+  });
+})();
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../2_eshelby/eshelby_hill.html">𝗘𝘀𝗵𝗲𝗹𝗯𝘆 𝗶𝗻𝗰𝗹𝘂𝘀𝗶𝗼𝗻 𝗽𝗿𝗼𝗯𝗹𝗲𝗺</a></li><li class="breadcrumb-item"><a href="../2_eshelby/crack_compliance.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Crack compliance tensors</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../img\cover.html" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../img\cover.html" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Echoes</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=|url|" title="LinkedIn" class="quarto-navigation-tool px-1" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">𝗘𝗹𝗲𝗺𝗲𝗻𝘁𝘀 𝗼𝗳 𝘁𝗲𝗻𝘀𝗼𝗿 𝗰𝗮𝗹𝗰𝘂𝗹𝘂𝘀</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../1_tensor_calculus/kelvin_mandel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Kelvin-Mandel notation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../1_tensor_calculus/rot_matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Rotation matrices</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../1_tensor_calculus/special_tensors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Special tensors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../1_tensor_calculus/tensor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The <code>tensor</code> object</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">𝗘𝘀𝗵𝗲𝗹𝗯𝘆 𝗶𝗻𝗰𝗹𝘂𝘀𝗶𝗼𝗻 𝗽𝗿𝗼𝗯𝗹𝗲𝗺</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../2_eshelby/eshelby_hill.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Eshelby and Hill polarization tensors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../2_eshelby/crack_compliance.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Crack compliance tensors</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">𝗖𝗼𝗻𝗰𝗲𝗻𝘁𝗿𝗮𝘁𝗶𝗼𝗻 𝗽𝗿𝗼𝗯𝗹𝗲𝗺𝘀</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../3_concentration/concentration_tensors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Ellipsoids</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../3_concentration/nlayer_sphere.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">N-layer spheres</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../3_concentration/crack.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Cracks</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../3_concentration/user_inclusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">User-defined inclusions</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">𝗥𝗩𝗘 𝗮𝗻𝗱 𝗵𝗼𝗺𝗼𝗴𝗲𝗻𝗶𝘇𝗮𝘁𝗶𝗼𝗻 𝘀𝗰𝗵𝗲𝗺𝗲𝘀</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../4_schemes/rve.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Representative Volume Element</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../4_schemes/schemes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Homogenization schemes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../5_cracked_porous/porous_media.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Homogenization of porous media</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../5_cracked_porous/cracked_media.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Homogenization of cracked media</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../4_schemes/exercises_schemes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Exercises on homogenization schemes</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">𝗖𝗼𝗺𝗽𝗹𝗲𝘅 𝗺𝗼𝗱𝘂𝗹𝗶 𝗮𝗻𝗱 𝘃𝗶𝘀𝗰𝗼𝗲𝗹𝗮𝘀𝘁𝗶𝗰𝗶𝘁𝘆</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../6_viscoelasticity/complex_moduli.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Complex-valued homogenization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../6_viscoelasticity/viscoelasticity_time.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Time-domain viscoelastic homogenization</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">𝗗𝗲𝗿𝗶𝘃𝗮𝘁𝗶𝘃𝗲𝘀 𝗮𝗻𝗱 𝗻𝗼𝗻𝗹𝗶𝗻𝗲𝗮𝗿 𝗲𝘅𝘁𝗲𝗻𝘀𝗶𝗼𝗻𝘀</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../7_nonlinear/derivatives.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Derivatives of effective properties</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../7_nonlinear/nonlinear.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Nonlinear homogenization and failure criteria</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">𝗔𝗽𝗽𝗹𝗶𝗰𝗮𝘁𝗶𝗼𝗻𝘀</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../8_applications/transport.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Transport properties</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../8_applications/concrete.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Multiscale elasticity of a hydrating cement paste</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../8_applications/cement_paste_diffusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Cement paste: chloride diffusivity and elasticity</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../8_applications/concrete_strength.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Quasi-brittle strength of cement paste and mortar</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../8_applications/bituminous_mixture.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Viscoelastic properties of a bituminous mixture</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../8_applications/ageing_creep.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Ageing creep of solidifying cementitious materials</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../api.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">API Reference</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../99_appendices/tensor_algebra.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Tensor algebra</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../99_appendices/hill_tensors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Hill polarization tensors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../99_appendices/viscoelastic_hill_kernel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">ALV Hill (polarization) tensor kernel</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../99_appendices/basics_elas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Basic problem of elasticity homogenization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../99_appendices/viscoelastic_laws.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Viscoelastic constitutive laws</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../99_appendices/scheme_derivations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Homogenization scheme derivations</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#definition-of-the-crack-compliance" id="toc-definition-of-the-crack-compliance" class="nav-link active" data-scroll-target="#definition-of-the-crack-compliance">Definition of the crack compliance</a></li>
+  <li><a href="#numerical-implementation" id="toc-numerical-implementation" class="nav-link" data-scroll-target="#numerical-implementation">Numerical implementation</a></li>
+  <li><a href="#sec-spring-model" id="toc-sec-spring-model" class="nav-link" data-scroll-target="#sec-spring-model">Linear spring interface model</a>
+  <ul class="collapse">
+  <li><a href="#implementation" id="toc-implementation" class="nav-link" data-scroll-target="#implementation">Implementation</a></li>
+  </ul></li>
+  <li><a href="#sec-crack-conduc" id="toc-sec-crack-conduc" class="nav-link" data-scroll-target="#sec-crack-conduc">Conductivity crack resistivity</a>
+  <ul class="collapse">
+  <li><a href="#api" id="toc-api" class="nav-link" data-scroll-target="#api">API</a></li>
+  <li><a href="#isotropic-matrix" id="toc-isotropic-matrix" class="nav-link" data-scroll-target="#isotropic-matrix">Isotropic matrix</a></li>
+  <li><a href="#anisotropic-matrix" id="toc-anisotropic-matrix" class="nav-link" data-scroll-target="#anisotropic-matrix">Anisotropic matrix</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="crack_compliance.py"><i class="bi bi-file-code"></i>Python script</a></li><li><a href="crack_compliance.ipynb"><i class="bi bi-journal-code"></i>Jupyter notebook</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+$$
+
+\newcommand{\C}{{\mathbb{{C}}}}
+
+\newcommand{\R}{{\mathbb{{R}}}}
+
+\newcommand{\Q}{{\mathbb{{Q}}}}
+
+\newcommand{\Z}{{\mathbb{{Z}}}}
+
+\newcommand{\N}{{\mathbb{{N}}}}
+
+
+
+\newcommand{\uu}[1]{{\boldsymbol{{#1}}}}
+
+\newcommand{\uuuu}[1]{{\symbb{{#1}}}}
+
+\newcommand{\uv}[1]{{\underline{{#1}}}}
+
+\newcommand{\ve}[1]{{\uv{{e}}_{{#1}}}}
+
+\newcommand{\x}{{\uv{{x}}}}
+
+\newcommand{\n}{{\uv{{n}}}}
+
+\newcommand{\eps}{{\uu{{\varepsilon}}}}
+
+\newcommand{\E}{{\uu{{E}}}}
+
+\newcommand{\sig}{{\uu{{\sigma}}}}
+
+\newcommand{\Sig}{{\uu{{\Sigma}}}}
+
+\newcommand{\cod}{{\uv{{\symscr{b}}}}}
+
+% \newcommand{\trans}[1]{{{}^{t}{#1}}}
+
+\newcommand{\trans}[1]{{{#1}{}^\intercal}}
+
+\newcommand{\sotimes}{{\stackrel{s}{\otimes}}}
+
+\newcommand{\sboxtimes}{\stackrel{s}{\boxtimes}}
+
+\newcommand{\norm}[1]{{\lVert{{#1}}\rVert}}
+
+\newcommand{\ud}{{\,\mathrm{d}}}
+
+\newcommand{\mat}{\mathsf}
+
+\DeclareMathOperator{\arcosh}{arcosh}
+
+\DeclareMathOperator{\divz}{div}
+
+\DeclareMathOperator{\divu}{\uv{div}}
+
+\DeclareMathOperator{\hess}{hess}
+
+\DeclareMathOperator{\gradu}{\uv{grad}}
+
+\DeclareMathOperator{\graduu}{\uu{grad}}
+
+\DeclareMathOperator{\Mat}{Mat}
+
+\DeclareMathOperator{\tr}{tr}
+
+\DeclareMathOperator{\ISO}{ISO}
+
+
+
+\newcommand{\volt}[1]{{#1}^{-1\circ}}
+
+\newcommand{\dcirc}{\overset{\circ}{:}}
+
+
+
+\newcommand{\jump}[1]{\mathopen{[\![}\,#1\,\mathclose{]\!]}}
+
+$$
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../2_eshelby/eshelby_hill.html">𝗘𝘀𝗵𝗲𝗹𝗯𝘆 𝗶𝗻𝗰𝗹𝘂𝘀𝗶𝗼𝗻 𝗽𝗿𝗼𝗯𝗹𝗲𝗺</a></li><li class="breadcrumb-item"><a href="../2_eshelby/crack_compliance.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Crack compliance tensors</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-crack_compliance" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Crack compliance tensors</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-body">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span><iconify-icon role="img" inline="" icon="pajamas:issue-type-objective" aria-label="Icon issue-type-objective from pajamas Iconify.design set." title="Icon issue-type-objective from pajamas Iconify.design set."></iconify-icon> Objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This tutorial shows how to calculate:</p>
+<ul>
+<li>the <strong>elastic crack compliance tensor</strong> <span class="math inline">\(\uuuu{H}\)</span> of an elliptical crack in a matrix of arbitrary anisotropy;</li>
+<li>the <strong>linear spring interface model</strong> that accounts for partial bonding through normal (<span class="math inline">\(k_n\)</span>) and tangential (<span class="math inline">\(k_t\)</span>) spring stiffnesses;</li>
+<li>the <strong>conductivity (2nd-order) crack compliance tensor</strong> <span class="math inline">\(\uu{h}\)</span>, the transport analog of <span class="math inline">\(\uuuu{H}\)</span>.</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span><iconify-icon role="img" inline="" icon="ix:import" aria-label="Icon import from ix Iconify.design set." title="Icon import from ix Iconify.design set."></iconify-icon> Imports
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div id="ad4f0de0" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math, random</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>np.set_printoptions(precision<span class="op">=</span><span class="dv">8</span>, suppress<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># to display only 8 significant digits of array components</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+<section id="definition-of-the-crack-compliance" class="level2">
+<h2 class="anchored" data-anchor-id="definition-of-the-crack-compliance">Definition of the crack compliance</h2>
+<p>Geometrically an elliptical crack can be defined as the limit domain of an ellipsoid for which the smallest aspect ratio tends towards 0. Keeping the definition of the ellipsoid by means of the tensor <span class="math inline">\(\uu{A}\)</span> in (<a href="eshelby_hill.html#eq-defell" class="quarto-xref"><span>5.1</span></a>), the latter tensor becomes here <span class="math display">\[
+\uu{A}=
+\uv{\ell}\otimes\uv{\ell}+
+\eta\,\uv{m}\otimes\uv{m}+
+\omega\,\uv{n}\otimes\uv{n}
+\quad\textrm{with}\quad
+\eta=\frac{b}{a}
+\quad\textrm{and}\quad
+\omega=\frac{c}{a}
+\]</span></p>
+<div id="fig-crack" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-crack-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p><embed src="../img/crack.html" class="img-fluid" style="width:70.0%"> <a href="../img/crack.html"><img src="../img/arrow-expand.png" class="img-fluid figure-img" style="width:3.0%"></a></p>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-crack-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Fig.&nbsp;6.1: Ellipsoidal crack
+</figcaption>
+</figure>
+</div>
+<p>In the case of cracks, it is useful to recall the second Hill polarization tensor defined as (see (<a href="eshelby_hill.html#eq-defsecondHill" class="quarto-xref"><span>5.6</span></a>)) <span class="math display">\[
+\uuuu{Q}=\uuuu{C}-\uuuu{C}:\uuuu{P}:\uuuu{C}
+\]</span> and in particular the so-called crack compliance <span class="citation" data-cites="kachanov1992">(<a href="../references.html#ref-kachanov1992" role="doc-biblioref">Kachanov, 1992</a>)</span>, <span class="citation" data-cites="kachanov1993">(<a href="../references.html#ref-kachanov1993" role="doc-biblioref">Kachanov, 1993</a>)</span>, <span class="citation" data-cites="sevostianov2002">(<a href="../references.html#ref-sevostianov2002" role="doc-biblioref">Sevostianov and Kachanov, 2002</a>)</span>, <span class="citation" data-cites="barthelemyIJES2021">(<a href="../references.html#ref-barthelemyIJES2021" role="doc-biblioref">Barthélémy et al., 2021</a>)</span> <span class="math display">\[
+\uuuu{H}=\lim_{\omega\to 0}\omega\,\uuuu{Q}^{-1}
+\]</span> in which it is recalled that <span class="math inline">\(\uuuu{P}\)</span> and thus <span class="math inline">\(\uuuu{Q}\)</span> depend on <span class="math inline">\(\omega\)</span> such that the components <span class="math inline">\(\left(\uuuu{Q}^{-1}\right)_{nijk}\)</span> (with <span class="math inline">\(n\)</span> corresponding to the crack normal) behave as <span class="math inline">\(1/\omega\)</span> when <span class="math inline">\(\omega\)</span> tends towards <span class="math inline">\(0\)</span>. It is also shown in previously cited references that <span class="math inline">\(\uuuu{H}\)</span> actually derives from a symmetric second-order tensor <span class="math inline">\(\uu{B}\)</span> as <span id="eq-H"><span class="math display">\[
+\uuuu{H}=
+\lim_{\omega\to 0} \omega\,\uuuu{Q}^{-1}
+=\frac{3}{4}\,\uv{n}\sotimes\uu{B}\sotimes\uv{n}
+\tag{6.1}\]</span></span> For more details about this limit, the reader can also refer to <span class="citation" data-cites="laws1977">(<a href="../references.html#ref-laws1977" role="doc-biblioref">Laws, 1977</a>)</span>, <span class="citation" data-cites="laws1985">(<a href="../references.html#ref-laws1985" role="doc-biblioref">Laws, 1985</a>)</span>, <span class="citation" data-cites="nemat-nasser1999">(<a href="../references.html#ref-nemat-nasser1999" role="doc-biblioref">Nemat-Nasser and Hori, 1999</a>)</span>, <span class="citation" data-cites="barthelemyIJSS2009">(<a href="../references.html#ref-barthelemyIJSS2009" role="doc-biblioref">Barthélémy, 2009</a>)</span>, <span class="citation" data-cites="kachanov2018">(<a href="../references.html#ref-kachanov2018" role="doc-biblioref">Kachanov and Sevostianov, 2018</a>)</span>, <span class="citation" data-cites="barthelemyIJES2021">(<a href="../references.html#ref-barthelemyIJES2021" role="doc-biblioref">Barthélémy et al., 2021</a>)</span>.</p>
+<p>For an arbitrarly anisotropic matrix, an algorithm allowing to estimate the limit (<a href="#eq-H" class="quarto-xref"><span>6.1</span></a>) is proposed in <span class="citation" data-cites="barthelemyIJSS2009">(<a href="../references.html#ref-barthelemyIJSS2009" role="doc-biblioref">Barthélémy, 2009</a>)</span> whereas in the isotropic case <span class="math inline">\(\uu{B}\)</span> writes <span class="math display">\[
+\uu{B}=
+B_{nn}\,\uv{n}\otimes\uv{n}
++
+B_{mm}\,\uv{m}\otimes\uv{m}
++
+B_{\ell\ell}\,\uv{\ell}\otimes\uv{\ell}
+\]</span> with <span class="math display">\[\begin{align}
+B_{nn}&amp;=\frac{8\,\eta\,(1-\nu^2)}{3\,E}\,
+\frac{1}{\mathcal{E}_\eta}\label{eq:Bnn}\\
+B_{mm}&amp;=\frac{8\,\eta\,(1-\nu^2)}{3\,E}\,
+\frac{1-\eta^2}{\left(1-(1-\nu)\,\eta^2\right)
+\,\mathcal{E}_\eta-\nu\,\eta^2\,\mathcal{K}_\eta}\\
+B_{\ell\ell}&amp;=\frac{8\,\eta\,(1-\nu^2)}{3\,E}\,
+\frac{1-\eta^2}{(1-\nu-\eta^2)\,\mathcal{E}_\eta+\nu\,\eta^2\,\mathcal{K}_\eta}
+\end{align}\]</span> where <span class="math inline">\(\mathcal{K}_\eta=\mathcal{K}(\sqrt{1-\eta^2})\)</span> and <span class="math inline">\(\mathcal{E}_\eta=\mathcal{E}(\sqrt{1-\eta^2})\)</span> are the complete elliptic integrals of respectively the first and second kind (see <span class="citation" data-cites="abramowitz1972">(<a href="../references.html#ref-abramowitz1972" role="doc-biblioref">Abramowitz and Stegun, 1972</a>)</span>). If the crack is circular, the components of <span class="math inline">\(\uu{B}\)</span> become <span class="math display">\[
+B_{nn}=\frac{16\,(1-\nu^2)}{3\,\pi\,E}
+\quad\textrm{;}\quad
+B_{mm}=B_{\ell\ell}=\frac{B_{nn}}{1-\nu/2}
+\]</span></p>
+</section>
+<section id="numerical-implementation" class="level2">
+<h2 class="anchored" data-anchor-id="numerical-implementation">Numerical implementation</h2>
+<p>The syntax allowing to calculate the compliance <span class="math inline">\(\uuuu{H}\)</span> of an elliptical crack embedded in an infinite matrix of elastic stiffness <span class="math inline">\(\uuuu{C}\)</span> is very close to that corresponding to <code>hill</code> and <code>eshelby</code> in <a href="eshelby_hill.html" class="quarto-xref"><span>Chapter 5</span></a>, in other words</p>
+<p><code>H = crack_compliance(shape, C, algo=NUMINT, epsroots=1.e-4, epsabs=1.e-4, epsrel=1.e-4, maxnb=100000)</code></p>
+<p>where the keyword argument <code>algo</code> can be either <code>NUMINT</code> or <code>RESIDUES</code> (default: <code>NUMINT</code>). See <span class="citation" data-cites="barthelemyIJSS2009">(<a href="../references.html#ref-barthelemyIJSS2009" role="doc-biblioref">Barthélémy, 2009</a>)</span> for more details.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>As recalled above the elliptical crack is described as a flat ellipsoid. However the calculation of the crack compliance <span class="math inline">\(\uuuu{H}\)</span> (<a href="#eq-H" class="quarto-xref"><span>6.1</span></a>) relies on an <code>ellipsoidal</code> argument (see <a href="eshelby_hill.html#sec-ellipsoidal" class="quarto-xref"><span>Section 5.2</span></a>) in which even the smallest aspect ratio should be strictly positive for numerical reasons. It is then necessary to provide an aspect ratio <span class="math inline">\(\omega\)</span> for the crack even if the crack compliance is actually calculated as a limit (not depending on <span class="math inline">\(\omega\)</span>).</p>
+</div>
+</div>
+<p><strong>Isotropic example</strong></p>
+<div id="79af5261" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> stiff_Enu(<span class="fl">1.</span>,<span class="fl">0.2</span>) <span class="op">;</span> <span class="bu">print</span>(<span class="st">"C =</span><span class="ch">\n</span><span class="st">"</span>, C)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>ω <span class="op">=</span> <span class="fl">1.e-4</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>H <span class="op">=</span> crack_compliance(spheroidal(ω), C) <span class="op">;</span> <span class="bu">print</span>(<span class="st">"H =</span><span class="ch">\n</span><span class="st">"</span>, H)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>C =
+ Order 4 ISO tensor | Param(size=2)=[ 1.66667 0.833333 ] | Angles(size=0)=[ ]
+[ 1.11111 0.277778 0.277778 0 0 0 
+  0.277778 1.11111 0.277778 0 0 0 
+  0.277778 0.277778 1.11111 0 0 0 
+  0 0 0 0.833333 0 0 
+  0 0 0 0 0.833333 0 
+  0 0 0 0 0 0.833333 ]
+
+H =
+ [[0.         0.         0.         0.         0.         0.        ]
+ [0.         0.         0.         0.         0.         0.        ]
+ [0.         0.         1.22230996 0.         0.         0.        ]
+ [0.         0.         0.         0.67906109 0.         0.        ]
+ [0.         0.         0.         0.         0.67906109 0.        ]
+ [0.         0.         0.         0.         0.         0.        ]]</code></pre>
+</div>
+</div>
+<p><strong>Anisotropic example</strong></p>
+<div id="8f1461ec" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>M <span class="op">=</span> np.array([ [<span class="fl">2.66011</span>, <span class="fl">1.26432</span>, <span class="fl">0.662772</span>, <span class="fl">1.9402</span>, <span class="fl">1.54905</span>, <span class="fl">1.10384</span>],</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">1.26432</span>, <span class="fl">3.6072</span>, <span class="fl">1.78964</span>, <span class="fl">2.0247</span>, <span class="fl">1.2701</span>, <span class="fl">1.1089</span>], </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">0.662772</span>, <span class="fl">1.78964</span>, <span class="fl">2.743</span>, <span class="fl">1.3367</span>, <span class="fl">1.2962</span>, <span class="fl">0.897632</span>], </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">1.9402</span>, <span class="fl">2.0247</span> ,<span class="fl">1.3367</span>, <span class="fl">4.42684</span>, <span class="fl">2.05632</span>, <span class="fl">1.52686</span>], </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">1.54905</span>, <span class="fl">1.2701</span>, <span class="fl">1.2962</span>, <span class="fl">2.05632</span>, <span class="fl">3.54431</span>, <span class="fl">1.3445</span>], </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">1.10384</span>, <span class="fl">1.1089</span>, <span class="fl">0.897632</span>, <span class="fl">1.52686</span>, <span class="fl">1.3445</span>, <span class="fl">1.99356</span>] ])</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> tensor(M) <span class="op">;</span> <span class="bu">print</span>(C)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>ω <span class="op">=</span> <span class="fl">1.e-4</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>H <span class="op">=</span> crack_compliance(spheroidal(ω), C, algo<span class="op">=</span>NUMINT) <span class="op">;</span> <span class="bu">print</span>(<span class="st">"H =</span><span class="ch">\n</span><span class="st">"</span>, H)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Order 4 ANISO tensor | Param(size=21)=[ 2.66011 1.26432 0.662772 1.9402 1.54905 1.10384 3.6072 1.78964 2.0247 1.2701 1.1089 2.743 1.3367 1.2962 0.897632 4.42684 2.05632 1.52686 3.54431 1.3445 1.99356 ] | Angles(size=0)=[ ]
+[ 2.66011 1.26432 0.662772 1.9402 1.54905 1.10384 
+  1.26432 3.6072 1.78964 2.0247 1.2701 1.1089 
+  0.662772 1.78964 2.743 1.3367 1.2962 0.897632 
+  1.9402 2.0247 1.3367 4.42684 2.05632 1.52686 
+  1.54905 1.2701 1.2962 2.05632 3.54431 1.3445 
+  1.10384 1.1089 0.897632 1.52686 1.3445 1.99356 ]
+
+H =
+ [[ 0.          0.          0.          0.          0.          0.        ]
+ [ 0.          0.          0.          0.          0.          0.        ]
+ [ 0.          0.          0.57167315 -0.08924584 -0.10580477  0.        ]
+ [ 0.          0.         -0.08924584  0.2711102  -0.06996412  0.        ]
+ [ 0.          0.         -0.10580477 -0.06996412  0.34412187  0.        ]
+ [ 0.          0.          0.          0.          0.          0.        ]]</code></pre>
+</div>
+</div>
+<div id="c99cca56" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>H <span class="op">=</span> crack_compliance(spheroidal(ω), C, algo<span class="op">=</span>RESIDUES) <span class="op">;</span> <span class="bu">print</span>(<span class="st">"H =</span><span class="ch">\n</span><span class="st">"</span>, H)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>H =
+ [[ 0.          0.          0.          0.          0.          0.        ]
+ [ 0.          0.          0.          0.          0.          0.        ]
+ [ 0.          0.          0.57167314 -0.08924588 -0.10580479  0.        ]
+ [ 0.          0.         -0.08924588  0.2711102  -0.06996413  0.        ]
+ [ 0.          0.         -0.10580479 -0.06996413  0.34412181  0.        ]
+ [ 0.          0.          0.          0.          0.          0.        ]]</code></pre>
+</div>
+</div>
+<p><strong>Transversely isotropic matrix</strong></p>
+<p>A transversely isotropic (TI) matrix is fully defined by 5 independent elastic constants. <em>Echoes</em> handles the crack compliance analytically in this case too.</p>
+<div id="871c8065" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># TI stiffness: tensor([c1, c2, c3, c4, c5]) with axis of symmetry = e3</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters from Hönig parametrization (E1=2.3, h=2.5, nu2=0.2, nu1=0.2, gamma=2.)</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math <span class="im">as</span> _m</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>h, E1, nu2, nu1, gamma <span class="op">=</span> <span class="fl">2.5</span>, <span class="fl">2.3</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">2.0</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> nu1 <span class="op">-</span> <span class="dv">2</span><span class="op">*</span>h<span class="op">*</span>nu2<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>C_TI <span class="op">=</span> tensor([h<span class="op">*</span>E1<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>nu1)<span class="op">/</span>d, E1<span class="op">/</span>d, _m.sqrt(<span class="fl">2.</span>)<span class="op">*</span>h<span class="op">*</span>nu2<span class="op">*</span>E1<span class="op">/</span>d, E1<span class="op">/</span>(<span class="dv">1</span><span class="op">+</span>nu1), gamma<span class="op">*</span>E1<span class="op">/</span>(<span class="dv">1</span><span class="op">+</span>nu1)])</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"C (TI) =</span><span class="ch">\n</span><span class="st">"</span>, C_TI, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>H_TI <span class="op">=</span> crack_compliance(spheroidal(<span class="fl">1.e-4</span>), C_TI)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"H (TI matrix) =</span><span class="ch">\n</span><span class="st">"</span>, H_TI)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>C (TI) =
+ Order 4 TI tensor | Param(size=5)=[ 7.66667 3.83333 2.71058 1.91667 3.83333 ] | Angles(size=2)=[ 0 0 ]
+[ 2.875 0.958333 1.91667 0 0 0 
+  0.958333 2.875 1.91667 0 0 0 
+  1.91667 1.91667 7.66667 0 0 0 
+  0 0 0 3.83333 0 0 
+  0 0 0 0 3.83333 0 
+  0 0 0 0 0 1.91667 ]
+ 
+
+H (TI matrix) =
+ [[ 0.          0.          0.          0.          0.          0.        ]
+ [ 0.          0.          0.          0.          0.          0.        ]
+ [ 0.          0.          0.22866212  0.          0.          0.        ]
+ [ 0.          0.          0.          0.20803219 -0.          0.        ]
+ [ 0.          0.          0.         -0.          0.20803233  0.        ]
+ [ 0.          0.          0.          0.          0.          0.        ]]</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span><iconify-icon role="img" inline="" icon="healthicons:exercise-outline" aria-label="Icon exercise-outline from healthicons Iconify.design set." title="Icon exercise-outline from healthicons Iconify.design set."></iconify-icon> Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This exercise aims at checking the aspect ratio for which the approximation <span class="math inline">\(\omega\,\uuuu{Q}^{-1}\approx \lim_{\omega\to 0}\omega\,\uuuu{Q}^{-1}\)</span> remains acceptable. For this purpose it is proposed to build the graph of relative distance between these two tensors as function of the aspect ratio <span class="math inline">\(\omega\)</span> for different reference stiffness tensors <span class="math inline">\(\uuuu{C}\)</span>.</p>
+<p><em>Hints: with <code>hill_dual</code> use preferably <code>algo=NUMINT</code> and decrease the values of <code>epsrel</code> and <code>espabs</code> to avoid roundoff error prior to inversion of <span class="math inline">\(\uuuu{Q}\)</span></em></p>
+<div id="cell-fig-errorH" class="cell" data-execution_count="6">
+<details class="code-fold">
+<summary>Solution</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">3</span>))</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    A <span class="op">=</span> np.random.rand(<span class="dv">6</span>,<span class="dv">6</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    C <span class="op">=</span> tensor(A.T.dot(A) <span class="op">+</span> np.eye(<span class="dv">6</span>)) <span class="co"># generation of an arbitrary positive definite matrix</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    ω <span class="op">=</span> <span class="fl">1.e-4</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    H <span class="op">=</span> crack_compliance(spheroidal(ω), C)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    tω <span class="op">=</span> np.logspace(<span class="op">-</span><span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">20</span>)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    tabδ <span class="op">=</span> []</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> ω <span class="kw">in</span> tω:</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>        Q <span class="op">=</span> hill_dual(spheroidal(ω), C, algo<span class="op">=</span>NUMINT, epsrel<span class="op">=</span><span class="fl">1.e-12</span>, epsabs<span class="op">=</span><span class="fl">1.e-12</span>)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>        Hω <span class="op">=</span> ω<span class="op">*</span>np.linalg.inv(Q)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>        δH <span class="op">=</span> np.linalg.norm(Hω<span class="op">-</span>H)<span class="op">/</span>np.linalg.norm(H)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>        tabδ.append(δH)</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    plt.loglog(tω,tabδ,<span class="st">'+-'</span>)</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="vs">r"</span><span class="dv">$</span><span class="er">\</span><span class="vs">omega</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="vs">r"</span><span class="dv">$</span><span class="ch">\f</span><span class="vs">rac{</span><span class="cf">||</span><span class="dv">\m</span><span class="vs">athbb{H}-</span><span class="er">\</span><span class="vs">omega</span><span class="ch">\,</span><span class="dv">\m</span><span class="vs">athbb{Q}</span><span class="dv">^</span><span class="vs">{-1}</span><span class="cf">||</span><span class="vs">}{</span><span class="cf">||</span><span class="dv">\m</span><span class="vs">athbb{H}</span><span class="cf">||</span><span class="vs">}</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>,which<span class="op">=</span><span class="st">'both'</span>)</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-errorh" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-errorh-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="crack_compliance_files/figure-html/fig-errorh-output-1.png" width="687" height="283" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-errorh-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Fig.&nbsp;6.2: Influence of the aspect ratio on the crack compliance contribution tensor
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-spring-model" class="level2">
+<h2 class="anchored" data-anchor-id="sec-spring-model">Linear spring interface model</h2>
+<p>In the fully open crack model considered so far, the two crack faces are traction-free. A more general model allows the faces to interact through a <strong>linear spring interface</strong>: the traction <span class="math inline">\(\uv{T}=\uu{\sig}\cdot\uv{n}\)</span> on the crack face is linearly related to the displacement jump <span class="math inline">\(\jump{\uv{u}}\)</span>:</p>
+<p><span id="eq-spring-law"><span class="math display">\[
+\uv{T} = \left(k_n\,\uv{n}\otimes\uv{n} + k_t\,(\uu{1}-\uv{n}\otimes\uv{n})\right)\cdot\jump{\uv{u}}
+\tag{6.2}\]</span></span></p>
+<p>where <span class="math inline">\(k_n \geq 0\)</span> is the normal spring stiffness and <span class="math inline">\(k_t \geq 0\)</span> the tangential one. The open crack (<span class="math inline">\(k_n=k_t=0\)</span>) and the perfectly bonded interface (<span class="math inline">\(k_n,k_t\to\infty\)</span>) are limiting cases.</p>
+<section id="implementation" class="level3">
+<h3 class="anchored" data-anchor-id="implementation">Implementation</h3>
+<p>The spring stiffnesses are passed to the <code>crack</code> constructor via <code>interf_prop</code> (details in <a href="../5_cracked_porous/cracked_media.html" class="quarto-xref"><span>Chapter 14</span></a>):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ver[<span class="st">"CRACK"</span>] <span class="op">=</span> crack(shape<span class="op">=</span>spheroidal(ω), density<span class="op">=</span>d,</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>                     interf_prop<span class="op">=</span>{<span class="st">"C"</span>: [kn, kt]})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The order of parameters is <code>[kn, kt]</code> (normal first, tangential second). Passing <code>prop={"C": tZ4}</code> with no <code>interf_prop</code> is equivalent to the open crack (<span class="math inline">\(k_n=k_t=0\)</span>).</p>
+</section>
+</section>
+<section id="sec-crack-conduc" class="level2">
+<h2 class="anchored" data-anchor-id="sec-crack-conduc">Conductivity crack resistivity</h2>
+<p>The proper transport analog of the elastic crack compliance tensor is the <strong>crack resistivity tensor</strong> <span class="math inline">\(\uu{H}\)</span> <span class="citation" data-cites="kachanov2018">(<a href="../references.html#ref-kachanov2018" role="doc-biblioref">Kachanov and Sevostianov, 2018</a>)</span>. By analogy with the elastic case, it is defined from the 2nd-order second Hill tensor <span class="math inline">\(\uu{Q}=\uu{K}-\uu{K}\cdot\uu{P}\cdot\uu{K}\)</span> as:</p>
+<p><span id="eq-H-cond"><span class="math display">\[
+\uu{H} = \lim_{\omega\to 0}\,\omega\,\uu{Q}^{-1}
+\tag{6.3}\]</span></span></p>
+<p>The result is a positive semi-definite 3×3 tensor (rank-1 for an isotropic matrix, since only the normal component of the flux can jump across a crack).</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Terminology in <em>Echoes</em>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Although the physically correct term for the transport analog is <strong>crack resistivity</strong>, the function <code>crack_compliance</code> is used for both elasticity and transport in <em>Echoes</em> by analogy: passing a 2nd-order tensor <code>K</code> as the second argument automatically returns the 3×3 crack resistivity tensor <span class="math inline">\(\uu{H}\)</span>.</p>
+</div>
+</div>
+<section id="api" class="level3">
+<h3 class="anchored" data-anchor-id="api">API</h3>
+<p><code>crack_compliance(shape, K)</code> with a <strong>2nd-order tensor</strong> <code>K</code> returns a 3×3 <code>numpy.ndarray</code>. As for the elastic case, <span class="math inline">\(\uu{H}\)</span> does not depend on the aspect ratio <span class="math inline">\(\omega\)</span> when <span class="math inline">\(\omega\to 0\)</span>, so only a small value needs to be provided.</p>
+<p>For a spring-interface crack in conductivity, <code>interf_prop={"K": [Ka, Kb, Kc]}</code> sets the conductance along the three local axes of the crack (the two tangential axes first, then the normal):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>ver[<span class="st">"CRACK"</span>] <span class="op">=</span> crack(shape<span class="op">=</span>spheroidal(ω), density<span class="op">=</span>d,</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                     interf_prop<span class="op">=</span>{<span class="st">"K"</span>: [Kt1, Kt2, Kn]})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For a spheroidal crack with rotational symmetry, <span class="math inline">\(K_{t1}=K_{t2}=K_t\)</span> so the call reduces to <code>[Kt, Kt, Kn]</code>.</p>
+</section>
+<section id="isotropic-matrix" class="level3">
+<h3 class="anchored" data-anchor-id="isotropic-matrix">Isotropic matrix</h3>
+<div id="3053d693" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>K_val <span class="op">=</span> <span class="fl">2.5</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>K_iso <span class="op">=</span> K_val <span class="op">*</span> tId2</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>H_cond <span class="op">=</span> crack_compliance(spheroidal(<span class="fl">1.e-4</span>), K_iso)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"H (crack resistivity, isotropic) =</span><span class="ch">\n</span><span class="st">"</span>, H_cond)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Analytical formula: H_n = 2/(πK)  (n = e3, index 2)</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>H_n_formula <span class="op">=</span> <span class="fl">2.0</span> <span class="op">/</span> (math.pi <span class="op">*</span> K_val)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Formula H[2,2] = 2/(πK) = </span><span class="sc">{</span>H_n_formula<span class="sc">:.8f}</span><span class="ss">"</span>)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Echoes  H[2,2]          = </span><span class="sc">{</span>H_cond[<span class="dv">2</span>,<span class="dv">2</span>]<span class="sc">:.8f}</span><span class="ss">"</span>)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Error:                    </span><span class="sc">{</span><span class="bu">abs</span>(H_cond[<span class="dv">2</span>,<span class="dv">2</span>] <span class="op">-</span> H_n_formula)<span class="sc">:.2e}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>H (crack resistivity, isotropic) =
+ [[0.         0.         0.        ]
+ [0.         0.         0.        ]
+ [0.         0.         0.25464791]]
+
+Formula H[2,2] = 2/(πK) = 0.25464791
+Echoes  H[2,2]          = 0.25464791
+Error:                    0.00e+00</code></pre>
+</div>
+</div>
+</section>
+<section id="anisotropic-matrix" class="level3">
+<h3 class="anchored" data-anchor-id="anisotropic-matrix">Anisotropic matrix</h3>
+<p>Just as for the 2nd-order Hill tensor (see <a href="eshelby_hill.html#sec-hill2" class="quarto-xref"><span>Section 5.5</span></a>), the crack resistivity is computed analytically for any matrix anisotropy.</p>
+<div id="d51d2c48" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Orthotropic conductivity</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>K_aniso <span class="op">=</span> tensor([<span class="fl">3.2</span>, <span class="fl">0.5</span>, <span class="fl">1.</span><span class="op">/</span>(<span class="fl">3.2</span><span class="op">*</span><span class="fl">0.5</span>)], angles<span class="op">=</span>[math.pi<span class="op">/</span><span class="dv">3</span>, math.pi<span class="op">/</span><span class="dv">4</span>, math.pi<span class="op">/</span><span class="dv">5</span>])</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>H_aniso <span class="op">=</span> crack_compliance(spheroidal(<span class="fl">1.e-4</span>), K_aniso)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"H (crack resistivity, orthotropic) =</span><span class="ch">\n</span><span class="st">"</span>, H_aniso)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>H (crack resistivity, orthotropic) =
+ [[0.        0.        0.       ]
+ [0.        0.        0.       ]
+ [0.        0.        0.5368878]]</code></pre>
+</div>
+</div>
+<p><span class="math inline">\(\,\)</span></p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-abramowitz1972" class="csl-entry" role="listitem">
+Abramowitz, M., Stegun, I.A., 1972. Handbook of <span>Mathematical Functions</span>. National Bureau of Standards - Applied Mathematics Series - 55, Washington D.C.
+</div>
+<div id="ref-barthelemyIJSS2009" class="csl-entry" role="listitem">
+Barthélémy, J.-F., 2009. Compliance and <span>Hill</span> polarization tensor of a crack in an anisotropic matrix. International Journal of Solids and Structures 46, 4064–4072. <a href="https://doi.org/10.1016/j.ijsolstr.2009.08.003">https://doi.org/10.1016/j.ijsolstr.2009.08.003</a>
+</div>
+<div id="ref-barthelemyIJES2021" class="csl-entry" role="listitem">
+Barthélémy, J.-F., Sevostianov, I., Giraud, A., 2021. Micromechanical modeling of a cracked elliptically orthotropic medium. International Journal of Engineering Science 161, 103454. <a href="https://doi.org/10.1016/j.ijengsci.2021.103454">https://doi.org/10.1016/j.ijengsci.2021.103454</a>
+</div>
+<div id="ref-kachanov1993" class="csl-entry" role="listitem">
+Kachanov, M., 1993. Elastic <span>Solids</span> with <span>Many Cracks</span> and <span>Related Problems</span>. Advances in Applied Mechanics 30, 259–445. <a href="https://doi.org/10.1016/S0065-2156(08)70176-5">https://doi.org/10.1016/S0065-2156(08)70176-5</a>
+</div>
+<div id="ref-kachanov1992" class="csl-entry" role="listitem">
+Kachanov, M., 1992. Effective <span>Elastic Properties</span> of <span>Cracked Solids</span>: <span>Critical Review</span> of <span>Some Basic Concepts</span>. Applied Mechanics Reviews 45, 304–335. <a href="https://doi.org/10.1115/1.3119761">https://doi.org/10.1115/1.3119761</a>
+</div>
+<div id="ref-kachanov2018" class="csl-entry" role="listitem">
+Kachanov, M., Sevostianov, I., 2018. Micromechanics of <span>Materials</span>, with <span>Applications</span>, Solid <span>Mechanics</span> and <span>Its Applications</span>. Springer International Publishing, Cham. <a href="https://doi.org/10.1007/978-3-319-76204-3">https://doi.org/10.1007/978-3-319-76204-3</a>
+</div>
+<div id="ref-laws1985" class="csl-entry" role="listitem">
+Laws, N., 1985. A short note on penny-shaped cracks in transversely isotropic materials. Mech. Mater. 4, 209–212.
+</div>
+<div id="ref-laws1977" class="csl-entry" role="listitem">
+Laws, N., 1977. A note on interaction energies associated with cracks in anisotropic solids. Philos. Magazine 36, 367–372.
+</div>
+<div id="ref-nemat-nasser1999" class="csl-entry" role="listitem">
+Nemat-Nasser, S., Hori, M., 1999. Micromechanics: <span>Overall Properties</span> of <span>Heterogeneous Materials</span> 2nd <span>Edition</span>, North Holland. ed. North Holland, Amsterdam, The Netherlands.
+</div>
+<div id="ref-sevostianov2002" class="csl-entry" role="listitem">
+Sevostianov, I., Kachanov, M., 2002. On elastic compliances of irregularly shaped cracks. International Journal of Fracture 114, 245–257. <a href="https://doi.org/10.1023/A:1015534127172">https://doi.org/10.1023/A:1015534127172</a>
+</div>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/echoes\.barthelemy\.xyz\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation column-body">
+  <div class="nav-page nav-page-previous">
+      <a href="../2_eshelby/eshelby_hill.html" class="pagination-link" aria-label="Eshelby and Hill polarization tensors">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Eshelby and Hill polarization tensors</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../3_concentration/concentration_tensors.html" class="pagination-link" aria-label="Ellipsoids">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Ellipsoids</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
