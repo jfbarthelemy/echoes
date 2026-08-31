@@ -1,1 +1,1 @@
-Sitemap: https://echoes.barthelemy.xyz/sitemap.xml
+Sitemap: https://jfbarthelemy.github.io/echoes/sitemap.xml

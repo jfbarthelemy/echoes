@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -97,14 +100,14 @@ div.csl-indent {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-584a7622b650eec4e090a46c7997c677.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-96b5c1025c9de5fd02de225511b0f0bf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-584a7622b650eec4e090a46c7997c677.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-bceaeb2739354d729f4f5842986c97ef.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-3f1284a26ece7f7f5fdc920ec04a18e5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-bceaeb2739354d729f4f5842986c97ef.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
@@ -251,7 +254,7 @@ gtag('config', 'G-DF66M2GWRG', { 'anonymize_ip': true});
 </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -468,8 +471,8 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../index.html" class="sidebar-logo-link">
-      <img src="../img\cover.html" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="../img\cover.html" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      <img src="../img/cover.html" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../img/cover.html" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Echoes</a> 
@@ -810,85 +813,45 @@ window.Quarto = {
 <main class="content column-body" id="quarto-document-content">
 
 $$
-
 \newcommand{\C}{{\mathbb{{C}}}}
-
 \newcommand{\R}{{\mathbb{{R}}}}
-
 \newcommand{\Q}{{\mathbb{{Q}}}}
-
 \newcommand{\Z}{{\mathbb{{Z}}}}
-
 \newcommand{\N}{{\mathbb{{N}}}}
 
-
-
 \newcommand{\uu}[1]{{\boldsymbol{{#1}}}}
-
 \newcommand{\uuuu}[1]{{\symbb{{#1}}}}
-
 \newcommand{\uv}[1]{{\underline{{#1}}}}
-
 \newcommand{\ve}[1]{{\uv{{e}}_{{#1}}}}
-
 \newcommand{\x}{{\uv{{x}}}}
-
 \newcommand{\n}{{\uv{{n}}}}
-
 \newcommand{\eps}{{\uu{{\varepsilon}}}}
-
 \newcommand{\E}{{\uu{{E}}}}
-
 \newcommand{\sig}{{\uu{{\sigma}}}}
-
 \newcommand{\Sig}{{\uu{{\Sigma}}}}
-
 \newcommand{\cod}{{\uv{{\symscr{b}}}}}
-
 % \newcommand{\trans}[1]{{{}^{t}{#1}}}
-
 \newcommand{\trans}[1]{{{#1}{}^\intercal}}
-
 \newcommand{\sotimes}{{\stackrel{s}{\otimes}}}
-
 \newcommand{\sboxtimes}{\stackrel{s}{\boxtimes}}
-
 \newcommand{\norm}[1]{{\lVert{{#1}}\rVert}}
-
 \newcommand{\ud}{{\,\mathrm{d}}}
-
 \newcommand{\mat}{\mathsf}
-
 \DeclareMathOperator{\arcosh}{arcosh}
-
 \DeclareMathOperator{\divz}{div}
-
 \DeclareMathOperator{\divu}{\uv{div}}
-
 \DeclareMathOperator{\hess}{hess}
-
 \DeclareMathOperator{\gradu}{\uv{grad}}
-
 \DeclareMathOperator{\graduu}{\uu{grad}}
-
 \DeclareMathOperator{\Mat}{Mat}
-
 \DeclareMathOperator{\tr}{tr}
-
 \DeclareMathOperator{\ISO}{ISO}
 
-
-
 \newcommand{\volt}[1]{{#1}^{-1\circ}}
-
 \newcommand{\dcirc}{\overset{\circ}{:}}
 
-
-
 \newcommand{\jump}[1]{\mathopen{[\![}\,#1\,\mathclose{]\!]}}
-
 $$
-
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../8_applications/transport.html">𝗔𝗽𝗽𝗹𝗶𝗰𝗮𝘁𝗶𝗼𝗻𝘀</a></li><li class="breadcrumb-item"><a href="../8_applications/concrete.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Multiscale elasticity of a hydrating cement paste</span></a></li></ol></nav>
 <div class="quarto-title">
@@ -940,7 +903,7 @@ $$
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="fa1c9d7f" class="cell" data-execution_count="1">
+<div id="fbee8fb9" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -981,7 +944,7 @@ f_o^p = f_p - f_i^p
 \]</span> <span class="math display">\[
 f_i = f_i^s+f_i^p,\quad \varphi_o = \frac{f_o^p}{f_o^p+f_o^s}
 \]</span></p>
-<div id="197cdef8" class="cell" data-execution_count="2">
+<div id="8a4c6bcb" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Volume fractions — Powers + Tennis-Jennings model</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>rho_a <span class="op">=</span> <span class="fl">3.13</span> <span class="op">;</span> kappa_h <span class="op">=</span> <span class="fl">2.13</span> <span class="op">;</span> kappa_w <span class="op">=</span> <span class="fl">1.31</span></span>
@@ -1014,7 +977,7 @@ f_i = f_i^s+f_i^p,\quad \varphi_o = \frac{f_o^p}{f_o^p+f_o^s}
 <section id="inner-hydrates-fixed-sc" class="level3">
 <h3 class="anchored" data-anchor-id="inner-hydrates-fixed-sc">Inner hydrates (fixed, SC)</h3>
 <p>The inner porosity <span class="math inline">\(\varphi_i=0.30\)</span> is independent of <span class="math inline">\(w/c\)</span> and <span class="math inline">\(\alpha\)</span>; <span class="math inline">\(C_\text{inner}\)</span> is computed once:</p>
-<div id="acb2c867" class="cell" data-execution_count="3">
+<div id="ef7c8879" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>omega_i <span class="op">=</span> <span class="fl">0.12</span>    <span class="co"># aspect ratio of HD solid bricks</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>omega_o <span class="op">=</span> <span class="fl">0.033</span>   <span class="co"># aspect ratio of LD solid platelets</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>C_sol   <span class="op">=</span> stiff_Enu(<span class="fl">71.6</span>, <span class="fl">0.27</span>)   <span class="co"># solid C-S-H (bricks and platelets)</span></span>
@@ -1037,7 +1000,7 @@ f_i = f_i^s+f_i^p,\quad \varphi_o = \frac{f_o^p}{f_o^p+f_o^s}
 <section id="outer-hydrates-evolving-varphi_o-sc" class="level3">
 <h3 class="anchored" data-anchor-id="outer-hydrates-evolving-varphi_o-sc">Outer hydrates (evolving <span class="math inline">\(\varphi_o\)</span>, SC)</h3>
 <p>The outer porosity <span class="math inline">\(\varphi_o(w/c,\alpha)\)</span> varies with hydration. Setting occurs when <span class="math inline">\(\varphi_o\)</span> reaches the SC percolation threshold (controlled by <span class="math inline">\(\omega_o^s\)</span>):</p>
-<div id="158be2c4" class="cell" data-execution_count="4">
+<div id="ef9b10c7" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Figure — Young’s modulus of inner and outer C-S-H (SC)</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ver_out <span class="op">=</span> rve()</span>
@@ -1086,7 +1049,7 @@ f_i = f_i^s+f_i^p,\quad \varphi_o = \frac{f_o^p}{f_o^p+f_o^s}
 <p><span class="math display">\[
 \frac{R_a}{R_\text{ref}} = \left(\frac{f_a}{f_a+f_i}\right)^{1/3}
 \]</span></p>
-<div id="6732859d" class="cell" data-execution_count="5">
+<div id="49eb1fbe" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Function C_paste() — paste-scale homogenization (MT)</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> C_paste(wc, alpha<span class="op">=-</span><span class="fl">1.</span>):</span>
@@ -1112,7 +1075,7 @@ f_i = f_i^s+f_i^p,\quad \varphi_o = \frac{f_o^p}{f_o^p+f_o^s}
 <span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> homogenize(prop<span class="op">=</span><span class="st">"C"</span>, rve<span class="op">=</span>ver, scheme<span class="op">=</span>MT, verbose<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div id="f4e4a6b2" class="cell" data-execution_count="6">
+<div id="e27c075a" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Figure — drained Young’s modulus of cement paste</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>wc_list <span class="op">=</span> [<span class="fl">0.25</span>, <span class="fl">0.35</span>, <span class="fl">0.45</span>, <span class="fl">0.55</span>]</span>
@@ -1157,7 +1120,7 @@ k^u = k^{hom} + M b^2, \qquad
 \mu^u = \mu^{hom}
 \]</span></p>
 <p>Applied scale by scale (inner, then outer with <span class="math inline">\(k_s = k_\text{solid CSH}\)</span>; paste with the undrained inner/outer as inputs):</p>
-<div id="d6b54a3c" class="cell" data-execution_count="7">
+<div id="bc9d1750" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Function C_paste_undrained() — drained and undrained moduli</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ks_sol, mus_sol <span class="op">=</span> C_sol.kmu   <span class="co"># solid C-S-H</span></span>
@@ -1201,7 +1164,7 @@ k^u = k^{hom} + M b^2, \qquad
 <span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> homogenize(prop<span class="op">=</span><span class="st">"C"</span>, rve<span class="op">=</span>ver, scheme<span class="op">=</span>MT, verbose<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div id="e8e36ac9" class="cell" data-execution_count="8">
+<div id="6fe01856" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Figure — drained vs undrained moduli</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">4</span>))</span>
@@ -1336,7 +1299,7 @@ Tennis, P.D., Jennings, H.M., 2000. A model for two types of calcium silicate hy
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/echoes\.barthelemy\.xyz\/");
+        var filterRegex = new RegExp("https:\/\/jfbarthelemy\.github\.io\/echoes\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

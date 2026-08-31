@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -97,14 +100,14 @@ div.csl-indent {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-584a7622b650eec4e090a46c7997c677.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-96b5c1025c9de5fd02de225511b0f0bf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-584a7622b650eec4e090a46c7997c677.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-bceaeb2739354d729f4f5842986c97ef.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-3f1284a26ece7f7f5fdc920ec04a18e5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-bceaeb2739354d729f4f5842986c97ef.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
@@ -251,7 +254,7 @@ gtag('config', 'G-DF66M2GWRG', { 'anonymize_ip': true});
 </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -468,8 +471,8 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../index.html" class="sidebar-logo-link">
-      <img src="../img\cover.html" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="../img\cover.html" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      <img src="../img/cover.html" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../img/cover.html" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Echoes</a> 
@@ -808,85 +811,45 @@ window.Quarto = {
 <main class="content column-body" id="quarto-document-content">
 
 $$
-
 \newcommand{\C}{{\mathbb{{C}}}}
-
 \newcommand{\R}{{\mathbb{{R}}}}
-
 \newcommand{\Q}{{\mathbb{{Q}}}}
-
 \newcommand{\Z}{{\mathbb{{Z}}}}
-
 \newcommand{\N}{{\mathbb{{N}}}}
 
-
-
 \newcommand{\uu}[1]{{\boldsymbol{{#1}}}}
-
 \newcommand{\uuuu}[1]{{\symbb{{#1}}}}
-
 \newcommand{\uv}[1]{{\underline{{#1}}}}
-
 \newcommand{\ve}[1]{{\uv{{e}}_{{#1}}}}
-
 \newcommand{\x}{{\uv{{x}}}}
-
 \newcommand{\n}{{\uv{{n}}}}
-
 \newcommand{\eps}{{\uu{{\varepsilon}}}}
-
 \newcommand{\E}{{\uu{{E}}}}
-
 \newcommand{\sig}{{\uu{{\sigma}}}}
-
 \newcommand{\Sig}{{\uu{{\Sigma}}}}
-
 \newcommand{\cod}{{\uv{{\symscr{b}}}}}
-
 % \newcommand{\trans}[1]{{{}^{t}{#1}}}
-
 \newcommand{\trans}[1]{{{#1}{}^\intercal}}
-
 \newcommand{\sotimes}{{\stackrel{s}{\otimes}}}
-
 \newcommand{\sboxtimes}{\stackrel{s}{\boxtimes}}
-
 \newcommand{\norm}[1]{{\lVert{{#1}}\rVert}}
-
 \newcommand{\ud}{{\,\mathrm{d}}}
-
 \newcommand{\mat}{\mathsf}
-
 \DeclareMathOperator{\arcosh}{arcosh}
-
 \DeclareMathOperator{\divz}{div}
-
 \DeclareMathOperator{\divu}{\uv{div}}
-
 \DeclareMathOperator{\hess}{hess}
-
 \DeclareMathOperator{\gradu}{\uv{grad}}
-
 \DeclareMathOperator{\graduu}{\uu{grad}}
-
 \DeclareMathOperator{\Mat}{Mat}
-
 \DeclareMathOperator{\tr}{tr}
-
 \DeclareMathOperator{\ISO}{ISO}
 
-
-
 \newcommand{\volt}[1]{{#1}^{-1\circ}}
-
 \newcommand{\dcirc}{\overset{\circ}{:}}
 
-
-
 \newcommand{\jump}[1]{\mathopen{[\![}\,#1\,\mathclose{]\!]}}
-
 $$
-
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../1_tensor_calculus/kelvin_mandel.html">𝗘𝗹𝗲𝗺𝗲𝗻𝘁𝘀 𝗼𝗳 𝘁𝗲𝗻𝘀𝗼𝗿 𝗰𝗮𝗹𝗰𝘂𝗹𝘂𝘀</a></li><li class="breadcrumb-item"><a href="../1_tensor_calculus/tensor.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The <code>tensor</code> object</span></a></li></ol></nav>
 <div class="quarto-title">
@@ -932,7 +895,7 @@ $$
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="d9a6ed23" class="cell" data-execution_count="1">
+<div id="90d14b22" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
@@ -998,7 +961,7 @@ $$
 </ul>
 </div>
 </div>
-<div id="5fc618e4" class="cell" data-execution_count="2">
+<div id="d63fcc61" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> tensor(<span class="fl">2.</span>, <span class="fl">1.</span>, <span class="fl">3.</span>) <span class="op">;</span> <span class="bu">print</span>(T)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Order 2 ORTHO tensor | Param(size=3)=[ 3 2 1 ] | Angles(size=3)=[ 1.5708 4.71239 3.14159 ]
@@ -1008,7 +971,7 @@ $$
 </code></pre>
 </div>
 </div>
-<div id="dbb8750a" class="cell" data-execution_count="3">
+<div id="8637fe4b" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>π <span class="op">=</span> math.pi</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> tensor(<span class="fl">2.</span>, <span class="fl">1.</span>, <span class="fl">2.</span>, π<span class="op">/</span><span class="dv">3</span>, π<span class="op">/</span><span class="dv">4</span>, π<span class="op">/</span><span class="dv">5</span>) <span class="op">;</span> <span class="bu">print</span>(T)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -1019,7 +982,7 @@ $$
 </code></pre>
 </div>
 </div>
-<div id="89744db1" class="cell" data-execution_count="4">
+<div id="caa661d5" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> tensor([<span class="fl">2.</span>, <span class="fl">1.</span>, <span class="fl">3.</span>], angles<span class="op">=</span>[π<span class="op">/</span><span class="dv">3</span>, π<span class="op">/</span><span class="dv">4</span>, π<span class="op">/</span><span class="dv">5</span>]) <span class="op">;</span> <span class="bu">print</span>(T)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Order 2 ORTHO tensor | Param(size=3)=[ 3 2 1 ] | Angles(size=3)=[ 2.10486 5.84624 2.19062 ]
@@ -1030,7 +993,7 @@ $$
 </div>
 </div>
 <p>A symmetric second-order <code>tensor</code> can also be built from a symmetric <span class="math inline">\(3×3\)</span> matrix. In this case a diagonalization is performed so as to find the <code>param</code> vector (the eigenvalues) and the <code>angles</code> determining the orientation of the eigenvectors (see <a href="../99_appendices/tensor_algebra.html#fig-eulerangles" class="quarto-xref">Fig.&nbsp;<span>A.1</span></a>)</p>
-<div id="86907d43" class="cell" data-execution_count="5">
+<div id="8ac425b1" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>M <span class="op">=</span> np.array([ [<span class="fl">1.7668</span>, <span class="fl">0.659068</span>, <span class="fl">0.703171</span>], </span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">0.659068</span>, <span class="fl">2.24232</span>, <span class="fl">0.120771</span>], </span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">0.703171</span>, <span class="fl">0.120771</span>, <span class="fl">1.99088</span>] ])</span>
@@ -1047,7 +1010,7 @@ $$
 <section id="isotropic-fourth-order-tensors-iso" class="level2">
 <h2 class="anchored" data-anchor-id="isotropic-fourth-order-tensors-iso">Isotropic fourth-order tensors (<code>ISO</code>)</h2>
 <p>The special isotropic tensors <span class="math inline">\(\uuuu{I}\)</span>, <span class="math inline">\(\uuuu{J}\)</span> and <span class="math inline">\(\uuuu{K}\)</span> are available under the global variables <code>tId4</code>, <code>tJ4</code> and <code>tK4</code>.</p>
-<div id="3f9876bb" class="cell" data-execution_count="6">
+<div id="f16565b3" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> T <span class="kw">in</span> [tId4, tJ4, tK4]:</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(T)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -1083,7 +1046,7 @@ Order 4 ISO tensor | Param(size=2)=[ 1.11022e-16 1 ] | Angles(size=0)=[ ]
 <li><code>T = tensor([α, β])</code></li>
 <li><code>T = tensor(np.array([α, β]))</code></li>
 </ul>
-<div id="b32213c8" class="cell" data-execution_count="7">
+<div id="772c229d" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>α, β <span class="op">=</span> <span class="fl">7.2</span>, <span class="fl">6.1</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>𝕋 <span class="op">=</span> tensor(α, β)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"𝕋 =</span><span class="ch">\n</span><span class="st">"</span>, 𝕋)</span>
@@ -1113,7 +1076,7 @@ Order 4 ISO tensor | Param(size=2)=[ 1.11022e-16 1 ] | Angles(size=0)=[ ]
 𝕋.p = [7.2 6.1]</code></pre>
 </div>
 </div>
-<div id="4b167968" class="cell" data-execution_count="8">
+<div id="49011d78" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>𝕀, 𝕁, 𝕂 <span class="op">=</span> tId4, tJ4, tK4 <span class="co"># just to make it look nice!</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>𝕋<span class="dv">2</span> <span class="op">=</span> α<span class="op">*</span>𝕁 <span class="op">+</span> β<span class="op">*</span>𝕂</span>
@@ -1147,7 +1110,7 @@ Order 4 ISO tensor | Param(size=2)=[ 1.11022e-16 1 ] | Angles(size=0)=[ ]
 <li><code>E, ν = Enu_from_kmu(k, µ)</code></li>
 <li><code>k, µ = kmu_from_Enu(E, ν)</code></li>
 </ul>
-<div id="79162e32" class="cell" data-execution_count="9">
+<div id="6a782d07" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>k, µ <span class="op">=</span> <span class="fl">72.5</span>, <span class="fl">32.7</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>ℂ <span class="op">=</span> stiff_kmu(k, µ)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"ℂ =</span><span class="ch">\n</span><span class="st">"</span>, ℂ)</span>
@@ -1192,7 +1155,7 @@ E = 85.28 ; ν = 0.3 ; λ = 50.7 ; μ = 32.7</code></pre>
 <li><code>T = tensor(param, angles=[0, 0])</code></li>
 </ul>
 <p>where <code>param</code> is a <code>list</code> or a <code>numpy.ndarray</code> of 5 items and <code>angles</code> is a <code>list</code> or a <code>numpy.ndarray</code> of 2 items <code>θ, ϕ</code> (if <code>angles</code> is omitted the angles are null and the axis is oriented along <span class="math inline">\(\ve{3}\)</span>)</p>
-<div id="a347bf42" class="cell" data-execution_count="10">
+<div id="71db563d" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>param <span class="op">=</span> [<span class="fl">3.</span>, <span class="fl">4.</span>, math.sqrt(<span class="dv">2</span>), <span class="fl">2.</span>, <span class="fl">1.</span>]</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>angles <span class="op">=</span> [π<span class="op">/</span><span class="dv">3</span>, π<span class="op">/</span><span class="dv">4</span>]</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tensor(param))</span>
@@ -1233,7 +1196,7 @@ T_{1 1 3 3} &amp; T_{1 1 3 3} &amp; T_{3 3 3 3} &amp; 0 &amp; 0 &amp; 0 \\
 \]</span></p>
 <p>by</p>
 <p><code>T = stiff_TI(T₁₁₁₁, T₁₁₂₂, T₁₁₃₃, T₃₃₃₃, T₂₃₂₃, θ=0, ϕ=0)</code></p>
-<div id="3c0a7bfc" class="cell" data-execution_count="11">
+<div id="21e9e4f9" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> stiff_TI(<span class="fl">6.2</span>, <span class="fl">5.6</span>, <span class="fl">1.3</span>, <span class="fl">2.1</span>, <span class="fl">2.3</span>)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">all</span>(v <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">for</span> v <span class="kw">in</span> np.linalg.eigvals(T.a)), <span class="st">"one eigenvalue is negative"</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># check that T is positive definite</span></span>
@@ -1275,7 +1238,7 @@ Order 4 TI tensor | Param(size=5)=[ 2.1 11.8 1.83848 0.6 4.6 ] | Angles(size=2)=
 \]</span></p>
 <p>by</p>
 <p><code>S = comp_TI(E₁, E₃, ν₁₂, ν₃₁, G₃₁, θ=0, ϕ=0)</code></p>
-<div id="c89d2347" class="cell" data-execution_count="12">
+<div id="a8e10cf9" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>S <span class="op">=</span> comp_TI(<span class="fl">1.</span>, <span class="fl">4.</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">2.</span>)</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(S)</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(inv(S))</span>
@@ -1333,7 +1296,7 @@ T_{1 1 3 3} &amp; T_{2 2 3 3} &amp; T_{3 3 3 3} &amp; 0 &amp; 0 &amp; 0 \\
 <li><code>T = tensor(param, angles=[0, 0, 0])</code></li>
 </ul>
 <p>where <code>param</code> is a <code>list</code> or a <code>numpy.ndarray</code> of 9 items and <code>angles</code> is a <code>list</code> or a <code>numpy.ndarray</code> of 3 items <code>θ, ϕ, ψ</code> (if <code>angles</code> is omitted the frame is the canonical one).</p>
-<div id="eb3c6703" class="cell" data-execution_count="13">
+<div id="aa064ac4" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> tensor([<span class="fl">9.</span>,<span class="fl">3.</span>,<span class="fl">5.</span>,<span class="fl">6.</span>,<span class="fl">3.</span>,<span class="fl">7.</span>,<span class="fl">1.</span>,<span class="fl">4.</span>,<span class="fl">3.</span>])</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">all</span>(v <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">for</span> v <span class="kw">in</span> np.linalg.eigvals(T.a)), <span class="st">"one eigenvalue is negative"</span> <span class="co"># check that T is positive definite</span></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(T)</span>
@@ -1398,7 +1361,7 @@ Order 4 ORTHO tensor | Param(size=9)=[ 9 3 5 6 3 7 1 4 3 ] | Angles(size=3)=[ 1.
 <p>Such a tensor is built by</p>
 <p><code>T = tensor(param)</code></p>
 <p>where <code>param</code> is a <code>list</code> or a <code>numpy.ndarray</code> of 21 items.</p>
-<div id="a1452921" class="cell" data-execution_count="14">
+<div id="dd4087e2" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>param <span class="op">=</span> [ <span class="fl">2.66011</span>, <span class="fl">1.26432</span>, <span class="fl">0.662772</span>, <span class="fl">1.9402</span>, <span class="fl">1.54905</span>, <span class="fl">1.10384</span>, <span class="fl">3.6072</span>, <span class="fl">1.78964</span>, <span class="fl">2.0247</span>, <span class="fl">1.2701</span>, <span class="fl">1.1089</span>, <span class="fl">2.743</span>, <span class="fl">1.3367</span>, <span class="fl">1.2962</span>, <span class="fl">0.897632</span>, <span class="fl">4.42684</span>, <span class="fl">2.05632</span>, <span class="fl">1.52686</span>, <span class="fl">3.54431</span>, <span class="fl">1.3445</span>, <span class="fl">1.99356</span> ]</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> tensor(param)</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">all</span>(v <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">for</span> v <span class="kw">in</span> np.linalg.eigvals(T.a)), <span class="st">"one eigenvalue is negative"</span> <span class="co"># check that T is positive definite</span></span>
@@ -1423,7 +1386,7 @@ Order 4 ORTHO tensor | Param(size=9)=[ 9 3 5 6 3 7 1 4 3 ] | Angles(size=3)=[ 1.
 <li><code>T = tensor(M, angles=[θ, ϕ])</code></li>
 </ul>
 <p>By default, this function finds out whether <code>M</code> represents an <code>ISO</code>, <code>TI</code> or <code>ORTHO</code> tensor in the canonical frame if <code>angles</code> is not precised or in the frame defined by <code>angles</code>. If none of these symmetries is suitable, the tensor is considered <code>ANISO</code>.</p>
-<div id="39feab0c" class="cell" data-execution_count="15">
+<div id="210b78ed" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>angles <span class="op">=</span> [π<span class="op">/</span><span class="dv">3</span>, π<span class="op">/</span><span class="dv">4</span>, π<span class="op">/</span><span class="dv">5</span>]</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> tensor([<span class="fl">9.</span>,<span class="fl">3.</span>,<span class="fl">5.</span>,<span class="fl">6.</span>,<span class="fl">3.</span>,<span class="fl">7.</span>,<span class="fl">1.</span>,<span class="fl">4.</span>,<span class="fl">3.</span>], angles)</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>M <span class="op">=</span> T.a</span>
@@ -1455,7 +1418,7 @@ Order 4 ORTHO tensor | Param(size=9)=[ 9 3 5 6 3 7 1 4 3 ] | Angles(size=3)=[ 1.
 <p><span class="math display">\[
 \ISO(\uuuu{T})=\left(\uuuu{T}::\uuuu{J}\right)\,\uuuu{J}+\left(\frac{\uuuu{T}::\uuuu{K}}{5}\right)\,\uuuu{K}
 \]</span></p>
-<div id="b65df6d2" class="cell" data-execution_count="16">
+<div id="b3aad7fe" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>M <span class="op">=</span> np.array([ [<span class="fl">2.66011</span>, <span class="fl">1.26432</span>, <span class="fl">0.662772</span>, <span class="fl">1.9402</span>, <span class="fl">1.54905</span>, <span class="fl">1.10384</span>],</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">1.26432</span>, <span class="fl">3.6072</span>, <span class="fl">1.78964</span>, <span class="fl">2.0247</span>, <span class="fl">1.2701</span>, <span class="fl">1.1089</span>], </span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">0.662772</span>, <span class="fl">1.78964</span>, <span class="fl">2.743</span>, <span class="fl">1.3367</span>, <span class="fl">1.2962</span>, <span class="fl">0.897632</span>], </span>
@@ -1491,7 +1454,7 @@ T2 =
 </div>
 </div>
 <p>Check a well-known result stating that the inverse of the closest isotropic tensor is in general <strong>not</strong> the closest isotropic tensor of the inverse.</p>
-<div id="08cc6c0c" class="cell" data-execution_count="17">
+<div id="a77c62fd" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>M <span class="op">=</span> np.array([ [<span class="fl">2.66011</span>, <span class="fl">1.26432</span>, <span class="fl">0.662772</span>, <span class="fl">1.9402</span>, <span class="fl">1.54905</span>, <span class="fl">1.10384</span>],</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">1.26432</span>, <span class="fl">3.6072</span>, <span class="fl">1.78964</span>, <span class="fl">2.0247</span>, <span class="fl">1.2701</span>, <span class="fl">1.1089</span>], </span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>               [<span class="fl">0.662772</span>, <span class="fl">1.78964</span>, <span class="fl">2.743</span>, <span class="fl">1.3367</span>, <span class="fl">1.2962</span>, <span class="fl">0.897632</span>], </span>
@@ -1525,7 +1488,7 @@ ISO(inv(M)) =
 <p>The closest <code>TI</code> tensor in the frame defined by given angles is calculated by</p>
 <p><code>T = tensor(M, TI, angles=[θ, ϕ], epsrel=1.e-3)</code></p>
 <p>where <code>epsrel</code> is a relative stop criterion for the iterative least-square algorithm.</p>
-<div id="6ec1d960" class="cell" data-execution_count="18">
+<div id="43b6a0fb" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tensor(M, TI, angles<span class="op">=</span>[π<span class="op">/</span><span class="dv">3</span>,π<span class="op">/</span><span class="dv">4</span>]))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Order 4 TI tensor | Param(size=5)=[ 9.90471 1.93007 0.947144 1.68894 1.88118 ] | Angles(size=2)=[ 1.0472 0.785398 ]
@@ -1541,7 +1504,7 @@ ISO(inv(M)) =
 <p>One can also optimize with respect to the angles so as to find the best frame for a given symmetry</p>
 <p><code>T = tensor(M, TI, epsrel=1.e-3, optiangles=True)</code></p>
 <p>where <code>epsrel</code> is a relative stop criterion for the iterative least-square algorithm.</p>
-<div id="bc1a75a9" class="cell" data-execution_count="19">
+<div id="b8c1f2ba" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tensor(M, TI, epsrel<span class="op">=</span><span class="fl">1.e-3</span>, optiangles<span class="op">=</span><span class="va">True</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Order 4 TI tensor | Param(size=5)=[ 10.2696 1.81638 0.89854 1.70466 1.73988 ] | Angles(size=2)=[ 0.92234 0.891541 ]
@@ -1570,7 +1533,7 @@ ISO(inv(M)) =
 <li><p>Build a new tensor from the matrix of <code>T</code> and the angles of <code>T</code></p></li>
 <li><p>Find the tensor of best symmetry from the matrix of <code>T</code> with angle optimization</p></li>
 </ol>
-<div id="a94fb2de" class="cell" data-execution_count="20">
+<div id="356ceaa9" class="cell" data-execution_count="20">
 <details class="code-fold">
 <summary>Solution</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>M <span class="op">=</span> np.array([ [<span class="fl">2.66011</span>, <span class="fl">1.26432</span>, <span class="fl">0.662772</span>, <span class="fl">1.9402</span>, <span class="fl">1.54905</span>, <span class="fl">1.10384</span>],</span>
@@ -1718,7 +1681,7 @@ Bornert, M., Bretheau, T., Gilormini, P., 2001. Homogénéisation en mécanique 
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/echoes\.barthelemy\.xyz\/");
+        var filterRegex = new RegExp("https:\/\/jfbarthelemy\.github\.io\/echoes\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

@@ -50,7 +50,7 @@ If you use `echoes`, please cite it as [@echoes] or in `bibtex` style
   author = {Barthélémy, Jean-François},
   date = {2022-11-22},
   doi = {10.5281/ZENODO.19679057},
-  url = {https://echoes.barthelemy.xyz},
+  url = {https://jfbarthelemy.github.io/echoes/},
   organization = {Zenodo},
   version = {v1.0.0},
 }

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -97,14 +100,14 @@ div.csl-indent {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-584a7622b650eec4e090a46c7997c677.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-96b5c1025c9de5fd02de225511b0f0bf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-584a7622b650eec4e090a46c7997c677.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-bceaeb2739354d729f4f5842986c97ef.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-3f1284a26ece7f7f5fdc920ec04a18e5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-bceaeb2739354d729f4f5842986c97ef.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
@@ -251,7 +254,7 @@ gtag('config', 'G-DF66M2GWRG', { 'anonymize_ip': true});
 </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -468,8 +471,8 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../index.html" class="sidebar-logo-link">
-      <img src="../img\cover.html" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="../img\cover.html" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      <img src="../img/cover.html" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../img/cover.html" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Echoes</a> 
@@ -804,85 +807,45 @@ window.Quarto = {
 <main class="content column-body" id="quarto-document-content">
 
 $$
-
 \newcommand{\C}{{\mathbb{{C}}}}
-
 \newcommand{\R}{{\mathbb{{R}}}}
-
 \newcommand{\Q}{{\mathbb{{Q}}}}
-
 \newcommand{\Z}{{\mathbb{{Z}}}}
-
 \newcommand{\N}{{\mathbb{{N}}}}
 
-
-
 \newcommand{\uu}[1]{{\boldsymbol{{#1}}}}
-
 \newcommand{\uuuu}[1]{{\symbb{{#1}}}}
-
 \newcommand{\uv}[1]{{\underline{{#1}}}}
-
 \newcommand{\ve}[1]{{\uv{{e}}_{{#1}}}}
-
 \newcommand{\x}{{\uv{{x}}}}
-
 \newcommand{\n}{{\uv{{n}}}}
-
 \newcommand{\eps}{{\uu{{\varepsilon}}}}
-
 \newcommand{\E}{{\uu{{E}}}}
-
 \newcommand{\sig}{{\uu{{\sigma}}}}
-
 \newcommand{\Sig}{{\uu{{\Sigma}}}}
-
 \newcommand{\cod}{{\uv{{\symscr{b}}}}}
-
 % \newcommand{\trans}[1]{{{}^{t}{#1}}}
-
 \newcommand{\trans}[1]{{{#1}{}^\intercal}}
-
 \newcommand{\sotimes}{{\stackrel{s}{\otimes}}}
-
 \newcommand{\sboxtimes}{\stackrel{s}{\boxtimes}}
-
 \newcommand{\norm}[1]{{\lVert{{#1}}\rVert}}
-
 \newcommand{\ud}{{\,\mathrm{d}}}
-
 \newcommand{\mat}{\mathsf}
-
 \DeclareMathOperator{\arcosh}{arcosh}
-
 \DeclareMathOperator{\divz}{div}
-
 \DeclareMathOperator{\divu}{\uv{div}}
-
 \DeclareMathOperator{\hess}{hess}
-
 \DeclareMathOperator{\gradu}{\uv{grad}}
-
 \DeclareMathOperator{\graduu}{\uu{grad}}
-
 \DeclareMathOperator{\Mat}{Mat}
-
 \DeclareMathOperator{\tr}{tr}
-
 \DeclareMathOperator{\ISO}{ISO}
 
-
-
 \newcommand{\volt}[1]{{#1}^{-1\circ}}
-
 \newcommand{\dcirc}{\overset{\circ}{:}}
 
-
-
 \newcommand{\jump}[1]{\mathopen{[\![}\,#1\,\mathclose{]\!]}}
-
 $$
-
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../3_concentration/concentration_tensors.html">𝗖𝗼𝗻𝗰𝗲𝗻𝘁𝗿𝗮𝘁𝗶𝗼𝗻 𝗽𝗿𝗼𝗯𝗹𝗲𝗺𝘀</a></li><li class="breadcrumb-item"><a href="../3_concentration/concentration_tensors.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Ellipsoids</span></a></li></ol></nav>
 <div class="quarto-title">
@@ -928,7 +891,7 @@ $$
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="7be2d6a8" class="cell" data-execution_count="1">
+<div id="ae3ddca5" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
@@ -1014,7 +977,7 @@ ell.set_ref("C", C)</code></pre>
 </ul>
 </div>
 </div>
-<div id="1a82eaa9" class="cell" data-execution_count="2">
+<div id="1149268e" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ell <span class="op">=</span> ellipsoid(shape<span class="op">=</span>spherical, prop<span class="op">=</span>{<span class="st">"C"</span>: stiff_kmu(<span class="fl">5.</span>, <span class="fl">3.</span>)})</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> stiff_kmu(<span class="fl">72.</span>, <span class="fl">32.</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ω <span class="kw">in</span> [<span class="fl">0.1</span>, <span class="fl">1.</span>]:</span>
@@ -1042,7 +1005,7 @@ AE(ω=1.0)=
 </code></pre>
 </div>
 </div>
-<div id="1a4fcac9" class="cell" data-execution_count="3">
+<div id="1edea5f9" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ell.shape <span class="op">=</span> spheroidal(<span class="fl">0.1</span>, math.pi<span class="op">/</span><span class="dv">3</span>, math.pi<span class="op">/</span><span class="dv">4</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>ell.set_prop(<span class="st">"C"</span>, stiff_kmu(<span class="fl">3.</span>, <span class="fl">2.</span>))</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>ell.set_ref(<span class="st">"C"</span>, C)</span>
@@ -1081,7 +1044,7 @@ Order 4 ISO tensor | Param(size=2)=[ 9 4 ] | Angles(size=0)=[ ]
 \end{aligned}
 \tag{7.3}\]</span></span></p>
 <p>These concentration tensors are accessible through the attributes <code>eE</code>, <code>eS</code>, <code>sE</code> and <code>sS</code>.</p>
-<div id="9253a7dc" class="cell" data-execution_count="4">
+<div id="cf65665a" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>ell <span class="op">=</span> ellipsoid(shape<span class="op">=</span>spherical, prop<span class="op">=</span>{<span class="st">"C"</span>: stiff_kmu(<span class="fl">5.</span>, <span class="fl">3.</span>)})</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> stiff_kmu(<span class="fl">72.</span>, <span class="fl">32.</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ω <span class="kw">in</span> [<span class="fl">0.1</span>, <span class="fl">1.</span>]:</span>
@@ -1255,7 +1218,7 @@ Eshelby, J.D., 1957. The determination of the elastic field of an ellipsoidal in
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/echoes\.barthelemy\.xyz\/");
+        var filterRegex = new RegExp("https:\/\/jfbarthelemy\.github\.io\/echoes\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
