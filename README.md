@@ -21,7 +21,7 @@ This book gathers tutorials presenting the main features of the library:
 
 The core of `echoes` has been developed in C++ and wrapped by a Python interface. Hence its use requires first the installation of a Python environment including `pip` executable (for instance [Anaconda](https://www.anaconda.com/products/distribution)).
 
-Wheel packages can be downloaded for various versions of Python under Windows or Linux by choosing the appropriate file for your configuration under the link [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14959866.svg)](https://doi.org/10.5281/zenodo.14959866)
+Wheel packages can be downloaded for various versions of Python under Windows or Linux by choosing the appropriate file for your configuration under the link [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7348758.svg)](https://doi.org/10.5281/zenodo.7348758)
 
 Once in possession of the relevant `.whl` file, the package can be installed in a console (Anaconda console or any console allowing to run `pip`) by
 
@@ -35,7 +35,7 @@ pip install -U echoes-XYZ.whl
 If you use `echoes`, please cite it as
 
 ```
-Barthélémy, Jean-François, 2022. Echoes: Extended Calculator of HOmogEnization Schemes. https://doi.org/10.5281/ZENODO.14959866
+Barthélémy, Jean-François, 2026. Echoes: Extended Calculator of HOmogEnization Schemes. https://doi.org/10.5281/zenodo.7348758
 ```
 
 or in `bibtex` style
@@ -45,9 +45,9 @@ or in `bibtex` style
   title = {Echoes: {{Extended Calculator}} of {{HOmogEnization Schemes}}},
   shorttitle = {Echoes},
   author = {Barthélémy, Jean-François},
-  date = {2022-11-22},
-  doi = {10.5281/ZENODO.14959866},
-  url = {https://zenodo.org/record/14959866},
+  date = {2026-04-21},
+  doi = {10.5281/zenodo.7348758},
+  url = {https://zenodo.org/doi/10.5281/zenodo.7348758},
   organization = {Zenodo},
   version = {v1.0.0},
 }
