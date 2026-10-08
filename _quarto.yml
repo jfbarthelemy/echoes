@@ -4,12 +4,17 @@ project:
   resources:
     - "**/*.py"
     - "**/*.ipynb"
+    # The 3D cover logo: the viewer, copied unchanged from the website
+    # (jfbarthelemy.github.io/js/echoes-viewer.js), and the scene it draws.
+    - js/echoes-viewer.js
+    - img/echoes_scene.json
 
 book:
   title: "Echoes"
   subtitle: "Extended Calculator of HOmogEnization Schemes"
   author: "Jean-François Barthélémy"
-  cover-image: img/cover.html
+  # A still image, replaced by the turning 3D scene by _config/echoes_logo.html.
+  cover-image: img/cover.png
   favicon: img/cover.png
   site-url: https://jfbarthelemy.github.io/echoes/
   # repo-url: https://github.com/jfbarthelemy/echoes/
@@ -114,6 +119,8 @@ format:
     fontsize: 90%
     include-in-header:
       - _config/echoes_highlight.html
+      - _config/echoes_logo_style.html
+    include-after-body: _config/echoes_logo.html
     include-before-body: _config/_macros_html.md
     default-image-extension: html
   # pdf:

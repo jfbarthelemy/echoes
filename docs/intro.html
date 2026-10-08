@@ -251,6 +251,39 @@ gtag('config', 'G-DF66M2GWRG', { 'anonymize_ip': true});
   });
 })();
 </script>
+<style>
+/* The cover logo in 3D (_config/echoes_logo.html): the canvas takes the place
+   of the cover image, with its classes, and keeps it square. */
+canvas.quarto-cover-image.echoes-viewer {
+  width: min(35%, 18rem);
+  height: auto;
+  max-width: none;
+  aspect-ratio: 1;
+  cursor: grab;
+  touch-action: pan-y; /* horizontal drags turn the sphere, vertical ones scroll */
+}
+canvas.quarto-cover-image.echoes-viewer:active { cursor: grabbing; }
+
+/* Affiliation logos, as on jfbarthelemy.github.io: small, on a white card, so
+   that the transparent UMR MCD logo stays readable on the dark theme. */
+.affil-strip p {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+  margin: 0.75rem 0 1rem;
+}
+.affil-strip a { display: inline-flex; opacity: 0.85; transition: opacity 0.18s ease; }
+.affil-strip a:hover { opacity: 1; }
+.affil-logo {
+  height: 3rem;
+  width: auto;
+  padding: 0.3rem 0.55rem;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 0.375rem;
+}
+</style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
@@ -468,11 +501,7 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./img/cover.html" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="./img/cover.html" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Echoes</a> 
         <div class="sidebar-tools-main">
@@ -918,6 +947,23 @@ Torquato, S., 2002. Random <span>Heterogeneous Materials</span>, Interdisciplina
 </div>
 
 </main> <!-- /main -->
+<script>
+// The cover logo, in 3D. js/echoes-viewer.js — copied unchanged from the
+// website (jfbarthelemy.github.io/js/echoes-viewer.js) — replaces the cover
+// image by the scene it was rendered from (img/cover.asy), read from
+// img/echoes_scene.json: it turns slowly by itself and can be turned by hand.
+// Loaded only on the page that has the cover. Without JavaScript or WebGL, and
+// for a reader who asks for reduced motion, the image or a still sphere stays.
+(function () {
+  if (!document.querySelector("img.quarto-cover-image")) return;
+  var meta = document.querySelector('meta[name="quarto:offset"]');
+  var s = document.createElement("script");
+  s.src = (meta ? meta.getAttribute("content") : "./") + "js/echoes-viewer.js";
+  s.setAttribute("data-target", "img.quarto-cover-image");
+  s.setAttribute("data-scene", "img/echoes_scene.json");
+  document.head.appendChild(s);
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

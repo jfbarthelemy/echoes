@@ -252,6 +252,39 @@ gtag('config', 'G-DF66M2GWRG', { 'anonymize_ip': true});
   });
 })();
 </script>
+<style>
+/* The cover logo in 3D (_config/echoes_logo.html): the canvas takes the place
+   of the cover image, with its classes, and keeps it square. */
+canvas.quarto-cover-image.echoes-viewer {
+  width: min(35%, 18rem);
+  height: auto;
+  max-width: none;
+  aspect-ratio: 1;
+  cursor: grab;
+  touch-action: pan-y; /* horizontal drags turn the sphere, vertical ones scroll */
+}
+canvas.quarto-cover-image.echoes-viewer:active { cursor: grabbing; }
+
+/* Affiliation logos, as on jfbarthelemy.github.io: small, on a white card, so
+   that the transparent UMR MCD logo stays readable on the dark theme. */
+.affil-strip p {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+  margin: 0.75rem 0 1rem;
+}
+.affil-strip a { display: inline-flex; opacity: 0.85; transition: opacity 0.18s ease; }
+.affil-strip a:hover { opacity: 1; }
+.affil-logo {
+  height: 3rem;
+  width: auto;
+  padding: 0.3rem 0.55rem;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 0.375rem;
+}
+</style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
@@ -469,11 +502,7 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="../index.html" class="sidebar-logo-link">
-      <img src="../img/cover.html" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="../img/cover.html" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Echoes</a> 
         <div class="sidebar-tools-main">
@@ -1621,13 +1650,13 @@ Fig.&nbsp;17.1: RVE: matrix (grey) with oblate spheroidal inclusions (<span clas
 Barthélémy, J.-F., Giraud, A., Lavergne, F., Sanahuja, J., 2016. The <span>Eshelby</span> inclusion problem in ageing linear viscoelasticity. Int. J. Solids Struct. 97–98, 530–542. <a href="https://doi.org/10.1016/j.ijsolstr.2016.06.035">https://doi.org/10.1016/j.ijsolstr.2016.06.035</a>
 </div>
 <div id="ref-barthelemyIJES2019" class="csl-entry" role="listitem">
-Barthélémy, J.-F., Giraud, A., Sanahuja, J., Sevostianov, I., 2019. Effective properties of ageing linear viscoelastic media with spheroidal inhomogeneities. International Journal of Engineering Science 144, 103104. <a href="https://doi.org/10.1016/j.ijengsci.2019.05.015">https://doi.org/10.1016/j.ijengsci.2019.05.015</a>
+Barthélémy, J.-F., Giraud, A., Sanahuja, J., Sevostianov, I., 2019. Effective properties of ageing linear viscoelastic media with spheroidal inhomogeneities. Int. J. Eng. Sci. 144, 103104. <a href="https://doi.org/10.1016/j.ijengsci.2019.05.015">https://doi.org/10.1016/j.ijengsci.2019.05.015</a>
 </div>
 <div id="ref-herve1993" class="csl-entry" role="listitem">
 Hervé, E., Zaoui, A., 1993. N-layered inclusion-based micromechanical modelling. Int. J. Engng. Sci. 31, 1–10. <a href="https://doi.org/10.1016/0020-7225(93)90059-4">https://doi.org/10.1016/0020-7225(93)90059-4</a>
 </div>
 <div id="ref-herve-luanco2014" class="csl-entry" role="listitem">
-Hervé-Luanco, E., 2014. Elastic behavior of composites containing multi-layer coated particles with imperfect interface bonding conditions and application to size effects and mismatch in these composites. International Journal of Solids and Structures 51, 2865–2877. <a href="https://doi.org/10.1016/j.ijsolstr.2014.04.008">https://doi.org/10.1016/j.ijsolstr.2014.04.008</a>
+Hervé-Luanco, E., 2014. Elastic behavior of composites containing multi-layer coated particles with imperfect interface bonding conditions and application to size effects and mismatch in these composites. Int. J. Solids Struct. 51, 2865–2877. <a href="https://doi.org/10.1016/j.ijsolstr.2014.04.008">https://doi.org/10.1016/j.ijsolstr.2014.04.008</a>
 </div>
 <div id="ref-hinsen2025" class="csl-entry" role="listitem">
 Hinsen, K., 2025. <a href="https://github.com/khinsen/mittag-leffler">Khinsen/mittag-leffler</a>.
@@ -1636,12 +1665,29 @@ Hinsen, K., 2025. <a href="https://github.com/khinsen/mittag-leffler">Khinsen/mi
 Sanahuja, J., 2013. Effective behaviour of ageing linear viscoelastic composites: <span>Homogenization</span> approach. Int. J. Solids Struct. 50, 2846–2856. <a href="https://doi.org/10.1016/j.ijsolstr.2013.04.023">https://doi.org/10.1016/j.ijsolstr.2013.04.023</a>
 </div>
 <div id="ref-sevostianov2015" class="csl-entry" role="listitem">
-Sevostianov, I., Levin, V., Radi, E., 2015. Effective properties of linear viscoelastic microcracked materials: <span>Application</span> of <span>Maxwell</span> homogenization scheme. Mechanics of Materials 84, 28–43.
+Sevostianov, I., Levin, V., Radi, E., 2015. Effective properties of linear viscoelastic microcracked materials: <span>Application</span> of <span>Maxwell</span> homogenization scheme. Mech. Mater. 84, 28–43.
 </div>
 </div>
 </section>
 
 </main> <!-- /main -->
+<script>
+// The cover logo, in 3D. js/echoes-viewer.js — copied unchanged from the
+// website (jfbarthelemy.github.io/js/echoes-viewer.js) — replaces the cover
+// image by the scene it was rendered from (img/cover.asy), read from
+// img/echoes_scene.json: it turns slowly by itself and can be turned by hand.
+// Loaded only on the page that has the cover. Without JavaScript or WebGL, and
+// for a reader who asks for reduced motion, the image or a still sphere stays.
+(function () {
+  if (!document.querySelector("img.quarto-cover-image")) return;
+  var meta = document.querySelector('meta[name="quarto:offset"]');
+  var s = document.createElement("script");
+  s.src = (meta ? meta.getAttribute("content") : "./") + "js/echoes-viewer.js";
+  s.setAttribute("data-target", "img.quarto-cover-image");
+  s.setAttribute("data-scene", "img/echoes_scene.json");
+  document.head.appendChild(s);
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

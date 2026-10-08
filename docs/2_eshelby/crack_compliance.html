@@ -252,6 +252,39 @@ gtag('config', 'G-DF66M2GWRG', { 'anonymize_ip': true});
   });
 })();
 </script>
+<style>
+/* The cover logo in 3D (_config/echoes_logo.html): the canvas takes the place
+   of the cover image, with its classes, and keeps it square. */
+canvas.quarto-cover-image.echoes-viewer {
+  width: min(35%, 18rem);
+  height: auto;
+  max-width: none;
+  aspect-ratio: 1;
+  cursor: grab;
+  touch-action: pan-y; /* horizontal drags turn the sphere, vertical ones scroll */
+}
+canvas.quarto-cover-image.echoes-viewer:active { cursor: grabbing; }
+
+/* Affiliation logos, as on jfbarthelemy.github.io: small, on a white card, so
+   that the transparent UMR MCD logo stays readable on the dark theme. */
+.affil-strip p {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+  margin: 0.75rem 0 1rem;
+}
+.affil-strip a { display: inline-flex; opacity: 0.85; transition: opacity 0.18s ease; }
+.affil-strip a:hover { opacity: 1; }
+.affil-logo {
+  height: 3rem;
+  width: auto;
+  padding: 0.3rem 0.55rem;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 0.375rem;
+}
+</style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
@@ -469,11 +502,7 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="../index.html" class="sidebar-logo-link">
-      <img src="../img/cover.html" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="../img/cover.html" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Echoes</a> 
         <div class="sidebar-tools-main">
@@ -1230,16 +1259,16 @@ Error:                    0.00e+00</code></pre>
 Abramowitz, M., Stegun, I.A., 1972. Handbook of <span>Mathematical Functions</span>. National Bureau of Standards - Applied Mathematics Series - 55, Washington D.C.
 </div>
 <div id="ref-barthelemyIJSS2009" class="csl-entry" role="listitem">
-Barthélémy, J.-F., 2009. Compliance and <span>Hill</span> polarization tensor of a crack in an anisotropic matrix. International Journal of Solids and Structures 46, 4064–4072. <a href="https://doi.org/10.1016/j.ijsolstr.2009.08.003">https://doi.org/10.1016/j.ijsolstr.2009.08.003</a>
+Barthélémy, J.-F., 2009. Compliance and <span>Hill</span> polarization tensor of a crack in an anisotropic matrix. Int. J. Solids Struct. 46, 4064–4072. <a href="https://doi.org/10.1016/j.ijsolstr.2009.08.003">https://doi.org/10.1016/j.ijsolstr.2009.08.003</a>
 </div>
 <div id="ref-barthelemyIJES2021" class="csl-entry" role="listitem">
-Barthélémy, J.-F., Sevostianov, I., Giraud, A., 2021. Micromechanical modeling of a cracked elliptically orthotropic medium. International Journal of Engineering Science 161, 103454. <a href="https://doi.org/10.1016/j.ijengsci.2021.103454">https://doi.org/10.1016/j.ijengsci.2021.103454</a>
+Barthélémy, J.-F., Sevostianov, I., Giraud, A., 2021. Micromechanical modeling of a cracked elliptically orthotropic medium. Int. J. Eng. Sci. 161, 103454. <a href="https://doi.org/10.1016/j.ijengsci.2021.103454">https://doi.org/10.1016/j.ijengsci.2021.103454</a>
 </div>
 <div id="ref-kachanov1993" class="csl-entry" role="listitem">
-Kachanov, M., 1993. Elastic <span>Solids</span> with <span>Many Cracks</span> and <span>Related Problems</span>. Advances in Applied Mechanics 30, 259–445. <a href="https://doi.org/10.1016/S0065-2156(08)70176-5">https://doi.org/10.1016/S0065-2156(08)70176-5</a>
+Kachanov, M., 1993. Elastic <span>Solids</span> with <span>Many Cracks</span> and <span>Related Problems</span>. Adv. Appl. Mech. 30, 259–445. <a href="https://doi.org/10.1016/S0065-2156(08)70176-5">https://doi.org/10.1016/S0065-2156(08)70176-5</a>
 </div>
 <div id="ref-kachanov1992" class="csl-entry" role="listitem">
-Kachanov, M., 1992. Effective <span>Elastic Properties</span> of <span>Cracked Solids</span>: <span>Critical Review</span> of <span>Some Basic Concepts</span>. Applied Mechanics Reviews 45, 304–335. <a href="https://doi.org/10.1115/1.3119761">https://doi.org/10.1115/1.3119761</a>
+Kachanov, M., 1992. Effective <span>Elastic Properties</span> of <span>Cracked Solids</span>: <span>Critical Review</span> of <span>Some Basic Concepts</span>. Appl. Mech. Rev. 45, 304–335. <a href="https://doi.org/10.1115/1.3119761">https://doi.org/10.1115/1.3119761</a>
 </div>
 <div id="ref-kachanov2018" class="csl-entry" role="listitem">
 Kachanov, M., Sevostianov, I., 2018. Micromechanics of <span>Materials</span>, with <span>Applications</span>, Solid <span>Mechanics</span> and <span>Its Applications</span>. Springer International Publishing, Cham. <a href="https://doi.org/10.1007/978-3-319-76204-3">https://doi.org/10.1007/978-3-319-76204-3</a>
@@ -1248,19 +1277,36 @@ Kachanov, M., Sevostianov, I., 2018. Micromechanics of <span>Materials</span>, w
 Laws, N., 1985. A short note on penny-shaped cracks in transversely isotropic materials. Mech. Mater. 4, 209–212.
 </div>
 <div id="ref-laws1977" class="csl-entry" role="listitem">
-Laws, N., 1977. A note on interaction energies associated with cracks in anisotropic solids. Philos. Magazine 36, 367–372.
+Laws, N., 1977. A note on interaction energies associated with cracks in anisotropic solids. Philos Mag. 36, 367–372.
 </div>
 <div id="ref-nemat-nasser1999" class="csl-entry" role="listitem">
 Nemat-Nasser, S., Hori, M., 1999. Micromechanics: <span>Overall Properties</span> of <span>Heterogeneous Materials</span> 2nd <span>Edition</span>, North Holland. ed. North Holland, Amsterdam, The Netherlands.
 </div>
 <div id="ref-sevostianov2002" class="csl-entry" role="listitem">
-Sevostianov, I., Kachanov, M., 2002. On elastic compliances of irregularly shaped cracks. International Journal of Fracture 114, 245–257. <a href="https://doi.org/10.1023/A:1015534127172">https://doi.org/10.1023/A:1015534127172</a>
+Sevostianov, I., Kachanov, M., 2002. On elastic compliances of irregularly shaped cracks. Int. J. Fract. 114, 245–257. <a href="https://doi.org/10.1023/A:1015534127172">https://doi.org/10.1023/A:1015534127172</a>
 </div>
 </div>
 </section>
 </section>
 
 </main> <!-- /main -->
+<script>
+// The cover logo, in 3D. js/echoes-viewer.js — copied unchanged from the
+// website (jfbarthelemy.github.io/js/echoes-viewer.js) — replaces the cover
+// image by the scene it was rendered from (img/cover.asy), read from
+// img/echoes_scene.json: it turns slowly by itself and can be turned by hand.
+// Loaded only on the page that has the cover. Without JavaScript or WebGL, and
+// for a reader who asks for reduced motion, the image or a still sphere stays.
+(function () {
+  if (!document.querySelector("img.quarto-cover-image")) return;
+  var meta = document.querySelector('meta[name="quarto:offset"]');
+  var s = document.createElement("script");
+  s.src = (meta ? meta.getAttribute("content") : "./") + "js/echoes-viewer.js";
+  s.setAttribute("data-target", "img.quarto-cover-image");
+  s.setAttribute("data-scene", "img/echoes_scene.json");
+  document.head.appendChild(s);
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

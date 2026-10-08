@@ -217,6 +217,39 @@ gtag('config', 'G-DF66M2GWRG', { 'anonymize_ip': true});
   });
 })();
 </script>
+<style>
+/* The cover logo in 3D (_config/echoes_logo.html): the canvas takes the place
+   of the cover image, with its classes, and keeps it square. */
+canvas.quarto-cover-image.echoes-viewer {
+  width: min(35%, 18rem);
+  height: auto;
+  max-width: none;
+  aspect-ratio: 1;
+  cursor: grab;
+  touch-action: pan-y; /* horizontal drags turn the sphere, vertical ones scroll */
+}
+canvas.quarto-cover-image.echoes-viewer:active { cursor: grabbing; }
+
+/* Affiliation logos, as on jfbarthelemy.github.io: small, on a white card, so
+   that the transparent UMR MCD logo stays readable on the dark theme. */
+.affil-strip p {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+  margin: 0.75rem 0 1rem;
+}
+.affil-strip a { display: inline-flex; opacity: 0.85; transition: opacity 0.18s ease; }
+.affil-strip a:hover { opacity: 1; }
+.affil-logo {
+  height: 3rem;
+  width: auto;
+  padding: 0.3rem 0.55rem;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 0.375rem;
+}
+</style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
@@ -434,11 +467,7 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="../index.html" class="sidebar-logo-link">
-      <img src="../img/cover.html" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="../img/cover.html" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Echoes</a> 
         <div class="sidebar-tools-main">
@@ -1440,52 +1469,52 @@ V^{\uu{A}}_{ijij}=V^{\uu{A}}_{ijji}&amp;=\frac{I^{\uu{A}}_i+I^{\uu{A}}_j}{4}
 Abramowitz, M., Stegun, I.A., 1972. Handbook of <span>Mathematical Functions</span>. National Bureau of Standards - Applied Mathematics Series - 55, Washington D.C.
 </div>
 <div id="ref-barthelemyIJES2020_hilltrans" class="csl-entry" role="listitem">
-Barthélémy, J.-F., 2020. Simplified approach to the derivation of the relationship between <span>Hill</span> polarization tensors of transformed problems and applications. International Journal of Engineering Science 154, 103326. <a href="https://doi.org/10.1016/j.ijengsci.2020.103326">https://doi.org/10.1016/j.ijengsci.2020.103326</a>
+Barthélémy, J.-F., 2020. Simplified approach to the derivation of the relationship between <span>Hill</span> polarization tensors of transformed problems and applications. Int. J. Eng. Sci. 154, 103326. <a href="https://doi.org/10.1016/j.ijengsci.2020.103326">https://doi.org/10.1016/j.ijengsci.2020.103326</a>
 </div>
 <div id="ref-barthelemyTIPM2009" class="csl-entry" role="listitem">
-Barthélémy, J.-F., 2009. Effective <span>Permeability</span> of <span>Media</span> with a <span>Dense Network</span> of <span>Long</span> and <span>Micro Fractures</span>. Transport in Porous Media 76, 153–178. <a href="https://doi.org/10.1007/s11242-008-9241-9">https://doi.org/10.1007/s11242-008-9241-9</a>
+Barthélémy, J.-F., 2009. Effective <span>Permeability</span> of <span>Media</span> with a <span>Dense Network</span> of <span>Long</span> and <span>Micro Fractures</span>. Transp. Porous Media 76, 153–178. <a href="https://doi.org/10.1007/s11242-008-9241-9">https://doi.org/10.1007/s11242-008-9241-9</a>
 </div>
 <div id="ref-barthelemyIJSS2016" class="csl-entry" role="listitem">
 Barthélémy, J.-F., Giraud, A., Lavergne, F., Sanahuja, J., 2016. The <span>Eshelby</span> inclusion problem in ageing linear viscoelasticity. Int. J. Solids Struct. 97–98, 530–542. <a href="https://doi.org/10.1016/j.ijsolstr.2016.06.035">https://doi.org/10.1016/j.ijsolstr.2016.06.035</a>
 </div>
 <div id="ref-eshelby1957" class="csl-entry" role="listitem">
-Eshelby, J.D., 1957. The determination of the elastic field of an ellipsoidal inclusion, and related problems. Proceedings of the Royal Society of London. Series A. Mathematical and Physical Sciences 241, 376–396. <a href="https://doi.org/10.1098/rspa.1957.0133">https://doi.org/10.1098/rspa.1957.0133</a>
+Eshelby, J.D., 1957. The determination of the elastic field of an ellipsoidal inclusion, and related problems. Proc. R. Soc. Lond. Ser. Math. Phys. Sci. 241, 376–396. <a href="https://doi.org/10.1098/rspa.1957.0133">https://doi.org/10.1098/rspa.1957.0133</a>
 </div>
 <div id="ref-gavazzi1990" class="csl-entry" role="listitem">
-Gavazzi, A.C., Lagoudas, D.C., 1990. On the numerical evaluation of <span>Eshelby</span>’s tensor and its application to elastoplastic fibrous composites. Computational Mechanics 7, 13–19. <a href="https://doi.org/10.1007/BF00370053">https://doi.org/10.1007/BF00370053</a>
+Gavazzi, A.C., Lagoudas, D.C., 1990. On the numerical evaluation of <span>Eshelby</span>’s tensor and its application to elastoplastic fibrous composites. Comput. Mech. 7, 13–19. <a href="https://doi.org/10.1007/BF00370053">https://doi.org/10.1007/BF00370053</a>
 </div>
 <div id="ref-ghahremani1977" class="csl-entry" role="listitem">
-Ghahremani, F., 1977. Numerical evaluation of the stresses and strains in ellipsoidal inclusions in an anisotropic elastic material. Mechanics Research Communications 4, 89–91. <a href="https://doi.org/10.1016/0093-6413(77)90018-0">https://doi.org/10.1016/0093-6413(77)90018-0</a>
+Ghahremani, F., 1977. Numerical evaluation of the stresses and strains in ellipsoidal inclusions in an anisotropic elastic material. Mech. Res. Commun. 4, 89–91. <a href="https://doi.org/10.1016/0093-6413(77)90018-0">https://doi.org/10.1016/0093-6413(77)90018-0</a>
 </div>
 <div id="ref-giraudMOM2019" class="csl-entry" role="listitem">
-Giraud, A., Sevostianov, I., Kushch, V.I., Cosenza, P., Prêt, D., Barthélémy, J.-F., Trofimov, A., 2019. Effective electrical conductivity of transversely isotropic rocks with arbitrarily oriented ellipsoidal inclusions. Mechanics of Materials 133, 174–192. <a href="https://doi.org/10.1016/j.mechmat.2019.03.011">https://doi.org/10.1016/j.mechmat.2019.03.011</a>
+Giraud, A., Sevostianov, I., Kushch, V.I., Cosenza, P., Prêt, D., Barthélémy, J.-F., Trofimov, A., 2019. Effective electrical conductivity of transversely isotropic rocks with arbitrarily oriented ellipsoidal inclusions. Mech. Mater. 133, 174–192. <a href="https://doi.org/10.1016/j.mechmat.2019.03.011">https://doi.org/10.1016/j.mechmat.2019.03.011</a>
 </div>
 <div id="ref-kellogg1929" class="csl-entry" role="listitem">
 Kellogg, O.D., 1929. Potential theory. Berlin : Springer-Verlag.
 </div>
 <div id="ref-masson2008" class="csl-entry" role="listitem">
-Masson, R., 2008. New explicit expressions of the <span>Hill</span> polarization tensor for general anisotropic elastic solids. International Journal of Solids and Structures 45, 757–769. <a href="https://doi.org/10.1016/j.ijsolstr.2007.08.035">https://doi.org/10.1016/j.ijsolstr.2007.08.035</a>
+Masson, R., 2008. New explicit expressions of the <span>Hill</span> polarization tensor for general anisotropic elastic solids. Int. J. Solids Struct. 45, 757–769. <a href="https://doi.org/10.1016/j.ijsolstr.2007.08.035">https://doi.org/10.1016/j.ijsolstr.2007.08.035</a>
 </div>
 <div id="ref-mura1987" class="csl-entry" role="listitem">
-Mura, T., 1987. Micromechanics of <span>Defects</span> in <span>Solids</span>, <span>Second Edition</span>. Kluwer Academic. <a href="https://doi.org/10.1002/zamm.19890690204">https://doi.org/10.1002/zamm.19890690204</a>
+Mura, T., 1987. Micromechanics of <span>Defects</span> in <span>Solids</span>, <span>Second Edition</span>. Kluwer Academic. <a href="https://doi.org/10.1007/978-94-009-3489-4">https://doi.org/10.1007/978-94-009-3489-4</a>
 </div>
 <div id="ref-parnell2016" class="csl-entry" role="listitem">
-Parnell, W.J., 2016. The <span>Eshelby</span>, <span>Hill</span>, <span>Moment</span> and <span>Concentration Tensors</span> for <span>Ellipsoidal Inhomogeneities</span> in the <span>Newtonian Potential Problem</span> and <span>Linear Elastostatics</span>. Journal of Elasticity 125, 231–294. <a href="https://doi.org/10.1007/s10659-016-9573-6">https://doi.org/10.1007/s10659-016-9573-6</a>
+Parnell, W.J., 2016. The <span>Eshelby</span>, <span>Hill</span>, <span>Moment</span> and <span>Concentration Tensors</span> for <span>Ellipsoidal Inhomogeneities</span> in the <span>Newtonian Potential Problem</span> and <span>Linear Elastostatics</span>. J. Elast. 125, 231–294. <a href="https://doi.org/10.1007/s10659-016-9573-6">https://doi.org/10.1007/s10659-016-9573-6</a>
 </div>
 <div id="ref-pouya2000" class="csl-entry" role="listitem">
-Pouya, A., 2000. Une transformation du problème d’élasticité linéaire en vue d’application au problème de l’inclusion et aux fonctions de <span>Green</span>. C. R. Acad. Sci., Série IIb 328, 437–443.
+Pouya, A., 2000. Une transformation du problème d’élasticité linéaire en vue d’application au problème de l’inclusion et aux fonctions de <span>Green</span>. C R Acad Sci Sér. IIb 328, 437–443.
 </div>
 <div id="ref-pouya2006" class="csl-entry" role="listitem">
 Pouya, A., Zaoui, A., 2006. A transformation of elastic boundary value problems with application to anisotropic behavior. Int. J. Solids Struct. 43, 4937–4956. <a href="https://doi.org/10.1016/j.ijsolstr.2005.06.046">https://doi.org/10.1016/j.ijsolstr.2005.06.046</a>
 </div>
 <div id="ref-suvorov2002" class="csl-entry" role="listitem">
-Suvorov, A.P., Dvorak, G.J., 2002. Rate form of the <span>Eshelby</span> and <span>Hill</span> tensors. International Journal of Solids and Structures 39, 5659–5678. <a href="https://doi.org/10.1016/S0020-7683(02)00369-4">https://doi.org/10.1016/S0020-7683(02)00369-4</a>
+Suvorov, A.P., Dvorak, G.J., 2002. Rate form of the <span>Eshelby</span> and <span>Hill</span> tensors. Int. J. Solids Struct. 39, 5659–5678. <a href="https://doi.org/10.1016/S0020-7683(02)00369-4">https://doi.org/10.1016/S0020-7683(02)00369-4</a>
 </div>
 <div id="ref-willis1977" class="csl-entry" role="listitem">
-Willis, J.R., 1977. Bounds and self-consistent estimates for the overall properties of anisotropic composites. Journal of the Mechanics and Physics of Solids 25, 185–202. <a href="https://doi.org/10.1016/0022-5096(77)90022-9">https://doi.org/10.1016/0022-5096(77)90022-9</a>
+Willis, J.R., 1977. Bounds and self-consistent estimates for the overall properties of anisotropic composites. J. Mech. Phys. Solids 25, 185–202. <a href="https://doi.org/10.1016/0022-5096(77)90022-9">https://doi.org/10.1016/0022-5096(77)90022-9</a>
 </div>
 <div id="ref-withers1989" class="csl-entry" role="listitem">
-Withers, P.J., 1989. The determination of the elastic field of an ellipsoidal inclusion in a transversely isotropic medium, and its relevance to composite materials. Philosophical Magazine A 59, 759–781. <a href="https://doi.org/10.1080/01418618908209819">https://doi.org/10.1080/01418618908209819</a>
+Withers, P.J., 1989. The determination of the elastic field of an ellipsoidal inclusion in a transversely isotropic medium, and its relevance to composite materials. Philos. Mag. A 59, 759–781. <a href="https://doi.org/10.1080/01418618908209819">https://doi.org/10.1080/01418618908209819</a>
 </div>
 </div>
 </section>
@@ -1498,6 +1527,23 @@ Withers, P.J., 1989. The determination of the elastic field of an ellipsoidal in
 </section>
 
 </main> <!-- /main -->
+<script>
+// The cover logo, in 3D. js/echoes-viewer.js — copied unchanged from the
+// website (jfbarthelemy.github.io/js/echoes-viewer.js) — replaces the cover
+// image by the scene it was rendered from (img/cover.asy), read from
+// img/echoes_scene.json: it turns slowly by itself and can be turned by hand.
+// Loaded only on the page that has the cover. Without JavaScript or WebGL, and
+// for a reader who asks for reduced motion, the image or a still sphere stays.
+(function () {
+  if (!document.querySelector("img.quarto-cover-image")) return;
+  var meta = document.querySelector('meta[name="quarto:offset"]');
+  var s = document.createElement("script");
+  s.src = (meta ? meta.getAttribute("content") : "./") + "js/echoes-viewer.js";
+  s.setAttribute("data-target", "img.quarto-cover-image");
+  s.setAttribute("data-scene", "img/echoes_scene.json");
+  document.head.appendChild(s);
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
