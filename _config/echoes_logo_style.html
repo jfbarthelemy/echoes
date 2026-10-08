@@ -1,0 +1,33 @@
+<style>
+/* The cover logo in 3D (_config/echoes_logo.html): the canvas takes the place
+   of the cover image, with its classes, and keeps it square. */
+canvas.quarto-cover-image.echoes-viewer {
+  width: min(35%, 18rem);
+  height: auto;
+  max-width: none;
+  aspect-ratio: 1;
+  cursor: grab;
+  touch-action: pan-y; /* horizontal drags turn the sphere, vertical ones scroll */
+}
+canvas.quarto-cover-image.echoes-viewer:active { cursor: grabbing; }
+
+/* Affiliation logos, as on jfbarthelemy.github.io: small, on a white card, so
+   that the transparent UMR MCD logo stays readable on the dark theme. */
+.affil-strip p {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+  margin: 0.75rem 0 1rem;
+}
+.affil-strip a { display: inline-flex; opacity: 0.85; transition: opacity 0.18s ease; }
+.affil-strip a:hover { opacity: 1; }
+.affil-logo {
+  height: 3rem;
+  width: auto;
+  padding: 0.3rem 0.55rem;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 0.375rem;
+}
+</style>

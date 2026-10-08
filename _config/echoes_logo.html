@@ -1,0 +1,17 @@
+<script>
+// The cover logo, in 3D. js/echoes-viewer.js — copied unchanged from the
+// website (jfbarthelemy.github.io/js/echoes-viewer.js) — replaces the cover
+// image by the scene it was rendered from (img/cover.asy), read from
+// img/echoes_scene.json: it turns slowly by itself and can be turned by hand.
+// Loaded only on the page that has the cover. Without JavaScript or WebGL, and
+// for a reader who asks for reduced motion, the image or a still sphere stays.
+(function () {
+  if (!document.querySelector("img.quarto-cover-image")) return;
+  var meta = document.querySelector('meta[name="quarto:offset"]');
+  var s = document.createElement("script");
+  s.src = (meta ? meta.getAttribute("content") : "./") + "js/echoes-viewer.js";
+  s.setAttribute("data-target", "img.quarto-cover-image");
+  s.setAttribute("data-scene", "img/echoes_scene.json");
+  document.head.appendChild(s);
+})();
+</script>
