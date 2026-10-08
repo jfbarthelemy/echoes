@@ -105,9 +105,9 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-bceaeb2739354d729f4f5842986c97ef.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-3f1284a26ece7f7f5fdc920ec04a18e5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-bceaeb2739354d729f4f5842986c97ef.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-0faa84f83b4a05969576c6c0ab90dec3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-05747b3a7d65ad2efe191da32db3ba42.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-0faa84f83b4a05969576c6c0ab90dec3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
@@ -253,38 +253,71 @@ gtag('config', 'G-DF66M2GWRG', { 'anonymize_ip': true});
 })();
 </script>
 <style>
+
 /* The cover logo in 3D (_config/echoes_logo.html): the canvas takes the place
+
    of the cover image, with its classes, and keeps it square. */
+
 canvas.quarto-cover-image.echoes-viewer {
+
   width: min(35%, 18rem);
+
   height: auto;
+
   max-width: none;
+
   aspect-ratio: 1;
+
   cursor: grab;
+
   touch-action: pan-y; /* horizontal drags turn the sphere, vertical ones scroll */
+
 }
+
 canvas.quarto-cover-image.echoes-viewer:active { cursor: grabbing; }
 
+
+
 /* Affiliation logos, as on jfbarthelemy.github.io: small, on a white card, so
+
    that the transparent UMR MCD logo stays readable on the dark theme. */
+
 .affil-strip p {
+
   display: flex;
+
   flex-wrap: wrap;
+
   align-items: center;
+
   gap: 1.25rem;
+
   margin: 0.75rem 0 1rem;
+
 }
+
 .affil-strip a { display: inline-flex; opacity: 0.85; transition: opacity 0.18s ease; }
+
 .affil-strip a:hover { opacity: 1; }
+
 .affil-logo {
+
   height: 3rem;
+
   width: auto;
+
   padding: 0.3rem 0.55rem;
+
   background: #fff;
+
   border: 1px solid rgba(0, 0, 0, 0.12);
+
   border-radius: 0.375rem;
+
 }
+
 </style>
+
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
@@ -848,45 +881,85 @@ window.Quarto = {
 <main class="content column-body" id="quarto-document-content">
 
 $$
+
 \newcommand{\C}{{\mathbb{{C}}}}
+
 \newcommand{\R}{{\mathbb{{R}}}}
+
 \newcommand{\Q}{{\mathbb{{Q}}}}
+
 \newcommand{\Z}{{\mathbb{{Z}}}}
+
 \newcommand{\N}{{\mathbb{{N}}}}
 
+
+
 \newcommand{\uu}[1]{{\boldsymbol{{#1}}}}
+
 \newcommand{\uuuu}[1]{{\symbb{{#1}}}}
+
 \newcommand{\uv}[1]{{\underline{{#1}}}}
+
 \newcommand{\ve}[1]{{\uv{{e}}_{{#1}}}}
+
 \newcommand{\x}{{\uv{{x}}}}
+
 \newcommand{\n}{{\uv{{n}}}}
+
 \newcommand{\eps}{{\uu{{\varepsilon}}}}
+
 \newcommand{\E}{{\uu{{E}}}}
+
 \newcommand{\sig}{{\uu{{\sigma}}}}
+
 \newcommand{\Sig}{{\uu{{\Sigma}}}}
+
 \newcommand{\cod}{{\uv{{\symscr{b}}}}}
+
 % \newcommand{\trans}[1]{{{}^{t}{#1}}}
+
 \newcommand{\trans}[1]{{{#1}{}^\intercal}}
+
 \newcommand{\sotimes}{{\stackrel{s}{\otimes}}}
+
 \newcommand{\sboxtimes}{\stackrel{s}{\boxtimes}}
+
 \newcommand{\norm}[1]{{\lVert{{#1}}\rVert}}
+
 \newcommand{\ud}{{\,\mathrm{d}}}
+
 \newcommand{\mat}{\mathsf}
+
 \DeclareMathOperator{\arcosh}{arcosh}
+
 \DeclareMathOperator{\divz}{div}
+
 \DeclareMathOperator{\divu}{\uv{div}}
+
 \DeclareMathOperator{\hess}{hess}
+
 \DeclareMathOperator{\gradu}{\uv{grad}}
+
 \DeclareMathOperator{\graduu}{\uu{grad}}
+
 \DeclareMathOperator{\Mat}{Mat}
+
 \DeclareMathOperator{\tr}{tr}
+
 \DeclareMathOperator{\ISO}{ISO}
 
+
+
 \newcommand{\volt}[1]{{#1}^{-1\circ}}
+
 \newcommand{\dcirc}{\overset{\circ}{:}}
 
+
+
 \newcommand{\jump}[1]{\mathopen{[\![}\,#1\,\mathclose{]\!]}}
+
 $$
+
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../8_applications/transport.html">𝗔𝗽𝗽𝗹𝗶𝗰𝗮𝘁𝗶𝗼𝗻𝘀</a></li><li class="breadcrumb-item"><a href="../8_applications/concrete_strength.html"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Quasi-brittle strength of cement paste and mortar</span></a></li></ol></nav>
 <div class="quarto-title">
@@ -937,7 +1010,7 @@ $$
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="a4f97070" class="cell" data-execution_count="1">
+<div id="c8fa7be7" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
@@ -1008,7 +1081,7 @@ f_{air} &amp;= 1 - f_{clin} - f_w - f_{hyd}
 f_{sand} = \frac{(s/c)\,/\,d_{sand}}{1/d_{clin} + w/c + (s/c)\,/\,d_{sand}}
 \tag{23.2}\]</span></span></p>
 <p>The phase densities relative to water are <span class="math inline">\(d_{clin}=3.15\)</span>, <span class="math inline">\(d_{hyd}=2.073\)</span>, <span class="math inline">\(d_{sand}=2.648\)</span>.</p>
-<div id="f0eddf2b" class="cell" data-execution_count="2">
+<div id="b6c693bb" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Densities relative to water</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>d_clin <span class="op">=</span> <span class="fl">3.15</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>d_hyd  <span class="op">=</span> <span class="fl">2.073</span></span>
@@ -1065,7 +1138,7 @@ f_{sand} = \frac{(s/c)\,/\,d_{sand}}{1/d_{clin} + w/c + (s/c)\,/\,d_{sand}}
 </tr>
 </tbody>
 </table>
-<div id="b0fe3f36" class="cell" data-execution_count="3">
+<div id="8e29ca11" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>C_clin <span class="op">=</span> stiff_kmu(<span class="fl">116.7</span>, <span class="fl">53.8</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>C_hyd  <span class="op">=</span> stiff_kmu(<span class="fl">18.7</span>, <span class="fl">11.8</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>C_w    <span class="op">=</span> tZ4                      <span class="co"># zero stiffness</span></span>
@@ -1086,7 +1159,7 @@ f_{hyd}^{(i)} = f_{hyd} \cdot \bigl(\cos\theta_i^- - \cos\theta_i^+\bigr), \quad
 \mathbb{C}^{hom}_{HF} = \mathrm{SC}\!\left(\sum_{i=0}^{n_\theta-1} f_{hyd}^{(i)}\,\mathbb{C}_{hyd}^{(\theta_i)}
                             + f_w\,\mathbb{C}_w + f_{air}\,\mathbb{C}_{air}\right)
 \tag{23.4}\]</span></span></p>
-<div id="ae1bf69c" class="cell" data-execution_count="4">
+<div id="b0922be3" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> disc_theta(ntheta):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Discretize [0, pi/2] into ntheta orientation bins.</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns (lower bounds, centers, upper bounds).</span></span>
@@ -1182,7 +1255,7 @@ f^{(\theta)}_{hyd} = f_{hyd}^{(i)} \cdot (1 - f_{clin}) \cdot (1 - f_{sand})
 <section id="sec-homo-fn" class="level3">
 <h3 class="anchored" data-anchor-id="sec-homo-fn">Complete homogenization and strength function</h3>
 <p>The following function assembles all three scales (elastic + strength) in a single call.</p>
-<div id="b15e1169" class="cell" data-execution_count="5">
+<div id="706ad403" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Function mortar_strength() — three-scale homogenization + failure criterion</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> mortar_strength(wc, alpha<span class="op">=-</span><span class="fl">1.</span>, sc<span class="op">=</span><span class="fl">0.</span>, omega<span class="op">=</span><span class="fl">10000.</span>, ntheta<span class="op">=</span><span class="dv">20</span>):</span>
@@ -1338,7 +1411,7 @@ Note
 <section id="sec-pichler-results" class="level2">
 <h2 class="anchored" data-anchor-id="sec-pichler-results">Results</h2>
 <p>The following code computes the evolution of the effective stiffness moduli (<span class="math inline">\(k\)</span>, <span class="math inline">\(\mu\)</span>) and the normalized compressive strength <span class="math inline">\(f_c/\sigma^{ult}_{hyd}\)</span> as a function of the hydration degree <span class="math inline">\(\alpha\)</span> for several water-to-cement ratios <span class="math inline">\(w/c\)</span>, for pure cement paste (<span class="math inline">\(s/c=0\)</span>).</p>
-<div id="56558f96" class="cell" data-execution_count="6">
+<div id="aaac9e39" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Figure — compressive strength vs hydration degree</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>wc_list <span class="op">=</span> [<span class="fl">0.157</span>, <span class="fl">0.25</span>, <span class="fl">0.35</span>, <span class="fl">0.50</span>, <span class="fl">0.65</span>, <span class="fl">0.80</span>]</span>
@@ -1423,22 +1496,39 @@ Pichler, B., Hellmich, C., 2011. Upscaling quasi-brittle strength of cement past
 
 </main> <!-- /main -->
 <script>
+
 // The cover logo, in 3D. js/echoes-viewer.js — copied unchanged from the
+
 // website (jfbarthelemy.github.io/js/echoes-viewer.js) — replaces the cover
+
 // image by the scene it was rendered from (img/cover.asy), read from
+
 // img/echoes_scene.json: it turns slowly by itself and can be turned by hand.
+
 // Loaded only on the page that has the cover. Without JavaScript or WebGL, and
+
 // for a reader who asks for reduced motion, the image or a still sphere stays.
+
 (function () {
+
   if (!document.querySelector("img.quarto-cover-image")) return;
+
   var meta = document.querySelector('meta[name="quarto:offset"]');
+
   var s = document.createElement("script");
+
   s.src = (meta ? meta.getAttribute("content") : "./") + "js/echoes-viewer.js";
+
   s.setAttribute("data-target", "img.quarto-cover-image");
+
   s.setAttribute("data-scene", "img/echoes_scene.json");
+
   document.head.appendChild(s);
+
 })();
+
 </script>
+
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

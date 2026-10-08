@@ -105,9 +105,9 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-bceaeb2739354d729f4f5842986c97ef.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-3f1284a26ece7f7f5fdc920ec04a18e5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-bceaeb2739354d729f4f5842986c97ef.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-0faa84f83b4a05969576c6c0ab90dec3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-05747b3a7d65ad2efe191da32db3ba42.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-0faa84f83b4a05969576c6c0ab90dec3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
@@ -253,38 +253,71 @@ gtag('config', 'G-DF66M2GWRG', { 'anonymize_ip': true});
 })();
 </script>
 <style>
+
 /* The cover logo in 3D (_config/echoes_logo.html): the canvas takes the place
+
    of the cover image, with its classes, and keeps it square. */
+
 canvas.quarto-cover-image.echoes-viewer {
+
   width: min(35%, 18rem);
+
   height: auto;
+
   max-width: none;
+
   aspect-ratio: 1;
+
   cursor: grab;
+
   touch-action: pan-y; /* horizontal drags turn the sphere, vertical ones scroll */
+
 }
+
 canvas.quarto-cover-image.echoes-viewer:active { cursor: grabbing; }
 
+
+
 /* Affiliation logos, as on jfbarthelemy.github.io: small, on a white card, so
+
    that the transparent UMR MCD logo stays readable on the dark theme. */
+
 .affil-strip p {
+
   display: flex;
+
   flex-wrap: wrap;
+
   align-items: center;
+
   gap: 1.25rem;
+
   margin: 0.75rem 0 1rem;
+
 }
+
 .affil-strip a { display: inline-flex; opacity: 0.85; transition: opacity 0.18s ease; }
+
 .affil-strip a:hover { opacity: 1; }
+
 .affil-logo {
+
   height: 3rem;
+
   width: auto;
+
   padding: 0.3rem 0.55rem;
+
   background: #fff;
+
   border: 1px solid rgba(0, 0, 0, 0.12);
+
   border-radius: 0.375rem;
+
 }
+
 </style>
+
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
@@ -844,45 +877,85 @@ window.Quarto = {
 <main class="content column-body" id="quarto-document-content">
 
 $$
+
 \newcommand{\C}{{\mathbb{{C}}}}
+
 \newcommand{\R}{{\mathbb{{R}}}}
+
 \newcommand{\Q}{{\mathbb{{Q}}}}
+
 \newcommand{\Z}{{\mathbb{{Z}}}}
+
 \newcommand{\N}{{\mathbb{{N}}}}
 
+
+
 \newcommand{\uu}[1]{{\boldsymbol{{#1}}}}
+
 \newcommand{\uuuu}[1]{{\symbb{{#1}}}}
+
 \newcommand{\uv}[1]{{\underline{{#1}}}}
+
 \newcommand{\ve}[1]{{\uv{{e}}_{{#1}}}}
+
 \newcommand{\x}{{\uv{{x}}}}
+
 \newcommand{\n}{{\uv{{n}}}}
+
 \newcommand{\eps}{{\uu{{\varepsilon}}}}
+
 \newcommand{\E}{{\uu{{E}}}}
+
 \newcommand{\sig}{{\uu{{\sigma}}}}
+
 \newcommand{\Sig}{{\uu{{\Sigma}}}}
+
 \newcommand{\cod}{{\uv{{\symscr{b}}}}}
+
 % \newcommand{\trans}[1]{{{}^{t}{#1}}}
+
 \newcommand{\trans}[1]{{{#1}{}^\intercal}}
+
 \newcommand{\sotimes}{{\stackrel{s}{\otimes}}}
+
 \newcommand{\sboxtimes}{\stackrel{s}{\boxtimes}}
+
 \newcommand{\norm}[1]{{\lVert{{#1}}\rVert}}
+
 \newcommand{\ud}{{\,\mathrm{d}}}
+
 \newcommand{\mat}{\mathsf}
+
 \DeclareMathOperator{\arcosh}{arcosh}
+
 \DeclareMathOperator{\divz}{div}
+
 \DeclareMathOperator{\divu}{\uv{div}}
+
 \DeclareMathOperator{\hess}{hess}
+
 \DeclareMathOperator{\gradu}{\uv{grad}}
+
 \DeclareMathOperator{\graduu}{\uu{grad}}
+
 \DeclareMathOperator{\Mat}{Mat}
+
 \DeclareMathOperator{\tr}{tr}
+
 \DeclareMathOperator{\ISO}{ISO}
 
+
+
 \newcommand{\volt}[1]{{#1}^{-1\circ}}
+
 \newcommand{\dcirc}{\overset{\circ}{:}}
 
+
+
 \newcommand{\jump}[1]{\mathopen{[\![}\,#1\,\mathclose{]\!]}}
+
 $$
+
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../8_applications/transport.html">𝗔𝗽𝗽𝗹𝗶𝗰𝗮𝘁𝗶𝗼𝗻𝘀</a></li><li class="breadcrumb-item"><a href="../8_applications/ageing_creep.html"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Ageing creep of solidifying cementitious materials</span></a></li></ol></nav>
 <div class="quarto-title">
@@ -934,7 +1007,7 @@ $$
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="89ff2f9c" class="cell" data-execution_count="1">
+<div id="0044f092" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -1036,7 +1109,7 @@ Tab.&nbsp;25.1: Phase properties.
 </tr>
 </tbody>
 </table>
-<div id="0980d74e" class="cell" data-execution_count="2">
+<div id="bb9916b7" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Elastic stiffness tensors</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>E0 <span class="op">=</span> <span class="fl">1.</span><span class="op">;</span>  nu0 <span class="op">=</span> <span class="fl">0.2</span><span class="op">;</span>  C0 <span class="op">=</span> stiff_Enu(E0, nu0)<span class="op">;</span>  f0 <span class="op">=</span> <span class="fl">0.6</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>E1 <span class="op">=</span> <span class="fl">5.</span><span class="op">;</span>  nu1 <span class="op">=</span> <span class="fl">0.3</span><span class="op">;</span>  C1 <span class="op">=</span> stiff_Enu(E1, nu1)<span class="op">;</span>  finf <span class="op">=</span> <span class="fl">0.3</span></span>
@@ -1065,7 +1138,7 @@ Tab.&nbsp;25.1: Phase properties.
 <p><span id="eq-layers"><span class="math display">\[f_k = \left(k + \tfrac{1}{2}\right)\frac{f_\infty}{N}, \quad
 t_k = t_k(f_k), \quad k = 0, \ldots, N-1
 \tag{25.5}\]</span></span></p>
-<div id="05cc15e9" class="cell" data-execution_count="3">
+<div id="002770e4" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ft  <span class="op">=</span> <span class="kw">lambda</span> t, alpha: finf <span class="op">*</span> t<span class="op">**</span>alpha <span class="op">/</span> (<span class="dv">1</span> <span class="op">+</span> t<span class="op">**</span>alpha)   <span class="co"># eq. {#eq-solidification}</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>tf  <span class="op">=</span> <span class="kw">lambda</span> f, alpha: (f <span class="op">/</span> (finf <span class="op">-</span> f))<span class="op">**</span>(<span class="fl">1.</span> <span class="op">/</span> alpha)     <span class="co"># eq. {#eq-setting-time}</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>F   <span class="op">=</span> <span class="kw">lambda</span> N: np.array([(i <span class="op">+</span> <span class="fl">0.5</span>) <span class="op">*</span> finf <span class="op">/</span> N <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(N)])   <span class="co"># midpoint fractions</span></span>
@@ -1101,7 +1174,7 @@ t_k = t_k(f_k), \quad k = 0, \ldots, N-1
 <p><span id="eq-frozen"><span class="math display">\[R_i(t,t') = \begin{cases} R_1(t,t') &amp; \text{if } t_0 \geq t_k^{(i)} \\ \mathbf{C}_p &amp; \text{if } t_0 &lt; t_k^{(i)} \end{cases}
 \tag{25.7}\]</span></span></p>
 <p>The frozen approach is a computationally identical but physically approximate model that neglects the history before <span class="math inline">\(t_0\)</span>.</p>
-<div id="0ba88266" class="cell" data-execution_count="4">
+<div id="953ae64e" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Function build_rve() — solidification-layers RVE construction</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> build_rve(N, alpha, t0, model<span class="op">=</span><span class="st">'whole pores'</span>, fixed<span class="op">=</span><span class="va">False</span>):</span>
@@ -1194,7 +1267,7 @@ Note
 <section id="sec-ageing-results" class="level2">
 <h2 class="anchored" data-anchor-id="sec-ageing-results">Results</h2>
 <p>The <code>Jhom</code> function computes the effective creep compliance for both the history-dependent and frozen RVEs, then extracts <span class="math inline">\(E_0 J^{eff}_E\)</span> by summing the isotropic diagonal blocks of the inverted matrix.</p>
-<div id="3081a606" class="cell" data-execution_count="5">
+<div id="879b25b2" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Jhom(T, N, alpha, model<span class="op">=</span><span class="st">'whole pores'</span>):</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Compute effective creep compliance for history-dependent and frozen RVEs."""</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># History-dependent RVE (fixed=False)</span></span>
@@ -1211,7 +1284,7 @@ Note
 <span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.<span class="bu">sum</span>(V[::<span class="dv">6</span>, ::<span class="dv">6</span>], <span class="dv">1</span>), np.<span class="bu">sum</span>(W[::<span class="dv">6</span>, ::<span class="dv">6</span>], <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The outer loop sweeps over five <strong>loading ages</strong> <span class="math inline">\(t_0\)</span> (expressed in units of the matrix shear characteristic time <span class="math inline">\(\gamma_0\)</span>). For each <span class="math inline">\(t_0\)</span>, the observation window is <span class="math inline">\([t_0,\, 10/3]\)</span> on a log-spaced grid. Both the <code>'layers'</code> and <code>'whole pores'</code> models are computed side by side to compare the two morphologies.</p>
-<div id="c92bbf03" class="cell" data-execution_count="6">
+<div id="3cd05ce6" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Figure — effective creep compliance</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="dv">100</span><span class="op">;</span>  alpha <span class="op">=</span> <span class="fl">4.</span></span>
@@ -1270,22 +1343,39 @@ Sanahuja, J., 2013. Efficient homogenization of ageing creep of random media: Ap
 
 </main> <!-- /main -->
 <script>
+
 // The cover logo, in 3D. js/echoes-viewer.js — copied unchanged from the
+
 // website (jfbarthelemy.github.io/js/echoes-viewer.js) — replaces the cover
+
 // image by the scene it was rendered from (img/cover.asy), read from
+
 // img/echoes_scene.json: it turns slowly by itself and can be turned by hand.
+
 // Loaded only on the page that has the cover. Without JavaScript or WebGL, and
+
 // for a reader who asks for reduced motion, the image or a still sphere stays.
+
 (function () {
+
   if (!document.querySelector("img.quarto-cover-image")) return;
+
   var meta = document.querySelector('meta[name="quarto:offset"]');
+
   var s = document.createElement("script");
+
   s.src = (meta ? meta.getAttribute("content") : "./") + "js/echoes-viewer.js";
+
   s.setAttribute("data-target", "img.quarto-cover-image");
+
   s.setAttribute("data-scene", "img/echoes_scene.json");
+
   document.head.appendChild(s);
+
 })();
+
 </script>
+
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

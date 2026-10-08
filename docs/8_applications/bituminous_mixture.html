@@ -105,9 +105,9 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-bceaeb2739354d729f4f5842986c97ef.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-3f1284a26ece7f7f5fdc920ec04a18e5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-bceaeb2739354d729f4f5842986c97ef.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-0faa84f83b4a05969576c6c0ab90dec3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-05747b3a7d65ad2efe191da32db3ba42.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-0faa84f83b4a05969576c6c0ab90dec3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
@@ -253,38 +253,71 @@ gtag('config', 'G-DF66M2GWRG', { 'anonymize_ip': true});
 })();
 </script>
 <style>
+
 /* The cover logo in 3D (_config/echoes_logo.html): the canvas takes the place
+
    of the cover image, with its classes, and keeps it square. */
+
 canvas.quarto-cover-image.echoes-viewer {
+
   width: min(35%, 18rem);
+
   height: auto;
+
   max-width: none;
+
   aspect-ratio: 1;
+
   cursor: grab;
+
   touch-action: pan-y; /* horizontal drags turn the sphere, vertical ones scroll */
+
 }
+
 canvas.quarto-cover-image.echoes-viewer:active { cursor: grabbing; }
 
+
+
 /* Affiliation logos, as on jfbarthelemy.github.io: small, on a white card, so
+
    that the transparent UMR MCD logo stays readable on the dark theme. */
+
 .affil-strip p {
+
   display: flex;
+
   flex-wrap: wrap;
+
   align-items: center;
+
   gap: 1.25rem;
+
   margin: 0.75rem 0 1rem;
+
 }
+
 .affil-strip a { display: inline-flex; opacity: 0.85; transition: opacity 0.18s ease; }
+
 .affil-strip a:hover { opacity: 1; }
+
 .affil-logo {
+
   height: 3rem;
+
   width: auto;
+
   padding: 0.3rem 0.55rem;
+
   background: #fff;
+
   border: 1px solid rgba(0, 0, 0, 0.12);
+
   border-radius: 0.375rem;
+
 }
+
 </style>
+
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
@@ -843,45 +876,85 @@ window.Quarto = {
 <main class="content column-body" id="quarto-document-content">
 
 $$
+
 \newcommand{\C}{{\mathbb{{C}}}}
+
 \newcommand{\R}{{\mathbb{{R}}}}
+
 \newcommand{\Q}{{\mathbb{{Q}}}}
+
 \newcommand{\Z}{{\mathbb{{Z}}}}
+
 \newcommand{\N}{{\mathbb{{N}}}}
 
+
+
 \newcommand{\uu}[1]{{\boldsymbol{{#1}}}}
+
 \newcommand{\uuuu}[1]{{\symbb{{#1}}}}
+
 \newcommand{\uv}[1]{{\underline{{#1}}}}
+
 \newcommand{\ve}[1]{{\uv{{e}}_{{#1}}}}
+
 \newcommand{\x}{{\uv{{x}}}}
+
 \newcommand{\n}{{\uv{{n}}}}
+
 \newcommand{\eps}{{\uu{{\varepsilon}}}}
+
 \newcommand{\E}{{\uu{{E}}}}
+
 \newcommand{\sig}{{\uu{{\sigma}}}}
+
 \newcommand{\Sig}{{\uu{{\Sigma}}}}
+
 \newcommand{\cod}{{\uv{{\symscr{b}}}}}
+
 % \newcommand{\trans}[1]{{{}^{t}{#1}}}
+
 \newcommand{\trans}[1]{{{#1}{}^\intercal}}
+
 \newcommand{\sotimes}{{\stackrel{s}{\otimes}}}
+
 \newcommand{\sboxtimes}{\stackrel{s}{\boxtimes}}
+
 \newcommand{\norm}[1]{{\lVert{{#1}}\rVert}}
+
 \newcommand{\ud}{{\,\mathrm{d}}}
+
 \newcommand{\mat}{\mathsf}
+
 \DeclareMathOperator{\arcosh}{arcosh}
+
 \DeclareMathOperator{\divz}{div}
+
 \DeclareMathOperator{\divu}{\uv{div}}
+
 \DeclareMathOperator{\hess}{hess}
+
 \DeclareMathOperator{\gradu}{\uv{grad}}
+
 \DeclareMathOperator{\graduu}{\uu{grad}}
+
 \DeclareMathOperator{\Mat}{Mat}
+
 \DeclareMathOperator{\tr}{tr}
+
 \DeclareMathOperator{\ISO}{ISO}
 
+
+
 \newcommand{\volt}[1]{{#1}^{-1\circ}}
+
 \newcommand{\dcirc}{\overset{\circ}{:}}
 
+
+
 \newcommand{\jump}[1]{\mathopen{[\![}\,#1\,\mathclose{]\!]}}
+
 $$
+
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../8_applications/transport.html">𝗔𝗽𝗽𝗹𝗶𝗰𝗮𝘁𝗶𝗼𝗻𝘀</a></li><li class="breadcrumb-item"><a href="../8_applications/bituminous_mixture.html"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Viscoelastic properties of a bituminous mixture</span></a></li></ol></nav>
 <div class="quarto-title">
@@ -958,7 +1031,7 @@ $$
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="fd4f9370" class="cell" data-execution_count="1">
+<div id="fcdbceb9" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cmath</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -996,7 +1069,7 @@ Fig.&nbsp;24.1: Three-scale RVE of a bituminous mixture <span class="citation" d
 <p><span class="math display">\[
 E^*(p) = E_0 + \frac{E_\infty - E_0}{1 + \delta\,(p\,\tau_E)^{-k} + (p\,\tau_E)^{-h} + (p\,\beta\,\tau_E)^{-1}}
 \]</span></p>
-<div id="e55e670c" class="cell" data-execution_count="2">
+<div id="2e275373" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Mod2S2P1D:</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""2S2P1D viscoelastic model — callable as E_b(p) in the Laplace domain."""</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1013,7 +1086,7 @@ E^*(p) = E_0 + \frac{E_\infty - E_0}{1 + \delta\,(p\,\tau_E)^{-k} + (p\,\tau_E)^
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The parameters below are calibrated from DSR measurements on the binders extracted from each mixture at each ageing state <span class="citation" data-cites="someCBM2022">(<a href="../references.html#ref-someCBM2022" role="doc-biblioref">Somé et al., 2022</a>)</span>:</p>
-<div id="3dac4f04" class="cell" data-execution_count="3">
+<div id="2ac487b9" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>2S2P1D parameters — binders and mixes (HMA and WMA)</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── HMA binders ────────────────────────────────────────────────────────────</span></span>
@@ -1044,7 +1117,7 @@ E^*(p) = E_0 + \frac{E_\infty - E_0}{1 + \delta\,(p\,\tau_E)^{-k} + (p\,\tau_E)^
 <section id="composition-and-volume-fractions" class="level2">
 <h2 class="anchored" data-anchor-id="composition-and-volume-fractions">Composition and volume fractions</h2>
 <p>The mix formula (same for HMA and WMA) is:</p>
-<div id="16ffcb8c" class="cell" data-execution_count="4">
+<div id="0f3f50d0" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>compo_agg <span class="op">=</span> {<span class="st">"6/10"</span>: <span class="fl">0.2752</span>, <span class="st">"4/6"</span>: <span class="fl">0.1617</span>, <span class="st">"2/4"</span>: <span class="fl">0.1474</span>,</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>             <span class="st">"sand"</span>: <span class="fl">0.32285</span>, <span class="st">"fines"</span>: <span class="fl">0.0872</span>}   <span class="co"># mass fractions in granular skeleton</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>size_agg  <span class="op">=</span> {<span class="st">"6/10"</span>: <span class="fl">8.15</span>, <span class="st">"4/6"</span>: <span class="fl">5.15</span>, <span class="st">"2/4"</span>: <span class="fl">3.0</span>}  <span class="co"># mean diameter (mm)</span></span>
@@ -1084,7 +1157,7 @@ E^*(p) = E_0 + \frac{E_\infty - E_0}{1 + \delta\,(p\,\tau_E)^{-k} + (p\,\tau_E)^
 <li><span class="math inline">\(\chi\)</span>: mixing coefficient between pure mastic stiffness (<span class="math inline">\(\chi=1\)</span>) and a contact-stiffened contribution (<span class="math inline">\(\chi&lt;1\)</span> ↔︎ grain–skeleton connexity at low frequency).</li>
 <li><span class="math inline">\(k_t\)</span>: out-of-plane stiffness of the grain–grain contact layer (MPa/mm).</li>
 </ul>
-<div id="705b86ad" class="cell" data-execution_count="5">
+<div id="b365b030" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Function Ehom_kcst() — three-scale homogenization</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>mod_agg <span class="op">=</span> <span class="fl">9.5e4</span>  <span class="co"># aggregate elastic modulus (MPa)</span></span>
@@ -1160,7 +1233,7 @@ E^*(p) = E_0 + \frac{E_\infty - E_0}{1 + \delta\,(p\,\tau_E)^{-k} + (p\,\tau_E)^
 J(\alpha,\chi,k_t) = \sum_\omega \left|1 - \frac{E_\mathrm{mod}(i\omega)}{E_\mathrm{2S2P1D}(i\omega)}\right|^2 \longrightarrow \min
 \]</span></p>
 <p>The minimization is performed for the least-aged state; a set of inequality constraints ensures that the fit quality does not degrade for the more-aged states. The COBYLA algorithm from the <code>nlopt</code> library is used.</p>
-<div id="56b0b31a" class="cell" data-execution_count="6">
+<div id="4d1940ec" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>COBYLA optimisation procedure</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>TMIN, TMAX, NB <span class="op">=</span> <span class="fl">5e-4</span>, <span class="fl">3e2</span>, <span class="dv">20</span></span>
@@ -1226,14 +1299,14 @@ J(\alpha,\chi,k_t) = \sum_\omega \left|1 - \frac{E_\mathrm{mod}(i\omega)}{E_\mat
 </div>
 <section id="hma-calibration" class="level3">
 <h3 class="anchored" data-anchor-id="hma-calibration">HMA calibration</h3>
-<div id="633f7485" class="cell" data-execution_count="7">
+<div id="7e47fa11" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"HMA — COBYLA calibration"</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>x_HMA <span class="op">=</span> run_optimization(E_B_HMA, E_E_HMA)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="wma-calibration" class="level3">
 <h3 class="anchored" data-anchor-id="wma-calibration">WMA calibration</h3>
-<div id="69b4b3a8" class="cell" data-execution_count="8">
+<div id="b113e00c" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"WMA — COBYLA calibration"</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>x_WMA <span class="op">=</span> run_optimization(E_B_WMA, E_E_WMA)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -1242,12 +1315,12 @@ J(\alpha,\chi,k_t) = \sum_\omega \left|1 - \frac{E_\mathrm{mod}(i\omega)}{E_\mat
 <section id="results" class="level2">
 <h2 class="anchored" data-anchor-id="results">Results</h2>
 <p>The contact parameters obtained from the COBYLA optimisations above are stored below for use in the plots. These values can be recomputed by evaluating the calibration cells.</p>
-<div id="fd0f5ec0" class="cell" data-execution_count="9">
+<div id="bad00247" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pre-calibrated contact parameters (COBYLA results, see calibration cells above)</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>x_HMA <span class="op">=</span> [<span class="fl">5.866e-03</span>, <span class="fl">0.9760</span>, <span class="fl">6366.1</span>]   <span class="co"># J = 4.096e-01</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>x_WMA <span class="op">=</span> [<span class="fl">4.165e-02</span>, <span class="fl">0.9791</span>, <span class="fl">3277.7</span>]   <span class="co"># J = 2.393e-01</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="6c29530a" class="cell" data-execution_count="10">
+<div id="347221b6" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Figure — HMA and WMA: model vs experiment</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_mix(ax_E, ax_phi, x_opt, E_B, E_E, name_b, name_e, colors):</span>
@@ -1312,22 +1385,39 @@ Somé, S.C., Barthélémy, J.-F., Mouillet, V., Hammoum, F., Liu, G., 2022. Effe
 
 </main> <!-- /main -->
 <script>
+
 // The cover logo, in 3D. js/echoes-viewer.js — copied unchanged from the
+
 // website (jfbarthelemy.github.io/js/echoes-viewer.js) — replaces the cover
+
 // image by the scene it was rendered from (img/cover.asy), read from
+
 // img/echoes_scene.json: it turns slowly by itself and can be turned by hand.
+
 // Loaded only on the page that has the cover. Without JavaScript or WebGL, and
+
 // for a reader who asks for reduced motion, the image or a still sphere stays.
+
 (function () {
+
   if (!document.querySelector("img.quarto-cover-image")) return;
+
   var meta = document.querySelector('meta[name="quarto:offset"]');
+
   var s = document.createElement("script");
+
   s.src = (meta ? meta.getAttribute("content") : "./") + "js/echoes-viewer.js";
+
   s.setAttribute("data-target", "img.quarto-cover-image");
+
   s.setAttribute("data-scene", "img/echoes_scene.json");
+
   document.head.appendChild(s);
+
 })();
+
 </script>
+
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

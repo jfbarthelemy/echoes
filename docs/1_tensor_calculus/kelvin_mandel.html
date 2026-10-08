@@ -85,9 +85,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-bceaeb2739354d729f4f5842986c97ef.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-3f1284a26ece7f7f5fdc920ec04a18e5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-bceaeb2739354d729f4f5842986c97ef.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-0faa84f83b4a05969576c6c0ab90dec3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-05747b3a7d65ad2efe191da32db3ba42.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-0faa84f83b4a05969576c6c0ab90dec3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
@@ -233,38 +233,71 @@ gtag('config', 'G-DF66M2GWRG', { 'anonymize_ip': true});
 })();
 </script>
 <style>
+
 /* The cover logo in 3D (_config/echoes_logo.html): the canvas takes the place
+
    of the cover image, with its classes, and keeps it square. */
+
 canvas.quarto-cover-image.echoes-viewer {
+
   width: min(35%, 18rem);
+
   height: auto;
+
   max-width: none;
+
   aspect-ratio: 1;
+
   cursor: grab;
+
   touch-action: pan-y; /* horizontal drags turn the sphere, vertical ones scroll */
+
 }
+
 canvas.quarto-cover-image.echoes-viewer:active { cursor: grabbing; }
 
+
+
 /* Affiliation logos, as on jfbarthelemy.github.io: small, on a white card, so
+
    that the transparent UMR MCD logo stays readable on the dark theme. */
+
 .affil-strip p {
+
   display: flex;
+
   flex-wrap: wrap;
+
   align-items: center;
+
   gap: 1.25rem;
+
   margin: 0.75rem 0 1rem;
+
 }
+
 .affil-strip a { display: inline-flex; opacity: 0.85; transition: opacity 0.18s ease; }
+
 .affil-strip a:hover { opacity: 1; }
+
 .affil-logo {
+
   height: 3rem;
+
   width: auto;
+
   padding: 0.3rem 0.55rem;
+
   background: #fff;
+
   border: 1px solid rgba(0, 0, 0, 0.12);
+
   border-radius: 0.375rem;
+
 }
+
 </style>
+
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
@@ -808,45 +841,85 @@ window.Quarto = {
 <main class="content column-body" id="quarto-document-content">
 
 $$
+
 \newcommand{\C}{{\mathbb{{C}}}}
+
 \newcommand{\R}{{\mathbb{{R}}}}
+
 \newcommand{\Q}{{\mathbb{{Q}}}}
+
 \newcommand{\Z}{{\mathbb{{Z}}}}
+
 \newcommand{\N}{{\mathbb{{N}}}}
 
+
+
 \newcommand{\uu}[1]{{\boldsymbol{{#1}}}}
+
 \newcommand{\uuuu}[1]{{\symbb{{#1}}}}
+
 \newcommand{\uv}[1]{{\underline{{#1}}}}
+
 \newcommand{\ve}[1]{{\uv{{e}}_{{#1}}}}
+
 \newcommand{\x}{{\uv{{x}}}}
+
 \newcommand{\n}{{\uv{{n}}}}
+
 \newcommand{\eps}{{\uu{{\varepsilon}}}}
+
 \newcommand{\E}{{\uu{{E}}}}
+
 \newcommand{\sig}{{\uu{{\sigma}}}}
+
 \newcommand{\Sig}{{\uu{{\Sigma}}}}
+
 \newcommand{\cod}{{\uv{{\symscr{b}}}}}
+
 % \newcommand{\trans}[1]{{{}^{t}{#1}}}
+
 \newcommand{\trans}[1]{{{#1}{}^\intercal}}
+
 \newcommand{\sotimes}{{\stackrel{s}{\otimes}}}
+
 \newcommand{\sboxtimes}{\stackrel{s}{\boxtimes}}
+
 \newcommand{\norm}[1]{{\lVert{{#1}}\rVert}}
+
 \newcommand{\ud}{{\,\mathrm{d}}}
+
 \newcommand{\mat}{\mathsf}
+
 \DeclareMathOperator{\arcosh}{arcosh}
+
 \DeclareMathOperator{\divz}{div}
+
 \DeclareMathOperator{\divu}{\uv{div}}
+
 \DeclareMathOperator{\hess}{hess}
+
 \DeclareMathOperator{\gradu}{\uv{grad}}
+
 \DeclareMathOperator{\graduu}{\uu{grad}}
+
 \DeclareMathOperator{\Mat}{Mat}
+
 \DeclareMathOperator{\tr}{tr}
+
 \DeclareMathOperator{\ISO}{ISO}
 
+
+
 \newcommand{\volt}[1]{{#1}^{-1\circ}}
+
 \newcommand{\dcirc}{\overset{\circ}{:}}
 
+
+
 \newcommand{\jump}[1]{\mathopen{[\![}\,#1\,\mathclose{]\!]}}
+
 $$
+
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../1_tensor_calculus/kelvin_mandel.html">𝗘𝗹𝗲𝗺𝗲𝗻𝘁𝘀 𝗼𝗳 𝘁𝗲𝗻𝘀𝗼𝗿 𝗰𝗮𝗹𝗰𝘂𝗹𝘂𝘀</a></li><li class="breadcrumb-item"><a href="../1_tensor_calculus/kelvin_mandel.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Kelvin-Mandel notation</span></a></li></ol></nav>
 <div class="quarto-title">
@@ -892,7 +965,7 @@ $$
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div id="e49bd283" class="cell" data-execution_count="1">
+<div id="762bfd45" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> echoes <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math, random</span>
@@ -904,22 +977,22 @@ $$
 </div>
 </div>
 <p>A symmetric <span class="math inline">\(3×3\)</span> second-order matrix can be transformed in a vector of <span class="math inline">\(\R^6\)</span> by the function <code>KM</code> consistently with (<a href="../99_appendices/tensor_algebra.html#eq-KM2" class="quarto-xref"><span>A.14</span></a>). The inverse is done by <code>invKM</code>.</p>
-<div id="cc7a2197" class="cell" data-execution_count="2">
+<div id="1e03a37a" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>α <span class="op">=</span> np.random.rand(<span class="dv">3</span>, <span class="dv">3</span>) <span class="op">;</span> ε <span class="op">=</span> (α<span class="op">+</span>α.T)<span class="op">/</span><span class="dv">2</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"ε =</span><span class="ch">\n</span><span class="st">"</span>,ε)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"KM(ε) =</span><span class="ch">\n</span><span class="st">"</span>,KM(ε))</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> np.allclose(invKM(KM(ε)), ε), <span class="st">"error"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>ε =
- [[0.35473279 0.66569612 0.37851704]
- [0.66569612 0.49881953 0.34467884]
- [0.37851704 0.34467884 0.91026962]]
+ [[0.69709813 0.53506694 0.32442103]
+ [0.53506694 0.94504071 0.77793264]
+ [0.32442103 0.77793264 0.3123916 ]]
 KM(ε) =
- [0.35473279 0.49881953 0.91026962 0.48744949 0.53530393 0.94143648]</code></pre>
+ [0.69709813 0.94504071 0.3123916  1.10016289 0.45880062 0.75669892]</code></pre>
 </div>
 </div>
 <p>Given a <span class="math inline">\(3×3×3×3\)</span> array <code>c</code> (of type <code>numpy.ndarray</code>) satisfying major and minor symmetries (see <a href="../99_appendices/tensor_algebra.html#sec-KM" class="quarto-xref"><span>Section A.2</span></a>), the corresponding <span class="math inline">\(6×6\)</span> matrix <code>C</code> obtained by Kelvin-Mandel transform is calculated by <code>C = KM(c)</code>. Conversely, if <code>C</code> is a positive definite matrix, <code>c</code> is calculated by <code>c = invKM(C)</code>.</p>
-<div id="df49f2be" class="cell" data-execution_count="3">
+<div id="01be5944" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.random.rand(<span class="dv">6</span>,<span class="dv">6</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> A.T.dot(A) <span class="op">+</span> np.eye(<span class="dv">6</span>) <span class="co"># generation of an arbitrary positive definite matrix</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> invKM(C)</span>
@@ -928,50 +1001,50 @@ KM(ε) =
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> np.allclose(KM(c), C), <span class="st">"error: KM(c) should be equal to C"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>C =
- [[3.43130579 1.02195245 1.50621265 2.46912517 2.82552258 2.01149492]
- [1.02195245 2.06658272 0.53164441 0.71906412 1.37138385 1.14551359]
- [1.50621265 0.53164441 2.24862943 1.51201039 1.66657135 1.17429339]
- [2.46912517 0.71906412 1.51201039 3.87954039 2.73599011 1.91678353]
- [2.82552258 1.37138385 1.66657135 2.73599011 4.52891943 2.49894942]
- [2.01149492 1.14551359 1.17429339 1.91678353 2.49894942 2.882882  ]]
+ [[2.8344474  1.34244392 1.68007537 1.99254191 1.60339856 1.25473437]
+ [1.34244392 2.80416731 1.9010566  1.6950774  1.97903622 0.90911807]
+ [1.68007537 1.9010566  3.18344589 2.10720072 2.31111208 1.38175589]
+ [1.99254191 1.6950774  2.10720072 3.43130947 2.12506884 1.71139854]
+ [1.60339856 1.97903622 2.31111208 2.12506884 3.68201779 1.60227351]
+ [1.25473437 0.90911807 1.38175589 1.71139854 1.60227351 2.64520247]]
 c =
- [[[[3.43130579 1.4223417  1.99794618]
-   [1.4223417  1.02195245 1.74593515]
-   [1.99794618 1.74593515 1.50621265]]
+ [[[[2.8344474  0.88723118 1.133774  ]
+   [0.88723118 1.34244392 1.4089399 ]
+   [1.133774   1.4089399  1.68007537]]
 
-  [[1.4223417  1.441441   1.24947471]
-   [1.441441   0.81000043 0.95839176]
-   [1.24947471 0.95839176 0.83035082]]
+  [[0.88723118 1.32260124 0.80113676]
+   [1.32260124 0.64284356 0.85569927]
+   [0.80113676 0.85569927 0.97704896]]
 
-  [[1.99794618 1.24947471 2.26445972]
-   [1.24947471 0.96971482 1.36799506]
-   [2.26445972 1.36799506 1.1784439 ]]]
-
-
- [[[1.4223417  1.441441   1.24947471]
-   [1.441441   0.81000043 0.95839176]
-   [1.24947471 0.95839176 0.83035082]]
-
-  [[1.02195245 0.81000043 0.96971482]
-   [0.81000043 2.06658272 0.50845512]
-   [0.96971482 0.50845512 0.53164441]]
-
-  [[1.74593515 0.95839176 1.36799506]
-   [0.95839176 0.50845512 1.93977019]
-   [1.36799506 1.93977019 1.0691528 ]]]
+  [[1.133774   0.80113676 1.8410089 ]
+   [0.80113676 1.39938993 1.06253442]
+   [1.8410089  1.06253442 1.63420302]]]
 
 
- [[[1.99794618 1.24947471 2.26445972]
-   [1.24947471 0.96971482 1.36799506]
-   [2.26445972 1.36799506 1.1784439 ]]
+ [[[0.88723118 1.32260124 0.80113676]
+   [1.32260124 0.64284356 0.85569927]
+   [0.80113676 0.85569927 0.97704896]]
 
-  [[1.74593515 0.95839176 1.36799506]
-   [0.95839176 0.50845512 1.93977019]
-   [1.36799506 1.93977019 1.0691528 ]]
+  [[1.34244392 0.64284356 1.39938993]
+   [0.64284356 2.80416731 1.19860072]
+   [1.39938993 1.19860072 1.9010566 ]]
 
-  [[1.50621265 0.83035082 1.1784439 ]
-   [0.83035082 0.53164441 1.0691528 ]
-   [1.1784439  1.0691528  2.24862943]]]]</code></pre>
+  [[1.4089399  0.85569927 1.06253442]
+   [0.85569927 1.19860072 1.71565474]
+   [1.06253442 1.71565474 1.49001592]]]
+
+
+ [[[1.133774   0.80113676 1.8410089 ]
+   [0.80113676 1.39938993 1.06253442]
+   [1.8410089  1.06253442 1.63420302]]
+
+  [[1.4089399  0.85569927 1.06253442]
+   [0.85569927 1.19860072 1.71565474]
+   [1.06253442 1.71565474 1.49001592]]
+
+  [[1.68007537 0.97704896 1.63420302]
+   [0.97704896 1.9010566  1.49001592]
+   [1.63420302 1.49001592 3.18344589]]]]</code></pre>
 </div>
 </div>
 <p><span class="math inline">\(\,\)</span></p>
@@ -980,22 +1053,39 @@ c =
 
 </main> <!-- /main -->
 <script>
+
 // The cover logo, in 3D. js/echoes-viewer.js — copied unchanged from the
+
 // website (jfbarthelemy.github.io/js/echoes-viewer.js) — replaces the cover
+
 // image by the scene it was rendered from (img/cover.asy), read from
+
 // img/echoes_scene.json: it turns slowly by itself and can be turned by hand.
+
 // Loaded only on the page that has the cover. Without JavaScript or WebGL, and
+
 // for a reader who asks for reduced motion, the image or a still sphere stays.
+
 (function () {
+
   if (!document.querySelector("img.quarto-cover-image")) return;
+
   var meta = document.querySelector('meta[name="quarto:offset"]');
+
   var s = document.createElement("script");
+
   s.src = (meta ? meta.getAttribute("content") : "./") + "js/echoes-viewer.js";
+
   s.setAttribute("data-target", "img.quarto-cover-image");
+
   s.setAttribute("data-scene", "img/echoes_scene.json");
+
   document.head.appendChild(s);
+
 })();
+
 </script>
+
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
