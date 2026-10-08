@@ -215,6 +215,39 @@ gtag('config', 'G-DF66M2GWRG', { 'anonymize_ip': true});
   });
 })();
 </script>
+<style>
+/* The cover logo in 3D (_config/echoes_logo.html): the canvas takes the place
+   of the cover image, with its classes, and keeps it square. */
+canvas.quarto-cover-image.echoes-viewer {
+  width: min(35%, 18rem);
+  height: auto;
+  max-width: none;
+  aspect-ratio: 1;
+  cursor: grab;
+  touch-action: pan-y; /* horizontal drags turn the sphere, vertical ones scroll */
+}
+canvas.quarto-cover-image.echoes-viewer:active { cursor: grabbing; }
+
+/* Affiliation logos, as on jfbarthelemy.github.io: small, on a white card, so
+   that the transparent UMR MCD logo stays readable on the dark theme. */
+.affil-strip p {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+  margin: 0.75rem 0 1rem;
+}
+.affil-strip a { display: inline-flex; opacity: 0.85; transition: opacity 0.18s ease; }
+.affil-strip a:hover { opacity: 1; }
+.affil-logo {
+  height: 3rem;
+  width: auto;
+  padding: 0.3rem 0.55rem;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 0.375rem;
+}
+</style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
@@ -432,11 +465,7 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./img/cover.html" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="./img/cover.html" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Echoes</a> 
         <div class="sidebar-tools-main">
@@ -830,29 +859,28 @@ Series - 55, Washington D.C.
 <div id="ref-achourCBM2020" class="csl-entry" role="listitem">
 Achour, M., Bignonnet, F., Barthélémy, J.-F., Rozière, E., Amiri, O.,
 2020. Multi-scale modeling of the chloride diffusivity and the
-elasticity of <span>Portland</span> cement paste. Construction and
-Building Materials 234, 117124. <a href="https://doi.org/10.1016/j.conbuildmat.2019.117124">https://doi.org/10.1016/j.conbuildmat.2019.117124</a>
+elasticity of <span>Portland</span> cement paste. Constr. Build. Mater.
+234, 117124. <a href="https://doi.org/10.1016/j.conbuildmat.2019.117124">https://doi.org/10.1016/j.conbuildmat.2019.117124</a>
 </div>
 <div id="ref-echoes" class="csl-entry" role="listitem">
-Barthélémy, J.-F., 2026. Echoes: <span>Extended Calculator</span> of
-<span>HOmogEnization Schemes</span>. <a href="https://doi.org/10.5281/zenodo.7348758">https://doi.org/10.5281/zenodo.7348758</a>
+Barthélémy, J.-F., 2022. Echoes: <span>Extended Calculator</span> of
+<span>HOmogEnization Schemes</span>. <a href="https://doi.org/10.5281/zenodo.19679057">https://doi.org/10.5281/zenodo.19679057</a>
 </div>
 <div id="ref-barthelemyIJES2020_hilltrans" class="csl-entry" role="listitem">
 Barthélémy, J.-F., 2020. Simplified approach to the derivation of the
 relationship between <span>Hill</span> polarization tensors of
-transformed problems and applications. International Journal of
-Engineering Science 154, 103326. <a href="https://doi.org/10.1016/j.ijengsci.2020.103326">https://doi.org/10.1016/j.ijengsci.2020.103326</a>
+transformed problems and applications. Int. J. Eng. Sci. 154, 103326. <a href="https://doi.org/10.1016/j.ijengsci.2020.103326">https://doi.org/10.1016/j.ijengsci.2020.103326</a>
 </div>
 <div id="ref-barthelemyIJSS2009" class="csl-entry" role="listitem">
 Barthélémy, J.-F., 2009a. Compliance and <span>Hill</span> polarization
-tensor of a crack in an anisotropic matrix. International Journal of
-Solids and Structures 46, 4064–4072. <a href="https://doi.org/10.1016/j.ijsolstr.2009.08.003">https://doi.org/10.1016/j.ijsolstr.2009.08.003</a>
+tensor of a crack in an anisotropic matrix. Int. J. Solids Struct. 46,
+4064–4072. <a href="https://doi.org/10.1016/j.ijsolstr.2009.08.003">https://doi.org/10.1016/j.ijsolstr.2009.08.003</a>
 </div>
 <div id="ref-barthelemyTIPM2009" class="csl-entry" role="listitem">
 Barthélémy, J.-F., 2009b. Effective <span>Permeability</span> of
 <span>Media</span> with a <span>Dense Network</span> of
-<span>Long</span> and <span>Micro Fractures</span>. Transport in Porous
-Media 76, 153–178. <a href="https://doi.org/10.1007/s11242-008-9241-9">https://doi.org/10.1007/s11242-008-9241-9</a>
+<span>Long</span> and <span>Micro Fractures</span>. Transp. Porous Media
+76, 153–178. <a href="https://doi.org/10.1007/s11242-008-9241-9">https://doi.org/10.1007/s11242-008-9241-9</a>
 </div>
 <div id="ref-barthelemyIJSS2016" class="csl-entry" role="listitem">
 Barthélémy, J.-F., Giraud, A., Lavergne, F., Sanahuja, J., 2016. The
@@ -862,13 +890,12 @@ Int. J. Solids Struct. 97–98, 530–542. <a href="https://doi.org/10.1016/j.ij
 <div id="ref-barthelemyIJES2019" class="csl-entry" role="listitem">
 Barthélémy, J.-F., Giraud, A., Sanahuja, J., Sevostianov, I., 2019.
 Effective properties of ageing linear viscoelastic media with spheroidal
-inhomogeneities. International Journal of Engineering Science 144,
-103104. <a href="https://doi.org/10.1016/j.ijengsci.2019.05.015">https://doi.org/10.1016/j.ijengsci.2019.05.015</a>
+inhomogeneities. Int. J. Eng. Sci. 144, 103104. <a href="https://doi.org/10.1016/j.ijengsci.2019.05.015">https://doi.org/10.1016/j.ijengsci.2019.05.015</a>
 </div>
 <div id="ref-barthelemyIJES2021" class="csl-entry" role="listitem">
 Barthélémy, J.-F., Sevostianov, I., Giraud, A., 2021. Micromechanical
-modeling of a cracked elliptically orthotropic medium. International
-Journal of Engineering Science 161, 103454. <a href="https://doi.org/10.1016/j.ijengsci.2021.103454">https://doi.org/10.1016/j.ijengsci.2021.103454</a>
+modeling of a cracked elliptically orthotropic medium. Int. J. Eng. Sci.
+161, 103454. <a href="https://doi.org/10.1016/j.ijengsci.2021.103454">https://doi.org/10.1016/j.ijengsci.2021.103454</a>
 </div>
 <div id="ref-bornert2001a" class="csl-entry" role="listitem">
 Bornert, M., Bretheau, T., Gilormini, P., 2001. Homogénéisation en
@@ -876,7 +903,7 @@ mécanique des matériaux. Hermes science.
 </div>
 <div id="ref-budiansky1976" class="csl-entry" role="listitem">
 Budiansky, B., O’Connell, R.J., 1976. Elastic moduli of a cracked solid.
-International Journal of Solids and Structures 12, 81–97. <a href="https://doi.org/10.1016/0020-7683(76)90044-5">https://doi.org/10.1016/0020-7683(76)90044-5</a>
+Int. J. Solids Struct. 12, 81–97. <a href="https://doi.org/10.1016/0020-7683(76)90044-5">https://doi.org/10.1016/0020-7683(76)90044-5</a>
 </div>
 <div id="ref-dormieux2006" class="csl-entry" role="listitem">
 Dormieux, L., Kondo, D., Ulm, F.-J., 2006. Microporomechanics. John
@@ -884,30 +911,29 @@ Wiley &amp; Sons, Chichester, West Sussex, England ; Hoboken, NJ. <a href="https
 </div>
 <div id="ref-eshelby1957" class="csl-entry" role="listitem">
 Eshelby, J.D., 1957. The determination of the elastic field of an
-ellipsoidal inclusion, and related problems. Proceedings of the Royal
-Society of London. Series A. Mathematical and Physical Sciences 241,
-376–396. <a href="https://doi.org/10.1098/rspa.1957.0133">https://doi.org/10.1098/rspa.1957.0133</a>
+ellipsoidal inclusion, and related problems. Proc. R. Soc. Lond. Ser.
+Math. Phys. Sci. 241, 376–396. <a href="https://doi.org/10.1098/rspa.1957.0133">https://doi.org/10.1098/rspa.1957.0133</a>
 </div>
 <div id="ref-espelid1994" class="csl-entry" role="listitem">
 Espelid, T.O., Genz, A., 1994. <span>DECUHR</span>: An algorithm for
 automatic integration of singular functions over a hyperrectangular
-region. Numerical Algorithms 8, 201–220. <a href="https://doi.org/10.1007/BF02142691">https://doi.org/10.1007/BF02142691</a>
+region. Numer. Algorithms 8, 201–220. <a href="https://doi.org/10.1007/BF02142691">https://doi.org/10.1007/BF02142691</a>
 </div>
 <div id="ref-gavazzi1990" class="csl-entry" role="listitem">
 Gavazzi, A.C., Lagoudas, D.C., 1990. On the numerical evaluation of
 <span>Eshelby</span>’s tensor and its application to elastoplastic
-fibrous composites. Computational Mechanics 7, 13–19. <a href="https://doi.org/10.1007/BF00370053">https://doi.org/10.1007/BF00370053</a>
+fibrous composites. Comput. Mech. 7, 13–19. <a href="https://doi.org/10.1007/BF00370053">https://doi.org/10.1007/BF00370053</a>
 </div>
 <div id="ref-ghahremani1977" class="csl-entry" role="listitem">
 Ghahremani, F., 1977. Numerical evaluation of the stresses and strains
-in ellipsoidal inclusions in an anisotropic elastic material. Mechanics
-Research Communications 4, 89–91. <a href="https://doi.org/10.1016/0093-6413(77)90018-0">https://doi.org/10.1016/0093-6413(77)90018-0</a>
+in ellipsoidal inclusions in an anisotropic elastic material. Mech. Res.
+Commun. 4, 89–91. <a href="https://doi.org/10.1016/0093-6413(77)90018-0">https://doi.org/10.1016/0093-6413(77)90018-0</a>
 </div>
 <div id="ref-giraudMOM2019" class="csl-entry" role="listitem">
 Giraud, A., Sevostianov, I., Kushch, V.I., Cosenza, P., Prêt, D.,
 Barthélémy, J.-F., Trofimov, A., 2019. Effective electrical conductivity
 of transversely isotropic rocks with arbitrarily oriented ellipsoidal
-inclusions. Mechanics of Materials 133, 174–192. <a href="https://doi.org/10.1016/j.mechmat.2019.03.011">https://doi.org/10.1016/j.mechmat.2019.03.011</a>
+inclusions. Mech. Mater. 133, 174–192. <a href="https://doi.org/10.1016/j.mechmat.2019.03.011">https://doi.org/10.1016/j.mechmat.2019.03.011</a>
 </div>
 <div id="ref-herve1993" class="csl-entry" role="listitem">
 Hervé, E., Zaoui, A., 1993. N-layered inclusion-based micromechanical
@@ -916,8 +942,8 @@ modelling. Int. J. Engng. Sci. 31, 1–10. <a href="https://doi.org/10.1016/0020
 <div id="ref-herve-luanco2014" class="csl-entry" role="listitem">
 Hervé-Luanco, E., 2014. Elastic behavior of composites containing
 multi-layer coated particles with imperfect interface bonding conditions
-and application to size effects and mismatch in these composites.
-International Journal of Solids and Structures 51, 2865–2877. <a href="https://doi.org/10.1016/j.ijsolstr.2014.04.008">https://doi.org/10.1016/j.ijsolstr.2014.04.008</a>
+and application to size effects and mismatch in these composites. Int.
+J. Solids Struct. 51, 2865–2877. <a href="https://doi.org/10.1016/j.ijsolstr.2014.04.008">https://doi.org/10.1016/j.ijsolstr.2014.04.008</a>
 </div>
 <div id="ref-hill1965" class="csl-entry" role="listitem">
 Hill, R., 1965. Continuum micro-mechanics of elastioplastic
@@ -928,13 +954,13 @@ Hinsen, K., 2025. <a href="https://github.com/khinsen/mittag-leffler">Khinsen/mi
 </div>
 <div id="ref-kachanov1993" class="csl-entry" role="listitem">
 Kachanov, M., 1993. Elastic <span>Solids</span> with <span>Many
-Cracks</span> and <span>Related Problems</span>. Advances in Applied
-Mechanics 30, 259–445. <a href="https://doi.org/10.1016/S0065-2156(08)70176-5">https://doi.org/10.1016/S0065-2156(08)70176-5</a>
+Cracks</span> and <span>Related Problems</span>. Adv. Appl. Mech. 30,
+259–445. <a href="https://doi.org/10.1016/S0065-2156(08)70176-5">https://doi.org/10.1016/S0065-2156(08)70176-5</a>
 </div>
 <div id="ref-kachanov1992" class="csl-entry" role="listitem">
 Kachanov, M., 1992. Effective <span>Elastic Properties</span> of
 <span>Cracked Solids</span>: <span>Critical Review</span> of <span>Some
-Basic Concepts</span>. Applied Mechanics Reviews 45, 304–335. <a href="https://doi.org/10.1115/1.3119761">https://doi.org/10.1115/1.3119761</a>
+Basic Concepts</span>. Appl. Mech. Rev. 45, 304–335. <a href="https://doi.org/10.1115/1.3119761">https://doi.org/10.1115/1.3119761</a>
 </div>
 <div id="ref-kachanov2018" class="csl-entry" role="listitem">
 Kachanov, M., Sevostianov, I., 2018. Micromechanics of
@@ -955,17 +981,17 @@ isotropic materials. Mech. Mater. 4, 209–212.
 </div>
 <div id="ref-laws1977" class="csl-entry" role="listitem">
 Laws, N., 1977. A note on interaction energies associated with cracks in
-anisotropic solids. Philos. Magazine 36, 367–372.
+anisotropic solids. Philos Mag. 36, 367–372.
 </div>
 <div id="ref-love1944" class="csl-entry" role="listitem">
 Love, A.E.H., 1944. <a href="https://archive.org/details/atreatiseonmath01lovegoog">Treatise on
-mathematical theory of elasticity. 4th edition</a>. A Treatise on the
-Mathematical Theory of Elasticity 643.
+mathematical theory of elasticity. 4th edition</a>. Treatise Math.
+Theory Elast. 643.
 </div>
 <div id="ref-masson2008" class="csl-entry" role="listitem">
 Masson, R., 2008. New explicit expressions of the <span>Hill</span>
-polarization tensor for general anisotropic elastic solids.
-International Journal of Solids and Structures 45, 757–769. <a href="https://doi.org/10.1016/j.ijsolstr.2007.08.035">https://doi.org/10.1016/j.ijsolstr.2007.08.035</a>
+polarization tensor for general anisotropic elastic solids. Int. J.
+Solids Struct. 45, 757–769. <a href="https://doi.org/10.1016/j.ijsolstr.2007.08.035">https://doi.org/10.1016/j.ijsolstr.2007.08.035</a>
 </div>
 <div id="ref-milton2002" class="csl-entry" role="listitem">
 Milton, G.W., 2002. The <span>Theory</span> of <span>Composites</span>,
@@ -975,12 +1001,12 @@ Cambridge. <a href="https://doi.org/10.1017/CBO9780511613357">https://doi.org/10
 </div>
 <div id="ref-morin2020" class="csl-entry" role="listitem">
 Morin, L., Gilormini, P., Derrien, K., 2020. Generalized <span>Euclidean
-Distances</span> for <span>Elasticity Tensors</span>. Journal of
-Elasticity 138, 221–232. <a href="https://doi.org/10.1007/s10659-019-09741-z">https://doi.org/10.1007/s10659-019-09741-z</a>
+Distances</span> for <span>Elasticity Tensors</span>. J. Elast. 138,
+221–232. <a href="https://doi.org/10.1007/s10659-019-09741-z">https://doi.org/10.1007/s10659-019-09741-z</a>
 </div>
 <div id="ref-mura1987" class="csl-entry" role="listitem">
 Mura, T., 1987. Micromechanics of <span>Defects</span> in
-<span>Solids</span>, <span>Second Edition</span>. Kluwer Academic. <a href="https://doi.org/10.1002/zamm.19890690204">https://doi.org/10.1002/zamm.19890690204</a>
+<span>Solids</span>, <span>Second Edition</span>. Kluwer Academic. <a href="https://doi.org/10.1007/978-94-009-3489-4">https://doi.org/10.1007/978-94-009-3489-4</a>
 </div>
 <div id="ref-nemat-nasser1999" class="csl-entry" role="listitem">
 Nemat-Nasser, S., Hori, M., 1999. Micromechanics: <span>Overall
@@ -991,25 +1017,25 @@ Netherlands.
 <div id="ref-papadakis1991" class="csl-entry" role="listitem">
 Papadakis, V.G., Vayenas, C.G., Fardis, M.N., 1991. Physical and
 <span>Chemical Characteristics Affecting</span> the
-<span>Durability</span> of <span>Concrete</span>. ACI Materials Journal
-88, 186–196. <a href="https://doi.org/10.14359/1993">https://doi.org/10.14359/1993</a>
+<span>Durability</span> of <span>Concrete</span>. ACI Mater. J. 88,
+186–196. <a href="https://doi.org/10.14359/1993">https://doi.org/10.14359/1993</a>
 </div>
 <div id="ref-parnell2016" class="csl-entry" role="listitem">
 Parnell, W.J., 2016. The <span>Eshelby</span>, <span>Hill</span>,
 <span>Moment</span> and <span>Concentration Tensors</span> for
 <span>Ellipsoidal Inhomogeneities</span> in the <span>Newtonian
-Potential Problem</span> and <span>Linear Elastostatics</span>. Journal
-of Elasticity 125, 231–294. <a href="https://doi.org/10.1007/s10659-016-9573-6">https://doi.org/10.1007/s10659-016-9573-6</a>
+Potential Problem</span> and <span>Linear Elastostatics</span>. J.
+Elast. 125, 231–294. <a href="https://doi.org/10.1007/s10659-016-9573-6">https://doi.org/10.1007/s10659-016-9573-6</a>
 </div>
 <div id="ref-pichler2011" class="csl-entry" role="listitem">
 Pichler, B., Hellmich, C., 2011. Upscaling quasi-brittle strength of
 cement paste and mortar: <span>A</span> multi-scale engineering
-mechanics model. Cement and Concrete Research 41, 467–476. <a href="https://doi.org/10.1016/j.cemconres.2011.01.010">https://doi.org/10.1016/j.cemconres.2011.01.010</a>
+mechanics model. Cem. Concr. Res. 41, 467–476. <a href="https://doi.org/10.1016/j.cemconres.2011.01.010">https://doi.org/10.1016/j.cemconres.2011.01.010</a>
 </div>
 <div id="ref-pouya2000" class="csl-entry" role="listitem">
 Pouya, A., 2000. Une transformation du problème d’élasticité linéaire en
 vue d’application au problème de l’inclusion et aux fonctions de
-<span>Green</span>. C. R. Acad. Sci., Série IIb 328, 437–443.
+<span>Green</span>. C R Acad Sci Sér. IIb 328, 437–443.
 </div>
 <div id="ref-pouya2006" class="csl-entry" role="listitem">
 Pouya, A., Zaoui, A., 2006. A transformation of elastic boundary value
@@ -1018,13 +1044,13 @@ Struct. 43, 4937–4956. <a href="https://doi.org/10.1016/j.ijsolstr.2005.06.046
 </div>
 <div id="ref-powers1946" class="csl-entry" role="listitem">
 Powers, T.C., Brownyard, T.L., 1946. Studies of the <span>Physical
-Properties</span> of <span>Hardened Portland Cement Paste</span>. JP 43.
-<a href="https://doi.org/10.14359/15302">https://doi.org/10.14359/15302</a>
+Properties</span> of <span>Hardened Portland Cement Paste</span>. ACI J.
+Proc. 43. <a href="https://doi.org/10.14359/15302">https://doi.org/10.14359/15302</a>
 </div>
 <div id="ref-saevik2014" class="csl-entry" role="listitem">
 Saevik, P.N., Jakobsen, M., Lien, M., Berre, I., 2014. Anisotropic
 effective conductivity in fractured rocks by explicit effective medium
-methods. Geophysical Prospecting 62, 1297–1314. <a href="https://doi.org/10.1111/1365-2478.12173">https://doi.org/10.1111/1365-2478.12173</a>
+methods. Geophys. Prospect. 62, 1297–1314. <a href="https://doi.org/10.1111/1365-2478.12173">https://doi.org/10.1111/1365-2478.12173</a>
 </div>
 <div id="ref-sanahuja2013" class="csl-entry" role="listitem">
 Sanahuja, Julien, 2013. Effective behaviour of ageing linear
@@ -1033,9 +1059,9 @@ Solids Struct. 50, 2846–2856. <a href="https://doi.org/10.1016/j.ijsolstr.2013
 </div>
 <div id="ref-sanahuja2013a" class="csl-entry" role="listitem">
 Sanahuja, J., 2013. Efficient homogenization of ageing creep of random
-media: Application to solidifying cementitious materials. Mechanics and
-Physics of Creep, Shrinkage and Durability of Concrete. A Tribute to
-Zdeněk P. Bažant. CONCREEP-9 201–210. <a href="https://doi.org/doi:10.1061/9780784413111.023">https://doi.org/doi:10.1061/9780784413111.023</a>
+media: Application to solidifying cementitious materials. Mech. Phys.
+Creep Shrinkage Durab. Concr. Tribute Zdeněk P Bažant CONCREEP-9
+201–210. <a href="https://doi.org/doi:10.1061/9780784413111.023">https://doi.org/doi:10.1061/9780784413111.023</a>
 </div>
 <div id="ref-sanahuja2007" class="csl-entry" role="listitem">
 Sanahuja, J., Dormieux, L., Chanvillard, G., 2007. Modelling elasticity
@@ -1043,21 +1069,18 @@ of a hydrating cement paste. Cem. Concr. Res. 37, 1427–1439.
 </div>
 <div id="ref-sevostianov2002" class="csl-entry" role="listitem">
 Sevostianov, I., Kachanov, M., 2002. On elastic compliances of
-irregularly shaped cracks. International Journal of Fracture 114,
-245–257. <a href="https://doi.org/10.1023/A:1015534127172">https://doi.org/10.1023/A:1015534127172</a>
+irregularly shaped cracks. Int. J. Fract. 114, 245–257. <a href="https://doi.org/10.1023/A:1015534127172">https://doi.org/10.1023/A:1015534127172</a>
 </div>
 <div id="ref-sevostianov2015" class="csl-entry" role="listitem">
 Sevostianov, I., Levin, V., Radi, E., 2015. Effective properties of
 linear viscoelastic microcracked materials: <span>Application</span> of
-<span>Maxwell</span> homogenization scheme. Mechanics of Materials 84,
-28–43.
+<span>Maxwell</span> homogenization scheme. Mech. Mater. 84, 28–43.
 </div>
 <div id="ref-someCBM2022" class="csl-entry" role="listitem">
 Somé, S.C., Barthélémy, J.-F., Mouillet, V., Hammoum, F., Liu, G., 2022.
 Effect of thermo-oxidative ageing on the rheological properties of
 bituminous binders and mixes: <span>Experimental</span> study and
-multi-scale modeling. Construction and Building Materials 344, 128260.
-<a href="https://doi.org/10.1016/j.conbuildmat.2022.128260">https://doi.org/10.1016/j.conbuildmat.2022.128260</a>
+multi-scale modeling. Constr. Build. Mater. 344, 128260. <a href="https://doi.org/10.1016/j.conbuildmat.2022.128260">https://doi.org/10.1016/j.conbuildmat.2022.128260</a>
 </div>
 <div id="ref-suquet1997" class="csl-entry" role="listitem">
 Suquet, P., 1997. Effective properties of nonlinear composites, in:
@@ -1066,13 +1089,12 @@ Italy, pp. 197–264.
 </div>
 <div id="ref-suvorov2002" class="csl-entry" role="listitem">
 Suvorov, A.P., Dvorak, G.J., 2002. Rate form of the <span>Eshelby</span>
-and <span>Hill</span> tensors. International Journal of Solids and
-Structures 39, 5659–5678. <a href="https://doi.org/10.1016/S0020-7683(02)00369-4">https://doi.org/10.1016/S0020-7683(02)00369-4</a>
+and <span>Hill</span> tensors. Int. J. Solids Struct. 39, 5659–5678. <a href="https://doi.org/10.1016/S0020-7683(02)00369-4">https://doi.org/10.1016/S0020-7683(02)00369-4</a>
 </div>
 <div id="ref-tennis2000" class="csl-entry" role="listitem">
 Tennis, P.D., Jennings, H.M., 2000. A model for two types of calcium
 silicate hydrate in the microstructure of <span>Portland</span> cement
-pastes. Cement and Concrete Research 30, 855–863. <a href="https://doi.org/10.1016/S0008-8846(00)00257-X">https://doi.org/10.1016/S0008-8846(00)00257-X</a>
+pastes. Cem. Concr. Res. 30, 855–863. <a href="https://doi.org/10.1016/S0008-8846(00)00257-X">https://doi.org/10.1016/S0008-8846(00)00257-X</a>
 </div>
 <div id="ref-torquato2002" class="csl-entry" role="listitem">
 Torquato, S., 2002. Random <span>Heterogeneous Materials</span>,
@@ -1081,19 +1103,18 @@ New York, NY. <a href="https://doi.org/10.1007/978-1-4757-6355-3">https://doi.or
 </div>
 <div id="ref-walpole1984" class="csl-entry" role="listitem">
 Walpole, L.J., 1984. Fourth-rank tensors of the thirty-two crystal
-classes: Multiplication tables. Proceedings of the Royal Society of
-London. A. Mathematical and Physical Sciences 391, 149–179. <a href="https://doi.org/10.1098/rspa.1984.0008">https://doi.org/10.1098/rspa.1984.0008</a>
+classes: Multiplication tables. Proc. R. Soc. Lond. Math. Phys. Sci.
+391, 149–179. <a href="https://doi.org/10.1098/rspa.1984.0008">https://doi.org/10.1098/rspa.1984.0008</a>
 </div>
 <div id="ref-willis1977" class="csl-entry" role="listitem">
 Willis, J.R., 1977. Bounds and self-consistent estimates for the overall
-properties of anisotropic composites. Journal of the Mechanics and
-Physics of Solids 25, 185–202. <a href="https://doi.org/10.1016/0022-5096(77)90022-9">https://doi.org/10.1016/0022-5096(77)90022-9</a>
+properties of anisotropic composites. J. Mech. Phys. Solids 25, 185–202.
+<a href="https://doi.org/10.1016/0022-5096(77)90022-9">https://doi.org/10.1016/0022-5096(77)90022-9</a>
 </div>
 <div id="ref-withers1989" class="csl-entry" role="listitem">
 Withers, P.J., 1989. The determination of the elastic field of an
 ellipsoidal inclusion in a transversely isotropic medium, and its
-relevance to composite materials. Philosophical Magazine A 59, 759–781.
-<a href="https://doi.org/10.1080/01418618908209819">https://doi.org/10.1080/01418618908209819</a>
+relevance to composite materials. Philos. Mag. A 59, 759–781. <a href="https://doi.org/10.1080/01418618908209819">https://doi.org/10.1080/01418618908209819</a>
 </div>
 <div id="ref-zaoui2002" class="csl-entry" role="listitem">
 Zaoui, A., 2002. Continuum <span>Micromechanics</span>:
@@ -1105,6 +1126,23 @@ Zaoui, A., 2002. Continuum <span>Micromechanics</span>:
 
 
 </main> <!-- /main -->
+<script>
+// The cover logo, in 3D. js/echoes-viewer.js — copied unchanged from the
+// website (jfbarthelemy.github.io/js/echoes-viewer.js) — replaces the cover
+// image by the scene it was rendered from (img/cover.asy), read from
+// img/echoes_scene.json: it turns slowly by itself and can be turned by hand.
+// Loaded only on the page that has the cover. Without JavaScript or WebGL, and
+// for a reader who asks for reduced motion, the image or a still sphere stays.
+(function () {
+  if (!document.querySelector("img.quarto-cover-image")) return;
+  var meta = document.querySelector('meta[name="quarto:offset"]');
+  var s = document.createElement("script");
+  s.src = (meta ? meta.getAttribute("content") : "./") + "js/echoes-viewer.js";
+  s.setAttribute("data-target", "img.quarto-cover-image");
+  s.setAttribute("data-scene", "img/echoes_scene.json");
+  document.head.appendChild(s);
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

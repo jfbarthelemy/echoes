@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jean-François Barthélémy">
-<meta name="dcterms.date" content="2026-09-21">
+<meta name="dcterms.date" content="2026-10-08">
 
 <title>Echoes</title>
 <style>
@@ -257,6 +257,39 @@ gtag('config', 'G-DF66M2GWRG', { 'anonymize_ip': true});
   });
 })();
 </script>
+<style>
+/* The cover logo in 3D (_config/echoes_logo.html): the canvas takes the place
+   of the cover image, with its classes, and keeps it square. */
+canvas.quarto-cover-image.echoes-viewer {
+  width: min(35%, 18rem);
+  height: auto;
+  max-width: none;
+  aspect-ratio: 1;
+  cursor: grab;
+  touch-action: pan-y; /* horizontal drags turn the sphere, vertical ones scroll */
+}
+canvas.quarto-cover-image.echoes-viewer:active { cursor: grabbing; }
+
+/* Affiliation logos, as on jfbarthelemy.github.io: small, on a white card, so
+   that the transparent UMR MCD logo stays readable on the dark theme. */
+.affil-strip p {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+  margin: 0.75rem 0 1rem;
+}
+.affil-strip a { display: inline-flex; opacity: 0.85; transition: opacity 0.18s ease; }
+.affil-strip a:hover { opacity: 1; }
+.affil-logo {
+  height: 3rem;
+  width: auto;
+  padding: 0.3rem 0.55rem;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 0.375rem;
+}
+</style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
@@ -474,11 +507,7 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./img/cover.html" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="./img/cover.html" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Echoes</a> 
         <div class="sidebar-tools-main">
@@ -873,7 +902,7 @@ $$
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 21, 2026</p>
+      <p class="date">October 8, 2026</p>
     </div>
   </div>
   
@@ -891,7 +920,7 @@ $$
 [![](img/arrow-expand.png){width=3%}](img/cover.html)julia
 ::: -->
 <section id="sec-welcome" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="sec-welcome">Welcome</h2><p><embed src="img/cover.html" title="Echoes" class="quarto-cover-image nolightbox img-fluid"></p>
+<h2 class="unnumbered anchored" data-anchor-id="sec-welcome">Welcome</h2><p><img src="img/cover.png" title="Echoes" class="quarto-cover-image nolightbox img-fluid"></p>
 <p>The library <code>echoes</code> allows to implement various mean-field homogenization schemes of random media involving different types of heterogeneities in the framework of elasticity, conductivity, viscoelasticity as well as nonlinear homogenization.</p>
 <p>This book gathers tutorials presenting the main features of the library:</p>
 <ul>
@@ -914,7 +943,7 @@ $$
 </section>
 <section id="citation" class="level2">
 <h2 class="anchored" data-anchor-id="citation">Citation</h2>
-<p>If you use <code>echoes</code>, please cite it as <span class="citation" data-cites="echoes">(<a href="references.html#ref-echoes" role="doc-biblioref">Barthélémy, 2026</a>)</span> or in <code>bibtex</code> style</p>
+<p>If you use <code>echoes</code>, please cite it as <span class="citation" data-cites="echoes">(<a href="references.html#ref-echoes" role="doc-biblioref">Barthélémy, 2022</a>)</span> or in <code>bibtex</code> style</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode tex code-with-copy"><code class="sourceCode latex"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>@software{echoes,</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  title = {Echoes: {{Extended Calculator}} of {{HOmogEnization Schemes}}},</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  shorttitle = {Echoes},</span>
@@ -930,15 +959,8 @@ $$
 <section id="about-the-author" class="level2">
 <h2 class="anchored" data-anchor-id="about-the-author">About the author</h2>
 <p><a href="https://jfbarthelemy.github.io/">Jean-François Barthélémy</a> is a researcher at <a href="https://www.cerema.fr/en">Cerema</a> in the research team <a href="https://mcd.univ-gustave-eiffel.fr/">UMR MCD</a>.</p>
-<div class="quarto-layout-panel" data-layout="[3,2]">
-<div class="quarto-layout-row quarto-layout-valign-center">
-<div class="quarto-layout-cell" style="flex-basis: 60.0%;justify-content: center;">
-<p><a href="https://www.cerema.fr/en"><img src="img/Logo RF Cerema horizontal.jpg" class="img-fluid" alt="Cerema"></a></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 40.0%;justify-content: center;">
-<p><a href="https://mcd.univ-gustave-eiffel.fr/"><img src="img/UMR MCD-couleur-300dpi.png" class="img-fluid" alt="UMR MCD"></a></p>
-</div>
-</div>
+<div class="affil-strip">
+<p><a href="https://www.cerema.fr/en"><img src="img/logo-cerema.jpg" class="affil-logo img-fluid" alt="Cerema"></a> <a href="https://mcd.univ-gustave-eiffel.fr/"><img src="img/logo-umr-mcd.png" class="affil-logo img-fluid" alt="UMR MCD — Université Gustave Eiffel"></a></p>
 </div>
 <div class="quarto-layout-panel" data-layout="[10,10,10,10]">
 <div class="quarto-layout-row">
@@ -978,12 +1000,29 @@ $$
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-echoes" class="csl-entry" role="listitem">
-Barthélémy, J.-F., 2026. Echoes: <span>Extended Calculator</span> of <span>HOmogEnization Schemes</span>. <a href="https://doi.org/10.5281/zenodo.7348758">https://doi.org/10.5281/zenodo.7348758</a>
+Barthélémy, J.-F., 2022. Echoes: <span>Extended Calculator</span> of <span>HOmogEnization Schemes</span>. <a href="https://doi.org/10.5281/zenodo.19679057">https://doi.org/10.5281/zenodo.19679057</a>
 </div>
 </div>
 </section>
 
 </main> <!-- /main -->
+<script>
+// The cover logo, in 3D. js/echoes-viewer.js — copied unchanged from the
+// website (jfbarthelemy.github.io/js/echoes-viewer.js) — replaces the cover
+// image by the scene it was rendered from (img/cover.asy), read from
+// img/echoes_scene.json: it turns slowly by itself and can be turned by hand.
+// Loaded only on the page that has the cover. Without JavaScript or WebGL, and
+// for a reader who asks for reduced motion, the image or a still sphere stays.
+(function () {
+  if (!document.querySelector("img.quarto-cover-image")) return;
+  var meta = document.querySelector('meta[name="quarto:offset"]');
+  var s = document.createElement("script");
+  s.src = (meta ? meta.getAttribute("content") : "./") + "js/echoes-viewer.js";
+  s.setAttribute("data-target", "img.quarto-cover-image");
+  s.setAttribute("data-scene", "img/echoes_scene.json");
+  document.head.appendChild(s);
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
