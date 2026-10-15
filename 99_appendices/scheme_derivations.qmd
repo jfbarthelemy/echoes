@@ -84,22 +84,22 @@ $${#eq-C-sc}
 
 which is solved iteratively. The SC scheme naturally accounts for phase interactions and predicts percolation thresholds. It is particularly suited for polycrystalline or disordered materials where no phase plays the role of a connected matrix.
 
-## Pont-Castañeda-Willis scheme (PCW) {#sec-pcw-deriv}
+## Ponte Castañeda–Willis scheme (PCW) {#sec-pcw-deriv}
 
-The PCW scheme [@willis1977] introduces a **distribution** Hill tensor $\uuuu{P}_0^d$ (associated with a distribution ellipsoid that describes the spatial arrangement of inclusions) distinct from the **shape** Hill tensor $\uuuu{P}_0^r$. The effective stiffness is
+The PCW scheme [@ponte1995] introduces a **distribution** Hill tensor $\uuuu{P}_0^d$ (associated with a distribution ellipsoid that describes the spatial arrangement of inclusions) distinct from the **shape** Hill tensor $\uuuu{P}_0^r$. The effective stiffness is
 
 $$
-\uuuu{C}^{PCW} = \uuuu{C}_0 + \left[\left(\sum_{r=1}^{N} f_r \, \delta\uuuu{C}_r : \uuuu{A}_r^{dil}\right)^{-1} + \uuuu{P}_0^d\right]^{-1}
+\uuuu{C}^{PCW} = \uuuu{C}_0 + \left[\left(\sum_{r=1}^{N} f_r \, \delta\uuuu{C}_r : \uuuu{A}_r^{dil}\right)^{-1} - \uuuu{P}_0^d\right]^{-1}
 $${#eq-C-pcw}
 
 When $\uuuu{P}_0^d = \uuuu{P}_0^r$ for all phases (same distribution and shape), this reduces to the MT scheme. The PCW scheme provides more flexibility to model non-uniform spatial distributions.
 
 ## Maxwell scheme (MAX) {#sec-max-deriv}
 
-The Maxwell scheme considers that all inclusions are enclosed in a large ellipsoidal domain (the "Maxwell domain") embedded in the matrix. Equating the far-field perturbation of this domain (treated as a single equivalent inhomogeneity) with the sum of individual perturbations yields
+The Maxwell scheme [@sevostianov2013] considers that all inclusions are enclosed in a large ellipsoidal domain (the "Maxwell domain") embedded in the matrix. Equating the far-field perturbation of this domain (treated as a single equivalent inhomogeneity) with the sum of individual perturbations yields
 
 $$
-\uuuu{C}^{MAX} = \uuuu{C}_0 + \left[\left(\sum_{r=1}^{N} f_r \, \delta\uuuu{C}_r : \uuuu{A}_r^{dil}\right)^{-1} + \uuuu{P}_0^{MAX}\right]^{-1}
+\uuuu{C}^{MAX} = \uuuu{C}_0 + \left[\left(\sum_{r=1}^{N} f_r \, \delta\uuuu{C}_r : \uuuu{A}_r^{dil}\right)^{-1} - \uuuu{P}_0^{MAX}\right]^{-1}
 $${#eq-C-max}
 
 where $\uuuu{P}_0^{MAX}$ is the Hill tensor of the Maxwell domain. The result formally coincides with (@eq-C-pcw) where the distribution tensor is that of the Maxwell domain.
@@ -149,7 +149,7 @@ $$
 \uuuu{S}^{DILD} = \uuuu{S}_0 + \sum_{r \neq 0} f_r \, \delta\uuuu{S}_r : \uuuu{B}_r^{dil}
 $${#eq-S-dild}
 
-Like the DIL scheme, DILD is valid only at low concentrations. While DIL overestimates stiffness, DILD overestimates compliance. Together they bracket the true effective properties at low volume fractions.
+Like the DIL scheme, DILD is valid only at low concentrations, and the two agree to first order in the volume fractions. Beyond that order, DIL always gives the softer of the two estimates: $\uuuu{C}^{DIL} \leq \left(\uuuu{S}^{DILD}\right)^{-1}$ in the sense of quadratic forms, as long as $\uuuu{S}^{DILD}$ is positive definite. For spherical pores or rigid spheres in an isotropic matrix, the MT bulk modulus lies between the two.
 
 ## Asymmetric self-consistent scheme (ASC) {#sec-asc-deriv}
 
@@ -158,15 +158,15 @@ The ASC scheme was introduced by @saevik2014 as an **asymmetric** variant of the
 The fixed-point equation is
 
 $$
-\uuuu{C}^{ASC} = \uuuu{C}_0 + \sum_{r \neq 0} f_r \left(\uuuu{C}_r - \uuuu{C}^{ASC}\right) : \left(\uuuu{I} + \uuuu{P}\!\left(\uuuu{C}^{ASC}, \uu{A}_r\right) : \left(\uuuu{C}_r - \uuuu{C}^{ASC}\right)\right)^{-1}
+\uuuu{C}^{ASC} = \uuuu{C}_0 + \sum_{r \neq 0} f_r \left(\uuuu{C}_r - \uuuu{C}_0\right) : \left(\uuuu{I} + \uuuu{P}\!\left(\uuuu{C}^{ASC}, \uu{A}_r\right) : \left(\uuuu{C}_r - \uuuu{C}^{ASC}\right)\right)^{-1}
 $${#eq-C-asc}
 
-where $\uuuu{P}(\uuuu{C}^{ASC}, \uu{A}_r)$ is the Hill polarization tensor of inclusion $r$ computed in the effective medium $\uuuu{C}^{ASC}$. Since $\uuuu{C}^{ASC}$ appears on both sides, @eq-C-asc is solved iteratively, starting from the MT estimate as initial guess.
+where $\uuuu{P}(\uuuu{C}^{ASC}, \uu{A}_r)$ is the Hill polarization tensor of inclusion $r$ computed in the effective medium $\uuuu{C}^{ASC}$: the concentration tensor of each inclusion is that of the effective medium, while its stiffness contrast is measured against the matrix. With no matrix left and a single inclusion phase, @eq-C-asc returns $\uuuu{C}_1$, as it should. Since $\uuuu{C}^{ASC}$ appears on both sides, @eq-C-asc is solved iteratively, starting from the matrix stiffness (or from the property already stored on the RVE).
 
 Compared to SC, the ASC scheme:
 
 - retains the matrix-inclusion topology while still predicting percolation thresholds (see @sec-cracked-media),
-- accounts for the stiffness contrast relative to the effective medium rather than the matrix alone,
+- computes the concentration tensors of the inclusions in the effective medium rather than in the matrix, while measuring their stiffness contrast against the matrix,
 - is better suited than MT when inclusion concentrations are moderate and phase contrast is large.
 
 $\,$

@@ -209,7 +209,7 @@ $$
 \uuuu{C}^\textrm{DIL} = \uuuu{C}_0 + \sum_{r \neq 0} f_r \,\delta\uuuu{C}_r : \uuuu{A}_r^{dil}(\uuuu{C}_0)
 $${#eq-DIL}
 
-where the sum runs over non-matrix phases only. Since mutual interactions are neglected, the result can overestimate stiffness at moderate to high concentrations.
+where the sum runs over non-matrix phases only. Since mutual interactions are neglected, the estimate is linear in the volume fractions: for a single family of inclusions it lies below the MT estimate, and for soft inclusions it can become negative at moderate to high concentrations.
 
 ```{python}
 #| error: false
@@ -355,7 +355,7 @@ The asymmetric self-consistent scheme [@saevik2014] is a variant of the SC schem
 This leads to the fixed-point equation:
 
 $$
-\uuuu{C}^{ASC} = \uuuu{C}_0 + \sum_{r \neq 0} f_r \left(\uuuu{C}_r - \uuuu{C}^{ASC}\right) : \left(\uuuu{I} + \uuuu{P}(\uuuu{C}^{ASC}) : \left(\uuuu{C}_r - \uuuu{C}^{ASC}\right)\right)^{-1}
+\uuuu{C}^{ASC} = \uuuu{C}_0 + \sum_{r \neq 0} f_r \left(\uuuu{C}_r - \uuuu{C}_0\right) : \left(\uuuu{I} + \uuuu{P}(\uuuu{C}^{ASC}) : \left(\uuuu{C}_r - \uuuu{C}^{ASC}\right)\right)^{-1}
 $${#eq-C-asc}
 
 solved iteratively. The ASC scheme interpolates between MT (at low concentrations) and SC behavior, while preserving the matrix/inclusion topology at all concentrations. When inclusions are softer than the matrix, the iteration is performed on compliances instead.
@@ -373,7 +373,7 @@ print(f"Asymmetric SC: k={CASC.k:.3f}, mu={CASC.mu:.3f}")
 
 ## Maxwell scheme (`MAX`) {#sec-MAX}
 
-The Maxwell scheme [@withers1989] considers all inclusions enclosed in a single **outer ellipsoidal domain** $\Omega^{MAX}$ (the Maxwell domain) embedded in the matrix. It equates the far-field disturbance produced by this domain (treated as an equivalent single inhomogeneity) with the sum of individual disturbances of each inclusion:
+The Maxwell scheme [@sevostianov2013] considers all inclusions enclosed in a single **outer ellipsoidal domain** $\Omega^{MAX}$ (the Maxwell domain) embedded in the matrix. It equates the far-field disturbance produced by this domain (treated as an equivalent single inhomogeneity) with the sum of individual disturbances of each inclusion:
 
 $$
 \uuuu{C}^{MAX} = \uuuu{C}_0 + \left[\left(\sum_{r \neq 0} f_r \,\delta\uuuu{C}_r : \uuuu{A}_r^{dil}(\uuuu{C}_0)\right)^{-1} - \uuuu{P}(\uuuu{C}_0, \Omega^{MAX})\right]^{-1}
@@ -394,12 +394,12 @@ print(f"Maxwell: k={CMAX.k:.3f}, mu={CMAX.mu:.3f}")
 ```
 
 ::: {.callout-note}
-For **spherical inclusions in an isotropic matrix** with a spherical Maxwell domain, the Maxwell and MT schemes give identical results. Differences appear when the inclusion shapes or the Maxwell domain are non-spherical.
+For **spherical inclusions in an isotropic matrix** with a spherical Maxwell domain, the Maxwell and MT schemes give identical results. More generally they coincide whenever every inclusion has the shape of the Maxwell domain, and differences appear as soon as the inclusion shapes differ from it (spheroidal inclusions in a spherical domain, for instance).
 :::
 
 ## Ponte Castañeda-Willis scheme (`PCW`) {#sec-PCW}
 
-The Ponte Castañeda-Willis scheme [@willis1977] introduces a **distribution ellipsoid** $\Omega^d$ distinct from the inclusion shapes to model the **spatial arrangement** of inclusions. This distribution captures whether inclusions are clustered, layered, or randomly distributed.
+The Ponte Castañeda-Willis scheme [@ponte1995] introduces a **distribution ellipsoid** $\Omega^d$ distinct from the inclusion shapes to model the **spatial arrangement** of inclusions. This distribution captures whether inclusions are clustered, layered, or randomly distributed.
 
 $$
 \uuuu{C}^{PCW} = \uuuu{C}_0 + \left[\left(\sum_{r \neq 0} f_r \,\delta\uuuu{C}_r : \uuuu{A}_r^{dil}(\uuuu{C}_0)\right)^{-1} - \uuuu{P}(\uuuu{C}_0, \Omega^d)\right]^{-1}
@@ -502,7 +502,7 @@ plt.show()
 ::: {.callout-note}
 Key observations from the comparison:
 
-- **Voigt/Reuss** are the extremal bounds; all other schemes lie between them.
+- **Voigt/Reuss** are the extremal bounds; all other schemes lie between them, except the dilute ones at high porosity.
 - **DIL/DILD** deviate from the bounds for large porosity and can give non-physical results (negative moduli).
 - **MT** is the natural choice for a solid matrix with embedded pores; it predicts zero stiffness only at $\varphi=1$.
 - **SC** predicts a **percolation threshold** around $\varphi \approx 0.5$ (zero stiffness for spherical pores).
